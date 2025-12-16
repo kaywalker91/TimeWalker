@@ -1,0 +1,41 @@
+Analyzing time_runner...                                        
+
+   info • The imported package 'time_runner' isn't a dependency of the importing package • _archive/game_runner_backup/components/background_component.dart:4:8 • depend_on_referenced_packages
+  error • Target of URI doesn't exist: 'package:time_runner/game/time_runner_game.dart' • _archive/game_runner_backup/components/background_component.dart:4:8 • uri_does_not_exist
+  error • The getter 'currentSpeed' isn't defined for the type 'TimeRunnerGame' • _archive/game_runner_backup/components/obstacle_component.dart:125:24 • undefined_getter
+   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:8:3 • use_super_parameters
+   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:63:3 • use_super_parameters
+   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:146:3 • use_super_parameters
+   info • The imported package 'time_runner' isn't a dependency of the importing package • _archive/game_runner_backup/components/player_component.dart:4:8 • depend_on_referenced_packages
+  error • Target of URI doesn't exist: 'package:time_runner/core/constants/game_config.dart' • _archive/game_runner_backup/components/player_component.dart:4:8 • uri_does_not_exist
+   info • The imported package 'time_runner' isn't a dependency of the importing package • _archive/game_runner_backup/components/projectile_component.dart:4:8 • depend_on_referenced_packages
+  error • Target of URI doesn't exist: 'package:time_runner/game/time_runner_game.dart' • _archive/game_runner_backup/components/projectile_component.dart:4:8 • uri_does_not_exist
+  error • The getter 'currentSpeed' isn't defined for the type 'TimeRunnerGame' • _archive/game_runner_backup/managers/spawn_manager.dart:87:29 • undefined_getter
+  error • The getter 'screenWidth' isn't defined for the type 'TimeRunnerGame' • _archive/game_runner_backup/managers/spawn_manager.dart:188:20 • undefined_getter
+  error • The getter 'groundY' isn't defined for the type 'TimeRunnerGame' • _archive/game_runner_backup/managers/spawn_manager.dart:191:60 • undefined_getter
+   info • The imported package 'time_runner' isn't a dependency of the importing package • _archive/game_runner_backup/systems/input_system.dart:2:8 • depend_on_referenced_packages
+  error • Target of URI doesn't exist: 'package:time_runner/core/constants/game_config.dart' • _archive/game_runner_backup/systems/input_system.dart:2:8 • uri_does_not_exist
+warning • Unused import: 'package:time_walker/core/constants/exploration_config.dart' • lib/domain/entities/character.dart:2:8 • unused_import
+   info • Unnecessary braces in a string interpolation • lib/domain/entities/user_progress.dart:179:15 • unnecessary_brace_in_string_interps
+   info • Unnecessary braces in a string interpolation • lib/domain/entities/user_progress.dart:179:26 • unnecessary_brace_in_string_interps
+   info • Unnecessary braces in a string interpolation • lib/domain/entities/user_progress.dart:181:13 • unnecessary_brace_in_string_interps
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/game_over/game_over_screen.dart:152:26 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/game_over/game_over_screen.dart:153:26 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/game_over/game_over_screen.dart:160:31 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/game_over/game_over_screen.dart:229:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/main_menu/main_menu_screen.dart:72:48 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/main_menu/main_menu_screen.dart:107:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/main_menu/main_menu_screen.dart:110:31 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/main_menu/main_menu_screen.dart:222:30 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/main_menu/main_menu_screen.dart:224:49 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/main_menu/main_menu_screen.dart:233:34 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:211:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:223:54 • deprecated_member_use
+   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/presentation/screens/settings/settings_screen.dart:228:9 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:245:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:290:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:328:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:351:29 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/settings/settings_screen.dart:367:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/screens/splash/splash_screen.dart:101:60 • deprecated_member_use
+

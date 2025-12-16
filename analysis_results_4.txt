@@ -1,0 +1,6 @@
+Analyzing time_runner...                                        
+
+   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:8:3 • use_super_parameters
+   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:63:3 • use_super_parameters
+   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:146:3 • use_super_parameters
+
