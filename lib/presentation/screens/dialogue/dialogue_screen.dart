@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/character.dart';
-import 'package:time_walker/domain/entities/dialogue.dart';
-import 'package:time_walker/domain/services/progression_service.dart'; // Added
+import 'package:time_walker/domain/services/progression_service.dart';
 import 'package:time_walker/presentation/screens/dialogue/dialogue_view_model.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
@@ -72,10 +72,18 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                 final speakerId = state.currentNode?.speakerId;
                 if (speakerId == null) return const SizedBox.shrink();
 
-                final character = characters.firstWhere(
-                  (c) => c.id == speakerId,
-                  orElse: () => CharacterData.sejong, // Fallback
-                );
+                Character? character;
+                try {
+                   character = characters.firstWhere((c) => c.id == speakerId);
+                } catch (_) {
+                   // Fallback to first available character or ignore if list is empty
+                   if (characters.isNotEmpty) {
+                     character = characters.first;
+                   }
+                }
+                
+                if (character == null) return const SizedBox.shrink();
+
                 return _CharacterPortrait(
                   character: character,
                   emotion: state.currentNode!.emotion,
@@ -286,11 +294,12 @@ class _CharacterPortrait extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = context.responsive;
+    
     // Determine asset based on emotion
     String assetPath = character.portraitAsset;
     
     // Try to find matching emotion asset
-    // Expectation: emotionAssets contains paths like '.../name_happy.png'
     if (character.emotionAssets.isNotEmpty) {
       try {
         final match = character.emotionAssets.firstWhere(
@@ -301,10 +310,17 @@ class _CharacterPortrait extends StatelessWidget {
       }
     }
 
+    // Responsive portrait height
+    final portraitHeight = responsive.isSmallPhone 
+        ? 400.0 
+        : responsive.deviceType == DeviceType.tablet 
+            ? 700.0 
+            : 600.0;
+
     return Center(
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        height: 600, // Increased height for better visibility
+        height: portraitHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -313,7 +329,7 @@ class _CharacterPortrait extends StatelessWidget {
                 assetPath,
                 fit: BoxFit.contain,
                 errorBuilder: (context, error, stackTrace) {
-                   return Icon(Icons.person, size: 200, color: Colors.grey[400]);
+                   return Icon(Icons.person, size: responsive.iconSize(200), color: Colors.grey[400]);
                 },
               ),
             ),
@@ -368,12 +384,19 @@ class _DialogueBoxState extends State<_DialogueBox> {
   Widget build(BuildContext context) {
     final currentNode = widget.state.currentNode!;
     final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final responsive = context.responsive;
+    
+    // Responsive sizing
+    final boxHeight = responsive.isSmallPhone ? 200.0 : 250.0;
+    final speakerFontSize = responsive.fontSize(18);
+    final textFontSize = responsive.fontSize(16);
+    final horizontalPadding = responsive.padding(24);
 
     return GestureDetector(
       onTap: widget.onNext,
       child: Container(
-        height: 250 + bottomPadding, // Add safe area height
-        padding: EdgeInsets.fromLTRB(24, 32, 24, 24 + bottomPadding), // Add safe area padding
+        height: boxHeight + bottomPadding,
+        padding: EdgeInsets.fromLTRB(horizontalPadding, 24, horizontalPadding, 16 + bottomPadding),
         decoration: const BoxDecoration(
           color: Colors.black87,
           borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
@@ -385,13 +408,13 @@ class _DialogueBoxState extends State<_DialogueBox> {
             // Speaker Name
             Text(
               widget.speakerName,
-              style: const TextStyle(
-                color: Color(0xFFFFD700), // Gold
-                fontSize: 18,
+              style: TextStyle(
+                color: const Color(0xFFFFD700),
+                fontSize: speakerFontSize,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: responsive.spacing(16)),
 
             // Text Content (Scrollable)
             Expanded(
@@ -399,9 +422,9 @@ class _DialogueBoxState extends State<_DialogueBox> {
                 controller: _scrollController,
                 child: Text(
                   widget.state.displayedText,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: textFontSize,
                     height: 1.6,
                     fontFamily: 'NotoSansKR',
                   ),
@@ -410,8 +433,6 @@ class _DialogueBoxState extends State<_DialogueBox> {
             ),
 
             // Choices or Next Indicator
-            // Changed: Choices are now in overlay. Only show cursor if NOT typing.
-            // If there are choices, we hide the cursor (user must choose).
             if (!widget.state.isTyping && !currentNode.hasChoices)
               Align(alignment: Alignment.bottomRight, child: _BlinkingCursor()),
           ],

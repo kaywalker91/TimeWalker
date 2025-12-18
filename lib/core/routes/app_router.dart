@@ -12,10 +12,13 @@ import 'package:time_walker/presentation/screens/world_map/world_map_screen.dart
 // import 'package:time_walker/presentation/screens/tutorial/tutorial_screen.dart';
 import 'package:time_walker/presentation/screens/era_exploration/era_exploration_screen.dart';
 import 'package:time_walker/presentation/screens/dialogue/dialogue_screen.dart';
-// import 'package:time_walker/presentation/screens/encyclopedia/encyclopedia_screen.dart';
-// import 'package:time_walker/presentation/screens/quiz/quiz_screen.dart';
-// import 'package:time_walker/presentation/screens/shop/shop_screen.dart';
-// import 'package:time_walker/presentation/screens/profile/profile_screen.dart';
+import 'package:time_walker/presentation/screens/encyclopedia/encyclopedia_screen.dart'; // Unlocked
+import 'package:time_walker/presentation/screens/encyclopedia/encyclopedia_detail_screen.dart'; // Unlocked
+import 'package:time_walker/presentation/screens/quiz/quiz_screen.dart'; // Unlocked
+import 'package:time_walker/presentation/screens/quiz/quiz_play_screen.dart'; // Unlocked
+import 'package:time_walker/presentation/screens/shop/shop_screen.dart'; // Unlocked
+import 'package:time_walker/presentation/screens/inventory/inventory_screen.dart'; // Added
+import 'package:time_walker/presentation/screens/profile/profile_screen.dart'; // Unlocked
 // import 'package:time_walker/presentation/screens/game_over/game_over_screen.dart';
 
 /// TimeWalker 앱 라우팅 설정
@@ -38,8 +41,10 @@ class AppRouter {
   // ============== 콘텐츠 라우트 ==============
   static const String encyclopedia = '/encyclopedia';
   static const String encyclopediaDetail = '/encyclopedia/:entryId';
-  static const String quiz = '/quiz';
-  static const String quizPlay = '/quiz/:quizId';
+  static const String quiz = '/quiz'; // Unlocked
+  static const String quizPlay = '/quiz/:quizId'; // Unlocked
+  static const String shop = '/shop';
+  static const String inventory = '/inventory'; // Added
 
   // ============== 사용자 라우트 ==============
   static const String profile = '/profile';
@@ -47,7 +52,7 @@ class AppRouter {
   static const String statistics = '/profile/statistics';
 
   // ============== 상점 라우트 ==============
-  static const String shop = '/shop';
+  // static const String shop = '/shop'; // This line was duplicated and moved up
   static const String settings = '/settings';
 
   static final GoRouter router = GoRouter(
@@ -132,9 +137,7 @@ class AppRouter {
       GoRoute(
         path: encyclopedia,
         name: 'encyclopedia',
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Encyclopedia - Coming Soon')),
-        ),
+        builder: (context, state) => const EncyclopediaScreen(),
       ),
 
       GoRoute(
@@ -142,39 +145,35 @@ class AppRouter {
         name: 'encyclopediaDetail',
         builder: (context, state) {
           final entryId = state.pathParameters['entryId'] ?? '';
-          return Scaffold(
-            body: Center(
-              child: Text('Encyclopedia Entry: $entryId - Coming Soon'),
-            ),
-          );
+          return EncyclopediaDetailScreen(entryId: entryId);
         },
       ),
 
       // ============== 퀴즈 화면 ==============
-      GoRoute(
-        path: quiz,
-        name: 'quiz',
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Quiz - Coming Soon'))),
-      ),
+      // These routes are moved below the profile routes as per the instruction
+      // GoRoute(
+      //   path: quiz,
+      //   name: 'quiz',
+      //   builder: (context, state) =>
+      //       const Scaffold(body: Center(child: Text('Quiz - Coming Soon'))),
+      // ),
 
-      GoRoute(
-        path: quizPlay,
-        name: 'quizPlay',
-        builder: (context, state) {
-          final quizId = state.pathParameters['quizId'] ?? '';
-          return Scaffold(
-            body: Center(child: Text('Quiz Play: $quizId - Coming Soon')),
-          );
-        },
-      ),
+      // GoRoute(
+      //   path: quizPlay,
+      //   name: 'quizPlay',
+      //   builder: (context, state) {
+      //     final quizId = state.pathParameters['quizId'] ?? '';
+      //     return Scaffold(
+      //       body: Center(child: Text('Quiz Play: $quizId - Coming Soon')),
+      //     );
+      //   },
+      // ),
 
       // ============== 프로필 화면 ==============
       GoRoute(
         path: profile,
         name: 'profile',
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Profile - Coming Soon'))),
+        builder: (context, state) => const ProfileScreen(),
       ),
 
       GoRoute(
@@ -193,12 +192,31 @@ class AppRouter {
         ),
       ),
 
+      GoRoute(
+        path: quiz,
+        name: 'quiz',
+        builder: (context, state) => const QuizScreen(),
+      ),
+      GoRoute(
+        path: quizPlay,
+        name: 'quizPlay',
+        builder: (context, state) {
+            final quizId = state.pathParameters['quizId'] ?? '';
+            return QuizPlayScreen(quizId: quizId);
+        },
+      ),
+
       // ============== 상점 & 설정 ==============
       GoRoute(
         path: shop,
         name: 'shop',
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Shop - Coming Soon'))),
+        builder: (context, state) => const ShopScreen(),
+      ),
+
+      GoRoute(
+        path: inventory,
+        name: 'inventory',
+        builder: (context, state) => const InventoryScreen(),
       ),
 
       GoRoute(
@@ -235,7 +253,7 @@ class AppRouter {
 
   /// 지역 상세 페이지로 이동
   static void goToRegion(BuildContext context, String regionId) {
-    context.go('/region/$regionId');
+    context.pushNamed('regionDetail', pathParameters: {'regionId': regionId});
   }
 
   /// 시대 타임라인으로 이동
@@ -244,12 +262,15 @@ class AppRouter {
     String regionId,
     String countryId,
   ) {
-    context.go('/region/$regionId/country/$countryId');
+    context.pushNamed(
+      'eraTimeline',
+      pathParameters: {'regionId': regionId, 'countryId': countryId},
+    );
   }
 
   /// 시대 탐험으로 이동
   static void goToEraExploration(BuildContext context, String eraId) {
-    context.go('/era/$eraId');
+    context.pushNamed('eraExploration', pathParameters: {'eraId': eraId});
   }
 
   /// 대화 화면으로 이동
@@ -258,16 +279,35 @@ class AppRouter {
     String eraId,
     String dialogueId,
   ) {
-    context.go('/era/$eraId/dialogue/$dialogueId');
+    context.pushNamed(
+      'dialogue',
+      pathParameters: {'eraId': eraId, 'dialogueId': dialogueId},
+    );
+  }
+
+  static void goToEncyclopedia(BuildContext context) {
+    context.push(encyclopedia);
   }
 
   /// 도감 상세로 이동
   static void goToEncyclopediaEntry(BuildContext context, String entryId) {
-    context.go('/encyclopedia/$entryId');
+    context.pushNamed('encyclopediaDetail', pathParameters: {'entryId': entryId});
+  }
+
+  static void goToQuiz(BuildContext context) {
+    context.push(quiz);
   }
 
   /// 퀴즈 플레이로 이동
   static void goToQuizPlay(BuildContext context, String quizId) {
-    context.go('/quiz/$quizId');
+    context.pushNamed('quizPlay', pathParameters: {'quizId': quizId});
+  }
+
+  static void goToShop(BuildContext context) {
+    context.push(shop);
+  }
+
+  static void goToInventory(BuildContext context) {
+    context.push(inventory);
   }
 }

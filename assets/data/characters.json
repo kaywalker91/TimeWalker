@@ -1,0 +1,807 @@
+[
+  {
+    "id": "sejong",
+    "eraId": "korea_joseon",
+    "name": "King Sejong the Great",
+    "nameKorean": "세종대왕",
+    "title": "조선 제4대 국왕",
+    "birth": "1397",
+    "death": "1450",
+    "biography": "한글을 창제하고 과학과 문화의 황금기를 이끈 성군",
+    "fullBiography": "조선의 제4대 국왕으로, 훈민정음(한글)을 창제하여 백성들이 쉽게 글을 읽고 쓸 수 있게 하였다. 또한 측우기, 해시계 등 과학 기구를 발명하게 하고, 집현전을 설치하여 학문을 장려하는 등 조선 역사상 가장 위대한 업적을 남긴 군주로 평가받는다.",
+    "portraitAsset": "assets/images/characters/sejong.png",
+    "emotionAssets": [
+      "assets/images/characters/sejong_neutral.png",
+      "assets/images/characters/sejong_happy.png",
+      "assets/images/characters/sejong_thoughtful.png",
+      "assets/images/characters/sejong_determined.png"
+    ],
+    "dialogueIds": [
+      "sejong_hangul_01",
+      "sejong_science_01",
+      "sejong_policy_01"
+    ],
+    "relatedCharacterIds": [
+      "jang_yeongshil",
+      "choe_manri"
+    ],
+    "relatedLocationIds": [
+      "gyeongbokgung",
+      "jiphyeonjeon"
+    ],
+    "achievements": [
+      "훈민정음(한글) 창제",
+      "집현전 설치",
+      "측우기, 앙부일구 발명",
+      "4군 6진 개척"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "yi_sun_sin",
+    "eraId": "korea_joseon",
+    "name": "Admiral Yi Sun-sin",
+    "nameKorean": "이순신",
+    "title": "삼도수군통제사",
+    "birth": "1545",
+    "death": "1598",
+    "biography": "임진왜란에서 조선을 구한 불멸의 해군 명장",
+    "fullBiography": "임진왜란 당시 거북선을 이용해 일본 수군을 상대로 23전 23승의 전설적인 전적을 기록한 조선의 해군 명장. 명량해전, 한산도대첩 등 수많은 해전에서 승리하며 조선의 바다를 지켰다. 노량해전에서 적의 총탄에 맞아 전사하였으나, 그의 유언 \"나의 죽음을 알리지 마라\"는 오늘날까지 전해지고 있다.",
+    "portraitAsset": "assets/images/characters/yi_sun_sin.png",
+    "emotionAssets": [
+      "assets/images/characters/yi_sun_sin_neutral.png",
+      "assets/images/characters/yi_sun_sin_serious.png",
+      "assets/images/characters/yi_sun_sin_determined.png"
+    ],
+    "dialogueIds": [
+      "yi_geobukseon_01",
+      "yi_battle_01",
+      "yi_strategy_01"
+    ],
+    "relatedCharacterIds": [
+      "won_gyun"
+    ],
+    "relatedLocationIds": [
+      "geobukseon",
+      "hansando",
+      "myeongnyang"
+    ],
+    "achievements": [
+      "거북선 설계 및 건조",
+      "한산도대첩 승리",
+      "명량해전 승리",
+      "23전 23승 불패 기록"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "jeong_yakyong",
+    "eraId": "korea_joseon",
+    "name": "Jeong Yak-yong (Dasan)",
+    "nameKorean": "정약용",
+    "title": "다산, 실학자",
+    "birth": "1762",
+    "death": "1836",
+    "biography": "조선 후기 실학을 집대성한 위대한 학자",
+    "fullBiography": "조선 후기의 대표적인 실학자로, 500권이 넘는 저술을 남겼다. 수원화성 설계에 참여하여 거중기를 고안하는 등 실용적인 학문을 추구했다. 18년간의 유배 생활 중에도 <목민심서>, <경세유표> 등 후세에 귀감이 되는 저서를 집필하였다.",
+    "portraitAsset": "assets/images/characters/jeong_yakyong.png",
+    "emotionAssets": [
+      "assets/images/characters/jeong_yakyong_neutral.png",
+      "assets/images/characters/jeong_yakyong_thoughtful.png"
+    ],
+    "dialogueIds": [
+      "jeong_silhak_01",
+      "jeong_exile_01"
+    ],
+    "relatedCharacterIds": [
+      "jeongjo"
+    ],
+    "relatedLocationIds": [
+      "suwon_hwaseong",
+      "gangjin"
+    ],
+    "achievements": [
+      "목민심서 저술",
+      "경세유표 저술",
+      "거중기 설계",
+      "실학 집대성"
+    ],
+    "status": "locked"
+  },
+  {
+    "id": "gwanggaeto",
+    "eraId": "korea_three_kingdoms",
+    "name": "King Gwanggaeto the Great",
+    "nameKorean": "광개토대왕",
+    "title": "고구려 제19대 국왕",
+    "birth": "374",
+    "death": "412",
+    "biography": "고구려 최대 영토를 개척한 정복 군주",
+    "fullBiography": "고구려의 제19대 왕으로, 18세에 즉위하여 39세에 승하할 때까지 64개의 성과 1,400개의 촌락을 정복하여 고구려 역사상 최대의 영토를 확보하였다. 광개토대왕릉비에 그의 업적이 새겨져 있다.",
+    "portraitAsset": "assets/images/characters/gwanggaeto.png",
+    "emotionAssets": [
+      "assets/images/characters/gwanggaeto_neutral.png",
+      "assets/images/characters/gwanggaeto_determined.png"
+    ],
+    "dialogueIds": [
+      "gwanggaeto_conquest_01",
+      "gwanggaeto_legacy_01"
+    ],
+    "relatedCharacterIds": [
+      "jangsu"
+    ],
+    "relatedLocationIds": [
+      "goguryeo_palace"
+    ],
+    "achievements": [
+      "고구려 최대 영토 확장",
+      "백제 정벌",
+      "신라 구원",
+      "광개토대왕릉비"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "eulji_mundeok",
+    "eraId": "korea_three_kingdoms",
+    "name": "General Eulji Mundeok",
+    "nameKorean": "을지문덕",
+    "title": "살수대첩의 영웅",
+    "birth": "?",
+    "death": "?",
+    "biography": "살수에서 수나라 30만 대군을 물리친 고구려의 명장",
+    "fullBiography": "고구려의 장군으로, 612년 수 양제가 이끈 113만 대군의 침략에 맞서 싸웠다. 청야전술로 적을 지치게 한 뒤, 살수(청천강)에서 수나라 별동대 30만을 섬멸하는 대승을 거두었다. 적장 우중문에게 조롱하는 시를 보내 심리전을 펼치기도 했다. 이 살수대첩으로 수나라는 멸망의 길을 걷게 되었다.",
+    "portraitAsset": "assets/images/characters/eulji_mundeok.png",
+    "emotionAssets": [
+      "assets/images/characters/eulji_mundeok.png"
+    ],
+    "dialogueIds": [
+      "eulji_salsu_01"
+    ],
+    "relatedCharacterIds": [
+      "gwanggaeto",
+      "jangsu"
+    ],
+    "relatedLocationIds": [
+      "salsu"
+    ],
+    "achievements": [
+      "살수대첩 승리",
+      "수나라 30만 섬멸",
+      "청야전술 구사",
+      "여수장우중문시 작시"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "jangsu",
+    "eraId": "korea_three_kingdoms",
+    "name": "King Jangsu",
+    "nameKorean": "장수왕",
+    "title": "고구려 제20대 국왕",
+    "birth": "394",
+    "death": "491",
+    "biography": "광개토대왕의 아들로, 97세까지 79년간 재위한 최장수 왕",
+    "fullBiography": "고구려 제20대 왕으로, 아버지 광개토대왕의 업적을 기리기 위해 광개토대왕릉비를 세웠다. 평양으로 천도하여 남진정책을 펼쳤으며, 백제의 한성을 함락시키고 개로왕을 전사시켰다. 97세까지 79년간 재위하여 '장수왕'이라는 시호를 받았다.",
+    "portraitAsset": "assets/images/characters/jangsu.png",
+    "emotionAssets": [
+      "assets/images/characters/jangsu.png"
+    ],
+    "dialogueIds": [
+      "jangsu_stele_01"
+    ],
+    "relatedCharacterIds": [
+      "gwanggaeto"
+    ],
+    "relatedLocationIds": [
+      "goguryeo_palace",
+      "pyongyang_fortress"
+    ],
+    "achievements": [
+      "광개토대왕릉비 건립",
+      "평양 천도",
+      "백제 한성 함락",
+      "79년 재위"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "geunchogo",
+    "eraId": "korea_three_kingdoms",
+    "name": "King Geunchogo",
+    "nameKorean": "근초고왕",
+    "title": "백제 제13대 국왕",
+    "birth": "?",
+    "death": "375",
+    "biography": "백제의 전성기를 이끌며 해상 강국을 건설한 정복 군주",
+    "fullBiography": "백제의 제13대 국왕으로, 마한을 통합하고 고구려 평양성을 공격하여 고국원왕을 전사시키는 등 백제의 영토를 크게 확장했다. 또한 중국의 동진, 왜와 활발히 교류하며 백제를 강력한 해상 국가로 발전시켰다. 칠지도가 그 증거로 남아있다.",
+    "portraitAsset": "assets/images/characters/geunchogo.png",
+    "emotionAssets": [
+      "assets/images/characters/geunchogo_neutral.png"
+    ],
+    "dialogueIds": [
+      "geunchogo_expansion_01"
+    ],
+    "relatedCharacterIds": [],
+    "relatedLocationIds": [
+      "wiryeseong"
+    ],
+    "achievements": [
+      "마한 병합",
+      "평양성 전투 승리",
+      "칠지도 하사",
+      "해상 교역 확대"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "gyebaek",
+    "eraId": "korea_three_kingdoms",
+    "name": "General Gyebaek",
+    "nameKorean": "계백",
+    "title": "백제 최후의 충신",
+    "birth": "?",
+    "death": "660",
+    "biography": "황산벌에서 5천 결사대로 5만 신라군에 맞서 싸운 비운의 명장",
+    "fullBiography": "백제 말기의 장군으로, 나당연합군의 침공에 맞서 5천 결사대를 이끌고 황산벌에서 김유신의 5만 대군과 맞섰다. 네 번이나 신라군을 물리쳤으나, 결국 중과부적으로 패배하여 전사하였다. 출정 전 처자식을 직접 죽여 배수진을 친 일화로 유명하다.",
+    "portraitAsset": "assets/images/characters/gyebaek.png",
+    "emotionAssets": [
+      "assets/images/characters/gyebaek.png"
+    ],
+    "dialogueIds": [
+      "gyebaek_last_stand_01"
+    ],
+    "relatedCharacterIds": [
+      "geunchogo",
+      "uija",
+      "kim_yushin"
+    ],
+    "relatedLocationIds": [
+      "hwangsanbeol"
+    ],
+    "achievements": [
+      "황산벌 4승",
+      "결사대 5천 지휘",
+      "백제 최후 항전"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "uija",
+    "eraId": "korea_three_kingdoms",
+    "name": "King Uija",
+    "nameKorean": "의자왕",
+    "title": "백제 제31대 국왕",
+    "birth": "?",
+    "death": "660",
+    "biography": "백제의 마지막 왕으로, 삼천궁녀와 낙화암의 비극으로 기억되는 비운의 군주",
+    "fullBiography": "백제의 마지막 왕으로, 초기에는 해동증자(海東曾子)라 불릴 정도로 효성이 깊었다. 그러나 말년에는 사치와 향락에 빠져 국정을 소홀히 했다는 기록이 있다. 660년 나당연합군의 침공으로 사비성이 함락되었고, 당나라로 끌려가 그곳에서 생을 마감하였다.",
+    "portraitAsset": "assets/images/characters/uija.png",
+    "emotionAssets": [
+      "assets/images/characters/uija.png"
+    ],
+    "dialogueIds": [
+      "uija_last_night_01"
+    ],
+    "relatedCharacterIds": [
+      "gyebaek",
+      "geunchogo"
+    ],
+    "relatedLocationIds": [
+      "sabi",
+      "nakhwaam"
+    ],
+    "achievements": [
+      "해동증자 칭호",
+      "신라 40여 성 공략",
+      "대야성 함락"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "kim_yushin",
+    "eraId": "korea_three_kingdoms",
+    "name": "General Kim Yu-shin",
+    "nameKorean": "김유신",
+    "title": "삼국통일의 명장",
+    "birth": "595",
+    "death": "673",
+    "biography": "화랑도 출신으로 삼국통일을 이끈 신라의 전설적인 장군",
+    "fullBiography": "가야 왕족의 후손으로 태어나 화랑도에서 수련하였다. 백제와 고구려를 차례로 멸망시키고 당나라 세력을 한반도에서 몰아내어 삼국통일의 위업을 달성하였다. 태대각간(太大角干)의 지위에 올라 왕보다 높은 예우를 받았으며, 죽어서도 흥무대왕으로 추존되었다.",
+    "portraitAsset": "assets/images/characters/kim_yushin.png",
+    "emotionAssets": [
+      "assets/images/characters/kim_yushin.png"
+    ],
+    "dialogueIds": [
+      "kim_yushin_unification_01"
+    ],
+    "relatedCharacterIds": [
+      "seondeok",
+      "gwanggaeto"
+    ],
+    "relatedLocationIds": [
+      "gyeongju_palace"
+    ],
+    "achievements": [
+      "삼국통일 달성",
+      "황산벌 전투 승리",
+      "백제 멸망",
+      "고구려 멸망",
+      "당군 축출"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "seondeok",
+    "eraId": "korea_three_kingdoms",
+    "name": "Queen Seondeok",
+    "nameKorean": "선덕여왕",
+    "title": "신라 제27대 국왕",
+    "birth": "?",
+    "death": "647",
+    "biography": "신라 최초의 여왕으로 첨성대를 건립하고 삼국통일의 기반을 닦았다",
+    "fullBiography": "신라 제27대 왕으로, 한국 역사상 최초의 여성 군주이다. 뛰어난 지혜로 당나라와의 외교를 이끌었으며, 첨성대를 건립하여 천문학을 발전시켰다. 황룡사 9층 목탑을 세워 삼국통일의 염원을 담았고, 김춘추와 김유신을 등용하여 통일의 기반을 닦았다.",
+    "portraitAsset": "assets/images/characters/seondeok.png",
+    "emotionAssets": [
+      "assets/images/characters/seondeok.png"
+    ],
+    "dialogueIds": [
+      "seondeok_cheomseongdae_01"
+    ],
+    "relatedCharacterIds": [
+      "kim_yushin"
+    ],
+    "relatedLocationIds": [
+      "gyeongju_palace",
+      "cheomseongdae"
+    ],
+    "achievements": [
+      "첨성대 건립",
+      "황룡사 9층 목탑 건립",
+      "김춘추·김유신 등용",
+      "당나라 외교 성공"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "davinci",
+    "eraId": "europe_renaissance",
+    "name": "Leonardo da Vinci",
+    "nameKorean": "레오나르도 다빈치",
+    "title": "르네상스 맨",
+    "birth": "1452",
+    "death": "1519",
+    "biography": "회화, 건축, 과학 등 모든 분야에 능통했던 천재",
+    "fullBiography": "모나리자, 최후의 만찬 등의 걸작을 남긴 화가이자, 비행기, 전차 등을 설계한 발명가. 인체 해부학에도 정통했으며, 르네상스적 인간상의 전형으로 꼽힌다.",
+    "portraitAsset": "assets/images/characters/davinci.png",
+    "emotionAssets": [
+      "assets/images/characters/davinci_neutral.png",
+      "assets/images/characters/davinci_thoughtful.png"
+    ],
+    "dialogueIds": [
+      "davinci_intro",
+      "davinci_art",
+      "davinci_science"
+    ],
+    "relatedCharacterIds": [],
+    "relatedLocationIds": [
+      "florence"
+    ],
+    "achievements": [
+      "모나리자",
+      "최후의 만찬",
+      "비행 기계 설계",
+      "인체 비례도"
+    ],
+    "status": "locked"
+  },
+  {
+    "id": "galileo",
+    "eraId": "europe_renaissance",
+    "name": "Galileo Galilei",
+    "nameKorean": "갈릴레오 갈릴레이",
+    "title": "근대 과학의 아버지",
+    "birth": "1564",
+    "death": "1642",
+    "biography": "망원경으로 천체를 관측하여 지동설을 지지한 천문학자",
+    "fullBiography": "망원경을 개량하여 목성의 위성, 금성의 위상 변화 등을 관측하고 코페르니쿠스의 지동설을 입증했다. \"그래도 지구는 돈다\"라는 명언으로 유명하다.",
+    "portraitAsset": "assets/images/characters/galileo.png",
+    "emotionAssets": [
+      "assets/images/characters/galileo_neutral.png",
+      "assets/images/characters/galileo_determined.png"
+    ],
+    "dialogueIds": [
+      "galileo_intro",
+      "galileo_telescope"
+    ],
+    "relatedCharacterIds": [],
+    "relatedLocationIds": [
+      "venice"
+    ],
+    "achievements": [
+      "망원경 개량",
+      "목성 위성 발견",
+      "지동설 지지",
+      "관성의 법칙"
+    ],
+    "status": "locked"
+  },
+  {
+    "id": "char_Q61073",
+    "eraId": "europe_renaissance",
+    "name": "제바스티안 뮌스터",
+    "nameKorean": "제바스티안 뮌스터",
+    "description": "German cartographer, cosmographer, and scholar (1488–1552)",
+    "thumbnailAsset": "assets/images/characters/sebastian_munster.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Christoph%20Amberger%20-%20Der%20Kosmograph%20Sebastian%20M%C3%BCnster%20%281552%29.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q3595755",
+    "eraId": "europe_renaissance",
+    "name": "제하데바",
+    "nameKorean": "제하데바",
+    "description": "Indian scientist",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Pages%20from%20Yuktibhasa.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q77962",
+    "eraId": "europe_renaissance",
+    "name": "야코프 밀리히",
+    "nameKorean": "야코프 밀리히",
+    "description": "독일 천문학자",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Jacob%20Milich.%20Line%20engraving%20by%20T.%20de%20Bry%2C%201650.%20Wellcome%20V0004012.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q1698608",
+    "eraId": "europe_renaissance",
+    "name": "Johannes Werner von Zimmern der Jüngere",
+    "nameKorean": "Johannes Werner von Zimmern der Jüngere",
+    "description": "(1480-1549)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q115752",
+    "eraId": "europe_renaissance",
+    "name": "한스 아스퍼",
+    "nameKorean": "한스 아스퍼",
+    "description": "Swiss artist (1499-1571)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Asper.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q1698608",
+    "eraId": "europe_renaissance",
+    "name": "Johannes Werner von Zimmern der Jüngere",
+    "nameKorean": "Johannes Werner von Zimmern der Jüngere",
+    "description": "(1480-1549)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q128027",
+    "eraId": "europe_renaissance",
+    "name": "조르조 바사리",
+    "nameKorean": "조르조 바사리",
+    "description": "이탈리아 르네상스 시대의 화가",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zucchi%2C%20Jacopo%20-%20Vasari%2C%20Giorgio%20-%20Uffizi%20ICCD.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q92506",
+    "eraId": "europe_renaissance",
+    "name": "Johann Carion",
+    "nameKorean": "Johann Carion",
+    "description": "German astrologer and historical writer",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Johann-Carion.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q9319",
+    "eraId": "europe_renaissance",
+    "name": "틴토레토",
+    "nameKorean": "틴토레토",
+    "description": "Renaissance painter (1518/1519–1594)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tintoretto%20-%20Self-Portrait%20as%20a%20Young%20Man%2C%20ca.%201548%2C%20CAI.103%20%28cropped%29.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q3290048",
+    "eraId": "europe_renaissance",
+    "name": "Marco Aurel",
+    "nameKorean": "Marco Aurel",
+    "description": "Spanish mathematician",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Arithmetica%20Algebratica%20%281552%29%20de%20Marco%20Aurel.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q48319",
+    "eraId": "europe_renaissance",
+    "name": "한스 홀바인",
+    "nameKorean": "한스 홀바인",
+    "description": "독일의 화가 (1497-1543)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Holbein%20the%20Younger%2C%20self-portrait.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q7799",
+    "eraId": "europe_renaissance",
+    "name": "Bramantino",
+    "nameKorean": "Bramantino",
+    "description": "Italian painter and architect (1465-1530)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Bram0.5.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q7803",
+    "eraId": "europe_renaissance",
+    "name": "브론치노",
+    "nameKorean": "브론치노",
+    "description": "Italian Mannerist painter (1503-1572)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Allori%2C%20santissima%20trinit%C3%A0%2C%201567-1571%20circa%2C%20ritratto%20dei%20maestri%2C%20bronzino%20%28cropped%29.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q176694",
+    "eraId": "europe_renaissance",
+    "name": "Antonis Mor",
+    "nameKorean": "Antonis Mor",
+    "description": "painter from the Northern Netherlands (1519–1575)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q176694",
+    "eraId": "europe_renaissance",
+    "name": "Antonis Mor",
+    "nameKorean": "Antonis Mor",
+    "description": "painter from the Northern Netherlands (1519–1575)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q18945277",
+    "eraId": "europe_renaissance",
+    "name": "Francesco Feliciano",
+    "nameKorean": "Francesco Feliciano",
+    "description": "Italian mathematician",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Feliciano%20-%20Libro%20di%20arithmetica%20%26%20geometria%20speculativa%20%26%20praticale%2C%20s.%20d.%20-%20130212.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q948156",
+    "eraId": "europe_renaissance",
+    "name": "Guillaume Postel",
+    "nameKorean": "Guillaume Postel",
+    "description": "French linguist, astronomer, diplomat and professor (1510–1581)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q948156",
+    "eraId": "europe_renaissance",
+    "name": "Guillaume Postel",
+    "nameKorean": "Guillaume Postel",
+    "description": "French linguist, astronomer, diplomat and professor (1510–1581)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q20056524",
+    "eraId": "europe_renaissance",
+    "name": "Filippo Calandri",
+    "nameKorean": "Filippo Calandri",
+    "description": "Florentine mathematician",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Calandri%20-%20Aritmetica%2C%201491-1492%20-%203867066.tif",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q8459",
+    "eraId": "europe_renaissance",
+    "name": "조르조네",
+    "nameKorean": "조르조네",
+    "description": "Venetian Renaissance painter (1478–1510)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgione%20059.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q1029331",
+    "eraId": "europe_renaissance",
+    "name": "Camillo Agrippa",
+    "nameKorean": "Camillo Agrippa",
+    "description": "Italian engineer",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20aggripa%20port.png",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  }
+]

@@ -20,6 +20,9 @@ class UserProgress extends Equatable {
   final String? lastPlayedEraId;
   final int totalPlayTimeMinutes;
   final int loginStreak;
+  final int coins; // 보유 코인 (화폐)
+  final List<String> inventoryIds; // 보유 아이템 목록
+  final bool hasCompletedTutorial; // 튜토리얼 완료 여부
 
   const UserProgress({
     required this.oderId,
@@ -29,16 +32,19 @@ class UserProgress extends Equatable {
     this.countryProgress = const {},
     this.eraProgress = const {},
     this.completedDialogueIds = const [],
-    this.unlockedRegionIds = const ['asia'], // 아시아 기본 해금
-    this.unlockedCountryIds = const ['korea'], // 한반도 기본 해금
-    this.unlockedEraIds = const ['korea_three_kingdoms'], // 삼국시대 기본 해금
-    this.unlockedCharacterIds = const [],
-    this.unlockedFactIds = const [],
+    this.unlockedRegionIds = const ['asia', 'europe'], // MVP: 아시아, 유럽 해금
+    this.unlockedCountryIds = const ['korea', 'italy'], // MVP: 한국, 이탈리아 해금
+    this.unlockedEraIds = const ['korea_three_kingdoms', 'korea_joseon', 'europe_renaissance'], // MVP: 삼국시대, 조선, 르네상스 해금
+    this.unlockedCharacterIds = const ['encyclo_char_Q128027', 'encyclo_char_Q9319', 'gwanggaeto', 'geunchogo', 'kim_yushin', 'seondeok', 'eulji_mundeok', 'jangsu', 'gyebaek', 'uija'], // 테스트: 삼국시대 인물 해금
+    this.unlockedFactIds = const ['encyclo_char_Q61073'], // 테스트: 일부 인물(도감) 해금 (뮌스터)
     this.achievementIds = const [],
     this.lastPlayedAt,
     this.lastPlayedEraId,
     this.totalPlayTimeMinutes = 0,
     this.loginStreak = 0,
+    this.coins = 100, // 기본 코인 제공
+    this.inventoryIds = const [],
+    this.hasCompletedTutorial = false,
   });
 
   UserProgress copyWith({
@@ -59,6 +65,9 @@ class UserProgress extends Equatable {
     String? lastPlayedEraId,
     int? totalPlayTimeMinutes,
     int? loginStreak,
+    int? coins,
+    List<String>? inventoryIds,
+    bool? hasCompletedTutorial,
   }) {
     return UserProgress(
       oderId: oderId ?? this.oderId,
@@ -78,6 +87,9 @@ class UserProgress extends Equatable {
       lastPlayedEraId: lastPlayedEraId ?? this.lastPlayedEraId,
       totalPlayTimeMinutes: totalPlayTimeMinutes ?? this.totalPlayTimeMinutes,
       loginStreak: loginStreak ?? this.loginStreak,
+      coins: coins ?? this.coins,
+      inventoryIds: inventoryIds ?? this.inventoryIds,
+      hasCompletedTutorial: hasCompletedTutorial ?? this.hasCompletedTutorial,
     );
   }
 
@@ -200,6 +212,9 @@ class UserProgress extends Equatable {
     lastPlayedEraId,
     totalPlayTimeMinutes,
     loginStreak,
+    coins,
+    inventoryIds,
+    hasCompletedTutorial,
   ];
 
   @override

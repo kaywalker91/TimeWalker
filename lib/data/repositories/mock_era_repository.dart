@@ -10,7 +10,8 @@ class MockEraRepository implements EraRepository {
   @override
   Future<List<Era>> getAllEras() async {
     await Future.delayed(const Duration(milliseconds: 300));
-    return _eras;
+    // Force return fresh data for Hot Reload
+    return [...EraData.all];
   }
 
   @override

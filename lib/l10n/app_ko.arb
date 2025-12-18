@@ -1,0 +1,41 @@
+{
+  "@@locale": "ko",
+  "appTitle": "TimeWalker",
+  "common_error": "오류",
+  "common_confirm": "확인",
+  "common_cancel": "취소",
+  "common_close": "닫기",
+  "common_locked": "잠김",
+  "common_explore": "탐험하기",
+  "common_talk": "대화하기",
+  "common_locked_status": "잠겨있음",
+  "common_unknown_character": "???",
+
+  "era_timeline_title": "시대 연대기",
+  "era_timeline_no_eras": "사용 가능한 시대가 없습니다.",
+  "era_timeline_locked_msg": "이 시대는 잠겨있습니다.",
+
+  "exploration_title_default": "탐험",
+  "exploration_tutorial_msg": "탐험가여 환영합니다! 지도를 확대/축소하고 마커를 탭하여 장소를 탐험하세요.",
+  "exploration_progress_label": "시대 진행률",
+  "exploration_era_not_found": "시대를 찾을 수 없습니다.",
+  "exploration_location_error": "장소를 불러오는 중 오류 발생: {error}",
+  "exploration_location_locked": "이 장소는 아직 접근할 수 없습니다.",
+  "exploration_no_dialogue": "이 인물과는 아직 대화할 수 없습니다.",
+  "exploration_no_characters": "이 장소에는 현재 만날 수 있는 인물이 없습니다.",
+
+  "menu_world_map": "세계 지도",
+  "menu_encyclopedia": "역사 도감",
+  "menu_quiz": "퀴즈 도전",
+  "menu_profile": "내 프로필",
+  "menu_settings": "설정",
+  "menu_shop": "상점",
+  "menu_leaderboard": "리더보드",
+  "msg_coming_soon": "v1.5 출시 예정!",
+  
+  "world_map_title": "TimeWalker 세계 지도",
+  "world_map_current_location": "현재 위치",
+  "world_map_location_test": "아시아 - 한국",
+  "world_map_locked_msg": "{region} 지역은 현재 잠겨있습니다.",
+  "app_tagline": "시간을 걷는 자가 되어 역사를 탐험하세요"
+}

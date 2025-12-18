@@ -1,6 +1,6 @@
 name: time_walker
 description: "TimeWalker: Echoes of the Past - 전 세계의 역사를 지도 탐험과 시대 여행을 통해 배우는 인터랙티브 교육 어드벤처 게임"
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -36,10 +36,10 @@ dependencies:
   intl: any
 
   # New dependencies for TimeWalker
-  flutter_svg: ^2.0.9           # SVG icons and illustrations
-  yaml: ^3.1.2                   # Dialogue script parsing
-  cached_network_image: ^3.3.1   # Image caching
-  shimmer: ^3.0.0                # Loading effects
+  flutter_svg: ^2.0.9 # SVG icons and illustrations
+  yaml: ^3.1.2 # Dialogue script parsing
+  cached_network_image: ^3.3.1 # Image caching
+  shimmer: ^3.0.0 # Loading effects
 
   # Firebase (to be configured later)
   # firebase_core: ^2.27.0
@@ -61,6 +61,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
     - assets/images/
@@ -75,3 +76,4 @@ flutter:
     - assets/content/dialogues/
     - assets/content/characters/
     - assets/content/eras/
+    - assets/data/

@@ -8,15 +8,17 @@
 ## 🚀 주요 기능
 - **인터랙티브 지도 탐험**: Flame 엔진을 활용한 몰입감 있는 지도 이동 및 탐험.
 - **시대 여행 (Time Travel)**: 고대, 중세, 근대 등 다양한 역사적 시대로의 이동.
-- **대화 시스템**: 역사적 인물들과의 상호작용 및 스토리 진행 (YAML 기반 스크립트).
-- **교육적 콘텐츠**: 역사적 사실에 기반한 퀘스트와 정보 제공.
+- **대화 시스템**: 역사적 인물들과의 상호작용 및 스토리 진행 (JSON 기반 스크립트).
+- **교육적 콘텐츠**: 역사적 사실에 기반한 퀘스트, 백과사전, 퀴즈 제공.
+- **상점 및 인벤토리**: 게임 내 재화로 아이템 구매 및 관리.
+- **다국어 지원**: 한국어 및 영어 지원 (l10n).
 
 ## 🛠 기술 스택
 - **Framework**: Flutter
 - **Language**: Dart
 - **State Management**: Riverpod
 - **Game Engine**: Flame (지도 및 인터랙션 구현)
-- **Local Storage**: Hive
+- **Local Storage**: Hive, Shared Preferences
 - **Routing**: GoRouter
 - **Localization**: flutter_localizations, intl
 
@@ -25,12 +27,14 @@
 lib/
 ├── content/       # 게임 데이터 (캐릭터, 대화, 시대 정보)
 ├── core/          # 공통 유틸리티, 상수, 테마, 라우팅
-├── data/          # 데이터 레이어 (저장소, 모델)
-├── domain/        # 비즈니스 로직 (엔티티, 유스케이스)
+├── data/          # 데이터 레이어 (저장소, 모델, JSON 데이터 소스)
+├── domain/        # 비즈니스 로직 (엔티티, 유스케이스, 리포지토리 인터페이스)
 ├── game/          # Flame 게임 엔진 관련 코드
 ├── interactive/   # 상호작용 요소 (대화, 탐험, 지도)
+├── l10n/          # 다국어 지원 (ARB 파일)
 ├── presentation/  # UI (화면, 위젯, 프로바이더)
 └── main.dart      # 앱 진입점
+tools/             # 데이터 파이프라인 및 유틸리티 스크립트
 ```
 
 ## 📦 설치 및 실행

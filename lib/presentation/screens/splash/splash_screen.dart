@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/app_constants.dart';
@@ -150,7 +151,7 @@ class _SplashScreenState extends State<SplashScreen>
                     const SizedBox(height: 10),
                     // 태그라인
                     Text(
-                      AppConstants.appTagline,
+                      AppLocalizations.of(context)!.app_tagline,
                       style: Theme.of(
                         context,
                       ).textTheme.bodyLarge?.copyWith(color: Colors.white70),

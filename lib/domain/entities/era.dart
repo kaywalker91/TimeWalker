@@ -215,6 +215,14 @@ class EraThemes {
     backgroundColor: Color(0xFFFFF8DC), // 크림
     textColor: Color(0xFF1C1C1C),
   );
+
+  static const EraTheme renaissance = EraTheme(
+    primaryColor: Color(0xFF6A0DAD), // Royal Purple
+    secondaryColor: Color(0xFFDAA520), // Goldenrod
+    accentColor: Color(0xFFFFD700), // Gold
+    backgroundColor: Color(0xFFFDF5E6), // Old Lace
+    textColor: Color(0xFF2F1810),
+  );
 }
 
 /// 기본 시대 데이터 (MVP - 한반도)
@@ -238,8 +246,8 @@ class EraData {
     bgmAsset: 'assets/audio/bgm/three_kingdoms.mp3',
     theme: EraThemes.threeKingdoms,
     chapterIds: ['tk_ch1_rise', 'tk_ch2_gwanggaeto', 'tk_ch3_unification'],
-    characterIds: ['gwanggaeto', 'kim_yushin', 'eulji_mundeok', 'seondeok'],
-    locationIds: ['goguryeo_palace', 'silla_capital', 'baekje_sabi'],
+    characterIds: ['gwanggaeto', 'geunchogo', 'kim_yushin', 'eulji_mundeok', 'seondeok'],
+    locationIds: ['goguryeo_palace', 'wiryeseong', 'silla_capital', 'baekje_sabi'],
     status: ContentStatus.available, // MVP 기본 해금
     estimatedMinutes: 45,
     unlockCondition: UnlockCondition(), // 기본 해금
@@ -315,7 +323,33 @@ class EraData {
     ),
   );
 
-  static List<Era> get all => [koreaThreeKingdoms, koreaGoryeo, koreaJoseon];
+  static const Era europeRenaissance = Era(
+    id: 'europe_renaissance',
+    countryId: 'italy',
+    name: 'The Renaissance',
+    nameKorean: '르네상스',
+    period: '14th - 17th Century',
+    startYear: 1300,
+    endYear: 1600,
+    description: '예술과 과학, 인문주의가 꽃피운 서양 문명의 황금기. 피렌체와 베네치아를 거닐며 천재들의 숨결을 느껴보세요.',
+    thumbnailAsset: 'assets/images/eras/renaissance.png',
+    backgroundAsset: 'assets/images/locations/renaissance_bg.png',
+    bgmAsset: 'assets/audio/bgm/renaissance.mp3',
+    theme: EraThemes.renaissance,
+    chapterIds: ['rn_ch1_rebirth', 'rn_ch2_masters', 'rn_ch3_discovery'],
+    characterIds: ['davinci', 'galileo'],
+    locationIds: ['florence', 'venice'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 60,
+    unlockCondition: UnlockCondition(requiredLevel: 2),
+  );
+
+  static List<Era> get all => [
+    koreaThreeKingdoms, 
+    koreaGoryeo, 
+    koreaJoseon,
+    europeRenaissance,
+  ];
 
   static List<Era> getByCountry(String countryId) {
     return all.where((e) => e.countryId == countryId).toList();

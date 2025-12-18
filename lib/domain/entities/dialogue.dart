@@ -84,6 +84,20 @@ class Dialogue extends Equatable {
     estimatedMinutes,
   ];
 
+  factory Dialogue.fromJson(Map<String, dynamic> json) {
+    return Dialogue(
+      id: json['id'] as String,
+      characterId: json['characterId'] as String,
+      title: json['title'] as String,
+      titleKorean: json['titleKorean'] as String,
+      description: json['description'] as String,
+      nodes: (json['nodes'] as List).map((e) => DialogueNode.fromJson(e)).toList(),
+      rewards: (json['rewards'] as List? ?? []).map((e) => DialogueReward.fromJson(e)).toList(),
+      isCompleted: json['isCompleted'] as bool? ?? false,
+      estimatedMinutes: json['estimatedMinutes'] as int? ?? 5,
+    );
+  }
+
   @override
   String toString() =>
       'Dialogue(id: $id, title: $titleKorean, completed: $isCompleted)';
@@ -110,6 +124,19 @@ class DialogueNode extends Equatable {
     this.reward,
     this.isEnd = false,
   });
+
+  factory DialogueNode.fromJson(Map<String, dynamic> json) {
+    return DialogueNode(
+      id: json['id'] as String,
+      speakerId: json['speakerId'] as String,
+      text: json['text'] as String,
+      emotion: json['emotion'] as String? ?? 'neutral',
+      choices: (json['choices'] as List? ?? []).map((e) => DialogueChoice.fromJson(e)).toList(),
+      nextNodeId: json['nextNodeId'] as String?,
+      reward: json['reward'] != null ? DialogueReward.fromJson(json['reward']) : null,
+      isEnd: json['isEnd'] as bool? ?? false,
+    );
+  }
 
   DialogueNode copyWith({
     String? id,
@@ -173,6 +200,17 @@ class DialogueChoice extends Equatable {
     this.condition,
   });
 
+  factory DialogueChoice.fromJson(Map<String, dynamic> json) {
+    return DialogueChoice(
+      id: json['id'] as String,
+      text: json['text'] as String,
+      preview: json['preview'] as String?,
+      nextNodeId: json['nextNodeId'] as String,
+      reward: json['reward'] != null ? DialogueReward.fromJson(json['reward']) : null,
+      condition: json['condition'] != null ? ChoiceCondition.fromJson(json['condition']) : null,
+    );
+  }
+
   DialogueChoice copyWith({
     String? id,
     String? text,
@@ -213,6 +251,14 @@ class ChoiceCondition extends Equatable {
     this.requiredKnowledge,
   });
 
+  factory ChoiceCondition.fromJson(Map<String, dynamic> json) {
+    return ChoiceCondition(
+      requiredFact: json['requiredFact'] as String?,
+      requiredCharacter: json['requiredCharacter'] as String?,
+      requiredKnowledge: json['requiredKnowledge'] as int?,
+    );
+  }
+
   @override
   List<Object?> get props => [
     requiredFact,
@@ -234,6 +280,15 @@ class DialogueReward extends Equatable {
     this.unlockCharacterId,
     this.achievementId,
   });
+
+  factory DialogueReward.fromJson(Map<String, dynamic> json) {
+    return DialogueReward(
+      knowledgePoints: json['knowledgePoints'] as int? ?? 0,
+      unlockFactId: json['unlockFactId'] as String?,
+      unlockCharacterId: json['unlockCharacterId'] as String?,
+      achievementId: json['achievementId'] as String?,
+    );
+  }
 
   DialogueReward copyWith({
     int? knowledgePoints,

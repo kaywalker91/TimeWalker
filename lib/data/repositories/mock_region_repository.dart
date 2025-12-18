@@ -11,7 +11,8 @@ class MockRegionRepository implements RegionRepository {
   Future<List<Region>> getAllRegions() async {
     // 네트워크 딜레이 시뮬레이션
     await Future.delayed(const Duration(milliseconds: 300));
-    return _regions;
+    // 항상 최신 RegionData 반환 (Hot Reload 지원)
+    return [...RegionData.all];
   }
 
   @override

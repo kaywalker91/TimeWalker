@@ -7,16 +7,27 @@ class MockUserProgressRepository implements UserProgressRepository {
   UserProgress _progress = const UserProgress(
     oderId: 'user_001',
     rank: ExplorerRank.novice,
+    unlockedRegionIds: ['asia', 'europe', 'africa', 'americas', 'middle_east'],
+    unlockedCountryIds: [
+      'korea', 'china', 'japan', 'india', 'mongolia', // Asia
+      'greece', 'rome', 'britain', 'france', 'germany', // Europe
+      'egypt', 'ethiopia', 'mali', // Africa
+      'maya', 'aztec', 'inca', 'usa', // Americas
+      'mesopotamia', 'persia', 'ottoman', // Middle East
+      'italy', // Extra
+    ],
     unlockedEraIds: [
       'korea_three_kingdoms',
       'korea_goryeo',
       'korea_joseon',
-    ], // Unlock Goryeo and Joseon for testing
+      'europe_renaissance',
+    ],
   );
 
   @override
   Future<UserProgress?> getUserProgress(String userId) async {
     await Future.delayed(const Duration(milliseconds: 100));
+    // Force return fresh object for Hot Reload to take effect immediately
     return _progress;
   }
 

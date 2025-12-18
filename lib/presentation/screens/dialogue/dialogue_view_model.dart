@@ -168,8 +168,8 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
         Map<String, double> newEraProgress = progress.eraProgress;
         if (eraId != null) {
           final currentEraProgress = progress.getEraProgress(eraId);
-          // Increment progress (e.g., 0.1 per dialogue for MVP)
-          final nextProgress = (currentEraProgress + 0.1).clamp(0.0, 1.0);
+          // Increment progress (e.g., 0.15 per dialogue for MVP)
+          final nextProgress = (currentEraProgress + 0.15).clamp(0.0, 1.0);
           
           newEraProgress = {
             ...progress.eraProgress,

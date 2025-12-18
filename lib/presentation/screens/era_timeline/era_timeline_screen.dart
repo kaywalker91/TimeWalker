@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:time_walker/core/routes/app_router.dart';
@@ -25,7 +26,7 @@ class EraTimelineScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Era Timeline'),
+        title: Text(AppLocalizations.of(context)!.era_timeline_title),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -124,7 +125,7 @@ class EraTimelineScreen extends ConsumerWidget {
 
   Widget _buildEraList(BuildContext context, WidgetRef ref, List<Era> eras) {
     if (eras.isEmpty) {
-      return const Center(child: Text('No eras available yet.'));
+      return Center(child: Text(AppLocalizations.of(context)!.era_timeline_no_eras));
     }
 
     // Watch user progress
@@ -136,7 +137,7 @@ class EraTimelineScreen extends ConsumerWidget {
       scrollDirection: Axis.horizontal,
       itemCount: eras.length,
       itemBuilder: (context, index) {
-        return _buildEraCard(context, eras[index], userProgress);
+        return _buildEraCard(context, eras[index], userProgress, eras);
       },
     );
   }
@@ -145,6 +146,7 @@ class EraTimelineScreen extends ConsumerWidget {
     BuildContext context,
     Era era,
     UserProgress? userProgress,
+    List<Era> allEras,
   ) {
     // Check both the static status AND the dynamic user progress
     final isUnlocked =
@@ -179,8 +181,18 @@ class EraTimelineScreen extends ConsumerWidget {
         child: InkWell(
           onTap: () {
             if (isLocked) {
+              String msg = AppLocalizations.of(context)!.era_timeline_locked_msg;
+              final condition = era.unlockCondition;
+              if (condition.previousEraId != null) {
+                final prev = allEras.where((e) => e.id == condition.previousEraId).firstOrNull;
+                if (prev != null) {
+                   final pct = (condition.requiredProgress * 100).toInt();
+                   // MVP: Hardcoded Korean message for clarity, or reuse l10n if flexible
+                   msg = '${prev.nameKorean} 진행도 $pct% 달성 시 해금';
+                }
+              }
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('This era is locked.')),
+                SnackBar(content: Text(msg)),
               );
             } else {
               AppRouter.goToEraExploration(context, era.id);
@@ -240,12 +252,28 @@ class EraTimelineScreen extends ConsumerWidget {
                       ),
                     ),
                     onPressed: isLocked
-                        ? null
+                        ? () {
+                             // Same logic as InkWell
+                              String msg = AppLocalizations.of(context)!.era_timeline_locked_msg;
+                              final condition = era.unlockCondition;
+                              if (condition.previousEraId != null) {
+                                final prev = allEras.where((e) => e.id == condition.previousEraId).firstOrNull;
+                                if (prev != null) {
+                                   final pct = (condition.requiredProgress * 100).toInt();
+                                   msg = '${prev.nameKorean} 진행도 $pct% 달성 시 해금';
+                                }
+                              }
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(msg)),
+                              );
+                          }
                         : () {
                             AppRouter.goToEraExploration(context, era.id);
                           },
                     child: Text(
-                      isLocked ? 'LOCKED' : 'EXPLORE',
+                      isLocked
+                          ? AppLocalizations.of(context)!.common_locked
+                          : AppLocalizations.of(context)!.common_explore,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),

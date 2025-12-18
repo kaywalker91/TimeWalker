@@ -1,0 +1,41 @@
+{
+  "@@locale": "en",
+  "appTitle": "TimeWalker",
+  "common_error": "Error",
+  "common_confirm": "Confirm",
+  "common_cancel": "Cancel",
+  "common_close": "Close",
+  "common_locked": "LOCKED",
+  "common_explore": "EXPLORE",
+  "common_talk": "Talk",
+  "common_locked_status": "Locked",
+  "common_unknown_character": "???",
+
+  "era_timeline_title": "Era Timeline",
+  "era_timeline_no_eras": "No eras available yet.",
+  "era_timeline_locked_msg": "This era is locked.",
+
+  "exploration_title_default": "Exploration",
+  "exploration_tutorial_msg": "Welcome Explorer! Pinch to Zoom the map and Tap markers to explore locations.",
+  "exploration_progress_label": "Era Progress",
+  "exploration_era_not_found": "Era not found",
+  "exploration_location_error": "Error loading locations: {error}",
+  "exploration_location_locked": "This location is not yet accessible.",
+  "exploration_no_dialogue": "No dialogue available for this character yet.",
+  "exploration_no_characters": "There are no characters to meet at this location currently.",
+
+  "menu_world_map": "WORLD MAP",
+  "menu_encyclopedia": "ENCYCLOPEDIA",
+  "menu_quiz": "QUIZ CHALLENGE",
+  "menu_profile": "MY PROFILE",
+  "menu_settings": "SETTINGS",
+  "menu_shop": "SHOP",
+  "menu_leaderboard": "LEADERBOARD",
+  "msg_coming_soon": "Coming in v1.5!",
+
+  "world_map_title": "TimeWalker World Map",
+  "world_map_current_location": "Current Location",
+  "world_map_location_test": "Asia - Korea",
+  "world_map_locked_msg": "{region} is currently locked.",
+  "app_tagline": "Become a TimeWalker and explore history."
+}

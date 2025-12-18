@@ -1,0 +1,306 @@
+[
+    {
+        "id": "gyeongbokgung",
+        "eraId": "korea_joseon",
+        "name": "Gyeongbokgung Palace",
+        "nameKorean": "경복궁",
+        "description": "조선의 법궁, 왕과 신하들이 정사를 논하던 곳",
+        "thumbnailAsset": "assets/images/locations/gyeongbokgung_thumb.png",
+        "backgroundAsset": "assets/images/locations/gyeongbokgung_bg.png",
+        "position": {
+            "x": 0.5,
+            "y": 0.3
+        },
+        "characterIds": [
+            "sejong",
+            "jeongjo"
+        ],
+        "eventIds": [
+            "sejong_coronation",
+            "jeongjo_reform"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "hanyang_market",
+        "eraId": "korea_joseon",
+        "name": "Hanyang Market",
+        "nameKorean": "한양 저잣거리",
+        "description": "조선 수도 한양의 번화한 시장 거리",
+        "thumbnailAsset": "assets/images/locations/hanyang_market_thumb.png",
+        "backgroundAsset": "assets/images/locations/hanyang_market_bg.png",
+        "position": {
+            "x": 0.6,
+            "y": 0.5
+        },
+        "characterIds": [
+            "merchant",
+            "scholar"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "suwon_hwaseong",
+        "eraId": "korea_joseon",
+        "name": "Suwon Hwaseong Fortress",
+        "nameKorean": "수원화성",
+        "description": "정조가 건설한 신도시의 성곽, 실학의 결정체",
+        "thumbnailAsset": "assets/images/locations/suwon_hwaseong_thumb.png",
+        "backgroundAsset": "assets/images/locations/suwon_hwaseong_bg.png",
+        "position": {
+            "x": 0.55,
+            "y": 0.65
+        },
+        "characterIds": [
+            "jeongjo",
+            "jeong_yakyong"
+        ],
+        "eventIds": [
+            "hwaseong_construction"
+        ],
+        "status": "locked",
+        "isHistorical": true
+    },
+    {
+        "id": "geobukseon",
+        "eraId": "korea_joseon",
+        "name": "Geobukseon (Turtle Ship)",
+        "nameKorean": "거북선",
+        "description": "이순신 장군의 전설적인 철갑선",
+        "thumbnailAsset": "assets/images/locations/geobukseon_thumb.png",
+        "backgroundAsset": "assets/images/locations/geobukseon_bg.png",
+        "position": {
+            "x": 0.35,
+            "y": 0.7
+        },
+        "characterIds": [
+            "yi_sun_sin"
+        ],
+        "eventIds": [
+            "geobukseon_battle"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "myeongnyang",
+        "eraId": "korea_joseon",
+        "name": "Myeongnyang Strait",
+        "nameKorean": "명량해협",
+        "description": "13척의 배로 133척의 적군을 물리친 기적의 승전지 (울돌목)",
+        "thumbnailAsset": "assets/images/locations/myeongnyang_thumb.png",
+        "backgroundAsset": "assets/images/locations/myeongnyang_bg.png",
+        "position": {
+            "x": 0.3,
+            "y": 0.85
+        },
+        "characterIds": [
+            "yi_sun_sin"
+        ],
+        "eventIds": [
+            "myeongnyang_battle"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "florence",
+        "eraId": "europe_renaissance",
+        "name": "Florence",
+        "nameKorean": "피렌체",
+        "description": "르네상스가 탄생한 예술의 도시. 메디치 가문의 후원으로 천재들이 모여들었다.",
+        "thumbnailAsset": "assets/images/locations/florence_thumb.png",
+        "backgroundAsset": "assets/images/locations/florence_bg.png",
+        "position": {
+            "x": 0.45,
+            "y": 0.4
+        },
+        "characterIds": [
+            "davinci"
+        ],
+        "eventIds": [
+            "art_exhibition"
+        ],
+        "status": "locked",
+        "isHistorical": true
+    },
+    {
+        "id": "venice",
+        "eraId": "europe_renaissance",
+        "name": "Venice",
+        "nameKorean": "베네치아",
+        "description": "물 위의 도시이자 무역의 중심지. 동서양의 문물이 교차하는 곳.",
+        "thumbnailAsset": "assets/images/locations/venice_thumb.png",
+        "backgroundAsset": "assets/images/locations/venice_bg.png",
+        "position": {
+            "x": 0.55,
+            "y": 0.3
+        },
+        "characterIds": [
+            "galileo"
+        ],
+        "eventIds": [
+            "glass_making"
+        ],
+        "status": "locked",
+        "isHistorical": true
+    },
+    {
+        "id": "goguryeo_palace",
+        "eraId": "korea_three_kingdoms",
+        "name": "Gungnae-seong",
+        "nameKorean": "국내성",
+        "description": "광개토대왕 시대 고구려의 도읍지",
+        "thumbnailAsset": "assets/images/locations/goguryeo_palace_thumb.png",
+        "backgroundAsset": "assets/images/locations/goguryeo_palace_bg.png",
+        "position": {
+            "x": 0.53,
+            "y": 0.28
+        },
+        "characterIds": [
+            "gwanggaeto"
+        ],
+        "eventIds": [
+            "gwanggaeto_conquest"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "salsu",
+        "eraId": "korea_three_kingdoms",
+        "name": "Salsu River (Battle Site)",
+        "nameKorean": "살수(청천강)",
+        "description": "30만 수나라 군을 수장시킨 살수대첩의 현장",
+        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "position": {
+            "x": 0.45,
+            "y": 0.18
+        },
+        "characterIds": [
+            "eulji_mundeok"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "pyongyang_fortress",
+        "eraId": "korea_three_kingdoms",
+        "name": "Pyongyang Fortress",
+        "nameKorean": "평양성",
+        "description": "고구려 후기 도읍, 장수왕이 천도한 곳",
+        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "position": {
+            "x": 0.51,
+            "y": 0.42
+        },
+        "characterIds": [
+            "jangsu"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "wiryeseong",
+        "eraId": "korea_three_kingdoms",
+        "name": "Wiryeseong (Baekje Capital)",
+        "nameKorean": "위례성",
+        "description": "백제의 초기 수도, 한강 유역의 요충지",
+        "thumbnailAsset": "assets/images/locations/wiryeseong_thumb.png",
+        "backgroundAsset": "assets/images/locations/wiryeseong_bg.png",
+        "position": {
+            "x": 0.54,
+            "y": 0.6
+        },
+        "characterIds": [
+            "geunchogo"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "hwangsanbeol",
+        "eraId": "korea_three_kingdoms",
+        "name": "Hwangsanbeol Battlefield",
+        "nameKorean": "황산벌",
+        "description": "백제 계백 장군과 신라 김유신이 격돌한 삼국시대 최후의 결전지",
+        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "position": {
+            "x": 0.52,
+            "y": 0.64
+        },
+        "characterIds": [
+            "gyebaek"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "sabi",
+        "eraId": "korea_three_kingdoms",
+        "name": "Sabi Capital (Buyeo)",
+        "nameKorean": "사비성(부여)",
+        "description": "백제 후기 도읍, 성왕이 천도하고 의자왕이 최후를 맞은 곳",
+        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "position": {
+            "x": 0.46,
+            "y": 0.58
+        },
+        "characterIds": [
+            "uija"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gyeongju_palace",
+        "eraId": "korea_three_kingdoms",
+        "name": "Wolseong Palace",
+        "nameKorean": "월성(경주궁)",
+        "description": "천년 신라의 심장부, 반월성이라고도 불리는 신라 왕궁",
+        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "position": {
+            "x": 0.62,
+            "y": 0.78
+        },
+        "characterIds": [
+            "seondeok",
+            "kim_yushin"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "cheomseongdae",
+        "eraId": "korea_three_kingdoms",
+        "name": "Cheomseongdae Observatory",
+        "nameKorean": "첨성대",
+        "description": "동양에서 가장 오래된 천문대, 선덕여왕이 건립",
+        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "position": {
+            "x": 0.68,
+            "y": 0.68
+        },
+        "characterIds": [
+            "seondeok"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    }
+]

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/app_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/utils/responsive_utils.dart';
 
 /// 메인 메뉴 화면
 /// - 게임 시작
@@ -14,6 +16,8 @@ class MainMenuScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final responsive = context.responsive;
+    
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -24,41 +28,55 @@ class MainMenuScreen extends ConsumerWidget {
           ),
         ),
         child: SafeArea(
-          child: Column(
-            children: [
-              const SizedBox(height: 60),
-              // 타이틀
-              _buildTitle(context),
-              const SizedBox(height: 20),
+          child: SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height - 
+                    MediaQuery.of(context).padding.top - 
+                    MediaQuery.of(context).padding.bottom,
+              ),
+              child: IntrinsicHeight(
+                child: Column(
+                  children: [
+                    SizedBox(height: responsive.spacing(60)),
+                    // 타이틀
+                    _buildTitle(context, responsive),
+                    SizedBox(height: responsive.spacing(20)),
 
-              const Spacer(),
-              // 메뉴 버튼들
-              _buildMenuButtons(context, ref),
-              const SizedBox(height: 40),
-              // 버전 정보
-              _buildVersionInfo(context),
-              const SizedBox(height: 20),
-            ],
+                    const Spacer(),
+                    // 메뉴 버튼들
+                    _buildMenuButtons(context, ref, responsive),
+                    SizedBox(height: responsive.spacing(40)),
+                    // 버전 정보
+                    _buildVersionInfo(context),
+                    SizedBox(height: responsive.spacing(20)),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildTitle(BuildContext context) {
+  Widget _buildTitle(BuildContext context, ResponsiveUtils responsive) {
+    final logoSize = responsive.isSmallPhone ? 80.0 : 100.0;
+    final iconSize = responsive.iconSize(50);
+    
     return Column(
       children: [
         // 로고 아이콘
         Container(
-          width: 100,
-          height: 100,
+          width: logoSize,
+          height: logoSize,
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               colors: [Color(0xFFFF1493), Color(0xFF00FFFF)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(logoSize * 0.25),
             boxShadow: [
               BoxShadow(
                 color: const Color(0xFFFF1493).withValues(alpha: 0.4),
@@ -67,9 +85,9 @@ class MainMenuScreen extends ConsumerWidget {
               ),
             ],
           ),
-          child: const Icon(Icons.timer, size: 50, color: Colors.white),
+          child: Icon(Icons.timer, size: iconSize, color: Colors.white),
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: responsive.spacing(20)),
         // 게임 타이틀
         ShaderMask(
           shaderCallback: (bounds) => const LinearGradient(
@@ -80,7 +98,8 @@ class MainMenuScreen extends ConsumerWidget {
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              letterSpacing: 5,
+              letterSpacing: responsive.isSmallPhone ? 3 : 5,
+              fontSize: responsive.fontSize(24),
             ),
           ),
         ),
@@ -88,51 +107,76 @@ class MainMenuScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildMenuButtons(BuildContext context, WidgetRef ref) {
+  Widget _buildMenuButtons(BuildContext context, WidgetRef ref, ResponsiveUtils responsive) {
+    final buttonSpacing = responsive.spacing(15);
+    final horizontalPadding = responsive.padding(40);
+    
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: Column(
         children: [
           // 세계 지도 (탐험) 버튼
           _MenuButton(
-            label: 'WORLD MAP',
+            label: AppLocalizations.of(context)!.menu_world_map,
             icon: Icons.public,
             isPrimary: true,
+            responsive: responsive,
             onPressed: () {
-              context.go(AppRouter.worldMap);
+              context.push(AppRouter.worldMap);
             },
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: buttonSpacing),
+          // 도감 버튼
+          _MenuButton(
+            label: AppLocalizations.of(context)!.menu_encyclopedia,
+            icon: Icons.menu_book,
+            responsive: responsive,
+            onPressed: () => context.push(AppRouter.encyclopedia),
+          ),
+          SizedBox(height: buttonSpacing),
+          // 퀴즈 버튼
+          _MenuButton(
+            label: AppLocalizations.of(context)!.menu_quiz,
+            icon: Icons.quiz,
+            responsive: responsive,
+            onPressed: () => context.push(AppRouter.quiz),
+          ),
+          SizedBox(height: buttonSpacing),
+          // 프로필 버튼
+          _MenuButton(
+            label: AppLocalizations.of(context)!.menu_profile,
+            icon: Icons.person,
+            responsive: responsive,
+            onPressed: () => context.push(AppRouter.profile),
+          ),
+          SizedBox(height: buttonSpacing),
           // 설정 버튼
           _MenuButton(
-            label: 'SETTINGS',
+            label: AppLocalizations.of(context)!.menu_settings,
             icon: Icons.settings,
+            responsive: responsive,
             onPressed: () => context.push(AppRouter.settings),
           ),
-          const SizedBox(height: 15),
-          // 상점 버튼 (v1.5)
+          SizedBox(height: buttonSpacing),
+          // 상점 버튼
           _MenuButton(
-            label: 'SHOP',
+            label: AppLocalizations.of(context)!.menu_shop,
             icon: Icons.shopping_bag,
-            isDisabled: true,
-            onPressed: () {
-              // TODO: v1.5에서 구현
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(const SnackBar(content: Text('Coming in v1.5!')));
-            },
+            isDisabled: false,
+            responsive: responsive,
+            onPressed: () => context.push(AppRouter.shop),
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: buttonSpacing),
           // 리더보드 버튼 (v1.5)
           _MenuButton(
-            label: 'LEADERBOARD',
+            label: AppLocalizations.of(context)!.menu_leaderboard,
             icon: Icons.leaderboard,
             isDisabled: true,
+            responsive: responsive,
             onPressed: () {
-              // TODO: v1.5에서 구현
               ScaffoldMessenger.of(
                 context,
-              ).showSnackBar(const SnackBar(content: Text('Coming in v1.5!')));
+              ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msg_coming_soon)));
             },
           ),
         ],
@@ -156,20 +200,26 @@ class _MenuButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isPrimary;
   final bool isDisabled;
+  final ResponsiveUtils responsive;
 
   const _MenuButton({
     required this.label,
     required this.icon,
     required this.onPressed,
+    required this.responsive,
     this.isPrimary = false,
     this.isDisabled = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final buttonHeight = responsive.buttonHeight(phone: 50, tablet: 60);
+    final fontSize = responsive.fontSize(16);
+    final iconSize = responsive.iconSize(22);
+    
     return SizedBox(
       width: double.infinity,
-      height: 55,
+      height: buttonHeight,
       child: ElevatedButton(
         onPressed: isDisabled ? null : onPressed,
         style: ElevatedButton.styleFrom(
@@ -193,14 +243,14 @@ class _MenuButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 22),
-            const SizedBox(width: 10),
+            Icon(icon, size: iconSize),
+            SizedBox(width: responsive.spacing(10)),
             Text(
               label,
-              style: const TextStyle(
-                fontSize: 16,
+              style: TextStyle(
+                fontSize: fontSize,
                 fontWeight: FontWeight.bold,
-                letterSpacing: 2,
+                letterSpacing: responsive.isSmallPhone ? 1 : 2,
               ),
             ),
           ],

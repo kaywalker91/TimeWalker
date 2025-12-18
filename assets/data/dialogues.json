@@ -1,0 +1,1130 @@
+[
+    {
+        "id": "sejong_hangul_01",
+        "characterId": "sejong",
+        "title": "Creation of Hangul",
+        "titleKorean": "훈민정음 창제",
+        "description": "세종대왕이 훈민정음을 창제하게 된 계기와 그 과정에서 겪은 고뇌를 듣습니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100,
+                "unlockFactId": "fact_hangul_origin"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "sejong",
+                "emotion": "thoughtful",
+                "text": "백성이 글을 몰라 억울한 일을 당해도 하소연조차 할 수 없는 것이 늘 안타까웠느니라.\n그래서 내가 새로운 글자를 만들고자 하는데... 그대는 어찌 생각하느냐?",
+                "choices": [
+                    {
+                        "id": "c1_praise",
+                        "text": "정말 위대한 생각이십니다, 전하!",
+                        "preview": "세종의 결정 지지하기",
+                        "nextNodeId": "praise_response",
+                        "reward": {
+                            "knowledgePoints": 10
+                        }
+                    },
+                    {
+                        "id": "c1_ask_reason",
+                        "text": "새 글자가 왜 필요한지 여쭤봐도 될까요?",
+                        "preview": "이유 자세히 듣기",
+                        "nextNodeId": "explanation_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_ask_opposition",
+                        "text": "신하들의 반대는 없었나요?",
+                        "preview": "반대 세력에 대해 묻기",
+                        "nextNodeId": "opposition_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "praise_response",
+                "speakerId": "sejong",
+                "emotion": "happy",
+                "text": "고맙네. 내 뜻을 알아주는 이가 있어 기쁘구려.\n하지만 쉬운 일은 아닐 것이야.",
+                "nextNodeId": "end_node",
+                "isEnd": false
+            },
+            {
+                "id": "explanation_branch",
+                "speakerId": "sejong",
+                "emotion": "sad",
+                "text": "우리 백성은 중국 글자(한자)를 빌려 쓰고 있으나, 이는 우리 말과 달라 배우기가 어렵지 않느냐.\n나는 누구나 쉽게 익혀 쓸 수 있는 글자가 필요하다고 보았네.",
+                "nextNodeId": "end_node",
+                "isEnd": false
+            },
+            {
+                "id": "opposition_branch",
+                "speakerId": "sejong",
+                "emotion": "serious",
+                "text": "그래... 최만리를 비롯한 많은 신하들이 강하게 반대했지.\n중국을 섬기는 예의에 어긋난다는 이유였어.",
+                "choices": [
+                    {
+                        "id": "c2_convince",
+                        "text": "그래서 포기하실 건가요?",
+                        "nextNodeId": "end_node_fail"
+                    },
+                    {
+                        "id": "c2_overcome",
+                        "text": "그들을 어떻게 설득하셨나요?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "sejong",
+                "emotion": "neutral",
+                "text": "내 뜻은 확고하니, 백성을 위해 끝까지 완성할 것이네.\n그대도 지켜봐 주게나.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_hangul_creation"
+                }
+            },
+            {
+                "id": "end_node_fail",
+                "speakerId": "sejong",
+                "emotion": "serious",
+                "text": "포기라니 당치도 않다! 다만 길이 험할 뿐이지.\n오늘은 피곤하니 그만 물러가거라.",
+                "isEnd": true
+            }
+        ]
+    },
+    {
+        "id": "gwanggaeto_conquest_01",
+        "characterId": "gwanggaeto",
+        "title": "Expansion of Territory",
+        "titleKorean": "영토 확장",
+        "description": "광개토대왕과 함께 고구려의 기상을 드높일 정복 전쟁과 그의 천하관(天下觀)에 대해 논의합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_gwanggaeto_conquest"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "gwanggaeto",
+                "emotion": "determined",
+                "text": "짐은 국강상광개토경평안호태왕(國岡上廣開土境平安好太王)이라 불리기를 원하노라.\n동쪽으로는 동예를, 북쪽으로는 거란과 후연을 복속시키고, 남으로는 백제를 굴복시켰다.\n하지만 짐의 시선은 더 먼 곳을 향하고 있느니라. 그대는 고구려가 어디까지 뻗어나가야 한다고 보는가?",
+                "choices": [
+                    {
+                        "id": "c1_limitless",
+                        "text": "천하의 끝까지 고구려의 깃발을 꽂아야 합니다!",
+                        "preview": "무한한 확장 지지",
+                        "nextNodeId": "ambition_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_stabilize",
+                        "text": "너무 급격한 확장은 백성을 피폐하게 할까 염려됩니다.",
+                        "preview": "내실 다지기 조언",
+                        "nextNodeId": "stability_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_baekje",
+                        "text": "남쪽의 백제가 호시탐탐 기회를 노리고 있습니다.",
+                        "preview": "백제 견제 조언",
+                        "nextNodeId": "baekje_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "ambition_node",
+                "speakerId": "gwanggaeto",
+                "emotion": "happy",
+                "text": "호오, 그대의 기개가 마음에 드는구나!\n고구려는 천손(天孫)의 후예. 우리가 바로 천하의 중심이니라.\n영락(永樂)이라는 연호를 쓴 것도 바로 그 때문이지. 우리는 중국과 대등한 제국임을 선포한 것이다!",
+                "nextNodeId": "stele_node"
+            },
+            {
+                "id": "stability_node",
+                "speakerId": "gwanggaeto",
+                "emotion": "thoughtful",
+                "text": "일리 있는 말이다. 백성이 편안해야(平安) 나라도 강해지는 법.\n허나 평화는 강력한 힘이 뒷받침될 때만 지킬 수 있다.\n짐이 쉴 새 없이 정복 전쟁을 벌인 것은 후손들에게 넓은 영토와 안전을 물려주기 위함이었노라.",
+                "nextNodeId": "stele_node"
+            },
+            {
+                "id": "baekje_node",
+                "speakerId": "gwanggaeto",
+                "emotion": "angry",
+                "text": "아신왕... 그 자는 짐에게 무릎을 꿇고 \"영원히 노객(신하)이 되겠다\" 맹세했으면서도, 왜(倭)와 결탁하여 다시 우리를 괴롭히려 하는가.\n짐은 배신을 용서치 않는다. 다시 한번 대군을 이끌고 남하하여 본때를 보여줄 것이다!",
+                "choices": [
+                    {
+                        "id": "c2_rescue_silla",
+                        "text": "신라 또한 왜의 침략으로 고통받고 있다고 합니다.",
+                        "preview": "신라 구원 제안",
+                        "nextNodeId": "silla_rescue_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "silla_rescue_node",
+                "speakerId": "gwanggaeto",
+                "emotion": "determined",
+                "text": "그렇다. 내물마립간이 구원을 요청해왔지.\n짐은 보병과 기병 5만을 보내 신라를 구하고, 내친김에 왜구들을 임나가라까지 추격하여 섬멸할 것이다.\n이로써 한반도 남부 또한 고구려의 영향력 아래에 두는 것이 짐의 전략이다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "stele_node",
+                "speakerId": "gwanggaeto",
+                "emotion": "neutral",
+                "text": "짐이 죽은 뒤에도 이 업적이 후세에 길이 남기를 바란다.\n거대한 비석을 세워, 우리가 어떻게 영토를 넓히고 백성을 편안케 했는지 기록하게 하라.\n그 비석이 서 있는 한, 고구려의 기상은 영원할 것이다.",
+                "choices": [
+                    {
+                        "id": "c3_promise",
+                        "text": "폐하의 위업을 역사에 영원히 새기겠습니다.",
+                        "preview": "기록 약속하기",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "gwanggaeto",
+                "emotion": "determined",
+                "text": "좋다! 이제 출정의 북소리가 울리는구나.\n그대도 짐의 뒤를 따르라. 새로운 역사가 쓰여지는 현장을 목격하게 될 것이다!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_gwanggaeto_conquest"
+                }
+            }
+        ]
+    },
+    {
+        "id": "geunchogo_expansion_01",
+        "characterId": "geunchogo",
+        "title": "The Empire of the Sea",
+        "titleKorean": "대백제의 비상",
+        "description": "근초고왕과 함께 백제의 전성기를 이끌 해상 전략과 고대 무역로, 그리고 칠지도에 얽힌 비밀을 이야기합니다.",
+        "estimatedMinutes": 10,
+        "rewards": [
+            {
+                "knowledgePoints": 200,
+                "unlockFactId": "fact_baekje_apex",
+                "achievementId": "achievement_king_of_sea"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "geunchogo",
+                "emotion": "neutral",
+                "text": "반갑네. 그대가 바로 먼 훗날에서 왔다는 그 여행자인가?\n짐은 지금 한성(Wiryeseong) 높은 곳에 올라 우리 백제의 영토를 굽어보던 참이었네.\n북으로는 대방을, 남으로는 마한의 잔당을 평정하여 이제 백제는 명실상부한 최강국이 되었다.",
+                "choices": [
+                    {
+                        "id": "c1_conquest",
+                        "text": "어떻게 단기간에 영토를 확장하셨나요?",
+                        "preview": "정복 전쟁 비결 묻기",
+                        "nextNodeId": "conquest_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_diplomacy",
+                        "text": "바다 건너 나라들과도 교류한다고 들었습니다.",
+                        "preview": "해상 교류 묻기",
+                        "nextNodeId": "diplomacy_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_chiljido",
+                        "text": "허리에 찬 그 검은 특이하게 생겼네요.",
+                        "preview": "칠지도에 대해 묻기",
+                        "nextNodeId": "chiljido_story",
+                        "reward": {
+                            "knowledgePoints": 30
+                        },
+                        "condition": {
+                            "requiredKnowledge": 50
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "conquest_story",
+                "speakerId": "geunchogo",
+                "emotion": "neutral",
+                "text": "말보다는 행동이 앞서야 하는 법.\n고구려의 사유(고국원왕)가 2만 군사를 이끌고 왔을 때, 짐은 태자(근구수왕)와 함께 평양성까지 진격하여 그를 쓰러뜨렸다.\n이것은 단순한 승리가 아니다. 백제가 한반도의 패자(覇者)임을 만천하에 선포한 것이다.",
+                "choices": [
+                    {
+                        "id": "c_conquest_future",
+                        "text": "앞으로의 계획은 무엇입니까?",
+                        "nextNodeId": "vision_merge"
+                    }
+                ]
+            },
+            {
+                "id": "diplomacy_story",
+                "speakerId": "geunchogo",
+                "emotion": "happy",
+                "text": "현명한 질문이로군. 땅 위에서의 싸움은 하책(下策)이다.\n진정한 강국은 바다를 지배해야 하지.\n우리는 동진(중국)과 수교하여 선진 문물을 받아들이고, 남쪽의 왜(일본)에게는 문화를 전파하고 있다.\n서해와 남해는 이제 백제의 앞마당이나 다름없느니라.",
+                "choices": [
+                    {
+                        "id": "c_diplomacy_culture",
+                        "text": "백제의 문화가 그렇게 뛰어난가요?",
+                        "nextNodeId": "culture_pride"
+                    }
+                ]
+            },
+            {
+                "id": "culture_pride",
+                "speakerId": "geunchogo",
+                "emotion": "neutral",
+                "text": "물론이다. 박사 고흥(高興)에게 명하여 <서기(書記)>를 편찬케 한 것도 그 때문이다.\n역사를 기록하지 않는 민족은 사라지기 마련.\n우리의 찬란한 문화와 역사는 바다를 건너 영원히 전해질 것이다.",
+                "nextNodeId": "vision_merge",
+                "reward": {
+                    "unlockFactId": "fact_seogi_history"
+                }
+            },
+            {
+                "id": "chiljido_story",
+                "speakerId": "geunchogo",
+                "emotion": "neutral",
+                "text": "호오, 눈썰미가 좋구나. 이것은 칠지도(七支刀)라 하네.\n일곱 개의 가지가 뻗어 나가는 형상이지.\n백제 왕실의 권위와, 우리가 왜왕에게 하사한 믿음의 징표다.\n이 검에는 \"백 번 단련한 강철로 만들었으니, 후세에 길이 전하라\"는 문구가 새겨져 있지.",
+                "choices": [
+                    {
+                        "id": "c_chiljido_meaning",
+                        "text": "왜왕에게 하사했다는 건 어떤 의미인가요?",
+                        "nextNodeId": "chiljido_meaning"
+                    }
+                ]
+            },
+            {
+                "id": "chiljido_meaning",
+                "speakerId": "geunchogo",
+                "emotion": "determined",
+                "text": "그것은 백제가 상국(上國)으로서 문물을 전수해 주는 위치에 있음을 의미하네.\n왜는 우리의 우수한 철기 기술과 문화를 갈망하고 있지.\n이 검은 단순한 무기가 아니라, 백제를 중심으로 한 동아시아의 질서를 상징하는 것이다.",
+                "nextNodeId": "vision_merge",
+                "reward": {
+                    "knowledgePoints": 50,
+                    "achievementId": "achievement_chiljido_discovery"
+                }
+            },
+            {
+                "id": "vision_merge",
+                "speakerId": "geunchogo",
+                "emotion": "neutral",
+                "text": "짐은 꿈을 꾼다. 대륙의 요서 지방부터 저 멀리 왜국까지...\n백제의 배들이 닿지 않는 곳이 없는 세상을.\n그대도 이 위대한 여정에 동참하지 않겠나?",
+                "choices": [
+                    {
+                        "id": "c_agree",
+                        "text": "대백제의 영광을 위해 함께하겠습니다!",
+                        "preview": "충성 맹세",
+                        "nextNodeId": "end_loyal",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    },
+                    {
+                        "id": "c_observe",
+                        "text": "백제의 앞날을 흥미롭게 지켜보겠습니다.",
+                        "preview": "중립적 관찰",
+                        "nextNodeId": "end_neutral",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_loyal",
+                "speakerId": "geunchogo",
+                "emotion": "happy",
+                "text": "든든하구나! 내 그대에게 특별히 백제 최고의 장인들을 소개해주지.\n앞으로도 자주 찾아와 지혜를 나누자꾸나.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockCharacterId": "character_geungusu"
+                }
+            },
+            {
+                "id": "end_neutral",
+                "speakerId": "geunchogo",
+                "emotion": "neutral",
+                "text": "좋다. 역사의 목격자가 되어주는 것만으로도 의미가 있지.\n백제가 어떻게 천하의 중심이 되는지, 그 두 눈으로 똑똑히 보게 될 것이다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 30
+                }
+            }
+        ]
+    },
+    {
+        "id": "kim_yushin_unification_01",
+        "characterId": "kim_yushin",
+        "title": "The Road to Unification",
+        "titleKorean": "삼국통일의 길",
+        "description": "황산벌 전투를 앞두고 김유신 장군과 함께 삼국통일의 대업과 화랑도 정신에 대해 논의합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_hwangsanbeol"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "kim_yushin",
+                "emotion": "determined",
+                "text": "결전의 날이 밝았다. 저 언덕 너머에 계백 장군의 결사대 5천이 버티고 있지.\n우리 5만 대군도 이미 네 번이나 물러났다. 하지만 다섯 번째는 다를 것이다.\n그대의 생각은 어떠한가?",
+                "choices": [
+                    {
+                        "id": "c1_tactics",
+                        "text": "적의 수가 적으니 포위 작전은 어떻습니까?",
+                        "preview": "전술 조언하기",
+                        "nextNodeId": "tactics_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_hwarang",
+                        "text": "화랑들의 사기가 하늘을 찌릅니다!",
+                        "preview": "화랑도 정신 언급",
+                        "nextNodeId": "hwarang_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_gwanchang",
+                        "text": "관창 화랑이 선봉에 서겠다 합니다...",
+                        "preview": "관창의 결의 전달",
+                        "nextNodeId": "sacrifice_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "tactics_branch",
+                "speakerId": "kim_yushin",
+                "emotion": "thoughtful",
+                "text": "좋은 생각이다. 허나 계백은 보통 장수가 아니야.\n죽기를 각오한 자들은 열 배의 적도 물리칠 수 있지.\n우리에게 필요한 것은 전술이 아니라... 그들보다 더 강한 결의다.",
+                "nextNodeId": "resolve_node"
+            },
+            {
+                "id": "hwarang_branch",
+                "speakerId": "kim_yushin",
+                "emotion": "happy",
+                "text": "그렇다! 화랑도의 세속오계를 기억하느냐?\n사군이충(事君以忠), 사친이효(事親以孝), 교우이신(交友以信),\n임전무퇴(臨戰無退), 살생유택(殺生有擇).\n특히 '임전무퇴'... 전장에 나서면 물러서지 않는다! 이것이 화랑의 정신이다.",
+                "nextNodeId": "resolve_node",
+                "reward": {
+                    "unlockFactId": "fact_sesokogye"
+                }
+            },
+            {
+                "id": "sacrifice_branch",
+                "speakerId": "kim_yushin",
+                "emotion": "sad",
+                "text": "관창이가... 겨우 열여섯 살이다.\n그 어린 나이에 죽음을 두려워하지 않다니...\n처음 돌격에서 사로잡혔으나, 계백이 그 어린 나이를 불쌍히 여겨 돌려보냈다.\n하지만 관창은 다시 돌격했고... 두 번째에는...",
+                "choices": [
+                    {
+                        "id": "c2_ask_result",
+                        "text": "... 어떻게 되었습니까?",
+                        "nextNodeId": "gwanchang_death",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "gwanchang_death",
+                "speakerId": "kim_yushin",
+                "emotion": "determined",
+                "text": "계백이 관창의 목을 베어 말안장에 매달아 보냈다.\n그 광경을 본 우리 군사들은... 모두 눈물을 흘리며 분노했다.\n\"관창의 원수를 갚자!\" 이 함성이 온 전장에 울려 퍼졌다.\n이제 우리 군대는 열 배가 아니라 백 배의 힘을 발휘할 것이다!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "resolve_node",
+                "speakerId": "kim_yushin",
+                "emotion": "neutral",
+                "text": "나는 어릴 때 중악 석굴에서 수련하며 신령으로부터 비법을 전수받았다.\n그때 깨달았지. 전쟁은 칼로만 하는 것이 아니라, 마음으로 하는 것이라고.\n오늘 황산벌에서 우리는 역사를 바꿀 것이다.",
+                "choices": [
+                    {
+                        "id": "c3_support",
+                        "text": "장군님을 따라 끝까지 싸우겠습니다!",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "kim_yushin",
+                "emotion": "determined",
+                "text": "좋다! 북을 울려라!\n오늘 백제는 멸망하고, 삼국통일의 첫 장이 열릴 것이다!\n그대도 역사의 한 페이지에 이름을 새기게 될 것이니, 함께 나아가자!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_baekje_fall",
+                    "achievementId": "achievement_hwangsanbeol"
+                }
+            }
+        ]
+    },
+    {
+        "id": "seondeok_cheomseongdae_01",
+        "characterId": "seondeok",
+        "title": "Queen Who Reads the Stars",
+        "titleKorean": "별을 읽는 여왕",
+        "description": "선덕여왕과 함께 첨성대의 의미, 여성 군주로서의 고뇌, 그리고 삼국통일을 향한 꿈에 대해 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_cheomseongdae"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "seondeok",
+                "emotion": "thoughtful",
+                "text": "그대가 먼 훗날에서 온 여행자인가?\n재미있군. 짐도 늘 먼 미래를 꿈꾸곤 한다네.\n저 첨성대를 보아라. 무엇이 보이느냐?",
+                "choices": [
+                    {
+                        "id": "c1_stars",
+                        "text": "별을 관측하는 천문대로 보입니다.",
+                        "preview": "과학적 기능 언급",
+                        "nextNodeId": "astronomy_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_symbol",
+                        "text": "신라의 위대함을 상징하는 건축물 같습니다.",
+                        "preview": "상징적 의미 언급",
+                        "nextNodeId": "symbol_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_question",
+                        "text": "여왕 폐하께서 직접 설계하셨나요?",
+                        "preview": "폐하의 역할 묻기",
+                        "nextNodeId": "queen_role_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "astronomy_branch",
+                "speakerId": "seondeok",
+                "emotion": "happy",
+                "text": "옳거니! 하늘의 움직임을 읽으면 때를 알 수 있지.\n농사의 때, 전쟁의 때, 그리고... 나라의 운명까지도.\n저 탑의 돌이 몇 개인 줄 아느냐? 362개. 일 년의 날수와 같다네.",
+                "nextNodeId": "wisdom_node"
+            },
+            {
+                "id": "symbol_branch",
+                "speakerId": "seondeok",
+                "emotion": "neutral",
+                "text": "그것도 맞는 말이다.\n고구려에는 광개토대왕릉비가 있고, 백제에는 칠지도가 있지.\n신라에도 후세에 전할 것이 필요했다. 우리의 지혜와 꿈을 담은 것 말이야.",
+                "nextNodeId": "wisdom_node"
+            },
+            {
+                "id": "queen_role_branch",
+                "speakerId": "seondeok",
+                "emotion": "thoughtful",
+                "text": "후훗... 여자가 왕이 되었다고 손가락질하는 자들이 많았지.\n그래서 더 증명해야 했다. 지혜로, 결과로 말이야.\n첨성대는 그 증거 중 하나일 뿐. 황룡사 9층 목탑도 있지 않느냐?",
+                "choices": [
+                    {
+                        "id": "c2_hwangnyongsa",
+                        "text": "황룡사 9층 목탑은 어떤 의미입니까?",
+                        "nextNodeId": "pagoda_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "pagoda_node",
+                "speakerId": "seondeok",
+                "emotion": "determined",
+                "text": "9층탑의 각 층은 신라를 위협하는 아홉 나라를 상징한다네.\n이 탑을 세우면 그들이 복종할 것이라 했지.\n물론 미신이라 할 수도 있겠으나... 백성들의 마음을 하나로 모으는 힘이 있다.\n통일의 염원, 그것이 탑에 담긴 진정한 의미야.",
+                "nextNodeId": "wisdom_node"
+            },
+            {
+                "id": "wisdom_node",
+                "speakerId": "seondeok",
+                "emotion": "neutral",
+                "text": "짐은 죽어도 도리천에 묻히고 싶다고 했다.\n낭산 위에 말이야. 그곳에서 영원히 신라를 지켜보리라.\n그대, 나의 바람이 이루어지는지... 그대의 시대에서는 어떻게 되었느냐?",
+                "choices": [
+                    {
+                        "id": "c3_positive",
+                        "text": "폐하의 꿈은 이루어졌습니다. 신라는 삼국을 통일했습니다.",
+                        "preview": "희망찬 미래 전달",
+                        "nextNodeId": "end_happy",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    },
+                    {
+                        "id": "c3_careful",
+                        "text": "역사의 흐름을 말씀드리기는 어렵습니다만...",
+                        "preview": "신중한 대답",
+                        "nextNodeId": "end_neutral",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_happy",
+                "speakerId": "seondeok",
+                "emotion": "happy",
+                "text": "정말인가! 그렇다면... 내 일생이 헛되지 않았구나.\n김춘추와 유신이를 믿은 보람이 있어.\n고맙다, 여행자여. 오늘 그대 덕분에 마음이 편해졌다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_seondeok_legacy"
+                }
+            },
+            {
+                "id": "end_neutral",
+                "speakerId": "seondeok",
+                "emotion": "neutral",
+                "text": "하하, 입이 무겁구나. 그래도 상관없다.\n미래를 모르기에 현재에 최선을 다하는 것.\n그것이 왕의 도리니까. 그대도 그렇게 살아가거라.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 30
+                }
+            }
+        ]
+    },
+    {
+        "id": "eulji_salsu_01",
+        "characterId": "eulji_mundeok",
+        "title": "The Battle of Salsu",
+        "titleKorean": "살수대첩",
+        "description": "수나라 113만 대군이 쳐들어왔다! 을지문덕 장군과 함께 청야전술과 심리전으로 적을 물리치는 전략을 논의합니다.",
+        "estimatedMinutes": 10,
+        "rewards": [
+            {
+                "knowledgePoints": 200,
+                "unlockFactId": "fact_salsu_battle"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "eulji_mundeok",
+                "emotion": "serious",
+                "text": "급보다! 수 양제가 백만 대군을 이끌고 요동으로 향하고 있다.\n전해 듣기론 병력이 113만에 달한다 하니... 역사상 이런 대군은 없었다.\n그대는 이 상황을 어찌 보느냐?",
+                "choices": [
+                    {
+                        "id": "c1_surrender",
+                        "text": "적의 수가 너무 많습니다... 항복해야 합니까?",
+                        "preview": "항복 제안",
+                        "nextNodeId": "strategy_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_fight",
+                        "text": "고구려 남아로서 죽음을 두려워하지 않습니다!",
+                        "preview": "결사항전 다짐",
+                        "nextNodeId": "spirit_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_tactics",
+                        "text": "장군의 전략은 무엇입니까?",
+                        "preview": "전략 질문",
+                        "nextNodeId": "cheongya_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "strategy_branch",
+                "speakerId": "eulji_mundeok",
+                "emotion": "determined",
+                "text": "하하, 그대는 싸움을 모르는구나.\n군사가 많다고 이기는 것이 아니다.\n저들은 수천 리 원정으로 지쳤고, 보급선은 끊어졌다.\n우리는 집에서 싸우고, 저들은 객지에서 싸운다.\n이 차이를 모르면 백만이 와도 패할 것이야.",
+                "nextNodeId": "cheongya_branch"
+            },
+            {
+                "id": "spirit_branch",
+                "speakerId": "eulji_mundeok",
+                "emotion": "happy",
+                "text": "좋다! 그 기개가 마음에 드는구나.\n고구려는 400년간 외적과 싸워 이긴 나라다.\n우리의 피에는 주몽 대왕 이래로 전사의 혼이 흐르고 있지.\n하지만 용맹만으로는 부족하다. 지략이 필요하다.",
+                "nextNodeId": "cheongya_branch"
+            },
+            {
+                "id": "cheongya_branch",
+                "speakerId": "eulji_mundeok",
+                "emotion": "thoughtful",
+                "text": "나의 전략은 '청야입벽(淸野入壁)'이다.\n들판을 깨끗이 비우고 성 안으로 들어가는 것.\n적에게 식량과 물자를 남기지 않으면, 저들은 스스로 굶어 죽을 것이다.\n그리고... 적장에게 한 수 가르쳐주어야겠군.",
+                "choices": [
+                    {
+                        "id": "c2_poem",
+                        "text": "적장에게 무엇을 가르치신다는 겁니까?",
+                        "nextNodeId": "poem_branch",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "poem_branch",
+                "speakerId": "eulji_mundeok",
+                "emotion": "neutral",
+                "text": "시를 한 수 보내려 한다. 자, 들어보아라.\n\n神策究天文 (그대의 신묘한 계책은 천문을 꿰뚫고)\n妙算窮地理 (오묘한 계산은 지리를 다 알았도다)\n戰勝功旣高 (싸움에 이겨 공이 이미 높으니)\n知足願云止 (만족할 줄 알아 이제 그만 돌아가시라)\n\n어떠냐? 칭찬인 것 같으면서... 비꼬는 것이지!",
+                "choices": [
+                    {
+                        "id": "c3_brilliant",
+                        "text": "대단한 심리전입니다! 적장이 분노하겠군요.",
+                        "nextNodeId": "final_battle",
+                        "reward": {
+                            "knowledgePoints": 25,
+                            "unlockFactId": "fact_yeosujang_poem"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "final_battle",
+                "speakerId": "eulji_mundeok",
+                "emotion": "determined",
+                "text": "수나라 우중문은 화가 나서 평양까지 쳐들어왔다.\n하지만 이미 보급이 끊겨 병사들은 굶주리고 있었지.\n그들이 살수(청천강)를 건너 후퇴할 때... 우리가 매복해 있다가 수문을 열었다!\n30만 대군 중 살아 돌아간 자는 고작 2,700명. 이것이 살수대첩이다!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_salsu_victory",
+                    "achievementId": "achievement_salsu"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jangsu_stele_01",
+        "characterId": "jangsu",
+        "title": "Father's Monument",
+        "titleKorean": "아버지의 비석",
+        "description": "장수왕과 함께 광개토대왕릉비 앞에서 아버지에 대한 회상과 고구려의 미래에 대해 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_stele"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jangsu",
+                "emotion": "thoughtful",
+                "text": "그대가 먼 훗날에서 온 여행자라 하였느냐?\n잘 왔다. 이 비석을 보아라. 6미터가 넘는 거대한 돌기둥이지.\n1,775자의 글자가 새겨져 있다. 내 아버지, 광개토대왕의 업적이다.",
+                "choices": [
+                    {
+                        "id": "c1_stele",
+                        "text": "비석에는 어떤 내용이 새겨져 있습니까?",
+                        "preview": "비문 내용 질문",
+                        "nextNodeId": "stele_content",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_father",
+                        "text": "아버지 광개토대왕은 어떤 분이셨나요?",
+                        "preview": "광개토대왕 회상",
+                        "nextNodeId": "father_memory",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_capital",
+                        "text": "왜 평양으로 천도하셨습니까?",
+                        "preview": "남진정책 질문",
+                        "nextNodeId": "capital_move",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "stele_content",
+                "speakerId": "jangsu",
+                "emotion": "neutral",
+                "text": "비문의 첫 구절은 이렇게 시작하지.\n'시조 추모왕(주몽)은 천제의 아들이요, 어머니는 하백의 딸이니...'\n우리 고구려가 하늘의 자손임을 선포한 것이다.\n그리고 아버지가 64성과 1,400촌을 정복한 기록이 담겨 있다.",
+                "nextNodeId": "yeongnak_node",
+                "reward": {
+                    "unlockFactId": "fact_stele_content"
+                }
+            },
+            {
+                "id": "father_memory",
+                "speakerId": "jangsu",
+                "emotion": "sad",
+                "text": "아버지는... 18세에 즉위하여 39세에 돌아가셨다.\n짧은 생애였지만, 그 누구보다 뜨겁게 사신 분이시다.\n'영락(永樂)'이라는 연호를 쓰셨지. 중국과 대등한 제국임을 선포한 것이다.\n나는 그 유지를 잇고자 이 비석을 세웠다.",
+                "nextNodeId": "yeongnak_node"
+            },
+            {
+                "id": "capital_move",
+                "speakerId": "jangsu",
+                "emotion": "determined",
+                "text": "국내성(지금의 집안)은 방어하기 좋지만, 너무 북쪽에 치우쳐 있었다.\n아버지께서 남쪽으로 영토를 넓히셨으니, 나는 그 땅을 다스리기 위해 평양으로 내려온 것이다.\n평양은 대동강이 흐르는 풍요로운 땅이다.\n여기서 백제와 신라를 압박할 것이다.",
+                "nextNodeId": "future_node"
+            },
+            {
+                "id": "yeongnak_node",
+                "speakerId": "jangsu",
+                "emotion": "neutral",
+                "text": "'영락(永樂)'... 영원한 즐거움이라는 뜻이지.\n독자적인 연호를 쓴다는 것은 천자(天子)가 되겠다는 선언이다.\n고구려는 중국의 속국이 아니라, 만주와 한반도를 아우르는 대제국이었다.",
+                "choices": [
+                    {
+                        "id": "c2_future",
+                        "text": "장수왕 폐하의 꿈은 무엇입니까?",
+                        "nextNodeId": "future_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "future_node",
+                "speakerId": "jangsu",
+                "emotion": "determined",
+                "text": "아버지께서 넓힌 영토를 지키고, 더 강한 고구려를 만드는 것이다.\n나는 이미 백제의 한성을 함락시켰다. 개로왕은 내 손에 죽었지.\n신라도 우리의 신하나 다름없다.\n언젠가 삼한을 통일하는 것... 그것이 아버지께서 못다 이룬 꿈이다.",
+                "choices": [
+                    {
+                        "id": "c3_longevity",
+                        "text": "97세까지 장수하신 비결이 있습니까?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jangsu",
+                "emotion": "happy",
+                "text": "하하! 장수의 비결을 묻는가?\n검소하게 살고, 백성을 사랑하며, 늘 내일을 생각하는 것이다.\n79년간 왕위에 있으면서 많은 것을 보았지.\n그대도 긴 삶을 살거라. 그리고 이 비석을 후세에 전해다오.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_jangsu_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gyebaek_last_stand_01",
+        "characterId": "gyebaek",
+        "title": "The Last Stand at Hwangsanbeol",
+        "titleKorean": "황산벌의 마지막 전투",
+        "description": "백제 멸망의 순간, 5천 결사대를 이끌고 5만 신라군에 맞선 계백 장군과 함께 비장한 마지막 전투를 경험합니다.",
+        "estimatedMinutes": 10,
+        "rewards": [
+            {
+                "knowledgePoints": 200,
+                "unlockFactId": "fact_hwangsanbeol"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "gyebaek",
+                "emotion": "sad",
+                "text": "... 그대인가.\n오늘이 마지막이 될 것이다. 저 언덕 너머에 신라의 5만 대군이 밀려오고 있다.\n내 손에는 5천 명의 결사대밖에 없지.\n하지만 물러설 수는 없다.",
+                "choices": [
+                    {
+                        "id": "c1_family",
+                        "text": "장군님, 가족분들은 어떻게 되셨습니까?",
+                        "preview": "가족 안부 묻기",
+                        "nextNodeId": "family_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_odds",
+                        "text": "5천으로 5만을 이길 수 있겠습니까?",
+                        "preview": "승산 질문",
+                        "nextNodeId": "odds_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_reason",
+                        "text": "왜 항복하지 않으십니까?",
+                        "preview": "항복 제안",
+                        "nextNodeId": "reason_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_why_5000",
+                        "text": "융성했던 백제가 왜 5천 명밖에 동원하지 못한 겁니까?",
+                        "preview": "병력 부족 이유",
+                        "nextNodeId": "why_5000_branch",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "family_branch",
+                "speakerId": "gyebaek",
+                "emotion": "sad",
+                "text": "...\n\n(긴 침묵)\n\n내가... 직접 보내주었다.\n아내와 자식들을. 내 손으로.",
+                "choices": [
+                    {
+                        "id": "c2_why",
+                        "text": "... 왜 그런 끔찍한 일을...",
+                        "nextNodeId": "reason_for_killing",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "reason_for_killing",
+                "speakerId": "gyebaek",
+                "emotion": "determined",
+                "text": "적에게 잡혀 치욕을 당하느니, 차라리 내 손으로 편히 보내주는 것이...\n그것이 내가 해줄 수 있는 마지막 사랑이었다.\n\n(눈물을 닦으며)\n\n울지 마라. 이것은 슬픔이 아니다.\n이것은 결의다. 이제 나는 죽음을 두려워하지 않는다.",
+                "nextNodeId": "battle_prep"
+            },
+            {
+                "id": "why_5000_branch",
+                "speakerId": "gyebaek",
+                "emotion": "sad",
+                "text": "그것을 묻는가...\n\n백제는 한때 강성했다. 근초고왕 시절에는 고구려를 압도했고, 무령왕 때는 다시 일어섰지.\n하지만 지금은... 모든 것이 무너졌다.\n\n의자왕 폐하께서 신하들의 충언을 듣지 않으셨다. 성충 장군이 죽음을 앞두고 간언을 올렸건만, 귀담아듣지 않으셨어.\n귀족들은 서로 권력 다툼만 했고, 백성들의 마음은 이미 떠났다.",
+                "choices": [
+                    {
+                        "id": "c1_more_why",
+                        "text": "그래도 5천 명은 너무 적지 않습니까?",
+                        "nextNodeId": "why_5000_detail",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "why_5000_detail",
+                "speakerId": "gyebaek",
+                "emotion": "determined",
+                "text": "사비성에는 더 많은 군사가 있다. 하지만 성을 지켜야 하니 빼올 수가 없지.\n각 지방의 군사들? 나당연합군이 바다와 육지로 동시에 쳐들어오니, 모이기도 전에 끊겼다.\n\n(쓸쓸히 웃으며)\n\n그리고... 솔직히 말하면, 이 싸움에 목숨을 걸 자가 5천 명뿐인 것이다.\n나머지는 이미 포기했거나, 도망쳤거나, 아니면 내통하고 있겠지.\n\n이 5천 명은... 진심으로 백제를 사랑하는 마지막 충신들이야.",
+                "nextNodeId": "battle_prep"
+            },
+            {
+                "id": "odds_branch",
+                "speakerId": "gyebaek",
+                "emotion": "neutral",
+                "text": "이길 수 있다고 생각하느냐고?\n이기지 못할 것이다. 나도 안다.\n\n하지만 백제 남아로 태어나서, 나라가 망하는 것을 가만히 보고만 있을 수는 없다.\n10:1의 싸움이라도 해야 한다. 그래야 역사가 기억할 것이다.",
+                "nextNodeId": "battle_prep"
+            },
+            {
+                "id": "reason_branch",
+                "speakerId": "gyebaek",
+                "emotion": "determined",
+                "text": "항복? 하하...\n내가 항복하면 백제는 완전히 끝난다.\n우리가 끝까지 싸우면, 후세 사람들이 알 것이다.\n백제가 비겁하게 무너진 것이 아니라, 끝까지 싸우다 쓰러졌다는 것을.\n\n그것만으로도 싸울 가치가 있다.",
+                "nextNodeId": "battle_prep"
+            },
+            {
+                "id": "battle_prep",
+                "speakerId": "gyebaek",
+                "emotion": "determined",
+                "text": "자, 곧 전투가 시작된다.\n우리 5천 결사대는 네 번이나 저 5만 대군을 물리쳤다.\n죽음을 각오한 자는 강하다. 열 배의 적도 두렵지 않지.\n\n그런데... 저기 어린 화랑이 말을 타고 돌격해 오는구나.",
+                "choices": [
+                    {
+                        "id": "c3_gwanchang",
+                        "text": "저 어린 화랑이 누구입니까?",
+                        "nextNodeId": "gwanchang_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "gwanchang_node",
+                "speakerId": "gyebaek",
+                "emotion": "sad",
+                "text": "이름이 관창이라 했다. 겨우 열여섯 살이라 했는데...\n처음 사로잡았을 때, 그 어린 나이가 불쌍해서 살려 보냈다.\n\n하지만 그 아이는 다시 돌격해 왔다.\n두 번째에는... 내가 목을 베어야 했다.\n\n그 아이의 눈빛을 잊을 수가 없다.\n적이지만... 존경스럽다.",
+                "nextNodeId": "final_battle"
+            },
+            {
+                "id": "final_battle",
+                "speakerId": "gyebaek",
+                "emotion": "determined",
+                "text": "관창의 죽음 이후, 신라군의 사기가 하늘을 찔렀다.\n'관창의 원수를 갚자!' 그 함성이 온 전장에 울려 퍼졌지.\n\n우리는 결국 패했다. 하지만 비겁하게 도망치지는 않았다.\n\n그대... 훗날 사람들에게 전해다오.\n백제가 어떻게 끝까지 싸웠는지를.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_gyebaek_legacy",
+                    "achievementId": "achievement_hwangsanbeol"
+                }
+            }
+        ]
+    },
+    {
+        "id": "uija_last_night_01",
+        "characterId": "uija",
+        "title": "The Last Night of Baekje",
+        "titleKorean": "백제 마지막 밤",
+        "description": "나당연합군이 쳐들어오는 가운데, 사비성 궁궐에서 의자왕과 함께 백제의 마지막 밤을 보냅니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_uija"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "uija",
+                "emotion": "neutral",
+                "text": "오... 그대인가. 들어오게.\n밖에서 소란스러운 소리가 들리지 않느냐?\n나당연합군 13만이 쳐들어오고 있다네.\n\n(술잔을 들며)\n\n그래도 오늘 밤은 마지막 연회라도 해야겠지.",
+                "choices": [
+                    {
+                        "id": "c1_warn",
+                        "text": "폐하, 적이 쳐들어오는데 연회라니요!",
+                        "preview": "경고",
+                        "nextNodeId": "escapism_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_past",
+                        "text": "해동증자라 불리셨던 폐하께서 어쩌다...",
+                        "preview": "과거 회상",
+                        "nextNodeId": "past_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_gyebaek",
+                        "text": "계백 장군은 어떻게 되었습니까?",
+                        "preview": "계백 안부",
+                        "nextNodeId": "gyebaek_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "escapism_branch",
+                "speakerId": "uija",
+                "emotion": "sad",
+                "text": "알고 있다... 다 알고 있어.\n계백이 5천 결사대로 막으러 갔지만, 5만 대군을 어찌 막겠나.\n\n나도 젊었을 때는 용맹했다.\n의자(義慈)라는 이름처럼 의롭고 자비로웠지.\n그런데 어디서부터 잘못된 걸까...",
+                "nextNodeId": "regret_node"
+            },
+            {
+                "id": "past_branch",
+                "speakerId": "uija",
+                "emotion": "thoughtful",
+                "text": "해동증자(海東曾子)... 동쪽 바다의 증자라.\n젊었을 때 나는 효성이 깊어 그런 별명을 얻었다네.\n\n즉위 초에는 신라의 40여 성을 빼앗고, 대야성도 함락시켰다.\n그때만 해도 백제가 삼한을 통일할 줄 알았는데...\n\n(한숨)\n\n언제부터 이렇게 되었을까.",
+                "nextNodeId": "regret_node"
+            },
+            {
+                "id": "gyebaek_branch",
+                "speakerId": "uija",
+                "emotion": "sad",
+                "text": "계백이 말이냐...\n출정 전에 나를 찾아와 이렇게 말했다.\n\n'폐하, 저는 돌아오지 못할 것입니다.\n하지만 백제의 이름을 더럽히지는 않겠습니다.'\n\n...\n\n그 충신을 죽음으로 내몬 것은 바로 나다.",
+                "nextNodeId": "regret_node"
+            },
+            {
+                "id": "regret_node",
+                "speakerId": "uija",
+                "emotion": "sad",
+                "text": "사치와 향락에 빠졌다고들 하더군.\n내가 술과 여색에 빠져 나라를 망쳤다고.\n\n틀린 말도 아니야. 신하들의 충언을 듣지 않았으니.\n성충이 죽으면서까지 올린 상소도 무시했지.",
+                "choices": [
+                    {
+                        "id": "c2_nakhwaam",
+                        "text": "낙화암의 궁녀들은 어찌 되었습니까?",
+                        "nextNodeId": "nakhwaam_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "nakhwaam_node",
+                "speakerId": "uija",
+                "emotion": "sad",
+                "text": "...\n\n(긴 침묵)\n\n낙화암... 꽃이 떨어지는 바위라.\n3천 궁녀가... 적에게 욕보이느니 차라리...\n백마강에 몸을 던졌다고 하더군.\n\n그 책임이 누구에게 있겠느냐.\n나다. 모두 내 탓이다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "uija",
+                "emotion": "sad",
+                "text": "나는 곧 당나라로 끌려갈 것이다.\n그곳에서 죽게 되겠지.\n\n그대... 훗날 사람들에게 전해다오.\n백제가 망한 것은 적이 강해서가 아니라...\n왕이 어리석어서였다고.\n\n다시는 이런 어리석은 왕이 나오지 않도록.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_baekje_fall"
+                }
+            }
+        ]
+    }
+]

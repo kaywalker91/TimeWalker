@@ -130,6 +130,29 @@ class Quiz extends Equatable {
     );
   }
 
+  factory Quiz.fromJson(Map<String, dynamic> json) {
+    return Quiz(
+      id: json['id'] as String,
+      question: json['question'] as String,
+      type: QuizType.values.firstWhere(
+        (e) => e.name == (json['type'] as String),
+        orElse: () => QuizType.multipleChoice,
+      ),
+      difficulty: QuizDifficulty.values.firstWhere(
+        (e) => e.name == (json['difficulty'] as String),
+        orElse: () => QuizDifficulty.medium,
+      ),
+      options: List<String>.from(json['options'] as List? ?? []),
+      correctAnswer: json['correctAnswer'] as String,
+      explanation: json['explanation'] as String,
+      imageAsset: json['imageAsset'] as String?,
+      eraId: json['eraId'] as String,
+      relatedFactId: json['relatedFactId'] as String?,
+      basePoints: json['basePoints'] as int? ?? 10,
+      timeLimitSeconds: json['timeLimitSeconds'] as int? ?? 30,
+    );
+  }
+
   /// 획득 가능 포인트 (난이도 보너스 포함)
   int get maxPoints => basePoints * difficulty.pointMultiplier;
 
@@ -274,74 +297,4 @@ class QuizSession extends Equatable {
     startedAt,
     completedAt,
   ];
-}
-
-/// 기본 퀴즈 데이터 (MVP)
-class QuizData {
-  QuizData._();
-
-  static const Quiz sejongHangul = Quiz(
-    id: 'sejong_hangul_01',
-    question: '세종대왕이 훈민정음을 반포한 해는?',
-    type: QuizType.multipleChoice,
-    difficulty: QuizDifficulty.easy,
-    options: ['1443년', '1446년', '1450년', '1455년'],
-    correctAnswer: '1446년',
-    explanation:
-        '훈민정음은 1443년에 창제되었고, 1446년 음력 9월에 반포되었습니다. '
-        '이를 기념하여 양력 10월 9일을 한글날로 지정하였습니다.',
-    eraId: 'korea_joseon',
-    relatedFactId: 'hunminjeongeum',
-    basePoints: 10,
-    timeLimitSeconds: 20,
-  );
-
-  static const Quiz yiSunSinBattle = Quiz(
-    id: 'yi_sun_sin_01',
-    question: '이순신 장군이 12척의 배로 133척의 왜선을 물리친 해전은?',
-    type: QuizType.multipleChoice,
-    difficulty: QuizDifficulty.medium,
-    options: ['한산도대첩', '명량해전', '노량해전', '옥포해전'],
-    correctAnswer: '명량해전',
-    explanation:
-        '1597년 명량해전에서 이순신 장군은 단 12척의 배로 133척의 왜선을 '
-        '물리치는 세계 해전 역사상 가장 위대한 승리를 거두었습니다.',
-    eraId: 'korea_joseon',
-    relatedFactId: 'myeongryang_battle',
-    basePoints: 10,
-    timeLimitSeconds: 25,
-  );
-
-  static const Quiz gwanggaetoTF = Quiz(
-    id: 'gwanggaeto_tf_01',
-    question: '광개토대왕은 백제를 정복하고 고구려의 영토를 최대로 넓혔다.',
-    type: QuizType.trueFalse,
-    difficulty: QuizDifficulty.easy,
-    options: ['O', 'X'],
-    correctAnswer: 'O',
-    explanation:
-        '광개토대왕은 18세에 즉위하여 64개의 성과 1,400개의 촌락을 정복하며 '
-        '고구려 역사상 최대의 영토를 확보하였습니다.',
-    eraId: 'korea_three_kingdoms',
-    basePoints: 10,
-    timeLimitSeconds: 15,
-  );
-
-  static List<Quiz> get all => [sejongHangul, yiSunSinBattle, gwanggaetoTF];
-
-  static List<Quiz> getByEra(String eraId) {
-    return all.where((q) => q.eraId == eraId).toList();
-  }
-
-  static List<Quiz> getByDifficulty(QuizDifficulty difficulty) {
-    return all.where((q) => q.difficulty == difficulty).toList();
-  }
-
-  static Quiz? getById(String id) {
-    try {
-      return all.firstWhere((q) => q.id == id);
-    } catch (_) {
-      return null;
-    }
-  }
 }

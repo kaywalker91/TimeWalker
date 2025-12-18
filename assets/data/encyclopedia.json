@@ -1,0 +1,539 @@
+[
+  {
+    "id": "fact_hangul_origin",
+    "type": "event",
+    "title": "Creation of Hangul",
+    "titleKorean": "훈민정음 창제",
+    "summary": "세종대왕이 백성을 위해 새로운 문자를 만들어 반포한 역사적 사건",
+    "content": "1446년 음력 9월, 세종대왕은 집현전 학자들과 함께 만든 새로운 문자 훈민정음을 세상에 반포하였다. '백성을 가르치는 바른 소리'라는 뜻을 가진 이 문자는 누구나 쉽게 배울 수 있도록 과학적 원리에 기반하여 만들어졌다. 오늘날 한글의 시초가 된 이 위대한 문자는 유네스코 세계기록유산으로 등재되어 그 가치를 전 세계적으로 인정받고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hunminjeongeum.png",
+    "imageAsset": "assets/images/encyclopedia/hunminjeongeum_detail.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "jiphyeonjeon",
+      "choe_manri"
+    ],
+    "tags": [
+      "한글",
+      "세종대왕",
+      "문자",
+      "1446년"
+    ]
+  },
+  {
+    "id": "fact_hangul_creation",
+    "type": "event",
+    "title": "Hangul Proclamation",
+    "titleKorean": "훈민정음 반포",
+    "summary": "훈민정음이 완성되어 세상에 널리 알려지다",
+    "content": "세종 28년(1446), 훈민정음 해례본이 완성되어 반포되었다. 이는 창제 원리를 해설한 책으로, 한글이 독창적이고 과학적인 문자임을 증명한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hunminjeongeum_haerye.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_hangul_origin"
+    ],
+    "tags": [
+      "훈민정음",
+      "해례본"
+    ]
+  },
+  {
+    "id": "fact_imjin_war",
+    "type": "event",
+    "title": "Japanese Invasions of Korea",
+    "titleKorean": "임진왜란",
+    "summary": "1592년 일본의 조선 침략으로 시작된 7년간의 전쟁",
+    "content": "1592년 4월, 도요토미 히데요시가 이끄는 일본군 15만 명이 조선을 침략하면서 시작된 전쟁. 불과 20일 만에 한양이 함락되는 등 위기에 처했으나, 이순신 장군의 해전 승리와 전국 각지의 의병 활동으로 전세를 역전시켰다. 1598년 일본군이 철수할 때까지 7년간 이어진 이 전쟁으로 조선은 큰 피해를 입었지만, 민족의 저항 정신을 보여준 역사적 사건으로 기억되고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/imjin_war.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "geobukseon",
+      "hansando_battle"
+    ],
+    "tags": [
+      "임진왜란",
+      "이순신",
+      "1592년",
+      "전쟁"
+    ]
+  },
+  {
+    "id": "gyeongbokgung",
+    "type": "location",
+    "title": "Gyeongbokgung Palace",
+    "titleKorean": "경복궁",
+    "summary": "조선 왕조의 법궁(法宮), 서울의 중심에 자리한 조선 최대의 궁궐",
+    "content": "1395년 태조 이성계가 조선 건국 후 처음으로 세운 궁궐로, '큰 복을 누리라'는 의미를 담고 있다. 근정전, 경회루, 향원정 등 아름다운 건축물들이 있으며, 조선 500년 역사와 함께해온 상징적인 장소이다. 임진왜란 때 불타 270년간 폐허로 남았다가 고종 때 중건되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gyeongbokgung.png",
+    "imageAsset": "assets/images/encyclopedia/gyeongbokgung_detail.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_joseon_founding"
+    ],
+    "tags": [
+      "궁궐",
+      "서울",
+      "조선",
+      "유네스코"
+    ]
+  },
+  {
+    "id": "geobukseon",
+    "type": "artifact",
+    "title": "Geobukseon (Turtle Ship)",
+    "titleKorean": "거북선",
+    "summary": "이순신 장군이 설계한 세계 최초의 철갑선",
+    "content": "임진왜란 당시 이순신 장군이 고안한 조선 수군의 주력 전함. 철로 덮인 뾰족한 등판과 용머리 형상의 뱃머리가 특징으로, 적의 총탄과 화살을 막아내며 근접 백병전을 방지했다. 양쪽에 노와 포가 장착되어 있어 기동성과 화력을 겸비한 혁신적인 전함이었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/geobukseon.png",
+    "imageAsset": "assets/images/encyclopedia/geobukseon_detail.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "fact_imjin_war",
+      "fact_getting_victory"
+    ],
+    "tags": [
+      "거북선",
+      "이순신",
+      "임진왜란",
+      "전함"
+    ]
+  },
+  {
+    "id": "fact_gwanggaeto_conquest",
+    "type": "event",
+    "title": "Gwanggaeto's Conquest",
+    "titleKorean": "광개토대왕의 정복 전쟁",
+    "summary": "고구려의 영토를 최대로 확장한 정복 사업",
+    "content": "광개토대왕은 즉위 후 백제, 거란, 후연, 동부여 등을 잇달아 정복하여 고구려의 영토를 만주 전역과 한반도 중부까지 확장했다. 그의 업적은 아들 장수왕이 세운 광개토대왕릉비에 자세히 기록되어 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gwanggaeto_conquest.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "gwanggaeto",
+      "goguryeo_palace"
+    ],
+    "tags": [
+      "고구려",
+      "정복",
+      "광개토대왕릉비"
+    ]
+  },
+  {
+    "id": "fact_baekje_apex",
+    "type": "event",
+    "title": "Baekje's Peak",
+    "titleKorean": "백제의 전성기",
+    "summary": "근초고왕 시기 백제가 한반도 중부와 서해를 장악하다",
+    "content": "4세기 근초고왕 때 백제는 마한의 잔여 세력을 정복하고 고구려의 평양성을 공격하여 황해도 일대까지 진출했다. 또한 중국의 동진, 왜와 활발히 교류하며 해상 왕국으로서의 위상을 떨쳤다.",
+    "thumbnailAsset": "assets/images/encyclopedia/baekje_apex.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "geunchogo",
+      "wiryeseong",
+      "achievement_chiljido_discovery"
+    ],
+    "tags": [
+      "백제",
+      "근초고왕",
+      "해상왕국"
+    ]
+  },
+  {
+    "id": "achievement_chiljido_discovery",
+    "type": "artifact",
+    "title": "Seven-Branched Sword",
+    "titleKorean": "칠지도",
+    "summary": "백제 근초고왕이 왜왕에게 하사한 검",
+    "content": "칠지도는 일곱 개의 가지가 달린 칼이라는 뜻이다. 백제와 왜의 친밀한 외교 관계를 보여주는 유물로, 칼에 새겨진 글씨를 통해 백제가 왜에게 하사했음을 알 수 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/chiljido.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "geunchogo",
+      "fact_baekje_apex"
+    ],
+    "tags": [
+      "칠지도",
+      "백제",
+      "외교"
+    ]
+  },
+  {
+    "id": "fact_seogi_history",
+    "type": "term",
+    "title": "Seogi (Historical Record)",
+    "titleKorean": "서기(서책)",
+    "summary": "백제 박사 고흥이 편찬한 역사서",
+    "content": "근초고왕 때 박사 고흥이 백제의 역사를 정리하여 쓴 책이다. 현재는 전해지지 않으나, 백제가 역사 기록을 중시할 만큼 문화적으로 성숙했음을 보여준다.",
+    "thumbnailAsset": "assets/images/encyclopedia/seogi.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "geunchogo"
+    ],
+    "tags": [
+      "백제",
+      "역사서",
+      "고흥"
+    ]
+  },
+  {
+    "id": "encyclo_char_Q61073",
+    "type": "character",
+    "title": "제바스티안 뮌스터",
+    "titleKorean": "제바스티안 뮌스터",
+    "summary": "German cartographer, cosmographer, and scholar (1488–1552)",
+    "content": "제바스티안 뮌스터은(는) German cartographer, cosmographer, and scholar (1488–1552)로 알려진 르네상스 시대의 중요 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 직업: German cartographer, cosmographer, and scholar\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/sebastian_munster.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Christoph%20Amberger%20-%20Der%20Kosmograph%20Sebastian%20M%C3%BCnster%20%281552%29.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q3595755",
+    "type": "character",
+    "title": "제하데바",
+    "titleKorean": "제하데바",
+    "summary": "Indian scientist",
+    "content": "제하데바은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Pages%20from%20Yuktibhasa.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q77962",
+    "type": "character",
+    "title": "야코프 밀리히",
+    "titleKorean": "야코프 밀리히",
+    "summary": "독일 천문학자",
+    "content": "야코프 밀리히은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Jacob%20Milich.%20Line%20engraving%20by%20T.%20de%20Bry%2C%201650.%20Wellcome%20V0004012.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q1698608",
+    "type": "character",
+    "title": "Johannes Werner von Zimmern der Jüngere",
+    "titleKorean": "Johannes Werner von Zimmern der Jüngere",
+    "summary": "(1480-1549)",
+    "content": "Johannes Werner von Zimmern der Jüngere은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q115752",
+    "type": "character",
+    "title": "한스 아스퍼",
+    "titleKorean": "한스 아스퍼",
+    "summary": "Swiss artist (1499-1571)",
+    "content": "한스 아스퍼은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Asper.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q1698608",
+    "type": "character",
+    "title": "Johannes Werner von Zimmern der Jüngere",
+    "titleKorean": "Johannes Werner von Zimmern der Jüngere",
+    "summary": "(1480-1549)",
+    "content": "Johannes Werner von Zimmern der Jüngere은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q128027",
+    "type": "character",
+    "title": "조르조 바사리",
+    "titleKorean": "조르조 바사리",
+    "summary": "이탈리아 르네상스 시대의 화가",
+    "content": "조르조 바사리은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Zucchi%2C%20Jacopo%20-%20Vasari%2C%20Giorgio%20-%20Uffizi%20ICCD.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q92506",
+    "type": "character",
+    "title": "Johann Carion",
+    "titleKorean": "Johann Carion",
+    "summary": "German astrologer and historical writer",
+    "content": "Johann Carion은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Johann-Carion.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q9319",
+    "type": "character",
+    "title": "틴토레토",
+    "titleKorean": "틴토레토",
+    "summary": "Renaissance painter (1518/1519–1594)",
+    "content": "틴토레토은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Tintoretto%20-%20Self-Portrait%20as%20a%20Young%20Man%2C%20ca.%201548%2C%20CAI.103%20%28cropped%29.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q3290048",
+    "type": "character",
+    "title": "Marco Aurel",
+    "titleKorean": "Marco Aurel",
+    "summary": "Spanish mathematician",
+    "content": "Marco Aurel은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Arithmetica%20Algebratica%20%281552%29%20de%20Marco%20Aurel.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q48319",
+    "type": "character",
+    "title": "한스 홀바인",
+    "titleKorean": "한스 홀바인",
+    "summary": "독일의 화가 (1497-1543)",
+    "content": "한스 홀바인은(는) 독일의 화가 (1497-1543)로 알려진 르네상스 시대의 중요 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 직업: 독일의 화가\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Holbein%20the%20Younger%2C%20self-portrait.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q7799",
+    "type": "character",
+    "title": "Bramantino",
+    "titleKorean": "Bramantino",
+    "summary": "Italian painter and architect (1465-1530)",
+    "content": "Bramantino은(는) Italian painter and architect (1465-1530)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian painter and architect (1465-1530)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Bram0.5.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q7803",
+    "type": "character",
+    "title": "브론치노",
+    "titleKorean": "브론치노",
+    "summary": "Italian Mannerist painter (1503-1572)",
+    "content": "브론치노은(는) Italian Mannerist painter (1503-1572)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian Mannerist painter (1503-1572)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Allori%2C%20santissima%20trinit%C3%A0%2C%201567-1571%20circa%2C%20ritratto%20dei%20maestri%2C%20bronzino%20%28cropped%29.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q176694",
+    "type": "character",
+    "title": "Antonis Mor",
+    "titleKorean": "Antonis Mor",
+    "summary": "painter from the Northern Netherlands (1519–1575)",
+    "content": "Antonis Mor은(는) painter from the Northern Netherlands (1519–1575)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: painter from the Northern Netherlands (1519–1575)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q176694",
+    "type": "character",
+    "title": "Antonis Mor",
+    "titleKorean": "Antonis Mor",
+    "summary": "painter from the Northern Netherlands (1519–1575)",
+    "content": "Antonis Mor은(는) painter from the Northern Netherlands (1519–1575)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: painter from the Northern Netherlands (1519–1575)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q18945277",
+    "type": "character",
+    "title": "Francesco Feliciano",
+    "titleKorean": "Francesco Feliciano",
+    "summary": "Italian mathematician",
+    "content": "Francesco Feliciano은(는) Italian mathematician로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian mathematician\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Feliciano%20-%20Libro%20di%20arithmetica%20%26%20geometria%20speculativa%20%26%20praticale%2C%20s.%20d.%20-%20130212.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q948156",
+    "type": "character",
+    "title": "Guillaume Postel",
+    "titleKorean": "Guillaume Postel",
+    "summary": "French linguist, astronomer, diplomat and professor (1510–1581)",
+    "content": "Guillaume Postel은(는) French linguist, astronomer, diplomat and professor (1510–1581)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: French linguist, astronomer, diplomat and professor (1510–1581)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q948156",
+    "type": "character",
+    "title": "Guillaume Postel",
+    "titleKorean": "Guillaume Postel",
+    "summary": "French linguist, astronomer, diplomat and professor (1510–1581)",
+    "content": "Guillaume Postel은(는) French linguist, astronomer, diplomat and professor (1510–1581)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: French linguist, astronomer, diplomat and professor (1510–1581)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q20056524",
+    "type": "character",
+    "title": "Filippo Calandri",
+    "titleKorean": "Filippo Calandri",
+    "summary": "Florentine mathematician",
+    "content": "Filippo Calandri은(는) Florentine mathematician로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Florentine mathematician\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Calandri%20-%20Aritmetica%2C%201491-1492%20-%203867066.tif",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q8459",
+    "type": "character",
+    "title": "조르조네",
+    "titleKorean": "조르조네",
+    "summary": "Venetian Renaissance painter (1478–1510)",
+    "content": "조르조네은(는) Venetian Renaissance painter (1478–1510)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Venetian Renaissance painter (1478–1510)\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgione%20059.jpg",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  },
+  {
+    "id": "encyclo_char_Q1029331",
+    "type": "character",
+    "title": "Camillo Agrippa",
+    "titleKorean": "Camillo Agrippa",
+    "summary": "Italian engineer",
+    "content": "Camillo Agrippa은(는) Italian engineer로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian engineer\n\n(위키데이터 기반 자동 생성)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20aggripa%20port.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [],
+    "tags": [
+      "르네상스",
+      "위인"
+    ],
+    "isDiscovered": false
+  }
+]

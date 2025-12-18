@@ -1,35 +1,52 @@
-import 'package:time_walker/data/datasources/dialogue_data.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/repositories/dialogue_repository.dart';
 
 class MockDialogueRepository implements DialogueRepository {
-  final List<Dialogue> _dialogues = [...DialogueData.all];
+  List<Dialogue> _dialogues = [];
   // Simple in-memory storage for progress (reset on restart)
   final Map<String, DialogueProgress> _progressMap = {};
+  bool _isLoaded = false;
+
+  Future<void> _ensureLoaded() async {
+    if (_isLoaded) return;
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/dialogues.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      _dialogues = jsonList.map((e) => Dialogue.fromJson(e)).toList();
+      _isLoaded = true;
+    } catch (e) {
+      // Fallback/Empty or Log error
+      _dialogues = [];
+    }
+  }
 
   @override
   Future<List<Dialogue>> getAllDialogues() async {
-    await Future.delayed(const Duration(milliseconds: 200));
+    await _ensureLoaded();
     return _dialogues;
   }
 
   @override
   Future<List<Dialogue>> getDialoguesByEra(String eraId) async {
-    await Future.delayed(const Duration(milliseconds: 200));
-    // In a real DB, we'd join Character tables. Here we assume we filter somehow or return all for now.
-    // Simplifying: Return all for MVP as we only have Sejong/Joseon data
+    await _ensureLoaded();
+    // In a real DB, we'd join Character tables. Here we return all for now or filter if we had eraId on dialogue.
+    // Ideally, we should fetch characters of the era, then fetch dialogues for those characters.
+    // But for MVP simplicity and given the interface, returning all or filtering by logic elsewhere.
+    // Let's rely on getDialoguesByCharacter usually.
     return _dialogues;
   }
 
   @override
   Future<List<Dialogue>> getDialoguesByCharacter(String characterId) async {
-    await Future.delayed(const Duration(milliseconds: 100));
+    await _ensureLoaded();
     return _dialogues.where((d) => d.characterId == characterId).toList();
   }
 
   @override
   Future<Dialogue?> getDialogueById(String id) async {
-    await Future.delayed(const Duration(milliseconds: 100));
+    await _ensureLoaded();
     try {
       return _dialogues.firstWhere((d) => d.id == id);
     } catch (_) {

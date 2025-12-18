@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/presentation/widgets/tutorial_overlay.dart';
 
 class EraExplorationScreen extends ConsumerWidget {
   final String eraId;
@@ -16,6 +19,7 @@ class EraExplorationScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final eraAsync = ref.watch(eraByIdProvider(eraId));
     final locationsAsync = ref.watch(locationListByEraProvider(eraId));
+    final userProgressAsync = ref.watch(userProgressProvider);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -24,7 +28,7 @@ class EraExplorationScreen extends ConsumerWidget {
         elevation: 0,
         title: eraAsync.when(
           data: (era) => Text(
-            era?.nameKorean ?? 'Exploration',
+            era?.nameKorean ?? AppLocalizations.of(context)!.exploration_title_default,
             style: const TextStyle(
               shadows: [
                 Shadow(
@@ -64,14 +68,35 @@ class EraExplorationScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => Center(child: Text('Error: $err')),
         data: (era) {
-          if (era == null) return const Center(child: Text('Era not found'));
+          if (era == null) return Center(child: Text(AppLocalizations.of(context)!.exploration_era_not_found));
 
           return locationsAsync.when(
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (err, stack) =>
-                Center(child: Text('Error loading locations: $err')),
-            data: (locations) =>
-                _buildExplorationView(context, ref, era, locations),
+                Center(child: Text(AppLocalizations.of(context)!.exploration_location_error(err.toString()))),
+            data: (locations) {
+              return userProgressAsync.when(
+                data: (userProgress) {
+                  final showTutorial = !userProgress.hasCompletedTutorial;
+                  final content = _buildExplorationView(context, ref, era, locations);
+
+                  if (showTutorial) {
+                    return TutorialOverlay(
+                      message: AppLocalizations.of(context)!.exploration_tutorial_msg,
+                      onDismiss: () async {
+                        final newProgress = userProgress.copyWith(hasCompletedTutorial: true);
+                        await ref.read(userProgressRepositoryProvider).saveUserProgress(newProgress);
+                        ref.invalidate(userProgressProvider);
+                      },
+                      child: content,
+                    );
+                  }
+                  return content;
+                },
+                loading: () => const Center(child: CircularProgressIndicator()),
+                error: (_, __) => const Center(child: Text('Error loading progress')),
+              );
+            },
           );
         },
       ),
@@ -84,8 +109,9 @@ class EraExplorationScreen extends ConsumerWidget {
     Era era,
     List<Location> locations,
   ) {
+    final responsive = context.responsive;
+    
     return LayoutBuilder(
-
       builder: (context, constraints) {
         final screenW = constraints.maxWidth;
         final screenH = constraints.maxHeight;
@@ -93,19 +119,18 @@ class EraExplorationScreen extends ConsumerWidget {
         final mapWidth = screenW * 2.5;
         final mapHeight = screenH * 1.2;
 
-        // Center calculation:
-        // Target map coordinate: x=0.5 (center), y=0.6 (slightly lower for peninsula)
-        // Screen center: screenW/2, screenH/2
-        // Offset X = screenW/2 - (0.5 * mapWidth)
-        // Offset Y = screenH/2 - (0.6 * mapHeight)
-        
         final double initialX = (screenW / 2) - (0.5 * mapWidth);
         final double initialY = (screenH / 2) - (0.6 * mapHeight);
 
         final TransformationController transformationController =
             TransformationController(
-          Matrix4.identity()..translate(initialX, initialY),
+          Matrix4.identity()..setTranslationRaw(initialX, initialY, 0),
         );
+
+        // Responsive marker size
+        final markerSize = responsive.markerSize(50);
+        final hudPadding = responsive.padding(20);
+        final hudBottom = responsive.spacing(40);
 
         return Stack(
           children: [
@@ -115,8 +140,7 @@ class EraExplorationScreen extends ConsumerWidget {
               minScale: 0.5,
               maxScale: 3.0,
               constrained: false,
-              boundaryMargin:
-                  const EdgeInsets.all(300), 
+              boundaryMargin: const EdgeInsets.all(300),
               child: SizedBox(
                 width: mapWidth,
                 height: mapHeight,
@@ -131,7 +155,7 @@ class EraExplorationScreen extends ConsumerWidget {
                             image: AssetImage(era.backgroundAsset),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.3),
+                              Colors.black.withValues(alpha: 0.3),
                               BlendMode.darken,
                             ),
                           ),
@@ -149,6 +173,7 @@ class EraExplorationScreen extends ConsumerWidget {
                         eraTheme: era.theme,
                         left: left,
                         top: top,
+                        markerSize: markerSize,
                         onTap: () => _showLocationDetails(
                             context, ref, location, era.theme),
                       );
@@ -160,10 +185,10 @@ class EraExplorationScreen extends ConsumerWidget {
 
             // 2. HUD Layer (Bottom - Fixed on Screen)
             Positioned(
-              left: 20,
-              right: 20,
-              bottom: 40,
-              child: _buildHudPanel(context, era),
+              left: hudPadding,
+              right: hudPadding,
+              bottom: hudBottom,
+              child: _buildHudPanel(context, era, responsive),
             ),
           ],
         );
@@ -171,47 +196,51 @@ class EraExplorationScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildHudPanel(BuildContext context, Era era) {
+  Widget _buildHudPanel(BuildContext context, Era era, ResponsiveUtils responsive) {
+    final horizontalPadding = responsive.padding(20);
+    final verticalPadding = responsive.padding(16);
+    final iconSize = responsive.iconSize(24);
+    final fontSize = responsive.fontSize(12);
+    final percentFontSize = responsive.fontSize(18);
+    
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.7),
+        color: Colors.black.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: era.theme.accentColor.withOpacity(0.5)),
+        border: Border.all(color: era.theme.accentColor.withValues(alpha: 0.5)),
       ),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(responsive.padding(8)),
             decoration: BoxDecoration(
-              color: era.theme.primaryColor.withOpacity(0.8),
+              color: era.theme.primaryColor.withValues(alpha: 0.8),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.history_edu, color: Colors.white),
+            child: Icon(Icons.history_edu, color: Colors.white, size: iconSize),
           ),
-          const SizedBox(width: 16),
+          SizedBox(width: responsive.spacing(16)),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Real data connection
                 Consumer(
                   builder: (context, ref, child) {
                     final progressAsync = ref.watch(userProgressProvider);
 
                     return progressAsync.when(
                       data: (progress) {
-                        // Get progress for this era
                         final p = progress.getEraProgress(era.id);
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Era Progress',
+                              AppLocalizations.of(context)!.exploration_progress_label,
                               style: TextStyle(
                                 color: Colors.grey[400],
-                                fontSize: 12,
+                                fontSize: fontSize,
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -221,7 +250,7 @@ class EraExplorationScreen extends ConsumerWidget {
                                 value: p,
                                 backgroundColor: Colors.white24,
                                 color: era.theme.accentColor,
-                                minHeight: 6,
+                                minHeight: responsive.isSmallPhone ? 4 : 6,
                               ),
                             ),
                           ],
@@ -235,7 +264,7 @@ class EraExplorationScreen extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(width: 16),
+          SizedBox(width: responsive.spacing(16)),
           Consumer(
             builder: (context, ref, child) {
               final progressAsync = ref.watch(userProgressProvider);
@@ -247,7 +276,7 @@ class EraExplorationScreen extends ConsumerWidget {
                     style: TextStyle(
                       color: era.theme.accentColor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: percentFontSize,
                     ),
                   );
                 },
@@ -282,6 +311,7 @@ class _LocationMarker extends StatelessWidget {
   final EraTheme eraTheme;
   final double left;
   final double top;
+  final double markerSize;
   final VoidCallback onTap;
 
   const _LocationMarker({
@@ -289,22 +319,25 @@ class _LocationMarker extends StatelessWidget {
     required this.eraTheme,
     required this.left,
     required this.top,
+    required this.markerSize,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final isLocked = !location.isAccessible;
+    final iconSize = markerSize * 0.56; // proportional
+    final labelFontSize = markerSize * 0.24;
 
     return Positioned(
-      left: left - 40, // Center the 80px width widget
-      top: top - 40,
+      left: left - markerSize * 0.8,
+      top: top - markerSize * 0.8,
       child: GestureDetector(
         onTap: () {
           if (isLocked) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('This location is not yet accessible.'),
+              SnackBar(
+                content: Text(AppLocalizations.of(context)!.exploration_location_locked),
               ),
             );
           } else {
@@ -316,31 +349,34 @@ class _LocationMarker extends StatelessWidget {
           children: [
             // Marker Icon
             Container(
-              width: 50,
-              height: 50,
+              width: markerSize,
+              height: markerSize,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: isLocked ? Colors.grey[800] : eraTheme.primaryColor,
                 border: Border.all(
                   color: isLocked ? Colors.grey : eraTheme.accentColor,
-                  width: 3,
+                  width: markerSize * 0.06,
                 ),
                 boxShadow: isLocked
                     ? []
                     : [
                         BoxShadow(
-                          color: eraTheme.accentColor.withOpacity(0.6),
-                          blurRadius: 15,
-                          spreadRadius: 2,
+                          color: eraTheme.accentColor.withValues(alpha: 0.6),
+                          blurRadius: markerSize * 0.3,
+                          spreadRadius: markerSize * 0.04,
                         ),
                       ],
               ),
-              child: Icon(Icons.place, color: Colors.white, size: 28),
+              child: Icon(Icons.place, color: Colors.white, size: iconSize),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: markerSize * 0.16),
             // Label
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              padding: EdgeInsets.symmetric(
+                horizontal: markerSize * 0.16,
+                vertical: markerSize * 0.08,
+              ),
               decoration: BoxDecoration(
                 color: Colors.black87,
                 borderRadius: BorderRadius.circular(4),
@@ -351,7 +387,7 @@ class _LocationMarker extends StatelessWidget {
                 style: TextStyle(
                   color: isLocked ? Colors.grey : Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: labelFontSize,
                 ),
               ),
             ),
@@ -457,10 +493,10 @@ class _LocationDetailSheet extends ConsumerWidget {
                   error: (err, stack) => Center(child: Text('Error: $err')),
                   data: (characters) {
                     if (characters.isEmpty) {
-                      return const Center(
+                      return Center(
                         child: Text(
-                          '이 장소에는 현재 만날 수 있는 인물이 없습니다.',
-                          style: TextStyle(color: Colors.grey),
+                          AppLocalizations.of(context)!.exploration_no_characters,
+                          style: const TextStyle(color: Colors.grey),
                         ),
                       );
                     }
@@ -497,12 +533,12 @@ class _CharacterCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: isLocked
               ? Colors.transparent
-              : theme.primaryColor.withOpacity(0.3),
+              : theme.primaryColor.withValues(alpha: 0.3),
         ),
       ),
       child: ListTile(
@@ -517,7 +553,7 @@ class _CharacterCard extends StatelessWidget {
               : null, // Don't show text if image is loaded
         ),
         title: Text(
-          isLocked ? '???' : character.nameKorean,
+          isLocked ? AppLocalizations.of(context)!.common_unknown_character : character.nameKorean,
           style: TextStyle(
             color: isLocked ? Colors.grey : Colors.white,
             fontWeight: FontWeight.bold,
@@ -525,7 +561,7 @@ class _CharacterCard extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          isLocked ? '잠겨있음' : character.title,
+          isLocked ? AppLocalizations.of(context)!.common_locked_status : character.title,
           style: TextStyle(
             color: isLocked ? Colors.grey[700] : theme.accentColor,
             fontSize: 12,
@@ -556,15 +592,15 @@ class _CharacterCard extends StatelessWidget {
                     );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
+                      SnackBar(
                         content: Text(
-                          'No dialogue available for this character yet.',
+                          AppLocalizations.of(context)!.exploration_no_dialogue,
                         ),
                       ),
                     );
                   }
                 },
-                child: const Text('대화하기'),
+                child: Text(AppLocalizations.of(context)!.common_talk),
               ),
       ),
     );

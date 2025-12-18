@@ -1,0 +1,182 @@
+[
+  {
+    "id": "char_Q7799",
+    "eraId": "europe_renaissance",
+    "name": "Bramantino",
+    "nameKorean": "Bramantino",
+    "description": "Italian painter and architect (1465-1530)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Bram0.5.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q7803",
+    "eraId": "europe_renaissance",
+    "name": "브론치노",
+    "nameKorean": "브론치노",
+    "description": "Italian Mannerist painter (1503-1572)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Allori%2C%20santissima%20trinit%C3%A0%2C%201567-1571%20circa%2C%20ritratto%20dei%20maestri%2C%20bronzino%20%28cropped%29.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q176694",
+    "eraId": "europe_renaissance",
+    "name": "Antonis Mor",
+    "nameKorean": "Antonis Mor",
+    "description": "painter from the Northern Netherlands (1519–1575)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q176694",
+    "eraId": "europe_renaissance",
+    "name": "Antonis Mor",
+    "nameKorean": "Antonis Mor",
+    "description": "painter from the Northern Netherlands (1519–1575)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q18945277",
+    "eraId": "europe_renaissance",
+    "name": "Francesco Feliciano",
+    "nameKorean": "Francesco Feliciano",
+    "description": "Italian mathematician",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Feliciano%20-%20Libro%20di%20arithmetica%20%26%20geometria%20speculativa%20%26%20praticale%2C%20s.%20d.%20-%20130212.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q948156",
+    "eraId": "europe_renaissance",
+    "name": "Guillaume Postel",
+    "nameKorean": "Guillaume Postel",
+    "description": "French linguist, astronomer, diplomat and professor (1510–1581)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q948156",
+    "eraId": "europe_renaissance",
+    "name": "Guillaume Postel",
+    "nameKorean": "Guillaume Postel",
+    "description": "French linguist, astronomer, diplomat and professor (1510–1581)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q20056524",
+    "eraId": "europe_renaissance",
+    "name": "Filippo Calandri",
+    "nameKorean": "Filippo Calandri",
+    "description": "Florentine mathematician",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Calandri%20-%20Aritmetica%2C%201491-1492%20-%203867066.tif",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q8459",
+    "eraId": "europe_renaissance",
+    "name": "조르조네",
+    "nameKorean": "조르조네",
+    "description": "Venetian Renaissance painter (1478–1510)",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgione%20059.jpg",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  },
+  {
+    "id": "char_Q1029331",
+    "eraId": "europe_renaissance",
+    "name": "Camillo Agrippa",
+    "nameKorean": "Camillo Agrippa",
+    "description": "Italian engineer",
+    "thumbnailAsset": "assets/images/characters/placeholder.png",
+    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20aggripa%20port.png",
+    "dialogueId": "dialogue_default",
+    "isUnlocked": false,
+    "stats": {
+      "leadership": 50,
+      "strength": 30,
+      "intelligence": 90,
+      "politics": 60,
+      "charm": 70
+    }
+  }
+]
