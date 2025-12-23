@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/domain/repositories/character_repository.dart';
@@ -9,13 +10,16 @@ class MockCharacterRepository implements CharacterRepository {
 
   Future<void> _ensureLoaded() async {
     if (_isLoaded) return;
+    debugPrint('[MockCharacterRepository] loading characters');
     try {
       final jsonString = await rootBundle.loadString('assets/data/characters.json');
       final List<dynamic> jsonList = jsonDecode(jsonString);
       _characters = jsonList.map((e) => Character.fromJson(e)).toList();
       _isLoaded = true;
+      debugPrint('[MockCharacterRepository] loaded count=${_characters.length}');
     } catch (e) {
       // Fallback/Empty or Log error
+      debugPrint('[MockCharacterRepository] load failed error=$e');
       _characters = [];
     }
   }

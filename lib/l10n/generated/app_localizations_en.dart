@@ -52,7 +52,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exploration_tutorial_msg =>
-      'Welcome Explorer! Pinch to Zoom the map and Tap markers to explore locations.';
+      'Welcome Explorer! Pinch to zoom and drag to move. Use the map icon to filter kingdoms, and the bottom buttons to jump to characters or locations.';
 
   @override
   String get exploration_progress_label => 'Era Progress';
@@ -76,6 +76,24 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get exploration_no_characters =>
       'There are no characters to meet at this location currently.';
+
+  @override
+  String get exploration_selected_label => 'Selected';
+
+  @override
+  String get exploration_list_locations => 'Locations';
+
+  @override
+  String get exploration_list_characters => 'Characters';
+
+  @override
+  String get exploration_legend_title => 'Kingdom Filters';
+
+  @override
+  String get exploration_status_title => 'Status';
+
+  @override
+  String get exploration_help_title => 'Exploration Help';
 
   @override
   String get menu_world_map => 'WORLD MAP';

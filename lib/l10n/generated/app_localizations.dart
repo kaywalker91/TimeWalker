@@ -185,7 +185,7 @@ abstract class AppLocalizations {
   /// No description provided for @exploration_tutorial_msg.
   ///
   /// In ko, this message translates to:
-  /// **'탐험가여 환영합니다! 지도를 확대/축소하고 마커를 탭하여 장소를 탐험하세요.'**
+  /// **'탐험가여 환영합니다! 지도를 확대/축소하고 드래그로 이동하세요. 지도 아이콘에서 왕국 범례를 확인하고, 하단 목록 버튼으로 인물/장소를 빠르게 찾을 수 있습니다.'**
   String get exploration_tutorial_msg;
 
   /// No description provided for @exploration_progress_label.
@@ -223,6 +223,42 @@ abstract class AppLocalizations {
   /// In ko, this message translates to:
   /// **'이 장소에는 현재 만날 수 있는 인물이 없습니다.'**
   String get exploration_no_characters;
+
+  /// No description provided for @exploration_selected_label.
+  ///
+  /// In ko, this message translates to:
+  /// **'선택'**
+  String get exploration_selected_label;
+
+  /// No description provided for @exploration_list_locations.
+  ///
+  /// In ko, this message translates to:
+  /// **'장소 목록'**
+  String get exploration_list_locations;
+
+  /// No description provided for @exploration_list_characters.
+  ///
+  /// In ko, this message translates to:
+  /// **'인물 목록'**
+  String get exploration_list_characters;
+
+  /// No description provided for @exploration_legend_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'왕국 필터'**
+  String get exploration_legend_title;
+
+  /// No description provided for @exploration_status_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'상태'**
+  String get exploration_status_title;
+
+  /// No description provided for @exploration_help_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'탐험 도움말'**
+  String get exploration_help_title;
 
   /// No description provided for @menu_world_map.
   ///

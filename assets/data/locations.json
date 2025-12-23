@@ -156,6 +156,9 @@
         "description": "광개토대왕 시대 고구려의 도읍지",
         "thumbnailAsset": "assets/images/locations/goguryeo_palace_thumb.png",
         "backgroundAsset": "assets/images/locations/goguryeo_palace_bg.png",
+        "kingdom": "goguryeo",
+        "latitude": 41.12083333,
+        "longitude": 126.17861111,
         "position": {
             "x": 0.53,
             "y": 0.28
@@ -177,6 +180,9 @@
         "description": "30만 수나라 군을 수장시킨 살수대첩의 현장",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
         "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "kingdom": "goguryeo",
+        "latitude": 39.57722222,
+        "longitude": 125.43305556,
         "position": {
             "x": 0.45,
             "y": 0.18
@@ -196,6 +202,9 @@
         "description": "고구려 후기 도읍, 장수왕이 천도한 곳",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
         "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "kingdom": "goguryeo",
+        "latitude": 39.03,
+        "longitude": 125.73,
         "position": {
             "x": 0.51,
             "y": 0.42
@@ -215,6 +224,9 @@
         "description": "백제의 초기 수도, 한강 유역의 요충지",
         "thumbnailAsset": "assets/images/locations/wiryeseong_thumb.png",
         "backgroundAsset": "assets/images/locations/wiryeseong_bg.png",
+        "kingdom": "baekje",
+        "latitude": 37.56666667,
+        "longitude": 126.97805556,
         "position": {
             "x": 0.54,
             "y": 0.6
@@ -234,6 +246,9 @@
         "description": "백제 계백 장군과 신라 김유신이 격돌한 삼국시대 최후의 결전지",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
         "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "kingdom": "baekje",
+        "latitude": 36.1833,
+        "longitude": 127.0833,
         "position": {
             "x": 0.52,
             "y": 0.64
@@ -253,6 +268,9 @@
         "description": "백제 후기 도읍, 성왕이 천도하고 의자왕이 최후를 맞은 곳",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
         "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "kingdom": "baekje",
+        "latitude": 36.2875,
+        "longitude": 126.91527778,
         "position": {
             "x": 0.46,
             "y": 0.58
@@ -272,6 +290,9 @@
         "description": "천년 신라의 심장부, 반월성이라고도 불리는 신라 왕궁",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
         "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "kingdom": "silla",
+        "latitude": 35.83083333,
+        "longitude": 129.22611111,
         "position": {
             "x": 0.62,
             "y": 0.78
@@ -292,6 +313,9 @@
         "description": "동양에서 가장 오래된 천문대, 선덕여왕이 건립",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
         "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "kingdom": "silla",
+        "latitude": 35.83472222,
+        "longitude": 129.21916667,
         "position": {
             "x": 0.68,
             "y": 0.68
@@ -300,6 +324,79 @@
             "seondeok"
         ],
         "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gujibong",
+        "eraId": "korea_three_kingdoms",
+        "name": "Guji Peak",
+        "nameKorean": "구지봉",
+        "description": "하늘에서 황금알이 내려와 수로왕이 탄생했다는 전설의 성지",
+        "thumbnailAsset": "assets/images/locations/gujibong_thumb.png",
+        "backgroundAsset": "assets/images/locations/gujibong_bg.png",
+        "kingdom": "gaya",
+        "latitude": 35.24319444,
+        "longitude": 128.87588889,
+        "position": {
+            "x": 0.58,
+            "y": 0.72
+        },
+        "characterIds": [
+            "suro"
+        ],
+        "eventIds": [
+            "suro_birth"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gimhae_palace",
+        "eraId": "korea_three_kingdoms",
+        "name": "Geumgwan Gaya Palace",
+        "nameKorean": "금관가야 왕궁(김해)",
+        "description": "낙동강 하류의 철기 강국 금관가야의 중심부",
+        "thumbnailAsset": "assets/images/locations/gimhae_palace_thumb.png",
+        "backgroundAsset": "assets/images/locations/gimhae_palace_bg.png",
+        "kingdom": "gaya",
+        "latitude": 35.2340,
+        "longitude": 128.8803,
+        "position": {
+            "x": 0.55,
+            "y": 0.76
+        },
+        "characterIds": [
+            "suro",
+            "hwangok"
+        ],
+        "eventIds": [
+            "suro_hwangok_wedding"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "goryeong_palace",
+        "eraId": "korea_three_kingdoms",
+        "name": "Daegaya Palace",
+        "nameKorean": "대가야 왕궁(고령)",
+        "description": "가야 연맹 후기의 맹주 대가야의 수도, 우륵과 가야금의 본거지",
+        "thumbnailAsset": "assets/images/locations/goryeong_palace_thumb.png",
+        "backgroundAsset": "assets/images/locations/goryeong_palace_bg.png",
+        "kingdom": "gaya",
+        "latitude": 35.7264,
+        "longitude": 128.2636,
+        "position": {
+            "x": 0.50,
+            "y": 0.66
+        },
+        "characterIds": [
+            "ureuk"
+        ],
+        "eventIds": [
+            "gayageum_creation"
+        ],
         "status": "available",
         "isHistorical": true
     }

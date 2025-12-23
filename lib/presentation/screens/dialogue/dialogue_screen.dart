@@ -1,11 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/constants/audio_constants.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/character.dart';
+import 'package:time_walker/domain/entities/dialogue.dart';
+import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
+import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/screens/dialogue/dialogue_view_model.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/presentation/widgets/dialogue/reward_notification.dart';
 
 import 'package:time_walker/core/routes/app_router.dart';
 
@@ -27,34 +34,121 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
   @override
   void initState() {
     super.initState();
+    _log(
+      'initState dialogueId=${widget.dialogueId} eraId=${widget.eraId}',
+    );
     // Initialize Logic
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref
           .read(dialogueViewModelProvider(widget.dialogueId).notifier)
           .initialize(widget.dialogueId);
+      
+      // BGM 시작 (대화 BGM)
+      final currentTrack = ref.read(currentBgmTrackProvider);
+      if (currentTrack != AudioConstants.bgmDialogue) {
+        ref.read(bgmControllerProvider.notifier).playDialogueBgm();
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final closeAction = () => _handleDialogueExit(context);
     // Listen for completion state change
     ref.listen(dialogueViewModelProvider(widget.dialogueId), (previous, next) {
       if (previous?.isCompleted == false && next.isCompleted) {
         _showCompletionDialog(context, next.unlockEvents);
       }
+      if (previous?.dialogue == null && next.dialogue != null) {
+        _log(
+          'dialogue loaded id=${next.dialogue!.id} nodes=${next.dialogue!.nodes.length}',
+        );
+      }
+      if (previous?.currentNode?.id != next.currentNode?.id) {
+        _log(
+          'node changed ${previous?.currentNode?.id ?? 'null'} -> ${next.currentNode?.id ?? 'null'}',
+        );
+      }
+    });
+    ref.listen(dialogueByIdProvider(widget.dialogueId), (previous, next) {
+      next.when(
+        data: (dialogue) => _log(
+          'dialogueById resolved id=${dialogue?.id ?? 'null'} nodes=${dialogue?.nodes.length ?? 0}',
+        ),
+        error: (err, _) => _log('dialogueById error=$err'),
+        loading: () => _log('dialogueById loading'),
+      );
+    });
+    ref.listen(characterListByEraProvider(widget.eraId), (previous, next) {
+      next.when(
+        data: (characters) => _log(
+          'charactersByEra resolved eraId=${widget.eraId} count=${characters.length}',
+        ),
+        error: (err, _) => _log('charactersByEra error=$err'),
+        loading: () => _log('charactersByEra loading eraId=${widget.eraId}'),
+      );
     });
 
     final state = ref.watch(dialogueViewModelProvider(widget.dialogueId));
+    final dialogueAsync = ref.watch(dialogueByIdProvider(widget.dialogueId));
+
+    if (widget.dialogueId.isEmpty || widget.eraId.isEmpty) {
+      _log(
+        'missing params dialogueId="${widget.dialogueId}" eraId="${widget.eraId}"',
+      );
+      return _DialogueLoadFailure(
+        message: l10n.exploration_no_dialogue,
+        onClose: closeAction,
+      );
+    }
 
     if (state.dialogue == null || state.currentNode == null) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      _log('state missing dialogue/currentNode');
+      return dialogueAsync.when(
+        loading: () => const Scaffold(
+          body: Center(child: CircularProgressIndicator()),
+        ),
+        error: (_, __) => _DialogueLoadFailure(
+          message: l10n.exploration_no_dialogue,
+          onClose: closeAction,
+        ),
+        data: (dialogue) {
+          if (dialogue == null) {
+            return _DialogueLoadFailure(
+              message: l10n.exploration_no_dialogue,
+              onClose: closeAction,
+            );
+          }
+          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        },
+      );
     }
     // Fetch Speaker Character Data
     final speakerAsync = ref.watch(characterListByEraProvider(widget.eraId));
+    final characters = speakerAsync.valueOrNull ?? const <Character>[];
+    final speakerId = state.currentNode?.speakerId;
+    Character? speaker;
+    if (speakerId != null) {
+      try {
+        speaker = characters.firstWhere((c) => c.id == speakerId);
+      } catch (_) {
+        speaker = null;
+      }
+    }
+    if (speaker == null) {
+      _log('speaker not found speakerId=${speakerId ?? 'null'}');
+    }
+    final speakerName = _resolveSpeakerName(
+      l10n: l10n,
+      speakerId: speakerId,
+      character: speaker,
+    );
 
     return Scaffold(
       backgroundColor: Colors.black, // Fallback
       body: Stack(
+        fit: StackFit.expand,
         children: [
           // 1. Background (Dimmed)
           Positioned.fill(
@@ -63,35 +157,19 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
               // TODO: Add Era Background Image with Blur
             ),
           ),
+          
+          // 1.5. Reward Notification Overlay
+          RewardOverlay(reward: state.lastReward),
 
           // 2. Character Portrait (Center)
           Positioned.fill(
             bottom: 200, // Leave space for dialogue box
-            child: speakerAsync.when(
-              data: (characters) {
-                final speakerId = state.currentNode?.speakerId;
-                if (speakerId == null) return const SizedBox.shrink();
-
-                Character? character;
-                try {
-                   character = characters.firstWhere((c) => c.id == speakerId);
-                } catch (_) {
-                   // Fallback to first available character or ignore if list is empty
-                   if (characters.isNotEmpty) {
-                     character = characters.first;
-                   }
-                }
-                
-                if (character == null) return const SizedBox.shrink();
-
-                return _CharacterPortrait(
-                  character: character,
-                  emotion: state.currentNode!.emotion,
-                );
-              },
-              loading: () => const SizedBox.shrink(),
-              error: (_, __) => const SizedBox.shrink(),
-            ),
+            child: speaker == null
+                ? _PlaceholderPortrait(label: speakerName)
+                : _CharacterPortrait(
+                    character: speaker,
+                    emotion: state.currentNode!.emotion,
+                  ),
           ),
 
           // 3. Dialogue Box (Bottom)
@@ -99,34 +177,12 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: speakerAsync.when(
-              data: (characters) {
-                 // ... existing speaker resolution ... (omitted for brevity in match, but included in logic)
-                 // Actually we need to match the exact content to replace the child.
-                 // Let's rely on the previous content structure.
-                 final speakerId = state.currentNode?.speakerId;
-                 String speakerName = 'Unknown';
-                 if (speakerId != null) {
-                    try {
-                      final character = characters.firstWhere((c) => c.id == speakerId);
-                      speakerName = character.nameKorean;
-                    } catch (_) {
-                      if (speakerId == 'sejong') speakerName = '세종대왕';
-                      if (speakerId == 'gwanggaeto') speakerName = '광개토대왕';
-                    }
-                 }
-                 
-                 return _DialogueBox(
-                  state: state,
-                  speakerName: speakerName,
-                  onNext: () => ref
-                      .read(dialogueViewModelProvider(widget.dialogueId).notifier)
-                      .next(),
-                  // onChoice removed from here
-                );
-              },
-              loading: () => const SizedBox.shrink(),
-              error: (_, __) => const SizedBox.shrink(),
+            child: _DialogueBox(
+              state: state,
+              speakerName: speakerName,
+              onNext: () => ref
+                  .read(dialogueViewModelProvider(widget.dialogueId).notifier)
+                  .next(),
             ),
           ),
 
@@ -141,38 +197,61 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    ...state.currentNode!.choices.map((choice) => Padding(
-                          padding: const EdgeInsets.only(bottom: 16),
+                    ...state.currentNode!.choices.map((choice) {
+                      // 조건 검증
+                      final userProgress = ref.watch(userProgressProvider).value;
+                      final canSelect = _canSelectChoice(choice, userProgress);
+                      
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: Tooltip(
+                          message: !canSelect && choice.condition != null
+                              ? _getConditionMessage(choice.condition!, userProgress)
+                              : choice.preview ?? '',
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF2C2C3E),
-                              foregroundColor: Colors.white,
-                              side: const BorderSide(
-                                  color: Color(0xFFFFD700), width: 1.5),
+                              backgroundColor: canSelect
+                                  ? const Color(0xFF2C2C3E)
+                                  : const Color(0xFF1A1A2E),
+                              foregroundColor: canSelect
+                                  ? Colors.white
+                                  : Colors.white38,
+                              side: BorderSide(
+                                color: canSelect
+                                    ? const Color(0xFFFFD700)
+                                    : Colors.grey,
+                                width: 1.5,
+                              ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
-                              elevation: 8,
-                              // Use minimumSize instead of fixed height
+                              elevation: canSelect ? 8 : 2,
                               minimumSize: const Size(double.infinity, 56),
                               padding: const EdgeInsets.symmetric(
                                   vertical: 16, horizontal: 20),
                             ),
-                            onPressed: () => ref
-                                .read(dialogueViewModelProvider(widget.dialogueId)
-                                    .notifier)
-                                .selectChoice(choice),
+                            onPressed: canSelect
+                                ? () async {
+                                    await ref
+                                        .read(dialogueViewModelProvider(widget.dialogueId)
+                                            .notifier)
+                                        .selectChoice(choice);
+                                  }
+                                : null,
                             child: Text(
                               choice.text,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                height: 1.3, // Improve readability for multi-line
+                                height: 1.3,
+                                color: canSelect ? Colors.white : Colors.white38,
                               ),
                               textAlign: TextAlign.center,
                             ),
                           ),
-                        )),
+                        ),
+                      );
+                    }),
                   ],
                 ),
               ),
@@ -184,12 +263,69 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
             right: 20,
             child: IconButton(
               icon: const Icon(Icons.close, color: Colors.white70),
-              onPressed: () => context.pop(),
+              onPressed: closeAction,
             ),
           ),
         ],
       ),
     );
+  }
+
+  void _log(String message) {
+    debugPrint('[DialogueScreen] $message');
+  }
+
+  /// 선택지 선택 가능 여부 확인
+  bool _canSelectChoice(DialogueChoice choice, UserProgress? progress) {
+    if (choice.condition == null) return true;
+    if (progress == null) return false;
+    
+    final condition = choice.condition!;
+    
+    // 지식 포인트 확인
+    if (condition.requiredKnowledge != null) {
+      if (progress.totalKnowledge < condition.requiredKnowledge!) {
+        return false;
+      }
+    }
+    
+    // 역사 사실 확인
+    if (condition.requiredFact != null) {
+      if (!progress.unlockedFactIds.contains(condition.requiredFact)) {
+        return false;
+      }
+    }
+    
+    // 인물 해금 확인
+    if (condition.requiredCharacter != null) {
+      if (!progress.unlockedCharacterIds.contains(condition.requiredCharacter)) {
+        return false;
+      }
+    }
+    
+    return true;
+  }
+  
+  /// 조건 미충족 메시지 생성
+  String _getConditionMessage(ChoiceCondition condition, UserProgress? progress) {
+    if (progress == null) return '진행 상태를 불러올 수 없습니다.';
+    
+    if (condition.requiredKnowledge != null) {
+      final needed = condition.requiredKnowledge! - progress.totalKnowledge;
+      if (needed > 0) {
+        return '이 선택지를 하려면 $needed점의 지식이 더 필요합니다.';
+      }
+    }
+    
+    if (condition.requiredFact != null) {
+      return '이 선택지를 하려면 특정 역사 사실을 먼저 발견해야 합니다.';
+    }
+    
+    if (condition.requiredCharacter != null) {
+      return '이 선택지를 하려면 특정 인물을 먼저 만나야 합니다.';
+    }
+    
+    return '조건을 만족하지 못했습니다.';
   }
 
   void _showCompletionDialog(BuildContext context, List<UnlockEvent> unlocks) {
@@ -279,6 +415,122 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
               AppRouter.goToEraExploration(context, widget.eraId);
             },
             child: const Text('Continue'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _resolveSpeakerName({
+    required AppLocalizations l10n,
+    required String? speakerId,
+    required Character? character,
+  }) {
+    if (character != null) {
+      return character.nameKorean;
+    }
+    if (speakerId == null || speakerId.isEmpty) {
+      return l10n.common_unknown_character;
+    }
+    switch (speakerId) {
+      case 'sejong':
+        return '세종대왕';
+      case 'gwanggaeto':
+        return '광개토대왕';
+      default:
+        return l10n.common_unknown_character;
+    }
+  }
+
+  void _handleDialogueExit(BuildContext context) {
+    _log('exit requested');
+    if (Navigator.of(context).canPop()) {
+      context.pop();
+      return;
+    }
+    if (widget.eraId.isNotEmpty) {
+      AppRouter.goToEraExploration(context, widget.eraId);
+      return;
+    }
+    context.go(AppRouter.worldMap);
+  }
+}
+
+class _DialogueLoadFailure extends StatelessWidget {
+  final String message;
+  final VoidCallback onClose;
+
+  const _DialogueLoadFailure({
+    required this.message,
+    required this.onClose,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = context.responsive;
+
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(responsive.padding(24)),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.error_outline,
+                  color: Colors.white70,
+                  size: responsive.iconSize(64),
+                ),
+                SizedBox(height: responsive.spacing(16)),
+                Text(
+                  message,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: responsive.fontSize(16),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: responsive.spacing(24)),
+                ElevatedButton(
+                  onPressed: onClose,
+                  child: Text(AppLocalizations.of(context)!.common_close),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PlaceholderPortrait extends StatelessWidget {
+  final String label;
+
+  const _PlaceholderPortrait({required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = context.responsive;
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Icon(
+            Icons.person_outline,
+            color: Colors.white24,
+            size: responsive.iconSize(160),
+          ),
+          SizedBox(height: responsive.spacing(12)),
+          Text(
+            label,
+            style: TextStyle(
+              color: Colors.white38,
+              fontSize: responsive.fontSize(14),
+            ),
           ),
         ],
       ),

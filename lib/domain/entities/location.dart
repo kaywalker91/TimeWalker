@@ -11,6 +11,9 @@ class Location extends Equatable {
   final String description;
   final String thumbnailAsset;
   final String backgroundAsset;
+  final String? kingdom; // 삼국시대 전용 구분 (고구려/백제/신라/가야)
+  final double? latitude;
+  final double? longitude;
   final MapCoordinates position; // 탐험 화면에서의 위치
   final List<String> characterIds; // 이 장소에서 만날 수 있는 인물
   final List<String> eventIds; // 이 장소에서 발생하는 이벤트
@@ -25,6 +28,9 @@ class Location extends Equatable {
     required this.description,
     required this.thumbnailAsset,
     required this.backgroundAsset,
+    this.kingdom,
+    this.latitude,
+    this.longitude,
     required this.position,
     this.characterIds = const [],
     this.eventIds = const [],
@@ -40,6 +46,9 @@ class Location extends Equatable {
     String? description,
     String? thumbnailAsset,
     String? backgroundAsset,
+    String? kingdom,
+    double? latitude,
+    double? longitude,
     MapCoordinates? position,
     List<String>? characterIds,
     List<String>? eventIds,
@@ -54,6 +63,9 @@ class Location extends Equatable {
       description: description ?? this.description,
       thumbnailAsset: thumbnailAsset ?? this.thumbnailAsset,
       backgroundAsset: backgroundAsset ?? this.backgroundAsset,
+      kingdom: kingdom ?? this.kingdom,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
       position: position ?? this.position,
       characterIds: characterIds ?? this.characterIds,
       eventIds: eventIds ?? this.eventIds,
@@ -80,6 +92,9 @@ class Location extends Equatable {
     description,
     thumbnailAsset,
     backgroundAsset,
+    kingdom,
+    latitude,
+    longitude,
     position,
     characterIds,
     eventIds,
@@ -96,6 +111,11 @@ class Location extends Equatable {
       description: json['description'] as String,
       thumbnailAsset: json['thumbnailAsset'] as String,
       backgroundAsset: json['backgroundAsset'] as String,
+      kingdom: json['kingdom'] as String?,
+      latitude: (json['latitude'] as num?)?.toDouble() ??
+          (json['lat'] as num?)?.toDouble(),
+      longitude: (json['longitude'] as num?)?.toDouble() ??
+          (json['lon'] as num?)?.toDouble(),
       position: MapCoordinates(
         x: (json['position']['x'] as num).toDouble(),
         y: (json['position']['y'] as num).toDouble(),
@@ -113,5 +133,3 @@ class Location extends Equatable {
   @override
   String toString() => 'Location(id: $id, name: $nameKorean, status: $status)';
 }
-
-

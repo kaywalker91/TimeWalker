@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/utils/app_lifecycle_manager.dart';
 
 void main() {
   // Flutter 엔진 초기화 보장
@@ -11,7 +12,13 @@ void main() {
   // 비동기 초기화 로직(SystemChrome 등)은 SplashScreen으로 이관하여
   // 앱 실행 속도를 높이고 흰 화면(White Screen) 이슈를 방지함
 
-  runApp(const ProviderScope(child: TimeRunnerApp()));
+  runApp(
+    const ProviderScope(
+      child: AppLifecycleManager(
+        child: TimeRunnerApp(),
+      ),
+    ),
+  );
 }
 
 class TimeRunnerApp extends StatelessWidget {

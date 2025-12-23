@@ -52,7 +52,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exploration_tutorial_msg =>
-      '탐험가여 환영합니다! 지도를 확대/축소하고 마커를 탭하여 장소를 탐험하세요.';
+      '탐험가여 환영합니다! 지도를 확대/축소하고 드래그로 이동하세요. 지도 아이콘에서 왕국 범례를 확인하고, 하단 목록 버튼으로 인물/장소를 빠르게 찾을 수 있습니다.';
 
   @override
   String get exploration_progress_label => '시대 진행률';
@@ -73,6 +73,24 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exploration_no_characters => '이 장소에는 현재 만날 수 있는 인물이 없습니다.';
+
+  @override
+  String get exploration_selected_label => '선택';
+
+  @override
+  String get exploration_list_locations => '장소 목록';
+
+  @override
+  String get exploration_list_characters => '인물 목록';
+
+  @override
+  String get exploration_legend_title => '왕국 필터';
+
+  @override
+  String get exploration_status_title => '상태';
+
+  @override
+  String get exploration_help_title => '탐험 도움말';
 
   @override
   String get menu_world_map => '세계 지도';

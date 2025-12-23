@@ -3,8 +3,10 @@ import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/app_constants.dart';
+import 'package:time_walker/core/constants/audio_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
+import 'package:time_walker/presentation/providers/audio_provider.dart';
 
 /// 메인 메뉴 화면
 /// - 게임 시작
@@ -17,6 +19,16 @@ class MainMenuScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final responsive = context.responsive;
+    
+    // BGM 시작 (메인 메뉴 BGM)
+    // 현재 트랙이 다를 때만 재생하여 중복 호출 방지
+    final currentTrack = ref.watch(currentBgmTrackProvider);
+    if (currentTrack != AudioConstants.bgmMainMenu) {
+      // WidgetsBinding.addPostFrameCallback을 사용하여 build 완료 후 실행
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(bgmControllerProvider.notifier).playMainMenuBgm();
+      });
+    }
     
     return Scaffold(
       body: Container(

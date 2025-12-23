@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:time_walker/core/constants/audio_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/encyclopedia_entry.dart';
+import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
 class EncyclopediaScreen extends ConsumerStatefulWidget {
@@ -21,6 +23,14 @@ class _EncyclopediaScreenState extends ConsumerState<EncyclopediaScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: _tabs.length + 1, vsync: this);
+    
+    // BGM 시작 (도감 BGM)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final currentTrack = ref.read(currentBgmTrackProvider);
+      if (currentTrack != AudioConstants.bgmEncyclopedia) {
+        ref.read(bgmControllerProvider.notifier).playEncyclopediaBgm();
+      }
+    });
   }
 
   @override

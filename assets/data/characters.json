@@ -364,6 +364,113 @@
     "status": "available"
   },
   {
+    "id": "suro",
+    "eraId": "korea_three_kingdoms",
+    "name": "King Suro",
+    "nameKorean": "김수로왕",
+    "title": "금관가야 건국 시조",
+    "birth": "42",
+    "death": "199",
+    "biography": "하늘에서 내려온 황금알에서 태어나 금관가야를 건국한 전설의 시조왕",
+    "fullBiography": "서기 42년 구지봉에서 하늘로부터 내려온 황금알에서 태어났다고 전해진다. 6가야 연맹의 맹주 금관가야를 건국하고, 인도 아유타국에서 온 허황옥 공주와 혼인하여 10남 2녀를 두었다. 가락국기에 따르면 158년간 재위하다 199년에 승하하였다. 김유신 장군의 12대조이다.",
+    "portraitAsset": "assets/images/characters/suro.png",
+    "emotionAssets": [
+      "assets/images/characters/suro.png",
+      "assets/images/characters/suro_pleased.png"
+    ],
+    "dialogueIds": [
+      "suro_founding_01",
+      "suro_hwangok_01",
+      "suro_iron_trade_01",
+      "suro_legacy_01"
+    ],
+    "relatedCharacterIds": [
+      "hwangok",
+      "kim_yushin"
+    ],
+    "relatedLocationIds": [
+      "gujibong",
+      "gimhae_palace"
+    ],
+    "achievements": [
+      "금관가야 건국",
+      "6가야 연맹 맹주",
+      "가야 왕통 확립",
+      "허황옥과의 국제 혼인"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "hwangok",
+    "eraId": "korea_three_kingdoms",
+    "name": "Queen Heo Hwang-ok",
+    "nameKorean": "허황옥",
+    "title": "금관가야 초대 왕비",
+    "birth": "32",
+    "death": "189",
+    "biography": "인도 아유타국에서 바다를 건너 수로왕의 왕비가 된 전설의 공주",
+    "fullBiography": "인도 아유타국의 공주로, 꿈에서 부모가 가락국으로 가라는 계시를 받고 바다를 건너왔다. 파사석탑을 싣고 온 배로 김해에 도착해 수로왕의 왕비가 되었다. 10남 2녀를 두었으며, 허씨, 김해 김씨, 인천 이씨 등의 시조모로 추앙받는다.",
+    "portraitAsset": "assets/images/characters/hwangok.png",
+    "emotionAssets": [
+      "assets/images/characters/hwangok.png",
+      "assets/images/characters/hwangok_graceful.png"
+    ],
+    "dialogueIds": [
+      "hwangok_arrival_01",
+      "hwangok_motherhood_01",
+      "hwangok_buddhism_01"
+    ],
+    "relatedCharacterIds": [
+      "suro"
+    ],
+    "relatedLocationIds": [
+      "gimhae_palace",
+      "mangsan_island"
+    ],
+    "achievements": [
+      "해상 실크로드 개척",
+      "불교 전래 (추정)",
+      "파사석탑 전래",
+      "왕실 혈통 확립"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "ureuk",
+    "eraId": "korea_three_kingdoms",
+    "name": "Ureuk",
+    "nameKorean": "우륵",
+    "title": "가야금의 창시자",
+    "birth": "?",
+    "death": "?",
+    "biography": "가야금을 창시하고 12곡을 작곡한 대가야의 전설적인 악사",
+    "fullBiography": "대가야의 악사로, 가실왕의 명을 받아 가야금을 만들고 12곡을 작곡하였다. 대가야가 멸망할 기미가 보이자 신라로 망명하여 진흥왕의 후원 아래 제자들에게 가야금을 전수하였다. 그의 음악은 신라의 음악으로 계승되어 오늘날까지 전해진다.",
+    "portraitAsset": "assets/images/characters/ureuk.png",
+    "emotionAssets": [
+      "assets/images/characters/ureuk.png",
+      "assets/images/characters/ureuk_playing.png"
+    ],
+    "dialogueIds": [
+      "ureuk_gayageum_01",
+      "ureuk_exile_01",
+      "ureuk_12songs_01",
+      "ureuk_disciples_01"
+    ],
+    "relatedCharacterIds": [
+      "suro"
+    ],
+    "relatedLocationIds": [
+      "goryeong_palace"
+    ],
+    "achievements": [
+      "가야금 창시",
+      "12곡 작곡",
+      "신라 음악 발전",
+      "제자 양성"
+    ],
+    "status": "available"
+  },
+  {
     "id": "davinci",
     "eraId": "europe_renaissance",
     "name": "Leonardo da Vinci",
@@ -803,5 +910,144 @@
       "politics": 60,
       "charm": 70
     }
+  },
+  {
+    "id": "wanggeon",
+    "eraId": "korea_goryeo",
+    "name": "King Taejo (Wang Geon)",
+    "nameKorean": "왕건(태조)",
+    "title": "고려 건국 시조",
+    "birth": "877",
+    "death": "943",
+    "biography": "후삼국을 통일하고 고려를 건국한 태조",
+    "fullBiography": "송악(개성)의 호족 출신으로, 궁예의 부하로 활약하다 918년 정변을 일으켜 고려를 건국하였다. 신라와 후백제를 차례로 병합하여 936년 후삼국을 통일하였다. 호족 세력을 통합하기 위해 결혼 정책과 사성 정책을 시행하였으며, 북진 정책을 추진하고 발해 유민을 받아들였다. 훈요십조를 남겨 후대 왕들에게 통치의 지침을 제시하였다.",
+    "portraitAsset": "assets/images/characters/wanggeon.png",
+    "emotionAssets": [
+      "assets/images/characters/wanggeon.png",
+      "assets/images/characters/wanggeon_determined.png"
+    ],
+    "dialogueIds": [
+      "wanggeon_founding_01",
+      "wanggeon_unification_01"
+    ],
+    "relatedCharacterIds": [
+      "seohee",
+      "gangamchan"
+    ],
+    "relatedLocationIds": [
+      "gaegyeong",
+      "manwoldae"
+    ],
+    "achievements": [
+      "고려 건국",
+      "후삼국 통일",
+      "훈요십조 유훈",
+      "북진 정책 추진"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "seohee",
+    "eraId": "korea_goryeo",
+    "name": "Seo Hui",
+    "nameKorean": "서희",
+    "title": "외교의 달인",
+    "birth": "942",
+    "death": "998",
+    "biography": "담판 한 번으로 강동 6주를 획득한 고려 최고의 외교관",
+    "fullBiography": "고려 초기의 문신이자 외교관으로, 993년 거란의 소손녕이 80만 대군을 이끌고 침입했을 때 단신으로 적진에 들어가 담판을 벌였다. '고려는 고구려의 계승국'임을 주장하며 거란군을 철수시키고, 더불어 강동 6주까지 획득하는 외교적 대승을 거두었다. 이는 역사상 가장 성공적인 외교 협상 사례로 꼽힌다.",
+    "portraitAsset": "assets/images/characters/seohee.png",
+    "emotionAssets": [
+      "assets/images/characters/seohee.png",
+      "assets/images/characters/seohee_confident.png"
+    ],
+    "dialogueIds": [
+      "seohee_negotiation_01",
+      "seohee_gangdong_01"
+    ],
+    "relatedCharacterIds": [
+      "wanggeon",
+      "gangamchan"
+    ],
+    "relatedLocationIds": [
+      "gaegyeong",
+      "gangdong_6ju"
+    ],
+    "achievements": [
+      "거란군 철수 협상",
+      "강동 6주 획득",
+      "고려-고구려 계승론 주장",
+      "외교적 대승"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "gangamchan",
+    "eraId": "korea_goryeo",
+    "name": "General Kang Gam-chan",
+    "nameKorean": "강감찬",
+    "title": "귀주대첩의 영웅",
+    "birth": "948",
+    "death": "1031",
+    "biography": "귀주에서 거란 10만 대군을 섬멸한 고려의 명장",
+    "fullBiography": "1018년 거란의 소배압이 이끄는 10만 대군이 침입하자, 71세의 노장 강감찬이 도원수로 임명되어 출정하였다. 먼저 흥화진에서 적을 유인하여 물을 가두었다가 터뜨리는 수공 작전으로 큰 피해를 입힌 후, 귀주에서 최후의 결전을 벌여 거란군을 거의 전멸시켰다. 살아 돌아간 자가 수천에 불과했다고 한다. 이 귀주대첩으로 거란은 더 이상 고려를 침략하지 못했다.",
+    "portraitAsset": "assets/images/characters/gangamchan.png",
+    "emotionAssets": [
+      "assets/images/characters/gangamchan.png",
+      "assets/images/characters/gangamchan_determined.png"
+    ],
+    "dialogueIds": [
+      "gangamchan_guju_01",
+      "gangamchan_strategy_01"
+    ],
+    "relatedCharacterIds": [
+      "seohee",
+      "wanggeon"
+    ],
+    "relatedLocationIds": [
+      "guju",
+      "heunghwajin"
+    ],
+    "achievements": [
+      "귀주대첩 승리",
+      "거란 10만 섬멸",
+      "수공 작전 성공",
+      "고려 국방 안정화"
+    ],
+    "status": "available"
+  },
+  {
+    "id": "gongmin",
+    "eraId": "korea_goryeo",
+    "name": "King Gongmin",
+    "nameKorean": "공민왕",
+    "title": "고려 제31대 국왕",
+    "birth": "1330",
+    "death": "1374",
+    "biography": "원나라 간섭에서 벗어나기 위해 개혁을 추진한 비운의 군주",
+    "fullBiography": "고려 말기의 국왕으로, 원나라의 간섭에서 벗어나기 위해 반원 개혁 정책을 추진하였다. 정동행성 이문소를 폐지하고, 쌍성총관부를 공격해 영토를 수복하였으며, 원나라 풍습인 변발과 호복을 금지하였다. 원나라 공주인 노국대장공주와의 깊은 사랑으로도 유명하며, 그녀가 죽은 후 정사를 돌보지 않아 결국 비극적인 최후를 맞이하였다. 뛰어난 예술적 재능을 가진 화가이기도 했다.",
+    "portraitAsset": "assets/images/characters/gongmin.png",
+    "emotionAssets": [
+      "assets/images/characters/gongmin.png",
+      "assets/images/characters/gongmin_sad.png"
+    ],
+    "dialogueIds": [
+      "gongmin_reform_01",
+      "gongmin_noguk_01"
+    ],
+    "relatedCharacterIds": [
+      "wanggeon"
+    ],
+    "relatedLocationIds": [
+      "gaegyeong",
+      "ssangseong"
+    ],
+    "achievements": [
+      "반원 개혁 추진",
+      "쌍성총관부 수복",
+      "정동행성 폐지",
+      "천추태후도 제작"
+    ],
+    "status": "available"
   }
 ]

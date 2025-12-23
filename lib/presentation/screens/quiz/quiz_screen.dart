@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:time_walker/core/constants/audio_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/domain/entities/quiz.dart';
+import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
 class QuizScreen extends ConsumerWidget {
@@ -10,6 +12,14 @@ class QuizScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final quizListAsync = ref.watch(quizListProvider);
+
+    // BGM 시작 (퀴즈 BGM)
+    final currentTrack = ref.watch(currentBgmTrackProvider);
+    if (currentTrack != AudioConstants.bgmQuiz) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(bgmControllerProvider.notifier).playQuizBgm();
+      });
+    }
 
     return Scaffold(
       backgroundColor: const Color(0xFF1E1E2C),

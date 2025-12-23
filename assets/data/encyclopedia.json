@@ -143,6 +143,493 @@
     ]
   },
   {
+    "id": "fact_gaya_founding",
+    "type": "event",
+    "title": "Gaya Confederation Founding",
+    "titleKorean": "가야 건국 신화",
+    "summary": "황금알에서 태어난 6왕이 세운 가야 연맹의 건국",
+    "content": "서기 42년, 구지봉에서 9간(추장)들이 노래를 부르자 하늘에서 황금 합 속에 담긴 여섯 개의 알이 내려왔다. 가장 먼저 알에서 태어난 이가 수로왕이 되어 금관가야를 건국하였고, 나머지 다섯 명은 각각 대가야, 아라가야, 고령가야, 성산가야, 소가야의 왕이 되었다. 이것이 6가야 연맹의 시작이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gaya_founding.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "fact_gujiga",
+      "encyclo_6gaya"
+    ],
+    "tags": [
+      "가야",
+      "건국신화",
+      "김수로왕",
+      "황금알"
+    ]
+  },
+  {
+    "id": "fact_gujiga",
+    "type": "term",
+    "title": "Gujiga (Turtle Song)",
+    "titleKorean": "구지가",
+    "summary": "수로왕을 불러낸 한국 최초의 집단 서사시",
+    "content": "'거북아 거북아, 머리를 내어라. 내놓지 않으면, 구워서 먹으리.' 구지가는 9간들이 구지봉에서 불렀다는 노래로, 하늘에 왕을 보내달라는 주술적 의미를 담고 있다. 한국 문학사에서 가장 오래된 집단 서사시로 평가받으며, 삼국유사 가락국기에 기록되어 전해진다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gujiga.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "fact_gaya_founding"
+    ],
+    "tags": [
+      "가야",
+      "구지가",
+      "노래",
+      "신화"
+    ]
+  },
+  {
+    "id": "encyclo_6gaya",
+    "type": "term",
+    "title": "Six Gaya Confederation",
+    "titleKorean": "6가야 연맹",
+    "summary": "금관가야를 맹주로 한 6개 가야국의 연맹체",
+    "content": "가야는 단일 국가가 아닌 여러 소국의 연맹체였다. 금관가야(김해), 대가야(고령), 아라가야(함안), 고령가야(상주), 성산가야(성주), 소가야(고성) 등 6개국이 느슨한 연맹을 이루었다. 초기에는 금관가야가, 후기에는 대가야가 맹주 역할을 했다. 철 생산과 해상 무역으로 번영했으나 532년(금관가야)과 562년(대가야)에 신라에 병합되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/6gaya.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "ureuk",
+      "fact_gaya_founding"
+    ],
+    "tags": [
+      "가야",
+      "연맹",
+      "금관가야",
+      "대가야"
+    ]
+  },
+  {
+    "id": "fact_hwangok_journey",
+    "type": "event",
+    "title": "Princess Hwang-ok's Journey",
+    "titleKorean": "허황옥의 도래",
+    "summary": "인도 아유타국에서 바다를 건너 가야에 온 공주",
+    "content": "서기 48년, 인도 아유타국의 공주 허황옥이 바다를 건너 가락국에 도착했다. 꿈에서 하느님의 계시를 받은 부모가 딸을 수로왕의 배필로 보냈다고 전해진다. 그녀는 파사석탑을 가져와 풍랑을 잠재웠다고 하며, 이는 고대 해상 실크로드를 통한 동서 교류의 증거로 연구되고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hwangok.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "hwangok",
+      "suro",
+      "fact_pasa_pagoda"
+    ],
+    "tags": [
+      "허황옥",
+      "인도",
+      "해상 실크로드",
+      "혼인"
+    ]
+  },
+  {
+    "id": "fact_pasa_pagoda",
+    "type": "artifact",
+    "title": "Pasa Stone Pagoda",
+    "titleKorean": "파사석탑",
+    "summary": "허황옥이 인도에서 가져온 풍랑 진압의 탑",
+    "content": "파사(婆娑)는 산스크리트어로 '파도를 물리친다'는 뜻이다. 허황옥이 인도에서 가야로 올 때 배에 실어왔다고 전해지며, 현재 김해 구산동에 남아있다. 5개의 돌로 이루어진 이 탑은 인도와 가야의 교류를 증명하는 중요한 유물로, 불교 전래설과도 연결된다.",
+    "thumbnailAsset": "assets/images/encyclopedia/pasa_pagoda.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "hwangok",
+      "fact_hwangok_journey"
+    ],
+    "tags": [
+      "파사석탑",
+      "허황옥",
+      "인도",
+      "유물"
+    ]
+  },
+  {
+    "id": "fact_gayageum_origin",
+    "type": "artifact",
+    "title": "Gayageum (Korean Zither)",
+    "titleKorean": "가야금",
+    "summary": "우륵이 창시한 한국 대표 전통 현악기",
+    "content": "가야금은 대가야의 가실왕 명으로 악사 우륵이 창제한 12현 현악기이다. 오동나무 몸통에 열두 줄을 얹어 만들며, 12달과 가야의 12지역을 상징한다. 우륵은 가야금을 위한 12곡을 작곡했으며, 대가야 멸망 전 신라로 망명하여 진흥왕의 후원 아래 제자들에게 전수했다. 오늘날까지 한국을 대표하는 전통악기로 전해지고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gayageum.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_ureuk_legacy"
+    ],
+    "tags": [
+      "가야금",
+      "우륵",
+      "악기",
+      "대가야"
+    ]
+  },
+  {
+    "id": "fact_ureuk_legacy",
+    "type": "event",
+    "title": "Ureuk's Exile and Legacy",
+    "titleKorean": "우륵의 망명과 유산",
+    "summary": "가야 멸망 전 신라로 망명하여 가야금을 전수하다",
+    "content": "우륵은 대가야가 멸망할 기미가 보이자 551년경 신라로 망명했다. 진흥왕의 환대를 받으며 계고, 법지, 만덕 세 제자에게 가야금을 전수했다. '나라는 망해도 음악은 망하지 않는다'는 그의 신념대로, 가야금은 신라의 음악으로 계승되어 오늘날까지 천 오백 년 넘게 이어지고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/ureuk_legacy.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_gayageum_origin"
+    ],
+    "tags": [
+      "우륵",
+      "신라",
+      "망명",
+      "음악"
+    ]
+  },
+  {
+    "id": "fact_gaya_iron",
+    "type": "term",
+    "title": "Gaya Iron Culture",
+    "titleKorean": "가야 철기 문화",
+    "summary": "가야를 강국으로 만든 뛰어난 철 생산 기술",
+    "content": "가야는 '철의 왕국'으로 불릴 만큼 뛰어난 철 생산 기술을 보유했다. 낙동강 유역의 풍부한 철광석을 바탕으로 질 좋은 철을 생산하여 왜(일본), 중국 등지에 수출했다. 이 철 교역은 가야 경제의 핵심이었으며, 덕분에 가야는 삼국과 대등한 세력을 유지할 수 있었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gaya_iron.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "encyclo_6gaya"
+    ],
+    "tags": [
+      "가야",
+      "철기",
+      "교역",
+      "낙동강"
+    ]
+  },
+  {
+    "id": "fact_kim_yushin_gaya",
+    "type": "event",
+    "title": "Kim Yushin's Gaya Heritage",
+    "titleKorean": "김유신의 가야 혈통",
+    "summary": "삼국통일의 영웅 김유신은 가야 왕족의 후손",
+    "content": "김유신은 금관가야 마지막 왕 구형왕(도설지왕)의 증손자로, 가야 왕족의 피를 이어받았다. 김수로왕으로부터 12대째 후손이다. 가야가 신라에 병합된 후 그의 가문은 신라 귀족으로 편입되었고, 결국 김유신은 삼국통일의 주역이 되었다. 가야의 피가 한반도 통일을 이끈 셈이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/kim_yushin_gaya.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "kim_yushin",
+      "suro"
+    ],
+    "tags": [
+      "김유신",
+      "가야",
+      "왕족",
+      "삼국통일"
+    ]
+  },
+  {
+    "id": "fact_suro_hwangok_marriage",
+    "type": "event",
+    "title": "Suro and Hwang-ok's Marriage",
+    "titleKorean": "수로왕과 허황옥의 혼인",
+    "summary": "하늘이 정해준 동서양 왕족의 운명적 결혼",
+    "content": "서기 48년, 인도 아유타국의 공주 허황옥이 붉은 돛을 단 배를 타고 가락국에 도착했다. 수로왕은 꿈에서 하늘의 계시를 받고 그녀를 기다리고 있었다. 두 사람 모두 하늘의 명을 받았다는 점에서 운명적인 결합이었다. 이 혼인으로 가야 왕실에는 동양과 서양의 피가 섞이게 되었고, 10남 2녀가 태어났다.",
+    "thumbnailAsset": "assets/images/encyclopedia/suro_hwangok.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "hwangok",
+      "fact_hwangok_journey"
+    ],
+    "tags": [
+      "수로왕",
+      "허황옥",
+      "혼인",
+      "운명"
+    ]
+  },
+  {
+    "id": "fact_ureuk_decision",
+    "type": "event",
+    "title": "Ureuk's Decision to Leave",
+    "titleKorean": "우륵의 결단",
+    "summary": "예술을 지키기 위해 고국을 떠난 음악가의 선택",
+    "content": "551년경, 대가야가 신라에 정복될 기미가 보이자 악사 우륵은 중대한 결단을 내렸다. 진흥왕의 밀사가 음악을 보존해달라는 제안을 해왔고, 우륵은 오랜 고민 끝에 신라로 망명하기로 결심했다. 이것이 배신인지 충성인지는 오늘날까지 논쟁거리이지만, 결과적으로 가야금은 살아남아 천 오백 년을 이어오고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/ureuk_decision.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_ureuk_legacy"
+    ],
+    "tags": [
+      "우륵",
+      "망명",
+      "결단",
+      "음악"
+    ]
+  },
+  {
+    "id": "fact_ureuk_in_silla",
+    "type": "event",
+    "title": "Ureuk in Silla",
+    "titleKorean": "신라에서의 우륵",
+    "summary": "진흥왕의 후원 아래 음악을 전수한 망명 악사",
+    "content": "신라로 망명한 우륵은 진흥왕의 환대를 받아 국원경(지금의 충주)에 정착했다. 진흥왕은 '그대의 음악은 가야의 것이 아니라 천하의 것'이라며 세 명의 제자(계고, 법지, 만덕)를 보내 음악을 배우게 했다. 우륵은 이들에게 가야금, 노래, 춤을 가르쳐 가야의 음악이 신라로 전승되는 토대를 마련했다.",
+    "thumbnailAsset": "assets/images/encyclopedia/ureuk_silla.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_ureuk_disciples",
+      "fact_ureuk_decision"
+    ],
+    "tags": [
+      "우륵",
+      "신라",
+      "진흥왕",
+      "제자"
+    ]
+  },
+  {
+    "id": "fact_gaya_iron_trade",
+    "type": "event",
+    "title": "Gaya Iron Trade",
+    "titleKorean": "가야의 철 교역",
+    "summary": "철을 바탕으로 동아시아 교역을 주도한 가야",
+    "content": "가야는 낙동강 유역의 풍부한 철광석과 뛰어난 제련 기술을 바탕으로 동아시아 철 교역의 중심지였다. 왜(일본), 중국, 동남아시아까지 가야의 철이 수출되었으며, 그 대가로 비단, 보석, 향료, 곡물 등을 수입했다. '철을 쥔 자가 힘을 쥔다'는 가야의 철학은 교역을 통한 평화적 번영을 추구한 것이었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gaya_iron_trade.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "fact_gaya_iron"
+    ],
+    "tags": [
+      "가야",
+      "철",
+      "교역",
+      "경제"
+    ]
+  },
+  {
+    "id": "fact_gaya_japan",
+    "type": "term",
+    "title": "Gaya-Japan Relations",
+    "titleKorean": "가야와 왜의 관계",
+    "summary": "철을 매개로 한 가야와 왜(일본)의 특별한 관계",
+    "content": "고대 일본(왜)은 철 생산 능력이 부족하여 가야에서 대량의 철을 수입했다. 가야의 철은 왜의 농기구와 무기 생산에 필수적이었으며, 이로 인해 왜는 가야에 종속적인 관계를 유지했다. 일부 학자들은 가야가 왜에 상당한 영향력을 행사했다고 보며, 이는 '임나일본부설'과 대비되는 해석이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gaya_japan.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "fact_gaya_iron_trade"
+    ],
+    "tags": [
+      "가야",
+      "왜",
+      "일본",
+      "철"
+    ]
+  },
+  {
+    "id": "fact_hwangok_children",
+    "type": "event",
+    "title": "Hwang-ok's Children",
+    "titleKorean": "허황옥의 자녀들",
+    "summary": "10남 2녀를 낳아 한반도 주요 씨족의 시조모가 되다",
+    "content": "허황옥은 수로왕과의 사이에서 10남 2녀를 낳았다. 장남 거등왕은 가야 왕위를 이었고, 둘째와 셋째 아들에게는 어머니의 성 '허(許)'를 주어 허씨의 시조가 되게 했다. 나머지 아들들은 김(金)씨를 이었으며, 이들 후손 중에는 삼국통일의 영웅 김유신도 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hwangok_children.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "hwangok",
+      "suro",
+      "fact_kim_yushin_gaya"
+    ],
+    "tags": [
+      "허황옥",
+      "자녀",
+      "허씨",
+      "김씨"
+    ]
+  },
+  {
+    "id": "fact_hwangok_descendants",
+    "type": "term",
+    "title": "Hwang-ok's Descendants",
+    "titleKorean": "허황옥의 후손들",
+    "summary": "한국 주요 성씨의 뿌리가 된 허황옥의 혈통",
+    "content": "허황옥과 수로왕의 후손은 한국 주요 성씨의 시조가 되었다. 김해 김씨, 김해 허씨, 양천 허씨, 인천 이씨 등이 모두 그들의 후손이라 전해진다. 특히 김해 김씨는 한국에서 가장 많은 인구를 가진 성씨 중 하나이며, 삼국통일의 영웅 김유신 장군도 12대 후손이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hwangok_descendants.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "hwangok",
+      "fact_hwangok_children"
+    ],
+    "tags": [
+      "허황옥",
+      "후손",
+      "성씨",
+      "혈통"
+    ]
+  },
+  {
+    "id": "fact_12songs_list",
+    "type": "term",
+    "title": "Ureuk's Twelve Songs",
+    "titleKorean": "우륵 12곡 목록",
+    "summary": "가야의 12지역을 담은 우륵의 가야금 12곡",
+    "content": "우륵이 작곡한 12곡은 각각 가야의 한 지역을 담고 있다: 하가라도(금관가야), 상가라도(대가야), 보기(아라가야), 달이(고령가야), 사물(만물의 덧없음), 물혜(성산가야), 하기물(소가야), 사자기(무사의 춤), 거열(산성), 사팔혜(팔방의 바람), 이혁(햇살), 상기물(귀향). 이 12곡은 '음악으로 그린 가야의 지도'라 불린다.",
+    "thumbnailAsset": "assets/images/encyclopedia/12songs.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_gayageum_origin"
+    ],
+    "tags": [
+      "우륵",
+      "12곡",
+      "가야금",
+      "음악"
+    ]
+  },
+  {
+    "id": "fact_12songs_meaning",
+    "type": "term",
+    "title": "Meaning of the Twelve Songs",
+    "titleKorean": "12곡의 의미",
+    "summary": "단순한 음악이 아닌, 가야의 지도이자 역사이자 철학",
+    "content": "우륵의 12곡은 단순한 음악 작품이 아니다. 각 곡은 가야의 한 지역을 담고 있어 '음악으로 그린 지도'이며, 가야의 역사와 정신을 담고 있어 '소리로 쓴 역사서'이기도 하다. 우륵은 '나라가 망해도 음악이 남으면 가야는 영원히 살아있다'고 말했는데, 실제로 가야금과 12곡은 천 오백 년이 지난 오늘날까지 전해지고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/12songs_meaning.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_12songs_list"
+    ],
+    "tags": [
+      "우륵",
+      "12곡",
+      "의미",
+      "영속성"
+    ]
+  },
+  {
+    "id": "fact_suro_legacy",
+    "type": "event",
+    "title": "King Suro's Legacy",
+    "titleKorean": "수로왕의 유산",
+    "summary": "후손들에게 전하는 수로왕의 세 가지 가르침",
+    "content": "수로왕이 후손에게 남긴 세 가지 가르침이 전해진다. 첫째, 하늘을 두려워하라. 둘째, 다름을 받아들여라. 셋째, 칼보다 거래를 택하라. 이는 천손의식, 개방성, 평화적 번영이라는 가야의 전통을 담고 있다. 특히 '적을 만들지 말고 고객을 만들라'는 교훈은 가야의 교역 국가적 정체성을 잘 보여준다.",
+    "thumbnailAsset": "assets/images/encyclopedia/suro_legacy.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "fact_gaya_iron_trade"
+    ],
+    "tags": [
+      "수로왕",
+      "유산",
+      "가르침",
+      "철학"
+    ]
+  },
+  {
+    "id": "fact_suro_bloodline",
+    "type": "term",
+    "title": "Suro's Bloodline",
+    "titleKorean": "수로왕의 혈통",
+    "summary": "가야는 망해도 수로왕의 피는 영원히 흐른다",
+    "content": "수로왕은 가야가 언젠가 멸망할 것을 예견하면서도, 자신과 허황옥의 피가 수많은 후손으로 퍼질 것임을 확신했다. 실제로 김해 김씨, 김해 허씨 등 수백만 명의 후손이 있으며, 그 중에는 삼국통일의 영웅 김유신도 포함된다. '나라는 잊혀도 피는 흐른다'는 수로왕의 말은 현실이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/suro_bloodline.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "suro",
+      "hwangok",
+      "fact_kim_yushin_gaya"
+    ],
+    "tags": [
+      "수로왕",
+      "혈통",
+      "후손",
+      "김유신"
+    ]
+  },
+  {
+    "id": "fact_hwangok_buddhism",
+    "type": "event",
+    "title": "Hwang-ok and Buddhism",
+    "titleKorean": "허황옥과 불교",
+    "summary": "한반도 최초의 불교 전래자일 수도 있는 인도 공주",
+    "content": "허황옥은 불교의 본고장 인도에서 왔으며, 파사석탑과 함께 불교적 가르침을 가져왔을 가능성이 있다. 공식적인 불교 전래(고구려 372년, 백제 384년, 신라 527년)보다 수백 년 앞선 시기에 비공식적으로 불교 사상이 전해졌을 수 있다는 학설이 있다. 허황옥은 '씨앗은 조용히 뿌려진다'고 말했다고 전해진다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hwangok_buddhism.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "hwangok",
+      "fact_pasa_pagoda"
+    ],
+    "tags": [
+      "허황옥",
+      "불교",
+      "파사석탑",
+      "신앙"
+    ]
+  },
+  {
+    "id": "fact_early_buddhism",
+    "type": "term",
+    "title": "Early Buddhism in Korea",
+    "titleKorean": "한반도 초기 불교",
+    "summary": "공식 전래 이전에 비공식적으로 퍼진 불교의 흔적",
+    "content": "한반도의 공식적 불교 전래는 4세기로 기록되어 있지만, 그 이전에도 해상 교역을 통해 불교적 사상이 전해졌을 가능성이 있다. 특히 허황옥의 인도 출신설과 파사석탑의 존재는 1세기경 이미 불교적 영향이 있었음을 시사한다. 이러한 비공식적 전래가 후일 불교 수용을 용이하게 했다는 견해도 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/early_buddhism.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "fact_hwangok_buddhism",
+      "hwangok"
+    ],
+    "tags": [
+      "불교",
+      "전래",
+      "허황옥",
+      "역사"
+    ]
+  },
+  {
+    "id": "fact_three_disciples",
+    "type": "event",
+    "title": "Ureuk's Three Disciples",
+    "titleKorean": "우륵의 세 제자",
+    "summary": "가야금, 노래, 춤을 전수받은 계고, 법지, 만덕",
+    "content": "진흥왕은 우륵에게 세 명의 제자를 보내 가야의 음악을 배우게 했다. 계고(階古)는 가야금을, 법지(法知)는 노래를, 만덕(萬德)은 춤을 전수받았다. 이 세 사람이 협연하면 '가야가 눈앞에 펼쳐지는 것 같다'고 우륵이 말했다. 그들을 통해 가야의 음악은 신라의 국악으로 계승되어 오늘날까지 전해지고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/three_disciples.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_ureuk_in_silla"
+    ],
+    "tags": [
+      "우륵",
+      "계고",
+      "법지",
+      "만덕"
+    ]
+  },
+  {
+    "id": "fact_music_transcends",
+    "type": "term",
+    "title": "Music Transcends Borders",
+    "titleKorean": "음악은 국경을 초월한다",
+    "summary": "우륵이 제자들에게 가르친 예술 철학",
+    "content": "우륵은 신라인 제자 법지가 가야 노래를 부를 때 눈물을 흘렸다 한다. '음악에는 국경이 없다. 가야 사람이든 신라 사람이든 마음으로 느끼면 같은 감정을 담을 수 있다'는 것이 그의 가르침이었다. 이는 가야가 신라에 병합된 후에도 가야의 음악이 살아남을 수 있었던 이유이기도 하다.",
+    "thumbnailAsset": "assets/images/encyclopedia/music_transcends.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "ureuk",
+      "fact_three_disciples"
+    ],
+    "tags": [
+      "우륵",
+      "음악",
+      "철학",
+      "예술"
+    ]
+  },
+  {
     "id": "achievement_chiljido_discovery",
     "type": "artifact",
     "title": "Seven-Branched Sword",
@@ -535,5 +1022,618 @@
       "위인"
     ],
     "isDiscovered": false
+  },
+  {
+    "id": "fact_goryeo_founding",
+    "type": "event",
+    "title": "Founding of Goryeo",
+    "titleKorean": "고려 건국",
+    "summary": "왕건이 918년 고려를 건국하고 후삼국을 통일하다",
+    "content": "918년, 송악의 호족 왕건은 궁예가 세운 태봉에서 정변을 일으켜 새로운 나라 고려를 건국하였다. 고려라는 나라 이름은 고구려에서 따온 것으로, 고구려의 정통성을 계승하겠다는 의지를 담고 있다. 936년 신라와 후백제를 병합하여 후삼국을 통일하였으며, 이후 500년간 한반도를 통치하였다.",
+    "thumbnailAsset": "assets/images/encyclopedia/goryeo_founding.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "wanggeon",
+      "fact_hunyoshipjo"
+    ],
+    "tags": [
+      "고려",
+      "왕건",
+      "건국",
+      "918년"
+    ]
+  },
+  {
+    "id": "fact_hunyoshipjo",
+    "type": "term",
+    "title": "Hunyoshipjo (Ten Injunctions)",
+    "titleKorean": "훈요십조",
+    "summary": "왕건이 후대 왕들에게 남긴 열 가지 유훈",
+    "content": "훈요십조(訓要十條)는 고려 태조 왕건이 죽기 전에 후대 왕들에게 남긴 열 가지 유훈이다. 불교를 숭상하고 연등회와 팔관회를 소홀히 하지 말 것, 거란을 경계할 것, 지방 차별을 하지 말 것 등의 내용을 담고 있다. 특히 '차령 이남 공주강 외의 인물은 등용하지 마라'는 조항은 논란이 되기도 한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hunyoshipjo.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "wanggeon",
+      "fact_goryeo_founding"
+    ],
+    "tags": [
+      "훈요십조",
+      "왕건",
+      "유훈",
+      "통치"
+    ]
+  },
+  {
+    "id": "fact_gangdong_6ju",
+    "type": "event",
+    "title": "Acquisition of Gangdong 6 Provinces",
+    "titleKorean": "강동 6주 획득",
+    "summary": "서희의 외교 담판으로 얻어낸 영토",
+    "content": "993년 거란의 대군이 고려를 침공했을 때, 서희는 단신으로 적진에 들어가 거란의 장수 소손녕과 담판을 벌였다. '고려는 고구려의 계승국이므로 오히려 거란이 고구려 땅을 점령하고 있다'고 주장하여 거란군을 철수시키고, 압록강 동쪽의 강동 6주를 고려 영토로 인정받았다. 싸우지 않고 오히려 영토를 늘린 역사상 가장 성공적인 외교 사례 중 하나이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gangdong_6ju.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "seohee",
+      "fact_seohee_diplomacy"
+    ],
+    "tags": [
+      "강동 6주",
+      "서희",
+      "외교",
+      "거란"
+    ]
+  },
+  {
+    "id": "fact_seohee_diplomacy",
+    "type": "event",
+    "title": "Seo Hui's Diplomatic Victory",
+    "titleKorean": "서희의 외교 승리",
+    "summary": "말 한마디로 80만 대군을 물리친 외교의 달인",
+    "content": "993년, 거란의 소손녕이 80만 대군을 이끌고 고려를 침공했다. 조정에서는 항복론이 우세했으나, 서희는 담판을 자청하여 적진으로 들어갔다. 그는 '고려가 고구려를 계승했으므로 고려(高麗)라는 이름을 쓴다'며 당당히 맞섰다. 거란은 고려를 멸망시키려는 것이 아니라 송나라를 치기 위해 고려를 회유하려 한 것임을 간파하고, 협상으로 유리한 조건을 이끌어냈다.",
+    "thumbnailAsset": "assets/images/encyclopedia/seohee.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "seohee",
+      "fact_gangdong_6ju"
+    ],
+    "tags": [
+      "서희",
+      "외교",
+      "소손녕",
+      "고려-고구려 계승"
+    ]
+  },
+  {
+    "id": "fact_guju_battle",
+    "type": "event",
+    "title": "Battle of Guju",
+    "titleKorean": "귀주대첩",
+    "summary": "강감찬이 거란 10만 대군을 전멸시킨 전투",
+    "content": "1019년, 거란의 소배압이 10만 대군을 이끌고 고려를 침공했다. 71세의 노장 강감찬은 도원수로 출정하여 먼저 흥화진에서 수공 작전으로 적에게 큰 피해를 입혔다. 개경까지 진격했다가 후퇴하는 거란군을 귀주에서 매복 공격하여 거의 전멸시켰다. 살아 돌아간 자가 겨우 수천 명에 불과했다고 한다. 이 귀주대첩 이후 거란은 고려를 다시 침략하지 못했다.",
+    "thumbnailAsset": "assets/images/encyclopedia/guju_battle.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "gangamchan",
+      "fact_gangamchan_victory"
+    ],
+    "tags": [
+      "귀주대첩",
+      "강감찬",
+      "거란",
+      "전투"
+    ]
+  },
+  {
+    "id": "fact_gangamchan_victory",
+    "type": "event",
+    "title": "Kang Gam-chan's Victory",
+    "titleKorean": "강감찬의 승리",
+    "summary": "71세 노장이 이끈 역사적 대승",
+    "content": "강감찬은 71세의 고령에 도원수로 임명되어 거란과의 전쟁에 나섰다. 그는 먼저 흥화진에서 개울을 막아 물을 가두었다가 터뜨리는 수공 작전으로 적에게 큰 피해를 입혔다. 이는 612년 을지문덕의 살수대첩에서 영감을 받은 것이었다. 그의 지략과 경험은 젊은 장수들도 따라올 수 없는 것이었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gangamchan.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "gangamchan",
+      "fact_guju_battle"
+    ],
+    "tags": [
+      "강감찬",
+      "수공",
+      "전략",
+      "승리"
+    ]
+  },
+  {
+    "id": "fact_gongmin_reform",
+    "type": "event",
+    "title": "Gongmin's Anti-Yuan Reform",
+    "titleKorean": "공민왕의 반원 개혁",
+    "summary": "원나라의 간섭에서 벗어나기 위한 개혁 정책",
+    "content": "공민왕은 약 80년간 원나라의 간섭을 받던 고려의 자주성을 회복하기 위해 반원 개혁을 추진했다. 정동행성 이문소를 폐지하고, 쌍성총관부를 공격하여 영토를 수복했으며, 변발과 호복(원나라 풍습)을 금지했다. 이러한 개혁은 원나라가 약해진 틈을 타 추진되었으나, 내부 반발과 홍건적, 왜구의 침입 등으로 어려움을 겪었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gongmin_reform.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "gongmin",
+      "fact_ssangseong"
+    ],
+    "tags": [
+      "공민왕",
+      "반원",
+      "개혁",
+      "자주"
+    ]
+  },
+  {
+    "id": "fact_ssangseong",
+    "type": "event",
+    "title": "Recovery of Ssangseong",
+    "titleKorean": "쌍성총관부 수복",
+    "summary": "원나라에 빼앗겼던 영토를 되찾다",
+    "content": "쌍성총관부는 1258년 원나라가 고려 동북 지역에 설치한 행정기관이었다. 1356년 공민왕은 유인우를 보내 쌍성총관부를 공격하여 약 100년 만에 영토를 수복했다. 이때 조휘와 이자춘(이성계의 아버지)이 내응하여 수복에 기여했다. 이는 공민왕의 반원 개혁 중 가장 중요한 성과 중 하나이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/ssangseong.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "gongmin",
+      "fact_gongmin_reform"
+    ],
+    "tags": [
+      "쌍성총관부",
+      "수복",
+      "영토",
+      "이성계"
+    ]
+  },
+  {
+    "id": "fact_gongmin_art",
+    "type": "term",
+    "title": "Gongmin's Artistic Legacy",
+    "titleKorean": "공민왕의 예술적 유산",
+    "summary": "뛰어난 화가이기도 했던 비운의 군주",
+    "content": "공민왕은 정치적 고뇌 속에서도 뛰어난 예술적 재능을 보여주었다. 그가 그린 노국대장공주의 초상화는 현재 전하지 않지만, '천산대렵도'와 같은 작품이 전해진다. 그림을 그릴 때만큼은 왕의 무거운 짐을 내려놓을 수 있었다고 전해지며, 그의 예술적 유산은 고려 문화의 정수로 평가받는다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gongmin_art.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "gongmin"
+    ],
+    "tags": [
+      "공민왕",
+      "예술",
+      "그림",
+      "노국대장공주"
+    ]
+  },
+  {
+    "id": "fact_later_three_kingdoms",
+    "type": "term",
+    "title": "Later Three Kingdoms",
+    "titleKorean": "후삼국시대",
+    "summary": "통일신라가 분열하고 다시 통일되기까지",
+    "content": "후삼국시대(892-936)는 통일신라가 약해지면서 후백제(견훤)와 태봉(궁예)이 등장하여 세 나라로 분열된 시기이다. 태봉의 장수였던 왕건이 918년 정변을 일으켜 고려를 건국하고, 935년 신라가 귀순하고, 936년 후백제를 멸망시켜 다시 한반도를 통일했다. 이 44년간의 시기를 후삼국시대라 한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/later_three_kingdoms.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "wanggeon",
+      "fact_goryeo_founding"
+    ],
+    "tags": [
+      "후삼국",
+      "후백제",
+      "태봉",
+      "통일"
+    ]
+  },
+  {
+    "id": "fact_goryeo_name",
+    "type": "term",
+    "title": "Origin of 'Goryeo' Name",
+    "titleKorean": "고려라는 이름의 유래",
+    "summary": "고구려를 계승한다는 의지를 담은 국호",
+    "content": "고려(高麗)라는 나라 이름은 고구려(高句麗)에서 따온 것이다. 왕건은 고구려의 정통성을 계승하겠다는 의지를 담아 이 이름을 선택했다. 수도도 고구려 남쪽 영토였던 송악(개성)에 두었으며, 북진 정책을 추진하여 고구려의 옛 영토를 회복하려 했다. 이러한 고구려 계승 의식은 서희의 외교에서도 활용되어 거란과의 담판에서 유리한 고지를 점할 수 있었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/goryeo_name.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "wanggeon",
+      "seohee"
+    ],
+    "tags": [
+      "고려",
+      "고구려",
+      "국호",
+      "계승"
+    ]
+  },
+  {
+    "id": "fact_geobukseon_victory",
+    "type": "event",
+    "title": "Victories of the Turtle Ship",
+    "titleKorean": "거북선의 승리",
+    "summary": "거북선이 활약한 해전들과 23전 23승 기록",
+    "content": "임진왜란 당시 이순신 장군이 이끈 조선 수군은 거북선과 판옥선을 주력으로 삼아 23전 23승이라는 불패의 기록을 세웠다. 특히 한산도대첩, 명량해전, 노량해전 등에서 거북선은 적의 백병전 전술을 무력화시키고 화포로 왜선을 격침시켰다. 덕분에 왜군은 바다를 통한 보급을 받지 못했고, 이는 임진왜란 승리의 결정적 요인이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/geobukseon_victory.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "geobukseon"
+    ],
+    "tags": [
+      "거북선",
+      "이순신",
+      "임진왜란",
+      "승리"
+    ]
+  },
+  {
+    "id": "fact_turtle_design",
+    "type": "artifact",
+    "title": "Design of Turtle Ship",
+    "titleKorean": "거북선의 설계",
+    "summary": "거북선의 혁신적인 설계와 그 특징",
+    "content": "거북선은 위가 철판(또는 두꺼운 널빤지)으로 덮여 있어 화살과 조총을 막아냈고, 그 위에 뾰족한 송곳(깔창)을 박아 적병이 뛰어오르지 못하게 했다. 머리는 용 형상으로 유황과 염초를 태워 연막을 뿜었다. 좌우 각 11문, 앞뒤 각 2문 등 총 26문의 화포가 장착되어 전 방향 공격이 가능했다. 노를 저어 기동하여 바람에 의존하는 범선보다 기동성이 뛰어났다.",
+    "thumbnailAsset": "assets/images/encyclopedia/turtle_design.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "geobukseon"
+    ],
+    "tags": [
+      "거북선",
+      "설계",
+      "화포",
+      "전함"
+    ]
+  },
+  {
+    "id": "fact_myeongnyang",
+    "type": "event",
+    "title": "Battle of Myeongnyang",
+    "titleKorean": "명량해전",
+    "summary": "13척으로 133척을 격파한 역사상 가장 극적인 해전",
+    "content": "1597년 음력 9월 16일, 이순신 장군은 단 13척의 배로 133척의 왜군 함대와 맞섰다. 울돌목(명량해협)의 빠른 조류를 활용한 전략으로 왜선 31척을 격침시키고 적장 마다시를 포함한 수천 명을 수장시켰다. 조선 수군은 단 1척의 손실도 없이 승리했다. 이는 세계 해전사에서 가장 압도적인 전과 중 하나로 기록되어 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/myeongnyang.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "fact_myeongnyang_victory"
+    ],
+    "tags": [
+      "명량해전",
+      "이순신",
+      "울돌목",
+      "기적"
+    ]
+  },
+  {
+    "id": "fact_myeongnyang_victory",
+    "type": "event",
+    "title": "Miracle of Myeongnyang",
+    "titleKorean": "명량의 기적",
+    "summary": "'죽고자 하면 살고, 살고자 하면 죽는다'",
+    "content": "명량해전 직전, 이순신은 부하들에게 말했다. '必死則生 必生則死(필사즉생 필생즉사) - 죽고자 하면 살고, 살고자 하면 죽는다.' 절망적인 상황에서도 이순신은 맨 앞에서 싸웠고, 그의 용기에 부하들도 따랐다. 조류가 바뀌는 시간을 정확히 이용하여 적을 급류에 밀어 넣는 전술이 성공하면서 133척 중 90척 이상이 파괴되거나 도주했다.",
+    "thumbnailAsset": "assets/images/encyclopedia/myeongnyang_victory.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "fact_myeongnyang"
+    ],
+    "tags": [
+      "명량해전",
+      "필사즉생",
+      "이순신",
+      "리더십"
+    ]
+  },
+  {
+    "id": "fact_nanjungilgi",
+    "type": "artifact",
+    "title": "Nanjung Ilgi (War Diary)",
+    "titleKorean": "난중일기",
+    "summary": "이순신 장군이 전쟁 중 기록한 개인 일기",
+    "content": "난중일기(亂中日記)는 이순신 장군이 임진왜란 기간(1592-1598년) 동안 쓴 개인 일기이다. 날씨, 조류, 전투 기록뿐 아니라 어머니에 대한 그리움, 전쟁의 두려움, 부하에 대한 걱정 등 인간적인 내용도 담겨 있다. 2013년 유네스코 세계기록유산으로 등재되었으며, 한 영웅의 진실된 내면을 보여주는 귀중한 기록이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/nanjungilgi.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin"
+    ],
+    "tags": [
+      "난중일기",
+      "이순신",
+      "일기",
+      "유네스코"
+    ]
+  },
+  {
+    "id": "fact_nanjungilgi_value",
+    "type": "term",
+    "title": "Value of Nanjung Ilgi",
+    "titleKorean": "난중일기의 가치",
+    "summary": "영웅이 아닌 인간 이순신을 보여주는 기록",
+    "content": "난중일기는 단순한 전쟁 기록이 아니라, 한 인간의 고뇌와 성찰을 담은 문학 작품이기도 하다. '홀로 배 위에 앉아 있으니 마음이 어지럽다', '어머니의 부고를 듣고 곡을 하다 기절했다' 등의 기록은 이순신이 완벽한 영웅이 아닌 고뇌하는 인간이었음을 보여준다. 이는 오히려 그의 업적을 더욱 위대하게 만든다.",
+    "thumbnailAsset": "assets/images/encyclopedia/nanjungilgi_value.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "fact_nanjungilgi"
+    ],
+    "tags": [
+      "난중일기",
+      "인간 이순신",
+      "문학",
+      "고뇌"
+    ]
+  },
+  {
+    "id": "fact_yi_mother",
+    "type": "event",
+    "title": "Yi Sun-sin's Mother",
+    "titleKorean": "이순신과 어머니",
+    "summary": "전쟁 중 어머니를 잃은 장수의 슬픔",
+    "content": "이순신의 어머니는 임진왜란 중인 1597년 4월에 별세했다. 당시 이순신은 전쟁터에 있어 임종을 지키지 못했다. 난중일기에는 '어머니의 부고를 듣고 곡을 하다 기절했다'고 기록되어 있다. 효심이 깊었던 이순신에게 이는 평생의 한이 되었고, 이후의 일기에도 어머니에 대한 그리움이 자주 등장한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/yi_mother.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "yi_sun_sin",
+      "fact_nanjungilgi"
+    ],
+    "tags": [
+      "이순신",
+      "어머니",
+      "효",
+      "슬픔"
+    ]
+  },
+  {
+    "id": "fact_joseon_science",
+    "type": "term",
+    "title": "Science of Joseon",
+    "titleKorean": "조선의 과학",
+    "summary": "세종대왕 시대 꽃피운 과학 기술의 황금기",
+    "content": "세종대왕 시대(1418-1450)는 조선 과학의 황금기였다. 세계 최초의 우량계 측우기, 해시계 앙부일구, 물시계 자격루, 천체 관측기 혼천의 등이 발명되었다. 이러한 발명품들은 단순히 호기심에서가 아니라 농업, 천문, 시간 측정 등 백성의 실생활에 도움이 되기 위해 만들어졌다. 노비 출신 장영실 같은 인재를 등용한 것도 특징이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/joseon_science.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_jang_yeongshil"
+    ],
+    "tags": [
+      "세종대왕",
+      "과학",
+      "측우기",
+      "발명"
+    ]
+  },
+  {
+    "id": "fact_cheugugi",
+    "type": "artifact",
+    "title": "Cheugugi (Rain Gauge)",
+    "titleKorean": "측우기",
+    "summary": "세계 최초의 공식 우량계",
+    "content": "측우기는 1441년 세종대왕 때 발명된 세계 최초의 표준화된 우량계이다. 서양에서 우량계가 발명된 것이 1639년이니 약 200년 앞선 것이다. 더욱 놀라운 것은 전국 각 고을에 측우기를 설치하여 빗물의 양을 중앙에 보고하게 하는 전국적인 기상 관측 네트워크를 구축했다는 점이다. 이는 농업, 치수, 재해 대비에 활용되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/cheugugi.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_joseon_science"
+    ],
+    "tags": [
+      "측우기",
+      "세종대왕",
+      "발명",
+      "기상"
+    ]
+  },
+  {
+    "id": "fact_jang_yeongshil",
+    "type": "character",
+    "title": "Jang Yeong-sil",
+    "titleKorean": "장영실",
+    "summary": "노비 출신에서 조선 최고의 발명가가 된 천재",
+    "content": "장영실(?-?)은 동래현 관노 출신으로, 그 재주가 뛰어나 세종대왕에게 발탁되어 종3품 상호군까지 올랐다. 물시계 자격루, 해시계 앙부일구, 천체 관측기 혼천의, 측우기 등 조선 과학의 핵심 발명품 대부분에 관여했다. 신분을 뛰어넘어 능력으로 인정받은 대표적 사례이며, 세종의 인재 등용 철학을 보여준다.",
+    "thumbnailAsset": "assets/images/encyclopedia/jang_yeongshil.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_joseon_science"
+    ],
+    "tags": [
+      "장영실",
+      "발명가",
+      "노비",
+      "세종대왕"
+    ]
+  },
+  {
+    "id": "fact_aemin",
+    "type": "term",
+    "title": "Aemin (Love for the People)",
+    "titleKorean": "애민 사상",
+    "summary": "백성을 자식처럼 사랑하라",
+    "content": "애민(愛民)은 백성을 사랑한다는 뜻으로, 세종대왕 통치의 핵심 철학이었다. 한글 창제도 '백성이 억울한 일을 당해도 하소연할 수 없어서'라는 애민 정신에서 비롯되었다. 세금을 공정하게 걷기 위해 17만 백성에게 의견을 묻는 여론조사를 실시한 것, 노비에게도 출산휴가를 준 것 등이 대표적인 애민 정책이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/aemin.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong"
+    ],
+    "tags": [
+      "애민",
+      "세종대왕",
+      "백성",
+      "통치"
+    ]
+  },
+  {
+    "id": "fact_sejong_aemin",
+    "type": "event",
+    "title": "Sejong's Welfare Policies",
+    "titleKorean": "세종의 복지 정책",
+    "summary": "600년 전 시행된 놀라운 복지 제도들",
+    "content": "세종대왕은 여성 노비에게 출산 전 1개월, 출산 후 100일의 출산휴가를 주었다. 남편 노비에게도 1개월 휴가를 주어 아내를 돌보게 했다. 또한 공법(貢法)을 제정할 때 17만 명의 백성에게 찬반을 물었는데, 이는 일종의 국민투표로 볼 수 있다. 이러한 정책들은 오늘날의 복지 제도와 비교해도 선진적인 것이었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/sejong_welfare.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_aemin"
+    ],
+    "tags": [
+      "세종대왕",
+      "복지",
+      "출산휴가",
+      "공법"
+    ]
+  },
+  {
+    "id": "fact_gongbeop",
+    "type": "term",
+    "title": "Gongbeop (Tax Reform)",
+    "titleKorean": "공법",
+    "summary": "17만 백성의 의견을 물어 만든 세금 제도",
+    "content": "공법(貢法)은 세종대왕이 기존의 불공정한 세금 제도를 개혁하기 위해 만든 새로운 세법이다. 놀랍게도 세종은 새 세법을 시행하기 전에 5개월에 걸쳐 약 17만 명의 백성에게 찬반을 물었다. 결과는 찬성 9만 8천여 명, 반대 7만 4천여 명으로 찬성이 많아 시행되었다. 이는 600년 전 시행된 일종의 국민투표라 할 수 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gongbeop.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "fact_sejong_aemin"
+    ],
+    "tags": [
+      "공법",
+      "세금",
+      "세종대왕",
+      "여론조사"
+    ]
+  },
+  {
+    "id": "fact_silhak",
+    "type": "term",
+    "title": "Silhak (Practical Learning)",
+    "titleKorean": "실학",
+    "summary": "실제로 쓸모 있는 학문을 추구한 조선 후기 사상",
+    "content": "실학(實學)은 17-19세기 조선에서 등장한 학문 사조로, 공허한 명분론에 빠진 성리학을 비판하고 실제 사회 문제 해결에 도움이 되는 학문을 추구했다. 유형원, 이익, 박지원, 정약용 등이 대표적인 실학자이다. 농업, 상업, 기술, 제도 개혁 등 다양한 분야에서 실용적인 방안을 제시했으며, 이는 근대화의 사상적 토대가 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/silhak.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong"
+    ],
+    "tags": [
+      "실학",
+      "정약용",
+      "개혁",
+      "실용"
+    ]
+  },
+  {
+    "id": "fact_silhak_spirit",
+    "type": "term",
+    "title": "Spirit of Silhak",
+    "titleKorean": "실학의 정신",
+    "summary": "백성을 위한 실용적 학문이라는 이념",
+    "content": "실학의 핵심 정신은 '이용후생(利用厚生)'과 '실사구시(實事求是)'이다. 이용후생은 '백성이 쓰기 편하게 하고 삶을 넉넉하게 한다'는 뜻이고, 실사구시는 '사실에 토대를 두고 진리를 추구한다'는 뜻이다. 즉, 책 속의 공허한 이론이 아니라 현실 문제를 해결하여 백성의 삶을 개선하는 것이 진정한 학문이라는 것이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/silhak_spirit.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong",
+      "fact_silhak"
+    ],
+    "tags": [
+      "실학",
+      "이용후생",
+      "실사구시",
+      "정신"
+    ]
+  },
+  {
+    "id": "fact_gangjin_exile",
+    "type": "event",
+    "title": "Exile in Gangjin",
+    "titleKorean": "강진 유배",
+    "summary": "18년간의 유배 생활에서 500권의 책을 쓰다",
+    "content": "정약용은 1801년 신유박해 때 천주교도라는 죄목으로 전라남도 강진으로 유배되어 18년간 그곳에서 살았다. 처음에는 주막에서 지내며 고통스러운 나날을 보냈지만, 점차 학문에 몰두하여 《목민심서》, 《경세유표》 등 약 500권의 책을 저술했다. 유배라는 고난이 오히려 그의 학문을 성숙하게 만든 역설적인 시기였다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gangjin_exile.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong"
+    ],
+    "tags": [
+      "정약용",
+      "유배",
+      "강진",
+      "저술"
+    ]
+  },
+  {
+    "id": "fact_mokminsimso",
+    "type": "artifact",
+    "title": "Mokminsimseo",
+    "titleKorean": "목민심서",
+    "summary": "백성을 다스리는 관리의 교과서",
+    "content": "목민심서(牧民心書)는 정약용이 유배지 강진에서 저술한 48권의 책으로, '목민'은 백성을 기른다는 뜻이다. 지방관이 부임하는 날부터 떠나는 날까지 어떻게 행동해야 하는지를 상세히 기록했다. 뇌물을 받지 말 것, 소송을 공정히 처리할 것, 굶주리는 자를 구휼할 것 등 관리의 자세를 망라하고 있어 동양 행정학의 고전으로 평가받는다.",
+    "thumbnailAsset": "assets/images/encyclopedia/mokminsimso.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong",
+      "fact_gangjin_exile"
+    ],
+    "tags": [
+      "목민심서",
+      "정약용",
+      "행정",
+      "관리"
+    ]
+  },
+  {
+    "id": "fact_exile_legacy",
+    "type": "term",
+    "title": "Legacy of Exile",
+    "titleKorean": "유배의 유산",
+    "summary": "고난 속에서 피어난 위대한 학문",
+    "content": "정약용의 18년 유배는 역설적으로 그의 학문을 완성하게 만들었다. 궁궐에 있었다면 쓰지 못했을 현실 비판적인 내용을 자유롭게 저술할 수 있었다. 《경세유표》에서는 국가 제도 전반의 개혁안을, 《흠흠신서》에서는 형법의 개혁안을 제시했다. 그의 사상은 비록 당대에는 실현되지 못했지만, 후세의 개화 사상과 근대화에 큰 영향을 미쳤다.",
+    "thumbnailAsset": "assets/images/encyclopedia/exile_legacy.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong",
+      "fact_mokminsimso"
+    ],
+    "tags": [
+      "정약용",
+      "유배",
+      "유산",
+      "개혁"
+    ]
+  },
+  {
+    "id": "fact_dasan_books",
+    "type": "term",
+    "title": "Dasan's Writings",
+    "titleKorean": "다산의 저술",
+    "summary": "500권이 넘는 방대한 저술 활동",
+    "content": "정약용(호: 다산)은 평생 약 500편, 2,000권이 넘는 글을 남겼다. 경학, 정치, 경제, 법률, 지리, 의학, 문학 등 거의 모든 분야를 아우른다. 《목민심서》 48권, 《경세유표》 44권, 《흠흠신서》 30권이 대표작이며, 이 세 책을 '일표이서(一表二書)'라 하여 그의 학문의 정수로 꼽는다.",
+    "thumbnailAsset": "assets/images/encyclopedia/dasan_books.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong"
+    ],
+    "tags": [
+      "정약용",
+      "다산",
+      "저술",
+      "일표이서"
+    ]
+  },
+  {
+    "id": "fact_geojunggi",
+    "type": "artifact",
+    "title": "Geojunggi (Crane)",
+    "titleKorean": "거중기",
+    "summary": "정약용이 설계한 무거운 돌을 들어올리는 기계",
+    "content": "거중기(擧重機)는 정약용이 수원 화성 건설을 위해 고안한 일종의 크레인이다. 도르래의 원리를 이용하여 적은 힘으로 무거운 돌을 들어올릴 수 있게 했다. 서양의 과학 서적을 참고하여 조선의 실정에 맞게 개량한 것으로, 덕분에 화성 건설 기간과 비용이 대폭 줄어들었다. 실학의 정신이 실제로 적용된 대표적 사례이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/geojunggi.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeong_yakyong"
+    ],
+    "tags": [
+      "거중기",
+      "정약용",
+      "화성",
+      "발명"
+    ]
   }
 ]
