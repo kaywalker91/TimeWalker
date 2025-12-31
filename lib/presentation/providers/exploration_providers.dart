@@ -66,3 +66,12 @@ final locationListByEraProvider = FutureProvider.family<List<Location>, String>(
     return repository.getLocationsByEra(eraId);
   },
 );
+
+/// 장소 ID로 장소 정보 불러오기
+final locationByIdProvider = FutureProvider.family<Location?, String>(
+  (ref, locationId) async {
+    final repository = ref.watch(locationRepositoryProvider);
+    return repository.getLocationById(locationId);
+  },
+);
+

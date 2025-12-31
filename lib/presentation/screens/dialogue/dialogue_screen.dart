@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/audio_constants.dart';
-import 'package:time_walker/core/utils/responsive_utils.dart';
+import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
@@ -12,9 +12,7 @@ import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/screens/dialogue/dialogue_view_model.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
-import 'package:time_walker/presentation/widgets/dialogue/reward_notification.dart';
-
-import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/presentation/widgets/dialogue/dialogue_widgets.dart';
 
 class DialogueScreen extends ConsumerStatefulWidget {
   final String dialogueId;
@@ -43,6 +41,9 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
           .read(dialogueViewModelProvider(widget.dialogueId).notifier)
           .initialize(widget.dialogueId);
       
+      // 관련 퀴즈 미리 로드 (대화 완료 시점에서 사용)
+      ref.read(quizListByDialogueProvider(widget.dialogueId));
+      
       // BGM 시작 (대화 BGM)
       final currentTrack = ref.read(currentBgmTrackProvider);
       if (currentTrack != AudioConstants.bgmDialogue) {
@@ -52,13 +53,19 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
   }
 
   @override
+  void dispose() {
+    debugPrint('[DialogueScreen] dispose - dialogueId=${widget.dialogueId}');
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final closeAction = () => _handleDialogueExit(context);
+    void closeAction() => _handleDialogueExit(context);
     // Listen for completion state change
     ref.listen(dialogueViewModelProvider(widget.dialogueId), (previous, next) {
       if (previous?.isCompleted == false && next.isCompleted) {
-        _showCompletionDialog(context, next.unlockEvents);
+        _showCompletionDialog(next.unlockEvents);
       }
       if (previous?.dialogue == null && next.dialogue != null) {
         _log(
@@ -97,7 +104,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
       _log(
         'missing params dialogueId="${widget.dialogueId}" eraId="${widget.eraId}"',
       );
-      return _DialogueLoadFailure(
+      return DialogueLoadFailure(
         message: l10n.exploration_no_dialogue,
         onClose: closeAction,
       );
@@ -109,13 +116,13 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
         loading: () => const Scaffold(
           body: Center(child: CircularProgressIndicator()),
         ),
-        error: (_, __) => _DialogueLoadFailure(
+        error: (_, _) => DialogueLoadFailure(
           message: l10n.exploration_no_dialogue,
           onClose: closeAction,
         ),
         data: (dialogue) {
           if (dialogue == null) {
-            return _DialogueLoadFailure(
+            return DialogueLoadFailure(
               message: l10n.exploration_no_dialogue,
               onClose: closeAction,
             );
@@ -153,7 +160,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
           // 1. Background (Dimmed)
           Positioned.fill(
             child: Container(
-              color: const Color(0xFF1E1E2C),
+              color: AppColors.dialogueBackground,
               // TODO: Add Era Background Image with Blur
             ),
           ),
@@ -165,8 +172,8 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
           Positioned.fill(
             bottom: 200, // Leave space for dialogue box
             child: speaker == null
-                ? _PlaceholderPortrait(label: speakerName)
-                : _CharacterPortrait(
+                ? PlaceholderPortrait(label: speakerName)
+                : CharacterPortrait(
                     character: speaker,
                     emotion: state.currentNode!.emotion,
                   ),
@@ -177,7 +184,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: _DialogueBox(
+            child: DialogueBox(
               state: state,
               speakerName: speakerName,
               onNext: () => ref
@@ -211,15 +218,15 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: canSelect
-                                  ? const Color(0xFF2C2C3E)
-                                  : const Color(0xFF1A1A2E),
+                                  ? AppColors.dialogueChoiceActive
+                                  : AppColors.dialogueChoiceInactive,
                               foregroundColor: canSelect
-                                  ? Colors.white
-                                  : Colors.white38,
+                                  ? AppColors.textPrimary
+                                  : AppColors.textDisabled,
                               side: BorderSide(
                                 color: canSelect
-                                    ? const Color(0xFFFFD700)
-                                    : Colors.grey,
+                                    ? AppColors.dialogueChoiceBorder
+                                    : AppColors.border,
                                 width: 1.5,
                               ),
                               shape: RoundedRectangleBorder(
@@ -328,33 +335,41 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
     return '조건을 만족하지 못했습니다.';
   }
 
-  void _showCompletionDialog(BuildContext context, List<UnlockEvent> unlocks) {
+  Future<void> _showCompletionDialog(List<UnlockEvent> unlocks) async {
+    // 관련 퀴즈 확인 - repository에서 직접 로드
+    final quizRepository = ref.read(quizRepositoryProvider);
+    final relatedQuizzes = await quizRepository.getQuizzesByDialogueId(widget.dialogueId);
+    final hasRelatedQuiz = relatedQuizzes.isNotEmpty;
+    
+    if (!mounted) return;
+    
+    // ignore: use_build_context_synchronously
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
-        backgroundColor: const Color(0xFF2C2C3E),
-        title: const Text(
+        backgroundColor: AppColors.dialogueSurface,
+        title: Text(
           'Dialogue Completed',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: AppColors.textPrimary),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.check_circle_outline, size: 60, color: Colors.green),
+            Icon(Icons.check_circle_outline, size: 60, color: AppColors.success),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'You have gained new knowledge!',
-              style: TextStyle(color: Colors.white70),
+              style: TextStyle(color: AppColors.textSecondary),
             ),
             if (unlocks.isNotEmpty) ...[
               const SizedBox(height: 16),
-              const Divider(color: Colors.white24),
+              Divider(color: AppColors.divider),
               const SizedBox(height: 16),
-              const Text(
+              Text(
                 'UNLOCKED!',
                 style: TextStyle(
-                  color: Colors.amber,
+                  color: AppColors.dialogueReward,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   letterSpacing: 1.2,
@@ -371,7 +386,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                           e.type == UnlockType.era
                               ? Icons.public
                               : Icons.emoji_events,
-                          color: Colors.amber,
+                          color: AppColors.dialogueReward,
                         ),
                         const SizedBox(width: 12),
                         Expanded(
@@ -380,8 +395,8 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                             children: [
                               Text(
                                 e.name,
-                                style: const TextStyle(
-                                  color: Colors.white,
+                                style: TextStyle(
+                                  color: AppColors.textPrimary,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -389,7 +404,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                                 Text(
                                   e.message!,
                                   style: TextStyle(
-                                    color: Colors.white.withValues(alpha: 0.7),
+                                    color: AppColors.textSecondary,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -402,20 +417,96 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
                 ),
               ),
             ],
+            // 관련 퀴즈가 있으면 안내 메시지 표시
+            if (hasRelatedQuiz) ...[
+              const SizedBox(height: 16),
+              Divider(color: AppColors.divider),
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: AppColors.info.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: AppColors.info.withValues(alpha: 0.3),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.quiz,
+                      color: AppColors.info,
+                      size: 24,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '관련 퀴즈가 있습니다!',
+                            style: TextStyle(
+                              color: AppColors.info,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          Text(
+                            '배운 내용을 테스트해보세요',
+                            style: TextStyle(
+                              color: AppColors.textSecondary,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ],
         ),
         actions: [
+          // 계속하기 버튼
           TextButton(
             onPressed: () {
               // Close the dialog first
               Navigator.of(dialogContext).pop();
 
-              // Then navigate back to exploration
-              // Using explicit go is safer than pop here to ensure we land on the right screen
-              AppRouter.goToEraExploration(context, widget.eraId);
+              // Then navigate back properly
+              _handleDialogueExit(context);
             },
-            child: const Text('Continue'),
+            child: Text(
+              hasRelatedQuiz ? '나중에' : 'Continue',
+              style: TextStyle(
+                color: hasRelatedQuiz ? AppColors.textDisabled : AppColors.info,
+              ),
+            ),
           ),
+          // 퀴즈 도전 버튼 (관련 퀴즈가 있을 때만)
+          if (hasRelatedQuiz)
+            ElevatedButton.icon(
+              onPressed: () {
+                // Close the dialog first
+                Navigator.of(dialogContext).pop();
+                
+                // Navigate to quiz - 대화 화면을 퀴즈 화면으로 교체
+                // (go 사용으로 뒤로가기 시 대화 화면으로 돌아가지 않음)
+                final firstQuiz = relatedQuizzes.first;
+                context.go('/quiz/${firstQuiz.id}');
+              },
+              icon: const Icon(Icons.quiz, size: 18),
+              label: const Text('퀴즈 도전!'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.info,
+                foregroundColor: AppColors.textPrimary,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+            ),
         ],
       ),
     );
@@ -453,276 +544,5 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
       return;
     }
     context.go(AppRouter.worldMap);
-  }
-}
-
-class _DialogueLoadFailure extends StatelessWidget {
-  final String message;
-  final VoidCallback onClose;
-
-  const _DialogueLoadFailure({
-    required this.message,
-    required this.onClose,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final responsive = context.responsive;
-
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(responsive.padding(24)),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  Icons.error_outline,
-                  color: Colors.white70,
-                  size: responsive.iconSize(64),
-                ),
-                SizedBox(height: responsive.spacing(16)),
-                Text(
-                  message,
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: responsive.fontSize(16),
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: responsive.spacing(24)),
-                ElevatedButton(
-                  onPressed: onClose,
-                  child: Text(AppLocalizations.of(context)!.common_close),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PlaceholderPortrait extends StatelessWidget {
-  final String label;
-
-  const _PlaceholderPortrait({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    final responsive = context.responsive;
-
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Icon(
-            Icons.person_outline,
-            color: Colors.white24,
-            size: responsive.iconSize(160),
-          ),
-          SizedBox(height: responsive.spacing(12)),
-          Text(
-            label,
-            style: TextStyle(
-              color: Colors.white38,
-              fontSize: responsive.fontSize(14),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _CharacterPortrait extends StatelessWidget {
-  final Character character;
-  final String emotion;
-
-  const _CharacterPortrait({required this.character, required this.emotion});
-
-  @override
-  Widget build(BuildContext context) {
-    final responsive = context.responsive;
-    
-    // Determine asset based on emotion
-    String assetPath = character.portraitAsset;
-    
-    // Try to find matching emotion asset
-    if (character.emotionAssets.isNotEmpty) {
-      try {
-        final match = character.emotionAssets.firstWhere(
-            (path) => path.contains('_${emotion}.') || path.contains(emotion));
-        assetPath = match;
-      } catch (_) {
-        // No match found, use default portrait
-      }
-    }
-
-    // Responsive portrait height
-    final portraitHeight = responsive.isSmallPhone 
-        ? 400.0 
-        : responsive.deviceType == DeviceType.tablet 
-            ? 700.0 
-            : 600.0;
-
-    return Center(
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        height: portraitHeight,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Image.asset(
-                assetPath,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                   return Icon(Icons.person, size: responsive.iconSize(200), color: Colors.grey[400]);
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _DialogueBox extends StatefulWidget {
-  final DialogueState state;
-  final String speakerName;
-  final VoidCallback onNext;
-
-  const _DialogueBox({
-    required this.state,
-    required this.speakerName,
-    required this.onNext,
-  });
-
-  @override
-  State<_DialogueBox> createState() => _DialogueBoxState();
-}
-
-class _DialogueBoxState extends State<_DialogueBox> {
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void didUpdateWidget(covariant _DialogueBox oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.state.displayedText != oldWidget.state.displayedText) {
-      _scrollToBottom();
-    }
-  }
-
-  void _scrollToBottom() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (_scrollController.hasClients) {
-        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final currentNode = widget.state.currentNode!;
-    final bottomPadding = MediaQuery.of(context).padding.bottom;
-    final responsive = context.responsive;
-    
-    // Responsive sizing
-    final boxHeight = responsive.isSmallPhone ? 200.0 : 250.0;
-    final speakerFontSize = responsive.fontSize(18);
-    final textFontSize = responsive.fontSize(16);
-    final horizontalPadding = responsive.padding(24);
-
-    return GestureDetector(
-      onTap: widget.onNext,
-      child: Container(
-        height: boxHeight + bottomPadding,
-        padding: EdgeInsets.fromLTRB(horizontalPadding, 24, horizontalPadding, 16 + bottomPadding),
-        decoration: const BoxDecoration(
-          color: Colors.black87,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-          border: Border(top: BorderSide(color: Colors.white10)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Speaker Name
-            Text(
-              widget.speakerName,
-              style: TextStyle(
-                color: const Color(0xFFFFD700),
-                fontSize: speakerFontSize,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: responsive.spacing(16)),
-
-            // Text Content (Scrollable)
-            Expanded(
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Text(
-                  widget.state.displayedText,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: textFontSize,
-                    height: 1.6,
-                    fontFamily: 'NotoSansKR',
-                  ),
-                ),
-              ),
-            ),
-
-            // Choices or Next Indicator
-            if (!widget.state.isTyping && !currentNode.hasChoices)
-              Align(alignment: Alignment.bottomRight, child: _BlinkingCursor()),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _BlinkingCursor extends StatefulWidget {
-  @override
-  _BlinkingCursorState createState() => _BlinkingCursorState();
-}
-
-class _BlinkingCursorState extends State<_BlinkingCursor>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    )..repeat(reverse: true);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _controller,
-      child: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
-    );
   }
 }

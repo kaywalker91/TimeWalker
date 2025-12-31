@@ -146,7 +146,7 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
             Image.asset(
               entry.imageAsset ?? entry.thumbnailAsset,
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(color: Colors.black26),
+              errorBuilder: (_, _, _) => Container(color: Colors.black26),
             ),
             // Gradient Overlay
             Container(

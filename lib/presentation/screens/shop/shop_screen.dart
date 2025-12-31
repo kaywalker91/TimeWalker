@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/shop_item.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/presentation/providers/shop_provider.dart';
+import 'package:time_walker/presentation/screens/shop/widgets/shop_item_card.dart';
 
 import '../../../core/routes/app_router.dart';
 
+/// 상점 화면
+/// 
+/// "시간의 문" 테마 - 프리미엄 골드 테마
 class ShopScreen extends ConsumerStatefulWidget {
   const ShopScreen({super.key});
 
@@ -23,71 +30,90 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
   @override
   void initState() {
     super.initState();
+    debugPrint('[ShopScreen] initState');
     _tabController = TabController(length: _tabs.length + 1, vsync: this);
   }
 
   @override
   void dispose() {
+    debugPrint('[ShopScreen] dispose');
     _tabController.dispose();
     super.dispose();
   }
 
-  void _purchaseItem(ShopItem item, UserProgress userProgress) async {
+  String _getTabLabel(BuildContext context, ShopItemType type) {
+    final l10n = AppLocalizations.of(context)!;
+    switch (type) {
+      case ShopItemType.consumable:
+        return l10n.shop_tab_consumable;
+      case ShopItemType.cosmetic:
+        return l10n.shop_tab_cosmetic;
+      case ShopItemType.upgrade:
+        return l10n.shop_tab_upgrade;
+    }
+  }
+
+  Future<void> _handlePurchase(ShopItem item, UserProgress userProgress) async {
+    final l10n = AppLocalizations.of(context)!;
+    // 1. Pre-check (Optional, for fast feedback)
     if (userProgress.coins < item.price) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Not enough coins!')),
+        SnackBar(
+          content: Text(l10n.shop_purchase_error_coins),
+          backgroundColor: AppColors.error.withValues(alpha: 0.9),
+        ),
       );
       return;
     }
 
     if (userProgress.inventoryIds.contains(item.id) && item.type != ShopItemType.consumable) {
        ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('You already own this item!')),
+        SnackBar(
+          content: Text(l10n.shop_purchase_error_owned),
+          backgroundColor: AppColors.warning.withValues(alpha: 0.9),
+        ),
       );
       return;
     }
 
+    // 2. Confirm Dialog
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF2C2C3E),
-        title: const Text('Confirm Purchase', style: TextStyle(color: Colors.white)),
-        content: Text(
-          'Buy ${item.name} for ${item.price} coins?',
-          style: const TextStyle(color: Colors.white70),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: const Text('Buy'),
-          ),
-        ],
-      ),
+      builder: (context) => _PurchaseConfirmDialog(item: item),
     );
 
-    if (confirmed == true) {
-      final newCoins = userProgress.coins - item.price;
-      final newInventory = List<String>.from(userProgress.inventoryIds)..add(item.id);
+    if (confirmed != true) return;
 
-      final newProgress = userProgress.copyWith(
-        coins: newCoins,
-        inventoryIds: newInventory,
-      );
-
-      final repository = ref.read(userProgressRepositoryProvider);
-      await repository.saveUserProgress(newProgress);
-      // Invalidate provider to refresh UI
-      ref.invalidate(userProgressProvider);
-
+    // 3. Delegate to Controller
+    try {
+      await ref.read(shopControllerProvider.notifier).purchaseItem(item);
+      
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Purchased ${item.name}!')),
+          SnackBar(
+            content: Text(l10n.shop_purchase_success(item.name)),
+            backgroundColor: AppColors.success.withValues(alpha: 0.9),
+          ),
         );
       }
+    } catch (e) {
+      if (!mounted) return;
+      
+      String message = e.toString();
+      if (e is ShopException) {
+        if (e.l10nKey == 'shop_purchase_error_coins') {
+          message = l10n.shop_purchase_error_coins;
+        } else if (e.l10nKey == 'shop_purchase_error_owned') {
+          message = l10n.shop_purchase_error_owned;
+        }
+      }
+      
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: AppColors.error.withValues(alpha: 0.9),
+        ),
+      );
     }
   }
 
@@ -95,95 +121,237 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
   Widget build(BuildContext context) {
     final shopItemsAsync = ref.watch(shopItemListProvider);
     final userProgressAsync = ref.watch(userProgressProvider);
+    
+    // Watch controller state to show loading overlay if needed
+    final shopState = ref.watch(shopControllerProvider);
+    final isLoading = shopState.isLoading;
 
-    return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2C),
-      appBar: AppBar(
-        title: const Text('Item Shop'),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => context.pop(),
-        ),
-        actions: [
-          // Inventory Button
-          IconButton(
-            icon: const Icon(Icons.inventory_2_outlined, color: Colors.white),
-            onPressed: () => context.push(AppRouter.inventory),
-          ),
-          userProgressAsync.when(
-            data: (progress) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Center(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.amber.withValues(alpha: 0.5)),
+    return Stack(
+      children: [
+        Scaffold(
+          body: Container(
+            decoration: const BoxDecoration(
+              gradient: AppGradients.timePortal,
+            ),
+            child: SafeArea(
+              child: Column(
+                children: [
+                  // 커스텀 앱바
+                  _buildAppBar(context, userProgressAsync),
+                  
+                  // 탭바
+                  _buildTabBar(context),
+                  
+                  // 콘텐츠
+                  Expanded(
+                    child: shopItemsAsync.when(
+                      data: (items) {
+                        return userProgressAsync.when(
+                          data: (userProgress) {
+                            return TabBarView(
+                              controller: _tabController,
+                              children: [
+                                _buildGrid(items, userProgress),
+                                ..._tabs.map((type) {
+                                  final filtered = items.where((i) => i.type == type).toList();
+                                  return _buildGrid(filtered, userProgress);
+                                }),
+                              ],
+                            );
+                          },
+                          loading: () => _buildLoadingState(),
+                          error: (e, s) => _buildErrorState('Error: $e'),
+                        );
+                      },
+                      loading: () => _buildLoadingState(),
+                      error: (e, s) => _buildErrorState('Error: $e'),
+                    ),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(Icons.monetization_on, color: Colors.amber, size: 16),
-                      const SizedBox(width: 8),
-                      Text(
-                        '${progress.coins}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                ],
+              ),
+            ),
+          ),
+        ),
+        // 로딩 오버레이
+        if (isLoading)
+          Container(
+            color: AppColors.background.withValues(alpha: 0.7),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    '구매 처리 중...',
+                    style: AppTextStyles.bodyMedium.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+  
+  Widget _buildAppBar(BuildContext context, AsyncValue<UserProgress> userProgressAsync) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          // 뒤로가기 버튼
+          Container(
+            decoration: BoxDecoration(
+              color: AppColors.surface.withValues(alpha: 0.5),
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
+              onPressed: () => context.pop(),
+            ),
+          ),
+          const SizedBox(width: 16),
+          
+          // 타이틀
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    gradient: AppGradients.goldenButton,
+                    shape: BoxShape.circle,
+                    boxShadow: AppShadows.goldenGlowSm,
+                  ),
+                  child: const Icon(Icons.shopping_bag, color: AppColors.background, size: 20),
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  AppLocalizations.of(context)!.shop_title,
+                  style: AppTextStyles.headlineMedium.copyWith(
+                    color: AppColors.textPrimary,
                   ),
                 ),
+              ],
+            ),
+          ),
+          
+          // 인벤토리 버튼
+          Container(
+            decoration: BoxDecoration(
+              color: AppColors.surface.withValues(alpha: 0.5),
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.inventory_2_outlined, color: AppColors.iconPrimary),
+              onPressed: () => context.push(AppRouter.inventory),
+            ),
+          ),
+          const SizedBox(width: 8),
+          
+          // 코인 표시
+          userProgressAsync.when(
+            data: (progress) => Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              decoration: BoxDecoration(
+                color: AppColors.primary.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.4)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.monetization_on, color: AppColors.primary, size: 18),
+                  const SizedBox(width: 6),
+                  Text(
+                    '${progress.coins}',
+                    style: AppTextStyles.labelLarge.copyWith(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
             loading: () => const SizedBox.shrink(),
-            error: (_, __) => const SizedBox.shrink(),
+            error: (_, _) => const SizedBox.shrink(),
           ),
         ],
-        bottom: TabBar(
-          controller: _tabController,
-          isScrollable: true,
-          labelColor: Colors.amber,
-          unselectedLabelColor: Colors.white70,
-          indicatorColor: Colors.amber,
-          tabs: [
-            const Tab(text: 'All'),
-            ..._tabs.map((type) => Tab(text: type.displayName)),
-          ],
-        ),
       ),
-      body: shopItemsAsync.when(
-        data: (items) {
-          return userProgressAsync.when(
-            data: (userProgress) {
-              return TabBarView(
-                controller: _tabController,
-                children: [
-                  _buildGrid(items, userProgress),
-                  ..._tabs.map((type) {
-                    final filtered = items.where((i) => i.type == type).toList();
-                    return _buildGrid(filtered, userProgress);
-                  }),
-                ],
-              );
-            },
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (e, s) => Center(child: Text('Error: $e')),
-          );
-        },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, s) => Center(child: Text('Error: $e')),
+    );
+  }
+  
+  Widget _buildTabBar(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppColors.surface.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: TabBar(
+        controller: _tabController,
+        isScrollable: true,
+        indicatorColor: AppColors.primary,
+        indicatorWeight: 3,
+        indicatorPadding: const EdgeInsets.symmetric(horizontal: 8),
+        labelColor: AppColors.primary,
+        unselectedLabelColor: AppColors.textSecondary,
+        labelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.bold),
+        unselectedLabelStyle: AppTextStyles.labelMedium,
+        dividerColor: Colors.transparent,
+        tabs: [
+          Tab(text: AppLocalizations.of(context)!.shop_tab_all),
+          ..._tabs.map((type) => Tab(text: _getTabLabel(context, type))),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildLoadingState() {
+    return Center(
+      child: CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+      ),
+    );
+  }
+  
+  Widget _buildErrorState(String message) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.error_outline, size: 64, color: AppColors.error),
+          const SizedBox(height: 16),
+          Text(
+            message,
+            style: AppTextStyles.bodyMedium.copyWith(color: AppColors.error),
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildGrid(List<ShopItem> items, UserProgress userProgress) {
     if (items.isEmpty) {
-      return const Center(child: Text('No items available.', style: TextStyle(color: Colors.white54)));
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.shopping_bag_outlined, size: 64, color: AppColors.textDisabled),
+            const SizedBox(height: 16),
+            Text(
+              AppLocalizations.of(context)!.shop_empty_list,
+              style: AppTextStyles.bodyLarge.copyWith(
+                color: AppColors.textSecondary,
+              ),
+            ),
+          ],
+        ),
+      );
     }
 
     return LayoutBuilder(
@@ -192,11 +360,6 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
         final crossAxisCount = responsive.gridColumns(phoneColumns: 2, tabletColumns: 3, desktopColumns: 4);
         final padding = responsive.padding(16);
         final spacing = responsive.spacing(16);
-        final iconSize = responsive.iconSize(48);
-        final nameFontSize = responsive.fontSize(16);
-        final descFontSize = responsive.fontSize(10);
-        final priceFontSize = responsive.fontSize(12);
-        final itemPadding = responsive.padding(12);
         
         return GridView.builder(
           padding: EdgeInsets.all(padding),
@@ -211,84 +374,107 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
             final item = items[index];
             final isOwned = userProgress.inventoryIds.contains(item.id) && item.type != ShopItemType.consumable;
             
-            return Card(
-              color: const Color(0xFF2C2C3E),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              child: InkWell(
-                onTap: isOwned ? null : () => _purchaseItem(item, userProgress),
-                borderRadius: BorderRadius.circular(16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Center(
-                        child: Icon(
-                          Icons.shopping_bag,
-                          size: iconSize,
-                          color: isOwned ? Colors.grey : Colors.amber,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: itemPadding),
-                        child: Column(
-                          children: [
-                            Text(
-                              item.name,
-                              style: TextStyle(
-                                color: isOwned ? Colors.grey : Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: nameFontSize,
-                              ),
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: responsive.spacing(4)),
-                            Text(
-                              item.description,
-                              style: TextStyle(
-                                color: isOwned ? Colors.grey : Colors.white60,
-                                fontSize: descFontSize,
-                              ),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const Spacer(),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: responsive.padding(12),
-                                vertical: responsive.padding(4),
-                              ),
-                              decoration: BoxDecoration(
-                                color: isOwned ? Colors.grey.withValues(alpha: 0.2) : Colors.amber.withValues(alpha: 0.2),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Text(
-                                isOwned ? 'Owned' : '${item.price} Coins',
-                                style: TextStyle(
-                                  color: isOwned ? Colors.grey : Colors.amber,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: priceFontSize,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: responsive.spacing(8)),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            return ShopItemCard(
+              item: item, 
+              isOwned: isOwned,
+              onTap: isOwned ? null : () => _handlePurchase(item, userProgress),
             );
           },
         );
       },
+    );
+  }
+}
+
+/// 구매 확인 다이얼로그
+class _PurchaseConfirmDialog extends StatelessWidget {
+  final ShopItem item;
+  
+  const _PurchaseConfirmDialog({required this.item});
+  
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
+    return AlertDialog(
+      backgroundColor: AppColors.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+        side: const BorderSide(color: AppColors.border),
+      ),
+      title: Text(
+        l10n.shop_confirm_title,
+        style: AppTextStyles.titleLarge.copyWith(
+          color: AppColors.textPrimary,
+        ),
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            l10n.shop_confirm_message(item.name, item.price),
+            style: AppTextStyles.bodyMedium.copyWith(
+              color: AppColors.textSecondary,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: AppColors.primary.withValues(alpha: 0.3),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.monetization_on, color: AppColors.primary, size: 20),
+                const SizedBox(width: 8),
+                Text(
+                  '${item.price}',
+                  style: AppTextStyles.titleMedium.copyWith(
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context, false),
+          child: Text(
+            l10n.common_cancel,
+            style: AppTextStyles.labelLarge.copyWith(
+              color: AppColors.textSecondary,
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            gradient: AppGradients.goldenButton,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                l10n.common_buy,
+                style: AppTextStyles.labelLarge.copyWith(
+                  color: AppColors.background,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

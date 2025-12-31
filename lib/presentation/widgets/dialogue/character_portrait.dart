@@ -1,0 +1,116 @@
+import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/themes.dart';
+import 'package:time_walker/core/utils/responsive_utils.dart';
+import 'package:time_walker/domain/entities/character.dart';
+
+/// 캐릭터 초상화 위젯
+/// 
+/// 대화 화면에서 현재 화자의 초상화를 표시합니다.
+/// 감정에 따라 다른 이미지를 표시할 수 있습니다.
+class CharacterPortrait extends StatelessWidget {
+  /// 표시할 캐릭터
+  final Character character;
+  
+  /// 현재 감정 (default, happy, angry, sad 등)
+  final String emotion;
+  
+  /// 초상화 높이 (기본: 반응형)
+  final double? height;
+
+  const CharacterPortrait({
+    super.key,
+    required this.character,
+    required this.emotion,
+    this.height,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = context.responsive;
+    
+    // Determine asset based on emotion
+    String assetPath = character.portraitAsset;
+    
+    // Try to find matching emotion asset
+    if (character.emotionAssets.isNotEmpty) {
+      try {
+        final match = character.emotionAssets.firstWhere(
+            (path) => path.contains('_$emotion.') || path.contains(emotion));
+        assetPath = match;
+      } catch (_) {
+        // No match found, use default portrait
+      }
+    }
+
+    // Responsive portrait height
+    final portraitHeight = height ?? (responsive.isSmallPhone 
+        ? 400.0 
+        : responsive.deviceType == DeviceType.tablet 
+            ? 700.0 
+            : 600.0);
+
+    return Center(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        height: portraitHeight,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(
+              child: Image.asset(
+                assetPath,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                   return Icon(
+                     Icons.person, 
+                     size: responsive.iconSize(200), 
+                     color: AppColors.textDisabled,
+                   );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// 플레이스홀더 초상화 위젯
+/// 
+/// 캐릭터 정보가 없을 때 표시되는 기본 초상화입니다.
+class PlaceholderPortrait extends StatelessWidget {
+  /// 표시할 레이블 (화자 이름)
+  final String label;
+
+  const PlaceholderPortrait({
+    super.key,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = context.responsive;
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Icon(
+            Icons.person_outline,
+            color: AppColors.textDisabled.withValues(alpha: 0.3),
+            size: responsive.iconSize(160),
+          ),
+          SizedBox(height: responsive.spacing(12)),
+          Text(
+            label,
+            style: TextStyle(
+              color: AppColors.textDisabled,
+              fontSize: responsive.fontSize(14),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

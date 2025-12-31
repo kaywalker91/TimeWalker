@@ -19,6 +19,8 @@ import 'package:time_walker/presentation/screens/quiz/quiz_play_screen.dart'; //
 import 'package:time_walker/presentation/screens/shop/shop_screen.dart'; // Unlocked
 import 'package:time_walker/presentation/screens/inventory/inventory_screen.dart'; // Added
 import 'package:time_walker/presentation/screens/profile/profile_screen.dart'; // Unlocked
+import 'package:time_walker/presentation/screens/achievement/achievement_screen.dart'; // Added
+import 'package:time_walker/presentation/screens/location_exploration/location_exploration_screen.dart'; // Added
 // import 'package:time_walker/presentation/screens/game_over/game_over_screen.dart';
 
 /// TimeWalker 앱 라우팅 설정
@@ -36,6 +38,7 @@ class AppRouter {
   static const String regionDetail = '/region/:regionId';
   static const String eraTimeline = '/region/:regionId/country/:countryId';
   static const String eraExploration = '/era/:eraId';
+  static const String locationExploration = '/era/:eraId/location/:locationId';
   static const String dialogue = '/era/:eraId/dialogue/:dialogueId';
 
   // ============== 콘텐츠 라우트 ==============
@@ -55,9 +58,21 @@ class AppRouter {
   // static const String shop = '/shop'; // This line was duplicated and moved up
   static const String settings = '/settings';
 
+  /// 앱 라우터 인스턴스
+  /// 
+  /// BGM 자동 관리를 원할 경우 BgmNavigatorObserver를 observers에 추가:
+  /// ```dart
+  /// // main.dart 또는 앱 초기화 시
+  /// AppRouter.router.routerDelegate.navigatorKey.currentContext?.read(
+  ///   bgmNavigatorObserverProvider,
+  /// );
+  /// ```
+  /// 
+  /// 참고: 현재는 각 화면의 initState에서 BGM을 관리하고 있으므로
+  /// 옵저버 사용은 선택 사항입니다.
   static final GoRouter router = GoRouter(
     initialLocation: splash,
-    debugLogDiagnostics: true,
+    debugLogDiagnostics: true, // 디버그 모드에서 라우트 로깅
     routes: [
       // ============== 기본 화면 ==============
       GoRoute(
@@ -69,7 +84,7 @@ class AppRouter {
       GoRoute(
         path: mainMenu,
         name: 'mainMenu',
-        builder: (context, state) => const MainMenuScreen(),
+        pageBuilder: (context, state) => _goldenPage(const MainMenuScreen(), state),
       ),
 
       // TODO: 인증 화면 구현 후 활성화
@@ -90,25 +105,25 @@ class AppRouter {
       GoRoute(
         path: worldMap,
         name: 'worldMap',
-        builder: (context, state) => const WorldMapScreen(),
+        pageBuilder: (context, state) => _timePortalPage(const WorldMapScreen(), state),
       ),
 
       GoRoute(
         path: regionDetail,
         name: 'regionDetail',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final regionId = state.pathParameters['regionId'] ?? '';
-          return RegionDetailScreen(regionId: regionId);
+          return _goldenPage(RegionDetailScreen(regionId: regionId), state);
         },
       ),
 
       GoRoute(
         path: eraTimeline,
         name: 'eraTimeline',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final regionId = state.pathParameters['regionId'] ?? '';
           final countryId = state.pathParameters['countryId'] ?? '';
-          return EraTimelineScreen(regionId: regionId, countryId: countryId);
+          return _timePortalPage(EraTimelineScreen(regionId: regionId, countryId: countryId), state);
         },
       ),
 
@@ -116,9 +131,9 @@ class AppRouter {
       GoRoute(
         path: eraExploration,
         name: 'eraExploration',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final eraId = state.pathParameters['eraId'] ?? '';
-          return EraExplorationScreen(eraId: eraId);
+          return _timePortalPage(EraExplorationScreen(eraId: eraId), state);
         },
       ),
 
@@ -126,10 +141,24 @@ class AppRouter {
       GoRoute(
         path: dialogue,
         name: 'dialogue',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final eraId = state.pathParameters['eraId'] ?? '';
           final dialogueId = state.pathParameters['dialogueId'] ?? '';
-          return DialogueScreen(dialogueId: dialogueId, eraId: eraId);
+          return _goldenPage(DialogueScreen(dialogueId: dialogueId, eraId: eraId), state);
+        },
+      ),
+
+      // 장소 탐험 화면 (신규)
+      GoRoute(
+        path: locationExploration,
+        name: 'locationExploration',
+        pageBuilder: (context, state) {
+          final eraId = state.pathParameters['eraId'] ?? '';
+          final locationId = state.pathParameters['locationId'] ?? '';
+          return _timePortalPage(
+            LocationExplorationScreen(eraId: eraId, locationId: locationId),
+            state,
+          );
         },
       ),
 
@@ -137,15 +166,15 @@ class AppRouter {
       GoRoute(
         path: encyclopedia,
         name: 'encyclopedia',
-        builder: (context, state) => const EncyclopediaScreen(),
+        pageBuilder: (context, state) => _goldenPage(const EncyclopediaScreen(), state),
       ),
 
       GoRoute(
         path: encyclopediaDetail,
         name: 'encyclopediaDetail',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final entryId = state.pathParameters['entryId'] ?? '';
-          return EncyclopediaDetailScreen(entryId: entryId);
+          return _goldenPage(EncyclopediaDetailScreen(entryId: entryId), state);
         },
       ),
 
@@ -173,36 +202,37 @@ class AppRouter {
       GoRoute(
         path: profile,
         name: 'profile',
-        builder: (context, state) => const ProfileScreen(),
+        pageBuilder: (context, state) => _goldenPage(const ProfileScreen(), state),
       ),
 
       GoRoute(
         path: achievements,
         name: 'achievements',
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Achievements - Coming Soon')),
-        ),
+        pageBuilder: (context, state) => _goldenPage(const AchievementScreen(), state),
       ),
 
       GoRoute(
         path: statistics,
         name: 'statistics',
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Statistics - Coming Soon')),
+        pageBuilder: (context, state) => _goldenPage(
+          const Scaffold(
+            body: Center(child: Text('Statistics - Coming Soon')),
+          ),
+          state,
         ),
       ),
 
       GoRoute(
         path: quiz,
         name: 'quiz',
-        builder: (context, state) => const QuizScreen(),
+        pageBuilder: (context, state) => _goldenPage(const QuizScreen(), state),
       ),
       GoRoute(
         path: quizPlay,
         name: 'quizPlay',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
             final quizId = state.pathParameters['quizId'] ?? '';
-            return QuizPlayScreen(quizId: quizId);
+            return _timePortalPage(QuizPlayScreen(quizId: quizId), state);
         },
       ),
 
@@ -210,19 +240,19 @@ class AppRouter {
       GoRoute(
         path: shop,
         name: 'shop',
-        builder: (context, state) => const ShopScreen(),
+        pageBuilder: (context, state) => _goldenPage(const ShopScreen(), state),
       ),
 
       GoRoute(
         path: inventory,
         name: 'inventory',
-        builder: (context, state) => const InventoryScreen(),
+        pageBuilder: (context, state) => _goldenPage(const InventoryScreen(), state),
       ),
 
       GoRoute(
         path: settings,
         name: 'settings',
-        builder: (context, state) => const SettingsScreen(),
+        pageBuilder: (context, state) => _goldenPage(const SettingsScreen(), state),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(
@@ -248,6 +278,59 @@ class AppRouter {
       ),
     ),
   );
+
+  // ============== 라우트 트랜지션 헬퍼 ==============
+
+  /// 시간 포탈 효과 (중요 화면 전환용)
+  /// - EraTimeline, EraExploration, WorldMap 등
+  static CustomTransitionPage _timePortalPage(Widget child, GoRouterState state) {
+    return CustomTransitionPage(
+      key: state.pageKey,
+      child: child,
+      transitionDuration: const Duration(milliseconds: 500),
+      reverseTransitionDuration: const Duration(milliseconds: 400),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curvedAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeInOutCubic,
+        );
+        return FadeTransition(
+          opacity: curvedAnimation,
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.85, end: 1.0).animate(curvedAnimation),
+            child: child,
+          ),
+        );
+      },
+    );
+  }
+
+  /// 골든 페이드 효과 (일반 화면 전환용)
+  /// - DetailScreen, Profile, Shop 등
+  static CustomTransitionPage _goldenPage(Widget child, GoRouterState state) {
+    return CustomTransitionPage(
+      key: state.pageKey,
+      child: child,
+      transitionDuration: const Duration(milliseconds: 400),
+      reverseTransitionDuration: const Duration(milliseconds: 300),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curvedAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutQuint,
+        );
+        return SlideTransition(
+          position: Tween<Offset>(
+             begin: const Offset(0.0, 0.05),
+             end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: FadeTransition(
+            opacity: curvedAnimation,
+            child: child,
+          ),
+        );
+      },
+    );
+  }
 
   // ============== 네비게이션 헬퍼 메서드 ==============
 
@@ -309,5 +392,10 @@ class AppRouter {
 
   static void goToInventory(BuildContext context) {
     context.push(inventory);
+  }
+
+  /// 업적 화면으로 이동
+  static void goToAchievements(BuildContext context) {
+    context.push(achievements);
   }
 }

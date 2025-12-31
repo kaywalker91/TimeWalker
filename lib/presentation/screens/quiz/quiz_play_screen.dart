@@ -2,7 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/domain/entities/achievement.dart';
+import 'package:time_walker/domain/services/achievement_service.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+
 
 class QuizPlayScreen extends ConsumerStatefulWidget {
   final String quizId;
@@ -19,9 +22,18 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
   String? _selectedAnswer;
   bool _isSubmitted = false;
   bool _isCorrect = false;
+  bool _wasAlreadyCompleted = false; // 이미 맞춘 퀴즈인지 여부
+  List<Achievement> _unlockedAchievements = []; // 새로 달성한 업적
+
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('[QuizPlayScreen] initState - quizId=${widget.quizId}');
+  }
 
   @override
   void dispose() {
+    debugPrint('[QuizPlayScreen] dispose - quizId=${widget.quizId}');
     _timer?.cancel();
     super.dispose();
   }
@@ -39,7 +51,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
     });
   }
 
-  void _submitAnswer({bool timeout = false}) async {
+  Future<void> _submitAnswer({bool timeout = false}) async {
     _timer?.cancel();
     bool isCorrect = false;
     final quiz = ref.read(quizByIdProvider(widget.quizId)).value;
@@ -48,6 +60,8 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
       isCorrect = quiz.checkAnswer(_selectedAnswer ?? '');
     }
 
+    if (!mounted) return;
+    
     setState(() {
       _isSubmitted = true;
       _isCorrect = isCorrect;
@@ -57,14 +71,77 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
       // Update User Progress
       final userProgress = ref.read(userProgressProvider).value;
       if (userProgress != null) {
-        final newProgress = userProgress.copyWith(
-          totalKnowledge: userProgress.totalKnowledge + quiz.basePoints,
-        );
+        // 이미 맞춘 퀴즈인지 확인 (중복 포인트 방지)
+        final alreadyCompleted = userProgress.isQuizCompleted(quiz.id);
         
-        final repository = ref.read(userProgressRepositoryProvider);
-        await repository.saveUserProgress(newProgress);
-        ref.invalidate(userProgressProvider);
+        if (!mounted) return;
+        
+        setState(() {
+          _wasAlreadyCompleted = alreadyCompleted;
+        });
+        
+        if (!alreadyCompleted) {
+          // 새로운 정답: 포인트 획득 및 완료 목록에 추가
+          var newProgress = userProgress.copyWith(
+            totalKnowledge: userProgress.totalKnowledge + quiz.basePoints,
+            completedQuizIds: [...userProgress.completedQuizIds, quiz.id],
+          );
+          
+          // 업적 체크
+          final achievementService = ref.read(achievementServiceProvider);
+          final unlocked = achievementService.checkAllAfterQuiz(
+            userProgress: newProgress,
+            completedQuiz: quiz,
+            quizCategory: null, // TODO: 퀴즈 카테고리 정보 전달
+          );
+          
+          // 업적 달성 시 achievementIds에 추가 및 보너스 포인트 지급
+          if (unlocked.isNotEmpty) {
+            final bonusPoints = achievementService.calculateBonusPoints(unlocked);
+            newProgress = newProgress.copyWith(
+              achievementIds: [
+                ...newProgress.achievementIds,
+                ...unlocked.map((a) => a.id),
+              ],
+              totalKnowledge: newProgress.totalKnowledge + bonusPoints,
+            );
+            
+            if (!mounted) return;
+            
+            setState(() {
+              _unlockedAchievements = unlocked;
+            });
+            
+            // 업적 알림 Provider에 추가
+            ref.read(achievementNotifierProvider.notifier).addUnlockedAchievements(unlocked);
+          }
+          
+          final repository = ref.read(userProgressRepositoryProvider);
+          await repository.saveUserProgress(newProgress);
+          
+          if (!mounted) return;
+          ref.invalidate(userProgressProvider);
+        }
+        // 이미 맞춘 문제는 복습으로 간주, 포인트 추가 없음
       }
+    }
+  }
+
+  /// eraId에 따른 버튼 레이블 반환
+  String _getEraButtonLabel(String eraId) {
+    switch (eraId) {
+      case 'korea_joseon':
+        return '조선시대로 이동';
+      case 'korea_three_kingdoms':
+        return '삼국시대로 이동';
+      case 'korea_goryeo':
+        return '고려시대로 이동';
+      case 'korea_gaya':
+        return '가야시대로 이동';
+      case 'korea_ancient':
+        return '고조선으로 이동';
+      default:
+        return '시대 탐험으로 이동';
     }
   }
 
@@ -215,7 +292,11 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      _isCorrect ? 'Correct! +${quiz.basePoints} pts' : 'Incorrect!',
+                                      _isCorrect 
+                                          ? (_wasAlreadyCompleted 
+                                              ? 'Correct! (다시 풀기)'
+                                              : 'Correct! +${quiz.basePoints} pts')
+                                          : 'Incorrect!',
                                       style: TextStyle(
                                         color: _isCorrect ? Colors.green : Colors.red,
                                         fontSize: isSmallScreen ? 16 : 20,
@@ -231,17 +312,51 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                                   ],
                                 ),
                               ),
+                              
+                              // 업적 달성 표시
+                              if (_unlockedAchievements.isNotEmpty) ...[
+                                const SizedBox(height: 16),
+                                ..._unlockedAchievements.map((achievement) => _AchievementUnlockCard(
+                                  achievement: achievement,
+                                )),
+                              ],
+                              
                               const SizedBox(height: 16),
-                              ElevatedButton(
-                                onPressed: () => context.pop(),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white24,
-                                  padding: EdgeInsets.symmetric(vertical: isSmallScreen ? 12 : 16),
-                                  minimumSize: const Size(double.infinity, 50),
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              
+                              // 정답 시: 해당 시대로 이동 버튼
+                              if (_isCorrect) 
+                                ElevatedButton.icon(
+                                  onPressed: () {
+                                    if (!mounted) return;
+                                    // 퀴즈의 시대(eraId)로 이동
+                                    // go()를 사용하여 스택 교체 (뒤로가기 시 퀴즈/대화로 돌아가지 않음)
+                                    context.go('/era/${quiz.eraId}');
+                                  },
+                                  icon: const Icon(Icons.explore, size: 20),
+                                  label: Text(_getEraButtonLabel(quiz.eraId), style: const TextStyle(fontSize: 16)),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                    foregroundColor: Colors.white,
+                                    padding: EdgeInsets.symmetric(vertical: isSmallScreen ? 12 : 16),
+                                    minimumSize: const Size(double.infinity, 50),
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                  ),
+                                )
+                              else
+                                // 오답 시: 닫기 버튼
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (!mounted) return;
+                                    context.pop();
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white24,
+                                    padding: EdgeInsets.symmetric(vertical: isSmallScreen ? 12 : 16),
+                                    minimumSize: const Size(double.infinity, 50),
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                  ),
+                                  child: const Text('닫기', style: TextStyle(color: Colors.white, fontSize: 16)),
                                 ),
-                                child: const Text('Close', style: TextStyle(color: Colors.white, fontSize: 16)),
-                              ),
                             ],
                           ),
                       ],
@@ -254,6 +369,118 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, s) => Center(child: Text('Error: $e', style: const TextStyle(color: Colors.white))),
+      ),
+    );
+  }
+}
+
+/// 업적 달성 알림 카드
+class _AchievementUnlockCard extends StatelessWidget {
+  final Achievement achievement;
+
+  const _AchievementUnlockCard({required this.achievement});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            achievement.rarity.color.withValues(alpha: 0.3),
+            achievement.rarity.color.withValues(alpha: 0.1),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: achievement.rarity.color,
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: achievement.rarity.color.withValues(alpha: 0.3),
+            blurRadius: 8,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          // 업적 아이콘
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: achievement.rarity.color.withValues(alpha: 0.2),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.emoji_events,
+              color: achievement.rarity.color,
+              size: 24,
+            ),
+          ),
+          const SizedBox(width: 12),
+          
+          // 업적 정보
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.celebration, size: 14, color: Colors.amber),
+                    const SizedBox(width: 4),
+                    const Text(
+                      '업적 달성!',
+                      style: TextStyle(
+                        color: Colors.amber,
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  achievement.titleKorean,
+                  style: TextStyle(
+                    color: achievement.rarity.color,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  achievement.description,
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          
+          // 보너스 포인트
+          if (achievement.bonusPoints > 0)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.amber.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                '+${achievement.bonusPoints}',
+                style: const TextStyle(
+                  color: Colors.amber,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }

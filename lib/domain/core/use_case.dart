@@ -1,4 +1,5 @@
 /// UseCase 기본 인터페이스
+library;
 
 /// UseCase 기본 인터페이스
 /// 

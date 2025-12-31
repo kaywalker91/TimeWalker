@@ -1,133 +1,178 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/constants/audio_constants.dart';
-import 'package:time_walker/core/routes/app_router.dart';
+
+import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/quiz.dart';
 import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
+import 'package:time_walker/presentation/screens/quiz/widgets/quiz_widgets.dart';
 
-class QuizScreen extends ConsumerWidget {
+/// 퀴즈 화면
+/// 
+/// "시간의 문" 테마 - 두루마리 스타일 카드
+class QuizScreen extends ConsumerStatefulWidget {
   const QuizScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final quizListAsync = ref.watch(quizListProvider);
-
-    // BGM 시작 (퀴즈 BGM)
-    final currentTrack = ref.watch(currentBgmTrackProvider);
-    if (currentTrack != AudioConstants.bgmQuiz) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        ref.read(bgmControllerProvider.notifier).playQuizBgm();
-      });
-    }
-
-    return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2C),
-      appBar: AppBar(
-        title: const Text('History Quiz'),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: quizListAsync.when(
-        data: (quizzes) {
-          if (quizzes.isEmpty) {
-            return const Center(child: Text('No quizzes available.', style: TextStyle(color: Colors.white54)));
-          }
-          return ListView.separated(
-            padding: const EdgeInsets.all(16),
-            itemCount: quizzes.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 16),
-            itemBuilder: (context, index) {
-              final quiz = quizzes[index];
-              return _QuizCard(quiz: quiz);
-            },
-          );
-        },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, s) => Center(child: Text('Error: $e', style: const TextStyle(color: Colors.white))),
-      ),
-    );
-  }
+  ConsumerState<QuizScreen> createState() => _QuizScreenState();
 }
 
-class _QuizCard extends StatelessWidget {
-  final Quiz quiz;
+class _QuizScreenState extends ConsumerState<QuizScreen> {
+  String _selectedCategoryId = 'all';
+  QuizFilterType _selectedFilter = QuizFilterType.all;
+  bool _isInitialized = false;
 
-  const _QuizCard({required this.quiz});
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('[QuizScreen] initState');
+    
+    // BGM 초기화 (build가 아닌 initState에서 한 번만 실행)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _isInitialized) return;
+      _isInitialized = true;
+      
+      final currentTrack = ref.read(currentBgmTrackProvider);
+      if (currentTrack != AudioConstants.bgmQuiz) {
+        ref.read(bgmControllerProvider.notifier).playQuizBgm();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    debugPrint('[QuizScreen] dispose');
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color(0xFF2C2C3E),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: InkWell(
-        onTap: () {
-          // Navigate to quiz play screen
-          // We will use query parameters or extra object to pass data if needed, 
-          // or just ID. For now, let's assume route /quiz/:quizId
-          AppRouter.goToQuizPlay(context, quiz.id);
-        },
-        borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+    final categoriesAsync = ref.watch(quizCategoryListProvider);
+    final quizListAsync = _selectedCategoryId == 'all'
+        ? ref.watch(quizListProvider)
+        : ref.watch(quizListByCategoryProvider(_selectedCategoryId));
+    final userProgress = ref.watch(userProgressProvider).valueOrNull;
+    final completedQuizIds = userProgress?.completedQuizIds ?? [];
+
+    // BGM은 initState에서 처리됨 (build에서 중복 실행 방지)
+
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: AppGradients.timePortal,
+        ),
+        child: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.2),
-                      borderRadius: BorderRadius.circular(8),
+              // 커스텀 앱바
+              _buildAppBar(context, completedQuizIds.length),
+              
+              // 필터 타입 선택 (전체 / 맞춘 퀴즈)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Row(
+                  children: [
+                    QuizFilterToggleButton(
+                      label: AppLocalizations.of(context)!.quiz_filter_all,
+                      icon: Icons.list_alt,
+                      isSelected: _selectedFilter == QuizFilterType.all,
+                      onTap: () => setState(() => _selectedFilter = QuizFilterType.all),
                     ),
-                    child: Text(
-                      quiz.type.displayName,
-                      style: const TextStyle(
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
+                    const SizedBox(width: 8),
+                    QuizFilterToggleButton(
+                      label: AppLocalizations.of(context)!.quiz_filter_completed,
+                      icon: Icons.check_circle_outline,
+                      isSelected: _selectedFilter == QuizFilterType.completed,
+                      count: completedQuizIds.length,
+                      onTap: () => setState(() => _selectedFilter = QuizFilterType.completed),
                     ),
-                  ),
-                  Text(
-                    '${quiz.basePoints} pts',
-                    style: const TextStyle(color: Colors.white54, fontSize: 12),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                quiz.question,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  ],
                 ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 12),
-              Row(
-                children: [
-                  Icon(Icons.timer, size: 16, color: Colors.white38),
-                  const SizedBox(width: 4),
-                  Text(
-                    '${quiz.timeLimitSeconds}s',
-                    style: const TextStyle(color: Colors.white38, fontSize: 12),
+              
+              // Category Filter
+              categoriesAsync.when(
+                data: (categories) => SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Row(
+                    children: [
+                      QuizCategoryChip(
+                        label: AppLocalizations.of(context)!.quiz_category_all,
+                        isSelected: _selectedCategoryId == 'all',
+                        onSelected: (selected) {
+                          if (selected) setState(() => _selectedCategoryId = 'all');
+                        },
+                      ),
+                      const SizedBox(width: 8),
+                      ...categories.map((category) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: QuizCategoryChip(
+                            label: category.title,
+                            isSelected: _selectedCategoryId == category.id,
+                            onSelected: (selected) {
+                              if (selected) setState(() => _selectedCategoryId = category.id);
+                            },
+                          ),
+                        );
+                      }),
+                    ],
                   ),
-                  const Spacer(),
-                  const Text(
-                    'Start Challenge',
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontWeight: FontWeight.bold,
+                ),
+                loading: () => const SizedBox(
+                  height: 50, 
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
                     ),
                   ),
-                  const SizedBox(width: 4),
-                  const Icon(Icons.arrow_forward_ios, size: 12, color: Colors.blueAccent),
-                ],
+                ),
+                error: (_, _) => const SizedBox(),
+              ),
+              
+              // Quiz List
+              Expanded(
+                child: quizListAsync.when(
+                  data: (quizzes) {
+                    // 필터 적용
+                    final filteredQuizzes = _selectedFilter == QuizFilterType.completed
+                        ? quizzes.where((q) => completedQuizIds.contains(q.id)).toList()
+                        : quizzes;
+                    
+                    if (filteredQuizzes.isEmpty) {
+                      return _buildEmptyState(context);
+                    }
+                    return ListView.separated(
+                      padding: const EdgeInsets.all(16),
+                      itemCount: filteredQuizzes.length,
+                      separatorBuilder: (_, _) => const SizedBox(height: 16),
+                      itemBuilder: (context, index) {
+                        final quiz = filteredQuizzes[index];
+                        final isCompleted = completedQuizIds.contains(quiz.id);
+                        return QuizCard(
+                          quiz: quiz,
+                          isCompleted: isCompleted,
+                          showReviewMode: _selectedFilter == QuizFilterType.completed,
+                          onDetailShow: () => _showQuizDetailSheet(context, quiz),
+                        );
+                      },
+                    );
+                  },
+                  loading: () => Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                    ),
+                  ),
+                  error: (e, s) => Center(
+                    child: Text(
+                      'Error: $e', 
+                      style: AppTextStyles.bodyMedium.copyWith(color: AppColors.error),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -135,4 +180,105 @@ class _QuizCard extends StatelessWidget {
       ),
     );
   }
+  
+  Widget _buildAppBar(BuildContext context, int completedCount) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          // 뒤로가기 버튼
+          Container(
+            decoration: BoxDecoration(
+              color: AppColors.surface.withValues(alpha: 0.5),
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
+          const SizedBox(width: 16),
+          
+          // 타이틀
+          Expanded(
+            child: Text(
+              AppLocalizations.of(context)!.quiz_title,
+              style: AppTextStyles.headlineMedium.copyWith(
+                color: AppColors.textPrimary,
+              ),
+            ),
+          ),
+          
+          // 완료 통계 표시
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: AppColors.success.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.success.withValues(alpha: 0.4)),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.check_circle, size: 16, color: AppColors.success),
+                const SizedBox(width: 6),
+                Text(
+                  AppLocalizations.of(context)!.quiz_completed_count(completedCount),
+                  style: AppTextStyles.labelMedium.copyWith(
+                    color: AppColors.success,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildEmptyState(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: AppColors.surface.withValues(alpha: 0.3),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              _selectedFilter == QuizFilterType.completed 
+                  ? Icons.emoji_events_outlined 
+                  : Icons.quiz_outlined,
+              size: 64,
+              color: AppColors.textDisabled,
+            ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            _selectedFilter == QuizFilterType.completed
+                ? AppLocalizations.of(context)!.quiz_empty_completed
+                : AppLocalizations.of(context)!.quiz_empty_all,
+            style: AppTextStyles.bodyLarge.copyWith(
+              color: AppColors.textSecondary,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// 퀴즈 상세 보기 바텀시트
+  void _showQuizDetailSheet(BuildContext context, Quiz quiz) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) => QuizDetailSheet(quiz: quiz),
+    );
+  }
 }
+

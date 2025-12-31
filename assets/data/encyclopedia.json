@@ -667,363 +667,6 @@
     ]
   },
   {
-    "id": "encyclo_char_Q61073",
-    "type": "character",
-    "title": "제바스티안 뮌스터",
-    "titleKorean": "제바스티안 뮌스터",
-    "summary": "German cartographer, cosmographer, and scholar (1488–1552)",
-    "content": "제바스티안 뮌스터은(는) German cartographer, cosmographer, and scholar (1488–1552)로 알려진 르네상스 시대의 중요 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 직업: German cartographer, cosmographer, and scholar\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/sebastian_munster.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Christoph%20Amberger%20-%20Der%20Kosmograph%20Sebastian%20M%C3%BCnster%20%281552%29.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q3595755",
-    "type": "character",
-    "title": "제하데바",
-    "titleKorean": "제하데바",
-    "summary": "Indian scientist",
-    "content": "제하데바은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Pages%20from%20Yuktibhasa.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q77962",
-    "type": "character",
-    "title": "야코프 밀리히",
-    "titleKorean": "야코프 밀리히",
-    "summary": "독일 천문학자",
-    "content": "야코프 밀리히은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Jacob%20Milich.%20Line%20engraving%20by%20T.%20de%20Bry%2C%201650.%20Wellcome%20V0004012.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q1698608",
-    "type": "character",
-    "title": "Johannes Werner von Zimmern der Jüngere",
-    "titleKorean": "Johannes Werner von Zimmern der Jüngere",
-    "summary": "(1480-1549)",
-    "content": "Johannes Werner von Zimmern der Jüngere은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q115752",
-    "type": "character",
-    "title": "한스 아스퍼",
-    "titleKorean": "한스 아스퍼",
-    "summary": "Swiss artist (1499-1571)",
-    "content": "한스 아스퍼은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Asper.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q1698608",
-    "type": "character",
-    "title": "Johannes Werner von Zimmern der Jüngere",
-    "titleKorean": "Johannes Werner von Zimmern der Jüngere",
-    "summary": "(1480-1549)",
-    "content": "Johannes Werner von Zimmern der Jüngere은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q128027",
-    "type": "character",
-    "title": "조르조 바사리",
-    "titleKorean": "조르조 바사리",
-    "summary": "이탈리아 르네상스 시대의 화가",
-    "content": "조르조 바사리은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Zucchi%2C%20Jacopo%20-%20Vasari%2C%20Giorgio%20-%20Uffizi%20ICCD.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q92506",
-    "type": "character",
-    "title": "Johann Carion",
-    "titleKorean": "Johann Carion",
-    "summary": "German astrologer and historical writer",
-    "content": "Johann Carion은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Johann-Carion.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q9319",
-    "type": "character",
-    "title": "틴토레토",
-    "titleKorean": "틴토레토",
-    "summary": "Renaissance painter (1518/1519–1594)",
-    "content": "틴토레토은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Tintoretto%20-%20Self-Portrait%20as%20a%20Young%20Man%2C%20ca.%201548%2C%20CAI.103%20%28cropped%29.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q3290048",
-    "type": "character",
-    "title": "Marco Aurel",
-    "titleKorean": "Marco Aurel",
-    "summary": "Spanish mathematician",
-    "content": "Marco Aurel은(는) 르네상스 시대를 대표하는 인물입니다. (위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Arithmetica%20Algebratica%20%281552%29%20de%20Marco%20Aurel.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q48319",
-    "type": "character",
-    "title": "한스 홀바인",
-    "titleKorean": "한스 홀바인",
-    "summary": "독일의 화가 (1497-1543)",
-    "content": "한스 홀바인은(는) 독일의 화가 (1497-1543)로 알려진 르네상스 시대의 중요 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 직업: 독일의 화가\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Holbein%20the%20Younger%2C%20self-portrait.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q7799",
-    "type": "character",
-    "title": "Bramantino",
-    "titleKorean": "Bramantino",
-    "summary": "Italian painter and architect (1465-1530)",
-    "content": "Bramantino은(는) Italian painter and architect (1465-1530)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian painter and architect (1465-1530)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Bram0.5.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q7803",
-    "type": "character",
-    "title": "브론치노",
-    "titleKorean": "브론치노",
-    "summary": "Italian Mannerist painter (1503-1572)",
-    "content": "브론치노은(는) Italian Mannerist painter (1503-1572)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian Mannerist painter (1503-1572)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Allori%2C%20santissima%20trinit%C3%A0%2C%201567-1571%20circa%2C%20ritratto%20dei%20maestri%2C%20bronzino%20%28cropped%29.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q176694",
-    "type": "character",
-    "title": "Antonis Mor",
-    "titleKorean": "Antonis Mor",
-    "summary": "painter from the Northern Netherlands (1519–1575)",
-    "content": "Antonis Mor은(는) painter from the Northern Netherlands (1519–1575)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: painter from the Northern Netherlands (1519–1575)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q176694",
-    "type": "character",
-    "title": "Antonis Mor",
-    "titleKorean": "Antonis Mor",
-    "summary": "painter from the Northern Netherlands (1519–1575)",
-    "content": "Antonis Mor은(는) painter from the Northern Netherlands (1519–1575)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: painter from the Northern Netherlands (1519–1575)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q18945277",
-    "type": "character",
-    "title": "Francesco Feliciano",
-    "titleKorean": "Francesco Feliciano",
-    "summary": "Italian mathematician",
-    "content": "Francesco Feliciano은(는) Italian mathematician로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian mathematician\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Feliciano%20-%20Libro%20di%20arithmetica%20%26%20geometria%20speculativa%20%26%20praticale%2C%20s.%20d.%20-%20130212.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q948156",
-    "type": "character",
-    "title": "Guillaume Postel",
-    "titleKorean": "Guillaume Postel",
-    "summary": "French linguist, astronomer, diplomat and professor (1510–1581)",
-    "content": "Guillaume Postel은(는) French linguist, astronomer, diplomat and professor (1510–1581)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: French linguist, astronomer, diplomat and professor (1510–1581)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q948156",
-    "type": "character",
-    "title": "Guillaume Postel",
-    "titleKorean": "Guillaume Postel",
-    "summary": "French linguist, astronomer, diplomat and professor (1510–1581)",
-    "content": "Guillaume Postel은(는) French linguist, astronomer, diplomat and professor (1510–1581)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: French linguist, astronomer, diplomat and professor (1510–1581)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q20056524",
-    "type": "character",
-    "title": "Filippo Calandri",
-    "titleKorean": "Filippo Calandri",
-    "summary": "Florentine mathematician",
-    "content": "Filippo Calandri은(는) Florentine mathematician로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Florentine mathematician\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Calandri%20-%20Aritmetica%2C%201491-1492%20-%203867066.tif",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q8459",
-    "type": "character",
-    "title": "조르조네",
-    "titleKorean": "조르조네",
-    "summary": "Venetian Renaissance painter (1478–1510)",
-    "content": "조르조네은(는) Venetian Renaissance painter (1478–1510)로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Venetian Renaissance painter (1478–1510)\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgione%20059.jpg",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
-    "id": "encyclo_char_Q1029331",
-    "type": "character",
-    "title": "Camillo Agrippa",
-    "titleKorean": "Camillo Agrippa",
-    "summary": "Italian engineer",
-    "content": "Camillo Agrippa은(는) Italian engineer로 알려진 르네상스의 인물입니다.\n\n[주요 정보]\n- 시대: 르네상스\n- 설명: Italian engineer\n\n(위키데이터 기반 자동 생성)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageAsset": "http://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20aggripa%20port.png",
-    "eraId": "europe_renaissance",
-    "relatedEntryIds": [],
-    "tags": [
-      "르네상스",
-      "위인"
-    ],
-    "isDiscovered": false
-  },
-  {
     "id": "fact_goryeo_founding",
     "type": "event",
     "title": "Founding of Goryeo",
@@ -1634,6 +1277,434 @@
       "정약용",
       "화성",
       "발명"
+    ]
+  },
+  {
+    "id": "fact_suwon_hwaseong",
+    "type": "location",
+    "title": "Suwon Hwaseong Fortress",
+    "titleKorean": "수원화성",
+    "summary": "정조의 효심과 개혁 의지가 담긴 계획 신도시",
+    "content": "정조가 아버지 사도세자의 묘를 수원으로 옮기면서 축조한 성곽이다. 정약용이 설계하고 거중기를 사용하여 지었으며, 군사적 방어 기능과 상업 도시의 기능을 모두 갖춘 조선 성곽 건축의 꽃이다. 1997년 유네스코 세계문화유산으로 지정되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/suwon_hwaseong.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeongjo",
+      "jeong_yakyong",
+      "fact_hwaseong_dream"
+    ],
+    "tags": [
+      "수원화성",
+      "정조",
+      "유네스코",
+      "거중기"
+    ]
+  },
+  {
+    "id": "fact_jagyeongnu",
+    "type": "artifact",
+    "title": "Jagyeongnu (Water Clock)",
+    "titleKorean": "자격루",
+    "summary": "스스로 시각을 알리는 조선의 자동 물시계",
+    "content": "세종 때 장영실이 만든 물시계로, 물의 흐름을 이용해 일정한 시각마다 자동으로 종, 북, 징을 울려 시간을 알렸다. 구름이 끼거나 밤이 되면 사용할 수 없는 해시계의 단점을 보완한 획기적인 발명품이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/jagyeongnu.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jang_yeongshil",
+      "sejong",
+      "fact_joseon_science"
+    ],
+    "tags": [
+      "자격루",
+      "물시계",
+      "장영실",
+      "과학"
+    ]
+  },
+  {
+    "id": "fact_dongui_bogam",
+    "type": "artifact",
+    "title": "Dongui Bogam",
+    "titleKorean": "동의보감",
+    "summary": "동양 의학을 집대성한 허준의 의학 서적",
+    "content": "선조의 명을 받아 허준이 집필한 의학 서적으로, 1610년(광해군 2년)에 완성되었다. 우리 땅에서 나는 약재를 활용하고, 질병의 예방을 강조하는 등 실용적이고 체계적이다. 세계 의학 서적 최초로 유네스코 세계기록유산에 등재되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/dongui_bogam.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "heo_jun",
+      "fact_korean_medicine"
+    ],
+    "tags": [
+      "동의보감",
+      "허준",
+      "한의학",
+      "유네스코"
+    ]
+  },
+  {
+    "id": "fact_wage_labor",
+    "type": "event",
+    "title": "Wage Labor in Hwaseong",
+    "titleKorean": "화성 축조와 임금 노동",
+    "summary": "백성에게 정당한 대가를 지급하고 일을 시키다",
+    "content": "정조는 화성 축조 공사에 동원된 백성들에게 일한 만큼 품삯(임금)을 지급했다. 이는 강제 노역(부역)이 일반적이던 당시로서는 혁신적인 조치였다. 덕분에 공사는 10년이 걸릴 것이라는 예상과 달리 2년 9개월 만에 완공되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/wage_labor.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "jeongjo",
+      "fact_suwon_hwaseong"
+    ],
+    "tags": [
+      "임금",
+      "노동",
+      "정조",
+      "개혁"
+    ]
+  },
+  {
+    "id": "fact_meritocracy",
+    "type": "term",
+    "title": "Meritocracy of Joseon",
+    "titleKorean": "조선의 능력주의",
+    "summary": "신분을 넘어 능력을 중시한 세종의 인재 등용",
+    "content": "조선은 엄격한 신분제 사회였으나, 세종대왕은 신분에 상관없이 능력이 뛰어난 인재를 등용했다. 관노 출신 장영실이 대표적인 예로, 그는 세종의 후원을 받아 조선 최고의 과학자가 되었다. 이는 시대를 앞서간 열린 리더십의 표본이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/meritocracy.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "sejong",
+      "jang_yeongshil"
+    ],
+    "tags": [
+      "능력주의",
+      "세종",
+      "장영실",
+      "신분제"
+    ]
+  },
+  {
+    "id": "fact_korean_medicine",
+    "type": "term",
+    "title": "Traditions of Korean Medicine",
+    "titleKorean": "한의학의 전통",
+    "summary": "자연과의 조화와 예방을 중시하는 우리 의학",
+    "content": "한국의 전통 의학은 중국 의학의 영향을 받았으나, 한국인의 체질과 풍토에 맞게 독자적으로 발전했다. 허준의 동의보감, 이제마의 사상의학 등이 대표적이다. 병을 치료하는 것보다 몸의 균형을 유지하여 병을 예방하는 '양생'을 중요시한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/korean_medicine.png",
+    "eraId": "korea_joseon",
+    "relatedEntryIds": [
+      "heo_jun",
+      "fact_dongui_bogam"
+    ],
+    "tags": [
+      "한의학",
+      "예방의학",
+      "양생",
+      "전통"
+    ]
+  },
+  {
+    "id": "fact_cheonghaejin",
+    "type": "location",
+    "title": "Cheonghaejin",
+    "titleKorean": "청해진",
+    "summary": "장보고가 완도에 설치한 동아시아 무역 기지",
+    "content": "828년(흥덕왕 3년), 장보고가 해적을 소탕하고 해상 무역을 주도하기 위해 완도에 설치한 군영이자 무역 기지. 이곳을 거점으로 신라는 당나라, 일본과 활발히 교류하며 동아시아 해상 무역의 중심지로 발돋움했다. 청해진은 단순한 군사 기지를 넘어 국제적인 상업 도시의 기능을 수행했다.",
+    "thumbnailAsset": "assets/images/encyclopedia/cheonghaejin.png",
+    "imageAsset": "assets/images/encyclopedia/cheonghaejin_detail.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "jang_bogo"
+    ],
+    "tags": [
+      "청해진",
+      "장보고",
+      "완도",
+      "무역"
+    ]
+  },
+  {
+    "id": "fact_bulguksa",
+    "type": "location",
+    "title": "Bulguksa Temple",
+    "titleKorean": "불국사",
+    "summary": "불교의 이상향을 지상에 구현한 통일신라 건축의 정수",
+    "content": "경주 토함산에 위치한 사찰로, 김대성이 현생의 부모를 위해 창건했다. 다보탑와 석가탑, 청운교와 백운교 등은 신라의 뛰어난 석조 건축 기술과 예술성을 보여준다. 유네스코 세계문화유산으로 등재되어 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/bulguksa.png",
+    "imageAsset": "assets/images/encyclopedia/bulguksa_detail.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "fact_seokguram",
+      "wonhyo"
+    ],
+    "tags": [
+      "불국사",
+      "경주",
+      "유네스코",
+      "김대성"
+    ]
+  },
+  {
+    "id": "fact_seokguram",
+    "type": "artifact",
+    "title": "Seokguram Grotto",
+    "titleKorean": "석굴암",
+    "summary": "화강암을 깎아 만든 신라 예술의 극치",
+    "content": "불국사와 같은 시기에 김대성이 전생의 부모를 위해 창건한 인공 석굴 사원. 본존불의 온화한 미소와 주변 조각들의 정교함은 신라 미술의 절정을 보여준다. 건축적으로도 습기 조절과 채광 등이 과학적으로 설계된 걸작이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/seokguram.png",
+    "imageAsset": "assets/images/encyclopedia/seokguram_detail.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "fact_bulguksa"
+    ],
+    "tags": [
+      "석굴암",
+      "경주",
+      "국보",
+      "유네스코"
+    ]
+  },
+  {
+    "id": "fact_golpum",
+    "type": "term",
+    "title": "Bone Rank System",
+    "titleKorean": "골품제도",
+    "summary": "신라 사회를 엄격히 규제한 신분 제도",
+    "content": "신라의 독특한 신분 제도로, 혈통에 따라 성골, 진골, 6두품 등으로 나뉘었다. 관직 진출, 결혼, 가옥의 크기, 옷차림까지 일상 생활의 모든 것을 규제했다. 통일신라 말기에는 뛰어난 능력을 가진 6두품 세력이 골품제의 모순을 비판하며 사회 개혁을 요구하기도 했다.",
+    "thumbnailAsset": "assets/images/encyclopedia/golpum.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "choi_chiwon"
+    ],
+    "tags": [
+      "골품제",
+      "신분제",
+      "성골",
+      "6두품"
+    ]
+  },
+  {
+    "id": "fact_skull_water",
+    "type": "event",
+    "title": "Wonhyo's Skull Water",
+    "titleKorean": "원효의 해골물",
+    "summary": "깨달음은 마음 속에 있다는 일체유심조의 교훈",
+    "content": "원효가 당나라로 유학을 가던 중 동굴에서 잠을 자다 목이 말라 물을 마셨다. 다음 날 아침, 그 물이 해골에 고인 썩은 물이었음을 알고 구토를 했다. 그때 그는 '깨끗하고 더러움은 사물에 있는 것이 아니라 내 마음에 달린 것'이라는 큰 깨달음을 얻고 유학을 포기한 채 신라로 돌아왔다. 이는 불교의 핵심 사상인 일체유심조(一切唯心造)를 상징하는 유명한 일화다.",
+    "thumbnailAsset": "assets/images/encyclopedia/skull_water.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "wonhyo"
+    ],
+    "tags": [
+      "원효",
+      "해골물",
+      "깨달음",
+      "불교"
+    ]
+  },
+  {
+    "id": "fact_gwangmu_reform",
+    "type": "event",
+    "title": "Gwangmu Reform",
+    "titleKorean": "광무개혁",
+    "summary": "대한제국의 근대화 개혁 운동",
+    "content": "고종이 '구본신참(옛 것을 근본으로 삼고 새 것을 참고한다)'의 원칙 아래 추진한 근대화 개혁. 토지 측량(양전 사업), 상공업 진흥, 근대적 교육 기관 설립, 군대 증강 등을 추진했다. 비록 일제의 방해로 미완에 그쳤으나, 자주적인 근대 국가 수립을 위한 노력이었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gwangmu.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "gojong"
+    ],
+    "tags": [
+      "대한제국",
+      "개혁",
+      "구본신참",
+      "근대화"
+    ]
+  },
+  {
+    "id": "fact_harbin_incident",
+    "type": "event",
+    "title": "Harbin Incident",
+    "titleKorean": "하얼빈 의거",
+    "summary": "안중근 의사가 이토 히로부미를 저격한 사건",
+    "content": "1909년 10월 26일, 안중근 의사가 만주 하얼빈 역에서 한국 침략의 원흉인 이토 히로부미를 브라우닝 권총으로 사살한 의거. 이는 한국인의 독립 의지를 전 세계에 알린 쾌거였으며, 중국과 일본의 지식인들에게도 큰 충격을 주었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/harbin_incident.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "ahn_junggeun"
+    ],
+    "tags": [
+      "안중근",
+      "독립운동",
+      "저격",
+      "의거"
+    ]
+  },
+  {
+    "id": "fact_march_first",
+    "type": "event",
+    "title": "March 1st Movement",
+    "titleKorean": "3.1 운동",
+    "summary": "1919년 전 민족이 봉기한 비폭력 독립 만세 운동",
+    "content": "1919년 3월 1일, 민족 대표 33인의 독립 선언을 시작으로 전국 각지와 해외에서 일어난 최대 규모의 독립 운동. 남녀노소, 신분과 종교를 초월하여 '대한 독립 만세'를 외쳤다. 일제의 무자비한 탄압으로 수많은 사상자가 발생했으나, 대한민국 임시정부 수립의 계기가 되었고 중국의 5.4 운동 등 다른 나라의 독립 운동에도 영향을 주었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/march_first.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "yu_gwansun",
+      "gojong"
+    ],
+    "tags": [
+      "독립운동",
+      "만세",
+      "비폭력",
+      "임시정부"
+    ]
+  },
+  {
+    "id": "fact_deoksugung",
+    "type": "location",
+    "title": "Deoksugung Palace",
+    "titleKorean": "덕수궁",
+    "summary": "대한제국의 정궁이자 근대 역사의 현장",
+    "content": "원래 이름은 경운궁이었으나 고종이 황제로 즉위하면서 대한제국의 정궁이 되었다. 전통적인 목조 건축과 서양식 석조 건축(석조전)이 공존하는 독특한 궁궐이다. 고종이 승하한 곳이자 을사늑약이 체결된 비운의 장소이기도 하다.",
+    "thumbnailAsset": "assets/images/encyclopedia/deoksugung.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "gojong"
+    ],
+    "tags": [
+      "궁궐",
+      "대한제국",
+      "석조전",
+      "정동"
+    ]
+  },
+  {
+    "id": "fact_seodaemun_prison",
+    "type": "location",
+    "title": "Seodaemun Prison",
+    "titleKorean": "서대문 형무소",
+    "summary": "독립운동가들의 피와 눈물이 서린 감옥",
+    "content": "일제가 한국의 독립운동가들을 탄압하기 위해 지은 감옥. 유관순, 강우규 등 수많은 애국지사들이 이곳에서 고문을 당하고 순국했다. 현재는 역사관으로 보존되어 자유와 평화의 소중함을 알리는 교육의 장으로 쓰이고 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/seodaemun.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "yu_gwansun"
+    ],
+    "tags": [
+      "독립운동",
+      "감옥",
+      "역사관",
+      "보훈"
+    ]
+  },
+  {
+    "id": "fact_jikji",
+    "type": "artifact",
+    "title": "Jikji",
+    "titleKorean": "직지심체요절",
+    "summary": "구텐베르크보다 78년 앞선 세계 최초의 금속 활자본",
+    "content": "1377년 청주 흥덕사에서 간행된 현존하는 세계 최고(最古)의 금속 활자본이다. 정식 명칭은 '백운화상초록불조직지심체요절'이다. 고려의 뛰어난 인쇄 기술을 보여주는 문화유산으로, 2001년 유네스코 세계기록유산에 등재되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/jikji.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [],
+    "tags": [
+      "금속활자",
+      "유네스코",
+      "청주",
+      "인쇄술"
+    ]
+  },
+  {
+    "id": "fact_tripitaka",
+    "type": "artifact",
+    "title": "Tripitaka Koreana",
+    "titleKorean": "팔만대장경",
+    "summary": "몽골의 침입을 부처의 힘으로 막아내려 만든 대장경판",
+    "content": "고려 고종 때 몽골의 침입을 물리치기 위해 16년에 걸쳐 만든 대장경판. 8만 1,258장의 경판 양면에 5,200만 자가 한 자의 오탈자도 없이 새겨져 있다. 합천 해인사 장경판전에 보관되어 있으며, 세계에서 가장 오래되고 정확한 대장경으로 꼽힌다.",
+    "thumbnailAsset": "assets/images/encyclopedia/tripitaka.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [],
+    "tags": [
+      "불교",
+      "몽골",
+      "해인사",
+      "유네스코"
+    ]
+  },
+  {
+    "id": "fact_jinpo",
+    "type": "event",
+    "title": "Battle of Jinpo",
+    "titleKorean": "진포 대첩",
+    "summary": "최무선이 화포를 사용하여 왜구를 격멸한 해전",
+    "content": "1380년(우왕 6년), 최무선이 발명한 화약과 화포를 처음으로 실전에 사용하여 500여 척의 왜구 선단을 격파한 전투. 세계 해전사상 함포 사격이 감행된 최초의 전투 중 하나로, 고려 수군의 우수성을 입증하였다.",
+    "thumbnailAsset": "assets/images/encyclopedia/jinpo.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "choe_museon"
+    ],
+    "tags": [
+      "최무선",
+      "화약",
+      "해전",
+      "왜구"
+    ]
+  },
+  {
+    "id": "fact_steam_engine",
+    "type": "artifact",
+    "title": "Steam Engine",
+    "titleKorean": "증기기관",
+    "summary": "산업혁명의 심장이 된 동력 장치",
+    "content": "물을 끓여 발생하는 증기의 압력을 기계적 운동으로 바꾸는 장치. 제임스 와트가 획기적으로 개량하여 효율을 높였으며, 방적기, 펌프, 기차, 선박 등 모든 산업 기계의 동력원이 되었다. 인류는 증기기관 덕분에 근력이나 자연력(바람, 물)에서 벗어나 기계의 힘을 맘껏 사용할 수 있게 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/steam_engine.png",
+    "eraId": "europe_industrial_revolution",
+    "relatedEntryIds": [
+      "james_watt",
+      "fact_factory_system"
+    ],
+    "tags": [
+      "발명",
+      "과학",
+      "동력",
+      "산업혁명"
+    ]
+  },
+  {
+    "id": "fact_spinning_jenny",
+    "type": "artifact",
+    "title": "Spinning Jenny",
+    "titleKorean": "제니 방적기",
+    "summary": "실을 뽑는 속도를 획기적으로 높인 발명품",
+    "content": "1764년 제임스 하그리브스가 발명한 다축 방적기. 이전에는 물레로 한 번에 한 가닥의 실만 뽑을 수 있었으나, 제니 방적기는 한 번에 8가닥(나중에는 80가닥 이상)을 뽑을 수 있었다. 이는 면직물 생산량을 폭발적으로 증가시키며 산업혁명의 신호탄이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/spinning_jenny.png",
+    "eraId": "europe_industrial_revolution",
+    "relatedEntryIds": [
+      "fact_factory_system"
+    ],
+    "tags": [
+      "발명",
+      "섬유",
+      "방적기",
+      "산업혁명"
+    ]
+  },
+  {
+    "id": "fact_factory_system",
+    "type": "term",
+    "title": "Factory System",
+    "titleKorean": "공장제 기계 공업",
+    "summary": "기계와 노동자를 한곳에 모아 대량 생산하는 방식",
+    "content": "집에서 손으로 물건을 만들던 가내 수공업에서 벗어나, 큰 공장에 기계를 설치하고 노동자들을 고용하여 상품을 대량으로 생산하는 방식. 이로 인해 상품의 가격이 저렴해지고 물자가 풍부해졌으나, 도시화 문제, 노동 문제 등 새로운 사회 문제가 발생하기도 했다.",
+    "thumbnailAsset": "assets/images/encyclopedia/factory.png",
+    "eraId": "europe_industrial_revolution",
+    "relatedEntryIds": [
+      "fact_steam_engine"
+    ],
+    "tags": [
+      "경제",
+      "공장",
+      "대량생산",
+      "사회변화"
     ]
   }
 ]

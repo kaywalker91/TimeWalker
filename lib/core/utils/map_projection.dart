@@ -34,6 +34,6 @@ class MapProjection {
   }
 
   static double _clamp01(double value) {
-    return value.clamp(0.0, 1.0) as double;
+    return value.clamp(0.0, 1.0);
   }
 }

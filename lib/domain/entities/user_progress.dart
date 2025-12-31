@@ -16,6 +16,7 @@ class UserProgress extends Equatable {
   final List<String> unlockedCharacterIds;
   final List<String> unlockedFactIds;
   final List<String> achievementIds;
+  final List<String> completedQuizIds; // 정답을 맞춘 퀴즈 ID 목록
   final DateTime? lastPlayedAt;
   final String? lastPlayedEraId;
   final int totalPlayTimeMinutes;
@@ -38,6 +39,7 @@ class UserProgress extends Equatable {
     this.unlockedCharacterIds = const ['encyclo_char_Q128027', 'encyclo_char_Q9319', 'gwanggaeto', 'geunchogo', 'kim_yushin', 'seondeok', 'eulji_mundeok', 'jangsu', 'gyebaek', 'uija'], // 테스트: 삼국시대 인물 해금
     this.unlockedFactIds = const ['encyclo_char_Q61073'], // 테스트: 일부 인물(도감) 해금 (뮌스터)
     this.achievementIds = const [],
+    this.completedQuizIds = const [],
     this.lastPlayedAt,
     this.lastPlayedEraId,
     this.totalPlayTimeMinutes = 0,
@@ -61,6 +63,7 @@ class UserProgress extends Equatable {
     List<String>? unlockedCharacterIds,
     List<String>? unlockedFactIds,
     List<String>? achievementIds,
+    List<String>? completedQuizIds,
     DateTime? lastPlayedAt,
     String? lastPlayedEraId,
     int? totalPlayTimeMinutes,
@@ -83,6 +86,7 @@ class UserProgress extends Equatable {
       unlockedCharacterIds: unlockedCharacterIds ?? this.unlockedCharacterIds,
       unlockedFactIds: unlockedFactIds ?? this.unlockedFactIds,
       achievementIds: achievementIds ?? this.achievementIds,
+      completedQuizIds: completedQuizIds ?? this.completedQuizIds,
       lastPlayedAt: lastPlayedAt ?? this.lastPlayedAt,
       lastPlayedEraId: lastPlayedEraId ?? this.lastPlayedEraId,
       totalPlayTimeMinutes: totalPlayTimeMinutes ?? this.totalPlayTimeMinutes,
@@ -183,6 +187,14 @@ class UserProgress extends Equatable {
   /// 획득한 업적 수
   int get achievementCount => achievementIds.length;
 
+  /// 퀴즈 정답 완료 여부 확인
+  bool isQuizCompleted(String quizId) {
+    return completedQuizIds.contains(quizId);
+  }
+
+  /// 정답을 맞춘 퀴즈 수
+  int get completedQuizCount => completedQuizIds.length;
+
   /// 총 플레이 시간 (시:분 형식)
   String get totalPlayTimeFormatted {
     final hours = totalPlayTimeMinutes ~/ 60;
@@ -208,6 +220,7 @@ class UserProgress extends Equatable {
     unlockedCharacterIds,
     unlockedFactIds,
     achievementIds,
+    completedQuizIds,
     lastPlayedAt,
     lastPlayedEraId,
     totalPlayTimeMinutes,

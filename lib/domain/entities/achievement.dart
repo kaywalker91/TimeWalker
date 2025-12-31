@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:equatable/equatable.dart';
 
 /// 업적 카테고리
@@ -40,7 +41,24 @@ extension AchievementCategoryExtension on AchievementCategory {
         return '⭐';
     }
   }
+
+  /// IconData 형태의 아이콘
+  int get iconCodePoint {
+    switch (this) {
+      case AchievementCategory.exploration:
+        return 0xe3c6; // map
+      case AchievementCategory.dialogue:
+        return 0xe0ca; // chat_bubble
+      case AchievementCategory.knowledge:
+        return 0xe3e6; // menu_book
+      case AchievementCategory.collection:
+        return 0xe1fe; // emoji_events
+      case AchievementCategory.special:
+        return 0xe5f9; // star
+    }
+  }
 }
+
 
 /// 업적 희귀도
 enum AchievementRarity {
@@ -82,6 +100,9 @@ extension AchievementRarityExtension on AchievementRarity {
         return 0xFFFF9800; // 주황
     }
   }
+
+  /// Color 객체로 반환
+  Color get color => Color(colorValue);
 
   int get bonusPoints {
     switch (this) {
@@ -213,103 +234,5 @@ enum AchievementConditionType {
   specialEvent, // 특별 이벤트 (대화 중 특정 선택)
 }
 
-/// 기본 업적 데이터
-class AchievementData {
-  AchievementData._();
 
-  static const Achievement firstStep = Achievement(
-    id: 'first_step',
-    title: 'First Step',
-    titleKorean: '첫 발걸음',
-    description: '첫 번째 역사 인물과 대화를 나누다',
-    iconAsset: 'assets/images/achievements/first_step.png',
-    category: AchievementCategory.dialogue,
-    rarity: AchievementRarity.common,
-    condition: AchievementCondition(
-      type: AchievementConditionType.completeDialogues,
-      targetValue: 1,
-    ),
-  );
 
-  static const Achievement timeExplorer = Achievement(
-    id: 'time_explorer',
-    title: 'Time Explorer',
-    titleKorean: '시간 탐험가',
-    description: '첫 번째 시대를 완료하다',
-    iconAsset: 'assets/images/achievements/time_explorer.png',
-    category: AchievementCategory.exploration,
-    rarity: AchievementRarity.uncommon,
-    condition: AchievementCondition(
-      type: AchievementConditionType.completeEra,
-      targetValue: 1,
-    ),
-  );
-
-  static const Achievement sejongFriend = Achievement(
-    id: 'sejong_friend',
-    title: 'Friend of Sejong',
-    titleKorean: '세종대왕의 벗',
-    description: '세종대왕의 모든 대화를 완료하다',
-    iconAsset: 'assets/images/achievements/sejong_friend.png',
-    category: AchievementCategory.dialogue,
-    rarity: AchievementRarity.rare,
-    bonusPoints: 50,
-    condition: AchievementCondition(
-      type: AchievementConditionType.completeDialogues,
-      targetValue: 3,
-      targetId: 'sejong',
-    ),
-  );
-
-  static const Achievement historyMaster = Achievement(
-    id: 'history_master',
-    title: 'History Master',
-    titleKorean: '역사 마스터',
-    description: '역사 마스터 등급에 도달하다',
-    iconAsset: 'assets/images/achievements/history_master.png',
-    category: AchievementCategory.knowledge,
-    rarity: AchievementRarity.legendary,
-    bonusPoints: 200,
-    condition: AchievementCondition(
-      type: AchievementConditionType.reachKnowledge,
-      targetValue: 12000,
-    ),
-  );
-
-  static const Achievement secretOfHangul = Achievement(
-    id: 'secret_of_hangul',
-    title: 'Secret of Hangul',
-    titleKorean: '한글의 비밀',
-    description: '훈민정음 창제의 비밀을 발견하다',
-    iconAsset: 'assets/images/achievements/secret_of_hangul.png',
-    category: AchievementCategory.special,
-    rarity: AchievementRarity.epic,
-    bonusPoints: 100,
-    isSecret: true,
-    condition: AchievementCondition(
-      type: AchievementConditionType.specialEvent,
-      targetValue: 1,
-      targetId: 'sejong_hangul_secret',
-    ),
-  );
-
-  static List<Achievement> get all => [
-    firstStep,
-    timeExplorer,
-    sejongFriend,
-    historyMaster,
-    secretOfHangul,
-  ];
-
-  static List<Achievement> getByCategory(AchievementCategory category) {
-    return all.where((a) => a.category == category).toList();
-  }
-
-  static Achievement? getById(String id) {
-    try {
-      return all.firstWhere((a) => a.id == id);
-    } catch (_) {
-      return null;
-    }
-  }
-}

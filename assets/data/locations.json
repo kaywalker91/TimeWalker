@@ -7,6 +7,8 @@
         "description": "조선의 법궁, 왕과 신하들이 정사를 논하던 곳",
         "thumbnailAsset": "assets/images/locations/gyeongbokgung_thumb.png",
         "backgroundAsset": "assets/images/locations/gyeongbokgung_bg.png",
+        "latitude": 37.5796,
+        "longitude": 126.9770,
         "position": {
             "x": 0.5,
             "y": 0.3
@@ -30,6 +32,8 @@
         "description": "조선 수도 한양의 번화한 시장 거리",
         "thumbnailAsset": "assets/images/locations/hanyang_market_thumb.png",
         "backgroundAsset": "assets/images/locations/hanyang_market_bg.png",
+        "latitude": 37.5700,
+        "longitude": 126.9900,
         "position": {
             "x": 0.6,
             "y": 0.5
@@ -50,6 +54,8 @@
         "description": "정조가 건설한 신도시의 성곽, 실학의 결정체",
         "thumbnailAsset": "assets/images/locations/suwon_hwaseong_thumb.png",
         "backgroundAsset": "assets/images/locations/suwon_hwaseong_bg.png",
+        "latitude": 37.2851,
+        "longitude": 127.0197,
         "position": {
             "x": 0.55,
             "y": 0.65
@@ -72,6 +78,8 @@
         "description": "이순신 장군의 전설적인 철갑선",
         "thumbnailAsset": "assets/images/locations/geobukseon_thumb.png",
         "backgroundAsset": "assets/images/locations/geobukseon_bg.png",
+        "latitude": 34.7500,
+        "longitude": 127.7500,
         "position": {
             "x": 0.35,
             "y": 0.7
@@ -114,6 +122,8 @@
         "description": "르네상스가 탄생한 예술의 도시. 메디치 가문의 후원으로 천재들이 모여들었다.",
         "thumbnailAsset": "assets/images/locations/florence_thumb.png",
         "backgroundAsset": "assets/images/locations/florence_bg.png",
+        "latitude": 43.7696,
+        "longitude": 11.2558,
         "position": {
             "x": 0.45,
             "y": 0.4
@@ -135,6 +145,8 @@
         "description": "물 위의 도시이자 무역의 중심지. 동서양의 문물이 교차하는 곳.",
         "thumbnailAsset": "assets/images/locations/venice_thumb.png",
         "backgroundAsset": "assets/images/locations/venice_bg.png",
+        "latitude": 45.4408,
+        "longitude": 12.3155,
         "position": {
             "x": 0.55,
             "y": 0.3
@@ -179,7 +191,7 @@
         "nameKorean": "살수(청천강)",
         "description": "30만 수나라 군을 수장시킨 살수대첩의 현장",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
-        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "backgroundAsset": "assets/images/locations/salsu_bg.png",
         "kingdom": "goguryeo",
         "latitude": 39.57722222,
         "longitude": 125.43305556,
@@ -201,7 +213,7 @@
         "nameKorean": "평양성",
         "description": "고구려 후기 도읍, 장수왕이 천도한 곳",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
-        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "backgroundAsset": "assets/images/locations/pyongyang_fortress_bg.png",
         "kingdom": "goguryeo",
         "latitude": 39.03,
         "longitude": 125.73,
@@ -245,7 +257,7 @@
         "nameKorean": "황산벌",
         "description": "백제 계백 장군과 신라 김유신이 격돌한 삼국시대 최후의 결전지",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
-        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "backgroundAsset": "assets/images/locations/hwangsanbeol_bg.png",
         "kingdom": "baekje",
         "latitude": 36.1833,
         "longitude": 127.0833,
@@ -267,7 +279,7 @@
         "nameKorean": "사비성(부여)",
         "description": "백제 후기 도읍, 성왕이 천도하고 의자왕이 최후를 맞은 곳",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
-        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "backgroundAsset": "assets/images/locations/sabi_bg.png",
         "kingdom": "baekje",
         "latitude": 36.2875,
         "longitude": 126.91527778,
@@ -289,7 +301,7 @@
         "nameKorean": "월성(경주궁)",
         "description": "천년 신라의 심장부, 반월성이라고도 불리는 신라 왕궁",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
-        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "backgroundAsset": "assets/images/locations/gyeongju_palace_bg.png",
         "kingdom": "silla",
         "latitude": 35.83083333,
         "longitude": 129.22611111,
@@ -312,7 +324,7 @@
         "nameKorean": "첨성대",
         "description": "동양에서 가장 오래된 천문대, 선덕여왕이 건립",
         "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
-        "backgroundAsset": "assets/images/locations/placeholder_bg.png",
+        "backgroundAsset": "assets/images/locations/cheomseongdae_bg.png",
         "kingdom": "silla",
         "latitude": 35.83472222,
         "longitude": 129.21916667,

@@ -1,1053 +1,1144 @@
 [
-  {
-    "id": "sejong",
-    "eraId": "korea_joseon",
-    "name": "King Sejong the Great",
-    "nameKorean": "세종대왕",
-    "title": "조선 제4대 국왕",
-    "birth": "1397",
-    "death": "1450",
-    "biography": "한글을 창제하고 과학과 문화의 황금기를 이끈 성군",
-    "fullBiography": "조선의 제4대 국왕으로, 훈민정음(한글)을 창제하여 백성들이 쉽게 글을 읽고 쓸 수 있게 하였다. 또한 측우기, 해시계 등 과학 기구를 발명하게 하고, 집현전을 설치하여 학문을 장려하는 등 조선 역사상 가장 위대한 업적을 남긴 군주로 평가받는다.",
-    "portraitAsset": "assets/images/characters/sejong.png",
-    "emotionAssets": [
-      "assets/images/characters/sejong_neutral.png",
-      "assets/images/characters/sejong_happy.png",
-      "assets/images/characters/sejong_thoughtful.png",
-      "assets/images/characters/sejong_determined.png"
-    ],
-    "dialogueIds": [
-      "sejong_hangul_01",
-      "sejong_science_01",
-      "sejong_policy_01"
-    ],
-    "relatedCharacterIds": [
-      "jang_yeongshil",
-      "choe_manri"
-    ],
-    "relatedLocationIds": [
-      "gyeongbokgung",
-      "jiphyeonjeon"
-    ],
-    "achievements": [
-      "훈민정음(한글) 창제",
-      "집현전 설치",
-      "측우기, 앙부일구 발명",
-      "4군 6진 개척"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "yi_sun_sin",
-    "eraId": "korea_joseon",
-    "name": "Admiral Yi Sun-sin",
-    "nameKorean": "이순신",
-    "title": "삼도수군통제사",
-    "birth": "1545",
-    "death": "1598",
-    "biography": "임진왜란에서 조선을 구한 불멸의 해군 명장",
-    "fullBiography": "임진왜란 당시 거북선을 이용해 일본 수군을 상대로 23전 23승의 전설적인 전적을 기록한 조선의 해군 명장. 명량해전, 한산도대첩 등 수많은 해전에서 승리하며 조선의 바다를 지켰다. 노량해전에서 적의 총탄에 맞아 전사하였으나, 그의 유언 \"나의 죽음을 알리지 마라\"는 오늘날까지 전해지고 있다.",
-    "portraitAsset": "assets/images/characters/yi_sun_sin.png",
-    "emotionAssets": [
-      "assets/images/characters/yi_sun_sin_neutral.png",
-      "assets/images/characters/yi_sun_sin_serious.png",
-      "assets/images/characters/yi_sun_sin_determined.png"
-    ],
-    "dialogueIds": [
-      "yi_geobukseon_01",
-      "yi_battle_01",
-      "yi_strategy_01"
-    ],
-    "relatedCharacterIds": [
-      "won_gyun"
-    ],
-    "relatedLocationIds": [
-      "geobukseon",
-      "hansando",
-      "myeongnyang"
-    ],
-    "achievements": [
-      "거북선 설계 및 건조",
-      "한산도대첩 승리",
-      "명량해전 승리",
-      "23전 23승 불패 기록"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "jeong_yakyong",
-    "eraId": "korea_joseon",
-    "name": "Jeong Yak-yong (Dasan)",
-    "nameKorean": "정약용",
-    "title": "다산, 실학자",
-    "birth": "1762",
-    "death": "1836",
-    "biography": "조선 후기 실학을 집대성한 위대한 학자",
-    "fullBiography": "조선 후기의 대표적인 실학자로, 500권이 넘는 저술을 남겼다. 수원화성 설계에 참여하여 거중기를 고안하는 등 실용적인 학문을 추구했다. 18년간의 유배 생활 중에도 <목민심서>, <경세유표> 등 후세에 귀감이 되는 저서를 집필하였다.",
-    "portraitAsset": "assets/images/characters/jeong_yakyong.png",
-    "emotionAssets": [
-      "assets/images/characters/jeong_yakyong_neutral.png",
-      "assets/images/characters/jeong_yakyong_thoughtful.png"
-    ],
-    "dialogueIds": [
-      "jeong_silhak_01",
-      "jeong_exile_01"
-    ],
-    "relatedCharacterIds": [
-      "jeongjo"
-    ],
-    "relatedLocationIds": [
-      "suwon_hwaseong",
-      "gangjin"
-    ],
-    "achievements": [
-      "목민심서 저술",
-      "경세유표 저술",
-      "거중기 설계",
-      "실학 집대성"
-    ],
-    "status": "locked"
-  },
-  {
-    "id": "gwanggaeto",
-    "eraId": "korea_three_kingdoms",
-    "name": "King Gwanggaeto the Great",
-    "nameKorean": "광개토대왕",
-    "title": "고구려 제19대 국왕",
-    "birth": "374",
-    "death": "412",
-    "biography": "고구려 최대 영토를 개척한 정복 군주",
-    "fullBiography": "고구려의 제19대 왕으로, 18세에 즉위하여 39세에 승하할 때까지 64개의 성과 1,400개의 촌락을 정복하여 고구려 역사상 최대의 영토를 확보하였다. 광개토대왕릉비에 그의 업적이 새겨져 있다.",
-    "portraitAsset": "assets/images/characters/gwanggaeto.png",
-    "emotionAssets": [
-      "assets/images/characters/gwanggaeto_neutral.png",
-      "assets/images/characters/gwanggaeto_determined.png"
-    ],
-    "dialogueIds": [
-      "gwanggaeto_conquest_01",
-      "gwanggaeto_legacy_01"
-    ],
-    "relatedCharacterIds": [
-      "jangsu"
-    ],
-    "relatedLocationIds": [
-      "goguryeo_palace"
-    ],
-    "achievements": [
-      "고구려 최대 영토 확장",
-      "백제 정벌",
-      "신라 구원",
-      "광개토대왕릉비"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "eulji_mundeok",
-    "eraId": "korea_three_kingdoms",
-    "name": "General Eulji Mundeok",
-    "nameKorean": "을지문덕",
-    "title": "살수대첩의 영웅",
-    "birth": "?",
-    "death": "?",
-    "biography": "살수에서 수나라 30만 대군을 물리친 고구려의 명장",
-    "fullBiography": "고구려의 장군으로, 612년 수 양제가 이끈 113만 대군의 침략에 맞서 싸웠다. 청야전술로 적을 지치게 한 뒤, 살수(청천강)에서 수나라 별동대 30만을 섬멸하는 대승을 거두었다. 적장 우중문에게 조롱하는 시를 보내 심리전을 펼치기도 했다. 이 살수대첩으로 수나라는 멸망의 길을 걷게 되었다.",
-    "portraitAsset": "assets/images/characters/eulji_mundeok.png",
-    "emotionAssets": [
-      "assets/images/characters/eulji_mundeok.png"
-    ],
-    "dialogueIds": [
-      "eulji_salsu_01"
-    ],
-    "relatedCharacterIds": [
-      "gwanggaeto",
-      "jangsu"
-    ],
-    "relatedLocationIds": [
-      "salsu"
-    ],
-    "achievements": [
-      "살수대첩 승리",
-      "수나라 30만 섬멸",
-      "청야전술 구사",
-      "여수장우중문시 작시"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "jangsu",
-    "eraId": "korea_three_kingdoms",
-    "name": "King Jangsu",
-    "nameKorean": "장수왕",
-    "title": "고구려 제20대 국왕",
-    "birth": "394",
-    "death": "491",
-    "biography": "광개토대왕의 아들로, 97세까지 79년간 재위한 최장수 왕",
-    "fullBiography": "고구려 제20대 왕으로, 아버지 광개토대왕의 업적을 기리기 위해 광개토대왕릉비를 세웠다. 평양으로 천도하여 남진정책을 펼쳤으며, 백제의 한성을 함락시키고 개로왕을 전사시켰다. 97세까지 79년간 재위하여 '장수왕'이라는 시호를 받았다.",
-    "portraitAsset": "assets/images/characters/jangsu.png",
-    "emotionAssets": [
-      "assets/images/characters/jangsu.png"
-    ],
-    "dialogueIds": [
-      "jangsu_stele_01"
-    ],
-    "relatedCharacterIds": [
-      "gwanggaeto"
-    ],
-    "relatedLocationIds": [
-      "goguryeo_palace",
-      "pyongyang_fortress"
-    ],
-    "achievements": [
-      "광개토대왕릉비 건립",
-      "평양 천도",
-      "백제 한성 함락",
-      "79년 재위"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "geunchogo",
-    "eraId": "korea_three_kingdoms",
-    "name": "King Geunchogo",
-    "nameKorean": "근초고왕",
-    "title": "백제 제13대 국왕",
-    "birth": "?",
-    "death": "375",
-    "biography": "백제의 전성기를 이끌며 해상 강국을 건설한 정복 군주",
-    "fullBiography": "백제의 제13대 국왕으로, 마한을 통합하고 고구려 평양성을 공격하여 고국원왕을 전사시키는 등 백제의 영토를 크게 확장했다. 또한 중국의 동진, 왜와 활발히 교류하며 백제를 강력한 해상 국가로 발전시켰다. 칠지도가 그 증거로 남아있다.",
-    "portraitAsset": "assets/images/characters/geunchogo.png",
-    "emotionAssets": [
-      "assets/images/characters/geunchogo_neutral.png"
-    ],
-    "dialogueIds": [
-      "geunchogo_expansion_01"
-    ],
-    "relatedCharacterIds": [],
-    "relatedLocationIds": [
-      "wiryeseong"
-    ],
-    "achievements": [
-      "마한 병합",
-      "평양성 전투 승리",
-      "칠지도 하사",
-      "해상 교역 확대"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "gyebaek",
-    "eraId": "korea_three_kingdoms",
-    "name": "General Gyebaek",
-    "nameKorean": "계백",
-    "title": "백제 최후의 충신",
-    "birth": "?",
-    "death": "660",
-    "biography": "황산벌에서 5천 결사대로 5만 신라군에 맞서 싸운 비운의 명장",
-    "fullBiography": "백제 말기의 장군으로, 나당연합군의 침공에 맞서 5천 결사대를 이끌고 황산벌에서 김유신의 5만 대군과 맞섰다. 네 번이나 신라군을 물리쳤으나, 결국 중과부적으로 패배하여 전사하였다. 출정 전 처자식을 직접 죽여 배수진을 친 일화로 유명하다.",
-    "portraitAsset": "assets/images/characters/gyebaek.png",
-    "emotionAssets": [
-      "assets/images/characters/gyebaek.png"
-    ],
-    "dialogueIds": [
-      "gyebaek_last_stand_01"
-    ],
-    "relatedCharacterIds": [
-      "geunchogo",
-      "uija",
-      "kim_yushin"
-    ],
-    "relatedLocationIds": [
-      "hwangsanbeol"
-    ],
-    "achievements": [
-      "황산벌 4승",
-      "결사대 5천 지휘",
-      "백제 최후 항전"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "uija",
-    "eraId": "korea_three_kingdoms",
-    "name": "King Uija",
-    "nameKorean": "의자왕",
-    "title": "백제 제31대 국왕",
-    "birth": "?",
-    "death": "660",
-    "biography": "백제의 마지막 왕으로, 삼천궁녀와 낙화암의 비극으로 기억되는 비운의 군주",
-    "fullBiography": "백제의 마지막 왕으로, 초기에는 해동증자(海東曾子)라 불릴 정도로 효성이 깊었다. 그러나 말년에는 사치와 향락에 빠져 국정을 소홀히 했다는 기록이 있다. 660년 나당연합군의 침공으로 사비성이 함락되었고, 당나라로 끌려가 그곳에서 생을 마감하였다.",
-    "portraitAsset": "assets/images/characters/uija.png",
-    "emotionAssets": [
-      "assets/images/characters/uija.png"
-    ],
-    "dialogueIds": [
-      "uija_last_night_01"
-    ],
-    "relatedCharacterIds": [
-      "gyebaek",
-      "geunchogo"
-    ],
-    "relatedLocationIds": [
-      "sabi",
-      "nakhwaam"
-    ],
-    "achievements": [
-      "해동증자 칭호",
-      "신라 40여 성 공략",
-      "대야성 함락"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "kim_yushin",
-    "eraId": "korea_three_kingdoms",
-    "name": "General Kim Yu-shin",
-    "nameKorean": "김유신",
-    "title": "삼국통일의 명장",
-    "birth": "595",
-    "death": "673",
-    "biography": "화랑도 출신으로 삼국통일을 이끈 신라의 전설적인 장군",
-    "fullBiography": "가야 왕족의 후손으로 태어나 화랑도에서 수련하였다. 백제와 고구려를 차례로 멸망시키고 당나라 세력을 한반도에서 몰아내어 삼국통일의 위업을 달성하였다. 태대각간(太大角干)의 지위에 올라 왕보다 높은 예우를 받았으며, 죽어서도 흥무대왕으로 추존되었다.",
-    "portraitAsset": "assets/images/characters/kim_yushin.png",
-    "emotionAssets": [
-      "assets/images/characters/kim_yushin.png"
-    ],
-    "dialogueIds": [
-      "kim_yushin_unification_01"
-    ],
-    "relatedCharacterIds": [
-      "seondeok",
-      "gwanggaeto"
-    ],
-    "relatedLocationIds": [
-      "gyeongju_palace"
-    ],
-    "achievements": [
-      "삼국통일 달성",
-      "황산벌 전투 승리",
-      "백제 멸망",
-      "고구려 멸망",
-      "당군 축출"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "seondeok",
-    "eraId": "korea_three_kingdoms",
-    "name": "Queen Seondeok",
-    "nameKorean": "선덕여왕",
-    "title": "신라 제27대 국왕",
-    "birth": "?",
-    "death": "647",
-    "biography": "신라 최초의 여왕으로 첨성대를 건립하고 삼국통일의 기반을 닦았다",
-    "fullBiography": "신라 제27대 왕으로, 한국 역사상 최초의 여성 군주이다. 뛰어난 지혜로 당나라와의 외교를 이끌었으며, 첨성대를 건립하여 천문학을 발전시켰다. 황룡사 9층 목탑을 세워 삼국통일의 염원을 담았고, 김춘추와 김유신을 등용하여 통일의 기반을 닦았다.",
-    "portraitAsset": "assets/images/characters/seondeok.png",
-    "emotionAssets": [
-      "assets/images/characters/seondeok.png"
-    ],
-    "dialogueIds": [
-      "seondeok_cheomseongdae_01"
-    ],
-    "relatedCharacterIds": [
-      "kim_yushin"
-    ],
-    "relatedLocationIds": [
-      "gyeongju_palace",
-      "cheomseongdae"
-    ],
-    "achievements": [
-      "첨성대 건립",
-      "황룡사 9층 목탑 건립",
-      "김춘추·김유신 등용",
-      "당나라 외교 성공"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "suro",
-    "eraId": "korea_three_kingdoms",
-    "name": "King Suro",
-    "nameKorean": "김수로왕",
-    "title": "금관가야 건국 시조",
-    "birth": "42",
-    "death": "199",
-    "biography": "하늘에서 내려온 황금알에서 태어나 금관가야를 건국한 전설의 시조왕",
-    "fullBiography": "서기 42년 구지봉에서 하늘로부터 내려온 황금알에서 태어났다고 전해진다. 6가야 연맹의 맹주 금관가야를 건국하고, 인도 아유타국에서 온 허황옥 공주와 혼인하여 10남 2녀를 두었다. 가락국기에 따르면 158년간 재위하다 199년에 승하하였다. 김유신 장군의 12대조이다.",
-    "portraitAsset": "assets/images/characters/suro.png",
-    "emotionAssets": [
-      "assets/images/characters/suro.png",
-      "assets/images/characters/suro_pleased.png"
-    ],
-    "dialogueIds": [
-      "suro_founding_01",
-      "suro_hwangok_01",
-      "suro_iron_trade_01",
-      "suro_legacy_01"
-    ],
-    "relatedCharacterIds": [
-      "hwangok",
-      "kim_yushin"
-    ],
-    "relatedLocationIds": [
-      "gujibong",
-      "gimhae_palace"
-    ],
-    "achievements": [
-      "금관가야 건국",
-      "6가야 연맹 맹주",
-      "가야 왕통 확립",
-      "허황옥과의 국제 혼인"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "hwangok",
-    "eraId": "korea_three_kingdoms",
-    "name": "Queen Heo Hwang-ok",
-    "nameKorean": "허황옥",
-    "title": "금관가야 초대 왕비",
-    "birth": "32",
-    "death": "189",
-    "biography": "인도 아유타국에서 바다를 건너 수로왕의 왕비가 된 전설의 공주",
-    "fullBiography": "인도 아유타국의 공주로, 꿈에서 부모가 가락국으로 가라는 계시를 받고 바다를 건너왔다. 파사석탑을 싣고 온 배로 김해에 도착해 수로왕의 왕비가 되었다. 10남 2녀를 두었으며, 허씨, 김해 김씨, 인천 이씨 등의 시조모로 추앙받는다.",
-    "portraitAsset": "assets/images/characters/hwangok.png",
-    "emotionAssets": [
-      "assets/images/characters/hwangok.png",
-      "assets/images/characters/hwangok_graceful.png"
-    ],
-    "dialogueIds": [
-      "hwangok_arrival_01",
-      "hwangok_motherhood_01",
-      "hwangok_buddhism_01"
-    ],
-    "relatedCharacterIds": [
-      "suro"
-    ],
-    "relatedLocationIds": [
-      "gimhae_palace",
-      "mangsan_island"
-    ],
-    "achievements": [
-      "해상 실크로드 개척",
-      "불교 전래 (추정)",
-      "파사석탑 전래",
-      "왕실 혈통 확립"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "ureuk",
-    "eraId": "korea_three_kingdoms",
-    "name": "Ureuk",
-    "nameKorean": "우륵",
-    "title": "가야금의 창시자",
-    "birth": "?",
-    "death": "?",
-    "biography": "가야금을 창시하고 12곡을 작곡한 대가야의 전설적인 악사",
-    "fullBiography": "대가야의 악사로, 가실왕의 명을 받아 가야금을 만들고 12곡을 작곡하였다. 대가야가 멸망할 기미가 보이자 신라로 망명하여 진흥왕의 후원 아래 제자들에게 가야금을 전수하였다. 그의 음악은 신라의 음악으로 계승되어 오늘날까지 전해진다.",
-    "portraitAsset": "assets/images/characters/ureuk.png",
-    "emotionAssets": [
-      "assets/images/characters/ureuk.png",
-      "assets/images/characters/ureuk_playing.png"
-    ],
-    "dialogueIds": [
-      "ureuk_gayageum_01",
-      "ureuk_exile_01",
-      "ureuk_12songs_01",
-      "ureuk_disciples_01"
-    ],
-    "relatedCharacterIds": [
-      "suro"
-    ],
-    "relatedLocationIds": [
-      "goryeong_palace"
-    ],
-    "achievements": [
-      "가야금 창시",
-      "12곡 작곡",
-      "신라 음악 발전",
-      "제자 양성"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "davinci",
-    "eraId": "europe_renaissance",
-    "name": "Leonardo da Vinci",
-    "nameKorean": "레오나르도 다빈치",
-    "title": "르네상스 맨",
-    "birth": "1452",
-    "death": "1519",
-    "biography": "회화, 건축, 과학 등 모든 분야에 능통했던 천재",
-    "fullBiography": "모나리자, 최후의 만찬 등의 걸작을 남긴 화가이자, 비행기, 전차 등을 설계한 발명가. 인체 해부학에도 정통했으며, 르네상스적 인간상의 전형으로 꼽힌다.",
-    "portraitAsset": "assets/images/characters/davinci.png",
-    "emotionAssets": [
-      "assets/images/characters/davinci_neutral.png",
-      "assets/images/characters/davinci_thoughtful.png"
-    ],
-    "dialogueIds": [
-      "davinci_intro",
-      "davinci_art",
-      "davinci_science"
-    ],
-    "relatedCharacterIds": [],
-    "relatedLocationIds": [
-      "florence"
-    ],
-    "achievements": [
-      "모나리자",
-      "최후의 만찬",
-      "비행 기계 설계",
-      "인체 비례도"
-    ],
-    "status": "locked"
-  },
-  {
-    "id": "galileo",
-    "eraId": "europe_renaissance",
-    "name": "Galileo Galilei",
-    "nameKorean": "갈릴레오 갈릴레이",
-    "title": "근대 과학의 아버지",
-    "birth": "1564",
-    "death": "1642",
-    "biography": "망원경으로 천체를 관측하여 지동설을 지지한 천문학자",
-    "fullBiography": "망원경을 개량하여 목성의 위성, 금성의 위상 변화 등을 관측하고 코페르니쿠스의 지동설을 입증했다. \"그래도 지구는 돈다\"라는 명언으로 유명하다.",
-    "portraitAsset": "assets/images/characters/galileo.png",
-    "emotionAssets": [
-      "assets/images/characters/galileo_neutral.png",
-      "assets/images/characters/galileo_determined.png"
-    ],
-    "dialogueIds": [
-      "galileo_intro",
-      "galileo_telescope"
-    ],
-    "relatedCharacterIds": [],
-    "relatedLocationIds": [
-      "venice"
-    ],
-    "achievements": [
-      "망원경 개량",
-      "목성 위성 발견",
-      "지동설 지지",
-      "관성의 법칙"
-    ],
-    "status": "locked"
-  },
-  {
-    "id": "char_Q61073",
-    "eraId": "europe_renaissance",
-    "name": "제바스티안 뮌스터",
-    "nameKorean": "제바스티안 뮌스터",
-    "description": "German cartographer, cosmographer, and scholar (1488–1552)",
-    "thumbnailAsset": "assets/images/characters/sebastian_munster.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Christoph%20Amberger%20-%20Der%20Kosmograph%20Sebastian%20M%C3%BCnster%20%281552%29.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
+    {
+        "id": "sejong",
+        "eraId": "korea_joseon",
+        "name": "King Sejong the Great",
+        "nameKorean": "세종대왕",
+        "title": "조선 제4대 국왕",
+        "birth": "1397",
+        "death": "1450",
+        "biography": "한글을 창제하고 과학과 문화의 황금기를 이끈 성군",
+        "fullBiography": "조선의 제4대 국왕으로, 훈민정음(한글)을 창제하여 백성들이 쉽게 글을 읽고 쓸 수 있게 하였다. 또한 측우기, 해시계 등 과학 기구를 발명하게 하고, 집현전을 설치하여 학문을 장려하는 등 조선 역사상 가장 위대한 업적을 남긴 군주로 평가받는다.",
+        "portraitAsset": "assets/images/characters/joseon/sejong.png",
+        "emotionAssets": [
+            "assets/images/characters/joseon/placeholder.png",
+            "assets/images/characters/joseon/placeholder.png",
+            "assets/images/characters/joseon/placeholder.png",
+            "assets/images/characters/joseon/placeholder.png"
+        ],
+        "dialogueIds": [
+            "sejong_hangul_01",
+            "sejong_science_01",
+            "sejong_policy_01"
+        ],
+        "relatedCharacterIds": [
+            "jang_yeongshil",
+            "choe_manri"
+        ],
+        "relatedLocationIds": [
+            "gyeongbokgung",
+            "jiphyeonjeon"
+        ],
+        "achievements": [
+            "훈민정음(한글) 창제",
+            "집현전 설치",
+            "측우기, 앙부일구 발명",
+            "4군 6진 개척"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "yi_sun_sin",
+        "eraId": "korea_joseon",
+        "name": "Admiral Yi Sun-sin",
+        "nameKorean": "이순신",
+        "title": "삼도수군통제사",
+        "birth": "1545",
+        "death": "1598",
+        "biography": "임진왜란에서 조선을 구한 불멸의 해군 명장",
+        "fullBiography": "임진왜란 당시 거북선을 이용해 일본 수군을 상대로 23전 23승의 전설적인 전적을 기록한 조선의 해군 명장. 명량해전, 한산도대첩 등 수많은 해전에서 승리하며 조선의 바다를 지켰다. 노량해전에서 적의 총탄에 맞아 전사하였으나, 그의 유언 \"나의 죽음을 알리지 마라\"는 오늘날까지 전해지고 있다.",
+        "portraitAsset": "assets/images/characters/joseon/yi_sun_sin_commanding.png",
+        "emotionAssets": [
+            "assets/images/characters/joseon/yi_sun_sin_commanding.png",
+            "assets/images/characters/joseon/yi_sun_sin_serious.png",
+            "assets/images/characters/joseon/yi_sun_sin_determined.png"
+        ],
+        "dialogueIds": [
+            "yi_geobukseon_01",
+            "yi_battle_01",
+            "yi_strategy_01"
+        ],
+        "relatedCharacterIds": [
+            "won_gyun"
+        ],
+        "relatedLocationIds": [
+            "geobukseon",
+            "hansando",
+            "myeongnyang"
+        ],
+        "achievements": [
+            "거북선 설계 및 건조",
+            "한산도대첩 승리",
+            "명량해전 승리",
+            "23전 23승 불패 기록"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "jeong_yakyong",
+        "eraId": "korea_joseon",
+        "name": "Jeong Yak-yong (Dasan)",
+        "nameKorean": "정약용",
+        "title": "다산, 실학자",
+        "birth": "1762",
+        "death": "1836",
+        "biography": "조선 후기 실학을 집대성한 위대한 학자",
+        "fullBiography": "조선 후기의 대표적인 실학자로, 500권이 넘는 저술을 남겼다. 수원화성 설계에 참여하여 거중기를 고안하는 등 실용적인 학문을 추구했다. 18년간의 유배 생활 중에도 <목민심서>, <경세유표> 등 후세에 귀감이 되는 저서를 집필하였다.",
+        "portraitAsset": "assets/images/characters/joseon/jeong_yakyong.png",
+        "emotionAssets": [
+            "assets/images/characters/joseon/jeong_yakyong_neutral.png",
+            "assets/images/characters/joseon/jeong_yakyong_thoughtful.png"
+        ],
+        "dialogueIds": [
+            "jeong_silhak_01",
+            "jeong_exile_01"
+        ],
+        "relatedCharacterIds": [
+            "jeongjo"
+        ],
+        "relatedLocationIds": [
+            "suwon_hwaseong",
+            "gangjin"
+        ],
+        "achievements": [
+            "목민심서 저술",
+            "경세유표 저술",
+            "거중기 설계",
+            "실학 집대성"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "jeongjo",
+        "eraId": "korea_joseon",
+        "name": "King Jeongjo",
+        "nameKorean": "정조",
+        "title": "조선 제22대 국왕",
+        "birth": "1752",
+        "death": "1800",
+        "biography": "규장각을 설치하고 수원화성을 건설한 개혁 군주",
+        "fullBiography": "조선의 제22대 국왕으로, 영조의 손자이자 사도세자의 아들이다. 규장각을 설치하여 인재를 양성하고, 상업을 장려하는 신해통공을 단행하는 등 조선 후기의 문예 부흥기를 이끌었다. 효심이 지극하여 아버지의 묘를 수원으로 옮기고 화성을 축조하였으며, 백성을 위한 개혁 정치를 펼쳤다.",
+        "portraitAsset": "assets/images/characters/joseon/jeongjo.png",
+        "emotionAssets": [
+            "assets/images/characters/joseon/jeongjo_neutral.png",
+            "assets/images/characters/joseon/jeongjo_thoughtful.png",
+            "assets/images/characters/joseon/jeongjo_happy.png"
+        ],
+        "dialogueIds": [
+            "jeongjo_reform_01",
+            "jeongjo_hwaseong_01"
+        ],
+        "relatedCharacterIds": [
+            "jeong_yakyong",
+            "yeongjo",
+            "sado_seja"
+        ],
+        "relatedLocationIds": [
+            "suwon_hwaseong",
+            "gyujanggak"
+        ],
+        "achievements": [
+            "규장각 설치",
+            "수원화성 건설",
+            "신해통공",
+            "초계문신제 실시"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "jang_yeongshil",
+        "eraId": "korea_joseon",
+        "name": "Jang Yeong-sil",
+        "nameKorean": "장영실",
+        "title": "조선 최고의 과학자",
+        "birth": "1390",
+        "death": "1450",
+        "biography": "자격루, 앙부일구 등을 발명한 천재 기술자",
+        "fullBiography": "관노 출신이었으나 뛰어난 기술로 태종과 세종에게 발탁되어 종3품 대호군까지 올랐다. 자격루(물시계), 앙부일구(해시계), 측우기, 간의 등 수많은 과학 기구를 제작하여 조선의 과학 기술을 세계적인 수준으로 끌어올렸다.",
+        "portraitAsset": "assets/images/characters/joseon/jang_yeongshil.png",
+        "emotionAssets": [
+            "assets/images/characters/joseon/jang_yeongshil_neutral.png",
+            "assets/images/characters/joseon/jang_yeongshil_excited.png",
+            "assets/images/characters/joseon/jang_yeongshil_thoughtful.png"
+        ],
+        "dialogueIds": [
+            "jang_waterclock_01",
+            "jang_celestial_01"
+        ],
+        "relatedCharacterIds": [
+            "sejong"
+        ],
+        "relatedLocationIds": [
+            "jiphyeonjeon",
+            "royal_observatory"
+        ],
+        "achievements": [
+            "자격루(물시계) 발명",
+            "앙부일구(해시계) 제작",
+            "간의 제작",
+            "갑인자 주조 참여"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "heo_jun",
+        "eraId": "korea_joseon",
+        "name": "Heo Jun",
+        "nameKorean": "허준",
+        "title": "동의보감 저자",
+        "birth": "1539",
+        "death": "1615",
+        "biography": "동양 의학을 집대성한 동의보감의 저자",
+        "fullBiography": "조선 중기의 의관으로 선조와 광해군 때 어의를 지냈다. 임진왜란 이후 피폐해진 백성들을 위해 누구나 쉽게 약초를 구하고 병을 고칠 수 있도록 의학 서적을 집필했다. 1610년 완성된 <동의보감>은 동양 의학의 정수로 평가받으며, 유네스코 세계기록유산으로 등재되었다.",
+        "portraitAsset": "assets/images/characters/joseon/heo_jun.png",
+        "emotionAssets": [
+            "assets/images/characters/joseon/heo_jun_neutral.png",
+            "assets/images/characters/joseon/heo_jun_kind.png",
+            "assets/images/characters/joseon/heo_jun_serious.png"
+        ],
+        "dialogueIds": [
+            "heo_medicine_01",
+            "heo_plague_01"
+        ],
+        "relatedCharacterIds": [
+            "seonjo",
+            "gwanghaegun"
+        ],
+        "relatedLocationIds": [
+            "royal_clinic",
+            "sancheong"
+        ],
+        "achievements": [
+            "동의보감 집필",
+            "어의 역임",
+            "전염병 퇴치 노력",
+            "한의학 체계화"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "gwanggaeto",
+        "eraId": "korea_three_kingdoms",
+        "name": "King Gwanggaeto the Great",
+        "nameKorean": "광개토대왕",
+        "title": "고구려 제19대 국왕",
+        "birth": "374",
+        "death": "412",
+        "biography": "고구려 최대 영토를 개척한 정복 군주",
+        "fullBiography": "고구려의 제19대 왕으로, 18세에 즉위하여 39세에 승하할 때까지 64개의 성과 1,400개의 촌락을 정복하여 고구려 역사상 최대의 영토를 확보하였다. 광개토대왕릉비에 그의 업적이 새겨져 있다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/gwanggaeto.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/gwanggaeto_neutral.png",
+            "assets/images/characters/three_kingdoms/gwanggaeto_determined.png"
+        ],
+        "dialogueIds": [
+            "gwanggaeto_conquest_01",
+            "gwanggaeto_legacy_01"
+        ],
+        "relatedCharacterIds": [
+            "jangsu"
+        ],
+        "relatedLocationIds": [
+            "goguryeo_palace"
+        ],
+        "achievements": [
+            "고구려 최대 영토 확장",
+            "백제 정벌",
+            "신라 구원",
+            "광개토대왕릉비"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "eulji_mundeok",
+        "eraId": "korea_three_kingdoms",
+        "name": "General Eulji Mundeok",
+        "nameKorean": "을지문덕",
+        "title": "살수대첩의 영웅",
+        "birth": "?",
+        "death": "?",
+        "biography": "살수에서 수나라 30만 대군을 물리친 고구려의 명장",
+        "fullBiography": "고구려의 장군으로, 612년 수 양제가 이끈 113만 대군의 침략에 맞서 싸웠다. 청야전술로 적을 지치게 한 뒤, 살수(청천강)에서 수나라 별동대 30만을 섬멸하는 대승을 거두었다. 적장 우중문에게 조롱하는 시를 보내 심리전을 펼치기도 했다. 이 살수대첩으로 수나라는 멸망의 길을 걷게 되었다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/eulji_mundeok.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/eulji_mundeok.png"
+        ],
+        "dialogueIds": [
+            "eulji_salsu_01"
+        ],
+        "relatedCharacterIds": [
+            "gwanggaeto",
+            "jangsu"
+        ],
+        "relatedLocationIds": [
+            "salsu"
+        ],
+        "achievements": [
+            "살수대첩 승리",
+            "수나라 30만 섬멸",
+            "청야전술 구사",
+            "여수장우중문시 작시"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "jangsu",
+        "eraId": "korea_three_kingdoms",
+        "name": "King Jangsu",
+        "nameKorean": "장수왕",
+        "title": "고구려 제20대 국왕",
+        "birth": "394",
+        "death": "491",
+        "biography": "광개토대왕의 아들로, 97세까지 79년간 재위한 최장수 왕",
+        "fullBiography": "고구려 제20대 왕으로, 아버지 광개토대왕의 업적을 기리기 위해 광개토대왕릉비를 세웠다. 평양으로 천도하여 남진정책을 펼쳤으며, 백제의 한성을 함락시키고 개로왕을 전사시켰다. 97세까지 79년간 재위하여 '장수왕'이라는 시호를 받았다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/jangsu.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/jangsu.png"
+        ],
+        "dialogueIds": [
+            "jangsu_stele_01"
+        ],
+        "relatedCharacterIds": [
+            "gwanggaeto"
+        ],
+        "relatedLocationIds": [
+            "goguryeo_palace",
+            "pyongyang_fortress"
+        ],
+        "achievements": [
+            "광개토대왕릉비 건립",
+            "평양 천도",
+            "백제 한성 함락",
+            "79년 재위"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "geunchogo",
+        "eraId": "korea_three_kingdoms",
+        "name": "King Geunchogo",
+        "nameKorean": "근초고왕",
+        "title": "백제 제13대 국왕",
+        "birth": "?",
+        "death": "375",
+        "biography": "백제의 전성기를 이끌며 해상 강국을 건설한 정복 군주",
+        "fullBiography": "백제의 제13대 국왕으로, 마한을 통합하고 고구려 평양성을 공격하여 고국원왕을 전사시키는 등 백제의 영토를 크게 확장했다. 또한 중국의 동진, 왜와 활발히 교류하며 백제를 강력한 해상 국가로 발전시켰다. 칠지도가 그 증거로 남아있다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/geunchogo.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/geunchogo_neutral.png"
+        ],
+        "dialogueIds": [
+            "geunchogo_expansion_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "wiryeseong"
+        ],
+        "achievements": [
+            "마한 병합",
+            "평양성 전투 승리",
+            "칠지도 하사",
+            "해상 교역 확대"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "gyebaek",
+        "eraId": "korea_three_kingdoms",
+        "name": "General Gyebaek",
+        "nameKorean": "계백",
+        "title": "백제 최후의 충신",
+        "birth": "?",
+        "death": "660",
+        "biography": "황산벌에서 5천 결사대로 5만 신라군에 맞서 싸운 비운의 명장",
+        "fullBiography": "백제 말기의 장군으로, 나당연합군의 침공에 맞서 5천 결사대를 이끌고 황산벌에서 김유신의 5만 대군과 맞섰다. 네 번이나 신라군을 물리쳤으나, 결국 중과부적으로 패배하여 전사하였다. 출정 전 처자식을 직접 죽여 배수진을 친 일화로 유명하다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/gyebaek.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/gyebaek.png"
+        ],
+        "dialogueIds": [
+            "gyebaek_last_stand_01"
+        ],
+        "relatedCharacterIds": [
+            "geunchogo",
+            "uija",
+            "kim_yushin"
+        ],
+        "relatedLocationIds": [
+            "hwangsanbeol"
+        ],
+        "achievements": [
+            "황산벌 4승",
+            "결사대 5천 지휘",
+            "백제 최후 항전"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "uija",
+        "eraId": "korea_three_kingdoms",
+        "name": "King Uija",
+        "nameKorean": "의자왕",
+        "title": "백제 제31대 국왕",
+        "birth": "?",
+        "death": "660",
+        "biography": "백제의 마지막 왕으로, 삼천궁녀와 낙화암의 비극으로 기억되는 비운의 군주",
+        "fullBiography": "백제의 마지막 왕으로, 초기에는 해동증자(海東曾子)라 불릴 정도로 효성이 깊었다. 그러나 말년에는 사치와 향락에 빠져 국정을 소홀히 했다는 기록이 있다. 660년 나당연합군의 침공으로 사비성이 함락되었고, 당나라로 끌려가 그곳에서 생을 마감하였다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/uija.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/uija.png"
+        ],
+        "dialogueIds": [
+            "uija_last_night_01"
+        ],
+        "relatedCharacterIds": [
+            "gyebaek",
+            "geunchogo"
+        ],
+        "relatedLocationIds": [
+            "sabi",
+            "nakhwaam"
+        ],
+        "achievements": [
+            "해동증자 칭호",
+            "신라 40여 성 공략",
+            "대야성 함락"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "kim_yushin",
+        "eraId": "korea_three_kingdoms",
+        "name": "General Kim Yu-shin",
+        "nameKorean": "김유신",
+        "title": "삼국통일의 명장",
+        "birth": "595",
+        "death": "673",
+        "biography": "화랑도 출신으로 삼국통일을 이끈 신라의 전설적인 장군",
+        "fullBiography": "가야 왕족의 후손으로 태어나 화랑도에서 수련하였다. 백제와 고구려를 차례로 멸망시키고 당나라 세력을 한반도에서 몰아내어 삼국통일의 위업을 달성하였다. 태대각간(太大角干)의 지위에 올라 왕보다 높은 예우를 받았으며, 죽어서도 흥무대왕으로 추존되었다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/kim_yushin.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/kim_yushin.png"
+        ],
+        "dialogueIds": [
+            "kim_yushin_unification_01"
+        ],
+        "relatedCharacterIds": [
+            "seondeok",
+            "gwanghaegun"
+        ],
+        "relatedLocationIds": [
+            "gyeongju_palace"
+        ],
+        "achievements": [
+            "삼국통일 달성",
+            "황산벌 전투 승리",
+            "백제 멸망",
+            "고구려 멸망",
+            "당군 축출"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "seondeok",
+        "eraId": "korea_three_kingdoms",
+        "name": "Queen Seondeok",
+        "nameKorean": "선덕여왕",
+        "title": "신라 제27대 국왕",
+        "birth": "?",
+        "death": "647",
+        "biography": "신라 최초의 여왕으로 첨성대를 건립하고 삼국통일의 기반을 닦았다",
+        "fullBiography": "신라 제27대 왕으로, 한국 역사상 최초의 여성 군주이다. 뛰어난 지혜로 당나라와의 외교를 이끌었으며, 첨성대를 건립하여 천문학을 발전시켰다. 황룡사 9층 목탑을 세워 삼국통일의 염원을 담았고, 김춘추와 김유신을 등용하여 통일의 기반을 닦았다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/seondeok.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/seondeok.png"
+        ],
+        "dialogueIds": [
+            "seondeok_cheomseongdae_01"
+        ],
+        "relatedCharacterIds": [
+            "kim_yushin"
+        ],
+        "relatedLocationIds": [
+            "gyeongju_palace",
+            "cheomseongdae"
+        ],
+        "achievements": [
+            "첨성대 건립",
+            "황룡사 9층 목탑 건립",
+            "김춘추·김유신 등용",
+            "당나라 외교 성공"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "suro",
+        "eraId": "korea_three_kingdoms",
+        "name": "King Suro",
+        "nameKorean": "김수로왕",
+        "title": "금관가야 건국 시조",
+        "birth": "42",
+        "death": "199",
+        "biography": "하늘에서 내려온 황금알에서 태어나 금관가야를 건국한 전설의 시조왕",
+        "fullBiography": "서기 42년 구지봉에서 하늘로부터 내려온 황금알에서 태어났다고 전해진다. 6가야 연맹의 맹주 금관가야를 건국하고, 인도 아유타국에서 온 허황옥 공주와 혼인하여 10남 2녀를 두었다. 가락국기에 따르면 158년간 재위하다 199년에 승하하였다. 김유신 장군의 12대조이다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/suro.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/suro.png",
+            "assets/images/characters/three_kingdoms/suro_pleased.png"
+        ],
+        "dialogueIds": [
+            "suro_founding_01",
+            "suro_hwangok_01",
+            "suro_iron_trade_01",
+            "suro_legacy_01"
+        ],
+        "relatedCharacterIds": [
+            "hwangok",
+            "kim_yushin"
+        ],
+        "relatedLocationIds": [
+            "gujibong",
+            "gimhae_palace"
+        ],
+        "achievements": [
+            "금관가야 건국",
+            "6가야 연맹 맹주",
+            "가야 왕통 확립",
+            "허황옥과의 국제 혼인"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "hwangok",
+        "eraId": "korea_three_kingdoms",
+        "name": "Queen Heo Hwang-ok",
+        "nameKorean": "허황옥",
+        "title": "금관가야 초대 왕비",
+        "birth": "32",
+        "death": "189",
+        "biography": "인도 아유타국에서 바다를 건너 수로왕의 왕비가 된 전설의 공주",
+        "fullBiography": "인도 아유타국의 공주로, 꿈에서 부모가 가락국으로 가라는 계시를 받고 바다를 건너왔다. 파사석탑을 싣고 온 배로 김해에 도착해 수로왕의 왕비가 되었다. 10남 2녀를 두었으며, 허씨, 김해 김씨, 인천 이씨 등의 시조모로 추앙받는다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/hwangok.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/hwangok.png",
+            "assets/images/characters/three_kingdoms/hwangok_graceful.png"
+        ],
+        "dialogueIds": [
+            "hwangok_arrival_01",
+            "hwangok_motherhood_01",
+            "hwangok_buddhism_01"
+        ],
+        "relatedCharacterIds": [
+            "suro"
+        ],
+        "relatedLocationIds": [
+            "gimhae_palace",
+            "mangsan_island"
+        ],
+        "achievements": [
+            "해상 실크로드 개척",
+            "불교 전래 (추정)",
+            "파사석탑 전래",
+            "왕실 혈통 확립"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "ureuk",
+        "eraId": "korea_three_kingdoms",
+        "name": "Ureuk",
+        "nameKorean": "우륵",
+        "title": "가야금의 창시자",
+        "birth": "?",
+        "death": "?",
+        "biography": "가야금을 창시하고 12곡을 작곡한 대가야의 전설적인 악사",
+        "fullBiography": "대가야의 악사로, 가실왕의 명을 받아 가야금을 만들고 12곡을 작곡하였다. 대가야가 멸망할 기미가 보이자 신라로 망명하여 진흥왕의 후원 아래 제자들에게 가야금을 전수하였다. 그의 음악은 신라의 음악으로 계승되어 오늘날까지 전해지고 있다.",
+        "portraitAsset": "assets/images/characters/three_kingdoms/ureuk.png",
+        "emotionAssets": [
+            "assets/images/characters/three_kingdoms/ureuk.png",
+            "assets/images/characters/three_kingdoms/ureuk_playing.png"
+        ],
+        "dialogueIds": [
+            "ureuk_gayageum_01",
+            "ureuk_exile_01",
+            "ureuk_12songs_01",
+            "ureuk_disciples_01"
+        ],
+        "relatedCharacterIds": [
+            "suro"
+        ],
+        "relatedLocationIds": [
+            "goryeong_palace"
+        ],
+        "achievements": [
+            "가야금 창시",
+            "12곡 작곡",
+            "신라 음악 발전",
+            "제자 양성"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "davinci",
+        "eraId": "europe_renaissance",
+        "name": "Leonardo da Vinci",
+        "nameKorean": "레오나르도 다빈치",
+        "title": "르네상스 맨",
+        "birth": "1452",
+        "death": "1519",
+        "biography": "회화, 건축, 과학 등 모든 분야에 능통했던 천재",
+        "fullBiography": "모나리자, 최후의 만찬 등의 걸작을 남긴 화가이자, 비행기, 전차 등을 설계한 발명가. 인체 해부학에도 정통했으며, 르네상스적 인간상의 전형으로 꼽힌다.",
+        "portraitAsset": "assets/images/characters/renaissance/davinci.png",
+        "emotionAssets": [
+            "assets/images/characters/renaissance/davinci_neutral.png",
+            "assets/images/characters/renaissance/davinci_thoughtful.png"
+        ],
+        "dialogueIds": [
+            "davinci_intro",
+            "davinci_art",
+            "davinci_science"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "florence"
+        ],
+        "achievements": [
+            "모나리자",
+            "최후의 만찬",
+            "비행 기계 설계",
+            "인체 비례도"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "galileo",
+        "eraId": "europe_renaissance",
+        "name": "Galileo Galilei",
+        "nameKorean": "갈릴레오 갈릴레이",
+        "title": "근대 과학의 아버지",
+        "birth": "1564",
+        "death": "1642",
+        "biography": "망원경으로 천체를 관측하여 지동설을 지지한 천문학자",
+        "fullBiography": "망원경을 개량하여 목성의 위성, 금성의 위상 변화 등을 관측하고 코페르니쿠스의 지동설을 입증했다. \"그래도 지구는 돈다\"라는 명언으로 유명하다.",
+        "portraitAsset": "assets/images/characters/renaissance/galileo.png",
+        "emotionAssets": [
+            "assets/images/characters/renaissance/galileo_neutral.png",
+            "assets/images/characters/renaissance/galileo_determined.png"
+        ],
+        "dialogueIds": [
+            "galileo_intro",
+            "galileo_telescope"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "venice"
+        ],
+        "achievements": [
+            "망원경 개량",
+            "목성 위성 발견",
+            "지동설 지지",
+            "관성의 법칙"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "wanggeon",
+        "eraId": "korea_goryeo",
+        "name": "King Taejo (Wang Geon)",
+        "nameKorean": "왕건(태조)",
+        "title": "고려 건국 시조",
+        "birth": "877",
+        "death": "943",
+        "biography": "후삼국을 통일하고 고려를 건국한 태조",
+        "fullBiography": "송악(개성)의 호족 출신으로, 궁예의 부하로 활약하다 918년 정변을 일으켜 고려를 건국하였다. 신라와 후백제를 차례로 병합하여 936년 후삼국을 통일하였다. 호족 세력을 통합하기 위해 결혼 정책과 사성 정책을 시행하였으며, 북진 정책을 추진하고 발해 유민을 받아들였다. 훈요십조를 남겨 후대 왕들에게 통치의 지침을 제시하였다.",
+        "portraitAsset": "assets/images/characters/goryeo/wanggeon.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/placeholder.png",
+            "assets/images/characters/goryeo/placeholder.png"
+        ],
+        "dialogueIds": [
+            "wanggeon_founding_01",
+            "wanggeon_unification_01"
+        ],
+        "relatedCharacterIds": [
+            "seohee",
+            "gangamchan"
+        ],
+        "relatedLocationIds": [
+            "gaegyeong",
+            "manwoldae"
+        ],
+        "achievements": [
+            "고려 건국",
+            "후삼국 통일",
+            "훈요십조 유훈",
+            "북진 정책 추진"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "seohee",
+        "eraId": "korea_goryeo",
+        "name": "Seo Hui",
+        "nameKorean": "서희",
+        "title": "외교의 달인",
+        "birth": "942",
+        "death": "998",
+        "biography": "담판 한 번으로 강동 6주를 획득한 고려 최고의 외교관",
+        "fullBiography": "고려 초기의 문신이자 외교관으로, 993년 거란의 소손녕이 80만 대군을 이끌고 침입했을 때 단신으로 적진에 들어가 담판을 벌였다. '고려는 고구려의 계승국'임을 주장하며 거란군을 철수시키고, 더불어 강동 6주까지 획득하는 외교적 대승을 거두었다. 이는 역사상 가장 성공적인 외교 협상 사례로 꼽힌다.",
+        "portraitAsset": "assets/images/characters/goryeo/seohee.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/placeholder.png",
+            "assets/images/characters/goryeo/placeholder.png"
+        ],
+        "dialogueIds": [
+            "seohee_negotiation_01",
+            "seohee_gangdong_01"
+        ],
+        "relatedCharacterIds": [
+            "wanggeon",
+            "gangamchan"
+        ],
+        "relatedLocationIds": [
+            "gaegyeong",
+            "gangdong_6ju"
+        ],
+        "achievements": [
+            "거란군 철수 협상",
+            "강동 6주 획득",
+            "고려-고구려 계승론 주장",
+            "외교적 대승"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "gangamchan",
+        "eraId": "korea_goryeo",
+        "name": "General Kang Gam-chan",
+        "nameKorean": "강감찬",
+        "title": "귀주대첩의 영웅",
+        "birth": "948",
+        "death": "1031",
+        "biography": "귀주에서 거란 10만 대군을 섬멸한 고려의 명장",
+        "fullBiography": "1018년 거란의 소배압이 이끄는 10만 대군이 침입하자, 71세의 노장 강감찬이 도원수로 임명되어 출정하였다. 먼저 흥화진에서 적을 유인하여 물을 가두었다가 터뜨리는 수공 작전으로 큰 피해를 입힌 후, 귀주에서 최후의 결전을 벌여 거란군을 거의 전멸시켰다. 살아 돌아간 자가 수천에 불과했다고 한다. 이 귀주대첩으로 거란은 더 이상 고려를 침략하지 못했다.",
+        "portraitAsset": "assets/images/characters/goryeo/gangamchan_v2.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/gangamchan_v2.png",
+            "assets/images/characters/goryeo/gangamchan_determined.png"
+        ],
+        "dialogueIds": [
+            "gangamchan_guju_01",
+            "gangamchan_strategy_01"
+        ],
+        "relatedCharacterIds": [
+            "seohee",
+            "wanggeon"
+        ],
+        "relatedLocationIds": [
+            "guju",
+            "heunghwajin"
+        ],
+        "achievements": [
+            "귀주대첩 승리",
+            "거란 10만 섬멸",
+            "수공 작전 성공",
+            "고려 국방 안정화"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "gongmin",
+        "eraId": "korea_goryeo",
+        "name": "King Gongmin",
+        "nameKorean": "공민왕",
+        "title": "고려 제31대 국왕",
+        "birth": "1330",
+        "death": "1374",
+        "biography": "원나라 간섭에서 벗어나기 위해 개혁을 추진한 비운의 군주",
+        "fullBiography": "고려 말기의 국왕으로, 원나라의 간섭에서 벗어나기 위해 반원 개혁 정책을 추진하였다. 정동행성 이문소를 폐지하고, 쌍성총관부를 공격해 영토를 수복하였으며, 원나라 풍습인 변발과 호복을 금지하였다. 원나라 공주인 노국대장공주와의 깊은 사랑으로도 유명하며, 그녀가 죽은 후 정사를 돌보지 않아 결국 비극적인 최후를 맞이하였다. 뛰어난 예술적 재능을 가진 화가이기도 했다.",
+        "portraitAsset": "assets/images/characters/goryeo/gongmin.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/gongmin.png",
+            "assets/images/characters/goryeo/gongmin_sad.png"
+        ],
+        "dialogueIds": [
+            "gongmin_reform_01",
+            "gongmin_noguk_01"
+        ],
+        "relatedCharacterIds": [
+            "wanggeon"
+        ],
+        "relatedLocationIds": [
+            "gaegyeong",
+            "ssangseong"
+        ],
+        "achievements": [
+            "반원 개혁 추진",
+            "쌍성총관부 수복",
+            "정동행성 폐지",
+            "천추태후도 제작"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "jang_bogo",
+        "eraId": "korea_unified_silla",
+        "name": "Jang Bogo",
+        "nameKorean": "장보고",
+        "title": "해상왕",
+        "birth": "787",
+        "death": "846",
+        "biography": "청해진을 설치하여 동아시아 해상 무역을 제패한 해상왕",
+        "fullBiography": "신라의 평민 출신으로 당나라 매물도에서 활약하다 귀국하여 흥덕왕에게 청해진 설치를 건의했다. 완도에 청해진을 설치하고 해적을 소탕하여 황해의 해상권을 장악, 한·중·일을 잇는 국제 무역을 주도했다. 그의 딸을 왕비로 보내려다 암살당하는 비운의 최후를 맞았으나, 한국 역사상 가장 위대한 해양 영웅으로 꼽힌다.",
+        "portraitAsset": "assets/images/characters/unified_silla/jang_bogo.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/jang_bogo.png",
+            "assets/images/characters/unified_silla/jang_bogo_determined.png"
+        ],
+        "dialogueIds": [
+            "jang_bogo_trade_01",
+            "jang_bogo_sea_01"
+        ],
+        "relatedCharacterIds": [
+            "choi_chiwon"
+        ],
+        "relatedLocationIds": [
+            "cheonghaejin"
+        ],
+        "achievements": [
+            "청해진 설치",
+            "해적 소탕",
+            "동아시아 해상권 장악",
+            "국제 무역 주도"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "choi_chiwon",
+        "eraId": "korea_unified_silla",
+        "name": "Choi Chi-won",
+        "nameKorean": "최치원",
+        "title": "고운, 신라 최고의 천재",
+        "birth": "857",
+        "death": "?",
+        "biography": "당나라 빈공과에 장원 급제한 신라 최고의 문장가",
+        "fullBiography": "12세에 당나라로 유학하여 18세에 빈공과에 장원 급제했다. 황소의 난 때 '토황소격문'을 지어 이름을 떨쳤다. 귀국 후 시무 10조를 올려 개혁을 시도했으나 진골 귀족들의 반대로 무산되자 은거하였다. 유교, 불교, 도교에 모두 통달하였으며 '계원필경' 등의 저서를 남겼다.",
+        "portraitAsset": "assets/images/characters/unified_silla/choi_chiwon.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/choi_chiwon.png",
+            "assets/images/characters/unified_silla/choi_chiwon_sad.png"
+        ],
+        "dialogueIds": [
+            "choi_simu_01",
+            "choi_poetry_01"
+        ],
+        "relatedCharacterIds": [
+            "jang_bogo"
+        ],
+        "relatedLocationIds": [
+            "gyeongju",
+            "gaya_mountain"
+        ],
+        "achievements": [
+            "빈공과 장원 급제",
+            "토황소격문 집필",
+            "시무 10조 건의",
+            "계원필경 저술"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "wonhyo",
+        "eraId": "korea_unified_silla",
+        "name": "Wonhyo",
+        "nameKorean": "원효대사",
+        "title": "화쟁 사상의 고승",
+        "birth": "617",
+        "death": "686",
+        "biography": "해골물 일화로 깨달음을 얻고 불교 대중화에 힘쓴 고승",
+        "fullBiography": "의상과 함께 당나라 유학길에 올랐다가 해골에 고인 물을 마시고 '모든 것은 마음먹기에 달렸다(일체유심조)'는 깨달음을 얻어 유학을 포기하고 돌아왔다. 이후 귀족 불교가 아닌 누구나 쉽게 믿을 수 있는 대중 불교를 전파했다. 요석공주와의 사이에서 설총을 낳았으며, 화쟁 사상으로 불교 종파 간의 갈등을 통합하려 했다.",
+        "portraitAsset": "assets/images/characters/unified_silla/wonhyo.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/wonhyo.png",
+            "assets/images/characters/unified_silla/wonhyo_smile.png"
+        ],
+        "dialogueIds": [
+            "wonhyo_skull_01",
+            "wonhyo_dance_01"
+        ],
+        "relatedCharacterIds": [
+            "seondeok"
+        ],
+        "relatedLocationIds": [
+            "bunhwangsa"
+        ],
+        "achievements": [
+            "불교 대중화",
+            "일체유심조 깨달음",
+            "화쟁 사상 정립",
+            "금강삼매경론 저술"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "gojong",
+        "eraId": "korea_modern",
+        "name": "Emperor Gojong",
+        "nameKorean": "고종 황제",
+        "title": "대한제국 초대 황제",
+        "birth": "1852",
+        "death": "1919",
+        "biography": "조선의 제26대 왕이자 대한제국의 초대 황제",
+        "fullBiography": "급변하는 국제 정세 속에서 자주 독립을 지키기 위해 고군분투했다. 1897년 대한제국을 선포하고 광무개혁을 추진하여 근대화를 꾀했으나, 일제의 압력으로 강제 퇴위당했다. 그의 독살설은 3.1 운동의 기폭제가 되었다.",
+        "portraitAsset": "assets/images/characters/modern/gojong.png",
+        "emotionAssets": [
+            "assets/images/characters/modern/gojong.png",
+            "assets/images/characters/modern/gojong_sad.png"
+        ],
+        "dialogueIds": [
+            "gojong_empire_01",
+            "gojong_hague_01"
+        ],
+        "relatedCharacterIds": [
+            "ahn_junggeun"
+        ],
+        "relatedLocationIds": [
+            "deoksugung"
+        ],
+        "achievements": [
+            "대한제국 선포",
+            "광무개혁 추진",
+            "전기/전차 도입",
+            "헤이그 특사 파견"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "ahn_junggeun",
+        "eraId": "korea_modern",
+        "name": "Ahn Jung-geun",
+        "nameKorean": "안중근",
+        "title": "대한의군 참모중장",
+        "birth": "1879",
+        "death": "1910",
+        "biography": "하얼빈 역에서 이토 히로부미를 저격한 독립운동가",
+        "fullBiography": "1909년 10월 26일, 하얼빈 역에서 침략의 원흉 이토 히로부미를 사살하고 '코레아 우라(대한 만세)'를 외쳤다. 뤼순 감옥에 수감되어 사형 선고를 받고도 '동양평화론'을 집필하며 동양의 진정한 평화를 역설했다. 그의 기개와 사상은 민족의 등불이 되었다.",
+        "portraitAsset": "assets/images/characters/modern/ahn_junggeun.png",
+        "emotionAssets": [
+            "assets/images/characters/modern/ahn_junggeun.png",
+            "assets/images/characters/modern/ahn_junggeun_determined.png"
+        ],
+        "dialogueIds": [
+            "ahn_harbin_01",
+            "ahn_peace_01"
+        ],
+        "relatedCharacterIds": [
+            "gojong",
+            "kim_koo"
+        ],
+        "relatedLocationIds": [
+            "harbin",
+            "lushun_prison"
+        ],
+        "achievements": [
+            "이토 히로부미 저격",
+            "동양평화론 저술",
+            "대한의군 참모중장",
+            "단지동맹 결성"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "yu_gwansun",
+        "eraId": "korea_modern",
+        "name": "Yu Gwan-sun",
+        "nameKorean": "유관순",
+        "title": "3.1 운동의 상징",
+        "birth": "1902",
+        "death": "1920",
+        "biography": "아우내 장터에서 만세 운동을 주도한 독립 열사",
+        "fullBiography": "이화학당에 재학 중 3.1 운동이 일어나자 고향인 천안으로 내려가 아우내 장터 만세 시위를 주도했다. 서대문 형무소에 수감되어서도 옥중 만세 시위를 계속하다 모진 고문 끝에 18세의 꽃다운 나이로 순국했다.",
+        "portraitAsset": "assets/images/characters/modern/yu_gwansun.png",
+        "emotionAssets": [
+            "assets/images/characters/modern/yu_gwansun.png",
+            "assets/images/characters/modern/yu_gwansun_shouting.png"
+        ],
+        "dialogueIds": [
+            "yu_manse_01",
+            "yu_prison_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "seodaemun_prison",
+            "aunae_marketplace"
+        ],
+        "achievements": [
+            "아우내 장터 만세 운동",
+            "옥중 만세 투쟁",
+            "건국훈장 대한민국장",
+            "민족의 누나/언니"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "choe_museon",
+        "eraId": "korea_goryeo",
+        "name": "Choe Mu-seon",
+        "nameKorean": "최무선",
+        "title": "화약의 아버지",
+        "birth": "1325",
+        "death": "1395",
+        "biography": "한국 역사상 최초로 화약을 국산화하고 화포를 제작한 발명가",
+        "fullBiography": "고려 말 왜구의 침략이 극심하자 화약 제조법을 연구하여 습득하였다. 화통도감을 설치하여 각종 화포와 화약을 제조하였으며, 1380년 진포 해전에서 화포를 사용하여 왜선 500척을 격침시키는 대승을 거두었다. 이는 세계 해전사에서 화포를 사용한 최초의 전투 중 하나로 기록된다.",
+        "portraitAsset": "assets/images/characters/goryeo/choe_museon.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/choe_museon.png",
+            "assets/images/characters/goryeo/choe_museon_determined.png"
+        ],
+        "dialogueIds": [
+            "choe_gunpowder_01",
+            "choe_jinpo_01"
+        ],
+        "relatedCharacterIds": [
+            "gongmin"
+        ],
+        "relatedLocationIds": [
+            "jinpo"
+        ],
+        "achievements": [
+            "화약 국산화 성공",
+            "화통도감 설치",
+            "진포 대첩 승리",
+            "화포 개발"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "mun_ikjeom",
+        "eraId": "korea_goryeo",
+        "name": "Mun Ik-jeom",
+        "nameKorean": "문익점",
+        "title": "목화의 전래자",
+        "birth": "1329",
+        "death": "1398",
+        "biography": "원나라에서 목화씨를 가져와 백성들의 의생활을 혁명적으로 바꾼 인물",
+        "fullBiography": "고려 말의 문신으로, 원나라에 사신으로 갔다가 돌아오는 길에 붓두껍에 목화씨를 몰래 숨겨 들어왔다. 장인 정천익과 함께 목화 재배에 성공하고 물레와 베틀을 제작하여 면직물을 보급하였다. 이로 인해 겨울 추위에 떨던 백성들이 따뜻한 무명옷을 입을 수 있게 되었다.",
+        "portraitAsset": "assets/images/characters/goryeo/mun_ikjeom.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/mun_ikjeom.png",
+            "assets/images/characters/goryeo/mun_ikjeom_happy.png"
+        ],
+        "dialogueIds": [
+            "mun_cotton_01"
+        ],
+        "relatedCharacterIds": [
+            "gongmin"
+        ],
+        "relatedLocationIds": [
+            "sancheong"
+        ],
+        "achievements": [
+            "목화씨 전래",
+            "목화 재배 성공",
+            "의생활 혁명",
+            "백성의 삶 개선"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "james_watt",
+        "eraId": "europe_industrial_revolution",
+        "name": "James Watt",
+        "nameKorean": "제임스 와트",
+        "title": "증기기관의 개량자",
+        "birth": "1736",
+        "death": "1819",
+        "biography": "증기기관을 획기적으로 개량하여 산업혁명의 불을 지핀 발명가",
+        "fullBiography": "뉴커먼의 증기기관을 수리하다가 효율이 낮은 문제를 발견하고, 분리 응축기를 고안하여 효율을 획기적으로 높인 증기기관을 발명했다. 이 발명은 방적기, 기차, 선박 등 다양한 기계의 동력원으로 사용되어 산업혁명을 가속화시켰다. 일률의 단위인 '와트(W)'는 그의 이름에서 유래했다.",
+        "portraitAsset": "assets/images/characters/james_watt.png",
+        "emotionAssets": [
+            "assets/images/characters/james_watt.png",
+            "assets/images/characters/james_watt_thoughtful.png"
+        ],
+        "dialogueIds": [
+            "watt_steam_01",
+            "watt_engine_01"
+        ],
+        "relatedCharacterIds": [
+            "stephenson"
+        ],
+        "relatedLocationIds": [
+            "steam_factory"
+        ],
+        "achievements": [
+            "증기기관 개량",
+            "분리 응축기 발명",
+            "마력(Horsepower) 개념 도입",
+            "산업혁명 촉발"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "stephenson",
+        "eraId": "europe_industrial_revolution",
+        "name": "George Stephenson",
+        "nameKorean": "조지 스티븐슨",
+        "title": "철도의 아버지",
+        "birth": "1781",
+        "death": "1848",
+        "biography": "최초의 실용적인 증기 기관차를 만든 철도의 선구자",
+        "fullBiography": "탄광에서 일하며 독학으로 기술을 익혀 증기 기관차를 개발했다. 1825년 스톡턴과 달링턴을 잇는 세계 최초의 공공 철도를 개통했고, 1829년 '로켓호'를 제작하여 증기 기관차의 성능을 입증했다. 그의 발명은 교통과 물류의 혁명을 가져왔다.",
+        "portraitAsset": "assets/images/characters/stephenson.png",
+        "emotionAssets": [
+            "assets/images/characters/stephenson.png",
+            "assets/images/characters/stephenson_proud.png"
+        ],
+        "dialogueIds": [
+            "stephenson_rocket_01",
+            "stephenson_railway_01"
+        ],
+        "relatedCharacterIds": [
+            "james_watt"
+        ],
+        "relatedLocationIds": [
+            "manchester"
+        ],
+        "achievements": [
+            "증기 기관차 실용화",
+            "로켓호 제작",
+            "철도 시대 개막",
+            "철도의 아버지"
+        ],
+        "status": "locked"
+    },
+    {
+        "id": "adam_smith",
+        "eraId": "europe_industrial_revolution",
+        "name": "Adam Smith",
+        "nameKorean": "애덤 스미스",
+        "title": "경제학의 아버지",
+        "birth": "1723",
+        "death": "1790",
+        "biography": "국부론을 저술하여 자본주의 경제학의 기초를 닦은 학자",
+        "fullBiography": "1776년 <국부론>을 출간하여 '보이지 않는 손'에 의한 자유 시장 경제 원리를 주장했다. 분업의 효율성을 강조하며 산업혁명 초기의 경제 이론적 토대를 마련했다. 그의 사상은 현대 자본주의 경제학의 시초가 되었다.",
+        "portraitAsset": "assets/images/characters/adam_smith.png",
+        "emotionAssets": [
+            "assets/images/characters/adam_smith.png"
+        ],
+        "dialogueIds": [
+            "smith_wealth_01",
+            "smith_market_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "london"
+        ],
+        "achievements": [
+            "국부론 저술",
+            "보이지 않는 손",
+            "근대 경제학 정립",
+            "분업 이론"
+        ],
+        "status": "locked"
     }
-  },
-  {
-    "id": "char_Q3595755",
-    "eraId": "europe_renaissance",
-    "name": "제하데바",
-    "nameKorean": "제하데바",
-    "description": "Indian scientist",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Pages%20from%20Yuktibhasa.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q77962",
-    "eraId": "europe_renaissance",
-    "name": "야코프 밀리히",
-    "nameKorean": "야코프 밀리히",
-    "description": "독일 천문학자",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Jacob%20Milich.%20Line%20engraving%20by%20T.%20de%20Bry%2C%201650.%20Wellcome%20V0004012.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q1698608",
-    "eraId": "europe_renaissance",
-    "name": "Johannes Werner von Zimmern der Jüngere",
-    "nameKorean": "Johannes Werner von Zimmern der Jüngere",
-    "description": "(1480-1549)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q115752",
-    "eraId": "europe_renaissance",
-    "name": "한스 아스퍼",
-    "nameKorean": "한스 아스퍼",
-    "description": "Swiss artist (1499-1571)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Asper.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q1698608",
-    "eraId": "europe_renaissance",
-    "name": "Johannes Werner von Zimmern der Jüngere",
-    "nameKorean": "Johannes Werner von Zimmern der Jüngere",
-    "description": "(1480-1549)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Johann%20Werner%20von%20Zimmern%20dJ.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q128027",
-    "eraId": "europe_renaissance",
-    "name": "조르조 바사리",
-    "nameKorean": "조르조 바사리",
-    "description": "이탈리아 르네상스 시대의 화가",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zucchi%2C%20Jacopo%20-%20Vasari%2C%20Giorgio%20-%20Uffizi%20ICCD.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q92506",
-    "eraId": "europe_renaissance",
-    "name": "Johann Carion",
-    "nameKorean": "Johann Carion",
-    "description": "German astrologer and historical writer",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Johann-Carion.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q9319",
-    "eraId": "europe_renaissance",
-    "name": "틴토레토",
-    "nameKorean": "틴토레토",
-    "description": "Renaissance painter (1518/1519–1594)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tintoretto%20-%20Self-Portrait%20as%20a%20Young%20Man%2C%20ca.%201548%2C%20CAI.103%20%28cropped%29.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q3290048",
-    "eraId": "europe_renaissance",
-    "name": "Marco Aurel",
-    "nameKorean": "Marco Aurel",
-    "description": "Spanish mathematician",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Arithmetica%20Algebratica%20%281552%29%20de%20Marco%20Aurel.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q48319",
-    "eraId": "europe_renaissance",
-    "name": "한스 홀바인",
-    "nameKorean": "한스 홀바인",
-    "description": "독일의 화가 (1497-1543)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Holbein%20the%20Younger%2C%20self-portrait.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q7799",
-    "eraId": "europe_renaissance",
-    "name": "Bramantino",
-    "nameKorean": "Bramantino",
-    "description": "Italian painter and architect (1465-1530)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Bram0.5.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q7803",
-    "eraId": "europe_renaissance",
-    "name": "브론치노",
-    "nameKorean": "브론치노",
-    "description": "Italian Mannerist painter (1503-1572)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Allori%2C%20santissima%20trinit%C3%A0%2C%201567-1571%20circa%2C%20ritratto%20dei%20maestri%2C%20bronzino%20%28cropped%29.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q176694",
-    "eraId": "europe_renaissance",
-    "name": "Antonis Mor",
-    "nameKorean": "Antonis Mor",
-    "description": "painter from the Northern Netherlands (1519–1575)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q176694",
-    "eraId": "europe_renaissance",
-    "name": "Antonis Mor",
-    "nameKorean": "Antonis Mor",
-    "description": "painter from the Northern Netherlands (1519–1575)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Anthonis%20Mor%20Self%20Portrait%201558.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q18945277",
-    "eraId": "europe_renaissance",
-    "name": "Francesco Feliciano",
-    "nameKorean": "Francesco Feliciano",
-    "description": "Italian mathematician",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Feliciano%20-%20Libro%20di%20arithmetica%20%26%20geometria%20speculativa%20%26%20praticale%2C%20s.%20d.%20-%20130212.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q948156",
-    "eraId": "europe_renaissance",
-    "name": "Guillaume Postel",
-    "nameKorean": "Guillaume Postel",
-    "description": "French linguist, astronomer, diplomat and professor (1510–1581)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q948156",
-    "eraId": "europe_renaissance",
-    "name": "Guillaume Postel",
-    "nameKorean": "Guillaume Postel",
-    "description": "French linguist, astronomer, diplomat and professor (1510–1581)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Guillaume%20Postel.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q20056524",
-    "eraId": "europe_renaissance",
-    "name": "Filippo Calandri",
-    "nameKorean": "Filippo Calandri",
-    "description": "Florentine mathematician",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Calandri%20-%20Aritmetica%2C%201491-1492%20-%203867066.tif",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q8459",
-    "eraId": "europe_renaissance",
-    "name": "조르조네",
-    "nameKorean": "조르조네",
-    "description": "Venetian Renaissance painter (1478–1510)",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgione%20059.jpg",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "char_Q1029331",
-    "eraId": "europe_renaissance",
-    "name": "Camillo Agrippa",
-    "nameKorean": "Camillo Agrippa",
-    "description": "Italian engineer",
-    "thumbnailAsset": "assets/images/characters/placeholder.png",
-    "imageUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20aggripa%20port.png",
-    "dialogueId": "dialogue_default",
-    "isUnlocked": false,
-    "stats": {
-      "leadership": 50,
-      "strength": 30,
-      "intelligence": 90,
-      "politics": 60,
-      "charm": 70
-    }
-  },
-  {
-    "id": "wanggeon",
-    "eraId": "korea_goryeo",
-    "name": "King Taejo (Wang Geon)",
-    "nameKorean": "왕건(태조)",
-    "title": "고려 건국 시조",
-    "birth": "877",
-    "death": "943",
-    "biography": "후삼국을 통일하고 고려를 건국한 태조",
-    "fullBiography": "송악(개성)의 호족 출신으로, 궁예의 부하로 활약하다 918년 정변을 일으켜 고려를 건국하였다. 신라와 후백제를 차례로 병합하여 936년 후삼국을 통일하였다. 호족 세력을 통합하기 위해 결혼 정책과 사성 정책을 시행하였으며, 북진 정책을 추진하고 발해 유민을 받아들였다. 훈요십조를 남겨 후대 왕들에게 통치의 지침을 제시하였다.",
-    "portraitAsset": "assets/images/characters/wanggeon.png",
-    "emotionAssets": [
-      "assets/images/characters/wanggeon.png",
-      "assets/images/characters/wanggeon_determined.png"
-    ],
-    "dialogueIds": [
-      "wanggeon_founding_01",
-      "wanggeon_unification_01"
-    ],
-    "relatedCharacterIds": [
-      "seohee",
-      "gangamchan"
-    ],
-    "relatedLocationIds": [
-      "gaegyeong",
-      "manwoldae"
-    ],
-    "achievements": [
-      "고려 건국",
-      "후삼국 통일",
-      "훈요십조 유훈",
-      "북진 정책 추진"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "seohee",
-    "eraId": "korea_goryeo",
-    "name": "Seo Hui",
-    "nameKorean": "서희",
-    "title": "외교의 달인",
-    "birth": "942",
-    "death": "998",
-    "biography": "담판 한 번으로 강동 6주를 획득한 고려 최고의 외교관",
-    "fullBiography": "고려 초기의 문신이자 외교관으로, 993년 거란의 소손녕이 80만 대군을 이끌고 침입했을 때 단신으로 적진에 들어가 담판을 벌였다. '고려는 고구려의 계승국'임을 주장하며 거란군을 철수시키고, 더불어 강동 6주까지 획득하는 외교적 대승을 거두었다. 이는 역사상 가장 성공적인 외교 협상 사례로 꼽힌다.",
-    "portraitAsset": "assets/images/characters/seohee.png",
-    "emotionAssets": [
-      "assets/images/characters/seohee.png",
-      "assets/images/characters/seohee_confident.png"
-    ],
-    "dialogueIds": [
-      "seohee_negotiation_01",
-      "seohee_gangdong_01"
-    ],
-    "relatedCharacterIds": [
-      "wanggeon",
-      "gangamchan"
-    ],
-    "relatedLocationIds": [
-      "gaegyeong",
-      "gangdong_6ju"
-    ],
-    "achievements": [
-      "거란군 철수 협상",
-      "강동 6주 획득",
-      "고려-고구려 계승론 주장",
-      "외교적 대승"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "gangamchan",
-    "eraId": "korea_goryeo",
-    "name": "General Kang Gam-chan",
-    "nameKorean": "강감찬",
-    "title": "귀주대첩의 영웅",
-    "birth": "948",
-    "death": "1031",
-    "biography": "귀주에서 거란 10만 대군을 섬멸한 고려의 명장",
-    "fullBiography": "1018년 거란의 소배압이 이끄는 10만 대군이 침입하자, 71세의 노장 강감찬이 도원수로 임명되어 출정하였다. 먼저 흥화진에서 적을 유인하여 물을 가두었다가 터뜨리는 수공 작전으로 큰 피해를 입힌 후, 귀주에서 최후의 결전을 벌여 거란군을 거의 전멸시켰다. 살아 돌아간 자가 수천에 불과했다고 한다. 이 귀주대첩으로 거란은 더 이상 고려를 침략하지 못했다.",
-    "portraitAsset": "assets/images/characters/gangamchan.png",
-    "emotionAssets": [
-      "assets/images/characters/gangamchan.png",
-      "assets/images/characters/gangamchan_determined.png"
-    ],
-    "dialogueIds": [
-      "gangamchan_guju_01",
-      "gangamchan_strategy_01"
-    ],
-    "relatedCharacterIds": [
-      "seohee",
-      "wanggeon"
-    ],
-    "relatedLocationIds": [
-      "guju",
-      "heunghwajin"
-    ],
-    "achievements": [
-      "귀주대첩 승리",
-      "거란 10만 섬멸",
-      "수공 작전 성공",
-      "고려 국방 안정화"
-    ],
-    "status": "available"
-  },
-  {
-    "id": "gongmin",
-    "eraId": "korea_goryeo",
-    "name": "King Gongmin",
-    "nameKorean": "공민왕",
-    "title": "고려 제31대 국왕",
-    "birth": "1330",
-    "death": "1374",
-    "biography": "원나라 간섭에서 벗어나기 위해 개혁을 추진한 비운의 군주",
-    "fullBiography": "고려 말기의 국왕으로, 원나라의 간섭에서 벗어나기 위해 반원 개혁 정책을 추진하였다. 정동행성 이문소를 폐지하고, 쌍성총관부를 공격해 영토를 수복하였으며, 원나라 풍습인 변발과 호복을 금지하였다. 원나라 공주인 노국대장공주와의 깊은 사랑으로도 유명하며, 그녀가 죽은 후 정사를 돌보지 않아 결국 비극적인 최후를 맞이하였다. 뛰어난 예술적 재능을 가진 화가이기도 했다.",
-    "portraitAsset": "assets/images/characters/gongmin.png",
-    "emotionAssets": [
-      "assets/images/characters/gongmin.png",
-      "assets/images/characters/gongmin_sad.png"
-    ],
-    "dialogueIds": [
-      "gongmin_reform_01",
-      "gongmin_noguk_01"
-    ],
-    "relatedCharacterIds": [
-      "wanggeon"
-    ],
-    "relatedLocationIds": [
-      "gaegyeong",
-      "ssangseong"
-    ],
-    "achievements": [
-      "반원 개혁 추진",
-      "쌍성총관부 수복",
-      "정동행성 폐지",
-      "천추태후도 제작"
-    ],
-    "status": "available"
-  }
 ]

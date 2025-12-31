@@ -1,121 +1,750 @@
-[
-    {
-        "id": "sejong_hangul_01",
-        "question": "세종대왕이 한글을 창제한 것이 역사적으로 가장 중요한 이유는 무엇일까요?",
-        "type": "multipleChoice",
-        "difficulty": "medium",
-        "options": [
-            "왕의 권위를 높이기 위해서",
-            "중국과의 외교를 강화하기 위해서",
-            "일반 백성도 글을 읽고 쓸 수 있게 하여 지식의 민주화를 이룩했기 때문",
-            "과거시험을 더 어렵게 만들기 위해서"
-        ],
-        "correctAnswer": "일반 백성도 글을 읽고 쓸 수 있게 하여 지식의 민주화를 이룩했기 때문",
-        "explanation": "한글 창제 이전에는 한자를 배울 여력이 없는 백성들은 문맹 상태로 살았습니다. 세종대왕은 \"어리석은 백성이 말하고 싶은 바가 있어도 마침내 그 뜻을 표현하지 못하는 사람이 많다\"며 누구나 쉽게 배울 수 있는 글자를 만들었습니다. 이것은 당시로서는 혁명적인 지식의 민주화였습니다.",
-        "eraId": "korea_joseon",
-        "relatedFactId": "hunminjeongeum",
-        "basePoints": 15,
-        "timeLimitSeconds": 30
-    },
-    {
-        "id": "yi_sun_sin_01",
-        "question": "명량해전에서 이순신 장군이 12척의 배로 133척을 이긴 것이 주는 역사적 교훈은?",
-        "type": "multipleChoice",
-        "difficulty": "medium",
-        "options": [
-            "숫자의 열세는 절대 극복할 수 없다",
-            "전쟁은 운에 의해 결정된다",
-            "철저한 준비와 불굴의 리더십은 불가능을 가능하게 만든다",
-            "해군은 육군보다 항상 강하다"
-        ],
-        "correctAnswer": "철저한 준비와 불굴의 리더십은 불가능을 가능하게 만든다",
-        "explanation": "이순신 장군은 \"필사즉생 필생즉사(죽고자 하면 살고, 살고자 하면 죽는다)\"라는 각오로 명량의 좁은 물목과 거센 조류를 활용한 전략을 세웠습니다. 이 승리는 단순한 전술의 승리가 아니라, 절망적인 상황에서도 포기하지 않는 리더십의 위대함을 보여주는 역사적 교훈입니다.",
-        "eraId": "korea_joseon",
-        "relatedFactId": "myeongryang_battle",
-        "basePoints": 15,
-        "timeLimitSeconds": 35
-    },
-    {
-        "id": "joseon_silhak_01",
-        "question": "조선 후기 실학이 등장한 것은 당시 사회에 어떤 문제의식을 반영하는 것일까요?",
-        "type": "multipleChoice",
-        "difficulty": "hard",
-        "options": [
-            "외국 문물에 대한 무조건적인 배척",
-            "성리학만으로는 백성의 삶을 실질적으로 개선할 수 없다는 자각",
-            "왕권을 더욱 강화해야 한다는 주장",
-            "과거제도를 폐지해야 한다는 운동"
-        ],
-        "correctAnswer": "성리학만으로는 백성의 삶을 실질적으로 개선할 수 없다는 자각",
-        "explanation": "실학은 공허한 명분론에 빠진 성리학에 대한 반성으로 등장했습니다. 정약용, 박지원 등의 실학자들은 \"이용후생(백성에게 이롭게 쓰이고 삶을 풍요롭게 함)\"을 강조하며 농업, 상업, 기술의 발전을 주장했습니다. 이는 현대의 실용주의와 맥을 같이 합니다.",
-        "eraId": "korea_joseon",
-        "basePoints": 20,
-        "timeLimitSeconds": 40
-    },
-    {
-        "id": "gwanggaeto_01",
-        "question": "광개토대왕이 \"영락(永樂)\"이라는 독자적인 연호를 사용한 것은 무엇을 의미할까요?",
-        "type": "multipleChoice",
-        "difficulty": "medium",
-        "options": [
-            "중국 황제에게 복종한다는 의미",
-            "고구려가 중국과 대등한 천하의 중심임을 선언한 것",
-            "불교를 국교로 삼았다는 표시",
-            "새로운 수도로 천도했다는 기념"
-        ],
-        "correctAnswer": "고구려가 중국과 대등한 천하의 중심임을 선언한 것",
-        "explanation": "고대 동아시아에서 연호는 천자(황제)만이 사용할 수 있는 것이었습니다. 광개토대왕이 \"영락\"이라는 독자적 연호를 사용한 것은 고구려가 중국의 속국이 아닌 독립된 천하의 중심이라는 자주의식과 자신감의 표현이었습니다.",
-        "eraId": "korea_three_kingdoms",
-        "basePoints": 15,
-        "timeLimitSeconds": 35
-    },
-    {
-        "id": "baekje_maritime_01",
-        "question": "백제가 중국, 일본과 활발히 해상 교류를 한 것이 동아시아 역사에 미친 영향은?",
-        "type": "multipleChoice",
-        "difficulty": "hard",
-        "options": [
-            "백제만의 폐쇄적인 문화를 만들었다",
-            "한반도 문화가 일본에 전파되어 고대 일본 문명 발전에 기여했다",
-            "중국 문화가 쇠퇴하는 계기가 되었다",
-            "삼국 간의 전쟁이 더욱 격화되었다"
-        ],
-        "correctAnswer": "한반도 문화가 일본에 전파되어 고대 일본 문명 발전에 기여했다",
-        "explanation": "백제는 \"해상 왕국\"으로서 불교, 한자, 건축 기술 등을 일본에 전파했습니다. 칠지도 하사는 이러한 문화 교류의 상징입니다. 일본의 아스카 문화는 백제의 영향을 크게 받았으며, 이는 동아시아 문화권 형성에 중요한 역할을 했습니다.",
-        "eraId": "korea_three_kingdoms",
-        "basePoints": 20,
-        "timeLimitSeconds": 40
-    },
-    {
-        "id": "three_kingdoms_tf_01",
-        "question": "삼국의 경쟁은 결과적으로 한반도 전체의 문화와 기술 발전을 촉진시켰다.",
-        "type": "trueFalse",
-        "difficulty": "easy",
-        "options": [
-            "O",
-            "X"
-        ],
-        "correctAnswer": "O",
-        "explanation": "고구려, 백제, 신라의 경쟁은 서로를 자극하여 각국의 문화, 군사 기술, 외교 역량을 발전시켰습니다. 철기 기술, 성곽 축조, 불교 문화 등이 이 시기에 크게 발전했으며, 이는 훗날 통일신라와 고려 문화의 토대가 되었습니다.",
-        "eraId": "korea_three_kingdoms",
-        "basePoints": 10,
-        "timeLimitSeconds": 20
-    },
-    {
-        "id": "renaissance_01",
-        "question": "르네상스 시대에 \"인간 중심주의(휴머니즘)\"가 등장한 것은 무엇을 의미할까요?",
-        "type": "multipleChoice",
-        "difficulty": "medium",
-        "options": [
-            "신을 부정하고 무신론을 주장한 것",
-            "중세의 신 중심 세계관에서 벗어나 인간의 가치와 가능성을 재발견한 것",
-            "왕의 권력이 신보다 크다는 주장",
-            "예술을 금지해야 한다는 운동"
-        ],
-        "correctAnswer": "중세의 신 중심 세계관에서 벗어나 인간의 가치와 가능성을 재발견한 것",
-        "explanation": "르네상스의 휴머니즘은 신을 부정한 것이 아니라, 인간 이성과 창의성의 가치를 새롭게 조명한 것입니다. 레오나르도 다빈치 같은 \"르네상스 맨\"은 과학, 예술, 기술 등 모든 분야에서 인간의 무한한 가능성을 보여주었습니다. 이는 근대 과학과 민주주의의 사상적 기반이 되었습니다.",
-        "eraId": "europe_renaissance",
-        "basePoints": 15,
-        "timeLimitSeconds": 35
-    }
-]
+{
+    "categories": [
+        {
+            "id": "asia",
+            "title": "아시아",
+            "description": "동양 문명의 발상지, 5000년 역사를 품은 대륙",
+            "quizzes": [
+                {
+                    "id": "sejong_hangul_01",
+                    "question": "세종대왕이 한글을 창제한 것이 역사적으로 가장 중요한 이유는 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "왕의 권위를 높이기 위해서",
+                        "중국과의 외교를 강화하기 위해서",
+                        "일반 백성도 글을 읽고 쓸 수 있게 하여 지식의 민주화를 이룩했기 때문",
+                        "과거시험을 더 어렵게 만들기 위해서"
+                    ],
+                    "correctAnswer": "일반 백성도 글을 읽고 쓸 수 있게 하여 지식의 민주화를 이룩했기 때문",
+                    "explanation": "한글 창제 이전에는 한자를 배울 여력이 없는 백성들은 문맹 상태로 살았습니다. 세종대왕은 \"어리석은 백성이 말하고 싶은 바가 있어도 마침내 그 뜻을 표현하지 못하는 사람이 많다\"며 누구나 쉽게 배울 수 있는 글자를 만들었습니다. 이것은 당시로서는 혁명적인 지식의 민주화였습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedFactId": "hunminjeongeum",
+                    "relatedDialogueId": "sejong_hangul_01",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "yi_sun_sin_01",
+                    "question": "명량해전에서 이순신 장군이 12척의 배로 133척을 이긴 것이 주는 역사적 교훈은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "숫자의 열세는 절대 극복할 수 없다",
+                        "전쟁은 운에 의해 결정된다",
+                        "철저한 준비와 불굴의 리더십은 불가능을 가능하게 만든다",
+                        "해군은 육군보다 항상 강하다"
+                    ],
+                    "correctAnswer": "철저한 준비와 불굴의 리더십은 불가능을 가능하게 만든다",
+                    "explanation": "이순신 장군은 \"필사즉생 필생즉사(죽고자 하면 살고, 살고자 하면 죽는다)\"라는 각오로 명량의 좁은 물목과 거센 조류를 활용한 전략을 세웠습니다. 이 승리는 단순한 전술의 승리가 아니라, 절망적인 상황에서도 포기하지 않는 리더십의 위대함을 보여주는 역사적 교훈입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedFactId": "myeongryang_battle",
+                    "relatedDialogueId": "yi_battle_01",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "joseon_silhak_01",
+                    "question": "조선 후기 실학이 등장한 것은 당시 사회에 어떤 문제의식을 반영하는 것일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "외국 문물에 대한 무조건적인 배척",
+                        "성리학만으로는 백성의 삶을 실질적으로 개선할 수 없다는 자각",
+                        "왕권을 더욱 강화해야 한다는 주장",
+                        "과거제도를 폐지해야 한다는 운동"
+                    ],
+                    "correctAnswer": "성리학만으로는 백성의 삶을 실질적으로 개선할 수 없다는 자각",
+                    "explanation": "실학은 공허한 명분론에 빠진 성리학에 대한 반성으로 등장했습니다. 정약용, 박지원 등의 실학자들은 \"이용후생(백성에게 이롭게 쓰이고 삶을 풍요롭게 함)\"을 강조하며 농업, 상업, 기술의 발전을 주장했습니다. 이는 현대의 실용주의와 맥을 같이 합니다.",
+                    "eraId": "korea_joseon",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "gwanggaeto_01",
+                    "question": "광개토대왕이 \"영락(永樂)\"이라는 독자적인 연호를 사용한 것은 무엇을 의미할까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "중국 황제에게 복종한다는 의미",
+                        "고구려가 중국과 대등한 천하의 중심임을 선언한 것",
+                        "불교를 국교로 삼았다는 표시",
+                        "새로운 수도로 천도했다는 기념"
+                    ],
+                    "correctAnswer": "고구려가 중국과 대등한 천하의 중심임을 선언한 것",
+                    "explanation": "고대 동아시아에서 연호는 천자(황제)만이 사용할 수 있는 것이었습니다. 광개토대왕이 \"영락\"이라는 독자적 연호를 사용한 것은 고구려가 중국의 속국이 아닌 독립된 천하의 중심이라는 자주의식과 자신감의 표현이었습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedDialogueId": "gwanggaeto_conquest_01",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "baekje_maritime_01",
+                    "question": "백제가 중국, 일본과 활발히 해상 교류를 한 것이 동아시아 역사에 미친 영향은?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "백제만의 폐쇄적인 문화를 만들었다",
+                        "한반도 문화가 일본에 전파되어 고대 일본 문명 발전에 기여했다",
+                        "중국 문화가 쇠퇴하는 계기가 되었다",
+                        "삼국 간의 전쟁이 더욱 격화되었다"
+                    ],
+                    "correctAnswer": "한반도 문화가 일본에 전파되어 고대 일본 문명 발전에 기여했다",
+                    "explanation": "백제는 \"해상 왕국\"으로서 불교, 한자, 건축 기술 등을 일본에 전파했습니다. 칠지도 하사는 이러한 문화 교류의 상징입니다. 일본의 아스카 문화는 백제의 영향을 크게 받았으며, 이는 동아시아 문화권 형성에 중요한 역할을 했습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "three_kingdoms_tf_01",
+                    "question": "삼국의 경쟁은 결과적으로 한반도 전체의 문화와 기술 발전을 촉진시켰다.",
+                    "type": "trueFalse",
+                    "difficulty": "easy",
+                    "options": [
+                        "O",
+                        "X"
+                    ],
+                    "correctAnswer": "O",
+                    "explanation": "고구려, 백제, 신라의 경쟁은 서로를 자극하여 각국의 문화, 군사 기술, 외교 역량을 발전시켰습니다. 철기 기술, 성곽 축조, 불교 문화 등이 이 시기에 크게 발전했으며, 이는 훗날 통일신라와 고려 문화의 토대가 되었습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 20
+                },
+                {
+                    "id": "silla_bone_rank_01",
+                    "question": "신라의 '골품제'가 신라 사회에 미친 부정적인 영향은 무엇이었나요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "왕권을 지나치게 강화시켰다",
+                        "능력 있는 인재라도 신분의 한계로 고위 관직에 오를 수 없었다",
+                        "평민들의 군역 의무를 면제해주었다",
+                        "외국인들의 입국을 전면 금지했다"
+                    ],
+                    "correctAnswer": "능력 있는 인재라도 신분의 한계로 고위 관직에 오를 수 없었다",
+                    "explanation": "골품제는 신라의 독특한 신분 제도로, 사회 질서를 유지하는 데 기여했지만, 폐쇄적인 구조로 인해 개인의 능력보다 혈통을 중시했습니다. 이는 최치원 같은 6두품 출신의 뛰어난 인재들이 뜻을 펼치지 못하고 좌절하게 만드는 원인이 되었으며, 장기적으로는 신라 사회의 발전을 저해했습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "gaya_iron_01",
+                    "question": "가야가 '철의 왕국'으로 불렸음에도 불구하고 중앙 집권 국가로 성장하지 못한 주된 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "철이 너무 싸게 팔려서 경제난을 겪었다",
+                        "각 소국이 독자적인 세력을 유지하여 강력한 통합 왕권이 확립되지 못했다",
+                        "신라와 백제의 침략이 없었다",
+                        "농업 기술이 낙후되어 있었다"
+                    ],
+                    "correctAnswer": "각 소국이 독자적인 세력을 유지하여 강력한 통합 왕권이 확립되지 못했다",
+                    "explanation": "가야는 풍부한 철을 바탕으로 중계 무역을 통해 번영했지만, 여러 소국들이 연맹체 형태(가야 연맹)로만 존재했을 뿐 하나의 강력한 중앙 정부를 구성하지는 못했습니다. 이러한 정치적 분열은 통일된 국력을 모으는 데 한계를 가져왔고, 결국 신라에 병합되는 결과로 이어졌습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedDialogueId": "suro_iron_trade_01",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "joseon_hwaseong_01",
+                    "question": "정조가 수원화성을 건설한 정치적 의도는 무엇이었을까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 아름다운 별장을 갖기 위해",
+                        "한양의 인구 과밀을 해소하기 위해",
+                        "노론 중심의 기존 정치 세력을 견제하고 왕권을 강화하기 위한 개혁 거점 마련",
+                        "외국의 침략에 대비한 최후의 방어선 구축"
+                    ],
+                    "correctAnswer": "노론 중심의 기존 정치 세력을 견제하고 왕권을 강화하기 위한 개혁 거점 마련",
+                    "explanation": "수원화성은 단순한 군사적 요새가 아니었습니다. 정조는 사도세자의 묘를 수원으로 옮기고 신도시를 건설하여, 기존 기득권 세력이 장악한 한양을 벗어나 자신의 개혁 정치를 펼칠 새로운 중심지로 삼고자 했습니다. 이는 정조의 효심과 왕권 강화 의지가 결합된 결과물입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedLocationId": "suwon_hwaseong",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "baekje_aesthetics_01",
+                    "question": "김부식의 <삼국사기>에서 백제의 문화를 평한 '검이불루 화이불치(儉而不陋 華而不侈)'의 뜻은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "검소하지만 누추하지 않고, 화려하지만 사치스럽지 않다",
+                        "검소한 것은 누추한 것이고, 화려한 것은 사치스러운 것이다",
+                        "전쟁보다는 평화를 사랑한다",
+                        "농업보다는 상업을 중시한다"
+                    ],
+                    "correctAnswer": "검소하지만 누추하지 않고, 화려하지만 사치스럽지 않다",
+                    "explanation": "이는 백제 미학의 정수를 보여주는 표현입니다. 백제의 예술은 절제된 세련미와 우아함을 특징으로 하며, 과도한 장식을 배제하면서도 고급스러운 아름다움을 추구했습니다. 백제 금동대향로와 같은 유물에서 이러한 백제 특유의 미적 감각을 엿볼 수 있습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "goryeo_trade_01",
+                    "question": "고려 시대 벽란도가 가진 국제적 위상과 현대적 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "국내 전용 쌀 거래 항구",
+                        "아라비아 상인들까지 오가던 개방적 국제 무역항, 'KOREA'라는 이름의 기원",
+                        "일본 해적을 막기 위한 군사 기지",
+                        "유배지로서 고립된 섬"
+                    ],
+                    "correctAnswer": "아라비아 상인들까지 오가던 개방적 국제 무역항, 'KOREA'라는 이름의 기원",
+                    "explanation": "고려의 수도 개성 근처의 벽란도는 송나라, 일본뿐만 아니라 아라비아 상인들까지 드나들던 국제 무역항이었습니다. 이들을 통해 고려(Goryeo)의 이름이 서방에 'Corea', 'Korea'로 알려지게 되었습니다. 이는 고려가 개방적이고 국제적인 국가였음을 보여줍니다.",
+                    "eraId": "korea_goryeo",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "joseon_science_jang_01",
+                    "question": "세종대왕이 노비 출신인 장영실을 등용한 것이 시사하는 바는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "인건비를 절약하기 위해서",
+                        "신분을 초월한 능력 중심의 인재 등용",
+                        "당시에는 신분 제도가 없었기 때문",
+                        "우연히 만났기 때문"
+                    ],
+                    "correctAnswer": "신분을 초월한 능력 중심의 인재 등용",
+                    "explanation": "엄격한 신분제 사회였던 조선에서 노비 출신을 관직에 등용하는 것은 파격적인 일이었습니다. 세종대왕은 신분보다 능력을 우선시하는 실용주의적 리더십을 발휘하여 장영실과 함께 조선의 과학 기술을 세계적인 수준으로 끌어올렸습니다.",
+                    "eraId": "korea_joseon",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 25
+                },
+                {
+                    "id": "imjin_righteous_army_01",
+                    "question": "임진왜란 당시 '의병' 활동이 역사적으로 높게 평가받는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "국가의 강제 동원으로 이루어졌기 때문에",
+                        "양반들만 참여했기 때문에",
+                        "국가가 위기에 처했을 때 백성들이 자발적으로 일어나 나라를 지킨 국난 극복의 사례이기 때문",
+                        "무기가 매우 현대적이었기 때문에"
+                    ],
+                    "correctAnswer": "국가가 위기에 처했을 때 백성들이 자발적으로 일어나 나라를 지킨 국난 극복의 사례이기 때문",
+                    "explanation": "관군이 패배하는 상황에서도 전국의 선비, 승려, 농민들이 자발적으로 의병을 조직하여 왜군에 맞섰습니다. 곽재우, 고경명 등이 대표적입니다. 이는 국가의 주인은 왕이 아닌 백성이라는 의식의 싹을 보여주며, 우리 역사의 저력이 위기 극복에 있음을 증명했습니다.",
+                    "eraId": "korea_joseon",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "joseon_cheomseongdae_insight_01",
+                    "question": "신라의 첨성대가 단순한 천문 관측 기구를 넘어선 의미는 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "왕의 휴식처",
+                        "농업 중심 사회에서 하늘의 뜻(기상)을 읽어 백성의 삶을 안정시키려는 통치자의 의무와 권위의 상징",
+                        "적의 침입을 감시하는 망루",
+                        "종교 의식을 치르는 제단"
+                    ],
+                    "correctAnswer": "농업 중심 사회에서 하늘의 뜻(기상)을 읽어 백성의 삶을 안정시키려는 통치자의 의무와 권위의 상징",
+                    "explanation": "고대 사회에서 천문 현상을 관측하는 것은 농사 시기를 예측하는 실용적인 목적(제왕의 책무)과, 하늘과 연결된 신성한 왕권을 과시하는 정치적인 목적을 동시에 가졌습니다. 첨성대의 곡선미와 구조적 균형은 과학과 예술, 정치가 조화를 이룬 신라 문화의 수준을 보여줍니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedLocationId": "cheomseongdae",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "eulji_salsu_insight_01",
+                    "question": "을지문덕 장군이 적장 우중문에게 보낸 시(여수장우중문시)가 보여주는 전략적 고도의 심리전은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "적을 찬양하여 항복을 유도함",
+                        "자신의 패배를 인정하는 척하며 적을 방심하게 만들고, 만족함을 알고 물러나라는 명분으로 압박함",
+                        "단순한 문학적 교류",
+                        "시간을 끌기 위한 잡담"
+                    ],
+                    "correctAnswer": "자신의 패배를 인정하는 척하며 적을 방심하게 만들고, 만족함을 알고 물러나라는 명분으로 압박함",
+                    "explanation": "이 시는 표면적으로는 적장을 칭송하고 있지만, 이면에는 '이미 충분히 이겼으니 그만 돌아가라(그렇지 않으면 파멸할 것이다)'는 경고와 조롱을 담고 있습니다. 이는 적을 교만하게 만들어 깊숙이 유인한 뒤 섬멸하려는 고도의 심리전이자 유인 작전의 일환이었습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedCharacterId": "eulji_mundeok",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "tripitaka_insight_01",
+                    "question": "고려가 몽골의 침략기에 '팔만대장경'을 조판한 근본적인 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "종이가 너무 많이 남아서",
+                        "무력으로는 이길 수 없으니 부처님의 힘을 빌려 국난을 극복하고 백성의 마음을 하나로 모으기 위해",
+                        "수출용 불경을 만들기 위해",
+                        "글자 연습을 하기 위해"
+                    ],
+                    "correctAnswer": "무력으로는 이길 수 없으니 부처님의 힘을 빌려 국난을 극복하고 백성의 마음을 하나로 모으기 위해",
+                    "explanation": "팔만대장경은 단순한 불교 경전의 모음이 아닙니다. 세계 최강 몽골 제국에 맞서 40년 가까이 항쟁하던 고려가, 칼과 창이 아닌 정신적 단결력(불심)으로 나라를 지키려 했던 절박한 호국 정신의 결정체입니다. 이는 고려인들의 높은 문화적 자부심과 끈기를 보여줍니다.",
+                    "eraId": "korea_goryeo",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "jang_bogo_trade_01",
+                    "question": "장보고가 청해진을 설치하여 얻은 가장 큰 역사적 의의는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 해적을 소탕하기 위해서",
+                        "황해의 해상권을 장악하여 한국(신라)-중국(당)-일본을 잇는 동아시아 해상 무역 네트워크를 완성했다",
+                        "왕이 되기 위한 군사력을 기르기 위해서",
+                        "당나라로 망명하기 위해서"
+                    ],
+                    "correctAnswer": "황해의 해상권을 장악하여 한국(신라)-중국(당)-일본을 잇는 동아시아 해상 무역 네트워크를 완성했다",
+                    "explanation": "장보고는 완도(청해진)를 중심으로 해적을 소탕하고 안전한 항로를 확보했습니다. 이를 바탕으로 신라, 당, 일본을 연결하는 중계 무역을 주도하여 막대한 부를 축적하고 신라의 국제적 위상을 높였습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "jang_bogo",
+                    "relatedLocationId": "cheonghaejin",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "wonhyo_skull_01",
+                    "question": "원효대사가 깨달음을 얻은 '해골물 일화'가 전하는 핵심 메시지(일체유심조)는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "물은 해골에 담아 마시는 것이 좋다",
+                        "밤에는 시력이 나빠진다",
+                        "모든 것은 마음먹기에 달려 있다. 깨끗하고 더러움의 구분은 사물 자체가 아니라 내 마음에 있다",
+                        "유학을 가려면 물병을 챙겨야 한다"
+                    ],
+                    "correctAnswer": "모든 것은 마음먹기에 달려 있다. 깨끗하고 더러움의 구분은 사물 자체가 아니라 내 마음에 있다",
+                    "explanation": "원효는 썩은 물도 목이 마를 때는 달게 마셨으나, 해골물임을 알고 나서는 구토를 했다는 사실에서 '세상 모든 일은 마음가짐에 달렸다(일체유심조)'는 큰 깨달음을 얻었습니다. 이후 그는 어려운 이론 대신 대중 속으로 들어가 불교를 전파했습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "wonhyo",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 25
+                },
+                {
+                    "id": "golpum_system_01",
+                    "question": "신라의 '골품제'가 최치원 같은 지식인들에게 미친 영향은?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "능력을 인정받아 왕이 될 수 있었다",
+                        "개인의 뛰어난 능력보다 혈통을 중시하는 한계 때문에 뜻을 펴지 못하고 좌절했다",
+                        "골품제 덕분에 6두품이 귀족 세력의 중심이 되었다",
+                        "아무런 영향도 미치지 않았다"
+                    ],
+                    "correctAnswer": "개인의 뛰어난 능력보다 혈통을 중시하는 한계 때문에 뜻을 펴지 못하고 좌절했다",
+                    "explanation": "당나라 유학까지 다녀온 천재 최치원도 6두품이라는 신분의 한계 때문에 자신의 개혁안(시무 10조)을 실현하지 못했습니다. 이는 신라 사회가 폐쇄성을 극복하지 못하고 멸망으로 가는 원인 중 하나가 되었습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "choi_chiwon",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "choe_museon_gunpowder_01",
+                    "question": "최무선의 화약 국산화와 진포 대첩이 갖는 세계사적 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "화약을 불만 붙이는 데 사용했다",
+                        "세계 해전사상 최초로 함포(화포)를 사용하여 적선을 격멸한 전투로, 해전의 패러다임을 바꾸었다",
+                        "왜구와 화해하는 계기가 되었다",
+                        "배를 만드는 기술이 퇴보했다"
+                    ],
+                    "correctAnswer": "세계 해전사상 최초로 함포(화포)를 사용하여 적선을 격멸한 전투로, 해전의 패러다임을 바꾸었다",
+                    "explanation": "진포 대첩 이전의 해전은 배끼리 부딪치거나 상대 배에 올라타 싸우는 백병전 위주였습니다. 최무선은 화포를 장착한 군함으로 원거리에서 적선을 격침시키는 전술을 선보였으며, 이는 해전의 역사를 새로 쓴 사건이었습니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedCharacterId": "choe_museon",
+                    "relatedFactId": "fact_jinpo",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "mun_ikjeom_cotton_01",
+                    "question": "문익점이 가져온 '목화씨'가 고려 백성들의 삶에 가져온 혁명적 변화는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "식량 문제가 해결되었다",
+                        "수출이 늘어 부자가 되었다",
+                        "춥고 거친 삼베옷 대신 따뜻하고 부드러운 무명옷을 입게 되어 겨울철 생존율과 삶의 질이 획기적으로 개선되었다",
+                        "목화 솜으로 인형을 만들었다"
+                    ],
+                    "correctAnswer": "춥고 거친 삼베옷 대신 따뜻하고 부드러운 무명옷을 입게 되어 겨울철 생존율과 삶의 질이 획기적으로 개선되었다",
+                    "explanation": "당시 백성들은 겨울에도 얇은 삼베옷을 입어 추위에 떨었습니다. 문익점의 목화 반입과 보급은 '의생활 혁명'이라 불릴 만큼 백성들에게 따뜻함이라는 큰 선물을 가져다주었습니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedCharacterId": "mun_ikjeom",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "jikji_metal_type_01",
+                    "question": "현존하는 세계 최고의 금속 활자본 '직지심체요절'이 증명하는 고려의 기술력은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "종이 만드는 기술이 뛰어났다",
+                        "서양의 구텐베르크보다 78년이나 앞서 금속 활자 인쇄술을 실용화했을 만큼 정보 기술(IT)이 앞서 있었다",
+                        "책을 손으로 베끼는 속도가 빨랐다",
+                        "도자기 만드는 기술과 관련이 있다"
+                    ],
+                    "correctAnswer": "서양의 구텐베르크보다 78년이나 앞서 금속 활자 인쇄술을 실용화했을 만큼 정보 기술(IT)이 앞서 있었다",
+                    "explanation": "직지는 고려가 금속 활자 인쇄술을 세계 최초로 발명하고 실용화했음을 보여주는 결정적인 증거입니다. 이는 고려가 지식 정보를 기록하고 전파하는 데 있어 세계적인 선진 기술을 보유했음을 의미합니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedFactId": "fact_jikji",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "ahn_junggeun_peace_01",
+                    "question": "안중근 의사가 이토 히로부미를 저격한 진정한 이유와 그가 꿈꾼 '동양평화'란?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "개인적인 원망 때문에",
+                        "일본인 전체를 미워했기 때문에",
+                        "단순한 복수가 아니라, 한국의 독립을 보장하고 한·중·일 3국이 대등하게 협력하여 진정한 평화를 이루자는 것",
+                        "자신의 이름을 알리기 위해서"
+                    ],
+                    "correctAnswer": "단순한 복수가 아니라, 한국의 독립을 보장하고 한·중·일 3국이 대등하게 협력하여 진정한 평화를 이루자는 것",
+                    "explanation": "안중근 의사는 재판정에서도 '나는 개인적 원한이 아니라 대한의군 참모중장으로서 적장을 사살한 것'이라고 밝혔습니다. 옥중에서 집필한 <동양평화론>은 침략이 아닌 상호 존중과 협력을 통한 아시아의 평화 공존을 역설한 선구적인 사상이었습니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "ahn_junggeun",
+                    "relatedFactId": "fact_harbin_incident",
+                    "basePoints": 25,
+                    "timeLimitSeconds": 45
+                },
+                {
+                    "id": "march_first_movement_01",
+                    "question": "3.1 운동이 한국 독립운동사와 세계사에 미친 영향은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "일제가 조선을 바로 독립시켜 주었다",
+                        "대한민국 임시정부 수립의 계기가 되었으며, 중국의 5.4 운동과 인도의 비폭력 운동 등 약소민족의 독립운동에 영감을 주었다",
+                        "많은 사람이 다쳐서 독립운동이 중단되었다",
+                        "세계 강대국들이 한국을 식민지로 인정하게 되었다"
+                    ],
+                    "correctAnswer": "대한민국 임시정부 수립의 계기가 되었으며, 중국의 5.4 운동과 인도의 비폭력 운동 등 약소민족의 독립운동에 영감을 주었다",
+                    "explanation": "3.1 운동은 우리 민족의 독립 의지를 전 세계에 알린 거족적인 비폭력 저항 운동이었습니다. 이는 민주 공화제 정부인 대한민국 임시정부 수립으로 이어졌고, 제국주의에 신음하던 전 세계 약소민족들에게 희망의 등불이 되었습니다.",
+                    "eraId": "korea_modern",
+                    "relatedFactId": "fact_march_first",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "gojong_diplomacy_01",
+                    "question": "고종 황제가 헤이그에 특사를 파견한 목적은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "유럽 여행을 시켜주기 위해",
+                        "네덜란드와 무역을 하기 위해",
+                        "을사늑약의 부당함을 국제 사회에 알리고, 대한제국의 자주 독립을 호소하기 위해",
+                        "일본 몰래 무기를 수입하기 위해"
+                    ],
+                    "correctAnswer": "을사늑약의 부당함을 국제 사회에 알리고, 대한제국의 자주 독립을 호소하기 위해",
+                    "explanation": "일제에 의해 외교권을 박탈당한(을사늑약) 상황에서, 고종은 만국평화회의가 열리는 헤이그에 특사를 보내 이 조약이 무효임을 국제 사회에 알리고자 했습니다. 비록 회의 참석은 거부당했지만, 자주 독립을 향한 꺾이지 않는 의지를 보여준 외교적 시도였습니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "gojong",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "heo_jun_donguibogam_01",
+                    "question": "허준이 편찬한 '동의보감'이 유네스코 세계기록유산으로 등재된 해는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "1999년",
+                        "2005년",
+                        "2009년",
+                        "2015년"
+                    ],
+                    "correctAnswer": "2009년",
+                    "explanation": "동의보감은 2009년 유네스코 세계기록유산으로 등재되었습니다. 이 책은 1596년 선조의 명으로 편찬이 시작되어 1610년 광해군 때 완성된 동아시아 의학의 집대성입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "heo_jun",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 25
+                },
+                {
+                    "id": "heo_jun_exile_01",
+                    "question": "허준이 유배되었다가 다시 복귀하여 동의보감을 완성할 수 있었던 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "선조가 유배를 풀어주었기 때문",
+                        "광해군의 신뢰와 적극적인 지원",
+                        "신하들의 탄원으로",
+                        "중국 황제의 요청 때문"
+                    ],
+                    "correctAnswer": "광해군의 신뢰와 적극적인 지원",
+                    "explanation": "선조 승하 후 어의의 책임을 물어 유배된 허준은 광해군의 깊은 신뢰 덕분에 풀려났습니다. 광해군은 과거 허준이 자신의 천연두를 치료해준 인연이 있었고, 동의보감 편찬을 적극 지원하여 1610년 완성되었습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "heo_jun",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "heo_jun_title_01",
+                    "question": "허준을 기리는 존칭 '의성(醫聖)'의 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "의술을 가르치는 성에 산다는 뜻",
+                        "의학의 성인이라는 의미",
+                        "의원들의 우두머리라는 뜻",
+                        "의학 박사라는 관직명"
+                    ],
+                    "correctAnswer": "의학의 성인이라는 의미",
+                    "explanation": "'의성(醫聖)'은 '의학의 성인'이라는 의미로, 허준 선생의 탁월한 의술과 동의보감 편찬 등의 위대한 업적을 기리는 존칭입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "heo_jun",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 20
+                },
+                {
+                    "id": "yi_sunsin_hansando_01",
+                    "question": "이순신 장군이 한산도대첩에서 사용한 '학익진(鶴翼陣)'은 어떤 형태의 전술인가요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "배를 일렬로 세워 돌격하는 전술",
+                        "학(鶴)의 날개 모양으로 적을 포위 섬멸하는 전술",
+                        "배를 숨겨놓고 기습하는 전술",
+                        "적선에 올라타 백병전을 벌이는 전술"
+                    ],
+                    "correctAnswer": "학(鶴)의 날개 모양으로 적을 포위 섬멸하는 전술",
+                    "explanation": "학익진은 학이 날개를 펼친 형상으로 함대를 배치하여 적을 포위하고 섬멸하는 전술입니다. 1592년 한산도대첩에서 이 전술로 왜선 약 100척을 격파했습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "yi_sun_sin",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "yi_sunsin_myeongryang_02",
+                    "question": "명량해전에서 이순신 장군이 승리할 수 있었던 지리적 요인은?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "넓은 바다에서 자유롭게 기동할 수 있었기 때문",
+                        "울돌목의 빠른 조류와 좁은 수로를 활용한 전략",
+                        "섬에 숨어 있다가 기습했기 때문",
+                        "밤에 불을 질러 적을 혼란시켰기 때문"
+                    ],
+                    "correctAnswer": "울돌목의 빠른 조류와 좁은 수로를 활용한 전략",
+                    "explanation": "울돌목(명량해협)은 폭이 좁고 조류가 매우 빠른 곳입니다. 이순신 장군은 이 지형을 이용해 133척의 왜군 함대를 상대로 12척만으로 대승을 거두었습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "yi_sun_sin",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "yi_sunsin_spirit_01",
+                    "question": "이순신 장군이 남긴 '필사즉생 필생즉사(必死卽生 必生卽死)'의 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "반드시 죽으면 반드시 산다",
+                        "죽고자 하면 살고, 살고자 하면 죽는다",
+                        "죽음을 피하면 생명을 얻는다",
+                        "삶과 죽음은 운명이다"
+                    ],
+                    "correctAnswer": "죽고자 하면 살고, 살고자 하면 죽는다",
+                    "explanation": "'필사즉생 필생즉사'는 죽기를 각오하면 오히려 살고, 살려고만 하면 오히려 죽는다는 뜻입니다. 명량해전을 앞두고 병사들의 결의를 다지기 위해 이순신 장군이 강조한 말입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "yi_sun_sin",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 25
+                },
+                {
+                    "id": "jeongjo_kyujanggak_01",
+                    "question": "정조가 설립한 '규장각'의 역할은 무엇이었나요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "왕실의 재정을 관리하는 기관",
+                        "왕실 도서관이자 개혁 정치의 산실, 인재 양성 기관",
+                        "외국과의 외교를 담당하는 기관",
+                        "군사 훈련을 담당하는 기관"
+                    ],
+                    "correctAnswer": "왕실 도서관이자 개혁 정치의 산실, 인재 양성 기관",
+                    "explanation": "규장각은 1776년 정조가 즉위 직후 설립한 기관으로, 단순한 왕실 도서관을 넘어 정조 개혁 정치의 핵심 기구였습니다. 인재 양성, 학술 연구, 정책 개발 등 다양한 역할을 수행했습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "jeongjo",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "jeong_yakyong_mokmin_01",
+                    "question": "정약용이 저술한 '목민심서'는 어떤 내용을 담고 있나요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "농사를 잘 짓는 기술을 담은 농업 서적",
+                        "지방관이 백성을 올바르게 다스리는 행정 지침서",
+                        "불교 경전을 해석한 종교 서적",
+                        "한글을 가르치는 교육 서적"
+                    ],
+                    "correctAnswer": "지방관이 백성을 올바르게 다스리는 행정 지침서",
+                    "explanation": "목민심서는 정약용이 유배 중 완성한 48권의 책으로, 지방관(수령)이 백성을 다스릴 때 필요한 도덕과 행정 지침을 담고 있습니다. '애민(愛民)' 정신이 핵심입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "jeong_yakyong",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "jang_yeongshil_jagyeokru_01",
+                    "question": "장영실이 발명한 '자격루'는 무엇을 하는 기구인가요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "별의 위치를 측정하는 천문 기구",
+                        "물의 양으로 시간을 측정하고 스스로 종을 쳐서 시간을 알리는 자동 물시계",
+                        "강우량을 측정하는 기상 기구",
+                        "해의 움직임으로 방향을 알려주는 나침반"
+                    ],
+                    "correctAnswer": "물의 양으로 시간을 측정하고 스스로 종을 쳐서 시간을 알리는 자동 물시계",
+                    "explanation": "자격루(自擊漏)는 '스스로(自) 치는(擊) 물시계(漏)'라는 뜻입니다. 1434년 장영실이 세종의 명으로 완성했으며, 시각에 맞춰 종, 징, 북을 자동으로 울리는 정교한 장치입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "jang_yeongshil",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "sejong_cheugugi_01",
+                    "question": "세종대왕 시대에 발명된 '측우기'가 세계사적으로 중요한 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "가장 정확한 시계였기 때문",
+                        "세계 최초의 표준화된 강우량 측정 기구이기 때문",
+                        "가장 큰 천문대였기 때문",
+                        "불을 피우지 않고 난방할 수 있었기 때문"
+                    ],
+                    "correctAnswer": "세계 최초의 표준화된 강우량 측정 기구이기 때문",
+                    "explanation": "측우기는 1441년 세종 때 발명된 세계 최초의 표준화된 강우량 측정 기구입니다. 이탈리아의 강우 측정보다 약 200년이나 앞섰으며, 농업 생산력 향상에 크게 기여했습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "sejong",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "sejong_talent_01",
+                    "question": "세종대왕이 엄격한 신분제 사회에서 노비 출신 장영실을 등용한 것이 역사적으로 의미 있는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "노비가 왕이 될 수 있음을 보여주었기 때문",
+                        "신분보다 능력을 중시하는 인재 등용의 선례를 남겼기 때문",
+                        "외국의 압력으로 어쩔 수 없이 등용했기 때문",
+                        "장영실이 왕의 친척이었기 때문"
+                    ],
+                    "correctAnswer": "신분보다 능력을 중시하는 인재 등용의 선례를 남겼기 때문",
+                    "explanation": "조선은 엄격한 신분제 사회였지만, 세종대왕은 장영실의 뛰어난 재능을 인정하여 종5품 호군까지 올렸습니다. 이는 능력 중심의 인재 등용이라는 파격적인 선례를 남긴 것입니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "sejong",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 25
+                },
+                {
+                    "id": "yi_sunsin_geobukseon_01",
+                    "question": "이순신 장군이 개발한 '거북선'의 가장 큰 특징은 무엇인가요?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "세계에서 가장 빠른 배였다",
+                        "등이 철갑으로 덮여 있어 적의 화살과 조총을 막을 수 있었다",
+                        "100명 이상의 병사가 탈 수 있는 대형 전함이었다",
+                        "노를 사용하지 않고 돛만으로 움직였다"
+                    ],
+                    "correctAnswer": "등이 철갑으로 덮여 있어 적의 화살과 조총을 막을 수 있었다",
+                    "explanation": "거북선은 등 위에 철갑(또는 철첩)을 덮어 적의 화살과 조총으로부터 병사들을 보호했습니다. 또한 용머리 모양의 뱃머리에서 연기나 화포를 발사할 수 있었습니다.",
+                    "eraId": "korea_joseon",
+                    "relatedCharacterId": "yi_sun_sin",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 25
+                }
+            ]
+        },
+        {
+            "id": "europe",
+            "title": "유럽",
+            "description": "서양 문명의 중심, 그리스와 로마의 유산",
+            "quizzes": [
+                {
+                    "id": "renaissance_01",
+                    "question": "르네상스 시대에 \"인간 중심주의(휴머니즘)\"가 등장한 것은 무엇을 의미할까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "신을 부정하고 무신론을 주장한 것",
+                        "중세의 신 중심 세계관에서 벗어나 인간의 가치와 가능성을 재발견한 것",
+                        "왕의 권력이 신보다 크다는 주장",
+                        "예술을 금지해야 한다는 운동"
+                    ],
+                    "correctAnswer": "중세의 신 중심 세계관에서 벗어나 인간의 가치와 가능성을 재발견한 것",
+                    "explanation": "르네상스의 휴머니즘은 신을 부정한 것이 아니라, 인간 이성과 창의성의 가치를 새롭게 조명한 것입니다. 레오나르도 다빈치 같은 \"르네상스 맨\"은 과학, 예술, 기술 등 모든 분야에서 인간의 무한한 가능성을 보여주었습니다. 이는 근대 과학과 민주주의의 사상적 기반이 되었습니다.",
+                    "eraId": "europe_renaissance",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "watt_steam_02",
+                    "question": "제임스 와트의 증기기관 개량이 인류 역사에 가져온 가장 근본적인 변화는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "물을 빨리 끓일 수 있게 되었다",
+                        "기차가 빨라졌다",
+                        "인간과 가축의 힘(근력)이나 자연력에 의존하던 생산 방식을 기계 동력으로 대체하여 대량 생산을 가능하게 했다",
+                        "석탄을 많이 쓰게 되었다"
+                    ],
+                    "correctAnswer": "인간과 가축의 힘(근력)이나 자연력에 의존하던 생산 방식을 기계 동력으로 대체하여 대량 생산을 가능하게 했다",
+                    "explanation": "증기기관은 인류가 근력의 한계를 뛰어넘어 '에너지'를 통제하게 된 역사적 사건입니다. 이는 단순한 기계의 발명을 넘어 공장제 기계 공업을 가능하게 했고, 농업 중심 사회를 산업 사회로 완전히 탈바꿈시켰습니다.",
+                    "eraId": "europe_industrial_revolution",
+                    "relatedCharacterId": "james_watt",
+                    "relatedFactId": "fact_steam_engine",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "stephenson_railway_01",
+                    "question": "철도(증기 기관차)의 발명이 사회에 미친 영향으로 가장 적절한 것은?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "말을 타는 사람이 더 많아졌다",
+                        "소음 때문에 사람들이 싫어했다",
+                        "물류와 이동 시간을 획기적으로 단축시켜 시장을 전국적으로 통합하고 여행의 대중화를 이끌었다",
+                        "걸어 다니는 것이 유행했다"
+                    ],
+                    "correctAnswer": "물류와 이동 시간을 획기적으로 단축시켜 시장을 전국적으로 통합하고 여행의 대중화를 이끌었다",
+                    "explanation": "철도는 '거리의 소멸'을 가져왔습니다. 먼 지역의 물자를 빠르게 운송하여 경제를 활성화시켰고, 일반인들도 먼 곳으로 여행할 수 있게 되어 문화 교류를 촉진시켰습니다. 또한 '시간 관념'을 정확하게 만드는 계기가 되었습니다.",
+                    "eraId": "europe_industrial_revolution",
+                    "relatedCharacterId": "stephenson",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "social_problem_labor_01",
+                    "question": "산업혁명의 밝은 면(생산력 증대) 뒤에 가려진 그림자(사회 문제)는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "기계가 너무 많아졌다",
+                        "도시 빈민가의 형성, 아동 노동 착취, 열악한 노동 환경 등 자본가와 노동자 간의 빈부 격차가 심화되었다",
+                        "시골 인구가 너무 늘어났다",
+                        "물건 값이 너무 비싸졌다"
+                    ],
+                    "correctAnswer": "도시 빈민가의 형성, 아동 노동 착취, 열악한 노동 환경 등 자본가와 노동자 간의 빈부 격차가 심화되었다",
+                    "explanation": "초기 산업 사회는 자본가(부르주아)에게는 부를 안겨주었지만, 노동자(프롤레타리아)에게는 가혹한 노동 환경을 강요했습니다. 특히 어린아이들까지 공장에서 일해야 했던 '아동 노동'과 열악한 위생 상태의 '도시 빈민가'는 산업화가 해결해야 할 어두운 과제였습니다.",
+                    "eraId": "europe_industrial_revolution",
+                    "relatedFactId": "fact_factory_system",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                }
+            ]
+        }
+    ]
+}

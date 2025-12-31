@@ -3,6 +3,8 @@ import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/data/datasources/static/era_data.dart';
+
 
 /// 해금 이벤트 유형
 enum UnlockType {

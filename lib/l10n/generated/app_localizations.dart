@@ -152,6 +152,12 @@ abstract class AppLocalizations {
   /// **'잠겨있음'**
   String get common_locked_status;
 
+  /// No description provided for @common_completed.
+  ///
+  /// In ko, this message translates to:
+  /// **'완료'**
+  String get common_completed;
+
   /// No description provided for @common_unknown_character.
   ///
   /// In ko, this message translates to:
@@ -241,6 +247,24 @@ abstract class AppLocalizations {
   /// In ko, this message translates to:
   /// **'인물 목록'**
   String get exploration_list_characters;
+
+  /// No description provided for @exploration_tab_locations.
+  ///
+  /// In ko, this message translates to:
+  /// **'장소'**
+  String get exploration_tab_locations;
+
+  /// No description provided for @exploration_tab_characters.
+  ///
+  /// In ko, this message translates to:
+  /// **'인물'**
+  String get exploration_tab_characters;
+
+  /// No description provided for @exploration_no_locations.
+  ///
+  /// In ko, this message translates to:
+  /// **'장소가 없습니다.'**
+  String get exploration_no_locations;
 
   /// No description provided for @exploration_legend_title.
   ///
@@ -337,6 +361,300 @@ abstract class AppLocalizations {
   /// In ko, this message translates to:
   /// **'시간을 걷는 자가 되어 역사를 탐험하세요'**
   String get app_tagline;
+
+  /// No description provided for @quiz_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'역사 퀴즈'**
+  String get quiz_title;
+
+  /// No description provided for @quiz_completed_count.
+  ///
+  /// In ko, this message translates to:
+  /// **'{count}개 완료'**
+  String quiz_completed_count(Object count);
+
+  /// No description provided for @quiz_filter_all.
+  ///
+  /// In ko, this message translates to:
+  /// **'전체'**
+  String get quiz_filter_all;
+
+  /// No description provided for @quiz_filter_completed.
+  ///
+  /// In ko, this message translates to:
+  /// **'맞춘 퀴즈'**
+  String get quiz_filter_completed;
+
+  /// No description provided for @quiz_category_all.
+  ///
+  /// In ko, this message translates to:
+  /// **'전체'**
+  String get quiz_category_all;
+
+  /// No description provided for @quiz_empty_completed.
+  ///
+  /// In ko, this message translates to:
+  /// **'아직 맞춘 퀴즈가 없습니다.\n퀴즈에 도전해보세요!'**
+  String get quiz_empty_completed;
+
+  /// No description provided for @quiz_empty_all.
+  ///
+  /// In ko, this message translates to:
+  /// **'퀴즈가 없습니다.'**
+  String get quiz_empty_all;
+
+  /// No description provided for @quiz_pts.
+  ///
+  /// In ko, this message translates to:
+  /// **'pts'**
+  String get quiz_pts;
+
+  /// No description provided for @quiz_sec.
+  ///
+  /// In ko, this message translates to:
+  /// **'s'**
+  String get quiz_sec;
+
+  /// No description provided for @quiz_view_explanation.
+  ///
+  /// In ko, this message translates to:
+  /// **'해설 보기'**
+  String get quiz_view_explanation;
+
+  /// No description provided for @quiz_retry.
+  ///
+  /// In ko, this message translates to:
+  /// **'다시 풀기'**
+  String get quiz_retry;
+
+  /// No description provided for @quiz_start_challenge.
+  ///
+  /// In ko, this message translates to:
+  /// **'도전하기'**
+  String get quiz_start_challenge;
+
+  /// No description provided for @quiz_correct_message.
+  ///
+  /// In ko, this message translates to:
+  /// **'정답을 맞췄습니다!'**
+  String get quiz_correct_message;
+
+  /// No description provided for @quiz_points_earned.
+  ///
+  /// In ko, this message translates to:
+  /// **'{points}포인트 획득'**
+  String quiz_points_earned(Object points);
+
+  /// No description provided for @quiz_question.
+  ///
+  /// In ko, this message translates to:
+  /// **'문제'**
+  String get quiz_question;
+
+  /// No description provided for @quiz_options.
+  ///
+  /// In ko, this message translates to:
+  /// **'선택지'**
+  String get quiz_options;
+
+  /// No description provided for @quiz_explanation.
+  ///
+  /// In ko, this message translates to:
+  /// **'해설'**
+  String get quiz_explanation;
+
+  /// No description provided for @quiz_close.
+  ///
+  /// In ko, this message translates to:
+  /// **'닫기'**
+  String get quiz_close;
+
+  /// No description provided for @shop_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'아이템 상점'**
+  String get shop_title;
+
+  /// No description provided for @shop_tab_all.
+  ///
+  /// In ko, this message translates to:
+  /// **'전체'**
+  String get shop_tab_all;
+
+  /// No description provided for @shop_tab_consumable.
+  ///
+  /// In ko, this message translates to:
+  /// **'소모품'**
+  String get shop_tab_consumable;
+
+  /// No description provided for @shop_tab_cosmetic.
+  ///
+  /// In ko, this message translates to:
+  /// **'치장'**
+  String get shop_tab_cosmetic;
+
+  /// No description provided for @shop_tab_upgrade.
+  ///
+  /// In ko, this message translates to:
+  /// **'강화'**
+  String get shop_tab_upgrade;
+
+  /// No description provided for @shop_purchase_error_coins.
+  ///
+  /// In ko, this message translates to:
+  /// **'코인이 부족합니다!'**
+  String get shop_purchase_error_coins;
+
+  /// No description provided for @shop_purchase_error_owned.
+  ///
+  /// In ko, this message translates to:
+  /// **'이미 보유한 아이템입니다!'**
+  String get shop_purchase_error_owned;
+
+  /// No description provided for @shop_confirm_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'구매 확인'**
+  String get shop_confirm_title;
+
+  /// No description provided for @shop_confirm_message.
+  ///
+  /// In ko, this message translates to:
+  /// **'{item}을(를) {price} 코인에 구매하시겠습니까?'**
+  String shop_confirm_message(Object item, Object price);
+
+  /// No description provided for @common_buy.
+  ///
+  /// In ko, this message translates to:
+  /// **'구매'**
+  String get common_buy;
+
+  /// No description provided for @shop_purchase_success.
+  ///
+  /// In ko, this message translates to:
+  /// **'{item} 구매 완료!'**
+  String shop_purchase_success(Object item);
+
+  /// No description provided for @shop_empty_list.
+  ///
+  /// In ko, this message translates to:
+  /// **'구매 가능한 아이템이 없습니다.'**
+  String get shop_empty_list;
+
+  /// No description provided for @shop_item_owned.
+  ///
+  /// In ko, this message translates to:
+  /// **'보유중'**
+  String get shop_item_owned;
+
+  /// No description provided for @shop_item_price.
+  ///
+  /// In ko, this message translates to:
+  /// **'{price} 코인'**
+  String shop_item_price(Object price);
+
+  /// No description provided for @profile_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'내 프로필'**
+  String get profile_title;
+
+  /// No description provided for @profile_rank_progress.
+  ///
+  /// In ko, this message translates to:
+  /// **'랭크 진행도'**
+  String get profile_rank_progress;
+
+  /// No description provided for @profile_next_rank_pts.
+  ///
+  /// In ko, this message translates to:
+  /// **'다음 랭크까지 {points}점'**
+  String profile_next_rank_pts(Object points);
+
+  /// No description provided for @profile_stat_exploration.
+  ///
+  /// In ko, this message translates to:
+  /// **'탐험'**
+  String get profile_stat_exploration;
+
+  /// No description provided for @profile_stat_collection.
+  ///
+  /// In ko, this message translates to:
+  /// **'수집'**
+  String get profile_stat_collection;
+
+  /// No description provided for @profile_stat_knowledge.
+  ///
+  /// In ko, this message translates to:
+  /// **'지식'**
+  String get profile_stat_knowledge;
+
+  /// No description provided for @profile_stat_playtime.
+  ///
+  /// In ko, this message translates to:
+  /// **'총 플레이 시간'**
+  String get profile_stat_playtime;
+
+  /// No description provided for @profile_stat_eras.
+  ///
+  /// In ko, this message translates to:
+  /// **'방문한 시대'**
+  String get profile_stat_eras;
+
+  /// No description provided for @profile_eras_count.
+  ///
+  /// In ko, this message translates to:
+  /// **'{count}개 시대'**
+  String profile_eras_count(Object count);
+
+  /// No description provided for @profile_stat_dialogues.
+  ///
+  /// In ko, this message translates to:
+  /// **'완료한 대화'**
+  String get profile_stat_dialogues;
+
+  /// No description provided for @common_error_stats_load.
+  ///
+  /// In ko, this message translates to:
+  /// **'통계를 불러오는데 실패했습니다.'**
+  String get common_error_stats_load;
+
+  /// No description provided for @rank_novice.
+  ///
+  /// In ko, this message translates to:
+  /// **'초보 탐험가'**
+  String get rank_novice;
+
+  /// No description provided for @rank_apprentice.
+  ///
+  /// In ko, this message translates to:
+  /// **'견습 역사가'**
+  String get rank_apprentice;
+
+  /// No description provided for @rank_intermediate.
+  ///
+  /// In ko, this message translates to:
+  /// **'중급 역사가'**
+  String get rank_intermediate;
+
+  /// No description provided for @rank_advanced.
+  ///
+  /// In ko, this message translates to:
+  /// **'고급 역사가'**
+  String get rank_advanced;
+
+  /// No description provided for @rank_expert.
+  ///
+  /// In ko, this message translates to:
+  /// **'역사 전문가'**
+  String get rank_expert;
+
+  /// No description provided for @rank_master.
+  ///
+  /// In ko, this message translates to:
+  /// **'역사 마스터'**
+  String get rank_master;
 }
 
 class _AppLocalizationsDelegate

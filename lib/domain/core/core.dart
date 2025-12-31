@@ -4,5 +4,6 @@
 /// - UseCase: 비즈니스 로직 캡슐화
 /// - Result: 성공/실패 결과 래핑
 /// - AppFailure: 표준화된 에러 타입
+library;
 
 export 'use_case.dart';

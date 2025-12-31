@@ -1,6 +1,8 @@
 import 'package:time_walker/core/constants/exploration_config.dart';
 import '../../domain/entities/era.dart';
 import '../../domain/repositories/era_repository.dart';
+import '../datasources/static/era_data.dart';
+
 
 /// 시대 데이터 Mock 저장소
 class MockEraRepository implements EraRepository {

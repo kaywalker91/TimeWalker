@@ -2,7 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
 
 // Re-export RegionData for backward compatibility
-export 'package:time_walker/data/datasources/region_data.dart';
+export 'package:time_walker/data/datasources/static/region_data.dart';
+
 
 /// 지역 (대륙) 엔티티
 /// 예: 아시아, 유럽, 아프리카, 아메리카, 중동

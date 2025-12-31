@@ -4,6 +4,7 @@
 /// ```dart
 /// import 'package:time_walker/domain/usecases/usecases.dart';
 /// ```
+library;
 
 export 'era_usecases.dart';
 export 'user_progress_usecases.dart';

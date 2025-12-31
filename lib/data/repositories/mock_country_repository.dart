@@ -1,6 +1,8 @@
 import 'package:time_walker/core/constants/exploration_config.dart';
 import '../../domain/entities/country.dart';
 import '../../domain/repositories/country_repository.dart';
+import '../datasources/static/country_data.dart';
+
 
 /// 국가 데이터 Mock 저장소
 class MockCountryRepository implements CountryRepository {

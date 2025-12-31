@@ -7,6 +7,6 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: TimeRunnerApp()));
 
     // 스플래시 화면이 나타나는지 확인
-    expect(find.text('TimeRunner'), findsOneWidget);
+    expect(find.text('TimeWalker'), findsOneWidget);
   });
 }

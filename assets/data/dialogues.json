@@ -3971,5 +3971,279 @@
                 }
             }
         ]
+    },
+    {
+        "id": "jeongjo_reform_01",
+        "characterId": "jeongjo",
+        "title": "Dream of Hwaseong",
+        "titleKorean": "수원화성의 꿈",
+        "description": "정조와 함께 수원화성 건설의 의미와 개혁 정치에 대해 논의합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_hwaseong_dream"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jeongjo",
+                "emotion": "thoughtful",
+                "text": "어서 오게. 지금 정약용과 함께 새로운 성곽, 화성의 설계를 보고 있던 참이네.\n나는 이곳을 단순한 군사 기지가 아니라, 상업과 농업이 번성하는 신도시로 만들고 싶다.\n그대의 눈에는 이 계획이 어찌 보이는가?",
+                "choices": [
+                    {
+                        "id": "c1_support",
+                        "text": "백성을 풍요롭게 할 위대한 계획입니다.",
+                        "preview": "개혁 지지",
+                        "nextNodeId": "vision_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_cost",
+                        "text": "백성들의 노역이 너무 심하지 않겠습니까?",
+                        "preview": "비용 걱정",
+                        "nextNodeId": "labor_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "vision_node",
+                "speakerId": "jeongjo",
+                "emotion": "happy",
+                "text": "그렇지? 한양의 기득권 세력(노론)을 견제하고, 왕권을 강화하여 백성을 위한 정치를 펼치려면 새로운 거점이 필요해.\n이 화성이 바로 그 개혁의 심장이 될 것이다.",
+                "nextNodeId": "machinery_node"
+            },
+            {
+                "id": "labor_node",
+                "speakerId": "jeongjo",
+                "emotion": "serious",
+                "text": "그 점은 걱정 말게. 나는 부역에 동원된 백성들에게 모두 임금을 지급하고 있다.\n강제 노역이 아니라, 일한 만큼 대가를 받는 것이지.\n또한 거중기라는 기계를 사용하여 힘을 덜 들이게 할 것이다.",
+                "nextNodeId": "machinery_node",
+                "reward": {
+                    "unlockFactId": "fact_wage_labor"
+                }
+            },
+            {
+                "id": "machinery_node",
+                "speakerId": "jeongjo",
+                "emotion": "neutral",
+                "text": "정약용이 고안한 거중기를 보았느냐? 도르래의 원리로 무거운 돌을 쉽게 들어 올리지.\n벽돌을 사용하는 새로운 축성법도 도입했다.\n이 성은 조선의 과학과 기술이 집대성된 걸작이 될 것이다.",
+                "choices": [
+                    {
+                        "id": "c2_father",
+                        "text": "아버지 사도세자의 묘를 이곳으로 옮기셨지요?",
+                        "preview": "효심 묻기",
+                        "nextNodeId": "filial_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "filial_node",
+                "speakerId": "jeongjo",
+                "emotion": "sad",
+                "text": "......그렇다. 비운에 돌아가신 아버지...\n그 넋이라도 편안히 모시고 싶었다.\n하지만 내 효심은 단지 제사를 지내는 것에 그치지 않는다.\n아버지가 꿈꾸셨던 '백성이 주인인 나라'를 만드는 것, 그것이 진정한 효가 아니겠느냐?",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jeongjo",
+                "emotion": "determined",
+                "text": "나는 멈추지 않을 것이다. 규장각의 인재들과 함께 끊임없이 개혁할 것이다.\n그대도 지켜봐 다오. 이 화성에서 피어날 조선의 새로운 미래를!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_suwon_hwaseong",
+                    "achievementId": "achievement_reformer_king"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jang_waterclock_01",
+        "characterId": "jang_yeongshil",
+        "title": "Time of Water",
+        "titleKorean": "물의 시간",
+        "description": "장영실과 함께 자격루의 원리와 과학의 중요성에 대해 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_jagyeongnu"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jang_yeongshil",
+                "emotion": "excited",
+                "text": "이것 좀 보시게! 드디어 물 흐름이 일정해졌어.\n전하께서 밤낮으로 시간을 알 수 있는 시계를 만들라 하셨지.\n해시계(앙부일구)는 구름이 끼거나 밤이 되면 무용지물이니까 말이야.",
+                "choices": [
+                    {
+                        "id": "c1_principle",
+                        "text": "어떤 원리로 작동하나요?",
+                        "preview": "원리 질문",
+                        "nextNodeId": "principle_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_status",
+                        "text": "천민 출신으로 힘들지 않으셨나요?",
+                        "preview": "신분 질문",
+                        "nextNodeId": "status_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "principle_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "thoughtful",
+                "text": "물이 일정한 속도로 흘러내리면, 그 부력으로 살대가 떠오르지.\n그 살대가 쇠구슬을 떨어뜨리면, 구슬이 굴러가서 동판을 쳐 종과 북을 울리는 거야.\n사람의 손을 빌리지 않고도 스스로 시간을 알리는 '자격루(自擊漏)'인 셈이지.",
+                "nextNodeId": "science_node"
+            },
+            {
+                "id": "status_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "neutral",
+                "text": "허허, 힘들었지. 사대부들이 관노가 벼슬을 한다고 얼마나 반대했는지...\n하지만 전하(세종)께서는 오직 능력만 보셨어.\n\"재주가 뛰오난 자를 쓰는 것이 나라를 위하는 길\"이라 하시며 나를 믿어주셨지.",
+                "nextNodeId": "science_node",
+                "reward": {
+                    "unlockFactId": "fact_meritocracy"
+                }
+            },
+            {
+                "id": "science_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "excited",
+                "text": "나는 믿네. 과학은 백성을 편안하게 한다고.\n시계를 만들면 농사 시간을 맞출 수 있고, 측우기를 만들면 홍수를 대비할 수 있어.\n기술은 천한 것이 아니라, 사람을 살리는 귀한 것이야.",
+                "choices": [
+                    {
+                        "id": "c2_agree",
+                        "text": "옳으신 말씀입니다. 과학이 미래입니다.",
+                        "preview": "동의하기",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "happy",
+                "text": "자, 이제 구슬이 굴러갈 시간이야. 들어보게!\n(뎅~ 뎅~)\n들리는가? 저 소리가 바로 조선의 시간일세!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 40,
+                    "achievementId": "achievement_joseon_science"
+                }
+            }
+        ]
+    },
+    {
+        "id": "heo_medicine_01",
+        "characterId": "heo_jun",
+        "title": "Healing the People",
+        "titleKorean": "백성을 살리는 의술",
+        "description": "허준과 함께 동의보감 집필의 목적과 한의학의 정신을 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_dongui_bogam"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "heo_jun",
+                "emotion": "serious",
+                "text": "전쟁(임진왜란)이 휩쓸고 간 자리에, 병마가 창궐하고 있소.\n백성들은 가난하여 비싼 중국 약재를 구할 수 없는데, 역병은 퍼져만 가니...\n의원으로서 참으로 가슴 아픈 일이오.",
+                "choices": [
+                    {
+                        "id": "c1_solution",
+                        "text": "해결책이 있습니까?",
+                        "preview": "해결책 묻기",
+                        "nextNodeId": "book_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_difficult",
+                        "text": "참으로 안타까운 현실입니다.",
+                        "preview": "공감하기",
+                        "nextNodeId": "empathy_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "book_node",
+                "speakerId": "heo_jun",
+                "emotion": "determined",
+                "text": "그래서 나는 책을 쓰고 있소.\n우리 산천에서 나는 약초로 병을 고치는 법을 정리한 책 말이오.\n중국 의서들은 너무 어렵고 우리 체질에 맞지 않는 것도 많으니, 우리 의학을 정립해야 하오.",
+                "nextNodeId": "method_node"
+            },
+            {
+                "id": "empathy_node",
+                "speakerId": "heo_jun",
+                "emotion": "thoughtful",
+                "text": "한탄만 하고 있을 수는 없소. 선조 전하께서도 명하셨지.\n\"백성이 쉽게 알 수 있도록 한글로 약 이름을 적으라\"고.\n그 명을 받들어, 나는 내 생을 바쳐 이 책을 완성할 것이오.",
+                "nextNodeId": "method_node"
+            },
+            {
+                "id": "method_node",
+                "speakerId": "heo_jun",
+                "emotion": "neutral",
+                "text": "가장 중요한 것은 '예방'이오. 병이 든 뒤에 고치는 것은 하책이지.\n잘 먹고, 잘 자고, 마음을 다스려 몸의 조화를 지키는 것.\n그것이 내 의술의 핵심인 '양생(養生)'이오.",
+                "choices": [
+                    {
+                        "id": "c2_name",
+                        "text": "책 이름은 정하셨습니까?",
+                        "preview": "책 이름 묻기",
+                        "nextNodeId": "title_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "title_node",
+                "speakerId": "heo_jun",
+                "emotion": "happy",
+                "text": "<동의보감(東醫寶鑑)>. '동쪽 나라 의학의 보배로운 거울'이라는 뜻이지.\n이 책이 널리 퍼져, 훗날 내 이름은 잊혀져도 백성들이 건강하게 살 수 있다면 더 바랄 것이 없소.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "heo_jun",
+                "emotion": "kind",
+                "text": "그대도 건강을 잘 돌보시오. 몸이 건강해야 뜻도 펼칠 수 있는 법.\n언제든 아픈 곳이 있거든 찾아오시오. 내 성심껏 살피리다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_korean_medicine",
+                    "achievementId": "achievement_great_doctor"
+                }
+            }
+        ]
     }
 ]

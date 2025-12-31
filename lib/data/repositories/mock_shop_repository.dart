@@ -1,5 +1,7 @@
 import '../../domain/entities/shop_item.dart';
 import '../../domain/repositories/shop_repository.dart';
+import '../datasources/static/shop_data.dart';
+
 
 class MockShopRepository implements ShopRepository {
   @override

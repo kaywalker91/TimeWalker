@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/domain/entities/encyclopedia_entry.dart';
 import 'package:time_walker/domain/entities/quiz.dart';
+import 'package:time_walker/domain/entities/quiz_category.dart';
 import 'package:time_walker/domain/entities/shop_item.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
@@ -44,6 +45,26 @@ final quizListByEraProvider = FutureProvider.family<List<Quiz>, String>((ref, er
 final quizByIdProvider = FutureProvider.family<Quiz?, String>((ref, id) async {
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getQuizById(id);
+});
+
+/// 퀴즈 카테고리 목록 불러오기
+final quizCategoryListProvider = FutureProvider<List<QuizCategory>>((ref) async {
+  final repository = ref.watch(quizRepositoryProvider);
+  return repository.getQuizCategories();
+});
+
+/// 카테고리별 퀴즈 목록 불러오기
+final quizListByCategoryProvider =
+    FutureProvider.family<List<Quiz>, String>((ref, categoryId) async {
+  final repository = ref.watch(quizRepositoryProvider);
+  return repository.getQuizzesByCategory(categoryId);
+});
+
+/// 대화 ID 연관 퀴즈 목록 불러오기 (대화 후 퀴즈용)
+final quizListByDialogueProvider =
+    FutureProvider.family<List<Quiz>, String>((ref, dialogueId) async {
+  final repository = ref.watch(quizRepositoryProvider);
+  return repository.getQuizzesByDialogueId(dialogueId);
 });
 
 // ============== Shop Providers ==============

@@ -82,6 +82,7 @@ class Quiz extends Equatable {
   final String? imageAsset; // 이미지 퀴즈용
   final String eraId; // 관련 시대
   final String? relatedFactId; // 연관 도감 항목
+  final String? relatedDialogueId; // 연관 대화 ID (대화 후 퀴즈용)
   final int basePoints;
   final int timeLimitSeconds;
 
@@ -96,6 +97,7 @@ class Quiz extends Equatable {
     this.imageAsset,
     required this.eraId,
     this.relatedFactId,
+    this.relatedDialogueId,
     this.basePoints = 10,
     this.timeLimitSeconds = 30,
   });
@@ -111,6 +113,7 @@ class Quiz extends Equatable {
     String? imageAsset,
     String? eraId,
     String? relatedFactId,
+    String? relatedDialogueId,
     int? basePoints,
     int? timeLimitSeconds,
   }) {
@@ -125,6 +128,7 @@ class Quiz extends Equatable {
       imageAsset: imageAsset ?? this.imageAsset,
       eraId: eraId ?? this.eraId,
       relatedFactId: relatedFactId ?? this.relatedFactId,
+      relatedDialogueId: relatedDialogueId ?? this.relatedDialogueId,
       basePoints: basePoints ?? this.basePoints,
       timeLimitSeconds: timeLimitSeconds ?? this.timeLimitSeconds,
     );
@@ -148,6 +152,7 @@ class Quiz extends Equatable {
       imageAsset: json['imageAsset'] as String?,
       eraId: json['eraId'] as String,
       relatedFactId: json['relatedFactId'] as String?,
+      relatedDialogueId: json['relatedDialogueId'] as String?,
       basePoints: json['basePoints'] as int? ?? 10,
       timeLimitSeconds: json['timeLimitSeconds'] as int? ?? 30,
     );
@@ -179,6 +184,7 @@ class Quiz extends Equatable {
     imageAsset,
     eraId,
     relatedFactId,
+    relatedDialogueId,
     basePoints,
     timeLimitSeconds,
   ];

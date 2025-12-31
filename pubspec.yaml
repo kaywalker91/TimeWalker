@@ -67,6 +67,13 @@ flutter:
     - assets/images/
     - assets/images/map/
     - assets/images/characters/
+    - assets/images/characters/three_kingdoms/
+    - assets/images/characters/unified_silla/
+    - assets/images/characters/goryeo/
+    - assets/images/characters/joseon/
+    - assets/images/characters/modern/
+    - assets/images/characters/renaissance/
+    - assets/images/characters/industrial/
     - assets/images/locations/
     - assets/images/ui/
     - assets/audio/

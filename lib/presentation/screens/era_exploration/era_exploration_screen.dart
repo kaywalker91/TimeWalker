@@ -12,10 +12,10 @@ import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/domain/entities/region.dart';
-import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/widgets/tutorial_overlay.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_widgets.dart';
 
 class EraExplorationScreen extends ConsumerStatefulWidget {
   final String eraId;
@@ -28,6 +28,27 @@ class EraExplorationScreen extends ConsumerStatefulWidget {
 }
 
 class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
+  /// 화면 초기화 완료 여부 (BGM 중복 재생 방지)
+  bool _isInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('[EraExplorationScreen] initState - eraId=${widget.eraId}');
+    
+    // BGM 초기화 (build가 아닌 initState에서 한 번만 실행)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _isInitialized) return;
+      _isInitialized = true;
+      
+      final currentTrack = ref.read(currentBgmTrackProvider);
+      final eraBgm = AudioConstants.getBGMForEra(widget.eraId);
+      if (currentTrack != eraBgm) {
+        ref.read(bgmControllerProvider.notifier).playEraBgm(widget.eraId);
+      }
+    });
+  }
+
   static const List<String> _kingdomOrder = [
     'goguryeo',
     'baekje',
@@ -46,12 +67,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
     'silla': TerritorySpec(Offset(0.68, 0.72), Size(0.3, 0.28)),
     'gaya': TerritorySpec(Offset(0.56, 0.78), Size(0.22, 0.2)),
   };
-  static const MapBounds _threeKingdomsBounds = MapBounds(
-    minLatitude: 34.0,
-    maxLatitude: 42.5,
-    minLongitude: 124.0,
-    maxLongitude: 130.8,
-  );
+
   static const double _markerMinSpacingScale = 1.1;
   static const double _spiderfyRadiusScale = 1.7;
   static const double _anchorDotScale = 0.22;
@@ -67,6 +83,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
 
   @override
   void dispose() {
+    debugPrint('[EraExplorationScreen] dispose - eraId=${widget.eraId}');
     _transformationController.dispose();
     super.dispose();
   }
@@ -77,14 +94,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
     final locationsAsync = ref.watch(locationListByEraProvider(widget.eraId));
     final userProgressAsync = ref.watch(userProgressProvider);
 
-    // BGM 시작 (시대별 BGM)
-    final currentTrack = ref.watch(currentBgmTrackProvider);
-    final eraBgm = AudioConstants.getBGMForEra(widget.eraId);
-    if (currentTrack != eraBgm) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        ref.read(bgmControllerProvider.notifier).playEraBgm(widget.eraId);
-      });
-    }
+    // BGM은 initState에서 처리됨 (build에서 중복 실행 방지)
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -105,7 +115,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
             ),
           ),
           loading: () => const SizedBox.shrink(),
-          error: (_, __) => const Text('Error'),
+          error: (_, _) => const Text('Error'),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -163,7 +173,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
                   return content;
                 },
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (_, __) => const Center(child: Text('Error loading progress')),
+                error: (_, _) => const Center(child: Text('Error loading progress')),
               );
             },
           );
@@ -319,7 +329,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
     double scale,
   ) {
     final selectedId = _selectedLocation?.id;
-    final entries = <_MarkerEntry>[];
+    final entries = <MarkerEntry>[];
 
     for (final location in locations) {
       final resolved = _resolveLocationPosition(location, era);
@@ -332,7 +342,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
           kingdom != null && !_activeKingdoms.contains(kingdom);
 
       entries.add(
-        _MarkerEntry(
+        MarkerEntry(
           location: location,
           position: Offset(left, top),
           baseColor: baseColor,
@@ -345,7 +355,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
     final spacing = (markerSize * _markerMinSpacingScale) / scale;
     final radius = (markerSize * _spiderfyRadiusScale) / scale;
     final groups = _groupMarkerEntries(entries, spacing);
-    final lines = <_MarkerLine>[];
+    final lines = <MarkerLine>[];
     final widgets = <Widget>[];
 
     for (final group in groups) {
@@ -367,7 +377,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
 
         if (count > 1) {
           lines.add(
-            _MarkerLine(
+            MarkerLine(
               start: entry.position,
               end: calloutPosition,
               color: entry.baseColor
@@ -377,7 +387,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
         }
 
         widgets.add(
-          _LocationAnchor(
+          LocationAnchor(
             left: entry.position.dx,
             top: entry.position.dy,
             size: markerSize * _anchorDotScale,
@@ -388,7 +398,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
         );
 
         widgets.add(
-          _LocationMarker(
+          LocationMarker(
             location: entry.location,
             baseColor: entry.baseColor,
             left: calloutPosition.dx,
@@ -420,7 +430,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
         if (lines.isNotEmpty)
           Positioned.fill(
             child: CustomPaint(
-              painter: _MarkerConnectionPainter(lines),
+              painter: MarkerConnectionPainter(lines),
             ),
           ),
         ...widgets,
@@ -429,28 +439,28 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
   }
 
   MapCoordinates _resolveLocationPosition(Location location, Era era) {
-    if (era.id == 'korea_three_kingdoms' &&
+    if (era.mapBounds != null &&
         location.latitude != null &&
         location.longitude != null) {
       return MapProjection.projectNormalized(
         latitude: location.latitude!,
         longitude: location.longitude!,
-        bounds: _threeKingdomsBounds,
+        bounds: era.mapBounds!,
       );
     }
     return location.position;
   }
 
-  List<List<_MarkerEntry>> _groupMarkerEntries(
-    List<_MarkerEntry> entries,
+  List<List<MarkerEntry>> _groupMarkerEntries(
+    List<MarkerEntry> entries,
     double spacing,
   ) {
     final remaining = [...entries];
-    final groups = <List<_MarkerEntry>>[];
+    final groups = <List<MarkerEntry>>[];
 
     while (remaining.isNotEmpty) {
       final seed = remaining.removeLast();
-      final group = <_MarkerEntry>[seed];
+      final group = <MarkerEntry>[seed];
       var expanded = true;
 
       while (expanded) {
@@ -474,7 +484,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
     return groups;
   }
 
-  Offset _averagePosition(List<_MarkerEntry> entries) {
+  Offset _averagePosition(List<MarkerEntry> entries) {
     if (entries.isEmpty) {
       return Offset.zero;
     }
@@ -497,9 +507,9 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
 
   Offset _clampToMap(Offset position, Size mapSize, double margin) {
     final clampedX = position.dx
-        .clamp(margin, mapSize.width - margin) as double;
+        .clamp(margin, mapSize.width - margin);
     final clampedY = position.dy
-        .clamp(margin, mapSize.height - margin) as double;
+        .clamp(margin, mapSize.height - margin);
     return Offset(clampedX, clampedY);
   }
 
@@ -615,10 +625,10 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
               spacing: 10,
               runSpacing: 6,
               children: const [
-                _StatusLegend(color: Colors.amber, label: '탐험 가능'),
-                _StatusLegend(color: Colors.blue, label: '진행 중'),
-                _StatusLegend(color: Colors.green, label: '완료'),
-                _StatusLegend(color: Colors.grey, label: '잠김'),
+                StatusLegend(color: Colors.amber, label: '탐험 가능'),
+                StatusLegend(color: Colors.blue, label: '진행 중'),
+                StatusLegend(color: Colors.green, label: '완료'),
+                StatusLegend(color: Colors.grey, label: '잠김'),
               ],
             ),
           ],
@@ -653,7 +663,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
-      builder: (context) => _ExplorationListSheet(
+      builder: (context) => ExplorationListSheet(
         era: era,
         locations: locations,
         initialTabIndex: initialTabIndex,
@@ -740,7 +750,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
                             );
                           },
                           loading: () => const LinearProgressIndicator(),
-                          error: (_, __) => const SizedBox(),
+                          error: (_, _) => const SizedBox(),
                         );
                       },
                     ),
@@ -764,7 +774,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
                       );
                     },
                     loading: () => const SizedBox(),
-                    error: (_, __) => const SizedBox(),
+                    error: (_, _) => const SizedBox(),
                   );
                 },
               ),
@@ -849,873 +859,10 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
     Location location,
     EraTheme theme,
   ) {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      isScrollControlled: true,
-      builder: (context) =>
-          _LocationDetailSheet(location: location, theme: theme),
-    );
+    // 새로운 장소 탐험 화면으로 이동 (TimePortal 전환 효과 적용)
+    context.push('/era/${widget.eraId}/location/${location.id}');
   }
 
-  void _showClusterLocationsSheet(
-    BuildContext context,
-    WidgetRef ref,
-    Era era,
-    List<Location> locations,
-  ) {
-    final messenger = ScaffoldMessenger.of(context);
-    final sortedLocations = [...locations]
-      ..sort((a, b) => a.nameKorean.compareTo(b.nameKorean));
 
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      isScrollControlled: true,
-      builder: (sheetContext) {
-        final theme = era.theme;
-        final height = MediaQuery.of(sheetContext).size.height * 0.45;
-
-        return SizedBox(
-          height: height,
-          child: Container(
-            decoration: const BoxDecoration(
-              color: Color(0xFF1E1E2C),
-              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-            ),
-            child: Column(
-              children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    margin: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[600],
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        AppLocalizations.of(context)!
-                            .exploration_list_locations,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        '(${sortedLocations.length})',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Expanded(
-                  child: ListView.separated(
-                    itemCount: sortedLocations.length,
-                    separatorBuilder: (_, __) =>
-                        const Divider(color: Colors.white10),
-                    itemBuilder: (context, index) {
-                      final location = sortedLocations[index];
-                      final isLocked = !location.isAccessible;
-                      final kingdom = location.kingdom;
-                      final accentColor =
-                          _kingdomMeta[kingdom]?.color ??
-                              theme.accentColor;
-
-                      return ListTile(
-                        leading: Icon(
-                          isLocked ? Icons.lock : Icons.place,
-                          color: isLocked
-                              ? Colors.grey
-                              : accentColor,
-                        ),
-                        title: Text(
-                          location.nameKorean,
-                          style: TextStyle(
-                            color: isLocked
-                                ? Colors.grey
-                                : Colors.white,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        subtitle: Text(
-                          location.description,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: isLocked
-                                ? Colors.grey[700]
-                                : Colors.white70,
-                          ),
-                        ),
-                        onTap: () {
-                          if (isLocked) {
-                            messenger.showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  AppLocalizations.of(context)!
-                                      .exploration_location_locked,
-                                ),
-                              ),
-                            );
-                            return;
-                          }
-                          Navigator.of(sheetContext).pop();
-                          Future.microtask(() {
-                            if (!mounted) return;
-                            setState(() {
-                              _selectedLocation = location;
-                            });
-                            _showLocationDetails(
-                              context,
-                              ref,
-                              location,
-                              theme,
-                            );
-                          });
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
 }
 
-class KingdomMeta {
-  final String label;
-  final Color color;
-
-  const KingdomMeta({required this.label, required this.color});
-}
-
-class TerritorySpec {
-  final Offset center;
-  final Size size;
-
-  const TerritorySpec(this.center, this.size);
-}
-
-class KingdomTerritoryPainter extends CustomPainter {
-  final Map<String, TerritorySpec> territories;
-  final Map<String, KingdomMeta> kingdomMeta;
-  final Set<String> activeKingdoms;
-
-  const KingdomTerritoryPainter({
-    required this.territories,
-    required this.kingdomMeta,
-    required this.activeKingdoms,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    for (final entry in territories.entries) {
-      final meta = kingdomMeta[entry.key];
-      if (meta == null) {
-        continue;
-      }
-      final isActive = activeKingdoms.contains(entry.key);
-      final rect = Rect.fromCenter(
-        center: Offset(
-          entry.value.center.dx * size.width,
-          entry.value.center.dy * size.height,
-        ),
-        width: entry.value.size.width * size.width,
-        height: entry.value.size.height * size.height,
-      );
-      final radius = Radius.circular(rect.shortestSide * 0.18);
-      final fillPaint = Paint()
-        ..color = meta.color.withValues(alpha: isActive ? 0.12 : 0.05)
-        ..style = PaintingStyle.fill;
-      final strokePaint = Paint()
-        ..color = meta.color.withValues(alpha: isActive ? 0.35 : 0.15)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2;
-
-      canvas.drawRRect(RRect.fromRectAndRadius(rect, radius), fillPaint);
-      canvas.drawRRect(RRect.fromRectAndRadius(rect, radius), strokePaint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant KingdomTerritoryPainter oldDelegate) {
-    return oldDelegate.activeKingdoms != activeKingdoms ||
-        oldDelegate.territories != territories ||
-        oldDelegate.kingdomMeta != kingdomMeta;
-  }
-}
-
-class _MarkerEntry {
-  final Location location;
-  final Offset position;
-  final Color baseColor;
-  final bool isDimmed;
-  final bool isSelected;
-
-  const _MarkerEntry({
-    required this.location,
-    required this.position,
-    required this.baseColor,
-    required this.isDimmed,
-    required this.isSelected,
-  });
-}
-
-class _MarkerLine {
-  final Offset start;
-  final Offset end;
-  final Color color;
-
-  const _MarkerLine({
-    required this.start,
-    required this.end,
-    required this.color,
-  });
-}
-
-class _MarkerConnectionPainter extends CustomPainter {
-  final List<_MarkerLine> lines;
-
-  const _MarkerConnectionPainter(this.lines);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    for (final line in lines) {
-      final paint = Paint()
-        ..color = line.color
-        ..strokeWidth = 2
-        ..strokeCap = StrokeCap.round;
-      canvas.drawLine(line.start, line.end, paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _MarkerConnectionPainter oldDelegate) {
-    return oldDelegate.lines != lines;
-  }
-}
-
-class _LocationAnchor extends StatelessWidget {
-  final double left;
-  final double top;
-  final double size;
-  final Color color;
-  final bool isDimmed;
-  final bool isSelected;
-
-  const _LocationAnchor({
-    required this.left,
-    required this.top,
-    required this.size,
-    required this.color,
-    required this.isDimmed,
-    required this.isSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final opacity = isDimmed ? 0.35 : 1.0;
-    final indicatorSize = isSelected ? size * 1.6 : size;
-
-    return Positioned(
-      left: left - indicatorSize * 0.5,
-      top: top - indicatorSize * 0.5,
-      child: Opacity(
-        opacity: opacity,
-        child: Container(
-          width: indicatorSize,
-          height: indicatorSize,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: color.withValues(alpha: 0.9),
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 0.6),
-              width: indicatorSize * 0.2,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: color.withValues(alpha: 0.35),
-                blurRadius: indicatorSize * 1.2,
-                spreadRadius: indicatorSize * 0.1,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _StatusLegend extends StatelessWidget {
-  final Color color;
-  final String label;
-
-  const _StatusLegend({required this.color, required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 10,
-          height: 10,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
-        ),
-        const SizedBox(width: 6),
-        Text(
-          label,
-          style: const TextStyle(color: Colors.white70, fontSize: 11),
-        ),
-      ],
-    );
-  }
-}
-
-class _LocationMarker extends StatelessWidget {
-  final Location location;
-  final Color baseColor;
-  final double left;
-  final double top;
-  final double markerSize;
-  final bool isDimmed;
-  final bool isSelected;
-  final bool showLabel;
-  final VoidCallback? onTap;
-
-  const _LocationMarker({
-    required this.location,
-    required this.baseColor,
-    required this.left,
-    required this.top,
-    required this.markerSize,
-    required this.isDimmed,
-    required this.isSelected,
-    required this.showLabel,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final isLocked = !location.isAccessible;
-    final iconSize = markerSize * 0.56; // proportional
-    final opacity = isDimmed ? 0.25 : 1.0;
-    final markerColor = isLocked ? Colors.grey[800]! : baseColor;
-    final borderColor = isLocked ? Colors.grey : baseColor;
-    final icon = isLocked
-        ? Icons.lock
-        : location.isCompleted
-            ? Icons.check
-            : Icons.place;
-
-    return Positioned(
-      left: left - markerSize * 0.8,
-      top: top - markerSize * 0.8,
-      child: Opacity(
-        opacity: opacity,
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () {
-            if (isLocked) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(AppLocalizations.of(context)!.exploration_location_locked),
-                ),
-              );
-              return;
-            }
-            if (onTap != null) {
-              onTap!();
-            }
-          },
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Marker Icon
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  if (isSelected)
-                    Container(
-                      width: markerSize * 1.35,
-                      height: markerSize * 1.35,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: borderColor.withValues(alpha: 0.6),
-                          width: markerSize * 0.08,
-                        ),
-                      ),
-                    ),
-                  Container(
-                    width: markerSize,
-                    height: markerSize,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: markerColor,
-                      border: Border.all(
-                        color: borderColor,
-                        width: markerSize * 0.06,
-                      ),
-                      boxShadow: isLocked
-                          ? []
-                          : [
-                              BoxShadow(
-                                color: borderColor.withValues(alpha: 0.5),
-                                blurRadius: markerSize * 0.3,
-                                spreadRadius: markerSize * 0.04,
-                              ),
-                            ],
-                    ),
-                    child: Icon(icon, color: Colors.white, size: iconSize),
-                  ),
-                ],
-              ),
-              if (showLabel) ...[
-                SizedBox(height: markerSize * 0.16),
-                // Label
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: markerSize * 0.16,
-                    vertical: markerSize * 0.08,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.black87,
-                    borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white10),
-                  ),
-                  child: Text(
-                    location.nameKorean,
-                    style: TextStyle(
-                      color: isLocked ? Colors.grey : Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: markerSize * 0.24,
-                    ),
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ExplorationListSheet extends ConsumerWidget {
-  final Era era;
-  final List<Location> locations;
-  final int initialTabIndex;
-  final Map<String, KingdomMeta> kingdomMeta;
-  final ValueChanged<Location> onLocationSelected;
-
-  const _ExplorationListSheet({
-    required this.era,
-    required this.locations,
-    required this.initialTabIndex,
-    required this.kingdomMeta,
-    required this.onLocationSelected,
-  });
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final charactersAsync = ref.watch(characterListByEraProvider(era.id));
-
-    return DefaultTabController(
-      length: 2,
-      initialIndex: initialTabIndex,
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.8,
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Color(0xFF1E1E2C),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-          ),
-          child: Column(
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  margin: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[600],
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                ),
-              ),
-              TabBar(
-                labelColor: era.theme.accentColor,
-                indicatorColor: era.theme.accentColor,
-                tabs: [
-                  Tab(text: AppLocalizations.of(context)!.exploration_list_locations),
-                  Tab(text: AppLocalizations.of(context)!.exploration_list_characters),
-                ],
-              ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    ListView.builder(
-                      itemCount: locations.length,
-                      itemBuilder: (context, index) {
-                        final location = locations[index];
-                        final isLocked = !location.isAccessible;
-                        final statusColor = location.isCompleted
-                            ? Colors.green
-                            : isLocked
-                                ? Colors.grey
-                                : Colors.amber;
-                        final kingdom = location.kingdom;
-                        final meta = kingdom != null ? kingdomMeta[kingdom] : null;
-
-                        return ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: statusColor.withValues(alpha: 0.2),
-                            child: Icon(
-                              isLocked ? Icons.lock : Icons.place,
-                              color: statusColor,
-                            ),
-                          ),
-                          title: Text(
-                            location.nameKorean,
-                            style: TextStyle(
-                              color: isLocked ? Colors.grey : Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          subtitle: Row(
-                            children: [
-                              if (meta != null)
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 2,
-                                  ),
-                                  margin: const EdgeInsets.only(right: 8),
-                                  decoration: BoxDecoration(
-                                    color: meta.color.withValues(alpha: 0.2),
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                      color: meta.color.withValues(alpha: 0.6),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    meta.label,
-                                    style: TextStyle(
-                                      color: meta.color,
-                                      fontSize: 11,
-                                    ),
-                                  ),
-                                ),
-                              Expanded(
-                                child: Text(
-                                  location.description,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    color: Colors.white60,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          trailing: Icon(
-                            location.isCompleted
-                                ? Icons.check_circle
-                                : isLocked
-                                    ? Icons.lock_outline
-                                    : Icons.arrow_forward_ios,
-                            color: statusColor,
-                            size: 18,
-                          ),
-                          onTap: () {
-                            if (isLocked) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    AppLocalizations.of(context)!
-                                        .exploration_location_locked,
-                                  ),
-                                ),
-                              );
-                              return;
-                            }
-                            onLocationSelected(location);
-                          },
-                        );
-                      },
-                    ),
-                    charactersAsync.when(
-                      loading: () => const Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                      error: (err, stack) => Center(child: Text('Error: $err')),
-                      data: (characters) {
-                        if (characters.isEmpty) {
-                          return Center(
-                            child: Text(
-                              AppLocalizations.of(context)!
-                                  .exploration_no_characters,
-                              style: const TextStyle(color: Colors.grey),
-                            ),
-                          );
-                        }
-                        return ListView.builder(
-                          padding: const EdgeInsets.all(16),
-                          itemCount: characters.length,
-                          itemBuilder: (context, index) {
-                            final char = characters[index];
-                            return _CharacterCard(
-                              character: char,
-                              theme: era.theme,
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _LocationDetailSheet extends ConsumerWidget {
-  final Location location;
-  final EraTheme theme;
-
-  const _LocationDetailSheet({required this.location, required this.theme});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // In a real app, you might want to fetch additional details here,
-    // but the location object usually has what we need or we fetch characters.
-    final charactersAsync = ref.watch(
-      characterListByLocationProvider(location.id),
-    );
-
-    return DraggableScrollableSheet(
-      initialChildSize: 0.5,
-      minChildSize: 0.3,
-      maxChildSize: 0.8,
-      builder: (context, scrollController) {
-        return Container(
-          decoration: const BoxDecoration(
-            color: Color(0xFF1E1E2C),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-          ),
-          child: Column(
-            children: [
-              // Handle
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  margin: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[600],
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                ),
-              ),
-
-              // Header
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 8,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            location.nameKorean,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            location.description,
-                            style: const TextStyle(
-                              color: Colors.white70,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    // Large visual for location?
-                    Container(
-                      width: 60,
-                      height: 60,
-                      color: Colors.white10, // Placeholder
-                      child: Icon(
-                        Icons.travel_explore,
-                        color: theme.primaryColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const Divider(color: Colors.white10),
-
-              // Characters Section
-              Expanded(
-                child: charactersAsync.when(
-                  loading: () =>
-                      const Center(child: CircularProgressIndicator()),
-                  error: (err, stack) => Center(child: Text('Error: $err')),
-                  data: (characters) {
-                    if (characters.isEmpty) {
-                      return Center(
-                        child: Text(
-                          AppLocalizations.of(context)!.exploration_no_characters,
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                      );
-                    }
-                    return ListView.builder(
-                      controller: scrollController,
-                      padding: const EdgeInsets.all(16),
-                      itemCount: characters.length,
-                      itemBuilder: (context, index) {
-                        final char = characters[index];
-                        return _CharacterCard(character: char, theme: theme);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _CharacterCard extends ConsumerWidget {
-  final Character character;
-  final EraTheme theme;
-
-  const _CharacterCard({required this.character, required this.theme});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final isLocked = !character.isAccessible;
-
-    return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: isLocked
-              ? Colors.transparent
-              : theme.primaryColor.withValues(alpha: 0.3),
-        ),
-      ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(12),
-        leading: CircleAvatar(
-          radius: 28,
-          backgroundColor: isLocked ? Colors.grey[700] : theme.primaryColor,
-          backgroundImage: 
-              isLocked ? null : AssetImage(character.portraitAsset),
-          child: isLocked
-              ? const Icon(Icons.lock, color: Colors.white30)
-              : null, // Don't show text if image is loaded
-        ),
-        title: Text(
-          isLocked ? AppLocalizations.of(context)!.common_unknown_character : character.nameKorean,
-          style: TextStyle(
-            color: isLocked ? Colors.grey : Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-        ),
-        subtitle: Text(
-          isLocked ? AppLocalizations.of(context)!.common_locked_status : character.title,
-          style: TextStyle(
-            color: isLocked ? Colors.grey[700] : theme.accentColor,
-            fontSize: 12,
-          ),
-        ),
-        trailing: isLocked
-            ? null
-            : ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.primaryColor,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
-                ),
-                onPressed: () {
-                  // Navigate to Dialogue Screen
-                  _openDialogue(context, ref);
-                },
-                child: Text(AppLocalizations.of(context)!.common_talk),
-              ),
-      ),
-    );
-  }
-
-  Future<void> _openDialogue(BuildContext context, WidgetRef ref) async {
-    final messenger = ScaffoldMessenger.of(context);
-    try {
-      final dialogues =
-          await ref.read(dialogueListByCharacterProvider(character.id).future);
-      if (!context.mounted) return;
-      if (dialogues.isNotEmpty) {
-        AppRouter.goToDialogue(context, character.eraId, dialogues.first.id);
-        return;
-      }
-    } catch (_) {
-      if (!context.mounted) return;
-    }
-
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.exploration_no_dialogue),
-      ),
-    );
-  }
-}

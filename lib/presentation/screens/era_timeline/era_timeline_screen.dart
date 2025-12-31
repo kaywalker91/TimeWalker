@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/era.dart';
+import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/presentation/widgets/common/widgets.dart';
 
-import '../../../domain/entities/user_progress.dart';
-
-class EraTimelineScreen extends ConsumerWidget {
+/// 시대 타임라인 화면
+/// 
+/// "시간의 문" 컨셉 - 시대별 테마 색상이 적용된 카드 UI
+class EraTimelineScreen extends ConsumerStatefulWidget {
   final String regionId;
   final String countryId;
 
@@ -19,113 +22,169 @@ class EraTimelineScreen extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final countryAsync = ref.watch(countryByIdProvider(countryId));
-    final erasAsync = ref.watch(eraListByCountryProvider(countryId));
+  ConsumerState<EraTimelineScreen> createState() => _EraTimelineScreenState();
+}
 
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.era_timeline_title),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => AppRouter.goToRegion(context, regionId),
+class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('[EraTimelineScreen] initState - regionId=${widget.regionId}, countryId=${widget.countryId}');
+  }
+
+  @override
+  void dispose() {
+    debugPrint('[EraTimelineScreen] dispose - regionId=${widget.regionId}, countryId=${widget.countryId}');
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final countryAsync = ref.watch(countryByIdProvider(widget.countryId));
+    final erasAsync = ref.watch(eraListByCountryProvider(widget.countryId));
+
+    return PopScope(
+      canPop: context.canPop(),
+      onPopInvoked: (didPop) {
+        if (didPop) return;
+        _handleBack(context);
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          title: Text(
+            AppLocalizations.of(context)!.era_timeline_title,
+            style: AppTextStyles.titleLarge.copyWith(
+              color: AppColors.textPrimary,
+              letterSpacing: 1.5,
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
+            onPressed: () => _handleBack(context),
+          ),
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: AppGradients.timePortal,
+          ),
+          child: Stack(
+            children: [
+              // 배경 입자 효과
+              const Positioned.fill(
+                child: FloatingParticles(
+                  particleCount: 20,
+                  particleColor: AppColors.starlight,
+                  maxSize: 2,
+                ),
+              ),
+              
+              SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Header (Country Info) with animation
+                    countryAsync.when(
+                      data: (country) {
+                        if (country == null) return const SizedBox.shrink();
+                        return FadeInWidget(
+                          delay: const Duration(milliseconds: 200),
+                          slideOffset: const Offset(0, -0.5),
+                          child: _buildHeader(country.nameKorean, country.description),
+                        );
+                      },
+                      loading: () => const SizedBox(height: 100),
+                      error: (err, stack) => const SizedBox(height: 100),
+                    ),
+
+                    const Spacer(),
+
+                    // Era List
+                    SizedBox(
+                      height: 450,
+                      child: erasAsync.when(
+                        loading: () => _buildLoadingState(),
+                        error: (err, stack) => _buildErrorState('Error: $err'),
+                        data: (eras) => _buildEraList(context, eras),
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      body: Stack(
+    );
+  }
+
+  void _handleBack(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+      return;
+    }
+
+    if (widget.regionId.isNotEmpty) {
+      context.goNamed(
+        'regionDetail',
+        pathParameters: {'regionId': widget.regionId},
+      );
+      return;
+    }
+
+    context.go(AppRouter.worldMap);
+  }
+  
+  Widget _buildHeader(String title, String description) {
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Background - Consumed from Country Data
-          countryAsync.when(
-            data: (country) => Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFF1E1E2C),
-                // image: DecorationImage(
-                //   image: AssetImage(country?.backgroundAsset ?? ''),
-                //   fit: BoxFit.cover,
-                //   colorFilter: ColorFilter.mode(Colors.black54, BlendMode.darken),
-                // ),
-              ),
+          Text(
+            title,
+            style: AppTextStyles.displaySmall.copyWith(
+              color: AppColors.textPrimary,
+              shadows: AppShadows.textMd,
             ),
-            loading: () => Container(color: const Color(0xFF1E1E2C)),
-            error: (err, stack) => Container(color: Colors.red),
           ),
-
-          SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Header (Country Info)
-                countryAsync.when(
-                  data: (country) {
-                    if (country == null) return const SizedBox.shrink();
-                    return Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            country.nameKorean,
-                            style: const TextStyle(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              shadows: [
-                                Shadow(
-                                  blurRadius: 10,
-                                  color: Colors.black,
-                                  offset: Offset(2, 2),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Text(
-                            country.description,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.white70,
-                              shadows: [
-                                Shadow(
-                                  blurRadius: 5,
-                                  color: Colors.black,
-                                  offset: Offset(1, 1),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  loading: () => const SizedBox(height: 100),
-                  error: (err, stack) => const SizedBox(height: 100),
-                ),
-
-                const Spacer(),
-
-                // Era List
-                SizedBox(
-                  height: 450,
-                  child: erasAsync.when(
-                    loading: () =>
-                        const Center(child: CircularProgressIndicator()),
-                    error: (err, stack) => Center(child: Text('Error: $err')),
-                    data: (eras) => _buildEraList(context, ref, eras),
-                  ),
-                ),
-                const SizedBox(height: 48),
-              ],
+          const SizedBox(height: 8),
+          Text(
+            description,
+            style: AppTextStyles.bodyMedium.copyWith(
+              color: AppColors.textSecondary,
+              shadows: AppShadows.textSm,
             ),
           ),
         ],
       ),
     );
   }
+  
+  Widget _buildLoadingState() {
+    return const CommonLoadingState.simple();
+  }
+  
+  Widget _buildErrorState(String message) {
+    return CommonErrorState(
+      message: message,
+      showRetryButton: false,
+    );
+  }
 
-  Widget _buildEraList(BuildContext context, WidgetRef ref, List<Era> eras) {
+  Widget _buildEraList(BuildContext context, List<Era> eras) {
     if (eras.isEmpty) {
-      return Center(child: Text(AppLocalizations.of(context)!.era_timeline_no_eras));
+      return Center(
+        child: Text(
+          AppLocalizations.of(context)!.era_timeline_no_eras,
+          style: AppTextStyles.bodyLarge.copyWith(
+            color: AppColors.textSecondary,
+          ),
+        ),
+      );
     }
 
     // Watch user progress
@@ -137,152 +196,12 @@ class EraTimelineScreen extends ConsumerWidget {
       scrollDirection: Axis.horizontal,
       itemCount: eras.length,
       itemBuilder: (context, index) {
-        return _buildEraCard(context, eras[index], userProgress, eras);
+        return TimelineEraCard(
+          era: eras[index],
+          userProgress: userProgress,
+          allEras: eras,
+        );
       },
-    );
-  }
-
-  Widget _buildEraCard(
-    BuildContext context,
-    Era era,
-    UserProgress? userProgress,
-    List<Era> allEras,
-  ) {
-    // Check both the static status AND the dynamic user progress
-    final isUnlocked =
-        era.isAccessible ||
-        (userProgress?.unlockedEraIds.contains(era.id) ?? false);
-    final isLocked = !isUnlocked;
-
-    return Container(
-      width: 280,
-      margin: const EdgeInsets.only(right: 24),
-      decoration: BoxDecoration(
-        color: isLocked
-            ? Colors.grey[900]
-            : Colors.white.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: isLocked ? Colors.grey[700]! : era.theme.primaryColor,
-          width: 2,
-        ),
-        boxShadow: isLocked
-            ? []
-            : [
-                BoxShadow(
-                  color: era.theme.primaryColor.withValues(alpha: 0.3),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            if (isLocked) {
-              String msg = AppLocalizations.of(context)!.era_timeline_locked_msg;
-              final condition = era.unlockCondition;
-              if (condition.previousEraId != null) {
-                final prev = allEras.where((e) => e.id == condition.previousEraId).firstOrNull;
-                if (prev != null) {
-                   final pct = (condition.requiredProgress * 100).toInt();
-                   // MVP: Hardcoded Korean message for clarity, or reuse l10n if flexible
-                   msg = '${prev.nameKorean} 진행도 $pct% 달성 시 해금';
-                }
-              }
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(msg)),
-              );
-            } else {
-              AppRouter.goToEraExploration(context, era.id);
-            }
-          },
-          borderRadius: BorderRadius.circular(24),
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Era Title
-                Text(
-                  era.nameKorean,
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: isLocked ? Colors.grey : Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  era.period,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: isLocked ? Colors.grey[600] : Colors.amber,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const Spacer(),
-
-                // Description
-                Text(
-                  era.description,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: isLocked ? Colors.grey[600] : Colors.white70,
-                    height: 1.5,
-                  ),
-                ),
-                const Spacer(),
-
-                // Action Button
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isLocked
-                          ? Colors.grey[800]
-                          : era.theme.primaryColor,
-                      foregroundColor: isLocked ? Colors.grey : Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    onPressed: isLocked
-                        ? () {
-                             // Same logic as InkWell
-                              String msg = AppLocalizations.of(context)!.era_timeline_locked_msg;
-                              final condition = era.unlockCondition;
-                              if (condition.previousEraId != null) {
-                                final prev = allEras.where((e) => e.id == condition.previousEraId).firstOrNull;
-                                if (prev != null) {
-                                   final pct = (condition.requiredProgress * 100).toInt();
-                                   msg = '${prev.nameKorean} 진행도 $pct% 달성 시 해금';
-                                }
-                              }
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text(msg)),
-                              );
-                          }
-                        : () {
-                            AppRouter.goToEraExploration(context, era.id);
-                          },
-                    child: Text(
-                      isLocked
-                          ? AppLocalizations.of(context)!.common_locked
-                          : AppLocalizations.of(context)!.common_explore,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
