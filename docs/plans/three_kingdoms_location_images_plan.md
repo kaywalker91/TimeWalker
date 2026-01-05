@@ -26,7 +26,7 @@
 ### 🔴 고구려 (Goguryeo) - 3곳
 
 #### 1. 국내성 (goguryeo_palace)
-**현재 상태**: ⚠️ 생성 필요
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 고구려의 두 번째 수도 (서기 3년 ~ 427년, 약 425년간)
@@ -46,7 +46,7 @@ Wide landscape of Gungnae-seong (Goguryeo capital city, 4th century AD), massive
 ---
 
 #### 2. 살수 (salsu) - 청천강
-**현재 상태**: ⚠️ Placeholder (필수 생성)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 살수대첩(612년) 현장 - 을지문덕 장군이 수나라 30만 대군 격파
@@ -65,7 +65,7 @@ Epic wide landscape of Salsu River (Cheongcheon River, Goguryeo era 612 AD) duri
 ---
 
 #### 3. 평양성 (pyongyang_fortress)
-**현재 상태**: ⚠️ Placeholder (필수 생성)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 427년 장수왕이 천도한 고구려 후기 수도
@@ -86,7 +86,7 @@ Majestic wide landscape of Pyongyang Fortress (Goguryeo late capital, 5th-7th ce
 ### 🟡 백제 (Baekje) - 3곳
 
 #### 4. 위례성 (wiryeseong) - 한성백제
-**현재 상태**: ✅ 확인 필요
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 백제의 첫 수도 (기원전 18년 ~ 475년, 약 500년간)
@@ -106,7 +106,7 @@ Wide landscape of Wirye-seong (Baekje's first capital, 3rd-5th century AD), a ma
 ---
 
 #### 5. 황산벌 (hwangsanbeol)
-**현재 상태**: ⚠️ Placeholder (필수 생성)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 계백 장군과 5천 결사대가 신라 5만 군과 싸운 최후의 결전지 (660년)
@@ -125,7 +125,7 @@ Dramatic wide landscape of Hwangsanbeol Battlefield (Baekje, 660 AD), a vast ope
 ---
 
 #### 6. 사비성 (sabi) - 부여
-**현재 상태**: ⚠️ Placeholder (필수 생성)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 백제의 마지막 수도 (538년 ~ 660년, 약 120년)
@@ -147,7 +147,7 @@ Elegant wide landscape of Sabi Capital (Baekje's last capital in Buyeo, 6th-7th 
 ### 🔵 신라 (Silla) - 2곳
 
 #### 7. 월성/경주궁 (gyeongju_palace)
-**현재 상태**: ⚠️ Placeholder (필수 생성)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 천년 신라의 심장부, 반월성이라고도 불림
@@ -166,7 +166,7 @@ Magnificent wide landscape of Wolseong Palace (Silla Kingdom capital in Gyeongju
 ---
 
 #### 8. 첨성대 (cheomseongdae)
-**현재 상태**: ⚠️ Placeholder (필수 생성)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 동양 최고(最古)의 천문대 (선덕여왕 632~647년)
@@ -188,7 +188,7 @@ Mystical wide landscape of Cheomseongdae Observatory (Silla Kingdom, 7th century
 ### 🟢 가야 (Gaya) - 3곳
 
 #### 9. 구지봉 (gujibong)
-**현재 상태**: ✅ 있음 (품질 확인 필요)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 수로왕 탄생 전설의 성지
@@ -207,7 +207,7 @@ Mystical wide landscape of Guji Peak (Gaya Kingdom founding site, 1st century AD
 ---
 
 #### 10. 김해 금관가야 왕궁 (gimhae_palace)
-**현재 상태**: ✅ 있음 (품질 확인 필요)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 금관가야의 중심부 (김해)
@@ -226,7 +226,7 @@ Wide landscape of Geumgwan Gaya Palace (Gimhae, 1st-6th century AD), the iron ki
 ---
 
 #### 11. 고령 대가야 왕궁 (goryeong_palace)
-**현재 상태**: ✅ 있음 (품질 확인 필요)
+**현재 상태**: ✅ 생성 완료 (2025-12-31)
 
 **역사적 배경**:
 - 대가야의 수도 (고령)
@@ -299,9 +299,9 @@ Serene wide landscape of Daegaya Palace (Goryeong, 5th-6th century AD), the cult
 ## ✅ 다음 단계
 
 1. ✅ 이미지 생성 프롬프트 작성 완료
-2. ⏳ 최우선 6개 이미지 생성 진행
-3. ⏳ 기존 이미지 품질 확인
-4. ⏳ 필요시 추가 이미지 생성
+2. ✅ 최우선 6개 이미지 생성 완료 (2025-12-31)
+3. ✅ 국내성(고구려 궁궐) 이미지 생성 완료 (2025-12-31)
+4. ✅ 기존 이미지 품질 확인 완료 (위례성, 구지봉, 김해왕궁, 고령왕궁 - 양호)
 5. ⏳ 앱에 이미지 적용 및 테스트
 
 ---

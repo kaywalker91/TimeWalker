@@ -16,6 +16,8 @@ import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/widgets/tutorial_overlay.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_widgets.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/kingdom_label.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/kingdom_location_sheet.dart';
 
 class EraExplorationScreen extends ConsumerStatefulWidget {
   final String eraId;
@@ -272,25 +274,29 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
                               ),
                             ),
 
-                          Positioned.fill(
-                            child: AnimatedBuilder(
-                              animation: _transformationController,
-                              builder: (context, _) {
-                                final scale = _transformationController.value
-                                    .getMaxScaleOnAxis();
-                                final markerLayer = _buildMarkerLayer(
-                                  context,
-                                  ref,
-                                  era,
-                                  locations,
-                                  mapSize,
-                                  markerSize,
-                                  scale,
-                                );
-                                return markerLayer;
-                              },
+                          // 삼국시대: 왕국 라벨 방식 / 다른 시대: 마커 방식
+                          if (isThreeKingdoms)
+                            _buildKingdomLabelsLayer(context, mapSize)
+                          else
+                            Positioned.fill(
+                              child: AnimatedBuilder(
+                                animation: _transformationController,
+                                builder: (context, _) {
+                                  final scale = _transformationController.value
+                                      .getMaxScaleOnAxis();
+                                  final markerLayer = _buildMarkerLayer(
+                                    context,
+                                    ref,
+                                    era,
+                                    locations,
+                                    mapSize,
+                                    markerSize,
+                                    scale,
+                                  );
+                                  return markerLayer;
+                                },
+                              ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -316,6 +322,42 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen> {
           },
         );
       },
+    );
+  }
+
+  /// 삼국시대 왕국 라벨 레이어 빌드
+  Widget _buildKingdomLabelsLayer(BuildContext context, Size mapSize) {
+    return Stack(
+      children: ThreeKingdomsData.kingdoms.map((kingdom) {
+        final left = kingdom.position.dx * mapSize.width - 50;
+        final top = kingdom.position.dy * mapSize.height - 30;
+        
+        return Positioned(
+          left: left,
+          top: top,
+          child: KingdomLabel(
+            kingdom: kingdom,
+            onTap: () => _showKingdomLocationSheet(context, kingdom),
+          ),
+        );
+      }).toList(),
+    );
+  }
+
+  /// 왕국 장소 바텀시트 표시
+  void _showKingdomLocationSheet(BuildContext context, KingdomInfo kingdom) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) => KingdomLocationSheet(
+        kingdom: kingdom,
+        eraId: widget.eraId,
+        onLocationSelected: (location) {
+          // 장소 탐험 화면으로 이동
+          context.push('/era/${widget.eraId}/location/${location.id}');
+        },
+      ),
     );
   }
 

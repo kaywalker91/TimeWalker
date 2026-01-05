@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/presentation/providers/settings_provider.dart';
+import 'package:time_walker/presentation/screens/settings/widgets/settings_tiles.dart';
 
 /// 설정 화면
 /// - 사운드/음악 설정
@@ -16,7 +17,7 @@ class SettingsScreen extends ConsumerWidget {
     final settings = ref.watch(settingsProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A2E),
+      backgroundColor: SettingsColors.background,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -38,9 +39,8 @@ class SettingsScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(20),
         children: [
           // 사운드 섹션
-          _buildSectionHeader(context, 'SOUND'),
-          _buildSwitchTile(
-            context,
+          const SettingsSectionHeader(title: 'SOUND'),
+          SettingsSwitchTile(
             icon: Icons.volume_up,
             title: 'Sound Effects',
             value: settings.soundEnabled,
@@ -48,8 +48,7 @@ class SettingsScreen extends ConsumerWidget {
               ref.read(settingsProvider.notifier).updateSound(value);
             },
           ),
-          _buildSliderTile(
-            context,
+          SettingsSliderTile(
             icon: Icons.volume_down,
             title: 'Sound Volume',
             value: settings.soundVolume,
@@ -58,8 +57,7 @@ class SettingsScreen extends ConsumerWidget {
               ref.read(settingsProvider.notifier).updateSoundVolume(value);
             },
           ),
-          _buildSwitchTile(
-            context,
+          SettingsSwitchTile(
             icon: Icons.music_note,
             title: 'Background Music',
             value: settings.musicEnabled,
@@ -67,8 +65,7 @@ class SettingsScreen extends ConsumerWidget {
               ref.read(settingsProvider.notifier).updateMusic(value);
             },
           ),
-          _buildSliderTile(
-            context,
+          SettingsSliderTile(
             icon: Icons.music_off,
             title: 'Music Volume',
             value: settings.musicVolume,
@@ -80,9 +77,8 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 피드백 섹션
-          _buildSectionHeader(context, 'FEEDBACK'),
-          _buildSwitchTile(
-            context,
+          const SettingsSectionHeader(title: 'FEEDBACK'),
+          SettingsSwitchTile(
             icon: Icons.vibration,
             title: 'Vibration',
             value: settings.vibrationEnabled,
@@ -93,9 +89,8 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 접근성 섹션
-          _buildSectionHeader(context, 'ACCESSIBILITY'),
-          _buildSwitchTile(
-            context,
+          const SettingsSectionHeader(title: 'ACCESSIBILITY'),
+          SettingsSwitchTile(
             icon: Icons.remove_red_eye,
             title: 'Color Blind Mode',
             subtitle: 'Enhance visual distinction',
@@ -108,8 +103,7 @@ class SettingsScreen extends ConsumerWidget {
                   );
             },
           ),
-          _buildSwitchTile(
-            context,
+          SettingsSwitchTile(
             icon: Icons.contrast,
             title: 'High Contrast',
             subtitle: 'Increase background contrast',
@@ -122,8 +116,7 @@ class SettingsScreen extends ConsumerWidget {
                   );
             },
           ),
-          _buildSwitchTile(
-            context,
+          SettingsSwitchTile(
             icon: Icons.subtitles,
             title: 'Subtitles',
             subtitle: 'Show sound effect text',
@@ -136,8 +129,7 @@ class SettingsScreen extends ConsumerWidget {
                   );
             },
           ),
-          _buildSwitchTile(
-            context,
+          SettingsSwitchTile(
             icon: Icons.pan_tool,
             title: 'One-Handed Mode',
             subtitle: 'Rearrange controls',
@@ -153,132 +145,34 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 언어 섹션
-          _buildSectionHeader(context, 'LANGUAGE'),
+          const SettingsSectionHeader(title: 'LANGUAGE'),
           _buildLanguageTile(context, ref, settings.languageCode),
           const SizedBox(height: 30),
 
           // 기타 정보
-          _buildSectionHeader(context, 'ABOUT'),
-          _buildInfoTile(context, 'Version', '1.0.0'),
-          _buildActionTile(
-            context,
+          const SettingsSectionHeader(title: 'ABOUT'),
+          const SettingsInfoTile(label: 'Version', value: '1.0.0'),
+          SettingsActionTile(
             icon: Icons.policy,
             title: 'Privacy Policy',
             onTap: () {
               // TODO: 개인정보처리방침 열기
             },
           ),
-          _buildActionTile(
-            context,
+          SettingsActionTile(
             icon: Icons.description,
             title: 'Terms of Service',
             onTap: () {
               // TODO: 이용약관 열기
             },
           ),
-          _buildActionTile(
-            context,
+          SettingsActionTile(
             icon: Icons.delete_forever,
             title: 'Delete All Data',
             isDestructive: true,
             onTap: () {
               _showDeleteDataDialog(context, ref);
             },
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSectionHeader(BuildContext context, String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10, top: 5),
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: Color(0xFF00FFFF),
-          fontSize: 12,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSwitchTile(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    String? subtitle,
-    required bool value,
-    required ValueChanged<bool> onChanged,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: SwitchListTile(
-        secondary: Icon(icon, color: Colors.white70),
-        title: Text(title, style: const TextStyle(color: Colors.white)),
-        subtitle: subtitle != null
-            ? Text(
-                subtitle,
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
-              )
-            : null,
-        value: value,
-        onChanged: onChanged,
-        activeTrackColor: const Color(0xFF00FFFF),
-        trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
-        thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.selected)) {
-            return Colors.white;
-          }
-          return Colors.white70;
-        }),
-      ),
-    );
-  }
-
-  Widget _buildSliderTile(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required double value,
-    required bool enabled,
-    required ValueChanged<double> onChanged,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          Icon(icon, color: enabled ? Colors.white70 : Colors.white30),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: enabled ? Colors.white : Colors.white30,
-                  ),
-                ),
-                Slider(
-                  value: value,
-                  onChanged: enabled ? onChanged : null,
-                  activeColor: const Color(0xFF00FFFF),
-                  inactiveColor: Colors.white24,
-                ),
-              ],
-            ),
           ),
         ],
       ),
@@ -303,7 +197,7 @@ class SettingsScreen extends ConsumerWidget {
         title: const Text('Language', style: TextStyle(color: Colors.white)),
         trailing: DropdownButton<String>(
           value: currentLanguage,
-          dropdownColor: const Color(0xFF16213E),
+          dropdownColor: SettingsColors.surface,
           underline: const SizedBox(),
           icon: const Icon(Icons.arrow_drop_down, color: Colors.white70),
           items: languages.entries
@@ -327,59 +221,11 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildInfoTile(BuildContext context, String label, String value) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(label, style: const TextStyle(color: Colors.white)),
-          Text(value, style: const TextStyle(color: Colors.white54)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildActionTile(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-    bool isDestructive = false,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: ListTile(
-        leading: Icon(icon, color: isDestructive ? Colors.red : Colors.white70),
-        title: Text(
-          title,
-          style: TextStyle(color: isDestructive ? Colors.red : Colors.white),
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: isDestructive
-              ? Colors.red.withValues(alpha: 0.5)
-              : Colors.white30,
-        ),
-        onTap: onTap,
-      ),
-    );
-  }
-
   void _showDeleteDataDialog(BuildContext context, WidgetRef ref) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF16213E),
+        backgroundColor: SettingsColors.surface,
         title: const Text(
           'Delete All Data?',
           style: TextStyle(color: Colors.white),
@@ -397,9 +243,9 @@ class SettingsScreen extends ConsumerWidget {
             onPressed: () {
               // TODO: 데이터 삭제 로직
               Navigator.pop(context);
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(const SnackBar(content: Text('All data deleted')));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('All data deleted')),
+              );
             },
             child: const Text('Delete', style: TextStyle(color: Colors.red)),
           ),

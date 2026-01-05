@@ -45,7 +45,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
 
     return PopScope(
       canPop: context.canPop(),
-      onPopInvoked: (didPop) {
+      onPopInvokedWithResult: (didPop, result) {
         if (didPop) return;
         _handleBack(context);
       },

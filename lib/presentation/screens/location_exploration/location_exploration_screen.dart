@@ -149,7 +149,7 @@ class _LocationExplorationScreenState
         // 캐릭터 스프라이트들 (등장 애니메이션 포함)
         charactersAsync.when(
           loading: () => const SizedBox.shrink(),
-          error: (_, __) => const SizedBox.shrink(),
+          error: (_, _) => const SizedBox.shrink(),
           data: (characters) => _buildCharacterSprites(context, characters),
         ),
 
