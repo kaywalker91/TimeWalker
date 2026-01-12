@@ -3,15 +3,21 @@ import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/domain/services/country_unlock_rules.dart';
+import 'package:time_walker/data/datasources/static/country_data.dart';
 import 'package:time_walker/data/datasources/static/era_data.dart';
+import 'package:time_walker/data/datasources/static/region_data.dart';
 
 
 /// 해금 이벤트 유형
 enum UnlockType {
   era,
+  country,
   region,
   rank,
   feature,
+  encyclopedia, // 역사 도감 항목
+  character, // 인물 해금
 }
 
 /// 해금 이벤트 데이터
@@ -38,7 +44,7 @@ class ProgressionService {
   static const Map<ExplorerRank, List<String>> rankUnlocks = {
     ExplorerRank.apprentice: ['region_europe', 'feature_hint'],
     ExplorerRank.intermediate: ['region_africa', 'feature_quiz'],
-    ExplorerRank.advanced: ['region_america', 'feature_timeline'],
+    ExplorerRank.advanced: ['region_americas', 'feature_timeline'],
     ExplorerRank.expert: ['region_middle_east', 'feature_whatif'],
     ExplorerRank.master: ['era_hidden', 'title_master'],
   };
@@ -67,54 +73,57 @@ class ProgressionService {
 
     // 2. 등급 승급 확인 (Rank Promotion)
     final newRank = _calculateRank(currentProgress.totalKnowledge);
-    if (newRank != currentProgress.rank) {
-      // 등급 상승
-      if (newRank.index > currentProgress.rank.index) {
-        events.add(UnlockEvent(
-          type: UnlockType.rank,
-          id: newRank.name,
-          name: newRank.displayName,
-          message: '축하합니다! ${newRank.displayName} 등급으로 승급했습니다!',
-        ));
-        
-        // 등급별 해금 항목 확인
-        final unlocks = rankUnlocks[newRank] ?? [];
-        for (final unlockId in unlocks) {
-          // 지역 해금
-          if (unlockId.startsWith('region_')) {
-            final regionId = unlockId.replaceFirst('region_', '');
-            events.add(UnlockEvent(
-              type: UnlockType.region,
-              id: regionId,
-              name: _getRegionName(regionId),
-              message: '${_getRegionName(regionId)} 지역이 해금되었습니다!',
-            ));
-          }
-          // 기능 해금
-          else if (unlockId.startsWith('feature_')) {
-            final featureName = unlockId.replaceFirst('feature_', '');
-            events.add(UnlockEvent(
-              type: UnlockType.feature,
-              id: unlockId,
-              name: _getFeatureName(featureName),
-              message: '${_getFeatureName(featureName)} 기능이 해금되었습니다!',
-            ));
-          }
-          // 기타 해금
-          else {
-            events.add(UnlockEvent(
-              type: UnlockType.feature,
-              id: unlockId,
-              name: unlockId,
-              message: '새로운 콘텐츠가 해금되었습니다!',
-            ));
-          }
+    if (newRank != currentProgress.rank && newRank.index > currentProgress.rank.index) {
+      events.add(UnlockEvent(
+        type: UnlockType.rank,
+        id: newRank.name,
+        name: newRank.displayName,
+        message: '축하합니다! ${newRank.displayName} 등급으로 승급했습니다!',
+      ));
+      
+      // 등급별 해금 항목 확인
+      final unlocks = rankUnlocks[newRank] ?? [];
+      for (final unlockId in unlocks) {
+        // 지역 해금
+        if (unlockId.startsWith('region_')) {
+          final regionId = unlockId.replaceFirst('region_', '');
+          events.add(UnlockEvent(
+            type: UnlockType.region,
+            id: regionId,
+            name: _getRegionName(regionId),
+            message: '${_getRegionName(regionId)} 지역이 해금되었습니다!',
+          ));
+        }
+        // 기능 해금
+        else if (unlockId.startsWith('feature_')) {
+          final featureName = unlockId.replaceFirst('feature_', '');
+          events.add(UnlockEvent(
+            type: UnlockType.feature,
+            id: unlockId,
+            name: _getFeatureName(featureName),
+            message: '${_getFeatureName(featureName)} 기능이 해금되었습니다!',
+          ));
+        }
+        // 기타 해금
+        else {
+          events.add(UnlockEvent(
+            type: UnlockType.feature,
+            id: unlockId,
+            name: unlockId,
+            message: '새로운 콘텐츠가 해금되었습니다!',
+          ));
         }
       }
     }
 
-    // 3. 지역 해금 확인 (Region Unlocks) -> 추후 구현
-    
+    // 3. 국가 해금 확인 (Country Unlocks)
+    final progressForUnlocks = newRank.index > currentProgress.rank.index
+        ? currentProgress.copyWith(rank: newRank)
+        : currentProgress;
+    events.addAll(_checkCountryUnlocks(progressForUnlocks));
+
+    // 4. 지역 해금 확인 (Region Unlocks) -> 추후 구현
+
     return events;
   }
 
@@ -218,13 +227,45 @@ class ProgressionService {
     final average = eraProgresses.fold(0.0, (sum, p) => sum + p) / eraProgresses.length;
     return average.clamp(0.0, 1.0);
   }
+
+  List<UnlockEvent> _checkCountryUnlocks(UserProgress progress) {
+    final events = <UnlockEvent>[];
+    for (final country in CountryData.all) {
+      if (progress.unlockedCountryIds.contains(country.id)) {
+        continue;
+      }
+
+      final region = RegionData.getById(country.regionId);
+      if (region == null) {
+        continue;
+      }
+
+      if (CountryUnlockRules.canUnlock(
+        progress: progress,
+        country: country,
+        region: region,
+      )) {
+        events.add(UnlockEvent(
+          type: UnlockType.country,
+          id: country.id,
+          name: country.nameKorean,
+          message: '${country.nameKorean} 국가가 해금되었습니다!',
+        ));
+      }
+    }
+
+    return events;
+  }
   
   /// 지역 이름 가져오기 (헬퍼 메서드)
   String _getRegionName(String regionId) {
     const regionNames = {
       'europe': '유럽',
       'africa': '아프리카',
+      'americas': '아메리카',
       'america': '아메리카',
+      'north_america': '아메리카',
+      'south_america': '아메리카',
       'middle_east': '중동',
     };
     return regionNames[regionId] ?? regionId;

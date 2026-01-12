@@ -10,6 +10,12 @@ class MockDialogueRepository implements DialogueRepository {
   // Simple in-memory storage for progress (reset on restart)
   final Map<String, DialogueProgress> _progressMap = {};
   bool _isLoaded = false;
+  final AssetBundle? _assetBundle;
+  
+  MockDialogueRepository([this._assetBundle]);
+
+  AssetBundle get _bundle => _assetBundle ?? rootBundle;
+
   final DialogueYamlParser _yamlParser = DialogueYamlParser();
 
   Future<void> _ensureLoaded() async {
@@ -62,7 +68,7 @@ class MockDialogueRepository implements DialogueRepository {
   /// JSON 파일 로드
   Future<void> _loadJsonDialogues() async {
     try {
-      final jsonString = await rootBundle.loadString('assets/data/dialogues.json');
+      final jsonString = await _bundle.loadString('assets/data/dialogues.json');
       final List<dynamic> jsonList = jsonDecode(jsonString);
       _dialogues = jsonList.map((e) => Dialogue.fromJson(e)).toList();
     } catch (e) {

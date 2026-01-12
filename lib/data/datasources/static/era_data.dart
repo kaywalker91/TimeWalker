@@ -58,9 +58,53 @@ class EraThemes {
   static const EraTheme industrial = EraTheme(
     primaryColor: Color(0xFF37474F), // Charcoal
     secondaryColor: Color(0xFFFF5722), // Furnace Orange
-    accentColor: Color(0xFF78909C), // Steel Grey
+    accentColor: Color(0xFFCFD8DC),
+    backgroundColor: Color(0xFFF5F5F5),
+    textColor: Color(0xFF263238),
+  );
+
+  static const EraTheme contemporary1 = EraTheme(
+    primaryColor: Color(0xFF5D4037), // Deep Brown (전쟁, 흙)
+    secondaryColor: Color(0xFF33691E), // Military Green
+    accentColor: Color(0xFFD84315),
+    backgroundColor: Color(0xFFEFEBE9),
+    textColor: Color(0xFF3E2723),
+  );
+
+  static const EraTheme contemporary2 = EraTheme(
+    primaryColor: Color(0xFF455A64), // Industrial Grey
+    secondaryColor: Color(0xFFFF6F00), // Flame Orange
+    accentColor: Color(0xFFCFD8DC),
     backgroundColor: Color(0xFFECEFF1),
     textColor: Color(0xFF263238),
+  );
+
+  static const EraTheme contemporary3 = EraTheme( // 기존 contemporary theme 재사용 또는 수정
+    primaryColor: Color(0xFF3F51B5), // Indigo (IT, 미래지향)
+    secondaryColor: Color(0xFFE91E63), // Pink (K-Culture)
+    accentColor: Color(0xFF03A9F4), // Light Blue
+    backgroundColor: Color(0xFFFAFAFA),
+    textColor: Color(0xFF212121),
+  );
+
+
+
+  /// 대한민국 현대사 테마 (1945-2025)
+  static const EraTheme contemporary = EraTheme(
+    primaryColor: Color(0xFF37474F), // Steel Grey (산업화/발전)
+    secondaryColor: Color(0xFFE53935), // Korean Red (태극기)
+    accentColor: Color(0xFF00BCD4), // Cyan (IT/미래지향)
+    backgroundColor: Color(0xFFF5F5F5), // Light Grey
+    textColor: Color(0xFF212121),
+  );
+
+  /// 미래 한반도 테마 (2026-2100)
+  static const EraTheme future = EraTheme(
+    primaryColor: Color(0xFF6200EE), // Deep Purple (미래/혁신)
+    secondaryColor: Color(0xFF00E5FF), // Cyan Accent (첨단)
+    accentColor: Color(0xFFE040FB), // Purple Accent (사이버펑크)
+    backgroundColor: Color(0xFF121212), // Dark Mode
+    textColor: Color(0xFFE0E0E0),
   );
 }
 
@@ -87,7 +131,7 @@ class EraData {
     chapterIds: ['tk_ch1_rise', 'tk_ch2_gwanggaeto', 'tk_ch3_unification'],
     characterIds: ['gwanggaeto', 'geunchogo', 'kim_yushin', 'eulji_mundeok', 'seondeok'],
     locationIds: ['goguryeo_palace', 'wiryeseong', 'silla_capital', 'baekje_sabi'],
-    status: ContentStatus.available, // MVP 기본 해금
+    status: ContentStatus.locked,
     estimatedMinutes: 45,
     unlockCondition: UnlockCondition(), // 기본 해금
     mapBounds: MapBounds(
@@ -238,6 +282,280 @@ class EraData {
     ),
   );
 
+  /* Deprecated: 현대사 세분화로 인해 삭제 예정
+  static const Era koreaContemporary = Era(
+    id: 'korea_contemporary',
+    countryId: 'korea',
+    name: 'Contemporary Korea',
+    nameKorean: '대한민국 현대사',
+    period: '1945 - 2025',
+    startYear: 1945,
+    endYear: 2025,
+    description:
+        '광복 이후의 혼란과 전쟁, 그리고 한강의 기적을 이뤄낸 시기. '
+        '민주화와 경제 성장을 동시에 달성하고 세계적인 문화 강국으로 도약하다.',
+    thumbnailAsset: 'assets/images/eras/contemporary.png',
+    backgroundAsset: 'assets/images/locations/contemporary_bg.png',
+    bgmAsset: 'assets/audio/bgm/contemporary.mp3',
+    theme: EraThemes.contemporary,
+    chapterIds: ['cont_ch1_rebuild', 'cont_ch2_miracle', 'cont_ch3_global'],
+    characterIds: [
+      'kim_gu', 'sohn_kee_chung', 'student_soldier', // 초기
+      'chung_juyoung', 'german_worker', 'democracy_activist', // 중기
+      'it_pioneer' // 후기
+    ],
+    locationIds: [
+      'seoul_olympic_stadium',
+      'incheon_airport',
+      'gangnam_teheran',
+      'ddp_dongdaemun'
+    ],
+    status: ContentStatus.locked,
+    estimatedMinutes: 60,
+    unlockCondition: UnlockCondition(
+      previousEraId: 'korea_modern',
+      requiredProgress: 0.3,
+    ),
+    mapBounds: MapBounds(
+      minLatitude: 33.0,
+      maxLatitude: 39.0,
+      minLongitude: 125.0,
+      maxLongitude: 130.0,
+    ),
+  );
+  */
+
+  // Era 1: 격동의 태동기 (1945-1959)
+  static const Era koreaContemporary1 = Era(
+    id: 'korea_contemporary_1',
+    countryId: 'korea',
+    name: 'The Turbulent Dawn',
+    nameKorean: '격동의 태동기',
+    period: '1945 - 1959',
+    startYear: 1945,
+    endYear: 1959,
+    description:
+        '광복의 기쁨도 잠시, 분단과 전쟁의 아픔을 겪은 시기. '
+        '폐허 속에서도 희망을 잃지 않고 생존을 위해 치열하게 살아간 사람들의 이야기.',
+    thumbnailAsset: 'assets/images/eras/contemporary_1.png',
+    backgroundAsset: 'assets/images/locations/contemporary_1_bg.png',
+    bgmAsset: 'assets/audio/bgm/war_memorial.mp3', // 임시
+    theme: EraThemes.contemporary1,
+    chapterIds: ['cont1_ch1_liberation', 'cont1_ch2_war', 'cont1_ch3_survival'],
+    characterIds: [
+      'kim_gu', // 광복 직후
+      'student_soldier', // 전쟁
+      'refugee_merchant' // (신규) 피난민 상인
+    ],
+    locationIds: [
+      'busan_provisional_capital', // (신규) 부산 임시수도
+      'gukje_market', // (신규) 국제시장
+    ],
+    status: ContentStatus.locked,
+    estimatedMinutes: 30,
+    unlockCondition: UnlockCondition(
+      previousEraId: 'korea_modern',
+      requiredProgress: 0.3,
+    ),
+    mapBounds: MapBounds(
+      minLatitude: 34.0,
+      maxLatitude: 39.0, // 휴전선 이남 위주
+      minLongitude: 125.0,
+      maxLongitude: 130.0,
+    ),
+  );
+
+  // Era 2: 한강의 기적 (1960-1987)
+  static const Era koreaContemporary2 = Era(
+    id: 'korea_contemporary_2',
+    countryId: 'korea',
+    name: 'Miracle on the Han River',
+    nameKorean: '한강의 기적',
+    period: '1960 - 1987',
+    startYear: 1960,
+    endYear: 1987,
+    description:
+        '가난을 벗어나기 위한 땀과 눈물, 그리고 민주화를 향한 뜨거운 외침. '
+        '경부고속도로를 달리는 트럭과 광장에서 울려 퍼지는 함성이 교차하는 시대.',
+    thumbnailAsset: 'assets/images/eras/contemporary_2.png',
+    backgroundAsset: 'assets/images/locations/contemporary_2_bg.png',
+    bgmAsset: 'assets/audio/bgm/industrial_city.mp3', // 임시
+    theme: EraThemes.contemporary2,
+    chapterIds: ['cont2_ch1_industry', 'cont2_ch2_sacrifice', 'cont2_ch3_democracy'],
+    characterIds: [
+      'sohn_kee_chung', // 이 시기 고문/코치 활동
+      'chung_juyoung',
+      'german_worker',
+      'sewing_worker', // (신규) 여공
+      'democracy_activist'
+    ],
+    locationIds: [
+      'ulsan_shipyard', // (이름 변경 필요할수도)
+      'seoul_expressway', 
+      'pyeonghwa_market' // (신규) 평화시장
+    ],
+    status: ContentStatus.locked,
+    estimatedMinutes: 45,
+    unlockCondition: UnlockCondition(
+      previousEraId: 'korea_contemporary_1',
+      requiredProgress: 0.3,
+    ),
+    mapBounds: MapBounds(
+      minLatitude: 33.0,
+      maxLatitude: 39.0,
+      minLongitude: 125.0,
+      maxLongitude: 130.0,
+    ),
+  );
+
+  // Era 3: 글로벌 대한민국 (1988-2025)
+  static const Era koreaContemporary3 = Era(
+    id: 'korea_contemporary_3',
+    countryId: 'korea',
+    name: 'Global Korea',
+    nameKorean: '글로벌 대한민국',
+    period: '1988 - 2025',
+    startYear: 1988,
+    endYear: 2025,
+    description:
+        '서울올림픽에서 K-Culture까지. IMF 위기를 극복하고 세계의 중심에 서다. '
+        '디지털 혁명과 문화의 힘으로 새로운 미래를 여는 대한민국.',
+    thumbnailAsset: 'assets/images/eras/contemporary_3.png',
+    backgroundAsset: 'assets/images/locations/contemporary_3_bg.png',
+    bgmAsset: 'assets/audio/bgm/contemporary.mp3',
+    theme: EraThemes.contemporary3,
+    chapterIds: ['cont3_ch1_globalstage', 'cont3_ch2_crisis', 'cont3_ch3_culture'],
+    characterIds: [
+      'imf_survivor', // (신규) IMF 기업가
+      'it_pioneer',
+      // K-Pop 관련 인물 추가 고려
+    ],
+    locationIds: [
+      'seoul_olympic_stadium',
+      'incheon_airport',
+      'gangnam_teheran',
+      'ddp_dongdaemun'
+    ],
+    status: ContentStatus.locked,
+    estimatedMinutes: 40,
+    unlockCondition: UnlockCondition(
+      previousEraId: 'korea_contemporary_2',
+      requiredProgress: 0.3,
+    ),
+    mapBounds: MapBounds(
+      minLatitude: 33.0,
+      maxLatitude: 39.0,
+      minLongitude: 125.0,
+      maxLongitude: 130.0,
+    ),
+  );
+
+  /// 대한민국 현대사 (1945-2025)
+  static const Era koreaContemporary = Era(
+    id: 'korea_contemporary',
+    countryId: 'korea',
+    name: 'Contemporary Korea',
+    nameKorean: '대한민국 현대사',
+    period: '1945 - 2025',
+    startYear: 1945,
+    endYear: 2025,
+    description:
+        '해방의 기쁨과 분단의 아픔, 전쟁의 폐허에서 일어나 '
+        '세계 10위권 경제대국과 IT 강국으로 도약한 대한민국 80년의 역사. '
+        '한강의 기적, 민주화 운동, K-문화의 세계화까지.',
+    thumbnailAsset: 'assets/images/eras/contemporary.png',
+    backgroundAsset: 'assets/images/locations/contemporary_bg.png',
+    bgmAsset: 'assets/audio/bgm/contemporary.mp3',
+    theme: EraThemes.contemporary,
+    chapterIds: [
+      'cont_ch1_liberation',   // 해방과 분단
+      'cont_ch2_war',          // 전쟁과 재건
+      'cont_ch3_miracle',      // 한강의 기적
+      'cont_ch4_democracy',    // 민주화의 함성
+      'cont_ch5_it',           // IT 강국
+    ],
+    characterIds: [
+      'kim_gu',              // 김구
+      'sohn_kee_chung',      // 손기정
+      'student_soldier',     // 학도병 (가상)
+      'chung_juyoung',       // 정주영
+      'german_worker',       // 파독 광부 (가상)
+      'democracy_activist',  // 민주화 활동가 (가상)
+      'it_pioneer',          // IT 혁신가 (가상)
+    ],
+    locationIds: [
+      'cheonggyecheon_1950',  // 청계천 판자촌
+      'ulsan_shipyard',       // 울산 조선소
+      'gwanghwamun_1987',     // 광화문 광장 1987
+      'gangnam_teheran',      // 테헤란로
+      'ddp_dongdaemun',       // DDP
+    ],
+    status: ContentStatus.locked,
+    estimatedMinutes: 60,
+    unlockCondition: UnlockCondition(
+      previousEraId: 'korea_modern',
+      requiredProgress: 0.3,
+    ),
+    mapBounds: MapBounds(
+      minLatitude: 33.0,
+      maxLatitude: 43.0,
+      minLongitude: 124.0,
+      maxLongitude: 132.0,
+    ),
+  );
+
+  /// 미래 한반도 (2026-2100)
+  static const Era koreaFuture = Era(
+    id: 'korea_future',
+    countryId: 'korea',
+    name: 'Future Korea',
+    nameKorean: '미래 한반도',
+    period: '2026 - 2100',
+    startYear: 2026,
+    endYear: 2100,
+    description:
+        'AI와 로봇이 일상이 된 시대, 기후위기를 극복하고 우주로 나아가며, '
+        '통일 한반도의 새로운 역사를 써나가는 미래 세대의 이야기. '
+        '상상력과 과학이 만나는 시간 여행의 종착지.',
+    thumbnailAsset: 'assets/images/eras/future.png',
+    backgroundAsset: 'assets/images/locations/future_bg.png',
+    bgmAsset: 'assets/audio/bgm/future.mp3',
+    theme: EraThemes.future,
+    chapterIds: [
+      'future_ch1_ai',          // AI 시대
+      'future_ch2_climate',     // 기후위기 극복
+      'future_ch3_space',       // 우주 개척
+      'future_ch4_unification', // 통일 비전
+      'future_ch5_connected',   // 초연결 사회
+    ],
+    characterIds: [
+      'han_jinue',    // AI 연구자 한지능
+      'pureunsol',    // 환경 과학자 푸른솔
+      'byeolhaneul',  // 우주비행사 별하늘
+      'hanaro',       // 통일 세대 청년 하나로
+      'youngwon',     // 미래 철학자 영원
+    ],
+    locationIds: [
+      'seoul_metaverse_hub',     // 메타버스 센터
+      'jeju_eco_city',           // 제주 에코시티
+      'moon_base_baekdu',        // 달 기지 백두
+      'pyongyang_seoul_rail',    // 평양-서울 초고속철도역
+      'brain_interface_lab',     // 뇌공학 연구소
+    ],
+    status: ContentStatus.locked,
+    estimatedMinutes: 50,
+    unlockCondition: UnlockCondition(
+      previousEraId: 'korea_contemporary_3',
+      requiredProgress: 0.5,
+    ),
+    mapBounds: MapBounds(
+      minLatitude: 33.0,
+      maxLatitude: 43.5,
+      minLongitude: 124.0,
+      maxLongitude: 132.0,
+    ),
+  );
+
   static const Era europeRenaissance = Era(
     id: 'europe_renaissance',
     countryId: 'italy',
@@ -298,7 +616,11 @@ class EraData {
     koreaGoryeo,
     koreaJoseon,
     koreaModern,
-    europeRenaissance,
-    europeIndustrialRevolution,
+    koreaContemporary1,
+    koreaContemporary2,
+    koreaContemporary3,
+    koreaFuture,
+    // renaissance,
+    // industrialRevolution,
   ];
 }

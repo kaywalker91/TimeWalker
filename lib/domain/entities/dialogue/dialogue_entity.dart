@@ -92,7 +92,7 @@ class Dialogue extends Equatable {
       characterId: json['characterId'] as String,
       title: json['title'] as String,
       titleKorean: json['titleKorean'] as String,
-      description: json['description'] as String,
+      description: json['description'] as String? ?? '',
       nodes: (json['nodes'] as List).map((e) => DialogueNode.fromJson(e)).toList(),
       rewards: (json['rewards'] as List? ?? []).map((e) => DialogueReward.fromJson(e)).toList(),
       isCompleted: json['isCompleted'] as bool? ?? false,

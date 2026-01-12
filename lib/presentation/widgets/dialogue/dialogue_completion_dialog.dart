@@ -151,6 +151,26 @@ class _UnlockEventTile extends StatelessWidget {
 
   const _UnlockEventTile({required this.event});
 
+  /// 해금 타입에 따른 아이콘 반환
+  IconData _getIconForType(UnlockType type) {
+    switch (type) {
+      case UnlockType.era:
+        return Icons.public;
+      case UnlockType.country:
+        return Icons.flag;
+      case UnlockType.region:
+        return Icons.map;
+      case UnlockType.rank:
+        return Icons.military_tech;
+      case UnlockType.feature:
+        return Icons.new_releases;
+      case UnlockType.encyclopedia:
+        return Icons.menu_book;
+      case UnlockType.character:
+        return Icons.person;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -158,7 +178,7 @@ class _UnlockEventTile extends StatelessWidget {
       child: Row(
         children: [
           Icon(
-            event.type == UnlockType.era ? Icons.public : Icons.emoji_events,
+            _getIconForType(event.type),
             color: AppColors.dialogueReward,
           ),
           const SizedBox(width: 12),

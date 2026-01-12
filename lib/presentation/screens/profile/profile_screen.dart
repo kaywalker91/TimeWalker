@@ -6,12 +6,12 @@ import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/widgets/common/widgets.dart';
-import 'package:time_walker/presentation/screens/profile/widgets/profile_stat_widgets.dart';
 import 'package:time_walker/presentation/screens/profile/widgets/profile_header_widgets.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 /// 프로필 화면
 /// 
-/// "시간의 문" 테마 - 탐험가 프로필
+/// "시간의 문" 테마 - 탐험가 프로필 (Identity Card)
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
@@ -23,136 +23,128 @@ class ProfileScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: AppColors.background.withValues(alpha: 0.5),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
+          ),
+          onPressed: () => context.pop(),
+        ),
+        title: Text(
+          l10n.profile_title,
+          style: AppTextStyles.headlineMedium.copyWith(
+            color: AppColors.textPrimary,
+            shadows: AppShadows.textMd,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: AppColors.background.withValues(alpha: 0.5),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(Icons.settings, color: AppColors.iconPrimary),
+            ),
+            onPressed: () => context.push('/settings'),
+          ),
+          const SizedBox(width: 8),
+        ],
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: AppGradients.timePortal,
         ),
-        child: SafeArea(
-          child: userProgressAsync.when(
-            data: (userProgress) {
-              return encyclopediaStatsAsync.when(
-                data: (allEntries) {
-                  final totalEntries = allEntries.length;
-                  final unlockedEntries = userProgress.unlockedFactIds.length +
-                      userProgress.unlockedCharacterIds.length;
+        child: Stack(
+          children: [
+            // Floating Particles Background
+            const Positioned.fill(
+              child: FloatingParticles(
+                particleCount: 20,
+                particleColor: AppColors.primary,
+              ),
+            ),
+            
+            SafeArea(
+              child: userProgressAsync.when(
+                data: (userProgress) {
+                  return encyclopediaStatsAsync.when(
+                    data: (allEntries) {
+                      final totalEntries = allEntries.length;
+                      final unlockedEntries = userProgress.unlockedFactIds.length +
+                          userProgress.unlockedCharacterIds.length;
 
-                  final collectionRate = totalEntries > 0 ? unlockedEntries / totalEntries : 0.0;
-                  final explorationRate = userProgress.overallProgress;
+                      final collectionRate = totalEntries > 0 ? unlockedEntries / totalEntries : 0.0;
+                      final explorationRate = userProgress.overallProgress;
 
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        _buildAppBar(context),
-                        Padding(
+                      return AnimationLimiter(
+                        child: SingleChildScrollView(
                           padding: EdgeInsets.all(responsive.padding(24)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              // 1. User Avatar & Rank
-                              ProfileUserHeader(
-                                userProgress: userProgress,
-                                responsive: responsive,
+                            children: AnimationConfiguration.toStaggeredList(
+                              duration: const Duration(milliseconds: 600),
+                              childAnimationBuilder: (widget) => SlideAnimation(
+                                verticalOffset: 50.0,
+                                child: FadeInAnimation(child: widget),
                               ),
-                              SizedBox(height: responsive.spacing(32)),
+                              children: [
+                                // 1. Time Walker Identity Card
+                                TimeWalkerIdCard(
+                                  userProgress: userProgress,
+                                  responsive: responsive,
+                                ),
+                                SizedBox(height: responsive.spacing(40)),
 
-                              // 2. Rank Progress
-                              ProfileRankProgress(
-                                userProgress: userProgress,
-                                responsive: responsive,
-                              ),
-                              SizedBox(height: responsive.spacing(32)),
+                                // 2. Rank Progress (Neon)
+                                NeonRankProgress(
+                                  userProgress: userProgress,
+                                  responsive: responsive,
+                                ),
+                                SizedBox(height: responsive.spacing(40)),
 
-                              // 3. Stats Dashboard
-                              _buildStatCirclesLayout(
-                                context,
-                                userProgress,
-                                explorationRate,
-                                collectionRate,
-                                responsive,
-                              ),
-                              SizedBox(height: responsive.spacing(48)),
-
-                              // 4. Detailed Stats List
-                              ProfileStatTile(
-                                label: l10n.profile_stat_playtime,
-                                value: userProgress.totalPlayTimeFormatted,
-                                icon: Icons.timer,
-                                responsive: responsive,
-                              ),
-                              ProfileStatTile(
-                                label: l10n.profile_stat_eras,
-                                value: l10n.profile_eras_count(userProgress.unlockedEraIds.length),
-                                icon: Icons.history_edu,
-                                responsive: responsive,
-                              ),
-                              ProfileStatTile(
-                                label: l10n.profile_stat_dialogues,
-                                value: '${userProgress.completedDialogueIds.length}',
-                                icon: Icons.chat_bubble_outline,
-                                responsive: responsive,
-                              ),
-                            ],
+                                // 3. Stats Dashboard (Grid)
+                                _buildStatsGrid(
+                                  context,
+                                  userProgress,
+                                  explorationRate,
+                                  collectionRate,
+                                  responsive,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ],
+                      );
+                    },
+                    loading: () => const CommonLoadingState.simple(),
+                    error: (_, _) => CommonErrorState(
+                      message: l10n.common_error_stats_load,
+                      showRetryButton: false,
                     ),
                   );
                 },
                 loading: () => const CommonLoadingState.simple(),
-                error: (_, _) => CommonErrorState(
-                  message: l10n.common_error_stats_load,
-                  showRetryButton: false,
-                ),
-              );
-            },
-            loading: () => const CommonLoadingState.simple(),
-            error: (e, s) => CommonErrorState(message: 'Error: $e', showRetryButton: false),
-          ),
+                error: (e, s) => CommonErrorState(message: 'Error: $e', showRetryButton: false),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildAppBar(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.surface.withValues(alpha: 0.5),
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
-              onPressed: () => context.pop(),
-            ),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Text(
-              AppLocalizations.of(context)!.profile_title,
-              style: AppTextStyles.headlineMedium.copyWith(
-                color: AppColors.textPrimary,
-              ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.surface.withValues(alpha: 0.5),
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.settings, color: AppColors.iconPrimary),
-              onPressed: () => context.push('/settings'),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildStatCirclesLayout(
+  Widget _buildStatsGrid(
     BuildContext context,
     dynamic userProgress,
     double explorationRate,
@@ -161,43 +153,96 @@ class ProfileScreen extends ConsumerWidget {
   ) {
     final l10n = AppLocalizations.of(context)!;
     
-    final statCircles = [
-      CircularStatWidget(
-        label: l10n.profile_stat_exploration,
-        progress: explorationRate,
-        color: AppColors.info,
-        icon: Icons.map,
-        responsive: responsive,
-      ),
-      CircularStatWidget(
-        label: l10n.profile_stat_collection,
-        progress: collectionRate,
-        color: AppColors.secondary,
-        icon: Icons.book,
-        responsive: responsive,
-      ),
-      CircularStatWidget(
-        label: l10n.profile_stat_knowledge,
-        progress: (userProgress.totalKnowledge / 1000).clamp(0.0, 1.0),
-        color: AppColors.primary,
-        icon: Icons.lightbulb,
-        overrideText: userProgress.totalKnowledge.toString(),
-        responsive: responsive,
-      ),
+    // Data list for grid
+    final stats = [
+      {'label': l10n.profile_stat_exploration, 'value': '${(explorationRate * 100).toInt()}%', 'icon': Icons.map, 'color': AppColors.info},
+      {'label': l10n.profile_stat_collection, 'value': '${(collectionRate * 100).toInt()}%', 'icon': Icons.book, 'color': AppColors.secondary},
+      {'label': l10n.profile_stat_knowledge, 'value': '${userProgress.totalKnowledge}', 'icon': Icons.lightbulb, 'color': AppColors.primary},
+      {'label': l10n.profile_stat_playtime, 'value': userProgress.totalPlayTimeFormatted, 'icon': Icons.timer, 'color': Colors.teal},
+      {'label': l10n.profile_stat_eras, 'value': '${userProgress.unlockedEraIds.length}', 'icon': Icons.history_edu, 'color': Colors.orangeAccent},
+      {'label': l10n.profile_stat_dialogues, 'value': '${userProgress.completedDialogueIds.length}', 'icon': Icons.chat_bubble_outline, 'color': Colors.pinkAccent},
     ];
 
-    if (responsive.isLandscape || responsive.deviceType == DeviceType.tablet) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: statCircles,
-      );
-    }
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: responsive.isTablet ? 3 : 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 1.4,
+      ),
+      itemCount: stats.length,
+      itemBuilder: (context, index) {
+        final stat = stats[index];
+        return _buildStatGlassCard(
+          label: stat['label'] as String,
+          value: stat['value'] as String,
+          icon: stat['icon'] as IconData,
+          color: stat['color'] as Color,
+        );
+      },
+    );
+  }
 
-    return Wrap(
-      alignment: WrapAlignment.center,
-      spacing: responsive.spacing(16),
-      runSpacing: responsive.spacing(16),
-      children: statCircles,
+  Widget _buildStatGlassCard({
+    required String label,
+    required String value,
+    required IconData icon,
+    required Color color,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: AppColors.surface.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              color: color.withValues(alpha: 0.2),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, color: color, size: 20),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  value,
+                  style: AppTextStyles.titleLarge.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                label,
+                style: AppTextStyles.labelSmall.copyWith(
+                  color: AppColors.textSecondary,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

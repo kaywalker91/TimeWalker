@@ -65,36 +65,41 @@ class ShopItemCard extends ConsumerWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     SizedBox(height: responsive.spacing(4)),
-                    Text(
-                      item.description,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: isOwned ? Colors.grey : Colors.white60,
-                            fontSize: descFontSize,
-                          ),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    Flexible( // Use Flexible for description
+                      child: Text(
+                        item.description,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: isOwned ? Colors.grey : Colors.white60,
+                              fontSize: descFontSize,
+                            ),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     const Spacer(),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: responsive.padding(12),
-                        vertical: responsive.padding(4),
-                      ),
-                      decoration: BoxDecoration(
-                        color: isOwned
-                            ? Colors.grey.withValues(alpha: 0.2)
-                            : AppColors.gold.withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Text(
-                        isOwned
-                            ? l10n.shop_item_owned
-                            : l10n.shop_item_price(item.price),
-                        style: TextStyle(
-                          color: isOwned ? Colors.grey : AppColors.gold,
-                          fontWeight: FontWeight.bold,
-                          fontSize: priceFontSize,
+                    FittedBox( // Use FittedBox for price/status container
+                      fit: BoxFit.scaleDown,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsive.padding(12),
+                          vertical: responsive.padding(4),
+                        ),
+                        decoration: BoxDecoration(
+                          color: isOwned
+                              ? Colors.grey.withValues(alpha: 0.2)
+                              : AppColors.gold.withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          isOwned
+                              ? l10n.shop_item_owned
+                              : l10n.shop_item_price(item.price),
+                          style: TextStyle(
+                            color: isOwned ? Colors.grey : AppColors.gold,
+                            fontWeight: FontWeight.bold,
+                            fontSize: priceFontSize,
+                          ),
                         ),
                       ),
                     ),

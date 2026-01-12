@@ -191,8 +191,32 @@ abstract class AppLocalizations {
   /// No description provided for @exploration_tutorial_msg.
   ///
   /// In ko, this message translates to:
-  /// **'탐험가여 환영합니다! 지도를 확대/축소하고 드래그로 이동하세요. 지도 아이콘에서 왕국 범례를 확인하고, 하단 목록 버튼으로 인물/장소를 빠르게 찾을 수 있습니다.'**
+  /// **'탐험가여 환영합니다! 타임라인을 스크롤하여 역사적 장소를 선택하고 탐험을 시작하세요! 인물과 대화하며 지식을 쌓을 수 있습니다.'**
   String get exploration_tutorial_msg;
+
+  /// No description provided for @time_portal_help_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'시공의 회랑 도움말'**
+  String get time_portal_help_title;
+
+  /// No description provided for @time_portal_help_msg.
+  ///
+  /// In ko, this message translates to:
+  /// **'5대 문명 포탈을 터치하여 해당 시대로 이동합니다. 잠겨있는 포탈은 탐험가 레벨을 올려 해금하세요.'**
+  String get time_portal_help_msg;
+
+  /// No description provided for @quiz_help_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'퀴즈 아이템 가이드'**
+  String get quiz_help_title;
+
+  /// No description provided for @quiz_help_msg.
+  ///
+  /// In ko, this message translates to:
+  /// **'💡 힌트: 오답 2개를 제거합니다.\n⏳ 타임 스톱: 10초간 시간을 멈춥니다.\n상점에서 아이템을 구매하여 사용할 수 있습니다.'**
+  String get quiz_help_msg;
 
   /// No description provided for @exploration_progress_label.
   ///
@@ -287,7 +311,7 @@ abstract class AppLocalizations {
   /// No description provided for @menu_world_map.
   ///
   /// In ko, this message translates to:
-  /// **'세계 지도'**
+  /// **'시공의 회랑'**
   String get menu_world_map;
 
   /// No description provided for @menu_encyclopedia.
@@ -571,6 +595,18 @@ abstract class AppLocalizations {
   /// In ko, this message translates to:
   /// **'다음 랭크까지 {points}점'**
   String profile_next_rank_pts(Object points);
+
+  /// No description provided for @profile_identity_name.
+  ///
+  /// In ko, this message translates to:
+  /// **'이름'**
+  String get profile_identity_name;
+
+  /// No description provided for @profile_identity_rank.
+  ///
+  /// In ko, this message translates to:
+  /// **'직위'**
+  String get profile_identity_rank;
 
   /// No description provided for @profile_stat_exploration.
   ///

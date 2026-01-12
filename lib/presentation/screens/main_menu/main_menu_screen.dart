@@ -161,7 +161,7 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
     final l10n = AppLocalizations.of(context)!;
 
     final menuItems = [
-      MenuItem(label: l10n.menu_world_map, icon: Icons.public, isPrimary: true, route: AppRouter.worldMap),
+      MenuItem(label: l10n.menu_world_map, icon: Icons.blur_circular, isPrimary: true, route: AppRouter.timePortal),
       MenuItem(label: l10n.menu_encyclopedia, icon: Icons.menu_book, route: AppRouter.encyclopedia),
       MenuItem(label: l10n.menu_quiz, icon: Icons.quiz, route: AppRouter.quiz),
       MenuItem(label: l10n.menu_profile, icon: Icons.person, route: AppRouter.profile),

@@ -58,10 +58,9 @@ class WorldMapGame extends FlameGame
     }
 
     for (final region in regions) {
-      final isUnlocked = userProgress.isRegionUnlocked(region.id) ||
-          region.status == ContentStatus.available;
+      final isUnlocked = userProgress.isRegionUnlocked(region.id);
       final progress = userProgress.getRegionProgress(region.id);
-      final status = _resolveRegionStatus(region, isUnlocked, progress);
+      final status = _resolveRegionStatus(isUnlocked, progress);
 
       final marker = RegionMarkerComponent(
         region: region,
@@ -140,11 +139,7 @@ class WorldMapGame extends FlameGame
     cameraComponent.viewfinder.position = targetPosition;
   }
 
-  ContentStatus _resolveRegionStatus(
-    Region region,
-    bool isUnlocked,
-    double progress,
-  ) {
+  ContentStatus _resolveRegionStatus(bool isUnlocked, double progress) {
     if (!isUnlocked) {
       return ContentStatus.locked;
     }
@@ -154,9 +149,7 @@ class WorldMapGame extends FlameGame
     if (progress > 0.0) {
       return ContentStatus.inProgress;
     }
-    return region.status == ContentStatus.locked
-        ? ContentStatus.available
-        : region.status;
+    return ContentStatus.available;
   }
 
   @override

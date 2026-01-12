@@ -55,7 +55,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exploration_tutorial_msg =>
-      'Welcome Explorer! Pinch to zoom and drag to move. Use the map icon to filter kingdoms, and the bottom buttons to jump to characters or locations.';
+      'Welcome Explorer! Scroll through the timeline to select historical places and start exploring! Gain knowledge by talking to characters.';
+
+  @override
+  String get time_portal_help_title => 'Time Portal Help';
+
+  @override
+  String get time_portal_help_msg =>
+      'Tap the 5 civilization portals to travel to that era. Locked portals can be unlocked by increasing your explorer level.';
+
+  @override
+  String get quiz_help_title => 'Quiz Item Guide';
+
+  @override
+  String get quiz_help_msg =>
+      '💡 Hint: Removes 2 wrong answers.\n⏳ Time Stop: Freezes time for 10 seconds.\nYou can purchase items in the Shop.';
 
   @override
   String get exploration_progress_label => 'Era Progress';
@@ -108,7 +122,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exploration_help_title => 'Exploration Help';
 
   @override
-  String get menu_world_map => 'WORLD MAP';
+  String get menu_world_map => 'TIME CORRIDOR';
 
   @override
   String get menu_encyclopedia => 'ENCYCLOPEDIA';
@@ -255,57 +269,63 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get profile_title => '내 프로필';
+  String get profile_title => 'My Profile';
 
   @override
-  String get profile_rank_progress => '랭크 진행도';
+  String get profile_rank_progress => 'Rank Progress';
 
   @override
   String profile_next_rank_pts(Object points) {
-    return '다음 랭크까지 $points점';
+    return '$points pts to next rank';
   }
 
   @override
-  String get profile_stat_exploration => '탐험';
+  String get profile_identity_name => 'NAME';
 
   @override
-  String get profile_stat_collection => '수집';
+  String get profile_identity_rank => 'RANK';
 
   @override
-  String get profile_stat_knowledge => '지식';
+  String get profile_stat_exploration => 'Explorer';
 
   @override
-  String get profile_stat_playtime => '총 플레이 시간';
+  String get profile_stat_collection => 'Collection';
 
   @override
-  String get profile_stat_eras => '방문한 시대';
+  String get profile_stat_knowledge => 'Knowledge';
+
+  @override
+  String get profile_stat_playtime => 'Total Playtime';
+
+  @override
+  String get profile_stat_eras => 'Eras Visited';
 
   @override
   String profile_eras_count(Object count) {
-    return '$count개 시대';
+    return '$count Eras';
   }
 
   @override
-  String get profile_stat_dialogues => '완료한 대화';
+  String get profile_stat_dialogues => 'Completed Dialogues';
 
   @override
-  String get common_error_stats_load => '통계를 불러오는데 실패했습니다.';
+  String get common_error_stats_load => 'Failed to load stats.';
 
   @override
-  String get rank_novice => '초보 탐험가';
+  String get rank_novice => 'Novice Explorer';
 
   @override
-  String get rank_apprentice => '견습 역사가';
+  String get rank_apprentice => 'Apprentice Historian';
 
   @override
-  String get rank_intermediate => '중급 역사가';
+  String get rank_intermediate => 'Intermediate Historian';
 
   @override
-  String get rank_advanced => '고급 역사가';
+  String get rank_advanced => 'Advanced Historian';
 
   @override
-  String get rank_expert => '역사 전문가';
+  String get rank_expert => 'History Expert';
 
   @override
-  String get rank_master => '역사 마스터';
+  String get rank_master => 'Time Master';
 }

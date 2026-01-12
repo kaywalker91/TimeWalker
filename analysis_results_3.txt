@@ -1,8 +1,0 @@
-Analyzing time_runner...                                        
-
-   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:8:3 • use_super_parameters
-   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:63:3 • use_super_parameters
-   info • Parameters ''lane' and 'position'' could be super parameters • _archive/game_runner_backup/components/obstacles/dinosaur_obstacles.dart:146:3 • use_super_parameters
-   info • 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre • lib/presentation/screens/settings/settings_screen.dart:229:9 • deprecated_member_use
-  error • The named parameter 'activeTrackColor' isn't defined • lib/presentation/screens/settings/settings_screen.dart:266:19 • undefined_named_parameter
-

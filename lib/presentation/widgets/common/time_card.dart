@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:time_walker/core/themes/themes.dart';
+import 'package:time_walker/presentation/widgets/common/cards/base_time_card.dart';
 
 /// TimeWalker 공통 카드 위젯
 /// 
@@ -93,9 +94,9 @@ class TimeCard extends StatefulWidget {
   State<TimeCard> createState() => _TimeCardState();
 }
 
-class _TimeCardState extends State<TimeCard> {
-  bool _isHovered = false;
-  bool _isPressed = false;
+class _TimeCardState extends State<TimeCard> with TimeCardMixin {
+  @override
+  bool get isLocked => widget.variant == TimeCardVariant.locked;
   
   BorderRadius get _borderRadius => 
       widget.borderRadius ?? BorderRadius.circular(16);
@@ -103,7 +104,7 @@ class _TimeCardState extends State<TimeCard> {
   BoxDecoration get _decoration {
     switch (widget.variant) {
       case TimeCardVariant.standard:
-        if (_isHovered && widget.enableHoverEffect) {
+        if (isHovered && widget.enableHoverEffect) {
           return BoxDecoration(
             gradient: AppGradients.card,
             borderRadius: _borderRadius,
@@ -187,23 +188,19 @@ class _TimeCardState extends State<TimeCard> {
       margin: widget.margin,
       padding: widget.padding ?? const EdgeInsets.all(16),
       decoration: _decoration,
-      transform: _isPressed 
-          ? Matrix4.translationValues(0, 2, 0) 
-          : Matrix4.identity(),
+      transform: pressTransform,
       child: widget.child,
     );
     
     if (isInteractive) {
-      cardContent = MouseRegion(
-        onEnter: (_) => setState(() => _isHovered = true),
-        onExit: (_) => setState(() => _isHovered = false),
-        child: GestureDetector(
-          onTapDown: (_) => setState(() => _isPressed = true),
-          onTapUp: (_) => setState(() => _isPressed = false),
-          onTapCancel: () => setState(() => _isPressed = false),
+      // TimeCardMixin의 buildHoverRegion과 buildPressDetector 사용
+      cardContent = buildHoverRegion(
+        child: buildPressDetector(
           onTap: widget.onTap,
-          onLongPress: widget.onLongPress,
-          child: cardContent,
+          child: GestureDetector(
+            onLongPress: widget.onLongPress,
+            child: cardContent,
+          ),
         ),
       );
     }
@@ -233,7 +230,14 @@ class _TimeCardState extends State<TimeCard> {
       );
     }
     
-    return cardContent;
+    // 접근성 지원 추가
+    return Semantics(
+      button: isInteractive,
+      enabled: widget.variant != TimeCardVariant.locked,
+      selected: widget.variant == TimeCardVariant.selected,
+      label: widget.variant == TimeCardVariant.locked ? '잠김' : null,
+      child: cardContent,
+    );
   }
 }
 
@@ -264,28 +268,32 @@ class EraCard extends StatefulWidget {
   State<EraCard> createState() => _EraCardState();
 }
 
-class _EraCardState extends State<EraCard> {
-  bool _isHovered = false;
+class _EraCardState extends State<EraCard> with TimeCardMixin, ThemedCardMixin {
+  @override
+  bool get isLocked => widget.isLocked;
+  
+  @override
+  Color get themeColor => widget.themeColor;
   
   @override
   Widget build(BuildContext context) {
     final borderRadius = BorderRadius.circular(24);
     
-    final decoration = widget.isLocked
+    final decoration = isLocked
         ? AppDecorations.eraCardLocked
         : BoxDecoration(
             color: AppColors.surface,
             borderRadius: borderRadius,
             border: Border.all(
-              color: _isHovered 
-                  ? widget.themeColor 
-                  : widget.themeColor.withValues(alpha: 0.7),
+              color: isHovered 
+                  ? themeColor 
+                  : themeColor.withValues(alpha: 0.7),
               width: 2,
             ),
             boxShadow: [
               BoxShadow(
-                color: widget.themeColor.withValues(alpha: _isHovered ? 0.4 : 0.3),
-                blurRadius: _isHovered ? 24 : 20,
+                color: themeColor.withValues(alpha: isHovered ? 0.4 : 0.3),
+                blurRadius: isHovered ? 24 : 20,
                 offset: const Offset(0, 10),
               ),
             ],
@@ -302,17 +310,16 @@ class _EraCardState extends State<EraCard> {
     );
     
     if (widget.onTap != null) {
-      cardContent = MouseRegion(
-        onEnter: (_) => setState(() => _isHovered = true),
-        onExit: (_) => setState(() => _isHovered = false),
-        child: GestureDetector(
+      // TimeCardMixin의 buildHoverRegion과 buildPressDetector 사용
+      cardContent = buildHoverRegion(
+        child: buildPressDetector(
           onTap: widget.onTap,
           child: cardContent,
         ),
       );
     }
     
-    if (widget.isLocked) {
+    if (isLocked) {
       cardContent = Stack(
         children: [
           cardContent,
@@ -336,6 +343,12 @@ class _EraCardState extends State<EraCard> {
       );
     }
     
-    return cardContent;
+    // 접근성 지원 추가
+    return Semantics(
+      button: widget.onTap != null,
+      enabled: !isLocked,
+      label: isLocked ? '잠긴 시대' : '시대 선택',
+      child: cardContent,
+    );
   }
 }

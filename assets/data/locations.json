@@ -9,6 +9,8 @@
         "backgroundAsset": "assets/images/locations/gyeongbokgung_bg.png",
         "latitude": 37.5796,
         "longitude": 126.9770,
+        "displayYear": "1395",
+        "timelineOrder": 1,
         "position": {
             "x": 0.5,
             "y": 0.3
@@ -34,6 +36,8 @@
         "backgroundAsset": "assets/images/locations/hanyang_market_bg.png",
         "latitude": 37.5700,
         "longitude": 126.9900,
+        "displayYear": "15세기",
+        "timelineOrder": 2,
         "position": {
             "x": 0.6,
             "y": 0.5
@@ -56,6 +60,8 @@
         "backgroundAsset": "assets/images/locations/suwon_hwaseong_bg.png",
         "latitude": 37.2851,
         "longitude": 127.0197,
+        "displayYear": "1796",
+        "timelineOrder": 5,
         "position": {
             "x": 0.55,
             "y": 0.65
@@ -67,7 +73,7 @@
         "eventIds": [
             "hwaseong_construction"
         ],
-        "status": "locked",
+        "status": "available",
         "isHistorical": true
     },
     {
@@ -80,6 +86,8 @@
         "backgroundAsset": "assets/images/locations/geobukseon_bg.png",
         "latitude": 34.7500,
         "longitude": 127.7500,
+        "displayYear": "1592",
+        "timelineOrder": 3,
         "position": {
             "x": 0.35,
             "y": 0.7
@@ -101,6 +109,8 @@
         "description": "13척의 배로 133척의 적군을 물리친 기적의 승전지 (울돌목)",
         "thumbnailAsset": "assets/images/locations/myeongnyang_thumb.png",
         "backgroundAsset": "assets/images/locations/myeongnyang_bg.png",
+        "displayYear": "1597",
+        "timelineOrder": 4,
         "position": {
             "x": 0.3,
             "y": 0.85
@@ -124,6 +134,8 @@
         "backgroundAsset": "assets/images/locations/florence_bg.png",
         "latitude": 43.7696,
         "longitude": 11.2558,
+        "displayYear": "AD 1420",
+        "timelineOrder": 1,
         "position": {
             "x": 0.45,
             "y": 0.4
@@ -134,7 +146,7 @@
         "eventIds": [
             "art_exhibition"
         ],
-        "status": "locked",
+        "status": "available",
         "isHistorical": true
     },
     {
@@ -147,6 +159,8 @@
         "backgroundAsset": "assets/images/locations/venice_bg.png",
         "latitude": 45.4408,
         "longitude": 12.3155,
+        "displayYear": "AD 1500",
+        "timelineOrder": 2,
         "position": {
             "x": 0.55,
             "y": 0.3
@@ -157,7 +171,7 @@
         "eventIds": [
             "glass_making"
         ],
-        "status": "locked",
+        "status": "available",
         "isHistorical": true
     },
     {
@@ -171,6 +185,8 @@
         "kingdom": "goguryeo",
         "latitude": 41.12083333,
         "longitude": 126.17861111,
+        "displayYear": "BC 37",
+        "timelineOrder": 1,
         "position": {
             "x": 0.53,
             "y": 0.28
@@ -195,6 +211,8 @@
         "kingdom": "goguryeo",
         "latitude": 39.57722222,
         "longitude": 125.43305556,
+        "displayYear": "AD 612",
+        "timelineOrder": 3,
         "position": {
             "x": 0.45,
             "y": 0.18
@@ -217,6 +235,8 @@
         "kingdom": "goguryeo",
         "latitude": 39.03,
         "longitude": 125.73,
+        "displayYear": "AD 427",
+        "timelineOrder": 2,
         "position": {
             "x": 0.51,
             "y": 0.42
@@ -239,6 +259,8 @@
         "kingdom": "baekje",
         "latitude": 37.56666667,
         "longitude": 126.97805556,
+        "displayYear": "BC 18",
+        "timelineOrder": 1,
         "position": {
             "x": 0.54,
             "y": 0.6
@@ -261,6 +283,8 @@
         "kingdom": "baekje",
         "latitude": 36.1833,
         "longitude": 127.0833,
+        "displayYear": "AD 660",
+        "timelineOrder": 3,
         "position": {
             "x": 0.52,
             "y": 0.64
@@ -283,6 +307,8 @@
         "kingdom": "baekje",
         "latitude": 36.2875,
         "longitude": 126.91527778,
+        "displayYear": "AD 538",
+        "timelineOrder": 2,
         "position": {
             "x": 0.46,
             "y": 0.58
@@ -305,6 +331,8 @@
         "kingdom": "silla",
         "latitude": 35.83083333,
         "longitude": 129.22611111,
+        "displayYear": "BC 57",
+        "timelineOrder": 1,
         "position": {
             "x": 0.62,
             "y": 0.78
@@ -328,6 +356,8 @@
         "kingdom": "silla",
         "latitude": 35.83472222,
         "longitude": 129.21916667,
+        "displayYear": "AD 632",
+        "timelineOrder": 2,
         "position": {
             "x": 0.68,
             "y": 0.68
@@ -350,6 +380,8 @@
         "kingdom": "gaya",
         "latitude": 35.24319444,
         "longitude": 128.87588889,
+        "displayYear": "전설",
+        "timelineOrder": 1,
         "position": {
             "x": 0.58,
             "y": 0.72
@@ -374,6 +406,8 @@
         "kingdom": "gaya",
         "latitude": 35.2340,
         "longitude": 128.8803,
+        "displayYear": "AD 42",
+        "timelineOrder": 2,
         "position": {
             "x": 0.55,
             "y": 0.76
@@ -399,6 +433,8 @@
         "kingdom": "gaya",
         "latitude": 35.7264,
         "longitude": 128.2636,
+        "displayYear": "AD 479",
+        "timelineOrder": 3,
         "position": {
             "x": 0.50,
             "y": 0.66
@@ -411,5 +447,510 @@
         ],
         "status": "available",
         "isHistorical": true
+    },
+    {
+        "id": "cheonggyecheon_1950",
+        "eraId": "korea_contemporary_1",
+        "name": "Cheonggyecheon 1950s",
+        "nameKorean": "청계천 판자촌",
+        "description": "6.25 전쟁 이후 서울 재건의 상징, 피란민들이 모여 살던 곳",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
+        "latitude": 37.5696,
+        "longitude": 126.9784,
+        "displayYear": "1950s",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.5,
+            "y": 0.35
+        },
+        "characterIds": [
+            "kim_gu",
+            "student_soldier"
+        ],
+        "eventIds": [
+            "liberation_1945",
+            "korean_war_1950"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "ulsan_shipyard",
+        "eraId": "korea_contemporary_2",
+        "name": "Ulsan Hyundai Shipyard",
+        "nameKorean": "울산 현대조선소",
+        "description": "한강의 기적을 상징하는 세계 최대의 조선소",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
+        "latitude": 35.5384,
+        "longitude": 129.3114,
+        "displayYear": "1973",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.65,
+            "y": 0.7
+        },
+        "characterIds": [
+            "chung_juyoung",
+            "german_worker"
+        ],
+        "eventIds": [
+            "first_ship_launch"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gwanghwamun_1987",
+        "eraId": "korea_contemporary_2",
+        "name": "Gwanghwamun Square 1987",
+        "nameKorean": "광화문 광장 1987",
+        "description": "1987년 6월 항쟁의 현장, 민주주의를 외친 100만 시민의 함성이 울려 퍼진 곳",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
+        "latitude": 37.5759,
+        "longitude": 126.9769,
+        "displayYear": "1987",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.5,
+            "y": 0.32
+        },
+        "characterIds": [
+            "democracy_activist"
+        ],
+        "eventIds": [
+            "june_democracy_1987"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gangnam_teheran",
+        "eraId": "korea_contemporary_3",
+        "name": "Teheran-ro IT Valley",
+        "nameKorean": "테헤란로 IT밸리",
+        "description": "대한민국 IT 벤처 창업의 메카, 디지털 혁명이 시작된 곳",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
+        "latitude": 37.5012,
+        "longitude": 127.0396,
+        "displayYear": "1999",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.55,
+            "y": 0.38
+        },
+        "characterIds": [
+            "it_pioneer"
+        ],
+        "eventIds": [
+            "it_boom_2000"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "ddp_dongdaemun",
+        "eraId": "korea_contemporary_3",
+        "name": "Dongdaemun Design Plaza",
+        "nameKorean": "DDP 동대문디자인플라자",
+        "description": "K-디자인과 문화의 중심지, 전통과 미래가 공존하는 랜드마크",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
+        "latitude": 37.5671,
+        "longitude": 127.0095,
+        "displayYear": "2014",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.52,
+            "y": 0.34
+        },
+        "characterIds": [
+            "it_pioneer"
+        ],
+        "eventIds": [
+            "k_culture_wave"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seoul_metaverse_hub",
+        "eraId": "korea_future",
+        "name": "Seoul Metaverse Hub",
+        "nameKorean": "서울 메타버스 센터",
+        "description": "2030년대, 가상현실과 현실이 융합된 미래 도시의 중심",
+        "thumbnailAsset": "assets/images/locations/future_bg.png",
+        "backgroundAsset": "assets/images/locations/future_bg.png",
+        "latitude": 37.5665,
+        "longitude": 126.9780,
+        "displayYear": "2035",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.5,
+            "y": 0.35
+        },
+        "characterIds": [
+            "han_jinue"
+        ],
+        "eventIds": [
+            "ai_revolution"
+        ],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "jeju_eco_city",
+        "eraId": "korea_future",
+        "name": "Jeju Eco City",
+        "nameKorean": "제주 에코시티",
+        "description": "2040년대 탄소중립을 실현한 지속가능한 미래 도시",
+        "thumbnailAsset": "assets/images/locations/future_bg.png",
+        "backgroundAsset": "assets/images/locations/future_bg.png",
+        "latitude": 33.4996,
+        "longitude": 126.5312,
+        "displayYear": "2040",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.35,
+            "y": 0.92
+        },
+        "characterIds": [
+            "pureunsol"
+        ],
+        "eventIds": [
+            "carbon_neutral_2040"
+        ],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "moon_base_baekdu",
+        "eraId": "korea_future",
+        "name": "Moon Base 'Baekdu'",
+        "nameKorean": "달 기지 백두",
+        "description": "2050년대 대한민국 우주 개발의 전초기지, 달 표면에 건설된 첫 한국 기지",
+        "thumbnailAsset": "assets/images/locations/future_bg.png",
+        "backgroundAsset": "assets/images/locations/future_bg.png",
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "displayYear": "2085",
+        "timelineOrder": 5,
+        "position": {
+            "x": 0.5,
+            "y": 0.1
+        },
+        "characterIds": [
+            "byeolhaneul"
+        ],
+        "eventIds": [
+            "moon_landing_2050"
+        ],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "pyongyang_seoul_rail",
+        "eraId": "korea_future",
+        "name": "Pyongyang-Seoul High-Speed Rail Station",
+        "nameKorean": "평양-서울 초고속철도역",
+        "description": "2060년대 하나된 한반도의 상징, 1시간 만에 평양과 서울을 연결",
+        "thumbnailAsset": "assets/images/locations/future_bg.png",
+        "backgroundAsset": "assets/images/locations/future_bg.png",
+        "latitude": 39.0392,
+        "longitude": 125.7625,
+        "displayYear": "2045",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.48,
+            "y": 0.18
+        },
+        "characterIds": [
+            "hanaro"
+        ],
+        "eventIds": [
+            "unification_2060"
+        ],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "brain_interface_lab",
+        "eraId": "korea_future",
+        "name": "Brain Interface Research Lab",
+        "nameKorean": "뇌공학 연구소",
+        "description": "2080년대 뇌-컴퓨터 인터페이스 기술의 최전선, 초연결 사회의 심장부",
+        "thumbnailAsset": "assets/images/locations/future_bg.png",
+        "backgroundAsset": "assets/images/locations/future_bg.png",
+        "latitude": 37.3591,
+        "longitude": 127.1046,
+        "displayYear": "2080",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.55,
+            "y": 0.4
+        },
+        "characterIds": [
+            "youngwon"
+        ],
+        "eventIds": [
+            "bci_revolution"
+        ],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "busan_provisional_capital",
+        "eraId": "korea_contemporary_1",
+        "name": "Busan Provisional Capital",
+        "nameKorean": "부산 임시수도",
+        "description": "6.25 전쟁 당시 대한민국의 심장부이자 피란민들의 애환이 서린 곳",
+        "thumbnailAsset": "assets/images/locations/contemporary_1_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_1_bg.png",
+        "latitude": 35.1000,
+        "longitude": 129.0300,
+        "displayYear": "1950",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.6,
+            "y": 0.8
+        },
+        "characterIds": [
+            "refugee_merchant"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gukje_market",
+        "eraId": "korea_contemporary_1",
+        "name": "Gukje Market",
+        "nameKorean": "부산 국제시장",
+        "description": "피난민들의 삶의 터전이자 희망의 시장. '굳세어라 금순아'의 무대.",
+        "thumbnailAsset": "assets/images/locations/contemporary_1_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_1_bg.png",
+        "latitude": 35.0990,
+        "longitude": 129.0280,
+        "displayYear": "1950s",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.58,
+            "y": 0.82
+        },
+        "characterIds": [
+            "refugee_merchant"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "pyeonghwa_market",
+        "eraId": "korea_contemporary_2",
+        "name": "Pyeonghwa Market",
+        "nameKorean": "평화시장",
+        "description": "1970년대 한국 의류 산업의 중심지이자 전태일 열사의 정신이 깃든 곳",
+        "thumbnailAsset": "assets/images/locations/contemporary_2_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_2_bg.png",
+        "latitude": 37.5690,
+        "longitude": 127.0050,
+        "displayYear": "1960s",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.5,
+            "y": 0.35
+        },
+        "characterIds": [
+            "sewing_worker"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seoul_expressway",
+        "eraId": "korea_contemporary_2",
+        "name": "Gyeongbu Expressway",
+        "nameKorean": "경부고속도로",
+        "description": "서울과 부산을 잇는 국토 대동맥. 한강의 기적을 상징하는 토목 공사.",
+        "thumbnailAsset": "assets/images/locations/contemporary_2_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_2_bg.png",
+        "latitude": 36.5000,
+        "longitude": 127.5000,
+        "displayYear": "1970",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.55,
+            "y": 0.5
+        },
+        "characterIds": [
+            "chung_juyoung"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seoul_olympic_stadium",
+        "eraId": "korea_contemporary_3",
+        "name": "Seoul Olympic Stadium",
+        "nameKorean": "서울올림픽 주경기장",
+        "description": "88 서울올림픽의 영광이 서린 곳. 세계로 도약하는 대한민국의 시작점.",
+        "thumbnailAsset": "assets/images/locations/contemporary_3_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_3_bg.png",
+        "latitude": 37.5158,
+        "longitude": 127.0728,
+        "displayYear": "1988",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.6,
+            "y": 0.36
+        },
+        "characterIds": [
+            "sohn_kee_chung",
+            "imf_survivor"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "incheon_airport",
+        "eraId": "korea_contemporary_3",
+        "name": "Incheon International Airport",
+        "nameKorean": "인천국제공항",
+        "description": "세계 최고의 허브 공항. 글로벌 대한민국을 연결하는 관문.",
+        "thumbnailAsset": "assets/images/locations/contemporary_3_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_3_bg.png",
+        "latitude": 37.4602,
+        "longitude": 126.4407,
+        "displayYear": "2001",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.2,
+            "y": 0.3
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seoul_metaverse_hub",
+        "eraId": "korea_future",
+        "name": "Seoul Metaverse Hub",
+        "nameKorean": "서울 메타버스 센터",
+        "description": "2030년대, 가상현실과 현실이 융합된 미래 도시의 중심",
+        "thumbnailAsset": "assets/images/locations/seoul_metaverse_hub_bg.png",
+        "backgroundAsset": "assets/images/locations/seoul_metaverse_hub_bg.png",
+        "latitude": 37.5665,
+        "longitude": 126.9780,
+        "displayYear": "2035",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.5,
+            "y": 0.35
+        },
+        "characterIds": [
+            "han_jinue"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "jeju_eco_city",
+        "eraId": "korea_future",
+        "name": "Jeju Eco City",
+        "nameKorean": "제주 에코시티",
+        "description": "2040년대 탄소중립을 실현한 지속가능한 미래 도시",
+        "thumbnailAsset": "assets/images/locations/jeju_eco_city_bg.png",
+        "backgroundAsset": "assets/images/locations/jeju_eco_city_bg.png",
+        "latitude": 33.4996,
+        "longitude": 126.5312,
+        "displayYear": "2040",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.35,
+            "y": 0.92
+        },
+        "characterIds": [
+            "pureunsol"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "pyongyang_seoul_rail",
+        "eraId": "korea_future",
+        "name": "Pyongyang-Seoul Station",
+        "nameKorean": "평양-서울 초고속철도역",
+        "description": "2060년대 하나된 한반도의 상징, 1시간 만에 평양과 서울을 연결",
+        "thumbnailAsset": "assets/images/locations/pyongyang_seoul_rail_bg.png",
+        "backgroundAsset": "assets/images/locations/pyongyang_seoul_rail_bg.png",
+        "latitude": 39.0392,
+        "longitude": 125.7625,
+        "displayYear": "2045",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.48,
+            "y": 0.18
+        },
+        "characterIds": [
+            "hanaro"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "brain_interface_lab",
+        "eraId": "korea_future",
+        "name": "Brain Interface Lab",
+        "nameKorean": "뇌공학 연구소",
+        "description": "2080년대 뇌-컴퓨터 인터페이스 기술의 최전선",
+        "thumbnailAsset": "assets/images/locations/brain_interface_lab_bg.png",
+        "backgroundAsset": "assets/images/locations/brain_interface_lab_bg.png",
+        "latitude": 37.3591,
+        "longitude": 127.1046,
+        "displayYear": "2080",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.55,
+            "y": 0.4
+        },
+        "characterIds": [
+            "youngwon"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "moon_base_baekdu",
+        "eraId": "korea_future",
+        "name": "Moon Base Baekdu",
+        "nameKorean": "달 기지 백두",
+        "description": "2050년대 대한민국 우주 개발의 전초기지",
+        "thumbnailAsset": "assets/images/locations/moon_base_baekdu_bg.png",
+        "backgroundAsset": "assets/images/locations/moon_base_baekdu_bg.png",
+        "latitude": 34.427,
+        "longitude": 127.535,
+        "displayYear": "2085",
+        "timelineOrder": 5,
+        "position": {
+            "x": 0.5,
+            "y": 0.1
+        },
+        "characterIds": [
+            "byeolhaneul"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": false
     }
 ]

@@ -12,12 +12,12 @@ class CountryData {
     regionId: 'asia',
     name: 'Korean Peninsula',
     nameKorean: '한반도',
-    description: '5000년 역사의 땅, 삼국시대부터 조선까지',
+    description: '삼국시대의 기상부터 미래의 통일 비전까지.\n반만년 역사의 숨결이 서린 약속의 땅.',
     thumbnailAsset: 'assets/images/map/korea.png',
     backgroundAsset: 'assets/images/locations/korea_bg.png',
     position: MapCoordinates(x: 0.82, y: 0.38),
-    eraIds: ['korea_three_kingdoms', 'korea_goryeo', 'korea_joseon'],
-    status: ContentStatus.available, // MVP 기본 해금
+    eraIds: ['korea_three_kingdoms', 'korea_unified_silla', 'korea_goryeo', 'korea_joseon', 'korea_modern', 'korea_contemporary', 'korea_future'],
+    status: ContentStatus.locked,
   );
 
   static const Country china = Country(

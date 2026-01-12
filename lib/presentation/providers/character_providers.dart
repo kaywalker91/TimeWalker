@@ -5,6 +5,12 @@ import 'package:time_walker/presentation/providers/repository_providers.dart';
 
 // ============== Character Providers ==============
 
+/// 모든 캐릭터 목록 불러오기
+final allCharactersProvider = FutureProvider<List<Character>>((ref) async {
+  final repository = ref.watch(characterRepositoryProvider);
+  return repository.getAllCharacters();
+});
+
 /// 시대별 인물 목록 불러오기
 final characterListByEraProvider =
     FutureProvider.family<List<Character>, String>((ref, eraId) async {

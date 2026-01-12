@@ -40,6 +40,8 @@ dependencies:
   yaml: ^3.1.2 # Dialogue script parsing
   cached_network_image: ^3.3.1 # Image caching
   shimmer: ^3.0.0 # Loading effects
+  flutter_staggered_animations: ^1.1.1
+  simple_animations: ^5.2.0
 
   # Firebase (to be configured later)
   # firebase_core: ^2.27.0
@@ -58,6 +60,8 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   build_runner: ^2.4.13
   hive_generator: ^2.0.1
+  mockito: ^5.4.4
+  mocktail: ^1.0.4
 
 flutter:
   uses-material-design: true
@@ -66,12 +70,15 @@ flutter:
   assets:
     - assets/images/
     - assets/images/map/
+    - assets/images/eras/
     - assets/images/characters/
     - assets/images/characters/three_kingdoms/
     - assets/images/characters/unified_silla/
     - assets/images/characters/goryeo/
     - assets/images/characters/joseon/
     - assets/images/characters/modern/
+    - assets/images/characters/contemporary/
+    - assets/images/characters/future/
     - assets/images/characters/renaissance/
     - assets/images/characters/industrial/
     - assets/images/locations/

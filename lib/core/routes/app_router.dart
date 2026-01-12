@@ -7,7 +7,8 @@ import 'package:time_walker/presentation/screens/main_menu/main_menu_screen.dart
 // TODO: 화면 구현 후 import 활성화
 import 'package:time_walker/presentation/screens/era_timeline/era_timeline_screen.dart';
 import 'package:time_walker/presentation/screens/region_detail/region_detail_screen.dart';
-import 'package:time_walker/presentation/screens/world_map/world_map_screen.dart';
+// import 'package:time_walker/presentation/screens/world_map/world_map_screen.dart'; // Deprecated
+import 'package:time_walker/presentation/screens/time_portal/time_portal_screen.dart';
 // import 'package:time_walker/presentation/screens/auth/auth_screen.dart';
 // import 'package:time_walker/presentation/screens/tutorial/tutorial_screen.dart';
 import 'package:time_walker/presentation/screens/era_exploration/era_exploration_screen.dart';
@@ -34,7 +35,8 @@ class AppRouter {
   static const String mainMenu = '/main-menu';
 
   // ============== 메인 탐험 라우트 ==============
-  static const String worldMap = '/world-map';
+  static const String timePortal = '/time-portal';
+  static const String worldMap = '/world-map';  // Deprecated: use timePortal
   static const String regionDetail = '/region/:regionId';
   static const String eraTimeline = '/region/:regionId/country/:countryId';
   static const String eraExploration = '/era/:eraId';
@@ -102,10 +104,18 @@ class AppRouter {
       // ),
 
       // ============== 메인 탐험 화면 ==============
+      // 시공의 회랑 (새 메인 허브)
+      GoRoute(
+        path: timePortal,
+        name: 'timePortal',
+        pageBuilder: (context, state) => _timePortalPage(const TimePortalScreen(), state),
+      ),
+      
+      // 기존 세계 지도 (하위 호환성 - 시공의 회랑으로 리다이렉트)
       GoRoute(
         path: worldMap,
         name: 'worldMap',
-        pageBuilder: (context, state) => _timePortalPage(const WorldMapScreen(), state),
+        redirect: (context, state) => timePortal,
       ),
 
       GoRoute(
@@ -270,7 +280,7 @@ class AppRouter {
             Text('${state.uri}', style: Theme.of(context).textTheme.bodyMedium),
             const SizedBox(height: 24),
             ElevatedButton(
-              onPressed: () => context.go(worldMap),
+              onPressed: () => context.go(timePortal),
               child: const Text('홈으로 돌아가기'),
             ),
           ],

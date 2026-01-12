@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/data/seeds/user_progress_seed.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
@@ -33,16 +34,21 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
       final progress = await _repository.getUserProgress(
         'user_001',
       ); // Fixed user ID for MVP
+      
+      if (!mounted) return;
+
       if (progress != null) {
         state = AsyncData(progress);
       } else {
         // Create new if null
-        const newProgress = UserProgress(oderId: 'user_001');
+        final newProgress = UserProgressSeed.initial('user_001');
         await _repository.saveUserProgress(newProgress);
-        state = const AsyncData(newProgress);
+        
+        if (!mounted) return;
+        state = AsyncData(newProgress);
       }
     } catch (e, stack) {
-      state = AsyncError(e, stack);
+      if (mounted) state = AsyncError(e, stack);
     }
   }
 
@@ -64,11 +70,19 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
       // 3. Apply unlocks to the state if any found
       if (unlocks.isNotEmpty) {
         final newEraIds = List<String>.from(updated.unlockedEraIds);
+        final newCountryIds = List<String>.from(updated.unlockedCountryIds);
+        final newRegionIds = List<String>.from(updated.unlockedRegionIds);
         ExplorerRank? newRank;
 
         for (final event in unlocks) {
           if (event.type == UnlockType.era && !newEraIds.contains(event.id)) {
             newEraIds.add(event.id);
+          } else if (event.type == UnlockType.country &&
+              !newCountryIds.contains(event.id)) {
+            newCountryIds.add(event.id);
+          } else if (event.type == UnlockType.region &&
+              !newRegionIds.contains(event.id)) {
+            newRegionIds.add(event.id);
           } else if (event.type == UnlockType.rank) {
             try {
               newRank = ExplorerRank.values.firstWhere(
@@ -80,15 +94,45 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
 
         updated = updated.copyWith(
           unlockedEraIds: newEraIds,
+          unlockedCountryIds: newCountryIds,
+          unlockedRegionIds: newRegionIds,
           rank: newRank ?? updated.rank,
         );
       }
 
       await _repository.saveUserProgress(updated);
+      
+      if (!mounted) return [];
       state = AsyncData(updated);
       return unlocks;
     } catch (e, _) {
       return [];
+    }
+  }
+
+  /// 아이템 사용 (소모)
+  /// 인벤토리에서 해당 아이템 ID를 하나 제거합니다. 성공 시 true 반환.
+  Future<bool> consumeItem(String itemId) async {
+    if (!state.hasValue) return false;
+    final current = state.value!;
+    
+    // 아이템 보유 여부 확인
+    if (!current.inventoryIds.contains(itemId)) return false;
+    
+    try {
+      final newInventory = List<String>.from(current.inventoryIds);
+      // 첫 번째 일치하는 아이템만 제거 (소모품 1개 사용)
+      newInventory.remove(itemId); 
+      
+      final updated = current.copyWith(inventoryIds: newInventory);
+      
+      await _repository.saveUserProgress(updated);
+      
+      if (!mounted) return false;
+      state = AsyncData(updated);
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 }

@@ -14,6 +14,8 @@ class Location extends Equatable {
   final String? kingdom; // 삼국시대 전용 구분 (고구려/백제/신라/가야)
   final double? latitude;
   final double? longitude;
+  final String? displayYear; // UI에 노출할 연대
+  final int? timelineOrder; // 시대 내 정렬 우선순위
   final MapCoordinates position; // 탐험 화면에서의 위치
   final List<String> characterIds; // 이 장소에서 만날 수 있는 인물
   final List<String> eventIds; // 이 장소에서 발생하는 이벤트
@@ -31,6 +33,8 @@ class Location extends Equatable {
     this.kingdom,
     this.latitude,
     this.longitude,
+    this.displayYear,
+    this.timelineOrder,
     required this.position,
     this.characterIds = const [],
     this.eventIds = const [],
@@ -49,6 +53,8 @@ class Location extends Equatable {
     String? kingdom,
     double? latitude,
     double? longitude,
+    String? displayYear,
+    int? timelineOrder,
     MapCoordinates? position,
     List<String>? characterIds,
     List<String>? eventIds,
@@ -66,6 +72,8 @@ class Location extends Equatable {
       kingdom: kingdom ?? this.kingdom,
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
+      displayYear: displayYear ?? this.displayYear,
+      timelineOrder: timelineOrder ?? this.timelineOrder,
       position: position ?? this.position,
       characterIds: characterIds ?? this.characterIds,
       eventIds: eventIds ?? this.eventIds,
@@ -95,6 +103,8 @@ class Location extends Equatable {
     kingdom,
     latitude,
     longitude,
+    displayYear,
+    timelineOrder,
     position,
     characterIds,
     eventIds,
@@ -116,6 +126,8 @@ class Location extends Equatable {
           (json['lat'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble() ??
           (json['lon'] as num?)?.toDouble(),
+      displayYear: json['displayYear'] as String?,
+      timelineOrder: (json['timelineOrder'] as num?)?.toInt(),
       position: MapCoordinates(
         x: (json['position']['x'] as num).toDouble(),
         y: (json['position']['y'] as num).toDouble(),

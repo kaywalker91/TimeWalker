@@ -3,18 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/presentation/providers/settings_provider.dart';
 import 'package:time_walker/presentation/screens/settings/widgets/settings_tiles.dart';
+import 'package:time_walker/presentation/providers/theme_provider.dart';
+import 'package:time_walker/presentation/providers/user_progress_provider.dart';
 
-/// 설정 화면
-/// - 사운드/음악 설정
-/// - 진동 설정
-/// - 접근성 설정
-/// - 언어 설정
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final settings = ref.watch(settingsProvider);
+    final themeStyle = ref.watch(themeProvider);
+    final userProgressAsync = ref.watch(userProgressProvider);
 
     return Scaffold(
       backgroundColor: SettingsColors.background,
@@ -38,6 +37,35 @@ class SettingsScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
+          // 테마 섹션 (APPEARANCE)
+          const SettingsSectionHeader(title: 'APPEARANCE'),
+          userProgressAsync.when(
+            data: (userProgress) {
+              final isUnlocked = userProgress.inventoryIds.contains('theme_dark_mode');
+              return SettingsSwitchTile(
+                icon: Icons.nightlight_round,
+                title: 'Midnight Theme',
+                subtitle: isUnlocked ? 'Apply the special midnight theme' : 'Locked (Purchase in Shop)',
+                value: themeStyle == AppThemeStyle.midnight,
+                onChanged: (value) {
+                  if (isUnlocked) {
+                    ref.read(themeProvider.notifier).toggleTheme();
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Purchase "Midnight Theme" in the Shop to unlock!'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  }
+                },
+              );
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (_, _) => const SizedBox.shrink(),
+          ),
+          const SizedBox(height: 20),
+
           // 사운드 섹션
           const SettingsSectionHeader(title: 'SOUND'),
           SettingsSwitchTile(

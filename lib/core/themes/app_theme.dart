@@ -420,4 +420,126 @@ class AppTheme {
       ),
     );
   }
+  /// 미드나잇 테마 (보라빛 강조)
+  static ThemeData get midnightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      
+      // ========================================
+      // COLOR SCHEME
+      // ========================================
+      colorScheme: const ColorScheme.dark(
+        primary: AppColors.secondary, // Purple as Primary
+        onPrimary: AppColors.background,
+        primaryContainer: AppColors.secondaryDark,
+        onPrimaryContainer: AppColors.secondaryLight,
+        
+        secondary: AppColors.primary, // Gold as Secondary
+        onSecondary: AppColors.background,
+        secondaryContainer: AppColors.primaryDark,
+        onSecondaryContainer: AppColors.primaryLight,
+        
+        tertiary: AppColors.success,
+        onTertiary: AppColors.background,
+        
+        error: AppColors.error,
+        onError: AppColors.textPrimary,
+        errorContainer: AppColors.errorDark,
+        onErrorContainer: AppColors.errorLight,
+        
+        surface: AppColors.surface,
+        onSurface: AppColors.textPrimary,
+        surfaceContainerHighest: AppColors.surfaceLight,
+        onSurfaceVariant: AppColors.textSecondary,
+        
+        outline: AppColors.secondary, // Purple outline
+        outlineVariant: AppColors.divider,
+      ),
+      
+      // ========================================
+      // SCAFFOLD
+      // ========================================
+      scaffoldBackgroundColor: const Color(0xFF050510), // Darker background
+      
+      // ========================================
+      // TYPOGRAPHY
+      // ========================================
+      fontFamily: AppTextStyles.fontFamily,
+      textTheme: const TextTheme(
+        displayLarge: AppTextStyles.displayLarge,
+        displayMedium: AppTextStyles.displayMedium,
+        displaySmall: AppTextStyles.displaySmall,
+        headlineLarge: AppTextStyles.headlineLarge,
+        headlineMedium: AppTextStyles.headlineMedium,
+        headlineSmall: AppTextStyles.headlineSmall,
+        titleLarge: AppTextStyles.titleLarge,
+        titleMedium: AppTextStyles.titleMedium,
+        titleSmall: AppTextStyles.titleSmall,
+        bodyLarge: AppTextStyles.bodyLarge,
+        bodyMedium: AppTextStyles.bodyMedium,
+        bodySmall: AppTextStyles.bodySmall,
+        labelLarge: AppTextStyles.labelLarge,
+        labelMedium: AppTextStyles.labelMedium,
+        labelSmall: AppTextStyles.labelSmall,
+      ),
+      
+      // ========================================
+      // APP BAR
+      // ========================================
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppColors.textPrimary,
+        elevation: 0,
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          fontFamily: AppTextStyles.fontFamily,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: AppColors.textPrimary,
+          letterSpacing: 1.0,
+        ),
+        iconTheme: IconThemeData(
+          color: AppColors.secondary, // Purple Icons
+          size: 24,
+        ),
+      ),
+      
+      // ========================================
+      // ELEVATED BUTTON
+      // ========================================
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: AppColors.background,
+          backgroundColor: AppColors.secondary, // Purple Button
+          disabledForegroundColor: AppColors.textDisabled,
+          disabledBackgroundColor: AppColors.surfaceLight,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          elevation: 4,
+          shadowColor: AppColors.secondary.withValues(alpha: 0.4),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: AppTextStyles.buttonLarge,
+        ),
+      ),
+      
+      // ========================================
+      // OUTLINED BUTTON
+      // ========================================
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppColors.secondary,
+          disabledForegroundColor: AppColors.textDisabled,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          side: const BorderSide(color: AppColors.secondary, width: 2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: AppTextStyles.buttonLarge,
+        ),
+      ),
+       // ... reuse others or let them fallback to default
+    );
+  }
 }

@@ -40,6 +40,9 @@ class ResponsiveUtils {
     isSmallPhone = screenWidth < Breakpoints.smallPhone;
   }
 
+  bool get isTablet => deviceType == DeviceType.tablet;
+  bool get isDesktop => deviceType == DeviceType.desktop;
+
   /// 화면 너비 비율 기반 값 계산
   double wp(double percentage) => screenWidth * percentage / 100;
 

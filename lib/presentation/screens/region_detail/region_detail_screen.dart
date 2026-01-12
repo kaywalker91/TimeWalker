@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/region.dart';
+import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/widgets/common/widgets.dart';
 
@@ -36,6 +37,8 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
   Widget build(BuildContext context) {
     final regionAsync = ref.watch(regionByIdProvider(widget.regionId));
     final countriesAsync = ref.watch(countryListByRegionProvider(widget.regionId));
+    final userProgressAsync = ref.watch(userProgressProvider);
+    final userProgress = userProgressAsync.valueOrNull;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -72,7 +75,7 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
                     child: countriesAsync.when(
                       loading: () => _buildLoadingState(),
                       error: (err, stack) => _buildErrorState('Error loading countries: $err'),
-                      data: (countries) => _buildCountryList(context, countries, region),
+                      data: (countries) => _buildCountryList(context, countries, region, userProgress),
                     ),
                   ),
                 ],
@@ -166,6 +169,7 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
     BuildContext context,
     List<Country> countries,
     Region region,
+    UserProgress? userProgress,
   ) {
     if (countries.isEmpty) {
       return Center(
@@ -186,6 +190,7 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
         return CountryCard(
           country: country,
           region: region,
+          userProgress: userProgress,
         );
       },
     );

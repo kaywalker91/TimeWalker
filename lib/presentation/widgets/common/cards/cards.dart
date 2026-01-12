@@ -17,6 +17,7 @@
 /// CountryCard(
 ///   country: country,
 ///   region: region,
+///   userProgress: progress,
 /// );
 /// 
 /// // 도감 항목 카드

@@ -18,7 +18,7 @@ class RegionData {
     countryIds: ['korea', 'china', 'japan', 'india', 'mongolia'],
     center: MapCoordinates(x: 0.83, y: 0.31), // East Asia: ~120°E, ~35°N
     defaultZoom: 1.2,
-    status: ContentStatus.available,
+    status: ContentStatus.locked,
     unlockLevel: 0,
   );
 
@@ -32,7 +32,7 @@ class RegionData {
     countryIds: ['greece', 'rome', 'britain', 'france', 'germany'],
     center: MapCoordinates(x: 0.48, y: 0.18), // Europe: Central Europe
     defaultZoom: 1.3,
-    status: ContentStatus.available,
+    status: ContentStatus.locked,
     unlockLevel: 5,
   );
 
@@ -46,36 +46,22 @@ class RegionData {
     countryIds: ['egypt', 'ethiopia', 'mali'],
     center: MapCoordinates(x: 0.56, y: 0.50), // Africa: ~20°E, ~0°
     defaultZoom: 1.1,
-    status: ContentStatus.available,
+    status: ContentStatus.locked,
     unlockLevel: 10,
   );
 
-  static const Region northAmerica = Region(
-    id: 'north_america',
-    name: 'North America',
-    nameKorean: '북아메리카',
-    description: '광활한 대륙, 원주민 문명과 신대륙의 역사',
+  static const Region americas = Region(
+    id: 'americas',
+    name: 'Americas',
+    nameKorean: '아메리카',
+    description: '마야와 아즈텍, 잉카와 신대륙의 문명',
     iconAsset: 'assets/images/ui/icon_americas.png',
     thumbnailAsset: 'assets/images/map/americas.png',
-    countryIds: ['usa', 'aztec'],
-    center: MapCoordinates(x: 0.15, y: 0.28), // North America: USA/Canada
+    countryIds: ['maya', 'aztec', 'inca', 'usa'],
+    center: MapCoordinates(x: 0.22, y: 0.45), // Centralized Americas
     defaultZoom: 1.0,
-    status: ContentStatus.available,
-    unlockLevel: 15,
-  );
-
-  static const Region southAmerica = Region(
-    id: 'south_america',
-    name: 'South America',
-    nameKorean: '남아메리카',
-    description: '잉카와 마야의 신비, 고대 문명의 보고',
-    iconAsset: 'assets/images/ui/icon_americas.png',
-    thumbnailAsset: 'assets/images/map/americas.png',
-    countryIds: ['maya', 'inca'],
-    center: MapCoordinates(x: 0.28, y: 0.62), // South America: Brazil/Peru
-    defaultZoom: 1.0,
-    status: ContentStatus.available,
-    unlockLevel: 15,
+    status: ContentStatus.locked,
+    unlockLevel: 10,
   );
 
   static const Region middleEast = Region(
@@ -88,11 +74,11 @@ class RegionData {
     countryIds: ['mesopotamia', 'persia', 'ottoman'],
     center: MapCoordinates(x: 0.58, y: 0.32), // Middle East: Arabia/Iraq
     defaultZoom: 1.4,
-    status: ContentStatus.available,
+    status: ContentStatus.locked,
     unlockLevel: 20,
   );
 
-  static List<Region> get all => [asia, europe, africa, northAmerica, southAmerica, middleEast];
+  static List<Region> get all => [asia, europe, africa, americas, middleEast];
 
   static Region? getById(String id) {
     try {

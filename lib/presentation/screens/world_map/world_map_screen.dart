@@ -3,7 +3,6 @@ import 'package:flame/game.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/audio_constants.dart';
-import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/region.dart';
@@ -130,8 +129,7 @@ class _WorldMapScreenState extends ConsumerState<WorldMapScreen> {
         );
       },
       onRegionTapped: (region) {
-        final isUnlocked = userProgress.isRegionUnlocked(region.id) ||
-            region.status == ContentStatus.available;
+        final isUnlocked = userProgress.isRegionUnlocked(region.id);
         
         if (isUnlocked) {
           context.pushNamed(

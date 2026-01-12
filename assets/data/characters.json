@@ -106,7 +106,7 @@
             "거중기 설계",
             "실학 집대성"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "jeongjo",
@@ -143,7 +143,7 @@
             "신해통공",
             "초계문신제 실시"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "jang_yeongshil",
@@ -178,7 +178,7 @@
             "간의 제작",
             "갑인자 주조 참여"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "heo_jun",
@@ -214,7 +214,7 @@
             "전염병 퇴치 노력",
             "한의학 체계화"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "gwanggaeto",
@@ -608,7 +608,7 @@
             "비행 기계 설계",
             "인체 비례도"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "galileo",
@@ -639,7 +639,7 @@
             "지동설 지지",
             "관성의 법칙"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "wanggeon",
@@ -811,7 +811,7 @@
             "동아시아 해상권 장악",
             "국제 무역 주도"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "choi_chiwon",
@@ -845,7 +845,7 @@
             "시무 10조 건의",
             "계원필경 저술"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "wonhyo",
@@ -878,7 +878,7 @@
             "화쟁 사상 정립",
             "금강삼매경론 저술"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "gojong",
@@ -911,7 +911,7 @@
             "전기/전차 도입",
             "헤이그 특사 파견"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "ahn_junggeun",
@@ -946,7 +946,7 @@
             "대한의군 참모중장",
             "단지동맹 결성"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "yu_gwansun",
@@ -978,7 +978,7 @@
             "건국훈장 대한민국장",
             "민족의 누나/언니"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "choe_museon",
@@ -1011,7 +1011,7 @@
             "진포 대첩 승리",
             "화포 개발"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "mun_ikjeom",
@@ -1043,7 +1043,7 @@
             "의생활 혁명",
             "백성의 삶 개선"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "james_watt",
@@ -1076,7 +1076,7 @@
             "마력(Horsepower) 개념 도입",
             "산업혁명 촉발"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "stephenson",
@@ -1109,7 +1109,7 @@
             "철도 시대 개막",
             "철도의 아버지"
         ],
-        "status": "locked"
+        "status": "available"
     },
     {
         "id": "adam_smith",
@@ -1139,6 +1139,399 @@
             "근대 경제학 정립",
             "분업 이론"
         ],
-        "status": "locked"
+        "status": "available"
+    },
+    {
+        "id": "kim_gu",
+        "eraId": "korea_contemporary_1",
+        "name": "Kim Gu",
+        "nameKorean": "김구",
+        "title": "대한민국 임시정부 주석",
+        "birth": "1876",
+        "death": "1949",
+        "biography": "평생을 조국의 독립과 통일을 위해 헌신한 민족 지도자",
+        "fullBiography": "황해도 해주 출신으로, 동학농민운동에 참여한 뒤 계몽운동과 독립운동에 투신했다. 상하이 임시정부에서 경무국장, 내무총장, 국무령을 거쳐 주석으로 활동하며 한인애국단을 조직해 이봉창, 윤봉길 의거를 이끌었다. 해방 후에는 통일 정부 수립을 위해 남북협상을 추진했으나 뜻을 이루지 못하고 안두희에게 암살당했다.",
+        "portraitAsset": "assets/images/characters/contemporary/kim_gu.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "kim_gu_independence_01",
+            "kim_gu_unification_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "cheonggyecheon_1950"
+        ],
+        "achievements": [
+            "대한민국 임시정부 주석",
+            "한인애국단 조직",
+            "백범일지 저술",
+            "남북통일 운동"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "sohn_kee_chung",
+        "eraId": "korea_contemporary_2",
+        "name": "Sohn Kee-chung",
+        "nameKorean": "손기정",
+        "title": "올림픽 마라톤 금메달리스트",
+        "birth": "1912",
+        "death": "2002",
+        "biography": "일장기를 가슴에 달고 달렸지만, 조선인의 자긍심을 세계에 알린 마라토너",
+        "fullBiography": "1936년 베를린 올림픽 마라톤에서 당시 세계기록으로 금메달을 획득했다. 일제 강점기 일본 대표로 출전해야 했지만, 시상대에서 월계수로 가슴의 일장기를 가렸다. 동아일보의 일장기 말소 사건과 함께 민족의 자존심을 세운 영웅으로 기억된다.",
+        "portraitAsset": "assets/images/characters/contemporary/sohn_kee_chung.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "sohn_marathon_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [],
+        "achievements": [
+            "1936 베를린 올림픽 마라톤 금메달",
+            "세계 신기록 수립",
+            "민족의 자긍심 고취"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "student_soldier",
+        "eraId": "korea_contemporary_1",
+        "name": "Lee Young-ho (Student Soldier)",
+        "nameKorean": "이영호 (학도병)",
+        "title": "학도의용군",
+        "birth": "1932",
+        "death": "1950",
+        "biography": "조국을 지키기 위해 총을 든 어린 학생들의 이야기",
+        "fullBiography": "1950년 6.25 전쟁이 발발하자, 아직 어린 나이임에도 조국을 지키겠다는 일념으로 학도의용군에 자원입대한 청년. 부산 학도의용군 전적비에 이름이 새겨진 수많은 청년들을 대표하는 가상의 인물이다. 낙동강 방어선에서 산화한 그들의 희생을 기억한다.",
+        "portraitAsset": "assets/images/characters/contemporary/student_soldier.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "student_soldier_war_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "cheonggyecheon_1950"
+        ],
+        "achievements": [
+            "조국을 위한 헌신",
+            "학도의용군 참전"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "chung_juyoung",
+        "eraId": "korea_contemporary_2",
+        "name": "Chung Ju-yung",
+        "nameKorean": "정주영",
+        "title": "현대그룹 창업주",
+        "birth": "1915",
+        "death": "2001",
+        "biography": "소 한 마리 값으로 서울에 올라와 세계적 기업을 일군 한강의 기적의 주역",
+        "fullBiography": "강원도 통천 출신으로, 소를 팔아 서울로 상경한 뒤 자동차 정비업으로 시작해 현대그룹을 창업했다. 불가능은 없다는 정신으로 경부고속도로 건설, 조선소 건설, 중동 진출 등 대한민국 경제 발전을 이끌었다. 1998년에는 소 1001마리를 이끌고 방북하여 화해의 상징이 되기도 했다.",
+        "portraitAsset": "assets/images/characters/contemporary/chung_juyoung.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "chung_miracle_01",
+            "chung_shipyard_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "ulsan_shipyard"
+        ],
+        "achievements": [
+            "현대그룹 창업",
+            "경부고속도로 건설",
+            "현대조선소 설립",
+            "소떼 방북"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "german_worker",
+        "eraId": "korea_contemporary_2",
+        "name": "Kim Chul-soo (German Mine Worker)",
+        "nameKorean": "김철수 (파독 광부)",
+        "title": "독일 파견 광부",
+        "birth": "1940",
+        "death": null,
+        "biography": "조국의 경제 발전을 위해 낯선 땅에서 땀 흘린 숨은 영웅들",
+        "fullBiography": "1960-70년대 약 8천 명의 한국 청년들이 서독 탄광에서 일했다. 영하의 추위와 갱도 속 위험을 견디며 번 외화를 고국에 송금했고, 그 돈은 한국 경제 발전의 밑거름이 되었다. 이 가상의 인물은 그들 모두를 대표한다.",
+        "portraitAsset": "assets/images/characters/contemporary/german_worker.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "german_worker_story_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "ulsan_shipyard"
+        ],
+        "achievements": [
+            "외화 획득",
+            "경제 발전 기여",
+            "국위 선양"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "democracy_activist",
+        "eraId": "korea_contemporary_2",
+        "name": "Lee Min-joo (Democracy Activist)",
+        "nameKorean": "이민주 (민주화 활동가)",
+        "title": "6월 항쟁 참가자",
+        "birth": "1965",
+        "death": null,
+        "biography": "독재에 맞서 민주주의를 외친 1987년의 청년들",
+        "fullBiography": "1987년 6월, 직선제 개헌을 요구하며 거리로 나선 수많은 시민들 중 한 명. 최루탄 속에서도 '호헌 철폐, 독재 타도'를 외쳤던 청년들의 함성은 결국 6.29 선언을 이끌어냈다. 대한민국 민주주의를 위해 싸운 모든 이들을 대표하는 가상의 인물이다.",
+        "portraitAsset": "assets/images/characters/contemporary/democracy_activist.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "democracy_june_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "gwanghwamun_1987"
+        ],
+        "achievements": [
+            "6월 민주항쟁 참여",
+            "직선제 쟁취",
+            "민주주의 수호"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "it_pioneer",
+        "eraId": "korea_contemporary_3",
+        "name": "Han Gi-sul (IT Pioneer)",
+        "nameKorean": "한기술 (IT 혁신가)",
+        "title": "스타트업 창업자",
+        "birth": "1975",
+        "death": null,
+        "biography": "대한민국을 IT 강국으로 이끈 디지털 혁명의 주역들",
+        "fullBiography": "1990년대 말 IMF 위기 속에서도 인터넷 벤처를 창업해 성공한 청년 사업가를 대표하는 가상의 인물. 테헤란밸리의 열정으로 대한민국을 세계 최고의 IT 강국으로 만든 수많은 개발자와 창업가들의 이야기를 담고 있다.",
+        "portraitAsset": "assets/images/characters/contemporary/it_pioneer.png",
+        "emotionAssets": [
+            "assets/images/characters/contemporary/placeholder.png"
+        ],
+        "dialogueIds": [
+            "it_startup_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "gangnam_teheran",
+            "ddp_dongdaemun"
+        ],
+        "achievements": [
+            "IT 벤처 창업",
+            "글로벌 서비스 개발",
+            "디지털 혁신"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "han_jinue",
+        "eraId": "korea_future",
+        "name": "Han Jinue (AI Researcher)",
+        "nameKorean": "한지능 (AI 연구자)",
+        "title": "인공지능 윤리 연구자",
+        "birth": "2005",
+        "death": null,
+        "biography": "AI와 인간이 공존하는 미래를 설계하는 과학자",
+        "fullBiography": "2030년대 대한민국을 이끄는 젊은 AI 연구자. 인공지능의 발전이 인류에게 축복이 되도록 AI 윤리와 안전한 기술 개발을 연구한다. '기술은 인간을 위해 존재한다'는 철학을 가진 미래 과학자.",
+        "portraitAsset": "assets/images/characters/future/han_jinue.png",
+        "emotionAssets": [
+            "assets/images/characters/future/placeholder.png"
+        ],
+        "dialogueIds": [
+            "ai_ethics_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "seoul_metaverse_hub"
+        ],
+        "achievements": [
+            "AI 윤리 가이드라인 수립",
+            "인간-AI 협력 모델 개발"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "pureunsol",
+        "eraId": "korea_future",
+        "name": "Pureunsol (Environmental Scientist)",
+        "nameKorean": "푸른솔 (환경 과학자)",
+        "title": "기후변화 대응 전문가",
+        "birth": "2010",
+        "death": null,
+        "biography": "지구를 지키는 그린 테크놀로지의 선구자",
+        "fullBiography": "2040년대 기후위기 시대의 영웅. 그린 수소, 탄소포집 기술을 개발해 대한민국을 탄소중립 국가로 만든 환경 과학자. 제주 에코시티 프로젝트를 이끌며 지속가능한 미래를 현실로 만들어가고 있다.",
+        "portraitAsset": "assets/images/characters/future/pureunsol.png",
+        "emotionAssets": [
+            "assets/images/characters/future/placeholder.png"
+        ],
+        "dialogueIds": [
+            "climate_solution_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "jeju_eco_city"
+        ],
+        "achievements": [
+            "탄소중립 기술 개발",
+            "에코시티 설계"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "byeolhaneul",
+        "eraId": "korea_future",
+        "name": "Byeolhaneul (Astronaut)",
+        "nameKorean": "별하늘 (우주비행사)",
+        "title": "달 기지 '백두' 초대 대원",
+        "birth": "2015",
+        "death": null,
+        "biography": "인류의 새로운 터전, 우주를 개척하는 탐험가",
+        "fullBiography": "2050년대 한국 우주 개발의 꿈을 실현한 우주비행사. 달 기지 '백두'의 초대 건설 대원으로 참여해 한국의 우주 역사를 새로 쓰고 있다. 어린 시절 밤하늘의 별을 보며 꿈꿨던 우주가 이제 그의 일터가 되었다.",
+        "portraitAsset": "assets/images/characters/future/byeolhaneul.png",
+        "emotionAssets": [
+            "assets/images/characters/future/placeholder.png"
+        ],
+        "dialogueIds": [
+            "space_exploration_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "moon_base_baekdu"
+        ],
+        "achievements": [
+            "달 기지 건설 참여",
+            "우주 탐사"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "hanaro",
+        "eraId": "korea_future",
+        "name": "Hanaro (Unified Generation Youth)",
+        "nameKorean": "하나로 (통일 세대 청년)",
+        "title": "남북 교류 사업가",
+        "birth": "2040",
+        "death": null,
+        "biography": "분단의 역사를 넘어 하나된 한반도를 살아가는 미래 세대",
+        "fullBiography": "2060년대, 평양과 서울을 자유롭게 오가는 첫 세대. 평양에서 태어나 서울에서 공부하고, 남북 문화 교류 사업을 이끌고 있다. 할머니가 들려주던 분단과 이산의 아픔은 이제 역사책 속 이야기가 되었다.",
+        "portraitAsset": "assets/images/characters/future/hanaro.png",
+        "emotionAssets": [
+            "assets/images/characters/future/placeholder.png"
+        ],
+        "dialogueIds": [
+            "unification_story_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "pyongyang_seoul_rail"
+        ],
+        "achievements": [
+            "남북 문화 교류",
+            "통일 경제 발전"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "youngwon",
+        "eraId": "korea_future",
+        "name": "Youngwon (Future Philosopher)",
+        "nameKorean": "영원 (미래 철학자)",
+        "title": "초연결 사회 윤리학자",
+        "birth": "2050",
+        "death": null,
+        "biography": "기술이 인간의 한계를 넘어설 때, 인간다움이란 무엇인가를 묻는 사상가",
+        "fullBiography": "2080년대, 뇌-컴퓨터 인터페이스와 수명 연장 기술이 보편화된 시대의 철학자. '영생이 가능한 시대에 삶의 의미는 무엇인가?', '디지털 의식은 진정한 자아인가?' 등 인류의 근본적 질문에 답을 찾는 미래의 사상가.",
+        "portraitAsset": "assets/images/characters/future/youngwon.png",
+        "emotionAssets": [
+            "assets/images/characters/future/placeholder.png"
+        ],
+        "dialogueIds": [
+            "posthuman_philosophy_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "brain_interface_lab"
+        ],
+        "achievements": [
+            "초연결 윤리학 정립",
+            "인간다움의 재정의"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "refugee_merchant",
+        "eraId": "korea_contemporary_1",
+        "name": "Refugee Merchant",
+        "nameKorean": "국제시장 상인",
+        "description": "6.25 전쟁으로 모든 것을 잃고 부산으로 피난 온 어머니. 억척스럽게 시장에서 장사하며 자식들을 키워낸 강인한 생명력의 상징.",
+        "gender": "female",
+        "job": "merchant",
+        "thumbnailAsset": "assets/images/characters/refugee_merchant.png",
+        "fullBodyAsset": "assets/images/characters/refugee_merchant_full.png",
+        "dialogueIds": [
+            "rm_1_hardship",
+            "rm_2_hope"
+        ],
+        "achievements": [
+            "가족의 생존",
+            "시장 개척"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "sewing_worker",
+        "eraId": "korea_contemporary_2",
+        "name": "Sewing Worker",
+        "nameKorean": "청계천 여공",
+        "description": "평화시장의 열악한 환경 속에서도 가족의 생계를 책임진 70년대 산업 역군. 꿈을 잃지 않고 야학을 다니며 배움의 끈을 놓지 않았다.",
+        "gender": "female",
+        "job": "worker",
+        "thumbnailAsset": "assets/images/characters/sewing_worker.png",
+        "fullBodyAsset": "assets/images/characters/sewing_worker_full.png",
+        "dialogueIds": [
+            "sw_1_labor",
+            "sw_2_dream"
+        ],
+        "achievements": [
+            "동생 학비 지원",
+            "야학 졸업"
+        ],
+        "status": "available"
+    },
+    {
+        "id": "imf_survivor",
+        "eraId": "korea_contemporary_3",
+        "name": "IMF Survivor",
+        "nameKorean": "IMF 극복 기업가",
+        "description": "1997년 외환위기로 회사가 부도나는 절망을 겪었으나, 포기하지 않고 벤처 기업으로 재기에 성공한 불굴의 아버지.",
+        "gender": "male",
+        "job": "entrepreneur",
+        "thumbnailAsset": "assets/images/characters/imf_survivor.png",
+        "fullBodyAsset": "assets/images/characters/imf_survivor_full.png",
+        "dialogueIds": [
+            "is_1_collapse",
+            "is_2_rise"
+        ],
+        "achievements": [
+            "재기 성공",
+            "수출탑 수상"
+        ],
+        "status": "available"
     }
 ]

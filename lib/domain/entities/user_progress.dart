@@ -1,9 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/entities/completion_state.dart';
+import 'package:time_walker/domain/entities/exploration_state.dart';
+import 'package:time_walker/domain/entities/unlock_state.dart';
+import 'package:time_walker/domain/entities/user_profile.dart';
 
 /// 사용자 진행 상태 엔티티
 class UserProgress extends Equatable {
-  final String oderId;
+  final String userId;
   final int totalKnowledge; // 총 역사 이해도
   final ExplorerRank rank; // 탐험가 등급
   final Map<String, double> regionProgress; // 지역별 진행률
@@ -17,6 +21,8 @@ class UserProgress extends Equatable {
   final List<String> unlockedFactIds;
   final List<String> achievementIds;
   final List<String> completedQuizIds; // 정답을 맞춘 퀴즈 ID 목록
+  final List<String> discoveredEncyclopediaIds; // 발견한 도감 항목 ID 목록 (deprecated, 하위 호환성)
+  final Map<String, DateTime> encyclopediaDiscoveryDates; // 도감 항목 ID -> 발견 날짜
   final DateTime? lastPlayedAt;
   final String? lastPlayedEraId;
   final int totalPlayTimeMinutes;
@@ -26,31 +32,33 @@ class UserProgress extends Equatable {
   final bool hasCompletedTutorial; // 튜토리얼 완료 여부
 
   const UserProgress({
-    required this.oderId,
+    required this.userId,
     this.totalKnowledge = 0,
     this.rank = ExplorerRank.novice,
     this.regionProgress = const {},
     this.countryProgress = const {},
     this.eraProgress = const {},
     this.completedDialogueIds = const [],
-    this.unlockedRegionIds = const ['asia', 'europe'], // MVP: 아시아, 유럽 해금
-    this.unlockedCountryIds = const ['korea', 'italy'], // MVP: 한국, 이탈리아 해금
-    this.unlockedEraIds = const ['korea_three_kingdoms', 'korea_joseon', 'europe_renaissance'], // MVP: 삼국시대, 조선, 르네상스 해금
-    this.unlockedCharacterIds = const ['encyclo_char_Q128027', 'encyclo_char_Q9319', 'gwanggaeto', 'geunchogo', 'kim_yushin', 'seondeok', 'eulji_mundeok', 'jangsu', 'gyebaek', 'uija'], // 테스트: 삼국시대 인물 해금
-    this.unlockedFactIds = const ['encyclo_char_Q61073'], // 테스트: 일부 인물(도감) 해금 (뮌스터)
+    this.unlockedRegionIds = const [],
+    this.unlockedCountryIds = const [],
+    this.unlockedEraIds = const [],
+    this.unlockedCharacterIds = const [],
+    this.unlockedFactIds = const [],
     this.achievementIds = const [],
     this.completedQuizIds = const [],
+    this.discoveredEncyclopediaIds = const [], // deprecated, 하위 호환성 유지
+    this.encyclopediaDiscoveryDates = const {}, // 새로운 필드: 항목 ID -> 발견 날짜
     this.lastPlayedAt,
     this.lastPlayedEraId,
     this.totalPlayTimeMinutes = 0,
     this.loginStreak = 0,
-    this.coins = 100, // 기본 코인 제공
+    this.coins = 99999, // 기본 코인 제공 (테스트용)
     this.inventoryIds = const [],
     this.hasCompletedTutorial = false,
   });
 
   UserProgress copyWith({
-    String? oderId,
+    String? userId,
     int? totalKnowledge,
     ExplorerRank? rank,
     Map<String, double>? regionProgress,
@@ -64,6 +72,8 @@ class UserProgress extends Equatable {
     List<String>? unlockedFactIds,
     List<String>? achievementIds,
     List<String>? completedQuizIds,
+    List<String>? discoveredEncyclopediaIds,
+    Map<String, DateTime>? encyclopediaDiscoveryDates,
     DateTime? lastPlayedAt,
     String? lastPlayedEraId,
     int? totalPlayTimeMinutes,
@@ -73,7 +83,7 @@ class UserProgress extends Equatable {
     bool? hasCompletedTutorial,
   }) {
     return UserProgress(
-      oderId: oderId ?? this.oderId,
+      userId: userId ?? this.userId,
       totalKnowledge: totalKnowledge ?? this.totalKnowledge,
       rank: rank ?? this.rank,
       regionProgress: regionProgress ?? this.regionProgress,
@@ -87,6 +97,8 @@ class UserProgress extends Equatable {
       unlockedFactIds: unlockedFactIds ?? this.unlockedFactIds,
       achievementIds: achievementIds ?? this.achievementIds,
       completedQuizIds: completedQuizIds ?? this.completedQuizIds,
+      discoveredEncyclopediaIds: discoveredEncyclopediaIds ?? this.discoveredEncyclopediaIds,
+      encyclopediaDiscoveryDates: encyclopediaDiscoveryDates ?? this.encyclopediaDiscoveryDates,
       lastPlayedAt: lastPlayedAt ?? this.lastPlayedAt,
       lastPlayedEraId: lastPlayedEraId ?? this.lastPlayedEraId,
       totalPlayTimeMinutes: totalPlayTimeMinutes ?? this.totalPlayTimeMinutes,
@@ -99,7 +111,20 @@ class UserProgress extends Equatable {
 
   /// 지역이 해금되었는지 확인
   bool isRegionUnlocked(String regionId) {
-    return unlockedRegionIds.contains(regionId);
+    if (unlockedRegionIds.contains(regionId)) {
+      return true;
+    }
+
+    if (regionId == 'americas') {
+      return unlockedRegionIds.contains('north_america') ||
+          unlockedRegionIds.contains('south_america');
+    }
+
+    if (regionId == 'north_america' || regionId == 'south_america') {
+      return unlockedRegionIds.contains('americas');
+    }
+
+    return false;
   }
 
   /// 국가가 해금되었는지 확인
@@ -184,6 +209,27 @@ class UserProgress extends Equatable {
   /// 발견한 역사 사실 수
   int get unlockedFactCount => unlockedFactIds.length;
 
+  /// 도감 항목 발견 여부 확인
+  bool isEncyclopediaDiscovered(String entryId) {
+    return encyclopediaDiscoveryDates.containsKey(entryId) ||
+           discoveredEncyclopediaIds.contains(entryId);
+  }
+
+  /// 도감 항목 발견 날짜 반환
+  DateTime? getEncyclopediaDiscoveryDate(String entryId) {
+    return encyclopediaDiscoveryDates[entryId];
+  }
+
+  /// 최신순으로 정렬된 발견된 도감 ID 목록
+  List<String> get recentlyDiscoveredEncyclopediaIds {
+    final entries = encyclopediaDiscoveryDates.entries.toList()
+      ..sort((a, b) => b.value.compareTo(a.value)); // 최신순 (내림차순)
+    return entries.map((e) => e.key).toList();
+  }
+
+  /// 발견한 도감 항목 수
+  int get discoveredEncyclopediaCount => encyclopediaDiscoveryDates.length;
+
   /// 획득한 업적 수
   int get achievementCount => achievementIds.length;
 
@@ -207,7 +253,7 @@ class UserProgress extends Equatable {
 
   @override
   List<Object?> get props => [
-    oderId,
+    userId,
     totalKnowledge,
     rank,
     regionProgress,
@@ -221,6 +267,8 @@ class UserProgress extends Equatable {
     unlockedFactIds,
     achievementIds,
     completedQuizIds,
+    discoveredEncyclopediaIds,
+    encyclopediaDiscoveryDates,
     lastPlayedAt,
     lastPlayedEraId,
     totalPlayTimeMinutes,
@@ -233,6 +281,106 @@ class UserProgress extends Equatable {
   @override
   String toString() =>
       'UserProgress(knowledge: $totalKnowledge, rank: ${rank.displayName})';
+
+  // ============================================================
+  // 하위 엔티티 변환 메서드
+  // Phase 3 리팩토링: UserProgress를 논리적으로 분리된 엔티티로 변환
+  // ============================================================
+
+  /// UserProfile 엔티티로 변환
+  ///
+  /// 사용자 기본 프로필 정보만 추출합니다.
+  UserProfile toUserProfile() {
+    return UserProfile(
+      userId: userId,
+      rank: rank,
+      coins: coins,
+      loginStreak: loginStreak,
+      lastPlayedAt: lastPlayedAt,
+      lastPlayedEraId: lastPlayedEraId,
+      totalPlayTimeMinutes: totalPlayTimeMinutes,
+      hasCompletedTutorial: hasCompletedTutorial,
+      inventoryIds: List.from(inventoryIds),
+    );
+  }
+
+  /// ExplorationState 엔티티로 변환
+  ///
+  /// 탐험 진행 상태 정보만 추출합니다.
+  ExplorationState toExplorationState() {
+    return ExplorationState(
+      regionProgress: Map.from(regionProgress),
+      countryProgress: Map.from(countryProgress),
+      eraProgress: Map.from(eraProgress),
+      totalKnowledge: totalKnowledge,
+    );
+  }
+
+  /// UnlockState 엔티티로 변환
+  ///
+  /// 콘텐츠 해금 상태 정보만 추출합니다.
+  UnlockState toUnlockState() {
+    return UnlockState(
+      unlockedRegionIds: List.from(unlockedRegionIds),
+      unlockedCountryIds: List.from(unlockedCountryIds),
+      unlockedEraIds: List.from(unlockedEraIds),
+      unlockedCharacterIds: List.from(unlockedCharacterIds),
+      unlockedFactIds: List.from(unlockedFactIds),
+    );
+  }
+
+  /// CompletionState 엔티티로 변환
+  ///
+  /// 완료/발견 상태 정보만 추출합니다.
+  CompletionState toCompletionState() {
+    return CompletionState(
+      completedDialogueIds: List.from(completedDialogueIds),
+      completedQuizIds: List.from(completedQuizIds),
+      encyclopediaDiscoveryDates: Map.from(encyclopediaDiscoveryDates),
+      achievementIds: List.from(achievementIds),
+      discoveredEncyclopediaIds: List.from(discoveredEncyclopediaIds),
+    );
+  }
+
+  /// 분리된 엔티티들로부터 UserProgress 생성
+  ///
+  /// 하위 호환성을 위해 기존 UserProgress로 재조합하는 팩토리 메서드입니다.
+  factory UserProgress.fromComponents({
+    required UserProfile profile,
+    required ExplorationState exploration,
+    required UnlockState unlock,
+    required CompletionState completion,
+  }) {
+    return UserProgress(
+      // UserProfile
+      userId: profile.userId,
+      rank: profile.rank,
+      coins: profile.coins,
+      loginStreak: profile.loginStreak,
+      lastPlayedAt: profile.lastPlayedAt,
+      lastPlayedEraId: profile.lastPlayedEraId,
+      totalPlayTimeMinutes: profile.totalPlayTimeMinutes,
+      hasCompletedTutorial: profile.hasCompletedTutorial,
+      inventoryIds: List.from(profile.inventoryIds),
+      // ExplorationState
+      regionProgress: Map.from(exploration.regionProgress),
+      countryProgress: Map.from(exploration.countryProgress),
+      eraProgress: Map.from(exploration.eraProgress),
+      totalKnowledge: exploration.totalKnowledge,
+      // UnlockState
+      unlockedRegionIds: List.from(unlock.unlockedRegionIds),
+      unlockedCountryIds: List.from(unlock.unlockedCountryIds),
+      unlockedEraIds: List.from(unlock.unlockedEraIds),
+      unlockedCharacterIds: List.from(unlock.unlockedCharacterIds),
+      unlockedFactIds: List.from(unlock.unlockedFactIds),
+      // CompletionState
+      completedDialogueIds: List.from(completion.completedDialogueIds),
+      completedQuizIds: List.from(completion.completedQuizIds),
+      encyclopediaDiscoveryDates: Map.from(completion.encyclopediaDiscoveryDates),
+      achievementIds: List.from(completion.achievementIds),
+      discoveredEncyclopediaIds: List.from(completion.discoveredEncyclopediaIds),
+    );
+  }
 }
 
 /// 일일 통계

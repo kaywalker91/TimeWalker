@@ -182,53 +182,59 @@ class _TimeButtonState extends State<TimeButton>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: _isDisabled ? null : (_) => setState(() => _isPressed = true),
-      onTapUp: _isDisabled ? null : (_) => setState(() => _isPressed = false),
-      onTapCancel: _isDisabled ? null : () => setState(() => _isPressed = false),
-      onTap: _isDisabled ? null : widget.onPressed,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        height: _height,
-        width: widget.fullWidth ? double.infinity : null,
-        decoration: _decoration,
-        transform: _isPressed 
-            ? Matrix4.translationValues(0, 2, 0) 
-            : Matrix4.identity(),
-        child: Padding(
-          padding: _padding,
-          child: Row(
-            mainAxisSize: widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (widget.isLoading) ...[
-                SizedBox(
-                  width: _iconSize,
-                  height: _iconSize,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(_textColor),
+    return Semantics(
+      button: true,
+      enabled: !_isDisabled,
+      label: widget.label,
+      hint: widget.isLoading ? '로딩 중' : null,
+      child: GestureDetector(
+        onTapDown: _isDisabled ? null : (_) => setState(() => _isPressed = true),
+        onTapUp: _isDisabled ? null : (_) => setState(() => _isPressed = false),
+        onTapCancel: _isDisabled ? null : () => setState(() => _isPressed = false),
+        onTap: _isDisabled ? null : widget.onPressed,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          height: _height,
+          width: widget.fullWidth ? double.infinity : null,
+          decoration: _decoration,
+          transform: _isPressed 
+              ? Matrix4.translationValues(0, 2, 0) 
+              : Matrix4.identity(),
+          child: Padding(
+            padding: _padding,
+            child: Row(
+              mainAxisSize: widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (widget.isLoading) ...[
+                  SizedBox(
+                    width: _iconSize,
+                    height: _iconSize,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(_textColor),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                ] else if (widget.icon != null) ...[
+                  Icon(
+                    widget.icon,
+                    size: _iconSize,
+                    color: _textColor,
+                  ),
+                  const SizedBox(width: 10),
+                ],
+                Text(
+                  widget.label,
+                  style: TextStyle(
+                    fontSize: _fontSize,
+                    fontWeight: FontWeight.bold,
+                    color: _textColor,
+                    letterSpacing: 1.2,
                   ),
                 ),
-                const SizedBox(width: 12),
-              ] else if (widget.icon != null) ...[
-                Icon(
-                  widget.icon,
-                  size: _iconSize,
-                  color: _textColor,
-                ),
-                const SizedBox(width: 10),
               ],
-              Text(
-                widget.label,
-                style: TextStyle(
-                  fontSize: _fontSize,
-                  fontWeight: FontWeight.bold,
-                  color: _textColor,
-                  letterSpacing: 1.2,
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -321,21 +327,26 @@ class _TimeIconButtonState extends State<TimeIconButton> {
 
   @override
   Widget build(BuildContext context) {
-    final button = GestureDetector(
-      onTapDown: _isDisabled ? null : (_) => setState(() => _isPressed = true),
-      onTapUp: _isDisabled ? null : (_) => setState(() => _isPressed = false),
-      onTapCancel: _isDisabled ? null : () => setState(() => _isPressed = false),
-      onTap: widget.onPressed,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        width: widget.size,
-        height: widget.size,
-        decoration: _decoration,
-        child: Center(
-          child: Icon(
-            widget.icon,
-            size: widget.size * 0.5,
-            color: _iconColor,
+    final button = Semantics(
+      button: true,
+      enabled: !_isDisabled,
+      label: widget.tooltip ?? '아이콘 버튼', // 툴팁이 없으면 기본 라벨 제공 필요
+      child: GestureDetector(
+        onTapDown: _isDisabled ? null : (_) => setState(() => _isPressed = true),
+        onTapUp: _isDisabled ? null : (_) => setState(() => _isPressed = false),
+        onTapCancel: _isDisabled ? null : () => setState(() => _isPressed = false),
+        onTap: widget.onPressed,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          width: widget.size,
+          height: widget.size,
+          decoration: _decoration,
+          child: Center(
+            child: Icon(
+              widget.icon,
+              size: widget.size * 0.5,
+              color: _iconColor,
+            ),
           ),
         ),
       ),

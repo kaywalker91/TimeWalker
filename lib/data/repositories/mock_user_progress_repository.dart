@@ -1,28 +1,10 @@
+import 'package:time_walker/data/seeds/user_progress_seed.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
-import 'package:time_walker/core/constants/exploration_config.dart';
 
 class MockUserProgressRepository implements UserProgressRepository {
   // Simulating a DB
-  UserProgress _progress = const UserProgress(
-    oderId: 'user_001',
-    rank: ExplorerRank.novice,
-    unlockedRegionIds: ['asia', 'europe', 'africa', 'americas', 'middle_east'],
-    unlockedCountryIds: [
-      'korea', 'china', 'japan', 'india', 'mongolia', // Asia
-      'greece', 'rome', 'britain', 'france', 'germany', // Europe
-      'egypt', 'ethiopia', 'mali', // Africa
-      'maya', 'aztec', 'inca', 'usa', // Americas
-      'mesopotamia', 'persia', 'ottoman', // Middle East
-      'italy', // Extra
-    ],
-    unlockedEraIds: [
-      'korea_three_kingdoms',
-      'korea_goryeo',
-      'korea_joseon',
-      'europe_renaissance',
-    ],
-  );
+  UserProgress _progress = UserProgressSeed.debugAllUnlocked('user_001');
 
   @override
   Future<UserProgress?> getUserProgress(String userId) async {

@@ -44,8 +44,7 @@ class _TimelineEraCardState extends State<TimelineEraCard> with TimeCardMixin, T
   bool get isLocked => !_isUnlocked;
   
   bool get _isUnlocked =>
-      widget.era.isAccessible ||
-      (widget.userProgress?.unlockedEraIds.contains(widget.era.id) ?? false);
+      widget.userProgress?.unlockedEraIds.contains(widget.era.id) ?? false;
   
   @override
   Color get themeColor => widget.era.theme.primaryColor;

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/era.dart';
+import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/widgets/common/widgets.dart';
@@ -92,7 +93,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
                         return FadeInWidget(
                           delay: const Duration(milliseconds: 200),
                           slideOffset: const Offset(0, -0.5),
-                          child: _buildHeader(country.nameKorean, country.description),
+                          child: _buildHeader(country),
                         );
                       },
                       loading: () => const SizedBox(height: 100),
@@ -107,7 +108,13 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
                       child: erasAsync.when(
                         loading: () => _buildLoadingState(),
                         error: (err, stack) => _buildErrorState('Error: $err'),
-                        data: (eras) => _buildEraList(context, eras),
+                        data: (eras) {
+                          debugPrint('[EraTimelineScreen] Loaded ${eras.length} eras for ${widget.countryId}');
+                          for (final era in eras) {
+                            debugPrint('[EraTimelineScreen]   - ${era.id}: ${era.nameKorean}');
+                          }
+                          return _buildEraList(context, eras);
+                        },
                       ),
                     ),
                     const SizedBox(height: 48),
@@ -138,28 +145,78 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
     context.go(AppRouter.worldMap);
   }
   
-  Widget _buildHeader(String title, String description) {
+  Widget _buildHeader(Country country) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: AppTextStyles.displaySmall.copyWith(
-              color: AppColors.textPrimary,
-              shadows: AppShadows.textMd,
-            ),
+      padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: AppColors.surface.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(
+            color: AppColors.primary.withValues(alpha: 0.2),
+            width: 1,
           ),
-          const SizedBox(height: 8),
-          Text(
-            description,
-            style: AppTextStyles.bodyMedium.copyWith(
-              color: AppColors.textSecondary,
-              shadows: AppShadows.textSm,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.2),
+              blurRadius: 15,
+              offset: const Offset(0, 8),
             ),
-          ),
-        ],
+          ],
+        ),
+        child: Row(
+          children: [
+            // Country Thumbnail
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: AppColors.primary.withValues(alpha: 0.5),
+                  width: 2,
+                ),
+                boxShadow: AppShadows.goldenGlowSm,
+                image: DecorationImage(
+                  image: AssetImage(country.thumbnailAsset),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SizedBox(width: 20),
+            
+            // Text Info
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ShaderMask(
+                    shaderCallback: (bounds) => AppGradients.goldenText.createShader(bounds),
+                    child: Text(
+                      country.nameKorean,
+                      style: AppTextStyles.displaySmall.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        height: 1.1,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    country.description,
+                    style: AppTextStyles.bodyMedium.copyWith(
+                      color: AppColors.textSecondary,
+                      height: 1.4,
+                    ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

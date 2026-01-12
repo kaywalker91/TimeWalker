@@ -5,7 +5,7 @@ import 'package:time_walker/data/repositories/mock_region_repository.dart';
 import 'package:time_walker/data/repositories/mock_location_repository.dart';
 import 'package:time_walker/data/repositories/mock_character_repository.dart';
 import 'package:time_walker/data/repositories/mock_dialogue_repository.dart';
-import 'package:time_walker/data/repositories/mock_user_progress_repository.dart';
+import 'package:time_walker/data/repositories/hive_user_progress_repository.dart';
 import 'package:time_walker/data/repositories/mock_encyclopedia_repository.dart';
 import 'package:time_walker/data/repositories/mock_quiz_repository.dart';
 import 'package:time_walker/data/repositories/mock_shop_repository.dart';
@@ -70,8 +70,10 @@ final dialogueRepositoryProvider = Provider<DialogueRepository>((ref) {
 });
 
 /// UserProgress Repository Provider
+/// 
+/// Hive를 사용한 영속성 저장 구현 (앱 종료 후에도 데이터 유지)
 final userProgressRepositoryProvider = Provider<UserProgressRepository>((ref) {
-  return MockUserProgressRepository();
+  return HiveUserProgressRepository();
 });
 
 /// Encyclopedia Repository Provider

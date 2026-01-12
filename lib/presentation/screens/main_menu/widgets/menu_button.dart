@@ -81,62 +81,69 @@ class _MenuButtonState extends State<MenuButton>
     // 데코레이션 결정
     final (decoration, textColor) = _buildDecoration();
 
-    return MouseRegion(
-      onEnter: _isActive ? (_) => setState(() => _isHovered = true) : null,
-      onExit: _isActive ? (_) => setState(() => _isHovered = false) : null,
-      child: GestureDetector(
-        onTapDown: _isActive
-            ? (_) {
-                setState(() => _isPressed = true);
-                _pressController.forward();
-              }
-            : null,
-        onTapUp: _isActive
-            ? (_) {
-                setState(() => _isPressed = false);
-                _pressController.reverse();
-              }
-            : null,
-        onTapCancel: _isActive
-            ? () {
-                setState(() => _isPressed = false);
-                _pressController.reverse();
-              }
-            : null,
-        onTap: _isActive ? widget.onPressed : null,
-        child: AnimatedBuilder(
-          animation: _pressAnimation,
-          builder: (context, child) {
-            return Transform.scale(
-              scale: _pressAnimation.value,
-              child: AnimatedContainer(
-                duration: AppAnimations.fast,
-                width: double.infinity,
-                height: buttonHeight,
-                decoration: decoration,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      widget.icon,
-                      size: iconSize,
-                      color: textColor,
-                    ),
-                    SizedBox(width: widget.responsive.spacing(10)),
-                    Text(
-                      widget.label,
-                      style: TextStyle(
-                        fontSize: fontSize,
-                        fontWeight: FontWeight.bold,
+    // 접근성 지원 추가
+    return Semantics(
+      button: true,
+      enabled: !widget.isDisabled,
+      label: widget.label,
+      hint: widget.isDisabled ? '준비 중인 기능입니다' : null,
+      child: MouseRegion(
+        onEnter: _isActive ? (_) => setState(() => _isHovered = true) : null,
+        onExit: _isActive ? (_) => setState(() => _isHovered = false) : null,
+        child: GestureDetector(
+          onTapDown: _isActive
+              ? (_) {
+                  setState(() => _isPressed = true);
+                  _pressController.forward();
+                }
+              : null,
+          onTapUp: _isActive
+              ? (_) {
+                  setState(() => _isPressed = false);
+                  _pressController.reverse();
+                }
+              : null,
+          onTapCancel: _isActive
+              ? () {
+                  setState(() => _isPressed = false);
+                  _pressController.reverse();
+                }
+              : null,
+          onTap: _isActive ? widget.onPressed : null,
+          child: AnimatedBuilder(
+            animation: _pressAnimation,
+            builder: (context, child) {
+              return Transform.scale(
+                scale: _pressAnimation.value,
+                child: AnimatedContainer(
+                  duration: AppAnimations.fast,
+                  width: double.infinity,
+                  height: buttonHeight,
+                  decoration: decoration,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        widget.icon,
+                        size: iconSize,
                         color: textColor,
-                        letterSpacing: widget.responsive.isSmallPhone ? 1 : 1.5,
                       ),
-                    ),
-                  ],
+                      SizedBox(width: widget.responsive.spacing(10)),
+                      Text(
+                        widget.label,
+                        style: TextStyle(
+                          fontSize: fontSize,
+                          fontWeight: FontWeight.bold,
+                          color: textColor,
+                          letterSpacing: widget.responsive.isSmallPhone ? 1 : 1.5,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

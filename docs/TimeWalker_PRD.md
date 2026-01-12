@@ -866,7 +866,7 @@ class Dialogue {
 
 // 진행 상태 (Progress)
 class UserProgress {
-  String oderId;
+  String userId;
   int totalKnowledge;     // 총 역사 이해도
   ExplorerRank rank;      // 탐험가 등급
   Map<String, double> regionProgress;   // 지역별 진행률

@@ -4245,5 +4245,1383 @@
                 }
             }
         ]
+    },
+    {
+        "id": "kim_gu_independence_01",
+        "characterId": "kim_gu",
+        "title": "Dream of Independence",
+        "titleKorean": "독립의 꿈",
+        "description": "임시정부 주석 김구 선생과 함께 독립운동의 의미와 통일에 대한 염원을 나눕니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_provisional_government"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "kim_gu",
+                "emotion": "thoughtful",
+                "text": "그대가 먼 훗날에서 왔다고 하였는가?\n그렇다면... 우리 조선은 독립을 되찾았는가?\n36년간의 치욕스러운 일제 강점... 우리 민족은 자유를 되찾았는가?",
+                "choices": [
+                    {
+                        "id": "c1_yes",
+                        "text": "네, 1945년 8월 15일에 해방되었습니다!",
+                        "preview": "해방 소식 전달",
+                        "nextNodeId": "liberation_joy",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_sacrifice",
+                        "text": "선생님과 같은 분들의 희생 덕분입니다.",
+                        "preview": "감사 표현",
+                        "nextNodeId": "sacrifice_story",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "liberation_joy",
+                "speakerId": "kim_gu",
+                "emotion": "happy",
+                "text": "오! 그것이 사실인가! 1945년이라... 내가 살아서 그 날을 볼 수 있겠구나.\n그렇다면 우리는 분단 없이 통일된 나라로 섰는가?\n남과 북이 하나된 나라를 세웠는가?",
+                "choices": [
+                    {
+                        "id": "c2_divided",
+                        "text": "안타깝게도... 분단이 되었습니다.",
+                        "preview": "분단 소식 전달",
+                        "nextNodeId": "division_sorrow",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_effort",
+                        "text": "선생님께서 통일을 위해 노력하셨습니다.",
+                        "preview": "남북협상 언급",
+                        "nextNodeId": "unification_effort",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sacrifice_story",
+                "speakerId": "kim_gu",
+                "emotion": "sad",
+                "text": "희생이라... 그렇다. 윤봉길, 이봉창 의사를 비롯해 수많은 애국지사들이 목숨을 바쳤다.\n상하이 홍커우 공원에서의 일... 그 날을 잊을 수 없다.\n젊은 청년들이 조국을 위해 자신을 던졌다.",
+                "nextNodeId": "patriot_question"
+            },
+            {
+                "id": "patriot_question",
+                "speakerId": "kim_gu",
+                "emotion": "determined",
+                "text": "내가 바라는 나라가 무엇인지 아는가?\n세계에서 가장 아름다운 나라... 그것은 군사력이나 경제력으로 되는 것이 아니다.\n오직 높은 문화의 힘으로! 우리 문화로 세계를 감화시키는 것이다.",
+                "choices": [
+                    {
+                        "id": "c_culture",
+                        "text": "선생님의 바람대로 한류가 세계를 감동시키고 있습니다.",
+                        "nextNodeId": "end_hope",
+                        "reward": {
+                            "knowledgePoints": 30,
+                            "unlockFactId": "fact_baekbeom_wish"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "division_sorrow",
+                "speakerId": "kim_gu",
+                "emotion": "sad",
+                "text": "분단이라니... 외세에 의한 분단인가?\n한 민족이 갈라지다니... 이것은 비극이다.\n나는 반드시 통일을 위해 노력할 것이다. 38선을 넘어서라도!",
+                "nextNodeId": "unification_effort"
+            },
+            {
+                "id": "unification_effort",
+                "speakerId": "kim_gu",
+                "emotion": "determined",
+                "text": "신탁통치고 뭐고, 우리 민족의 운명은 우리가 결정해야 한다.\n삼천만 동포여, 우리가 손을 맞잡으면 어떤 외세도 우리를 갈라놓을 수 없다!\n'나의 소원'이 무엇인지 아느냐? 첫째도 통일, 둘째도 통일, 셋째도 통일!",
+                "choices": [
+                    {
+                        "id": "c_support",
+                        "text": "선생님의 뜻은 오늘날에도 이어지고 있습니다.",
+                        "nextNodeId": "end_hope",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_hope",
+                "speakerId": "kim_gu",
+                "emotion": "happy",
+                "text": "그래, 그것이 희망이다. 우리 민족은 독립의 의지로 일어섰고,\n언젠가는 반드시 하나가 될 것이다.\n그대도 그 통일의 날을 위해 힘써주게나.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_kim_gu_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "sohn_marathon_01",
+        "characterId": "sohn_kee_chung",
+        "title": "Running for Korea",
+        "titleKorean": "조선인의 달리기",
+        "description": "1936년 베를린 올림픽 마라톤 금메달리스트 손기정 선수와 그날의 영광과 아픔을 나눕니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_berlin_olympics"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "sohn_kee_chung",
+                "emotion": "thoughtful",
+                "text": "1936년 8월 9일... 베를린 올림픽 마라톤 결승선.\n그날 나는 2시간 29분 19초로 세계 신기록을 세웠지.\n하지만... 가슴에는 일장기가 붙어 있었다.",
+                "choices": [
+                    {
+                        "id": "c1_feeling",
+                        "text": "그때 어떤 심정이셨습니까?",
+                        "preview": "심정 묻기",
+                        "nextNodeId": "feeling_story",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_laurel",
+                        "text": "시상식에서 월계수로 일장기를 가리셨다죠?",
+                        "preview": "월계수 에피소드",
+                        "nextNodeId": "laurel_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "feeling_story",
+                "speakerId": "sohn_kee_chung",
+                "emotion": "sad",
+                "text": "복잡했다... 기쁨보다 서글픔이 앞섰어.\n세계 최고의 자리에 올랐지만, 내 조국의 이름으로 달릴 수 없었으니.\n시상대에서 울려퍼진 것은 기미가요... 조선의 애국가가 아니었어.",
+                "nextNodeId": "laurel_story"
+            },
+            {
+                "id": "laurel_story",
+                "speakerId": "sohn_kee_chung",
+                "emotion": "determined",
+                "text": "시상식에서 머리에 월계관을 쓰고, 손에 화분을 들었지.\n그 화분으로 자연스럽게 가슴의 일장기를 가렸어.\n작은 저항이었지만... 세계가 보고 있었다.\n'나는 일본인이 아니라 조선인이다!'",
+                "choices": [
+                    {
+                        "id": "c2_newspaper",
+                        "text": "동아일보 일장기 말소 사건도 있었죠?",
+                        "nextNodeId": "newspaper_story",
+                        "reward": {
+                            "knowledgePoints": 25,
+                            "unlockFactId": "fact_ilgi_malso"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "newspaper_story",
+                "speakerId": "sohn_kee_chung",
+                "emotion": "happy",
+                "text": "그래! 동아일보가 내 사진에서 일장기를 지워버렸지.\n일제는 분노해서 신문을 정간시켰지만...\n그 사건으로 온 민족이 하나가 되었어.\n언론인들의 용기가 대단하지 않은가?",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "sohn_kee_chung",
+                "emotion": "happy",
+                "text": "1992년 바르셀로나 올림픽에서 황영조 선수가 우승했을 때...\n나는 80세의 나이로 현장에 있었다.\n드디어 태극기를 단 마라토너가 금메달을! 그것이 내 일생 가장 기쁜 날이었어.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_korean_marathon"
+                }
+            }
+        ]
+    },
+    {
+        "id": "chung_miracle_01",
+        "characterId": "chung_juyoung",
+        "title": "The Miracle of Han River",
+        "titleKorean": "한강의 기적",
+        "description": "현대그룹 창업주 정주영 회장과 함께 불가능을 가능으로 만든 한강의 기적을 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 140,
+                "unlockFactId": "fact_economic_development"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "chung_juyoung",
+                "emotion": "determined",
+                "text": "시련은 있어도 실패는 없다! 이것이 내 좌우명이야.\n소 한 마리 팔아 서울 올라온 강원도 촌놈이 여기까지 왔어.\n그대는 불가능이라는 말을 믿는가?",
+                "choices": [
+                    {
+                        "id": "c1_believe",
+                        "text": "가끔은 불가능해 보이는 일도 있죠...",
+                        "preview": "현실적 답변",
+                        "nextNodeId": "shipyard_story",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_agree",
+                        "text": "회장님 말씀처럼 불가능은 없다고 생각합니다!",
+                        "preview": "열정적 답변",
+                        "nextNodeId": "highway_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "shipyard_story",
+                "speakerId": "chung_juyoung",
+                "emotion": "happy",
+                "text": "하하! 불가능? 내가 조선소 지을 때 이야기를 해줄까?\n배 한 척 만들어본 적 없이 영국 은행에 가서 돈을 빌리자고 했어.\n주머니에서 500원짜리 지폐를 꺼냈지. 거기 거북선 그림이 있었거든!\n'우리 조상이 이미 철갑선을 만들었다!' 그래서 돈을 빌렸어!",
+                "choices": [
+                    {
+                        "id": "c2_amazing",
+                        "text": "정말 대단하십니다! 그래서 울산 조선소가...",
+                        "nextNodeId": "ulsan_success",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "highway_story",
+                "speakerId": "chung_juyoung",
+                "emotion": "determined",
+                "text": "그래! 경부고속도로 건설할 때도 그랬어.\n전문가들은 '한국 기술로는 100년이 걸린다'고 했지.\n하지만 우리는 2년 5개월 만에 완공했어! 밤낮으로 일했지.\n대한민국의 대동맥, 동서남북을 연결하는 그 길을!",
+                "nextNodeId": "ulsan_success"
+            },
+            {
+                "id": "ulsan_success",
+                "speakerId": "chung_juyoung",
+                "emotion": "happy",
+                "text": "울산 조선소는 세계 최대가 되었어.\n지금 대한민국이 세계 조선 1위라는 것을 알고 있나?\n1970년대만 해도 보릿고개에 굶어 죽던 나라가!\n이것이 바로 한강의 기적이야!",
+                "choices": [
+                    {
+                        "id": "c3_cow",
+                        "text": "1998년 소떼 방북도 대단했습니다.",
+                        "nextNodeId": "cow_story",
+                        "reward": {
+                            "knowledgePoints": 30,
+                            "unlockFactId": "fact_cow_diplomacy"
+                        }
+                    },
+                    {
+                        "id": "c3_end",
+                        "text": "젊은 세대에게 하고 싶은 말씀이 있으신가요?",
+                        "nextNodeId": "end_advice",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "cow_story",
+                "speakerId": "chung_juyoung",
+                "emotion": "thoughtful",
+                "text": "소 1001마리를 이끌고 판문점을 넘었지.\n어렸을 때 아버지 소를 팔아 서울로 가버린 죄... 갚고 싶었어.\n그리고 분단된 조국에 화해의 메시지를 보내고 싶었지.\n사업가도 통일에 기여할 수 있다는 것을 보여주고 싶었어.",
+                "nextNodeId": "end_advice"
+            },
+            {
+                "id": "end_advice",
+                "speakerId": "chung_juyoung",
+                "emotion": "determined",
+                "text": "젊은이들에게 말하고 싶어.\n해보기나 했어? 해봤는데 안 됐어?\n다시 해봐! 될 때까지 해보라고!\n불가능은 없어. 시련은 있어도 실패는 없다!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_hyundai_spirit"
+                }
+            }
+        ]
+    },
+    {
+        "id": "democracy_june_01",
+        "characterId": "democracy_activist",
+        "title": "June Democratic Uprising",
+        "titleKorean": "6월의 함성",
+        "description": "1987년 6월 민주화 항쟁에 참여한 청년과 함께 민주주의를 위한 투쟁을 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_june_democracy"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "democracy_activist",
+                "emotion": "determined",
+                "text": "1987년 6월... 광화문 광장에 100만 명이 모였어.\n최루탄 냄새가 진동하는 거리에서 우리는 외쳤지.\n'호헌 철폐! 독재 타도!'\n그대는 민주주의가 무엇이라고 생각하나?",
+                "choices": [
+                    {
+                        "id": "c1_vote",
+                        "text": "국민이 직접 대통령을 뽑는 것 아닌가요?",
+                        "preview": "직선제 언급",
+                        "nextNodeId": "direct_election",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_freedom",
+                        "text": "자유롭게 생각하고 말할 수 있는 것?",
+                        "preview": "자유 언급",
+                        "nextNodeId": "freedom_story",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "direct_election",
+                "speakerId": "democracy_activist",
+                "emotion": "happy",
+                "text": "그래! 바로 그거야!\n우리는 대통령을 국민의 손으로 직접 뽑고 싶었어.\n체육관에서 몇몇 사람들끼리 뽑는 게 아니라!\n진정한 민주주의는 국민이 주인이 되는 것이니까.",
+                "nextNodeId": "sacrifice_node"
+            },
+            {
+                "id": "freedom_story",
+                "speakerId": "democracy_activist",
+                "emotion": "sad",
+                "text": "그때는 그것도 쉽지 않았어.\n신문은 검열당하고, 말 한마디 잘못하면 끌려갔지.\n대학생들은 '불온서적'을 읽었다는 이유로 고문당했어.\n그래서 우리는 거리로 나왔던 거야.",
+                "nextNodeId": "sacrifice_node"
+            },
+            {
+                "id": "sacrifice_node",
+                "speakerId": "democracy_activist",
+                "emotion": "sad",
+                "text": "이한열... 연세대 학생이었어.\n시위 중에 최루탄에 맞아 쓰러졌지.\n그의 죽음이 온 국민을 분노하게 했어.\n6월 26일, 전국에서 180만 명이 거리로 나왔다.",
+                "choices": [
+                    {
+                        "id": "c2_result",
+                        "text": "그래서 결국 직선제를 쟁취하셨군요?",
+                        "nextNodeId": "victory_node",
+                        "reward": {
+                            "knowledgePoints": 30,
+                            "unlockFactId": "fact_629_declaration"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "victory_node",
+                "speakerId": "democracy_activist",
+                "emotion": "happy",
+                "text": "그래! 1987년 6월 29일, 마침내 직선제 개헌이 선언됐어.\n국민의 힘으로 민주주의를 쟁취한 거야!\n그 이후로 대한민국은 진정한 민주국가가 되었지.\n그대가 지금 누리는 자유... 그것은 우리의 땀과 눈물로 얻은 거야.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_korean_democracy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ai_ethics_01",
+        "characterId": "han_jinue",
+        "title": "AI and Humanity",
+        "titleKorean": "AI와 인간의 공존",
+        "description": "2030년대 AI 연구자 한지능과 함께 인공지능 시대의 윤리와 인간의 가치에 대해 논의합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_ai_ethics"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "han_jinue",
+                "emotion": "thoughtful",
+                "text": "2030년대에 오신 것을 환영합니다, 시간 여행자님.\n지금 대한민국은 AI 강국이 되었어요.\n하지만 기술이 발전할수록 더 중요해지는 것이 있죠.\n그것이 무엇일까요?",
+                "choices": [
+                    {
+                        "id": "c1_ethics",
+                        "text": "AI 윤리... 기술의 올바른 사용 아닌가요?",
+                        "preview": "윤리 답변",
+                        "nextNodeId": "ethics_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_human",
+                        "text": "인간다움? 기계가 대체할 수 없는 것?",
+                        "preview": "인간성 답변",
+                        "nextNodeId": "humanity_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "ethics_branch",
+                "speakerId": "han_jinue",
+                "emotion": "happy",
+                "text": "정확해요! AI는 도구예요. 망치가 집을 짓는 데도, 부수는 데도 쓰이듯이.\nAI도 어떻게 사용하느냐에 따라 축복이 될 수도, 재앙이 될 수도 있죠.\n그래서 제가 'AI 윤리 가이드라인'을 연구하고 있어요.",
+                "nextNodeId": "future_vision"
+            },
+            {
+                "id": "humanity_branch",
+                "speakerId": "han_jinue",
+                "emotion": "neutral",
+                "text": "흥미로운 관점이에요.\nAI가 아무리 발전해도 사랑, 공감, 창의성은 인간만의 것이에요.\n저는 AI가 인간을 대체하는 게 아니라, 인간이 더 인간다워지도록 돕길 원해요.",
+                "nextNodeId": "future_vision"
+            },
+            {
+                "id": "future_vision",
+                "speakerId": "han_jinue",
+                "emotion": "determined",
+                "text": "2030년대의 AI는 의료진단, 교통관리, 교육까지 모든 분야에서 활약해요.\n하지만 중요한 결정은 항상 인간이 해요.\n'기술은 인간을 위해 존재한다'는 것이 제 철학이에요.",
+                "choices": [
+                    {
+                        "id": "c2_job",
+                        "text": "AI 때문에 일자리가 사라지진 않았나요?",
+                        "nextNodeId": "job_change",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_korea",
+                        "text": "한국이 AI 강국이 된 비결은 무엇인가요?",
+                        "nextNodeId": "korea_success",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "job_change",
+                "speakerId": "han_jinue",
+                "emotion": "thoughtful",
+                "text": "변화하는 일자리도 있고, 새로 생기는 일자리도 많아요.\n기계와 협업하는 능력, 창의적 문제해결... 이런 능력이 더 중요해졌죠.\n교육도 많이 바뀌었어요. 암기보다는 비판적 사고를 기르는 방향으로요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "korea_success",
+                "speakerId": "han_jinue",
+                "emotion": "happy",
+                "text": "좋은 질문이에요! 한국은 IT 인프라가 뛰어나잖아요?\n5G, 6G 같은 초고속 네트워크, 그리고 무엇보다 교육열!\n우리 선조들이 한글을 만들었듯이, 우리는 AI 시대의 새로운 언어를 만들고 있어요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "han_jinue",
+                "emotion": "happy",
+                "text": "시간 여행자님, 과거에서 오셨으니 꼭 전해주세요.\n기술은 중요하지만, 그보다 중요한 것은 '사람'이에요.\n인간을 위한, 인간에 의한, 인간다운 기술.\n그것이 미래 한국이 추구하는 방향이에요.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_ai_korea"
+                }
+            }
+        ]
+    },
+    {
+        "id": "unification_story_01",
+        "characterId": "hanaro",
+        "title": "One Korea",
+        "titleKorean": "하나된 한반도",
+        "description": "2060년대 통일 세대 청년 하나로와 함께 분단을 넘어 하나가 된 한반도의 이야기를 나눕니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 180,
+                "unlockFactId": "fact_unification"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "hanaro",
+                "emotion": "happy",
+                "text": "안녕하세요! 저는 평양에서 태어나 서울에서 대학을 다녔어요.\n지금은 남북 문화 교류 사업을 하고 있죠.\n과거에서 오셨다면... 분단 시대를 아시는 건가요?",
+                "choices": [
+                    {
+                        "id": "c1_divided",
+                        "text": "네, 우리 시대에는 아직 분단 상태입니다.",
+                        "preview": "분단 현실 전달",
+                        "nextNodeId": "division_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_curious",
+                        "text": "통일은 어떻게 이루어졌나요?",
+                        "preview": "통일 과정 질문",
+                        "nextNodeId": "unification_process",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "division_story",
+                "speakerId": "hanaro",
+                "emotion": "sad",
+                "text": "할머니한테 많이 들었어요.\n이산가족... 만나지 못한 채 세상을 떠난 분들.\n남과 북이 서로를 적으로 여기던 시절.\n그때가 믿어지지 않을 정도로 지금은 달라졌어요.",
+                "nextNodeId": "unification_process"
+            },
+            {
+                "id": "unification_process",
+                "speakerId": "hanaro",
+                "emotion": "thoughtful",
+                "text": "한번에 통일된 건 아니에요.\n처음에는 경제 협력으로 시작했죠. 남북 철도 연결, 공동 경제특구...\n그러다 점점 사람들이 오가기 시작했고.\n2050년대에 마침내 남북 연합 정부가 출범했어요.",
+                "choices": [
+                    {
+                        "id": "c2_life",
+                        "text": "지금 생활은 어떤가요?",
+                        "nextNodeId": "daily_life",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_difficult",
+                        "text": "어려움은 없었나요?",
+                        "nextNodeId": "challenges",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "daily_life",
+                "speakerId": "hanaro",
+                "emotion": "happy",
+                "text": "서울에서 평양까지 초고속철도로 1시간이에요!\n주말이면 백두산 등반 다녀오기도 하고요.\n남한의 기술과 북한의 자원이 만나서 경제도 크게 성장했어요.\n무엇보다 가족들이 다시 만날 수 있게 된 것이 가장 큰 변화죠.",
+                "nextNodeId": "message_node"
+            },
+            {
+                "id": "challenges",
+                "speakerId": "hanaro",
+                "emotion": "thoughtful",
+                "text": "물론 쉽지 않았어요.\n오랜 분단으로 언어도 조금씩 달라졌고, 문화 차이도 있었죠.\n하지만 우리는 결국 같은 민족이잖아요.\n젊은 세대가 먼저 손을 잡으니까, 어른들도 마음을 열더라고요.",
+                "nextNodeId": "message_node"
+            },
+            {
+                "id": "message_node",
+                "speakerId": "hanaro",
+                "emotion": "determined",
+                "text": "과거의 분들께 전해주세요.\n통일은 가능해요. 언젠가는 반드시 오는 날이에요.\n서로를 적으로 보지 말고, 함께 살아갈 가족으로 봐주세요.\n우리 세대가 누리는 이 행복... 분명 여러분의 노력 덕분이에요.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_unified_korea"
+                }
+            }
+        ]
+    },
+    {
+        "id": "student_soldier_war_01",
+        "characterId": "student_soldier",
+        "title": "The Call of Duty",
+        "titleKorean": "조국의 부름",
+        "description": "6.25 전쟁 당시 학도의용군으로 참전한 청년과 함께 전쟁의 참혹함과 희생의 의미를 나눕니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_student_soldiers"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "student_soldier",
+                "emotion": "thoughtful",
+                "text": "1950년 6월 25일... 그날 새벽, 라디오에서 긴급 속보가 흘러나왔어.\n북한군이 38선을 넘어 남침했다는 소식이었지.\n나는 고등학교 2학년... 아직 어린 나이였어.",
+                "choices": [
+                    {
+                        "id": "c1_enlist",
+                        "text": "어떻게 군대에 자원하게 되셨나요?",
+                        "preview": "입대 동기 묻기",
+                        "nextNodeId": "enlist_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_fear",
+                        "text": "두렵지 않으셨나요?",
+                        "preview": "심경 묻기",
+                        "nextNodeId": "fear_story",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "enlist_story",
+                "speakerId": "student_soldier",
+                "emotion": "determined",
+                "text": "학교 운동장에 학생들이 모였어.\n선생님이 말씀하셨지. '조국이 위기에 처했다. 누가 나서겠느냐?'\n많은 친구들이 손을 들었어. 나도 그중 하나였지.\n부모님께 말씀도 못 드리고... 그냥 뛰어나갔어.",
+                "nextNodeId": "nakdong_story"
+            },
+            {
+                "id": "fear_story",
+                "speakerId": "student_soldier",
+                "emotion": "sad",
+                "text": "물론 두려웠지... 총을 쏴본 적도 없었으니까.\n하지만 그때는 다들 그랬어. 무섭지만 가만히 있을 수 없었던 거야.\n우리 집도, 학교도, 친구들도 모두 지켜야 했으니까.",
+                "nextNodeId": "nakdong_story"
+            },
+            {
+                "id": "nakdong_story",
+                "speakerId": "student_soldier",
+                "emotion": "sad",
+                "text": "낙동강 방어선... 그곳에서 많은 친구들이 떠났어.\n어제까지 옆에서 웃던 친구가 오늘은 차갑게 누워 있었지.\n우리는 고작 며칠 훈련받고 전선에 투입됐어.\n하지만 물러설 수 없었어. 여기서 막지 못하면 다 끝이라는 걸 알았거든.",
+                "choices": [
+                    {
+                        "id": "c2_sacrifice",
+                        "text": "그 희생이 헛되지 않았습니다.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30,
+                            "unlockFactId": "fact_nakdong_defense"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "student_soldier",
+                "emotion": "thoughtful",
+                "text": "고마워... 우리가 지킨 것은 단순한 땅이 아니었어.\n자유, 평화, 그리고 미래 세대의 꿈이었지.\n부산 유엔묘지에 가면 우리 친구들이 잠들어 있어.\n그들을 잊지 말아줘... 그것이 내 마지막 부탁이야.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_korean_war_sacrifice"
+                }
+            }
+        ]
+    },
+    {
+        "id": "german_worker_story_01",
+        "characterId": "german_worker",
+        "title": "Miners in a Foreign Land",
+        "titleKorean": "이국땅의 광부",
+        "description": "1960년대 독일로 파견된 한국 광부와 함께 경제 발전을 위한 눈물겨운 노력을 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_german_miners"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "german_worker",
+                "emotion": "thoughtful",
+                "text": "1964년... 나는 서독행 비행기에 올랐어.\n생전 처음 타본 비행기였지. 목적지는 루르 탄광.\n한국에서는 일자리가 없었거든. 그래서 지하 천 미터까지 내려가기로 했어.",
+                "choices": [
+                    {
+                        "id": "c1_mine",
+                        "text": "광산 일은 어땠나요?",
+                        "preview": "광산 생활 묻기",
+                        "nextNodeId": "mine_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_money",
+                        "text": "번 돈은 어떻게 하셨나요?",
+                        "preview": "송금 이야기",
+                        "nextNodeId": "money_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "mine_story",
+                "speakerId": "german_worker",
+                "emotion": "sad",
+                "text": "지하 천 미터... 숨쉬기도 힘들고, 항상 위험했어.\n천장이 무너지면 그대로 끝이야.\n하루 8시간, 석탄 먼지 속에서 곡괭이질을 했지.\n독일어를 몰라서 '안 돼'라는 말만 겨우 배웠어. 'Nein, nein!'",
+                "nextNodeId": "homesick_story"
+            },
+            {
+                "id": "money_story",
+                "speakerId": "german_worker",
+                "emotion": "determined",
+                "text": "월급의 80%는 고국에 보냈어.\n부모님 생활비, 동생들 학비... 남은 돈으로 빵과 우유만 먹었지.\n우리가 보낸 외화가 한국 경제 발전의 밑거름이 됐다더라.\n경부고속도로도 우리 돈으로 지었다고 하더군.",
+                "nextNodeId": "homesick_story"
+            },
+            {
+                "id": "homesick_story",
+                "speakerId": "german_worker",
+                "emotion": "sad",
+                "text": "크리스마스 날, 숙소에서 몰래 울었어.\n고향이 그리웠거든. 어머니 손맛, 고추장 냄새...\n그런데 옆방 친구도 울고 있더라. 우리는 서로 등을 토닥여줬지.\n'힘내자, 고향 가는 날까지만 참자'라고.",
+                "choices": [
+                    {
+                        "id": "c2_president",
+                        "text": "박정희 대통령 방문 때 울었다는 이야기가...",
+                        "nextNodeId": "tears_story",
+                        "reward": {
+                            "knowledgePoints": 25,
+                            "unlockFactId": "fact_park_visit"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "tears_story",
+                "speakerId": "german_worker",
+                "emotion": "sad",
+                "text": "그래... 1964년 12월, 대통령이 우릴 찾아왔어.\n강당에 광부, 간호사들이 모였지.\n애국가가 울려퍼지는데... 모두가 울었어.\n'여러분이 대한민국의 영웅입니다' 그 말에 눈물이 멈추질 않았어.",
+                "choices": [
+                    {
+                        "id": "c3_end",
+                        "text": "여러분 덕분에 오늘의 한국이 있습니다.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "german_worker",
+                "emotion": "happy",
+                "text": "고맙네... 내 젊음을 바친 보람이 있었구나.\n지금 한국이 잘 산다는 얘기를 들으면 정말 기뻐.\n우리는 큰 영웅이 아니야. 그냥 가족과 나라를 위해 일한 평범한 사람들이지.\n그것만 기억해주면 돼.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_hidden_heroes"
+                }
+            }
+        ]
+    },
+    {
+        "id": "it_startup_01",
+        "characterId": "it_pioneer",
+        "title": "Digital Revolution",
+        "titleKorean": "디지털 혁명",
+        "description": "IMF 위기 속에서 인터넷 벤처를 창업한 청년과 함께 한국 IT 산업의 성장 이야기를 나눕니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_it_revolution"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "it_pioneer",
+                "emotion": "determined",
+                "text": "1998년, IMF 외환위기의 한가운데.\n대기업들이 무너지고 거리엔 실업자들이 넘쳤어.\n하지만 나는 반대로 생각했지. '지금이 기회다!'",
+                "choices": [
+                    {
+                        "id": "c1_why",
+                        "text": "왜 위기가 기회라고 생각하셨나요?",
+                        "preview": "역발상 이유",
+                        "nextNodeId": "opportunity_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_what",
+                        "text": "어떤 사업을 시작하셨나요?",
+                        "preview": "창업 이야기",
+                        "nextNodeId": "startup_story",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "opportunity_story",
+                "speakerId": "it_pioneer",
+                "emotion": "thoughtful",
+                "text": "인터넷은 새로운 세상이었거든.\n기존의 돈, 학벌, 인맥이 중요하지 않았어.\n오직 아이디어와 열정만 있으면 됐지.\nIMF로 기존 질서가 무너졌으니, 새로운 도전자들에게 기회가 열린 거야.",
+                "nextNodeId": "startup_story"
+            },
+            {
+                "id": "startup_story",
+                "speakerId": "it_pioneer",
+                "emotion": "happy",
+                "text": "테헤란로의 작은 사무실에서 시작했어.\n친구 셋이서 고시원 같은 곳에서 먹고 자고 코딩했지.\n밤새 라면만 먹으면서... 하지만 행복했어!\n우리가 만드는 서비스가 세상을 바꿀 거라고 믿었으니까.",
+                "choices": [
+                    {
+                        "id": "c2_success",
+                        "text": "결국 성공하셨군요?",
+                        "nextNodeId": "success_story",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "success_story",
+                "speakerId": "it_pioneer",
+                "emotion": "happy",
+                "text": "2000년대 들어서 한국은 IT 강국이 됐어.\n세계 최초 100만 인터넷 가입, 세계 최고 속도 브로드밴드!\n네이버, 카카오, 배달앱... 우리 일상을 바꾼 서비스들.\n테헤란밸리의 청년들이 만든 기적이야.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "it_pioneer",
+                "emotion": "determined",
+                "text": "지금 청년들에게 말하고 싶어.\n위기는 곧 기회야. 남들이 포기할 때 도전하라.\n한국에는 빠르게 배우고 실행하는 DNA가 있어.\n그게 우리가 IT 강국이 된 비결이고, 앞으로도 변하지 않을 거야.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_teheran_valley"
+                }
+            }
+        ]
+    },
+    {
+        "id": "climate_solution_01",
+        "characterId": "pureunsol",
+        "title": "Saving the Planet",
+        "titleKorean": "지구를 지키는 기술",
+        "description": "2040년대 기후위기에 맞서는 환경 과학자와 함께 지속가능한 미래를 논의합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_climate_tech"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "pureunsol",
+                "emotion": "determined",
+                "text": "2040년대에 오셨군요. 저는 제주 에코시티에서 연구하고 있어요.\n과거에서 오셨다면... 기후변화가 심각해지던 시절이겠네요?\n지금 우리는 그 위기를 극복해가고 있어요.",
+                "choices": [
+                    {
+                        "id": "c1_how",
+                        "text": "어떻게 기후위기를 극복했나요?",
+                        "preview": "해결책 묻기",
+                        "nextNodeId": "solution_story",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_jeju",
+                        "text": "에코시티는 어떤 곳인가요?",
+                        "preview": "에코시티 소개",
+                        "nextNodeId": "ecocity_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "solution_story",
+                "speakerId": "pureunsol",
+                "emotion": "happy",
+                "text": "여러 기술이 함께 발전했어요.\n그린 수소가 화석연료를 대체하고, 탄소포집 기술이 대기 중 CO2를 줄이고 있죠.\n가장 중요한 건 사람들의 인식 변화예요.\n'편리함'보다 '지속가능성'을 선택하게 됐거든요.",
+                "nextNodeId": "ecocity_story"
+            },
+            {
+                "id": "ecocity_story",
+                "speakerId": "pureunsol",
+                "emotion": "happy",
+                "text": "제주 에코시티는 탄소중립 도시의 모델이에요.\n모든 건물이 태양광 패널로 덮여 있고, 이동은 전기 자율주행차로 해요.\n음식물 쓰레기는 100% 재활용되고, 빗물도 모아서 쓰죠.\n자연과 기술이 조화를 이룬 곳이에요.",
+                "choices": [
+                    {
+                        "id": "c2_advice",
+                        "text": "과거의 우리에게 해주고 싶은 조언이 있나요?",
+                        "nextNodeId": "advice_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "advice_node",
+                "speakerId": "pureunsol",
+                "emotion": "thoughtful",
+                "text": "작은 것부터 시작해주세요.\n일회용품 줄이기, 에너지 절약, 대중교통 이용...\n한 사람의 노력은 작아 보여도, 모이면 큰 변화가 돼요.\n그리고 정치인들을 압박하세요. 환경 정책이 중요하다고!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "pureunsol",
+                "emotion": "determined",
+                "text": "지구는 우리가 빌려 쓰는 것이에요. 다음 세대에게 돌려줘야 하죠.\n과거의 분들이 노력해주셨기에 지금 우리가 있는 거예요.\n꼭 전해주세요. '아직 늦지 않았다. 포기하지 마라'고.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_sustainable_future"
+                }
+            }
+        ]
+    },
+    {
+        "id": "space_exploration_01",
+        "characterId": "byeolhaneul",
+        "title": "To the Moon and Beyond",
+        "titleKorean": "달을 향해, 그리고 그 너머로",
+        "description": "2050년대 한국 달 기지 건설에 참여한 우주비행사와 함께 인류의 우주 개척을 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_space_korea"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "byeolhaneul",
+                "emotion": "happy",
+                "text": "여기는 달 기지 '백두'예요. 지구에서 38만 킬로미터 떨어진 곳이죠.\n창밖으로 푸른 지구가 보여요... 정말 아름다워요.\n과거에서 오셨다면, 이 풍경이 꿈같으시겠네요?",
+                "choices": [
+                    {
+                        "id": "c1_base",
+                        "text": "달 기지는 어떻게 건설됐나요?",
+                        "preview": "건설 과정 묻기",
+                        "nextNodeId": "base_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_life",
+                        "text": "달에서의 생활은 어떤가요?",
+                        "preview": "생활 묻기",
+                        "nextNodeId": "life_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "base_story",
+                "speakerId": "byeolhaneul",
+                "emotion": "thoughtful",
+                "text": "한국은 2030년대부터 꾸준히 우주 개발에 투자했어요.\n누리호 성공 이후로 계속 발전해서, 달 탐사선을 보내고...\n2050년에 드디어 유인 기지를 건설했죠.\n미국, 중국, 일본과 협력해서 국제 프로젝트로 진행됐어요.",
+                "nextNodeId": "life_story"
+            },
+            {
+                "id": "life_story",
+                "speakerId": "byeolhaneul",
+                "emotion": "happy",
+                "text": "중력이 지구의 6분의 1이라 처음엔 적응이 힘들었어요.\n하지만 지금은 익숙해졌죠. 오히려 지구가 무겁게 느껴질 정도예요!\n식물 재배도 하고, 3D 프린터로 필요한 도구를 만들어요.\n여기서 일출을 보면... 말로 표현할 수 없어요.",
+                "choices": [
+                    {
+                        "id": "c2_dream",
+                        "text": "어릴 때부터 꿈이 우주비행사였나요?",
+                        "nextNodeId": "dream_story",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "dream_story",
+                "speakerId": "byeolhaneul",
+                "emotion": "happy",
+                "text": "네! 어렸을 때 밤하늘 별을 보면서 꿈꿨어요.\n'저 별들 사이를 직접 가보고 싶다'고.\n불가능하다고들 했지만, 포기하지 않았죠.\n그리고 지금... 저는 정말 별들 사이에 있어요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "byeolhaneul",
+                "emotion": "determined",
+                "text": "과거의 분들에게 전해주세요.\n꿈을 포기하지 마세요. 불가능해 보여도 도전하세요.\n인류는 동굴에서 시작해 달까지 왔어요.\n다음은 화성, 그리고 더 먼 곳으로!\n한국의 청년들도 그 여정에 함께할 거예요.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_space_dream"
+                }
+            }
+        ]
+    },
+    {
+        "id": "posthuman_philosophy_01",
+        "characterId": "youngwon",
+        "title": "Beyond Human",
+        "titleKorean": "인간을 넘어서",
+        "description": "2080년대 철학자와 함께 기술이 인간의 한계를 넘어설 때, 인간다움의 본질에 대해 탐구합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 180,
+                "unlockFactId": "fact_posthuman"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "youngwon",
+                "emotion": "thoughtful",
+                "text": "2080년대에 오셨군요. 흥미로운 시대예요.\n지금 인류는 근본적인 질문에 직면해 있어요.\n수명이 150년을 넘고, 뇌와 컴퓨터가 연결되는 시대...\n'인간이란 무엇인가?'",
+                "choices": [
+                    {
+                        "id": "c1_tech",
+                        "text": "뇌-컴퓨터 인터페이스란 무엇인가요?",
+                        "preview": "기술 설명",
+                        "nextNodeId": "tech_story",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_meaning",
+                        "text": "영생이 가능해지면 삶의 의미는 어떻게 되나요?",
+                        "preview": "철학적 질문",
+                        "nextNodeId": "meaning_story",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "tech_story",
+                "speakerId": "youngwon",
+                "emotion": "neutral",
+                "text": "생각만으로 인터넷에 접속하고, 정보를 받아들일 수 있어요.\n기억을 클라우드에 저장하고, 다른 사람과 공유할 수도 있죠.\n심지어 죽은 사람의 기억을 불러올 수도...\n이제 '죽음'의 정의도 달라지고 있어요.",
+                "nextNodeId": "meaning_story"
+            },
+            {
+                "id": "meaning_story",
+                "speakerId": "youngwon",
+                "emotion": "thoughtful",
+                "text": "좋은 질문이에요.\n예전에는 '죽음'이 삶에 의미를 줬어요. 한정된 시간이니까 소중했죠.\n하지만 영생이 가능해지면? 권태, 의미 상실...\n저는 이렇게 생각해요. 의미는 시간의 양이 아니라 관계에서 온다고.",
+                "choices": [
+                    {
+                        "id": "c2_human",
+                        "text": "기계와 연결된 인간도 여전히 인간인가요?",
+                        "nextNodeId": "human_story",
+                        "reward": {
+                            "knowledgePoints": 30,
+                            "unlockFactId": "fact_transhumanism"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "human_story",
+                "speakerId": "youngwon",
+                "emotion": "neutral",
+                "text": "핵심적인 질문이에요.\n저는 이렇게 봐요. 인간다움은 '무엇을 가졌느냐'가 아니에요.\n사랑하고, 고민하고, 성장하려는 의지...\n그것이 있는 한, 기계 팔이 있든 칩이 있든 인간이에요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "youngwon",
+                "emotion": "happy",
+                "text": "과거에서 오신 분께 전하고 싶어요.\n기술은 도구일 뿐이에요. 중요한 건 그걸 어떻게 쓰느냐죠.\n인간다움의 본질은 변하지 않아요.\n사랑, 공감, 창의성, 그리고 '왜'라고 묻는 능력.\n그것만 잊지 않으면, 인류는 어떤 미래도 극복할 수 있어요.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_human_essence"
+                }
+            }
+        ]
+    },
+    {
+        "id": "rm_1_hardship",
+        "title": "A Mother's Strength",
+        "titleKorean": "어머니의 힘",
+        "eraId": "korea_contemporary_1",
+        "characterId": "refugee_merchant",
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "refugee_merchant",
+                "emotion": "sad",
+                "text": "아이고, 선생님. 그따위 질문이 어디 있습니까? 산 사람은 살아야제.\n흥남 부두에서 그 난리 통에 남편이랑 큰아들 손을 놓쳤지 뭡니까...",
+                "choices": [
+                    {
+                        "id": "c1_family",
+                        "text": "가족 찾으셨나요?",
+                        "nextNodeId": "family_story"
+                    },
+                    {
+                        "id": "c1_busan",
+                        "text": "부산 생활은 어떠셨나요?",
+                        "nextNodeId": "busan_story"
+                    }
+                ]
+            },
+            {
+                "id": "family_story",
+                "speakerId": "refugee_merchant",
+                "emotion": "sad",
+                "text": "아직도 국제시장 꽃분이네 앞에서 기다리라고 했는데...\n지금도 꿈에 나옵니다. 금순아, 굳세어라 금순아 부르면서.\n그래도 내 등에 업린 막둥이 살릴라고, 미군 부대서 나온 깡통이랑 군복 팔아가며 버텼심더.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "busan_story",
+                "speakerId": "refugee_merchant",
+                "emotion": "neutral",
+                "text": "피난민이 천지 삐까리였지예. 판잣집에 가마니 깔고 자면서도...\n눈물 흘릴 새가 어딨습니까? '골라 골라' 소리 지르며 장사했지예.\n내사 마 굶어도 자식들 배는 채워야 안 하겠습니까.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "refugee_merchant",
+                "emotion": "neutral",
+                "text": "이 전쟁통에도 꽃은 핍니다.\n언젠가 통일되면 우리 영감, 내 꼭 만날 깁니다.\n그때까지 이를 악물고 살아야지예.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 20,
+                    "unlockFactId": "fact_korean_war_refugees"
+                }
+            }
+        ],
+        "description": "전쟁 후 삶의 고난 속에서도 희망을 잃지 않는 어머니의 이야기"
+    },
+    {
+        "id": "rm_2_hope",
+        "title": "Market of Hope",
+        "titleKorean": "희망의 시장",
+        "eraId": "korea_contemporary_1",
+        "characterId": "refugee_merchant",
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "refugee_merchant",
+                "emotion": "happy",
+                "text": "보이소! 오늘 물건 좋심더! 미제 초콜렛도 있고, 일제 구루무도 있심더!\n여기가 국제시장 아입니까. 없는 거 빼고 다 있다 캅니다.",
+                "choices": [
+                    {
+                        "id": "c1_market",
+                        "text": "활기가 넘치네요.",
+                        "nextNodeId": "market_story"
+                    }
+                ]
+            },
+            {
+                "id": "market_story",
+                "speakerId": "refugee_merchant",
+                "emotion": "happy",
+                "text": "암요! 전쟁 끝났다고 주저앉아 있을 수 있습니꺼?\n우리나라 사람들 억척스럽다 아입니까. 여기서 다시 시작하는 기라예.\n내 장사해서 우리 막둥이 대학까지 보낼 깁니다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "refugee_merchant",
+                "emotion": "neutral",
+                "text": "선생님도 힘 내이소. 산 입에 거미줄 치겠습니까?\n이 시장통에선 희망도 팝니다. 덤으로 드릴 테니 가져가이소!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 20
+                }
+            }
+        ],
+        "description": "국제시장에서 새로운 희망을 찾아가는 피란민들의 이야기"
+    },
+    {
+        "id": "sw_1_labor",
+        "title": "Lights of Peace Market",
+        "titleKorean": "평화시장의 불빛",
+        "eraId": "korea_contemporary_2",
+        "characterId": "sewing_worker",
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "sewing_worker",
+                "emotion": "tired",
+                "text": "드르륵... 드르륵...\n아, 죄송해요. 졸면 안 되는데. 지금 물량을 못 맞추면 반장님한테 혼나요.\n타이밍(각성제)이라도 먹고 버텨야 해요.",
+                "choices": [
+                    {
+                        "id": "c1_work",
+                        "text": "하루에 몇 시간 일하나요?",
+                        "nextNodeId": "work_story"
+                    }
+                ]
+            },
+            {
+                "id": "work_story",
+                "speakerId": "sewing_worker",
+                "emotion": "sad",
+                "text": "보통 14시간, 바쁠 땐 16시간도 일해요.\n햇빛도 안 드는 다락방에서 먼지 마시면서...\n그래도 시골 계신 부모님하고 동생들 생각하면 쉴 수 없어요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "sewing_worker",
+                "emotion": "neutral",
+                "text": "얼마 전에 전태일이라는 재단사가 자기 몸에 불을 질렀대요...\n'우리는 기계가 아니다'라고 외치면서.\n그분 덕분에 세상이 조금은 우리를 봐주는 것 같아요.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 20,
+                    "unlockFactId": "fact_labor_movement"
+                }
+            }
+        ],
+        "description": "평화시장의 등불 아래에서 일하는 봉제공들의 이야기"
+    },
+    {
+        "id": "sw_2_dream",
+        "title": "Night School Dream",
+        "titleKorean": "야학의 꿈",
+        "eraId": "korea_contemporary_2",
+        "characterId": "sewing_worker",
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "sewing_worker",
+                "emotion": "happy",
+                "text": "선생님, 저 이거 보세요! 까막눈이었는데 이제 글씨를 읽을 줄 알아요.\n일 끝나고 야학에 다니거든요. 몸은 천근만근이어도 마음은 날아갈 것 같아요.",
+                "choices": [
+                    {
+                        "id": "c1_dream",
+                        "text": "어떤 꿈이 있으신가요?",
+                        "nextNodeId": "dream_story"
+                    }
+                ]
+            },
+            {
+                "id": "dream_story",
+                "speakerId": "sewing_worker",
+                "emotion": "thoughtful",
+                "text": "저도 공부해서 선생님이 되고 싶어요.\n아니면 노동법을 배워서 우리 같은 '공순이'들 억울한 일 안 당하게 돕고 싶고요.\n가난하다고 꿈까지 가난하란 법은 없잖아요?",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "sewing_worker",
+                "emotion": "happy",
+                "text": "제 동생은 꼭 대학 보낼 거예요. 저는 여기서 미싱을 돌리지만,\n우리가 만든 옷들이, 우리가 번 외화가 나라를 부자로 만든다면서요?\n언젠가 우리도 허리 펴고 살 날이 오겠죠?",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 20
+                }
+            }
+        ],
+        "description": "야학에서 배움의 꿈을 키워가는 노동자들의 이야기"
+    },
+    {
+        "id": "is_1_collapse",
+        "title": "The Day of Collapse",
+        "titleKorean": "무너진 날",
+        "eraId": "korea_contemporary_3",
+        "characterId": "imf_survivor",
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "imf_survivor",
+                "emotion": "sad",
+                "text": "1997년 12월 3일... 그날을 잊을 수가 없습니다.\n평생 바친 회사가 부도 처리가 되었죠.\n뉴스를 보는데 '국가 부도'라니, 하늘이 무너지는 것 같았습니다.",
+                "choices": [
+                    {
+                        "id": "c1_fail",
+                        "text": "많이 힘드셨겠어요.",
+                        "nextNodeId": "fail_story"
+                    }
+                ]
+            },
+            {
+                "id": "fail_story",
+                "speakerId": "imf_survivor",
+                "emotion": "sad",
+                "text": "가족들 볼 면목이 없어서 서울역에서 며칠을 노숙했습니다.\n한강 다리 위에도 올라가 봤고요...\n그런데 TV에서 사람들이 금반지를 들고 나오는 걸 봤습니다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "imf_survivor",
+                "emotion": "neutral",
+                "text": "아기 돌반지까지 내놓으며 나라를 살리겠다고 줄을 선 사람들.\n그걸 보고 정신이 번쩍 들더군요.\n'나라가 망해도 국민은 살아있다. 나도 다시 시작하자.'",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 20,
+                    "unlockFactId": "fact_imf_crisis"
+                }
+            }
+        ],
+        "description": "IMF 경제위기 속에서 무너지는 가정과 기업의 이야기"
+    },
+    {
+        "id": "is_2_rise",
+        "title": "Rise from Ashes",
+        "titleKorean": "재기",
+        "eraId": "korea_contemporary_3",
+        "characterId": "imf_survivor",
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "imf_survivor",
+                "emotion": "happy",
+                "text": "허허, 이 휴대전화 보십쇼. 우리 벤처 기술로 만든 겁니다.\n다들 미쳤다고 했죠. 망한 사장이 무슨 인터넷 사업이냐고.\n하지만 위기는 곧 기회였습니다.",
+                "choices": [
+                    {
+                        "id": "c1_success",
+                        "text": "어떻게 성공하셨나요?",
+                        "nextNodeId": "success_story"
+                    }
+                ]
+            },
+            {
+                "id": "success_story",
+                "speakerId": "imf_survivor",
+                "emotion": "neutral",
+                "text": "밤낮없이 일했습니다. 컵라면으로 끼니 때우면서요.\nIMF 때문에 구조조정 당한 우수한 인재들이 모여들었죠.\n우리는 잡초처럼 질겼고, 결국 세계 최초 기술을 만들어냈습니다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "imf_survivor",
+                "emotion": "happy",
+                "text": "이제 우리 기술이 세계로 수출됩니다.\n실패는 부끄러운 게 아닙니다. 진짜 부끄러운 건 다시 일어서지 않는 거죠.\n대한민국은 그렇게 위기 때마다 더 강해졌습니다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 30,
+                    "unlockFactId": "fact_it_boom"
+                }
+            }
+        ],
+        "description": "위기를 딛고 다시 일어서는 한국인들의 회복 이야기"
     }
 ]

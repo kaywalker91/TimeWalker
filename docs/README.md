@@ -80,6 +80,7 @@
 | [location_accuracy_plan.md](./plans/location_accuracy_plan.md) | 장소 정확도 개선 |
 | [character_image_generation_plan.md](./plans/character_image_generation_plan.md) | 캐릭터 이미지 생성 계획 |
 | [document_image_organization_plan.md](./plans/document_image_organization_plan.md) | 📂 문서/이미지 정리 계획 |
+| [docs_markdown_organization_plan.md](./plans/docs_markdown_organization_plan.md) | 📄 마크다운 파일 정리 계획 |
 
 ---
 

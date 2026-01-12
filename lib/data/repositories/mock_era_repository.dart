@@ -19,7 +19,8 @@ class MockEraRepository implements EraRepository {
   @override
   Future<List<Era>> getErasByCountry(String countryId) async {
     await Future.delayed(const Duration(milliseconds: 200));
-    return _eras.where((e) => e.countryId == countryId).toList();
+    // 개발 모드: 항상 최신 데이터 반환
+    return EraData.all.where((e) => e.countryId == countryId).toList();
   }
 
   @override

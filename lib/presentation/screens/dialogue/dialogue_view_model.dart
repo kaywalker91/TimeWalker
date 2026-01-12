@@ -267,8 +267,9 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
       // Fetch Character to get Era ID
       final character = await ref.read(characterRepositoryProvider).getCharacterById(dialogue.characterId);
       final eraId = character?.eraId;
+      final characterId = dialogue.characterId;
       _log(
-        'finishDialogue characterId=${dialogue.characterId} eraId=${eraId ?? 'null'}',
+        'finishDialogue characterId=$characterId eraId=${eraId ?? 'null'}',
       );
 
       // 진행률 계산을 위해 먼저 대화 목록 가져오기
@@ -278,6 +279,9 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
       }
       
       final progressionService = ref.read(progressionServiceProvider);
+      
+      // 추가 해금 이벤트 목록 (인물 해금용)
+      final additionalUnlocks = <UnlockEvent>[];
       
       final unlocks = await ref.read(userProgressProvider.notifier).updateProgress((progress) {
         // Check if already completed to avoid double dipping knowledge points
@@ -308,18 +312,58 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
           };
         }
 
+        // 3. 인물 해금 처리 - 대화 완료 시 자동으로 역사 도감에 추가
+        List<String> newUnlockedCharacterIds = progress.unlockedCharacterIds;
+        Map<String, DateTime> newEncyclopediaDiscoveryDates = progress.encyclopediaDiscoveryDates;
+        
+        // 인물이 아직 해금되지 않은 경우에만 추가
+        if (!progress.unlockedCharacterIds.contains(characterId)) {
+          newUnlockedCharacterIds = [...progress.unlockedCharacterIds, characterId];
+          _log('Character unlocked: $characterId');
+          
+          // 인물 해금 이벤트 추가
+          additionalUnlocks.add(UnlockEvent(
+            type: UnlockType.character,
+            id: characterId,
+            name: character?.nameKorean ?? characterId,
+            message: '${character?.nameKorean ?? '인물'}이(가) 역사 도감에 추가되었습니다!',
+          ));
+        }
+        
+        // 도감에 인물 ID와 발견 날짜 추가 (역사 도감 발견 처리)
+        if (!progress.isEncyclopediaDiscovered(characterId)) {
+          newEncyclopediaDiscoveryDates = {
+            ...progress.encyclopediaDiscoveryDates,
+            characterId: DateTime.now(), // 현재 시간으로 발견 날짜 기록
+          };
+          _log('Encyclopedia entry discovered: $characterId at ${DateTime.now()}');
+          
+          // 역사 도감 발견 이벤트 추가
+          additionalUnlocks.add(UnlockEvent(
+            type: UnlockType.encyclopedia,
+            id: characterId,
+            name: character?.nameKorean ?? characterId,
+            message: '역사 도감에 새로운 항목이 추가되었습니다!',
+          ));
+        }
+
         // Update basic progress
         return progress.copyWith(
           completedDialogueIds: newCompleted,
           totalKnowledge: newKnowledge,
           eraProgress: newEraProgress,
+          unlockedCharacterIds: newUnlockedCharacterIds,
+          encyclopediaDiscoveryDates: newEncyclopediaDiscoveryDates,
         );
       });
       
-      // 3. Update state with unlocks and completion status
+      // 기존 해금 이벤트와 추가 해금 이벤트 합치기
+      final allUnlocks = [...unlocks, ...additionalUnlocks];
+      
+      // 4. Update state with unlocks and completion status
       state = state.copyWith(
         isCompleted: true,
-        unlockEvents: unlocks,
+        unlockEvents: allUnlocks,
       );
     } else {
         state = state.copyWith(isCompleted: true);

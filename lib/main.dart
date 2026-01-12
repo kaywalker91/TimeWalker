@@ -5,13 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/utils/app_lifecycle_manager.dart';
 import 'package:time_walker/core/themes/app_theme.dart';
+import 'package:time_walker/core/services/hive_service.dart';
+import 'package:time_walker/presentation/providers/theme_provider.dart';
 
-void main() {
+Future<void> main() async {
   // Flutter 엔진 초기화 보장
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 비동기 초기화 로직(SystemChrome 등)은 SplashScreen으로 이관하여
-  // 앱 실행 속도를 높이고 흰 화면(White Screen) 이슈를 방지함
+  // Hive 데이터베이스 초기화
+  await HiveService.initialize();
 
   runApp(
     const ProviderScope(
@@ -22,13 +24,15 @@ void main() {
   );
 }
 
-class TimeRunnerApp extends StatelessWidget {
+class TimeRunnerApp extends ConsumerWidget {
   const TimeRunnerApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeStyle = ref.watch(themeProvider);
+    
     return MaterialApp.router(
-      title: 'TimeWalker', // 앱 이름 수정 (TimeRunner -> TimeWalker)
+      title: 'TimeWalker',
       locale: const Locale('ko'), // Force Korean as requested
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -38,7 +42,7 @@ class TimeRunnerApp extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme,
+      theme: themeStyle == AppThemeStyle.midnight ? AppTheme.midnightTheme : AppTheme.darkTheme,
       routerConfig: AppRouter.router,
     );
   }

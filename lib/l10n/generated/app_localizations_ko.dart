@@ -55,7 +55,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exploration_tutorial_msg =>
-      '탐험가여 환영합니다! 지도를 확대/축소하고 드래그로 이동하세요. 지도 아이콘에서 왕국 범례를 확인하고, 하단 목록 버튼으로 인물/장소를 빠르게 찾을 수 있습니다.';
+      '탐험가여 환영합니다! 타임라인을 스크롤하여 역사적 장소를 선택하고 탐험을 시작하세요! 인물과 대화하며 지식을 쌓을 수 있습니다.';
+
+  @override
+  String get time_portal_help_title => '시공의 회랑 도움말';
+
+  @override
+  String get time_portal_help_msg =>
+      '5대 문명 포탈을 터치하여 해당 시대로 이동합니다. 잠겨있는 포탈은 탐험가 레벨을 올려 해금하세요.';
+
+  @override
+  String get quiz_help_title => '퀴즈 아이템 가이드';
+
+  @override
+  String get quiz_help_msg =>
+      '💡 힌트: 오답 2개를 제거합니다.\n⏳ 타임 스톱: 10초간 시간을 멈춥니다.\n상점에서 아이템을 구매하여 사용할 수 있습니다.';
 
   @override
   String get exploration_progress_label => '시대 진행률';
@@ -105,7 +119,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exploration_help_title => '탐험 도움말';
 
   @override
-  String get menu_world_map => '세계 지도';
+  String get menu_world_map => '시공의 회랑';
 
   @override
   String get menu_encyclopedia => '역사 도감';
@@ -261,6 +275,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String profile_next_rank_pts(Object points) {
     return '다음 랭크까지 $points점';
   }
+
+  @override
+  String get profile_identity_name => '이름';
+
+  @override
+  String get profile_identity_rank => '직위';
 
   @override
   String get profile_stat_exploration => '탐험';

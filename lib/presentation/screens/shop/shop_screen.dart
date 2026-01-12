@@ -231,10 +231,13 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
                   child: const Icon(Icons.shopping_bag, color: AppColors.background, size: 20),
                 ),
                 const SizedBox(width: 12),
-                Text(
-                  AppLocalizations.of(context)!.shop_title,
-                  style: AppTextStyles.headlineMedium.copyWith(
-                    color: AppColors.textPrimary,
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context)!.shop_title,
+                    style: AppTextStyles.headlineMedium.copyWith(
+                      color: AppColors.textPrimary,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],

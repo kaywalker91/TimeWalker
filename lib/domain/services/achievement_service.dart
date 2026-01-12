@@ -5,10 +5,17 @@ import 'package:time_walker/domain/entities/quiz.dart';
 import 'package:time_walker/data/datasources/static/achievement_data.dart';
 
 
-/// 업적 달성 결과
+/// 업적 달성 결과를 담는 데이터 클래스
+/// 
+/// 업적 달성 시 UI에 표시하거나 진행 상태를 업데이트할 때 사용합니다.
 class AchievementUnlockResult {
+  /// 달성한 업적
   final Achievement achievement;
+  
+  /// 보너스 포인트 (희귀도 + 추가 보너스)
   final int bonusPoints;
+  
+  /// 달성 시각
   final DateTime unlockedAt;
 
   const AchievementUnlockResult({
@@ -19,6 +26,36 @@ class AchievementUnlockResult {
 }
 
 /// 업적 달성 체크 서비스
+/// 
+/// 사용자의 활동(퀴즈 정답, 대화 완료, 지식 획득 등)에 따라
+/// 달성 가능한 업적을 확인하고 결과를 반환합니다.
+/// 
+/// ## 사용 예시
+/// ```dart
+/// final service = ref.read(achievementServiceProvider);
+/// 
+/// // 퀴즈 정답 후 업적 체크
+/// final achievements = service.checkAllAfterQuiz(
+///   userProgress: currentProgress,
+///   completedQuiz: quiz,
+/// );
+/// 
+/// // 달성한 업적이 있으면 알림 표시
+/// if (achievements.isNotEmpty) {
+///   ref.read(achievementNotifierProvider.notifier)
+///       .addUnlockedAchievements(achievements);
+/// }
+/// ```
+/// 
+/// ## 주요 메서드
+/// - [checkQuizAchievements] - 퀴즈 관련 업적 체크
+/// - [checkDialogueAchievements] - 대화 관련 업적 체크
+/// - [checkKnowledgeAchievements] - 지식 포인트 업적 체크
+/// - [checkAllAfterQuiz] - 퀴즈 후 종합 체크
+/// 
+/// See also:
+/// - [Achievement] - 업적 엔티티
+/// - [AchievementNotifier] - 업적 달성 알림 상태 관리
 class AchievementService {
   /// 퀴즈 정답 후 업적 조건 확인
   /// 

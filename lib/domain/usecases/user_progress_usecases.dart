@@ -1,4 +1,5 @@
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/data/seeds/user_progress_seed.dart';
 import 'package:time_walker/domain/core/use_case.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
@@ -16,9 +17,9 @@ class GetUserProgressUseCase implements UseCase<String, Result<UserProgress>> {
       final progress = await _repository.getUserProgress(userId);
       if (progress == null) {
         // 새 사용자라면 기본 진행 상태 생성
-        const newProgress = UserProgress(oderId: 'user_001');
+        final newProgress = UserProgressSeed.initial(userId);
         await _repository.saveUserProgress(newProgress);
-        return const Success(newProgress);
+        return Success(newProgress);
       }
       return Success(progress);
     } catch (e) {
@@ -58,14 +59,26 @@ class UpdateUserProgressUseCase
       // 3. 해금된 항목 적용
       if (unlocks.isNotEmpty) {
         final newEraIds = List<String>.from(updated.unlockedEraIds);
+        final newCountryIds = List<String>.from(updated.unlockedCountryIds);
+        final newRegionIds = List<String>.from(updated.unlockedRegionIds);
 
         for (final event in unlocks) {
           if (event.type == UnlockType.era && !newEraIds.contains(event.id)) {
             newEraIds.add(event.id);
+          } else if (event.type == UnlockType.country &&
+              !newCountryIds.contains(event.id)) {
+            newCountryIds.add(event.id);
+          } else if (event.type == UnlockType.region &&
+              !newRegionIds.contains(event.id)) {
+            newRegionIds.add(event.id);
           }
         }
 
-        updated = updated.copyWith(unlockedEraIds: newEraIds);
+        updated = updated.copyWith(
+          unlockedEraIds: newEraIds,
+          unlockedCountryIds: newCountryIds,
+          unlockedRegionIds: newRegionIds,
+        );
 
         // Rank 업데이트
         for (final event in unlocks) {

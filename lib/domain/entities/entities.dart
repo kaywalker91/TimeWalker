@@ -11,6 +11,10 @@ export 'location.dart';
 
 // 사용자 관련 엔티티
 export 'user_progress.dart';
+export 'user_profile.dart';
+export 'exploration_state.dart';
+export 'unlock_state.dart';
+export 'completion_state.dart';
 export 'settings.dart';
 
 // 콘텐츠 엔티티

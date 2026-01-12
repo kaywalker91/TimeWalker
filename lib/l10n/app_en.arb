@@ -16,7 +16,11 @@
   "era_timeline_locked_msg": "This era is locked.",
 
   "exploration_title_default": "Exploration",
-  "exploration_tutorial_msg": "Welcome Explorer! Pinch to zoom and drag to move. Use the map icon to filter kingdoms, and the bottom buttons to jump to characters or locations.",
+  "exploration_tutorial_msg": "Welcome Explorer! Scroll through the timeline to select historical places and start exploring! Gain knowledge by talking to characters.",
+  "time_portal_help_title": "Time Portal Help",
+  "time_portal_help_msg": "Tap the 5 civilization portals to travel to that era. Locked portals can be unlocked by increasing your explorer level.",
+  "quiz_help_title": "Quiz Item Guide",
+  "quiz_help_msg": "💡 Hint: Removes 2 wrong answers.\n⏳ Time Stop: Freezes time for 10 seconds.\nYou can purchase items in the Shop.",
   "exploration_progress_label": "Era Progress",
   "exploration_era_not_found": "Era not found",
   "exploration_location_error": "Error loading locations: {error}",
@@ -33,7 +37,7 @@
   "exploration_status_title": "Status",
   "exploration_help_title": "Exploration Help",
 
-  "menu_world_map": "WORLD MAP",
+  "menu_world_map": "TIME CORRIDOR",
   "menu_encyclopedia": "ENCYCLOPEDIA",
   "menu_quiz": "QUIZ CHALLENGE",
   "menu_profile": "MY PROFILE",
@@ -46,5 +50,26 @@
   "world_map_current_location": "Current Location",
   "world_map_location_test": "Asia - Korea",
   "world_map_locked_msg": "{region} is currently locked.",
-  "app_tagline": "Become a TimeWalker and explore history."
+  "app_tagline": "Become a TimeWalker and explore history.",
+
+  "profile_title": "My Profile",
+  "profile_rank_progress": "Rank Progress",
+  "profile_next_rank_pts": "{points} pts to next rank",
+  "profile_identity_name": "NAME",
+  "profile_identity_rank": "RANK",
+  "profile_stat_exploration": "Explorer",
+  "profile_stat_collection": "Collection",
+  "profile_stat_knowledge": "Knowledge",
+  "profile_stat_playtime": "Total Playtime",
+  "profile_stat_eras": "Eras Visited",
+  "profile_eras_count": "{count} Eras",
+  "profile_stat_dialogues": "Completed Dialogues",
+  "common_error_stats_load": "Failed to load stats.",
+
+  "rank_novice": "Novice Explorer",
+  "rank_apprentice": "Apprentice Historian",
+  "rank_intermediate": "Intermediate Historian",
+  "rank_advanced": "Advanced Historian",
+  "rank_expert": "History Expert",
+  "rank_master": "Time Master"
 }
