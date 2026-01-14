@@ -969,5 +969,117 @@
         "eventIds": [],
         "status": "available",
         "isHistorical": false
+    },
+    {
+        "id": "cheonghaejin",
+        "eraId": "korea_unified_silla",
+        "name": "Cheonghaejin Garrison",
+        "nameKorean": "청해진",
+        "description": "장보고가 설치한 동아시아 최대의 해상 무역 기지",
+        "thumbnailAsset": "assets/images/locations/cheonghaejin_bg.png",
+        "backgroundAsset": "assets/images/locations/cheonghaejin_bg.png",
+        "latitude": 34.3361,
+        "longitude": 126.5214,
+        "displayYear": "828",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.35,
+            "y": 0.8
+        },
+        "characterIds": [
+            "jangbogo"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "bulguksa",
+        "eraId": "korea_unified_silla",
+        "name": "Bulguksa Temple",
+        "nameKorean": "불국사",
+        "description": "통일신라 불교 미술의 정수, 유네스코 세계문화유산",
+        "thumbnailAsset": "assets/images/locations/bulguksa_bg.png",
+        "backgroundAsset": "assets/images/locations/bulguksa_bg.png",
+        "latitude": 35.7901,
+        "longitude": 129.3310,
+        "displayYear": "751",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.7,
+            "y": 0.65
+        },
+        "characterIds": [
+            "wonhyo"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seokguram",
+        "eraId": "korea_unified_silla",
+        "name": "Seokguram Grotto",
+        "nameKorean": "석굴암",
+        "description": "토함산 정상의 석굴 사원, 본존불의 미소가 천년을 빛낸다",
+        "thumbnailAsset": "assets/images/locations/seokguram_bg.png",
+        "backgroundAsset": "assets/images/locations/seokguram_bg.png",
+        "latitude": 35.7952,
+        "longitude": 129.3517,
+        "displayYear": "774",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.72,
+            "y": 0.62
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gyeongju_anapji",
+        "eraId": "korea_unified_silla",
+        "name": "Anapji Pond",
+        "nameKorean": "안압지(동궁과 월지)",
+        "description": "신라 왕실의 연회장이자 별궁",
+        "thumbnailAsset": "assets/images/locations/anapji_bg.png",
+        "backgroundAsset": "assets/images/locations/anapji_bg.png",
+        "latitude": 35.8326,
+        "longitude": 129.2285,
+        "displayYear": "674",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.68,
+            "y": 0.68
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "sanggyeong",
+        "eraId": "korea_unified_silla",
+        "name": "Sanggyeong Yongcheonbu",
+        "nameKorean": "상경용천부",
+        "description": "발해의 수도, 해동성국의 심장부",
+        "thumbnailAsset": "assets/images/locations/sanggyeong_bg.png",
+        "backgroundAsset": "assets/images/locations/sanggyeong_bg.png",
+        "latitude": 44.0333,
+        "longitude": 128.7500,
+        "displayYear": "755",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.6,
+            "y": 0.15
+        },
+        "characterIds": [
+            "dae_joyeong",
+            "dae_muye"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
     }
 ]
