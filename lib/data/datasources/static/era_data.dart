@@ -145,21 +145,22 @@ class EraData {
   static const Era koreaUnifiedSilla = Era(
     id: 'korea_unified_silla',
     countryId: 'korea',
-    name: 'Unified Silla',
-    nameKorean: '통일신라',
-    period: '676 - 918',
-    startYear: 676,
-    endYear: 918,
+    name: 'North-South States Period',
+    nameKorean: '남북국시대',
+    period: '668 - 935',
+    startYear: 668,
+    endYear: 935,
     description:
-        '삼국통일 후 찬란한 불교 문화와 해상 무역이 꽃피운 시대. '
-        '장보고의 청해진, 불국사와 석굴암 등 국제적인 문화 국가로 발전하다.',
+        '신라의 삼국통일과 발해의 건국으로 시작된 남북국 시대. '
+        '장보고의 청해진이 동아시아 해상을 장악하고, '
+        '불국사와 석굴암이 건립되며, 발해는 해동성국으로 불리었다.',
     thumbnailAsset: 'assets/images/eras/unified_silla.png',
     backgroundAsset: 'assets/images/locations/unified_silla_bg.png',
     bgmAsset: 'assets/audio/bgm/unified_silla.mp3',
     theme: EraThemes.unifiedSilla,
-    chapterIds: ['us_ch1_unification', 'us_ch2_buddhism', 'us_ch3_maritime'],
-    characterIds: ['jang_bogo', 'choi_chiwon', 'wonhyo'],
-    locationIds: ['gyeongju', 'cheonghaejin', 'bulguksa'],
+    chapterIds: ['us_ch1_unification', 'us_ch2_buddhism', 'us_ch3_maritime', 'us_ch4_balhae'],
+    characterIds: ['jangbogo', 'wonhyo', 'choi_chiwon', 'dae_joyeong', 'dae_muye'],
+    locationIds: ['cheonghaejin', 'bulguksa', 'seokguram', 'gyeongju_anapji', 'sanggyeong'],
     status: ContentStatus.locked,
     estimatedMinutes: 50,
     unlockCondition: UnlockCondition(
@@ -168,9 +169,9 @@ class EraData {
     ),
     mapBounds: MapBounds(
       minLatitude: 33.0,
-      maxLatitude: 40.0,
-      minLongitude: 125.0,
-      maxLongitude: 130.0,
+      maxLatitude: 45.0,
+      minLongitude: 124.0,
+      maxLongitude: 135.0,
     ),
   );
 
