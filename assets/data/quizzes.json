@@ -394,6 +394,96 @@
                     "timeLimitSeconds": 35
                 },
                 {
+                    "id": "balhae_founding_01",
+                    "question": "대조영이 발해를 건국한 것이 한국사에서 중요한 이유는 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 새로운 나라를 세웠기 때문",
+                        "고구려 멸망 후 그 유민과 영토를 계승하여 한민족의 역사를 만주까지 이어나갔기 때문",
+                        "당나라와 친하게 지냈기 때문",
+                        "신라를 정복했기 때문"
+                    ],
+                    "correctAnswer": "고구려 멸망 후 그 유민과 영토를 계승하여 한민족의 역사를 만주까지 이어나갔기 때문",
+                    "explanation": "발해는 고구려 멸망 30년 후인 698년, 대조영이 고구려 유민과 말갈족을 이끌고 건국했습니다. '고려(高麗)'라는 국호를 사용하기도 했으며, 전성기에는 '해동성국'으로 불릴 만큼 강성하여 한민족의 역사 영역을 만주까지 확장시킨 중요한 국가입니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "dae_joyeong",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "balhae_dengzhou_01",
+                    "question": "발해 무왕이 732년 당나라 등주를 공격한 것이 역사적으로 의미 있는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "당나라를 멸망시켰기 때문",
+                        "고구려 멸망 이후 처음으로 중국 본토를 공격하여 발해가 동아시아 강국임을 과시했기 때문",
+                        "일본과 동맹을 맺었기 때문",
+                        "무역 협정을 체결했기 때문"
+                    ],
+                    "correctAnswer": "고구려 멸망 이후 처음으로 중국 본토를 공격하여 발해가 동아시아 강국임을 과시했기 때문",
+                    "explanation": "대무예(무왕)는 장문휴로 하여금 수군을 이끌고 당나라 등주(산동성)를 기습 공격하게 했습니다. 이는 고구려 멸망 이후 처음으로 중국 본토를 공격한 사건으로, 발해의 군사력과 자주성을 동아시아에 선언한 역사적 의의가 있습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "dae_muye",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "bulguksa_seokguram_01",
+                    "question": "불국사와 석굴암이 UNESCO 세계문화유산으로 등재될 만큼 가치 있는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 오래된 건물이기 때문",
+                        "통일신라의 높은 예술적·과학적 기술력과 불교 신앙이 조화를 이룬 걸작이기 때문",
+                        "왕이 직접 만들었기 때문",
+                        "외국에서 수입해온 건축물이기 때문"
+                    ],
+                    "correctAnswer": "통일신라의 높은 예술적·과학적 기술력과 불교 신앙이 조화를 이룬 걸작이기 때문",
+                    "explanation": "불국사와 석굴암은 751년 김대성이 창건했습니다. 불국사는 석가탑과 다보탑의 조화로운 배치로, 석굴암은 자연 석굴이 없는 곳에 화강암으로 인공 석굴을 만든 세계적으로 유례없는 기술력으로 높은 평가를 받습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedLocationId": "bulguksa",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "seokguram_science_01",
+                    "question": "석굴암의 건축에 숨겨진 과학적 비밀은 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "돌 사이에 철로 연결했다",
+                        "정교한 돔 구조, 자연 통풍 시스템으로 습기를 조절하여 천년 넘게 보존될 수 있었다",
+                        "지하에 온돌을 설치했다",
+                        "돌대신 나무로 지었다"
+                    ],
+                    "correctAnswer": "정교한 돔 구조, 자연 통풍 시스템으로 습기를 조절하여 천년 넘게 보존될 수 있었다",
+                    "explanation": "석굴암 천장은 돌을 정교하게 쌓아 만든 돔 구조이며, 자연적인 통풍 시스템이 있어 내부 습도를 일정하게 유지합니다. 일제강점기 땜질 보수로 이 시스템이 훼손되어 현재 인공 제습이 필요하게 되었습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedLocationId": "seokguram",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "hwajeng_philosophy_01",
+                    "question": "원효의 '화쟁(和諍)' 사상이 현대 사회에 주는 교훈은 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "자신의 주장만이 옳다",
+                        "서로 다른 의견도 진리의 일면을 담고 있으므로, 대립보다 화합을 추구해야 한다",
+                        "다툼은 피할 수 없다",
+                        "종교는 필요 없다"
+                    ],
+                    "correctAnswer": "서로 다른 의견도 진리의 일면을 담고 있으므로, 대립보다 화합을 추구해야 한다",
+                    "explanation": "화쟁(和諍)은 '다툼을 화해시킨다'는 뜻으로, 원효가 주창한 불교 통합 사상입니다. 각 종파의 주장이 모두 진리를 담고 있다고 보았으며, 이는 오늘날 사회적 갈등 해결에도 적용될 수 있는 포용과 통합의 지혜입니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "wonhyo",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
                     "id": "choe_museon_gunpowder_01",
                     "question": "최무선의 화약 국산화와 진포 대첩이 갖는 세계사적 의미는?",
                     "type": "multipleChoice",

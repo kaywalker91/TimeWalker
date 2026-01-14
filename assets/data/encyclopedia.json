@@ -2929,5 +2929,206 @@
       "IMF 극복 기업가",
       "Contemporary"
     ]
+  },
+  {
+    "id": "enc_jangbogo",
+    "type": "character",
+    "title": "Jang Bogo",
+    "titleKorean": "장보고",
+    "summary": "동아시아 해상 무역을 장악한 '바다의 왕'",
+    "content": "장보고(?~846)는 신라 말기의 무장이자 상인으로, 어린 시절 당나라로 건너가 무령군 소자장으로 활약했다. 당시 해적들에게 잡혀 노예로 팔려가는 신라인들을 목격하고 분개하여 귀국 후 흥덕왕에게 건의하여 완도에 청해진을 설치했다. 1만여 명의 병력을 지휘하며 해적을 소탕하고 당, 신라, 일본을 잇는 동아시아 해상 무역권을 장악하여 '해상왕'으로 불렸다. 신무왕 옹립에 공을 세웠으나, 딸을 왕비로 삼으려던 시도가 좌절되면서 염장에게 암살당하는 비극적 최후를 맞았다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/jangbogo.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_cheonghaejin"
+    ],
+    "tags": [
+      "인물",
+      "장보고",
+      "해상왕",
+      "청해진",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_wonhyo",
+    "type": "character",
+    "title": "Wonhyo",
+    "titleKorean": "원효",
+    "summary": "불교 대중화의 선구자이자 화쟁사상의 창시자",
+    "content": "원효(617~686)는 신라의 승려로, 젊은 시절 의상과 함께 당나라 유학을 시도했다. 도중에 해골에 고인 물을 마시고 '모든 것은 마음먹기에 달렸다(一切唯心造)'는 깨달음을 얻어 유학을 포기하고 돌아왔다. 이후 요석공주와의 사이에서 설총을 낳았으며, 오히려 속세에 들어가 거리의 백성들에게 염불을 가르치며 불교 대중화에 힘썼다. '화쟁(和諍)' 사상으로 종파 간의 갈등을 화해시키는 통합적 불교관을 정립했다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/wonhyo.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_hwajeng",
+      "enc_bulguksa"
+    ],
+    "tags": [
+      "인물",
+      "원효",
+      "화쟁",
+      "일체유심조",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_choi_chiwon",
+    "type": "character",
+    "title": "Choi Chi-won",
+    "titleKorean": "최치원",
+    "summary": "12세에 당나라 유학, 동아시아에 이름을 떨친 문장가",
+    "content": "최치원(857~?)은 신라 말기의 문인이자 학자로, 12세에 당나라로 유학을 떠났다. '10년 안에 과거에 급제하지 못하면 내 아들이 아니다'라는 아버지의 엄명을 가슴에 새기고, 18세에 빈공과에 장원 급제했다. 황소의 난 당시 '토황소격문'을 써서 반란군의 사기를 꺾었다는 일화로 유명하다. 귀국 후 진성여왕에게 시무10조를 올렸으나 받아들여지지 않자, 해인사에 은거하여 여생을 보냈다. 신라 문학의 최고봉으로 평가받는다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/choi_chiwon.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "최치원",
+      "고운",
+      "토황소격문",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_dae_joyeong",
+    "type": "character",
+    "title": "Dae Jo-yeong",
+    "titleKorean": "대조영",
+    "summary": "고구려 유민을 이끌고 발해를 건국한 영웅",
+    "content": "대조영(?~719)은 고구려 장군 출신으로, 668년 고구려 멸망 후 당나라에 의해 영주로 강제 이주되었다. 696년 거란족의 이진충 반란을 틈타 고구려 유민과 말갈족을 이끌고 동쪽으로 이동, 천문령 전투에서 당군을 격파하고 698년 동모산에서 발해를 건국했다. 처음에는 진국(震國)이라 했다가 713년 당나라로부터 발해군왕에 책봉되었다. 고구려의 정신을 계승한 발해를 강국으로 성장시키는 기반을 닦았다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/dae_joyeong.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_balhae_founding",
+      "enc_dae_muye"
+    ],
+    "tags": [
+      "인물",
+      "대조영",
+      "발해",
+      "고구려",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_dae_muye",
+    "type": "character",
+    "title": "King Mu of Balhae",
+    "titleKorean": "대무예(무왕)",
+    "summary": "발해를 '해동성국'으로 키운 정복 군주",
+    "content": "대무예(?~737)는 대조영의 아들로, 발해 제2대 왕이다. 재위 중 활발한 정복 활동을 펼쳐 영토를 크게 확장했다. 732년에는 장문휴로 하여금 수군을 이끌고 당나라 등주(산동성)를 기습 공격하게 하여, 발해의 군사력을 과시했다. 이는 고구려 이후 처음으로 중국 본토를 공격한 사건으로, 발해가 동아시아의 강국임을 선언한 것이었다. '인안(仁安)'이란 독자적인 연호를 사용하여 자주성을 드러냈다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/dae_muye.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_dae_joyeong"
+    ],
+    "tags": [
+      "인물",
+      "무왕",
+      "발해",
+      "등주공격",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_cheonghaejin",
+    "type": "location",
+    "title": "Cheonghaejin Garrison",
+    "titleKorean": "청해진",
+    "summary": "장보고가 설치한 동아시아 최대의 해상 무역 기지",
+    "content": "청해진은 828년 장보고가 완도에 설치한 해상 군사 기지이자 무역 거점이다. 당시 해적에게 잡혀 노예로 팔려가는 신라인들을 보호하고, 동아시아 해상 무역권을 장악하기 위해 설치되었다. 1만여 명의 병력을 보유하고 당, 신라, 일본을 잇는 해상 무역로를 지배하며, 현대적 의미의 무역 허브 역할을 수행했다. 장보고 사후 851년 폐지되었으나, 해양 강국의 가능성을 보여준 역사적 유산으로 평가받는다.",
+    "thumbnailAsset": "assets/images/locations/cheonghaejin_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_jangbogo"
+    ],
+    "tags": [
+      "장소",
+      "청해진",
+      "장보고",
+      "해상무역",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_bulguksa",
+    "type": "location",
+    "title": "Bulguksa Temple",
+    "titleKorean": "불국사",
+    "summary": "불교의 이상향을 지상에 구현한 통일신라 건축의 정수",
+    "content": "불국사는 751년 경덕왕 때 김대성이 창건한 사찰로, 불교적 이상 세계인 불국토(佛國土)를 지상에 구현하고자 했다. 석가탑과 다보탑이 대웅전 앞에 나란히 서 있어 과거불과 현재불을 상징하며, 청운교·백운교, 연화교·칠보교 등의 석조물은 뛰어난 예술성을 자랑한다. 1995년 석굴암과 함께 유네스코 세계문화유산에 등재되었다. 통일신라 불교 미술의 최고봉으로, 신라인의 신앙심과 예술적 역량을 보여준다.",
+    "thumbnailAsset": "assets/images/locations/bulguksa_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_seokguram"
+    ],
+    "tags": [
+      "장소",
+      "불국사",
+      "경주",
+      "세계문화유산",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_seokguram",
+    "type": "location",
+    "title": "Seokguram Grotto",
+    "titleKorean": "석굴암",
+    "summary": "토함산 정상에 자리한 신라 석굴 건축의 걸작",
+    "content": "석굴암은 751년 김대성이 불국사와 함께 창건한 인공 석굴 사원이다. 자연 석굴이 없는 한반도에서 화강암을 쌓아 석굴을 인공적으로 조성한 것은 세계적으로 유례가 없다. 본존불상은 높이 3.5m의 석가여래좌상으로, 온화하면서도 위엄 있는 표정과 완벽한 균형미를 자랑한다. 천장의 돔 구조, 과학적인 통풍 시스템 등 당시 신라의 높은 과학 기술 수준을 보여준다. 1995년 유네스코 세계문화유산에 등재되었다.",
+    "thumbnailAsset": "assets/images/locations/seokguram_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_bulguksa"
+    ],
+    "tags": [
+      "장소",
+      "석굴암",
+      "경주",
+      "세계문화유산",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_balhae_founding",
+    "type": "event",
+    "title": "Founding of Balhae",
+    "titleKorean": "발해 건국",
+    "summary": "고구려 유민이 세운 '해동성국', 한반도 역사의 북방 계승",
+    "content": "698년, 대조영은 고구려 유민과 말갈족을 이끌고 동모산(지린성)에서 발해를 건국했다. 고구려 멸망 30년 만에 그 영토와 민족의 일부를 이어받은 발해는 '고려(高麗)'라는 국호를 사용하기도 했다. 전성기인 9세기에는 만주와 연해주에 걸친 광대한 영토를 지배하며, 중국에서 '해동성국(海東盛國)'이라 불렸다. 926년 거란에 의해 멸망했으나, 역사적으로 고구려를 계승한 국가로 평가되어 한국사의 일부로 인정된다.",
+    "thumbnailAsset": "assets/images/locations/sanggyeong_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_dae_joyeong",
+      "enc_dae_muye"
+    ],
+    "tags": [
+      "사건",
+      "발해건국",
+      "대조영",
+      "해동성국",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_hwajeng",
+    "type": "term",
+    "title": "Hwajeng (Harmonizing Disputes)",
+    "titleKorean": "화쟁사상",
+    "summary": "원효가 제창한 불교 통합 사상, 갈등을 넘어 화합으로",
+    "content": "화쟁(和諍)은 원효가 주창한 불교 사상으로, '다툼을 화해시킨다'는 뜻이다. 당시 불교계는 다양한 종파가 서로 자신의 교리만이 옳다고 주장하며 갈등했다. 원효는 어느 한 종파의 입장에 치우치지 않고, 각 종파의 주장이 모두 진리의 일면을 담고 있다고 보았다. 이러한 화쟁 사상은 대립과 갈등을 넘어 포용과 통합을 추구하는 것으로, 오늘날에도 갈등 해결의 지혜로 주목받고 있다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/wonhyo.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_wonhyo"
+    ],
+    "tags": [
+      "용어",
+      "화쟁",
+      "원효",
+      "불교",
+      "남북국시대"
+    ]
   }
 ]
