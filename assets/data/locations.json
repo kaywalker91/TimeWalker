@@ -5,7 +5,7 @@
         "name": "Gyeongbokgung Palace",
         "nameKorean": "경복궁",
         "description": "조선의 법궁, 왕과 신하들이 정사를 논하던 곳",
-        "thumbnailAsset": "assets/images/locations/gyeongbokgung_thumb.png",
+        "thumbnailAsset": "assets/images/locations/gyeongbokgung_bg.png",
         "backgroundAsset": "assets/images/locations/gyeongbokgung_bg.png",
         "latitude": 37.5796,
         "longitude": 126.9770,
@@ -32,7 +32,7 @@
         "name": "Hanyang Market",
         "nameKorean": "한양 저잣거리",
         "description": "조선 수도 한양의 번화한 시장 거리",
-        "thumbnailAsset": "assets/images/locations/hanyang_market_thumb.png",
+        "thumbnailAsset": "assets/images/locations/hanyang_market_bg.png",
         "backgroundAsset": "assets/images/locations/hanyang_market_bg.png",
         "latitude": 37.5700,
         "longitude": 126.9900,
@@ -56,7 +56,7 @@
         "name": "Suwon Hwaseong Fortress",
         "nameKorean": "수원화성",
         "description": "정조가 건설한 신도시의 성곽, 실학의 결정체",
-        "thumbnailAsset": "assets/images/locations/suwon_hwaseong_thumb.png",
+        "thumbnailAsset": "assets/images/locations/suwon_hwaseong_bg.png",
         "backgroundAsset": "assets/images/locations/suwon_hwaseong_bg.png",
         "latitude": 37.2851,
         "longitude": 127.0197,
@@ -82,7 +82,7 @@
         "name": "Geobukseon (Turtle Ship)",
         "nameKorean": "거북선",
         "description": "이순신 장군의 전설적인 철갑선",
-        "thumbnailAsset": "assets/images/locations/geobukseon_thumb.png",
+        "thumbnailAsset": "assets/images/locations/geobukseon_bg.png",
         "backgroundAsset": "assets/images/locations/geobukseon_bg.png",
         "latitude": 34.7500,
         "longitude": 127.7500,
@@ -107,7 +107,7 @@
         "name": "Myeongnyang Strait",
         "nameKorean": "명량해협",
         "description": "13척의 배로 133척의 적군을 물리친 기적의 승전지 (울돌목)",
-        "thumbnailAsset": "assets/images/locations/myeongnyang_thumb.png",
+        "thumbnailAsset": "assets/images/locations/myeongnyang_bg.png",
         "backgroundAsset": "assets/images/locations/myeongnyang_bg.png",
         "displayYear": "1597",
         "timelineOrder": 4,
@@ -130,8 +130,8 @@
         "name": "Florence",
         "nameKorean": "피렌체",
         "description": "르네상스가 탄생한 예술의 도시. 메디치 가문의 후원으로 천재들이 모여들었다.",
-        "thumbnailAsset": "assets/images/locations/florence_thumb.png",
-        "backgroundAsset": "assets/images/locations/florence_bg.png",
+        "thumbnailAsset": "assets/images/locations/korea_bg.png",
+        "backgroundAsset": "assets/images/locations/korea_bg.png",
         "latitude": 43.7696,
         "longitude": 11.2558,
         "displayYear": "AD 1420",
@@ -155,8 +155,8 @@
         "name": "Venice",
         "nameKorean": "베네치아",
         "description": "물 위의 도시이자 무역의 중심지. 동서양의 문물이 교차하는 곳.",
-        "thumbnailAsset": "assets/images/locations/venice_thumb.png",
-        "backgroundAsset": "assets/images/locations/venice_bg.png",
+        "thumbnailAsset": "assets/images/locations/korea_bg.png",
+        "backgroundAsset": "assets/images/locations/korea_bg.png",
         "latitude": 45.4408,
         "longitude": 12.3155,
         "displayYear": "AD 1500",
@@ -180,7 +180,7 @@
         "name": "Gungnae-seong",
         "nameKorean": "국내성",
         "description": "광개토대왕 시대 고구려의 도읍지",
-        "thumbnailAsset": "assets/images/locations/goguryeo_palace_thumb.png",
+        "thumbnailAsset": "assets/images/locations/goguryeo_palace_bg.png",
         "backgroundAsset": "assets/images/locations/goguryeo_palace_bg.png",
         "kingdom": "goguryeo",
         "latitude": 41.12083333,
@@ -206,7 +206,7 @@
         "name": "Salsu River (Battle Site)",
         "nameKorean": "살수(청천강)",
         "description": "30만 수나라 군을 수장시킨 살수대첩의 현장",
-        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "thumbnailAsset": "assets/images/locations/salsu_bg.png",
         "backgroundAsset": "assets/images/locations/salsu_bg.png",
         "kingdom": "goguryeo",
         "latitude": 39.57722222,
@@ -230,7 +230,7 @@
         "name": "Pyongyang Fortress",
         "nameKorean": "평양성",
         "description": "고구려 후기 도읍, 장수왕이 천도한 곳",
-        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "thumbnailAsset": "assets/images/locations/pyongyang_fortress_bg.png",
         "backgroundAsset": "assets/images/locations/pyongyang_fortress_bg.png",
         "kingdom": "goguryeo",
         "latitude": 39.03,
@@ -249,12 +249,39 @@
         "isHistorical": true
     },
     {
+        "id": "ansi_fortress",
+        "eraId": "korea_three_kingdoms",
+        "name": "Ansi Fortress",
+        "nameKorean": "안시성",
+        "description": "당나라 태종의 대군을 물리친 고구려의 철옹성",
+        "thumbnailAsset": "assets/images/locations/ansi_fortress_thumb.png",
+        "backgroundAsset": "assets/images/locations/ansi_fortress_bg.png",
+        "kingdom": "goguryeo",
+        "latitude": 40.5,
+        "longitude": 122.5,
+        "displayYear": "AD 645",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.4,
+            "y": 0.25
+        },
+        "characterIds": [
+            "yang_manchun",
+            "yeon_gaesomun"
+        ],
+        "eventIds": [
+            "fact_battle_of_ansi"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
         "id": "wiryeseong",
         "eraId": "korea_three_kingdoms",
         "name": "Wiryeseong (Baekje Capital)",
         "nameKorean": "위례성",
         "description": "백제의 초기 수도, 한강 유역의 요충지",
-        "thumbnailAsset": "assets/images/locations/wiryeseong_thumb.png",
+        "thumbnailAsset": "assets/images/locations/wiryeseong_bg.png",
         "backgroundAsset": "assets/images/locations/wiryeseong_bg.png",
         "kingdom": "baekje",
         "latitude": 37.56666667,
@@ -278,7 +305,7 @@
         "name": "Hwangsanbeol Battlefield",
         "nameKorean": "황산벌",
         "description": "백제 계백 장군과 신라 김유신이 격돌한 삼국시대 최후의 결전지",
-        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "thumbnailAsset": "assets/images/locations/hwangsanbeol_bg.png",
         "backgroundAsset": "assets/images/locations/hwangsanbeol_bg.png",
         "kingdom": "baekje",
         "latitude": 36.1833,
@@ -302,7 +329,7 @@
         "name": "Sabi Capital (Buyeo)",
         "nameKorean": "사비성(부여)",
         "description": "백제 후기 도읍, 성왕이 천도하고 의자왕이 최후를 맞은 곳",
-        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "thumbnailAsset": "assets/images/locations/sabi_bg.png",
         "backgroundAsset": "assets/images/locations/sabi_bg.png",
         "kingdom": "baekje",
         "latitude": 36.2875,
@@ -326,7 +353,7 @@
         "name": "Wolseong Palace",
         "nameKorean": "월성(경주궁)",
         "description": "천년 신라의 심장부, 반월성이라고도 불리는 신라 왕궁",
-        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "thumbnailAsset": "assets/images/locations/gyeongju_palace_bg.png",
         "backgroundAsset": "assets/images/locations/gyeongju_palace_bg.png",
         "kingdom": "silla",
         "latitude": 35.83083333,
@@ -351,7 +378,7 @@
         "name": "Cheomseongdae Observatory",
         "nameKorean": "첨성대",
         "description": "동양에서 가장 오래된 천문대, 선덕여왕이 건립",
-        "thumbnailAsset": "assets/images/locations/placeholder_thumb.png",
+        "thumbnailAsset": "assets/images/locations/cheomseongdae_bg.png",
         "backgroundAsset": "assets/images/locations/cheomseongdae_bg.png",
         "kingdom": "silla",
         "latitude": 35.83472222,
@@ -577,138 +604,13 @@
         "isHistorical": true
     },
     {
-        "id": "seoul_metaverse_hub",
-        "eraId": "korea_future",
-        "name": "Seoul Metaverse Hub",
-        "nameKorean": "서울 메타버스 센터",
-        "description": "2030년대, 가상현실과 현실이 융합된 미래 도시의 중심",
-        "thumbnailAsset": "assets/images/locations/future_bg.png",
-        "backgroundAsset": "assets/images/locations/future_bg.png",
-        "latitude": 37.5665,
-        "longitude": 126.9780,
-        "displayYear": "2035",
-        "timelineOrder": 1,
-        "position": {
-            "x": 0.5,
-            "y": 0.35
-        },
-        "characterIds": [
-            "han_jinue"
-        ],
-        "eventIds": [
-            "ai_revolution"
-        ],
-        "status": "available",
-        "isHistorical": false
-    },
-    {
-        "id": "jeju_eco_city",
-        "eraId": "korea_future",
-        "name": "Jeju Eco City",
-        "nameKorean": "제주 에코시티",
-        "description": "2040년대 탄소중립을 실현한 지속가능한 미래 도시",
-        "thumbnailAsset": "assets/images/locations/future_bg.png",
-        "backgroundAsset": "assets/images/locations/future_bg.png",
-        "latitude": 33.4996,
-        "longitude": 126.5312,
-        "displayYear": "2040",
-        "timelineOrder": 2,
-        "position": {
-            "x": 0.35,
-            "y": 0.92
-        },
-        "characterIds": [
-            "pureunsol"
-        ],
-        "eventIds": [
-            "carbon_neutral_2040"
-        ],
-        "status": "available",
-        "isHistorical": false
-    },
-    {
-        "id": "moon_base_baekdu",
-        "eraId": "korea_future",
-        "name": "Moon Base 'Baekdu'",
-        "nameKorean": "달 기지 백두",
-        "description": "2050년대 대한민국 우주 개발의 전초기지, 달 표면에 건설된 첫 한국 기지",
-        "thumbnailAsset": "assets/images/locations/future_bg.png",
-        "backgroundAsset": "assets/images/locations/future_bg.png",
-        "latitude": 0.0,
-        "longitude": 0.0,
-        "displayYear": "2085",
-        "timelineOrder": 5,
-        "position": {
-            "x": 0.5,
-            "y": 0.1
-        },
-        "characterIds": [
-            "byeolhaneul"
-        ],
-        "eventIds": [
-            "moon_landing_2050"
-        ],
-        "status": "available",
-        "isHistorical": false
-    },
-    {
-        "id": "pyongyang_seoul_rail",
-        "eraId": "korea_future",
-        "name": "Pyongyang-Seoul High-Speed Rail Station",
-        "nameKorean": "평양-서울 초고속철도역",
-        "description": "2060년대 하나된 한반도의 상징, 1시간 만에 평양과 서울을 연결",
-        "thumbnailAsset": "assets/images/locations/future_bg.png",
-        "backgroundAsset": "assets/images/locations/future_bg.png",
-        "latitude": 39.0392,
-        "longitude": 125.7625,
-        "displayYear": "2045",
-        "timelineOrder": 3,
-        "position": {
-            "x": 0.48,
-            "y": 0.18
-        },
-        "characterIds": [
-            "hanaro"
-        ],
-        "eventIds": [
-            "unification_2060"
-        ],
-        "status": "available",
-        "isHistorical": false
-    },
-    {
-        "id": "brain_interface_lab",
-        "eraId": "korea_future",
-        "name": "Brain Interface Research Lab",
-        "nameKorean": "뇌공학 연구소",
-        "description": "2080년대 뇌-컴퓨터 인터페이스 기술의 최전선, 초연결 사회의 심장부",
-        "thumbnailAsset": "assets/images/locations/future_bg.png",
-        "backgroundAsset": "assets/images/locations/future_bg.png",
-        "latitude": 37.3591,
-        "longitude": 127.1046,
-        "displayYear": "2080",
-        "timelineOrder": 4,
-        "position": {
-            "x": 0.55,
-            "y": 0.4
-        },
-        "characterIds": [
-            "youngwon"
-        ],
-        "eventIds": [
-            "bci_revolution"
-        ],
-        "status": "available",
-        "isHistorical": false
-    },
-    {
         "id": "busan_provisional_capital",
         "eraId": "korea_contemporary_1",
         "name": "Busan Provisional Capital",
         "nameKorean": "부산 임시수도",
         "description": "6.25 전쟁 당시 대한민국의 심장부이자 피란민들의 애환이 서린 곳",
-        "thumbnailAsset": "assets/images/locations/contemporary_1_bg.png",
-        "backgroundAsset": "assets/images/locations/contemporary_1_bg.png",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
         "latitude": 35.1000,
         "longitude": 129.0300,
         "displayYear": "1950",
@@ -730,8 +632,8 @@
         "name": "Gukje Market",
         "nameKorean": "부산 국제시장",
         "description": "피난민들의 삶의 터전이자 희망의 시장. '굳세어라 금순아'의 무대.",
-        "thumbnailAsset": "assets/images/locations/contemporary_1_bg.png",
-        "backgroundAsset": "assets/images/locations/contemporary_1_bg.png",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
         "latitude": 35.0990,
         "longitude": 129.0280,
         "displayYear": "1950s",
@@ -753,8 +655,8 @@
         "name": "Pyeonghwa Market",
         "nameKorean": "평화시장",
         "description": "1970년대 한국 의류 산업의 중심지이자 전태일 열사의 정신이 깃든 곳",
-        "thumbnailAsset": "assets/images/locations/contemporary_2_bg.png",
-        "backgroundAsset": "assets/images/locations/contemporary_2_bg.png",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
         "latitude": 37.5690,
         "longitude": 127.0050,
         "displayYear": "1960s",
@@ -776,8 +678,8 @@
         "name": "Gyeongbu Expressway",
         "nameKorean": "경부고속도로",
         "description": "서울과 부산을 잇는 국토 대동맥. 한강의 기적을 상징하는 토목 공사.",
-        "thumbnailAsset": "assets/images/locations/contemporary_2_bg.png",
-        "backgroundAsset": "assets/images/locations/contemporary_2_bg.png",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
         "latitude": 36.5000,
         "longitude": 127.5000,
         "displayYear": "1970",
@@ -799,8 +701,8 @@
         "name": "Seoul Olympic Stadium",
         "nameKorean": "서울올림픽 주경기장",
         "description": "88 서울올림픽의 영광이 서린 곳. 세계로 도약하는 대한민국의 시작점.",
-        "thumbnailAsset": "assets/images/locations/contemporary_3_bg.png",
-        "backgroundAsset": "assets/images/locations/contemporary_3_bg.png",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
         "latitude": 37.5158,
         "longitude": 127.0728,
         "displayYear": "1988",
@@ -823,8 +725,8 @@
         "name": "Incheon International Airport",
         "nameKorean": "인천국제공항",
         "description": "세계 최고의 허브 공항. 글로벌 대한민국을 연결하는 관문.",
-        "thumbnailAsset": "assets/images/locations/contemporary_3_bg.png",
-        "backgroundAsset": "assets/images/locations/contemporary_3_bg.png",
+        "thumbnailAsset": "assets/images/locations/contemporary_bg.png",
+        "backgroundAsset": "assets/images/locations/contemporary_bg.png",
         "latitude": 37.4602,
         "longitude": 126.4407,
         "displayYear": "2001",
@@ -834,6 +736,121 @@
             "y": 0.3
         },
         "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "sangam_worldcup_stadium",
+        "eraId": "korea_contemporary_3",
+        "name": "Seoul World Cup Stadium",
+        "nameKorean": "상암 월드컵경기장",
+        "description": "2002 한일 월드컵 4강 신화의 현장. 700만 붉은악마의 열정이 담긴 곳.",
+        "thumbnailAsset": "assets/images/locations/sangam_worldcup_bg.jpg",
+        "backgroundAsset": "assets/images/locations/sangam_worldcup_bg.jpg",
+        "latitude": 37.5683,
+        "longitude": 126.8973,
+        "displayYear": "2002",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.4,
+            "y": 0.32
+        },
+        "characterIds": [
+            "red_devils_supporter"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "hongdae_street",
+        "eraId": "korea_contemporary_3",
+        "name": "Hongdae Street",
+        "nameKorean": "홍대 거리",
+        "description": "K-인디 문화의 발상지. 젊은 예술가들의 자유로운 열정이 넘치는 거리.",
+        "thumbnailAsset": "assets/images/locations/hongdae_street_bg.jpg",
+        "backgroundAsset": "assets/images/locations/hongdae_street_bg.jpg",
+        "latitude": 37.5563,
+        "longitude": 126.9236,
+        "displayYear": "2000s",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.35,
+            "y": 0.34
+        },
+        "characterIds": [
+            "kpop_trainee"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "hybe_building",
+        "eraId": "korea_contemporary_3",
+        "name": "HYBE Entertainment Building",
+        "nameKorean": "하이브 사옥",
+        "description": "BTS의 본거지. K-Pop 세계화를 이끈 글로벌 엔터테인먼트의 상징.",
+        "thumbnailAsset": "assets/images/locations/hybe_building_bg.jpg",
+        "backgroundAsset": "assets/images/locations/hybe_building_bg.jpg",
+        "latitude": 37.5263,
+        "longitude": 127.0408,
+        "displayYear": "2020",
+        "timelineOrder": 7,
+        "position": {
+            "x": 0.55,
+            "y": 0.36
+        },
+        "characterIds": [
+            "kpop_trainee"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gwanghwamun_candlelight",
+        "eraId": "korea_contemporary_3",
+        "name": "Gwanghwamun Candlelight Square",
+        "nameKorean": "광화문 촛불광장",
+        "description": "2016-2017 촛불혁명의 현장. 평화로운 민주주의의 새로운 역사를 쓴 곳.",
+        "thumbnailAsset": "assets/images/locations/gwanghwamun_candlelight_bg.jpg",
+        "backgroundAsset": "assets/images/locations/gwanghwamun_candlelight_bg.jpg",
+        "latitude": 37.5759,
+        "longitude": 126.9769,
+        "displayYear": "2016",
+        "timelineOrder": 6,
+        "position": {
+            "x": 0.48,
+            "y": 0.33
+        },
+        "characterIds": [
+            "democracy_activist"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "coex_convention",
+        "eraId": "korea_contemporary_3",
+        "name": "COEX Convention Center",
+        "nameKorean": "코엑스 컨벤션센터",
+        "description": "대한민국 MICE 산업의 중심지. 세계 각국의 기업과 문화가 만나는 곳.",
+        "thumbnailAsset": "assets/images/locations/coex_convention_bg.jpg",
+        "backgroundAsset": "assets/images/locations/coex_convention_bg.jpg",
+        "latitude": 37.5112,
+        "longitude": 127.0593,
+        "displayYear": "2000",
+        "timelineOrder": 5,
+        "position": {
+            "x": 0.58,
+            "y": 0.38
+        },
+        "characterIds": [
+            "it_pioneer"
+        ],
         "eventIds": [],
         "status": "available",
         "isHistorical": true

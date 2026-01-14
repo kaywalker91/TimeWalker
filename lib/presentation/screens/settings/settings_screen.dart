@@ -202,6 +202,55 @@ class SettingsScreen extends ConsumerWidget {
               _showDeleteDataDialog(context, ref);
             },
           ),
+          const SizedBox(height: 30),
+
+          // 개발자 옵션 (Admin Mode)
+          const SettingsSectionHeader(title: 'DEVELOPER'),
+          SettingsActionTile(
+            icon: Icons.admin_panel_settings,
+            title: 'Admin Mode (Unlock All)',
+            onTap: () {
+              _showAdminModeDialog(context, ref);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showAdminModeDialog(BuildContext context, WidgetRef ref) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: SettingsColors.surface,
+        title: const Text(
+          'Enable Admin Mode?',
+          style: TextStyle(color: Colors.white),
+        ),
+        content: const Text(
+          'This will UNLOCK ALL content (regions, eras, countries, characters) and grant unlimited resources.\n\nUse this for testing purposes only. Your current progress will be overwritten.',
+          style: TextStyle(color: Colors.white70),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              await ref.read(userProgressProvider.notifier).unlockAllContent();
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Admin Mode Enabled: All Content Unlocked!'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              }
+            },
+            child: const Text('ENABLE', style: TextStyle(color: Colors.amber)),
+          ),
         ],
       ),
     );

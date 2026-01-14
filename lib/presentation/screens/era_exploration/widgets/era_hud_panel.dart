@@ -6,9 +6,10 @@ import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 
-/// 시대 탐험 HUD 패널 위젯
+/// 시대 탐험 플로팅 패널 위젯
 ///
-/// 시대 테마 그라데이션, 엠블럼, 커스텀 프로그레스 바를 포함한 하단 플로팅 패널
+/// Sprint 5: 미니멀한 인장 스타일 플로팅 버튼
+/// 장소/캐릭터 목록 바텀시트를 표시하는 컴팩트한 FAB
 class EraHudPanel extends ConsumerWidget {
   final Era era;
   final List<Location> locations;
@@ -29,142 +30,74 @@ class EraHudPanel extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final responsive = context.responsive;
 
+    // 플로팅 인장 스타일 패널
     return Container(
-      padding: EdgeInsets.all(responsive.padding(12)),
+      padding: EdgeInsets.symmetric(
+        horizontal: responsive.padding(6),
+        vertical: responsive.padding(6),
+      ),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.8),
-        borderRadius: BorderRadius.circular(20),
+        color: Colors.black.withValues(alpha: 0.85),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: era.theme.accentColor.withValues(alpha: 0.3),
-          width: 1,
+          color: era.theme.accentColor.withValues(alpha: 0.4),
+          width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.3),
-            blurRadius: 10,
+            color: Colors.black.withValues(alpha: 0.4),
+            blurRadius: 12,
+            spreadRadius: 0,
+            offset: const Offset(0, 4),
+          ),
+          // 왕국별 글로우
+          BoxShadow(
+            color: era.theme.accentColor.withValues(alpha: 0.2),
+            blurRadius: 16,
             spreadRadius: 0,
           ),
         ],
       ),
-      child: Column(
+      child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // 선택된 장소 프리뷰 (선택 시에만 노출)
-          if (selectedLocation != null) ...[
-            _buildLocationPreview(context, selectedLocation!, responsive),
-            SizedBox(height: responsive.spacing(12)),
-          ],
-
-          // 액션 버튼
-          _buildActionButtons(context, responsive),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildLocationPreview(
-    BuildContext context,
-    Location location,
-    ResponsiveUtils responsive,
-  ) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: responsive.padding(12),
-        vertical: responsive.padding(10),
-      ),
-      decoration: BoxDecoration(
-        color: era.theme.accentColor.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: era.theme.accentColor.withValues(alpha: 0.3),
-        ),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.all(responsive.padding(8)),
-            decoration: BoxDecoration(
-              color: era.theme.accentColor.withValues(alpha: 0.2),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              Icons.place,
-              color: era.theme.accentColor,
-              size: responsive.iconSize(18),
-            ),
-          ),
-          SizedBox(width: responsive.spacing(10)),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.exploration_selected_label,
-                  style: TextStyle(
-                    color: Colors.white54,
-                    fontSize: responsive.fontSize(10),
-                  ),
-                ),
-                SizedBox(height: 2),
-                Text(
-                  location.nameKorean,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: responsive.fontSize(13),
-                    fontWeight: FontWeight.w600,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ),
-          Icon(
-            Icons.chevron_right,
-            color: era.theme.accentColor.withValues(alpha: 0.7),
-            size: responsive.iconSize(20),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildActionButtons(BuildContext context, ResponsiveUtils responsive) {
-    return Row(
-      children: [
-        Expanded(
-          child: _HudActionButton(
+          // 장소 버튼 (인장 스타일)
+          _SealStyleButton(
             icon: Icons.location_on,
             label: AppLocalizations.of(context)!.exploration_list_locations,
             accentColor: era.theme.accentColor,
             onTap: onShowLocations,
             responsive: responsive,
           ),
-        ),
-        SizedBox(width: responsive.spacing(10)),
-        Expanded(
-          child: _HudActionButton(
+          Container(
+            height: responsive.spacing(28),
+            width: 1,
+            color: Colors.white.withValues(alpha: 0.15),
+            margin: EdgeInsets.symmetric(horizontal: responsive.spacing(4)),
+          ),
+          // 캐릭터 버튼 (인장 스타일)
+          _SealStyleButton(
             icon: Icons.person,
             label: AppLocalizations.of(context)!.exploration_list_characters,
             accentColor: era.theme.accentColor,
             onTap: onShowCharacters,
             responsive: responsive,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
 
-/// HUD 액션 버튼
-class _HudActionButton extends StatelessWidget {
+/// 인장 스타일 버튼 (도장 느낌)
+class _SealStyleButton extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color accentColor;
   final VoidCallback onTap;
   final ResponsiveUtils responsive;
 
-  const _HudActionButton({
+  const _SealStyleButton({
     required this.icon,
     required this.label,
     required this.accentColor,
@@ -184,28 +117,34 @@ class _HudActionButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: Container(
           padding: EdgeInsets.symmetric(
-            vertical: responsive.padding(12),
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.08),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 0.15),
-            ),
+            horizontal: responsive.padding(12),
+            vertical: responsive.padding(10),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                icon,
-                size: responsive.iconSize(18),
-                color: accentColor.withValues(alpha: 0.9),
+              // 인장 스타일 아이콘 컨테이너
+              Container(
+                padding: EdgeInsets.all(responsive.padding(6)),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: accentColor.withValues(alpha: 0.15),
+                  border: Border.all(
+                    color: accentColor.withValues(alpha: 0.4),
+                    width: 1,
+                  ),
+                ),
+                child: Icon(
+                  icon,
+                  size: responsive.iconSize(14),
+                  color: accentColor,
+                ),
               ),
               SizedBox(width: responsive.spacing(8)),
               Text(
                 label,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.white.withValues(alpha: 0.9),
                   fontSize: responsive.fontSize(12),
                   fontWeight: FontWeight.w500,
                 ),

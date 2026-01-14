@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:time_walker/data/repositories/mock_quiz_repository.dart';
 import 'package:time_walker/domain/entities/quiz/quiz_entities.dart';
 import 'package:time_walker/domain/entities/quiz_category.dart';
 
@@ -8,12 +7,6 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('MockQuizRepository', () {
-    late MockQuizRepository repository;
-
-    setUp(() {
-      repository = MockQuizRepository();
-    });
-
     group('with asset loading', () {
       setUpAll(() {
         // Set up root bundle for asset loading in tests

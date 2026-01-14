@@ -373,13 +373,13 @@ class _LocationExplorationScreenState
   Color _getKingdomColor(String kingdom) {
     switch (kingdom) {
       case 'goguryeo':
-        return const Color(0xFFB22222); // 붉은색
+        return AppColors.kingdomGoguryeo;
       case 'baekje':
-        return const Color(0xFF228B22); // 녹색
+        return AppColors.kingdomBaekje;
       case 'silla':
-        return const Color(0xFF4169E1); // 청색
+        return AppColors.kingdomSilla;
       case 'gaya':
-        return const Color(0xFFDAA520); // 금색
+        return AppColors.kingdomGaya;
       default:
         return AppColors.primary;
     }

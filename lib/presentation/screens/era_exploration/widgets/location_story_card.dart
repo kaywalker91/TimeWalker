@@ -6,7 +6,8 @@ import 'package:time_walker/domain/entities/location.dart';
 
 /// 장소 스토리 카드 위젯
 ///
-/// 배경 이미지, 왕국 악센트 바, 상태 배지를 포함한 시각적으로 풍부한 카드
+/// 삼국시대 분위기의 족자 스타일 테두리, 역사적 색상 적용
+/// 배경 이미지, 왕국 테마, 상태 배지를 포함한 시각적으로 풍부한 카드
 class LocationStoryCard extends StatefulWidget {
   final Location location;
   final Color accentColor;
@@ -102,29 +103,41 @@ class _LocationStoryCardState extends State<LocationStoryCard>
             scale: _scaleAnimation.value,
             child: Container(
               height: cardHeight,
+              // === 족자 스타일 테두리 적용 ===
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: widget.isSelected || _glowAnimation.value > 0
-                    ? [
-                        BoxShadow(
-                          color: widget.accentColor.withValues(
-                            alpha: 0.4 * _glowAnimation.value,
-                          ),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
-                      ]
-                    : null,
+                borderRadius: BorderRadius.circular(8), // 약간 각진 모서리 (족자 느낌)
+                border: Border.all(
+                  color: widget.accentColor.withValues(alpha: 0.6),
+                  width: 2,
+                ),
+                boxShadow: [
+                  // 기본 그림자
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.5),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                  // 선택/호버 시 글로우 효과
+                  if (widget.isSelected || _glowAnimation.value > 0)
+                    BoxShadow(
+                      color: widget.accentColor.withValues(
+                        alpha: 0.4 * _glowAnimation.value,
+                      ),
+                      blurRadius: 16,
+                      spreadRadius: 2,
+                    ),
+                ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(6), // 내부는 살짝 더 둥글게
                 child: Stack(
                   children: [
                     // === 배경 이미지 + 다크 오버레이 ===
                     _buildBackgroundImage(location.backgroundAsset),
 
-                    // === 왕국 색상 악센트 바 (좌측 4px) ===
-                    _buildKingdomAccentBar(responsive),
+                    // === 연도 배지 (상단 좌측) ===
+                    if (location.displayYear != null)
+                      _buildYearBadge(location.displayYear!, responsive),
 
                     // === 콘텐츠 오버레이 (하단) ===
                     _buildContentOverlay(location, responsive),
@@ -139,15 +152,25 @@ class _LocationStoryCardState extends State<LocationStoryCard>
                     // === 잠금 오버레이 ===
                     if (widget.isLocked) _buildLockOverlay(responsive),
 
-                    // === 선택 테두리 ===
+                    // === 선택 강조 (내부 글로우) ===
                     if (widget.isSelected)
                       Positioned.fill(
                         child: Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(6),
                             border: Border.all(
                               color: widget.accentColor.withValues(alpha: 0.9),
-                              width: 2.5,
+                              width: 2,
+                            ),
+                            // 내부 글로우 효과
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                widget.accentColor.withValues(alpha: 0.1),
+                                Colors.transparent,
+                                widget.accentColor.withValues(alpha: 0.05),
+                              ],
                             ),
                           ),
                         ),
@@ -158,6 +181,37 @@ class _LocationStoryCardState extends State<LocationStoryCard>
             ),
           );
           },
+        ),
+      ),
+    );
+  }
+
+  /// 상단 좌측 연도 배지 (미니멀 스타일)
+  Widget _buildYearBadge(String displayYear, ResponsiveUtils responsive) {
+    return Positioned(
+      top: responsive.spacing(10),
+      left: responsive.spacing(10),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: responsive.padding(8),
+          vertical: responsive.padding(4),
+        ),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.6),
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(
+            color: widget.accentColor.withValues(alpha: 0.3),
+            width: 1,
+          ),
+        ),
+        child: Text(
+          displayYear,
+          style: TextStyle(
+            color: Colors.white.withValues(alpha: 0.9),
+            fontSize: responsive.fontSize(10),
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.5,
+          ),
         ),
       ),
     );
@@ -219,33 +273,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
     );
   }
 
-  Widget _buildKingdomAccentBar(ResponsiveUtils responsive) {
-    return Positioned(
-      left: 0,
-      top: 0,
-      bottom: 0,
-      width: 4,
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              widget.accentColor.withValues(alpha: 0.9),
-              widget.accentColor.withValues(alpha: 0.5),
-            ],
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.accentColor.withValues(alpha: 0.4),
-              blurRadius: 6,
-              spreadRadius: 1,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // _buildKingdomAccentBar 제거됨 - 족자 스타일 테두리로 대체
 
   Widget _buildContentOverlay(Location location, ResponsiveUtils responsive) {
     return Positioned(
@@ -256,17 +284,18 @@ class _LocationStoryCardState extends State<LocationStoryCard>
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // 장소 이름
+          // 장소 이름 (더 크고 강조된 텍스트)
           Text(
             location.nameKorean,
             style: TextStyle(
               color: Colors.white,
               fontSize: responsive.fontSize(18),
               fontWeight: FontWeight.w700,
+              letterSpacing: 0.3, // 약간의 자간으로 가독성 향상
               shadows: const [
                 Shadow(
                   blurRadius: 4,
-                  color: Colors.black54,
+                  color: Colors.black87,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -274,31 +303,20 @@ class _LocationStoryCardState extends State<LocationStoryCard>
           ),
           SizedBox(height: responsive.spacing(6)),
 
-          // 태그 행 (왕국 + 연도)
-          Wrap(
-            spacing: responsive.spacing(6),
-            runSpacing: responsive.spacing(4),
-            children: [
-              if (widget.kingdomLabel != null)
+          // 태그 행 (왕국 레이블만 - 미니멀화)
+          // 연도는 상단 좌측으로 이동, 가상 태그는 제거
+          if (widget.kingdomLabel != null)
+            Wrap(
+              spacing: responsive.spacing(6),
+              runSpacing: responsive.spacing(4),
+              children: [
                 _buildInfoTag(
                   widget.kingdomLabel!,
                   widget.accentColor,
                   responsive,
                 ),
-              if (location.displayYear != null)
-                _buildInfoTag(
-                  location.displayYear!,
-                  Colors.white.withValues(alpha: 0.6),
-                  responsive,
-                ),
-              if (location.isHistorical == false)
-                _buildInfoTag(
-                  '가상',
-                  Colors.purple.withValues(alpha: 0.7),
-                  responsive,
-                ),
-            ],
-          ),
+              ],
+            ),
           SizedBox(height: responsive.spacing(8)),
 
           // 설명

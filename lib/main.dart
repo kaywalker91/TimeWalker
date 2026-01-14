@@ -5,8 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/utils/app_lifecycle_manager.dart';
 import 'package:time_walker/core/themes/app_theme.dart';
+import 'package:time_walker/core/config/supabase_config.dart';
 import 'package:time_walker/core/services/hive_service.dart';
 import 'package:time_walker/presentation/providers/theme_provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   // Flutter 엔진 초기화 보장
@@ -14,6 +16,13 @@ Future<void> main() async {
 
   // Hive 데이터베이스 초기화
   await HiveService.initialize();
+
+  if (SupabaseConfig.isConfigured) {
+    await Supabase.initialize(
+      url: SupabaseConfig.url,
+      anonKey: SupabaseConfig.anonKey,
+    );
+  }
 
   runApp(
     const ProviderScope(

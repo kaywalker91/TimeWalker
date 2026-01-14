@@ -50,12 +50,8 @@ class EnhancedTimelineGutter extends StatelessWidget {
             nodeSize: nodeSize,
           ),
 
-          // 연도 라벨 (있는 경우)
-          if (displayYear != null)
-            Padding(
-              padding: EdgeInsets.only(top: responsive.spacing(4)),
-              child: _buildYearLabel(displayYear!, responsive),
-            ),
+          // 연도 라벨은 LocationStoryCard에서 표시하므로 여기서는 제거
+          // (중복 표시 방지)
 
           // 하단 연결선
           if (!isLast)
@@ -97,33 +93,7 @@ class EnhancedTimelineGutter extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildYearLabel(String year, ResponsiveUtils responsive) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: responsive.padding(6),
-        vertical: responsive.padding(2),
-      ),
-      decoration: BoxDecoration(
-        color: accentColor.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: accentColor.withValues(alpha: 0.3),
-        ),
-      ),
-      child: Text(
-        year,
-        style: TextStyle(
-          color: Colors.white70,
-          fontSize: responsive.fontSize(9),
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    );
-  }
 }
-
-/// 타임라인 노드 위젯
 class _TimelineNode extends StatefulWidget {
   final Color accentColor;
   final ContentStatus status;

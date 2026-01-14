@@ -123,6 +123,46 @@
     ]
   },
   {
+    "id": "fact_battle_of_ansi",
+    "type": "event",
+    "title": "Battle of Ansi",
+    "titleKorean": "안시성 전투",
+    "summary": "당나라 태종의 100만 대군을 물리친 고구려의 승리",
+    "content": "645년, 당 태종이 직접 이끄는 당나라 군대가 고구려를 침공했다. 연개소문의 지휘 하에 고구려는 강력하게 저항했고, 특히 안시성에서는 성주 양만춘이 88일간의 치열한 공성전 끝에 당나라 군대를 물리쳤다. 당 태종은 결국 철군했고, 다시는 고구려를 침범하지 말라는 유언을 남겼다고 한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/battle_of_ansi.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "yang_manchun",
+      "yeon_gaesomun",
+      "ansi_fortress"
+    ],
+    "tags": [
+      "안시성",
+      "양만춘",
+      "당태종",
+      "고구려"
+    ]
+  },
+  {
+    "id": "fact_goguryeo_mural",
+    "type": "artifact",
+    "title": "Goguryeo Tomb Murals",
+    "titleKorean": "고구려 고분 벽화",
+    "summary": "고구려인의 삶과 정신 세계를 보여주는 예술의 결정체",
+    "content": "고구려 고분 벽화는 고구려 사람들의 생활 모습, 신앙, 우주관 등을 생생하게 보여주는 귀중한 문화 유산이다. 무용총의 '무용도', 각저총의 '씨름도' 등이 유명하며, 힘차고 역동적인 필치와 화려한 색채가 특징이다. 유네스코 세계문화유산으로 지정되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/goguryeo_mural.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "fact_gwanggaeto_conquest"
+    ],
+    "tags": [
+      "고구려",
+      "벽화",
+      "무용총",
+      "예술"
+    ]
+  },
+  {
     "id": "fact_baekje_apex",
     "type": "event",
     "title": "Baekje's Peak",
@@ -2357,11 +2397,409 @@
     "content": "1990년대 말 IMF 위기 속에서도 인터넷 벤처를 창업해 성공한 청년 사업가를 대표하는 가상의 인물. 테헤란밸리의 열정으로 대한민국을 세계 최고의 IT 강국으로 만든 수많은 개발자와 창업가들의 이야기를 담고 있다.",
     "thumbnailAsset": "assets/images/characters/contemporary/it_pioneer.png",
     "eraId": "korea_contemporary_3",
-    "relatedEntryIds": [],
+    "relatedEntryIds": [
+      "term_digital_korea",
+      "fact_imf_crisis"
+    ],
     "tags": [
       "인물",
       "한기술 (IT 혁신가)",
       "Contemporary"
+    ]
+  },
+  {
+    "id": "fact_88_olympics",
+    "type": "event",
+    "title": "1988 Seoul Olympics",
+    "titleKorean": "88 서울올림픽",
+    "summary": "대한민국을 세계에 알린 역사적 순간, 글로벌 코리아의 시작",
+    "content": "1988년 9월 17일부터 10월 2일까지 서울에서 개최된 제24회 하계 올림픽. 냉전 시대 동서진영 159개국 8,391명의 선수가 참가한 역대 최대 규모의 올림픽이었다. 6.25 전쟁의 폐허에서 35년 만에 세계적 스포츠 행사를 개최함으로써 대한민국의 경제 성장과 발전을 전 세계에 알렸다. '손에 손잡고(Hand in Hand)'는 화합의 상징이 되었으며, 올림픽 준비 과정에서 민주화가 진전되는 계기도 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/88_olympics.png",
+    "imageAsset": "assets/images/encyclopedia/88_olympics_detail.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "sohn_kee_chung",
+      "seoul_olympic_stadium"
+    ],
+    "tags": [
+      "88올림픽",
+      "서울올림픽",
+      "1988",
+      "스포츠"
+    ]
+  },
+  {
+    "id": "fact_imf_crisis",
+    "type": "event",
+    "title": "IMF Financial Crisis",
+    "titleKorean": "IMF 외환위기",
+    "summary": "1997년 경제위기와 금모으기 운동, 다시 일어선 대한민국",
+    "content": "1997년 12월, 외환 보유고 고갈로 대한민국은 IMF(국제통화기금)에 구제금융을 요청했다. 수많은 기업이 도산하고 실업률이 치솟는 '국가 부도' 위기 속에서 350만 명의 국민이 자발적으로 금 227톤을 모아 약 22억 달러를 마련하는 '금 모으기 운동'을 펼쳤다. 결혼반지, 돌반지까지 내놓은 이 국민적 단결력으로 한국은 예상보다 3년 빨리 구제금융을 상환했다. 이 위기는 구조조정과 벤처 붐을 일으키며 IT 강국으로의 전환점이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/imf_crisis.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "imf_survivor",
+      "fact_it_boom"
+    ],
+    "tags": [
+      "IMF",
+      "외환위기",
+      "1997",
+      "금모으기"
+    ]
+  },
+  {
+    "id": "fact_2002_worldcup",
+    "type": "event",
+    "title": "2002 FIFA World Cup Korea/Japan",
+    "titleKorean": "2002 한일 월드컵",
+    "summary": "아시아 최초 4강 신화, 붉은악마와 거리응원의 탄생",
+    "content": "2002년 5월 31일부터 6월 30일까지 대한민국과 일본에서 공동 개최된 FIFA 월드컵. 히딩크 감독이 이끈 대한민국 축구대표팀은 폴란드, 포르투갈을 격파하고 16강에서 이탈리아, 8강에서 스페인을 꺾고 아시아 최초로 4강에 진출했다. 700만 붉은악마의 광화문 거리응원은 세계를 놀라게 했고, '오~ 필승 코리아', '대~한민국' 응원 문화를 만들어냈다. 이 경험은 2002년 이후 한국인의 자긍심과 단결력을 상징하는 아이콘이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/2002_worldcup.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [],
+    "tags": [
+      "월드컵",
+      "붉은악마",
+      "히딩크",
+      "4강신화"
+    ]
+  },
+  {
+    "id": "fact_candlelight_revolution",
+    "type": "event",
+    "title": "2016-2017 Candlelight Protests",
+    "titleKorean": "2016 촛불혁명",
+    "summary": "평화로운 민주주의의 새로운 모델, 세계가 주목한 시민혁명",
+    "content": "2016년 10월부터 2017년 3월까지 대한민국 전역에서 펼쳐진 대규모 촛불집회. 연인원 1,700만 명이 참여했으며, 단 한 건의 폭력 사태 없이 평화롭게 진행되었다. 2017년 3월 10일 헌법재판소의 대통령 탄핵 인용 결정으로 헌정 질서에 따른 민주적 정권 교체를 이뤄냈다. 성숙한 시민의식과 질서정연한 평화 시위는 전 세계에서 '촛불혁명'이라 불리며 민주주의의 새로운 모델로 주목받았다.",
+    "thumbnailAsset": "assets/images/encyclopedia/candlelight.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "democracy_activist"
+    ],
+    "tags": [
+      "촛불혁명",
+      "민주주의",
+      "2016",
+      "시민혁명"
+    ]
+  },
+  {
+    "id": "fact_kwave_global",
+    "type": "event",
+    "title": "Korean Wave Goes Global",
+    "titleKorean": "한류 세계화",
+    "summary": "K-Pop, K-Drama, K-Movie가 세계를 사로잡다",
+    "content": "2000년대 초 아시아에서 시작된 한류(韓流, Korean Wave)는 2010년대를 거치며 전 세계로 확산되었다. 싸이의 '강남스타일'(2012)이 유튜브 최초 10억 뷰를 돌파하고, BTS가 빌보드 1위를 차지하며 K-Pop이 글로벌 메인스트림으로 자리잡았다. 넷플릭스를 통한 K-드라마('오징어 게임', '지금 우리 학교는')의 세계적 흥행과, '기생충'의 아카데미 4관왕은 한국 콘텐츠의 보편적 매력을 증명했다. 한류는 이제 한국의 대표 소프트파워가 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/kwave.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "artifact_gangnam_style",
+      "artifact_parasite_oscar"
+    ],
+    "tags": [
+      "한류",
+      "K-Pop",
+      "K-Drama",
+      "글로벌"
+    ]
+  },
+  {
+    "id": "term_hallyu",
+    "type": "term",
+    "title": "Hallyu (Korean Wave)",
+    "titleKorean": "한류",
+    "summary": "한국 대중문화의 세계적 확산을 지칭하는 용어",
+    "content": "한류(韓流)는 1990년대 후반 중국에서 처음 사용된 용어로, 한국 대중문화(K-Pop, K-Drama, K-Movie, K-Beauty, K-Food 등)가 해외에서 인기를 끄는 현상을 의미한다. 초기에는 드라마('겨울연가', '대장금')를 통해 아시아에서 시작되었으나, 2010년대 이후 SNS와 유튜브를 통해 전 세계로 확산되었다. BTS, 블랙핑크 등 K-Pop 아티스트와 봉준호 감독의 영화를 통해 한류는 세계적인 문화현상으로 자리잡았다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hallyu.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global"
+    ],
+    "tags": [
+      "한류",
+      "용어",
+      "문화",
+      "소프트파워"
+    ]
+  },
+  {
+    "id": "term_digital_korea",
+    "type": "term",
+    "title": "Digital Korea - IT Powerhouse",
+    "titleKorean": "IT 강국 대한민국",
+    "summary": "초고속 인터넷, 스마트폰 보급률, e스포츠 세계 1위",
+    "content": "대한민국은 세계 최고 수준의 IT 인프라와 디지털 경쟁력을 갖춘 'IT 강국'이다. 1990년대 말 IMF 위기 이후 정부의 초고속 인터넷 인프라 투자와 벤처 붐이 맞물리며 급성장했다. 세계 최초 CDMA 상용화, 세계 최고 인터넷 보급률, 삼성·LG의 스마트폰과 반도체, 카카오·네이버 등 글로벌 IT 기업들이 탄생했다. e스포츠의 종주국으로도 인정받으며, 디지털 기술은 한국의 핵심 경쟁력이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/digital_korea.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "it_pioneer",
+      "gangnam_teheran"
+    ],
+    "tags": [
+      "IT강국",
+      "디지털",
+      "인터넷",
+      "기술"
+    ]
+  },
+  {
+    "id": "term_unesco_korea",
+    "type": "term",
+    "title": "UNESCO Heritage of Korea",
+    "titleKorean": "유네스코 세계유산",
+    "summary": "세계가 인정한 한국의 문화·자연 유산",
+    "content": "대한민국은 풍부한 유네스코 등재 유산을 보유하고 있다. 세계문화유산으로는 석굴암·불국사, 종묘, 창덕궁, 수원화성, 고인돌, 조선왕릉, 한국의 역사마을(하회·양동), 산사, 서원 등이 있다. 세계기록유산으로는 훈민정음 해례본, 조선왕조실록, 직지심체요절, 동의보감 등이 있으며, 무형유산으로는 종묘제례악, 판소리, 강강술래, 아리랑, 김장 문화 등이 등재되어 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/unesco_korea.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "gyeongbokgung",
+      "suwon_hwaseong"
+    ],
+    "tags": [
+      "유네스코",
+      "세계유산",
+      "문화유산",
+      "무형유산"
+    ]
+  },
+  {
+    "id": "artifact_gangnam_style",
+    "type": "artifact",
+    "title": "Gangnam Style Phenomenon",
+    "titleKorean": "강남스타일 현상",
+    "summary": "유튜브 최초 10억 뷰, K-Pop 글로벌 대중화의 신호탄",
+    "content": "2012년 7월 싸이(PSY)가 발표한 '강남스타일'은 K-Pop 역사의 전환점이 된 곡이다. 중독성 있는 멜로디와 '말춤'으로 5개월 만에 유튜브 최초로 조회수 10억 회를 돌파했으며, 현재 40억 뷰를 넘어섰다. 빌보드 Hot 100 2위, 영국 차트 1위를 기록하며 K-Pop이 아시아를 넘어 전 세계 대중문화의 일부가 될 수 있음을 증명했다. 이 성공은 BTS, 블랙핑크 등 후세대 K-Pop 아티스트들의 글로벌 진출에 길을 열었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gangnam_style.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "강남스타일",
+      "싸이",
+      "유튜브",
+      "K-Pop"
+    ]
+  },
+  {
+    "id": "artifact_parasite_oscar",
+    "type": "artifact",
+    "title": "Parasite at the Oscars",
+    "titleKorean": "기생충 아카데미상",
+    "summary": "비영어권 영화 최초 아카데미 작품상, 한국 영화의 정점",
+    "content": "2020년 2월, 봉준호 감독의 '기생충(Parasite)'이 제92회 아카데미 시상식에서 작품상, 감독상, 각본상, 국제영화상 4관왕을 달성했다. 92년 오스카 역사상 비영어권 영화가 작품상을 받은 최초의 사례로, 한국 영화의 세계적 위상을 입증했다. 봉준호 감독은 수상 소감에서 마틴 스콜세지 감독의 말 '가장 개인적인 것이 가장 창의적인 것'을 인용하며, 한국적 이야기의 보편성을 역설했다. 이 수상은 K-Content의 글로벌 경쟁력을 상징하는 역사적 사건이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/parasite_oscar.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "기생충",
+      "봉준호",
+      "아카데미",
+      "오스카"
+    ]
+  },
+  {
+    "id": "kim_yuna",
+    "type": "character",
+    "title": "Kim Yuna (Figure Skating Queen)",
+    "titleKorean": "김연아",
+    "summary": "2010년 밴쿠버 동계올림픽 피겨 스케이팅 금메달리스트, 대한민국 피겨의 전설",
+    "content": "대한민국이 낳은 세계 최고의 피겨 스케이터. 2010년 밴쿠버 동계올림픽에서 역대 최고점(228.56)으로 금메달을 획득하며 '피겨 여왕'으로 등극했다. 2014년 소치 올림픽 은메달, 세계선수권 2회 우승 등 화려한 기록을 보유하고 있다. 척박한 환경에서 홀로 세계 정상에 오른 그녀의 이야기는 수많은 어린이들에게 꿈을 심어주었다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/kim_yuna.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_88_olympics",
+      "sohn_kee_chung"
+    ],
+    "tags": [
+      "인물",
+      "김연아",
+      "피겨 스케이팅",
+      "올림픽"
+    ]
+  },
+  {
+    "id": "son_heungmin",
+    "type": "character",
+    "title": "Son Heung-min (Football Star)",
+    "titleKorean": "손흥민",
+    "summary": "EPL 득점왕, 아시아 선수 최초의 기록을 써 내려가는 세계적인 축구 스타",
+    "content": "대한민국이 배출한 세계적인 축구 선수. 토트넘 핫스퍼의 에이스로서 2021-22시즌 EPL 득점왕에 올라 아시아 선수 최초로 유럽 5대 리그 득점왕을 기록했다. 손흥민과 케인의 '손케 콤비'는 EPL 역사상 최다 합작골 기록을 보유하고 있다. 항상 미소 짓는 모습과 팬들에 대한 친절함으로 '좋은 아들'이라는 별명을 얻었다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/son_heungmin.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_2002_worldcup"
+    ],
+    "tags": [
+      "인물",
+      "손흥민",
+      "축구",
+      "EPL"
+    ]
+  },
+  {
+    "id": "bong_joonho",
+    "type": "character",
+    "title": "Bong Joon-ho (Film Director)",
+    "titleKorean": "봉준호",
+    "summary": "'기생충'으로 비영어권 영화 최초 아카데미 작품상을 수상한 세계적인 영화감독",
+    "content": "대한민국을 대표하는 세계적인 영화감독. '살인의 추억', '괴물', '마더', '설국열차', '옥자' 등 장르를 넘나드는 걸작들을 만들어왔다. 2019년 칸 영화제에서 '기생충'으로 황금종려상을, 2020년 아카데미 시상식에서 작품상·감독상·각본상·국제영화상 4관왕을 달성하며 한국 영화의 세계적 위상을 입증했다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/bong_joonho.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "artifact_parasite_oscar",
+      "fact_kwave_global"
+    ],
+    "tags": [
+      "인물",
+      "봉준호",
+      "영화감독",
+      "아카데미"
+    ]
+  },
+  {
+    "id": "red_devils_supporter",
+    "type": "character",
+    "title": "Red Devils Supporter",
+    "titleKorean": "붉은악마",
+    "summary": "2002 월드컵 거리응원 문화를 만들어낸 700만 붉은악마의 이야기",
+    "content": "2002년 한일 월드컵 당시 광화문과 시청 앞 광장을 붉게 물들인 700만 시민을 대표하는 가상의 인물. '오~ 필승 코리아', '대~한민국'을 외치며 태극전사들을 응원했던 열정은 전 세계를 놀라게 했다. 거리응원 문화는 한국인의 단결력과 역동성을 보여주는 상징이 되었다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/red_devils.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_2002_worldcup"
+    ],
+    "tags": [
+      "인물",
+      "붉은악마",
+      "월드컵",
+      "응원문화"
+    ]
+  },
+  {
+    "id": "kpop_trainee",
+    "type": "character",
+    "title": "K-Pop Trainee",
+    "titleKorean": "K-Pop 연습생",
+    "summary": "춤과 노래로 세계를 감동시키는 K-Pop 아티스트를 꿈꾸는 연습생들의 이야기",
+    "content": "K-Pop의 세계적 성공 뒤에는 수년간의 혹독한 연습과 경쟁을 견딘 연습생들이 있다. 새벽까지 춤을 연습하고, 보컬 트레이닝을 받으며, 외국어를 공부하는 그들의 일상은 쉽지 않다. 하지만 BTS, 블랙핑크처럼 세계 무대에서 빛나는 선배들을 보며 꿈을 포기하지 않는다. 대한민국의 치열한 K-Pop 시스템 속에서 자신만의 빛을 찾아가는 수많은 청춘들을 대표하는 가상의 인물이다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/kpop_trainee.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "인물",
+      "K-Pop",
+      "연습생",
+      "한류"
+    ]
+  },
+  {
+    "id": "sangam_worldcup_stadium",
+    "type": "location",
+    "title": "Seoul World Cup Stadium",
+    "titleKorean": "상암 월드컵경기장",
+    "summary": "2002 한일 월드컵 4강 신화의 현장, 700만 붉은악마의 열정이 담긴 곳",
+    "content": "2002년 한일 월드컵을 위해 건설된 서울의 대표 축구 전용 경기장. 약 66,000석 규모로, 2002년 월드컵 당시 대한민국 대 미국 조별예선, 대한민국 대 스페인 8강전 등 역사적인 경기가 열렸다. 경기장 주변에서 펼쳐진 700만 붉은악마의 거리응원은 전 세계를 놀라게 했고, '대~한민국' 응원 문화의 탄생지가 되었다. 현재는 FC서울의 홈구장으로 사용되고 있으며, 상암 디지털미디어시티(DMC)의 랜드마크이다.",
+    "thumbnailAsset": "assets/images/locations/sangam_worldcup_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_2002_worldcup",
+      "red_devils_supporter"
+    ],
+    "tags": [
+      "장소",
+      "월드컵",
+      "상암",
+      "축구"
+    ]
+  },
+  {
+    "id": "hongdae_street",
+    "type": "location",
+    "title": "Hongdae Street",
+    "titleKorean": "홍대 거리",
+    "summary": "K-인디 문화의 발상지, 젊은 예술가들의 자유로운 열정이 넘치는 거리",
+    "content": "홍익대학교 앞 거리를 중심으로 형성된 서울의 대표적인 젊은이들의 문화지구. 1990년대부터 인디 밴드와 클럽 문화가 꽃피며 한국 인디 음악의 메카로 자리잡았다. 길거리 공연, 프리마켓, 독립 갤러리, 독특한 카페와 술집들이 모여 자유롭고 창의적인 분위기를 형성한다. BTS가 데뷔 전 거리 버스킹을 했던 곳이기도 하며, 지금도 수많은 K-Pop 지망생들이 꿈을 키우는 곳이다.",
+    "thumbnailAsset": "assets/images/locations/hongdae_street_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "kpop_trainee",
+      "fact_kwave_global"
+    ],
+    "tags": [
+      "장소",
+      "홍대",
+      "인디문화",
+      "청년문화"
+    ]
+  },
+  {
+    "id": "hybe_building",
+    "type": "location",
+    "title": "HYBE Entertainment Building",
+    "titleKorean": "하이브 사옥",
+    "summary": "BTS의 본거지, K-Pop 세계화를 이끈 글로벌 엔터테인먼트의 상징",
+    "content": "서울 용산구에 위치한 HYBE(구 빅히트 엔터테인먼트)의 본사 건물. 빌보드 1위를 기록한 BTS, 세븐틴, 르세라핌 등 글로벌 K-Pop 아티스트들이 소속된 세계적인 엔터테인먼트 기업의 심장이다. 연습실, 녹음 스튜디오, 콘텐츠 제작 시설을 갖추고 있으며, 'HYBE INSIGHT' 전시관을 통해 팬들에게 K-Pop의 역사와 아티스트들의 이야기를 공유한다. K-Pop 팬들의 성지순례지로 꼽히는 곳이다.",
+    "thumbnailAsset": "assets/images/locations/hybe_building_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "kpop_trainee",
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "장소",
+      "하이브",
+      "BTS",
+      "K-Pop"
+    ]
+  },
+  {
+    "id": "gwanghwamun_candlelight",
+    "type": "location",
+    "title": "Gwanghwamun Candlelight Square",
+    "titleKorean": "광화문 촛불광장",
+    "summary": "2016-2017 촛불혁명의 현장, 평화로운 민주주의의 새로운 역사를 쓴 곳",
+    "content": "서울 광화문광장은 2016년 10월부터 2017년 3월까지 대한민국 촛불혁명의 중심지였다. 매주 토요일 수십만에서 수백만의 시민들이 촛불을 들고 평화롭게 모여 민주주의를 외쳤다. 단 한 건의 폭력 사태 없이 헌법재판소의 탄핵 결정까지 이끌어낸 이 현장은 성숙한 시민의식의 상징이 되었다. 세종대왕 동상과 이순신 장군 동상이 내려다보는 이곳에서, 대한민국 국민들은 민주주의의 새로운 역사를 썼다.",
+    "thumbnailAsset": "assets/images/locations/gwanghwamun_candlelight_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_candlelight_revolution",
+      "democracy_activist"
+    ],
+    "tags": [
+      "장소",
+      "광화문",
+      "촛불혁명",
+      "민주주의"
+    ]
+  },
+  {
+    "id": "coex_convention",
+    "type": "location",
+    "title": "COEX Convention Center",
+    "titleKorean": "코엑스 컨벤션센터",
+    "summary": "대한민국 MICE 산업의 중심지, 세계 각국의 기업과 문화가 만나는 곳",
+    "content": "서울 강남구 삼성역에 위치한 대한민국 최대의 컨벤션센터. 지하 쇼핑몰 '코엑스몰', 아쿠아리움, 별마당 도서관 등이 함께 있어 복합 문화 공간으로 기능한다. 국제 전시회, 컨퍼런스, K-Pop 시상식 등 다양한 대형 이벤트가 열리는 곳으로, 글로벌 비즈니스와 한류 문화가 만나는 장소이다. 인근에는 SM타운, 현대백화점 등이 있어 서울의 대표적인 랜드마크 지역을 형성하고 있다.",
+    "thumbnailAsset": "assets/images/locations/coex_convention_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "it_pioneer",
+      "term_digital_korea"
+    ],
+    "tags": [
+      "장소",
+      "코엑스",
+      "컨벤션",
+      "MICE"
     ]
   },
   {

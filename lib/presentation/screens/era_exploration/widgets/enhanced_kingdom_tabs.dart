@@ -1,48 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 
 /// 왕국 메타데이터 (탭용)
+/// 
+/// 삼국시대 4개 왕국의 역사적 정체성을 담은 메타데이터
 class KingdomTabMeta {
   final String id;
   final String label;
   final Color color;
-  final IconData icon;
+  final Color lightColor;
+  final Color glowColor;
+  final String? iconAsset; // 커스텀 이미지 에셋 경로
+  final IconData? fallbackIcon; // 에셋 로드 실패 시 대체 아이콘
 
   const KingdomTabMeta({
     required this.id,
     required this.label,
     required this.color,
-    required this.icon,
+    required this.lightColor,
+    required this.glowColor,
+    this.iconAsset,
+    this.fallbackIcon,
   });
 }
 
 /// 삼국시대 왕국 탭 메타데이터
+/// 
+/// 역사적 고증을 바탕으로 한 색상과 상징 아이콘 적용
 class ThreeKingdomsTabs {
   static const List<KingdomTabMeta> kingdoms = [
+    // 고구려: 삼족오 (주작, 태양 숭배), 붉은색 (전사 정신, 북방 기질)
     KingdomTabMeta(
       id: 'goguryeo',
       label: '고구려',
-      color: Color(0xFF5B6EFF),
-      icon: Icons.flight, // 삼족오 (비상하는 새)
+      color: AppColors.kingdomGoguryeo,
+      lightColor: AppColors.kingdomGoguryeoLight,
+      glowColor: AppColors.kingdomGoguryeoGlow,
+      iconAsset: 'assets/icons/kingdoms/ic_goguryeo_samjoko.png',
+      fallbackIcon: Icons.whatshot,
     ),
+    // 백제: 연꽃 (불교 문화), 황토/금색 (금동대향로, 문화 예술)
     KingdomTabMeta(
       id: 'baekje',
       label: '백제',
-      color: Color(0xFFD17B2C),
-      icon: Icons.local_florist, // 연꽃
+      color: AppColors.kingdomBaekje,
+      lightColor: AppColors.kingdomBaekjeLight,
+      glowColor: AppColors.kingdomBaekjeGlow,
+      iconAsset: 'assets/icons/kingdoms/ic_baekje_lotus.png',
+      fallbackIcon: Icons.spa,
     ),
+    // 신라: 금관 (왕권), 녹색/금색 (불국사, 황금 문화)
     KingdomTabMeta(
       id: 'silla',
       label: '신라',
-      color: Color(0xFF2DBE7D),
-      icon: Icons.diamond, // 금관
+      color: AppColors.kingdomSilla,
+      lightColor: AppColors.kingdomSillaLight,
+      glowColor: AppColors.kingdomSillaGlow,
+      iconAsset: 'assets/icons/kingdoms/ic_silla_crown.png',
+      fallbackIcon: Icons.star,
     ),
+    // 가야: 철검 (철기 문화), 철색/은색 (무역 국가)
     KingdomTabMeta(
       id: 'gaya',
       label: '가야',
-      color: Color(0xFF8D5DE8),
-      icon: Icons.shield, // 철갑
+      color: AppColors.kingdomGaya,
+      lightColor: AppColors.kingdomGayaLight,
+      glowColor: AppColors.kingdomGayaGlow,
+      iconAsset: 'assets/icons/kingdoms/ic_gaya_sword.png',
+      fallbackIcon: Icons.shield,
     ),
   ];
 
@@ -232,13 +259,13 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // 왕국 엠블럼 아이콘
+            // 왕국 엠블럼 아이콘 (역사적 이미지 에셋 사용)
             AnimatedBuilder(
               animation: _glowAnimation,
               builder: (context, child) {
                 return Container(
-                  width: responsive.iconSize(28),
-                  height: responsive.iconSize(28),
+                  width: responsive.iconSize(32),
+                  height: responsive.iconSize(32),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: widget.isActive
@@ -250,13 +277,19 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                           : color.withValues(alpha: 0.4),
                       width: 1.5,
                     ),
+                    // 선택된 탭에 글로우 효과 추가
+                    boxShadow: widget.isActive
+                        ? [
+                            BoxShadow(
+                              color: widget.kingdom.glowColor.withValues(alpha: 0.4),
+                              blurRadius: 8,
+                              spreadRadius: 1,
+                            ),
+                          ]
+                        : null,
                   ),
-                  child: Icon(
-                    widget.kingdom.icon,
-                    size: responsive.iconSize(14),
-                    color: widget.isActive
-                        ? Colors.white
-                        : color.withValues(alpha: 0.8),
+                  child: ClipOval(
+                    child: _buildKingdomIcon(responsive),
                   ),
                 );
               },
@@ -308,6 +341,40 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
           ],
         ),
       ),
+    );
+  }
+
+  /// 왕국별 아이콘 빌드 (이미지 에셋 또는 fallback 아이콘)
+  Widget _buildKingdomIcon(ResponsiveUtils responsive) {
+    final iconAsset = widget.kingdom.iconAsset;
+    final color = widget.kingdom.color;
+    
+    if (iconAsset != null) {
+      return Image.asset(
+        iconAsset,
+        width: responsive.iconSize(24),
+        height: responsive.iconSize(24),
+        fit: BoxFit.contain,
+        errorBuilder: (context, error, stackTrace) {
+          // 이미지 로드 실패 시 fallback 아이콘 사용
+          return Icon(
+            widget.kingdom.fallbackIcon ?? Icons.place,
+            size: responsive.iconSize(16),
+            color: widget.isActive
+                ? Colors.white
+                : color.withValues(alpha: 0.8),
+          );
+        },
+      );
+    }
+    
+    // iconAsset이 없으면 fallback 아이콘 사용
+    return Icon(
+      widget.kingdom.fallbackIcon ?? Icons.place,
+      size: responsive.iconSize(16),
+      color: widget.isActive
+          ? Colors.white
+          : color.withValues(alpha: 0.8),
     );
   }
 }

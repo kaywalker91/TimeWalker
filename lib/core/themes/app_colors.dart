@@ -90,6 +90,30 @@ abstract class AppColors {
   static const Color eraJapan = Color(0xFFFFB7C5);
 
   // ============================================
+  // THREE KINGDOMS ERA - 삼국시대 왕국별 색상
+  // ============================================
+  
+  /// 고구려 - 붉은색 계열 (주작, 북방 전사 기질)
+  static const Color kingdomGoguryeo = Color(0xFF8B2323);
+  static const Color kingdomGoguryeoLight = Color(0xFFCD5C5C);
+  static const Color kingdomGoguryeoGlow = Color(0xFFFF4500);
+
+  /// 백제 - 황토/금색 계열 (금동대향로, 문화 예술)
+  static const Color kingdomBaekje = Color(0xFF8B7355);
+  static const Color kingdomBaekjeLight = Color(0xFFDAA520);
+  static const Color kingdomBaekjeGlow = Color(0xFFF5DEB3);
+
+  /// 신라 - 녹색/금색 계열 (불국사, 황금 왕관)
+  static const Color kingdomSilla = Color(0xFF1E4D2B);
+  static const Color kingdomSillaLight = Color(0xFF228B22);
+  static const Color kingdomSillaGlow = Color(0xFFFFD700);
+
+  /// 가야 - 철색/은색 계열 (철기 문화)
+  static const Color kingdomGaya = Color(0xFF4A4A4A);
+  static const Color kingdomGayaLight = Color(0xFF708090);
+  static const Color kingdomGayaGlow = Color(0xFFA9A9A9);
+
+  // ============================================
   // SEMANTIC COLORS - 의미론적 색상
   // ============================================
   
