@@ -484,6 +484,96 @@
                     "timeLimitSeconds": 30
                 },
                 {
+                    "id": "kim_gu_legacy_01",
+                    "question": "김구 선생이 '나의 소원'에서 밝힌 꿈은 무엇이었을까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "군사 강대국",
+                        "세계에서 가장 아름다운 문화의 힘을 가진 나라",
+                        "경제 대국",
+                        "핵무기 보유국"
+                    ],
+                    "correctAnswer": "세계에서 가장 아름다운 문화의 힘을 가진 나라",
+                    "explanation": "김구 선생은 '나의 소원'에서 '오직 한없이 가지고 싶은 것은 높은 문화의 힘'이라며 물질적 부국강병보다 문화 강국을 꿈꿨습니다. 이는 오늘날 K-Pop, K-드라마 등 한류의 성공을 예견한 것 같은 비전입니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "kim_gu",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "provisional_government_01",
+                    "question": "대한민국 임시정부가 역사적으로 중요한 가장 큰 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "건물이 아름답기 때문",
+                        "대한민국 헌법에 명시된 우리나라 정통성의 뿌리이기 때문",
+                        "중국 정부의 지원을 받았기 때문",
+                        "일본과 평화 협정을 맺었기 때문"
+                    ],
+                    "correctAnswer": "대한민국 헌법에 명시된 우리나라 정통성의 뿌리이기 때문",
+                    "explanation": "대한민국 헌법 전문에는 '3.1운동으로 건립된 대한민국임시정부의 법통을 계승'한다고 명시되어 있습니다. 즉 오늘날 대한민국은 임시정부를 정통성의 근거로 삼고 있어 역사적 의의가 큽니다.",
+                    "eraId": "korea_modern",
+                    "relatedLocationId": "shanghai_provisional",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "liberation_and_division_01",
+                    "question": "1945년 광복 직후 38선 분단이 비극적인 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "남쪽이 더 땅이 넓어서",
+                        "독립을 되찾았으나 우리 의지와 무관하게 강대국에 의해 나라가 둘로 갈라졌기 때문",
+                        "38도선이 너무 추웠기 때문",
+                        "일본이 38선에서 계속 저항했기 때문"
+                    ],
+                    "correctAnswer": "독립을 되찾았으나 우리 의지와 무관하게 강대국에 의해 나라가 둘로 갈라졌기 때문",
+                    "explanation": "35년간 독립을 위해 싸웠지만, 해방 순간 미국과 소련의 결정으로 한반도는 38선을 경계로 분단되었습니다. 이는 한민족의 의사가 전혀 반영되지 않은 외세에 의한 비극이었습니다.",
+                    "eraId": "korea_modern",
+                    "relatedLocationId": "line_38",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "ahn_changho_spirit_01",
+                    "question": "안창호 선생이 강조한 '무실역행(務實力行)'의 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "무력으로 독립을 이룬다",
+                        "참되게 일하고 참되게 행한다",
+                        "빨리 힘을 길러서 싸운다",
+                        "외교만으로 독립한다"
+                    ],
+                    "correctAnswer": "참되게 일하고 참되게 행한다",
+                    "explanation": "무실역행(務實力行)은 '열심히 하되 거짓 없이 참되게 하고, 힘써서 실천한다'는 뜻입니다. 안창호는 말만 하지 말고 실천하라, 실력을 길러 독립을 이루자고 가르쳤습니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "ahn_changho",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "first_republic_01",
+                    "question": "1948년 대한민국 정부 수립이 갖는 역사적 의의는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "세계 최초의 민주주의 국가가 되었다",
+                        "한반도 역사상 최초의 민주공화국이 탄생했다",
+                        "왕조가 다시 부활했다",
+                        "일본의 속국이 되었다"
+                    ],
+                    "correctAnswer": "한반도 역사상 최초의 민주공화국이 탄생했다",
+                    "explanation": "1948년 8월 15일, 대한민국 정부가 수립되면서 한반도 역사상 최초로 국민이 주권을 가지는 민주공화국이 탄생했습니다. 비록 분단된 남쪽만의 정부였으나, 민주주의 체제의 출발점이었습니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "syngman_rhee",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
                     "id": "choe_museon_gunpowder_01",
                     "question": "최무선의 화약 국산화와 진포 대첩이 갖는 세계사적 의미는?",
                     "type": "multipleChoice",

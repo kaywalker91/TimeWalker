@@ -3130,5 +3130,178 @@
       "불교",
       "남북국시대"
     ]
+  },
+  {
+    "id": "enc_kim_gu",
+    "type": "character",
+    "title": "Kim Gu",
+    "titleKorean": "김구",
+    "summary": "대한민국 임시정부를 이끈 민족의 지도자",
+    "content": "김구(1876~1949)는 호가 백범(白凡)으로, 동학농민운동에 참여하고 의병 활동을 했다. 1919년 상해 임시정부에 합류하여 경무국장, 내무총장, 국무령을 거쳐 주석이 되었다. 윤봉길, 이봉창 의거를 주도하고 광복군을 조직해 독립운동을 지휘했다. 해방 후 남북 분단에 반대하며 통일정부 수립을 위해 노력했으나, 1949년 안두희에게 암살당했다. '나의 소원'에서 밝힌 '문화강국'의 비전은 오늘날에도 국민에게 영감을 주고 있다.",
+    "thumbnailAsset": "assets/images/characters/modern/kim_gu.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_shanghai_provisional"
+    ],
+    "tags": [
+      "인물",
+      "김구",
+      "백범",
+      "임시정부",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_ahn_changho",
+    "type": "character",
+    "title": "Ahn Chang-ho",
+    "titleKorean": "안창호",
+    "summary": "민족의 실력을 길러 독립을 이루고자 한 교육자",
+    "content": "안창호(1878~1938)는 호가 도산(島山)으로, 독립운동가이자 교육자다. 미국으로 건너가 대한인국민회를 조직하고, 귀국 후 신민회를 결성해 민족의 실력 양성 운동을 펼쳤다. 1913년 흥사단을 창립해 '무실역행(務實力行, 참되게 행하라)'을 강조하며 민족 개조론을 주창했다. 여러 차례 투옥되어 옥중에서 건강이 악화되어 순국했다. 그의 '힘을 기르자' 정신은 대한민국 발전의 정신적 토대가 되었다.",
+    "thumbnailAsset": "assets/images/characters/modern/ahn_changho.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "안창호",
+      "도산",
+      "흥사단",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_march_first",
+    "type": "event",
+    "title": "March First Movement",
+    "titleKorean": "3.1 운동",
+    "summary": "1919년 온 민족이 하나 되어 '대한독립만세'를 외친 날",
+    "content": "1919년 3월 1일, 탑골공원에서 민족대표 33인의 독립선언서가 낭독되고, 전국에서 '대한독립만세'가 울려 퍼졌다. 학생, 농민, 노동자, 상인 등 모든 계층이 참여한 거족적 비폭력 저항 운동이었다. 일제의 무력 진압으로 수천 명이 희생되었으나, 이 운동은 대한민국 임시정부 수립의 계기가 되었고, 중국의 5.4 운동, 인도의 비폭력 운동 등 세계 약소민족 독립운동에 큰 영향을 미쳤다.",
+    "thumbnailAsset": "assets/images/locations/tapgol_park_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_shanghai_provisional"
+    ],
+    "tags": [
+      "사건",
+      "3.1운동",
+      "만세운동",
+      "독립선언",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_shanghai_provisional",
+    "type": "location",
+    "title": "Shanghai Provisional Government",
+    "titleKorean": "대한민국 임시정부",
+    "summary": "망국의 설움 속에서 세운 대한민국 정부의 뿌리",
+    "content": "1919년 4월 11일, 3.1운동 직후 중국 상해에서 대한민국 임시정부가 수립되었다. 이는 대한민국 헌법 전문에도 명시된 우리나라 정통성의 근거다. 이승만을 초대 대통령으로 추대하고, 민주공화정 헌법을 제정했다. 일제의 탄압을 피해 항저우, 충칭 등으로 이동하며 활동을 이어갔고, 김구 주석 아래 광복군을 조직해 무장 독립운동을 전개했다. 27년간 망명정부로서 민족의 독립 의지를 지켰다.",
+    "thumbnailAsset": "assets/images/locations/shanghai_provisional_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_kim_gu",
+      "enc_march_first"
+    ],
+    "tags": [
+      "장소",
+      "임시정부",
+      "상해",
+      "대한민국",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_liberation_day",
+    "type": "event",
+    "title": "Liberation Day",
+    "titleKorean": "광복절 (1945년 8월 15일)",
+    "summary": "35년 만에 되찾은 우리나라의 자유",
+    "content": "1945년 8월 15일, 일본이 연합국에 무조건 항복하면서 한반도는 35년간의 일제 식민지배에서 해방되었다. '광복(光復)'은 '빛을 되찾다'라는 뜻으로, 잃어버린 나라를 되찾았다는 의미를 담고 있다. 전국에서 만세의 함성이 터져 나왔고, 해외에서 독립운동을 하던 인사들도 속속 귀국했다. 그러나 곧이어 미소 양국에 의한 38선 분단이라는 새로운 비극이 시작되었다.",
+    "thumbnailAsset": "assets/images/eras/modern.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_line_38"
+    ],
+    "tags": [
+      "사건",
+      "광복절",
+      "8.15",
+      "해방",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_line_38",
+    "type": "term",
+    "title": "38th Parallel",
+    "titleKorean": "38선",
+    "summary": "한반도를 둘로 가른 분단의 선",
+    "content": "38선은 북위 38도선을 기준으로 한반도를 남북으로 나누는 가상의 경계선이다. 1945년 광복 직후, 미국과 소련이 일본군 무장해제를 명목으로 이 선을 기준으로 남북을 각각 점령했다. 이는 임시적인 군사 분계선에 불과했으나, 냉전의 격화로 고착되어 1948년 남북한에 각각 별도의 정부가 수립되는 분단의 비극을 낳았다. 6.25 전쟁 이후 휴전선(DMZ)으로 대체되었다.",
+    "thumbnailAsset": "assets/images/locations/line_38_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_liberation_day"
+    ],
+    "tags": [
+      "용어",
+      "38선",
+      "분단",
+      "휴전선",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_seodaemun_prison",
+    "type": "location",
+    "title": "Seodaemun Prison",
+    "titleKorean": "서대문형무소",
+    "summary": "독립운동가들의 피와 눈물이 서린 민족의 성지",
+    "content": "서대문형무소는 1908년 일제가 '경성감옥'이라는 이름으로 설립한 감옥이다. 일제강점기 수많은 독립운동가들이 이곳에 투옥되어 고문을 받고 순국했다. 유관순 열사도 이곳에서 옥중 만세운동을 벌이다 순국했다. 해방 후에도 민주화 운동가들이 수감되는 등 한국 근현대사의 아픈 역사를 간직한 곳이다. 1987년 폐쇄 후 '서대문형무소역사관'으로 조성되어 역사의 교훈을 전하고 있다.",
+    "thumbnailAsset": "assets/images/locations/seodaemun_prison_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "장소",
+      "서대문형무소",
+      "독립운동",
+      "유관순",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_yeo_unhyeong",
+    "type": "character",
+    "title": "Yeo Un-hyeong",
+    "titleKorean": "여운형",
+    "summary": "좌우합작으로 통일정부를 이루고자 한 정치인",
+    "content": "여운형(1886~1947)은 호가 몽양(夢陽)으로, 독립운동가이자 정치인이다. 상해 임시정부에서 활동하고, 1919년 도쿄에서 열린 신한청년당대회에서 독립을 선언했다. 해방 직후 건국준비위원회를 조직하여 좌우합작 통일정부 수립을 위해 노력했으나, 남한 단독정부 수립에 반대하며 좌우합작운동을 벌이다 1947년 극우파 청년에게 암살당했다. 그의 중도 노선은 분단 극복의 가능성을 상징한다.",
+    "thumbnailAsset": "assets/images/characters/modern/yeo_unhyeong.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "여운형",
+      "몽양",
+      "건준",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_syngman_rhee",
+    "type": "character",
+    "title": "Syngman Rhee",
+    "titleKorean": "이승만",
+    "summary": "대한민국의 초대 대통령",
+    "content": "이승만(1875~1965)은 조선 왕족의 후손으로, 독립협회 활동 중 투옥된 후 미국으로 건너가 외교 독립운동을 펼쳤다. 1919년 임시정부 초대 대통령에 추대되었고, 1948년 대한민국 정부 수립과 함께 초대 대통령이 되었다. 반공 정책과 한미동맹을 강화했으나, 장기 집권과 부정선거로 1960년 4.19 혁명이 일어나 하야했다. 그의 공과 과에 대해서는 오늘날에도 역사적 평가가 엇갈린다.",
+    "thumbnailAsset": "assets/images/characters/modern/syngman_rhee.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "이승만",
+      "대통령",
+      "건국",
+      "근현대"
+    ]
   }
 ]

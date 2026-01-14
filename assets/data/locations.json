@@ -1081,5 +1081,143 @@
         "eventIds": [],
         "status": "available",
         "isHistorical": true
+    },
+    {
+        "id": "deoksugung",
+        "eraId": "korea_modern",
+        "name": "Deoksugung Palace",
+        "nameKorean": "덕수궁",
+        "description": "대한제국의 황궁, 고종이 대한제국을 선포한 역사적 장소",
+        "thumbnailAsset": "assets/images/locations/deoksugung_bg.png",
+        "backgroundAsset": "assets/images/locations/deoksugung_bg.png",
+        "latitude": 37.5658,
+        "longitude": 126.9750,
+        "displayYear": "1897",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.5,
+            "y": 0.4
+        },
+        "characterIds": [
+            "gojong"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "harbin_station",
+        "eraId": "korea_modern",
+        "name": "Harbin Railway Station",
+        "nameKorean": "하얼빈역",
+        "description": "1909년 안중근 의사가 이토 히로부미를 저격한 역사적 현장",
+        "thumbnailAsset": "assets/images/locations/harbin_station_bg.png",
+        "backgroundAsset": "assets/images/locations/harbin_station_bg.png",
+        "latitude": 45.7689,
+        "longitude": 126.6210,
+        "displayYear": "1909",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.7,
+            "y": 0.1
+        },
+        "characterIds": [
+            "ahn_junggeun"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seodaemun_prison",
+        "eraId": "korea_modern",
+        "name": "Seodaemun Prison",
+        "nameKorean": "서대문형무소",
+        "description": "일제강점기 독립운동가들이 투옥되고 순국한 민족의 아픔이 서린 곳",
+        "thumbnailAsset": "assets/images/locations/seodaemun_prison_bg.png",
+        "backgroundAsset": "assets/images/locations/seodaemun_prison_bg.png",
+        "latitude": 37.5724,
+        "longitude": 126.9598,
+        "displayYear": "1908",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.5,
+            "y": 0.38
+        },
+        "characterIds": [
+            "yu_gwansun"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "shanghai_provisional",
+        "eraId": "korea_modern",
+        "name": "Shanghai Provisional Government",
+        "nameKorean": "상해 대한민국 임시정부",
+        "description": "1919년 3.1운동 이후 수립된 대한민국 정부의 뿌리",
+        "thumbnailAsset": "assets/images/locations/shanghai_provisional_bg.png",
+        "backgroundAsset": "assets/images/locations/shanghai_provisional_bg.png",
+        "latitude": 31.2304,
+        "longitude": 121.4737,
+        "displayYear": "1919",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.35,
+            "y": 0.55
+        },
+        "characterIds": [
+            "kim_gu",
+            "ahn_changho"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "tapgol_park",
+        "eraId": "korea_modern",
+        "name": "Tapgol Park",
+        "nameKorean": "탑골공원",
+        "description": "1919년 3월 1일, 독립선언서가 낭독되고 만세운동이 시작된 곳",
+        "thumbnailAsset": "assets/images/locations/tapgol_park_bg.png",
+        "backgroundAsset": "assets/images/locations/tapgol_park_bg.png",
+        "latitude": 37.5706,
+        "longitude": 126.9888,
+        "displayYear": "1919",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.51,
+            "y": 0.39
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "line_38",
+        "eraId": "korea_modern",
+        "name": "38th Parallel",
+        "nameKorean": "38선",
+        "description": "1945년 광복 후 미소 양국에 의해 한반도가 분단된 비극의 선",
+        "thumbnailAsset": "assets/images/locations/line_38_bg.png",
+        "backgroundAsset": "assets/images/locations/line_38_bg.png",
+        "latitude": 38.0000,
+        "longitude": 127.0000,
+        "displayYear": "1945",
+        "timelineOrder": 5,
+        "position": {
+            "x": 0.55,
+            "y": 0.35
+        },
+        "characterIds": [
+            "yeo_unhyeong",
+            "syngman_rhee"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
     }
 ]

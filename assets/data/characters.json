@@ -1755,5 +1755,93 @@
             "수출탑 수상"
         ],
         "status": "available"
+    },
+    {
+        "id": "kim_gu",
+        "eraId": "korea_modern",
+        "name": "Kim Gu",
+        "nameKorean": "김구",
+        "title": "대한민국 임시정부 주석",
+        "birth": "1876",
+        "death": "1949",
+        "biography": "호는 백범(白凡). 동학농민운동에 참여하고, 일제강점기에는 임시정부를 이끌며 광복군을 조직해 독립운동을 지휘했다. 해방 후 통일정부 수립을 위해 노력했으나 1949년 암살당했다. '나의 소원' 저술로 민족 지도자의 면모를 남겼다.",
+        "gender": "male",
+        "job": "independence_fighter",
+        "thumbnailAsset": "assets/images/characters/modern/kim_gu.png",
+        "fullBodyAsset": "assets/images/characters/modern/kim_gu.png",
+        "dialogueIds": [],
+        "achievements": [
+            "대한민국 임시정부 주석",
+            "광복군 총사령관",
+            "백범일지 저술"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "ahn_changho",
+        "eraId": "korea_modern",
+        "name": "Ahn Chang-ho",
+        "nameKorean": "안창호",
+        "title": "독립운동가, 교육자",
+        "birth": "1878",
+        "death": "1938",
+        "biography": "호는 도산(島山). 미국에서 대한인국민회를 조직하고, 흥사단을 창립하여 민족의 실력 양성에 힘썼다. '무실역행(務實力行)'을 강조하며 민족 개조론을 주창했다. 수차례 투옥되어 옥중에서 순국했다.",
+        "gender": "male",
+        "job": "education",
+        "thumbnailAsset": "assets/images/characters/modern/ahn_changho.png",
+        "fullBodyAsset": "assets/images/characters/modern/ahn_changho.png",
+        "dialogueIds": [],
+        "achievements": [
+            "흥사단 창립",
+            "신민회 활동",
+            "대한인국민회 조직"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "yeo_unhyeong",
+        "eraId": "korea_modern",
+        "name": "Yeo Un-hyeong",
+        "nameKorean": "여운형",
+        "title": "독립운동가, 정치인",
+        "birth": "1886",
+        "death": "1947",
+        "biography": "호는 몽양(夢陽). 상해 임시정부에서 활동하고, 해방 직후 건국준비위원회를 조직하여 좌우합작 통일정부 수립을 위해 노력했다. 남한 단독정부 수립에 반대하다 1947년 암살당했다.",
+        "gender": "male",
+        "job": "politician",
+        "thumbnailAsset": "assets/images/characters/modern/yeo_unhyeong.png",
+        "fullBodyAsset": "assets/images/characters/modern/yeo_unhyeong.png",
+        "dialogueIds": [],
+        "achievements": [
+            "건국준비위원회 위원장",
+            "좌우합작운동",
+            "조선건국동맹"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "syngman_rhee",
+        "eraId": "korea_modern",
+        "name": "Syngman Rhee",
+        "nameKorean": "이승만",
+        "title": "대한민국 초대 대통령",
+        "birth": "1875",
+        "death": "1965",
+        "biography": "조선 왕족의 후손으로, 미국에서 독립운동을 전개했다. 임시정부 초대 대통령을 역임하고, 1948년 대한민국 정부 수립 후 초대 대통령이 되었다. 반공 정책을 펼쳤으나 4.19 혁명으로 하야했다.",
+        "gender": "male",
+        "job": "politician",
+        "thumbnailAsset": "assets/images/characters/modern/syngman_rhee.png",
+        "fullBodyAsset": "assets/images/characters/modern/syngman_rhee.png",
+        "dialogueIds": [],
+        "achievements": [
+            "대한민국 초대 대통령",
+            "임시정부 초대 대통령",
+            "대한민국 건국"
+        ],
+        "status": "available",
+        "isHistorical": true
     }
 ]

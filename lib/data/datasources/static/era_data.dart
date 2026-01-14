@@ -255,31 +255,31 @@ class EraData {
     id: 'korea_modern',
     countryId: 'korea',
     name: 'Modern Era',
-    nameKorean: '근대/일제강점기',
-    period: '1897 - 1945',
+    nameKorean: '근현대(대한제국~해방)',
+    period: '1897 - 1950',
     startYear: 1897,
-    endYear: 1945,
+    endYear: 1950,
     description:
-        '자주 독립을 위한 투쟁과 근대 문물이 들어오던 격동의 시기. '
-        '대한제국 선포부터 3.1운동, 안중근 의사의 의거 등 민족의 독립 의지가 불타오르다.',
+        '대한제국 선포부터 일제강점기, 광복, 그리고 분단까지. '
+        '안중근, 유관순, 김구 등 수많은 독립운동가들이 나라를 되찾고자 피 흘린 역사.',
     thumbnailAsset: 'assets/images/eras/modern.png',
     backgroundAsset: 'assets/images/locations/modern_bg.png',
     bgmAsset: 'assets/audio/bgm/modern.mp3',
     theme: EraThemes.modern,
-    chapterIds: ['modern_ch1_empire', 'modern_ch2_resistance', 'modern_ch3_independence'],
-    characterIds: ['gojong', 'ahn_junggeun', 'yu_gwansun'],
-    locationIds: ['deoksugung', 'harbin', 'seodaemun_prison'],
+    chapterIds: ['modern_ch1_empire', 'modern_ch2_resistance', 'modern_ch3_independence', 'modern_ch4_liberation'],
+    characterIds: ['gojong', 'ahn_junggeun', 'yu_gwansun', 'kim_gu', 'ahn_changho', 'yeo_unhyeong', 'syngman_rhee'],
+    locationIds: ['deoksugung', 'harbin_station', 'seodaemun_prison', 'shanghai_provisional', 'tapgol_park', 'line_38'],
     status: ContentStatus.locked,
-    estimatedMinutes: 45,
+    estimatedMinutes: 60,
     unlockCondition: UnlockCondition(
       previousEraId: 'korea_joseon',
       requiredProgress: 0.3,
     ),
     mapBounds: MapBounds(
       minLatitude: 33.0,
-      maxLatitude: 45.0,
-      minLongitude: 124.0,
-      maxLongitude: 132.0,
+      maxLatitude: 50.0,
+      minLongitude: 120.0,
+      maxLongitude: 135.0,
     ),
   );
 
