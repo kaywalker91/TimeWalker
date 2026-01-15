@@ -3459,5 +3459,208 @@
       "강동6주",
       "고려"
     ]
+  },
+  {
+    "id": "enc_davinci",
+    "type": "character",
+    "title": "Leonardo da Vinci",
+    "titleKorean": "레오나르도 다빈치",
+    "summary": "르네상스 시대를 대표하는 만능 천재",
+    "content": "레오나르도 다빈치(1452~1519)는 이탈리아 피렌체 출신의 화가, 조각가, 건축가, 과학자, 발명가이다. '모나리자', '최후의 만찬' 등의 회화 걸작을 남겼고, 비행기, 전차, 잠수함 등을 설계한 발명가이기도 하다. 인체 해부학에도 정통하여 완벽한 인체 비례도를 그렸다. 예술과 과학의 경계를 넘나든 '르네상스 맨'의 전형이다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/davinci.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_michelangelo",
+      "enc_renaissance"
+    ],
+    "tags": [
+      "인물",
+      "다빈치",
+      "화가",
+      "발명가",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_michelangelo",
+    "type": "character",
+    "title": "Michelangelo Buonarroti",
+    "titleKorean": "미켈란젤로 부오나로티",
+    "summary": "다비드상과 천지창조를 창조한 신적인 예술가",
+    "content": "미켈란젤로(1475~1564)는 이탈리아 피렌체 출신의 조각가, 화가, 건축가, 시인이다. 5m가 넘는 '다비드상'은 인체의 완벽한 비례와 내면의 긴장감을 담아낸 걸작이다. 시스티나 성당 천장에 그린 '천지창조'는 4년에 걸쳐 완성한 대작으로, 아담의 창조 장면은 서양 미술의 아이콘이 되었다. 성 베드로 대성당의 돔 설계에도 참여했다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/michelangelo.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_davinci",
+      "enc_sistine_chapel"
+    ],
+    "tags": [
+      "인물",
+      "미켈란젤로",
+      "조각가",
+      "다비드",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_galileo",
+    "type": "character",
+    "title": "Galileo Galilei",
+    "titleKorean": "갈릴레오 갈릴레이",
+    "summary": "근대 과학의 아버지, 지동설의 수호자",
+    "content": "갈릴레오(1564~1642)는 이탈리아의 천문학자, 물리학자, 수학자이다. 망원경을 개량하여 목성의 위성, 금성의 위상 변화, 달의 분화구 등을 관측하고 코페르니쿠스의 지동설을 지지했다. 교회와의 갈등으로 종교재판에 회부되었으나, '그래도 지구는 돈다'라는 명언을 남겼다. 낙하 운동, 관성의 법칙 등 물리학의 기초를 세웠다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/galileo.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_heliocentrism"
+    ],
+    "tags": [
+      "인물",
+      "갈릴레오",
+      "천문학",
+      "지동설",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_shakespeare",
+    "type": "character",
+    "title": "William Shakespeare",
+    "titleKorean": "윌리엄 셰익스피어",
+    "summary": "영어권 역사상 가장 위대한 극작가",
+    "content": "셰익스피어(1564~1616)는 영국 엘리자베스 시대의 극작가이자 시인이다. '햄릿', '맥베스', '리어왕', '오셀로' 등의 4대 비극과 '로미오와 줄리엣', '한여름 밤의 꿈' 등을 창작했다. '사느냐 죽느냐, 그것이 문제로다'(햄릿) 등의 명대사는 400년이 지난 오늘날에도 인용된다. 런던 글로브 극장에서 활동했다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/shakespeare.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_globe_theatre"
+    ],
+    "tags": [
+      "인물",
+      "셰익스피어",
+      "극작가",
+      "햄릿",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_gutenberg",
+    "type": "character",
+    "title": "Johannes Gutenberg",
+    "titleKorean": "요한네스 구텐베르크",
+    "summary": "금속 활자 인쇄술로 지식 혁명을 일으킨 인물",
+    "content": "구텐베르크(1398~1468)는 독일 마인츠 출신의 금속 세공사이자 인쇄업자이다. 1440년대에 금속 활자와 인쇄기를 발명하여 책의 대량 생산을 가능하게 했다. '구텐베르크 성경'(약 180부 인쇄)은 세계 최초의 금속 활자 인쇄본이다. 이 발명으로 종교개혁, 과학혁명, 계몽주의의 확산이 가능해졌으며, 현대 정보화 사회의 시초로 평가된다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/gutenberg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_printing_revolution"
+    ],
+    "tags": [
+      "인물",
+      "구텐베르크",
+      "인쇄",
+      "활자",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_renaissance",
+    "type": "term",
+    "title": "The Renaissance",
+    "titleKorean": "르네상스",
+    "summary": "14~17세기 유럽의 문화 부흥 운동",
+    "content": "르네상스(Renaissance)는 '재탄생'을 뜻하는 프랑스어로, 14세기 이탈리아에서 시작된 문화 부흥 운동이다. 중세의 신 중심 세계관에서 벗어나 인간과 자연에 관심을 두는 '인문주의(Humanism)'가 핵심이었다. 피렌체의 메디치 가문 후원 아래 다빈치, 미켈란젤로 등 천재들이 활약했다. 예술, 과학, 철학 등 모든 분야에서 근대의 출발점이 되었다.",
+    "thumbnailAsset": "assets/images/locations/florence_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_davinci",
+      "enc_michelangelo"
+    ],
+    "tags": [
+      "용어",
+      "르네상스",
+      "인문주의",
+      "피렌체",
+      "유럽"
+    ]
+  },
+  {
+    "id": "enc_sistine_chapel",
+    "type": "location",
+    "title": "Sistine Chapel",
+    "titleKorean": "시스티나 성당",
+    "summary": "미켈란젤로의 천지창조 천장화가 있는 곳",
+    "content": "시스티나 성당은 바티칸 시국 내에 위치한 성당으로, 교황 선출 콘클라베가 열리는 장소이다. 미켈란젤로가 1508년부터 1512년까지 4년에 걸쳐 천장에 그린 '천지창조'와 제대 뒷벽의 '최후의 심판'이 있다. 특히 신이 아담에게 생명을 불어넣는 장면은 서양 미술의 상징이 되었다.",
+    "thumbnailAsset": "assets/images/locations/rome_vatican_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_michelangelo"
+    ],
+    "tags": [
+      "장소",
+      "시스티나",
+      "바티칸",
+      "천지창조",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_globe_theatre",
+    "type": "location",
+    "title": "Globe Theatre",
+    "titleKorean": "글로브 극장",
+    "summary": "셰익스피어 희곡이 초연된 전설적 극장",
+    "content": "글로브 극장은 1599년 런던 템스강 남쪽에 세워진 극장이다. 셰익스피어의 극단이 상주하며 '햄릿', '오셀로', '리어왕' 등의 작품을 초연했다. 3층 구조의 원형 극장으로, 무대가 관객에게 둘러싸여 있어 배우와 관객의 거리가 매우 가까웠다. 1613년 화재로 소실되었으나 1997년 원형에 가깝게 복원되었다.",
+    "thumbnailAsset": "assets/images/locations/london_globe_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_shakespeare"
+    ],
+    "tags": [
+      "장소",
+      "글로브극장",
+      "런던",
+      "셰익스피어",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_printing_revolution",
+    "type": "event",
+    "title": "Printing Revolution",
+    "titleKorean": "인쇄 혁명",
+    "summary": "금속 활자로 시작된 지식 민주화의 대사건",
+    "content": "15세기 구텐베르크의 금속 활자 발명은 책의 대량 생산을 가능하게 하여 '인쇄 혁명'을 일으켰다. 이전에는 필사본이 귀족과 성직자의 전유물이었으나, 인쇄술 덕분에 일반인도 지식에 접근할 수 있게 되었다. 마르틴 루터의 95개조 반박문이 급속히 퍼질 수 있었던 것도 인쇄술 덕분이며, 과학혁명과 계몽주의의 확산에도 결정적 역할을 했다.",
+    "thumbnailAsset": "assets/images/locations/mainz_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_gutenberg"
+    ],
+    "tags": [
+      "사건",
+      "인쇄혁명",
+      "구텐베르크",
+      "지식",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_heliocentrism",
+    "type": "term",
+    "title": "Heliocentrism",
+    "titleKorean": "지동설 (태양중심설)",
+    "summary": "태양이 우주의 중심이라는 혁명적 이론",
+    "content": "지동설은 지구가 태양 주위를 돈다는 천문학 이론이다. 코페르니쿠스가 1543년 '천구의 회전에 관하여'에서 주장했고, 갈릴레오가 망원경 관측으로 증거를 제시했다. 1000년 이상 믿어온 천동설(지구 중심설)을 뒤엎은 혁명적 발상으로, 교회와 갈등을 빚었지만 결국 과학의 승리로 끝났다. 근대 과학혁명의 상징이다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/galileo.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_galileo"
+    ],
+    "tags": [
+      "용어",
+      "지동설",
+      "갈릴레오",
+      "코페르니쿠스",
+      "르네상스"
+    ]
   }
 ]

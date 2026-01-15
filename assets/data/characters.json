@@ -650,17 +650,19 @@
         "death": "1519",
         "biography": "회화, 건축, 과학 등 모든 분야에 능통했던 천재",
         "fullBiography": "모나리자, 최후의 만찬 등의 걸작을 남긴 화가이자, 비행기, 전차 등을 설계한 발명가. 인체 해부학에도 정통했으며, 르네상스적 인간상의 전형으로 꼽힌다.",
-        "portraitAsset": "assets/images/characters/placeholder.png",
+        "portraitAsset": "assets/images/characters/renaissance/davinci.png",
         "emotionAssets": [
-            "assets/images/characters/placeholder.png",
-            "assets/images/characters/placeholder.png"
+            "assets/images/characters/renaissance/davinci.png",
+            "assets/images/characters/renaissance/davinci.png"
         ],
         "dialogueIds": [
             "davinci_intro",
             "davinci_art",
             "davinci_science"
         ],
-        "relatedCharacterIds": [],
+        "relatedCharacterIds": [
+            "michelangelo"
+        ],
         "relatedLocationIds": [
             "florence"
         ],
@@ -670,7 +672,40 @@
             "비행 기계 설계",
             "인체 비례도"
         ],
-        "status": "available"
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "michelangelo",
+        "eraId": "europe_renaissance",
+        "name": "Michelangelo Buonarroti",
+        "nameKorean": "미켈란젤로 부오나로티",
+        "title": "신적인 조각가",
+        "birth": "1475",
+        "death": "1564",
+        "biography": "다비드상과 시스티나 성당 천장화를 창조한 천재 예술가",
+        "fullBiography": "피렌체에서 태어나 조각, 회화, 건축 모든 분야를 석권한 거장. 다비드상은 인체의 완벽한 비례를 보여주며, 시스티나 성당 천장화는 성경 이야기를 장려하게 표현했다. 성 베드로 대성당의 건축에도 참여했다.",
+        "portraitAsset": "assets/images/characters/renaissance/michelangelo.png",
+        "emotionAssets": [
+            "assets/images/characters/renaissance/michelangelo.png",
+            "assets/images/characters/renaissance/michelangelo.png"
+        ],
+        "dialogueIds": [],
+        "relatedCharacterIds": [
+            "davinci"
+        ],
+        "relatedLocationIds": [
+            "florence",
+            "rome_vatican"
+        ],
+        "achievements": [
+            "다비드상",
+            "피에타",
+            "시스티나 성당 천장화",
+            "성 베드로 대성당"
+        ],
+        "status": "available",
+        "isHistorical": true
     },
     {
         "id": "galileo",
@@ -682,10 +717,10 @@
         "death": "1642",
         "biography": "망원경으로 천체를 관측하여 지동설을 지지한 천문학자",
         "fullBiography": "망원경을 개량하여 목성의 위성, 금성의 위상 변화 등을 관측하고 코페르니쿠스의 지동설을 입증했다. \"그래도 지구는 돈다\"라는 명언으로 유명하다.",
-        "portraitAsset": "assets/images/characters/placeholder.png",
+        "portraitAsset": "assets/images/characters/renaissance/galileo.png",
         "emotionAssets": [
-            "assets/images/characters/placeholder.png",
-            "assets/images/characters/placeholder.png"
+            "assets/images/characters/renaissance/galileo.png",
+            "assets/images/characters/renaissance/galileo.png"
         ],
         "dialogueIds": [
             "galileo_intro",
@@ -701,7 +736,65 @@
             "지동설 지지",
             "관성의 법칙"
         ],
-        "status": "available"
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "shakespeare",
+        "eraId": "europe_renaissance",
+        "name": "William Shakespeare",
+        "nameKorean": "윈리엄 셰익스피어",
+        "title": "영국의 위대한 극작가",
+        "birth": "1564",
+        "death": "1616",
+        "biography": "해밀릿, 로미오와 줄리엿 등 불멸의 희극을 남긴 극작가",
+        "fullBiography": "영국 엘리자베스 시대의 극작가이자 시인. 해뱀릿, 맥베스, 리어왕 등의 비극과 한여름 밤의 꿈 등의 희극을 창작했다. '존재하느냐, 존재하지 않느냐'(해뱀릿) 등 명대사는 오늘날까지 인용된다.",
+        "portraitAsset": "assets/images/characters/renaissance/shakespeare.png",
+        "emotionAssets": [
+            "assets/images/characters/renaissance/shakespeare.png",
+            "assets/images/characters/renaissance/shakespeare.png"
+        ],
+        "dialogueIds": [],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "london_globe"
+        ],
+        "achievements": [
+            "해벀릿",
+            "로미오와 줄리엿",
+            "맥베스",
+            "한여름 밤의 꿈"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gutenberg",
+        "eraId": "europe_renaissance",
+        "name": "Johannes Gutenberg",
+        "nameKorean": "요한네스 구텐베르크",
+        "title": "인쇄 혁명의 아버지",
+        "birth": "1398",
+        "death": "1468",
+        "biography": "유럽에서 금속 활자 인쇄술을 발명하여 지식 혁명을 일으킨 인물",
+        "fullBiography": "독일 마인츠 출신의 금속 세공. 1440년대 금속 활자와 인쇄기를 발명하여 책의 대량 생산을 가능하게 했다. '구텐베르크 성경'(약 180부 인쇄)은 세계 최초의 금속 활자 인쇄본이다. 이로 인해 종교개혁, 과학혁명 등이 가능해졌다.",
+        "portraitAsset": "assets/images/characters/renaissance/gutenberg.png",
+        "emotionAssets": [
+            "assets/images/characters/renaissance/gutenberg.png",
+            "assets/images/characters/renaissance/gutenberg.png"
+        ],
+        "dialogueIds": [],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "mainz"
+        ],
+        "achievements": [
+            "금속 활자 발명",
+            "구텐베르크 성경",
+            "인쇄 혁명"
+        ],
+        "status": "available",
+        "isHistorical": true
     },
     {
         "id": "wanggeon",

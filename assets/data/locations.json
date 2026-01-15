@@ -130,8 +130,8 @@
         "name": "Florence",
         "nameKorean": "피렌체",
         "description": "르네상스가 탄생한 예술의 도시. 메디치 가문의 후원으로 천재들이 모여들었다.",
-        "thumbnailAsset": "assets/images/locations/korea_bg.png",
-        "backgroundAsset": "assets/images/locations/korea_bg.png",
+        "thumbnailAsset": "assets/images/locations/florence_bg.png",
+        "backgroundAsset": "assets/images/locations/florence_bg.png",
         "latitude": 43.7696,
         "longitude": 11.2558,
         "displayYear": "AD 1420",
@@ -141,7 +141,8 @@
             "y": 0.4
         },
         "characterIds": [
-            "davinci"
+            "davinci",
+            "michelangelo"
         ],
         "eventIds": [
             "art_exhibition"
@@ -155,22 +156,89 @@
         "name": "Venice",
         "nameKorean": "베네치아",
         "description": "물 위의 도시이자 무역의 중심지. 동서양의 문물이 교차하는 곳.",
-        "thumbnailAsset": "assets/images/locations/korea_bg.png",
-        "backgroundAsset": "assets/images/locations/korea_bg.png",
+        "thumbnailAsset": "assets/images/locations/venice_bg.png",
+        "backgroundAsset": "assets/images/locations/venice_bg.png",
         "latitude": 45.4408,
         "longitude": 12.3155,
         "displayYear": "AD 1500",
-        "timelineOrder": 2,
+        "timelineOrder": 3,
         "position": {
             "x": 0.55,
             "y": 0.3
         },
-        "characterIds": [
-            "galileo"
-        ],
+        "characterIds": [],
         "eventIds": [
             "glass_making"
         ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "rome_vatican",
+        "eraId": "europe_renaissance",
+        "name": "Vatican & Rome",
+        "nameKorean": "바티칸 시국 (로마)",
+        "description": "교황청과 시스티나 성당. 미켈란젤로의 천지창조와 라파엘로의 걸작이 있는 곳.",
+        "thumbnailAsset": "assets/images/locations/rome_vatican_bg.png",
+        "backgroundAsset": "assets/images/locations/rome_vatican_bg.png",
+        "latitude": 41.9029,
+        "longitude": 12.4534,
+        "displayYear": "AD 1512",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.5,
+            "y": 0.5
+        },
+        "characterIds": [
+            "michelangelo"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "london_globe",
+        "eraId": "europe_renaissance",
+        "name": "Globe Theatre",
+        "nameKorean": "글로브 극장 (런던)",
+        "description": "셰익스피어의 희극이 초연된 엘리자베스 시대의 전설적 극장.",
+        "thumbnailAsset": "assets/images/locations/london_globe_bg.png",
+        "backgroundAsset": "assets/images/locations/london_globe_bg.png",
+        "latitude": 51.5081,
+        "longitude": -0.0972,
+        "displayYear": "AD 1599",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.2,
+            "y": 0.2
+        },
+        "characterIds": [
+            "shakespeare"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "mainz",
+        "eraId": "europe_renaissance",
+        "name": "Mainz",
+        "nameKorean": "마인츠 (독일)",
+        "description": "구텐베르크가 금속 활자를 발명한 인쇄 혁명의 시작점.",
+        "thumbnailAsset": "assets/images/locations/mainz_bg.png",
+        "backgroundAsset": "assets/images/locations/mainz_bg.png",
+        "latitude": 49.9929,
+        "longitude": 8.2473,
+        "displayYear": "AD 1450",
+        "timelineOrder": 5,
+        "position": {
+            "x": 0.35,
+            "y": 0.15
+        },
+        "characterIds": [
+            "gutenberg"
+        ],
+        "eventIds": [],
         "status": "available",
         "isHistorical": true
     },
