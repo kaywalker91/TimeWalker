@@ -4,10 +4,8 @@ import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/repositories/era_repository.dart';
-import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
-import 'package:time_walker/presentation/providers/user_progress_provider.dart';
 
 import '../fixtures/mock_data.dart';
 
@@ -42,7 +40,7 @@ void main() {
 
         // Act
         // Reading the provider triggers the constructor and _loadProgress
-        final sub = container.listen(userProgressProvider, (_, __) {});
+        final sub = container.listen(userProgressProvider, (_, _) {});
         
         // Wait for async initialization (simulated mock delay is 10ms)
         await Future.delayed(const Duration(milliseconds: 50));
@@ -66,7 +64,7 @@ void main() {
         await mockRepository.saveUserProgress(initialProgress);
 
         // Wait for initial load
-        final sub = container.listen(userProgressProvider, (_, __) {});
+        final sub = container.listen(userProgressProvider, (_, _) {});
         await Future.delayed(const Duration(milliseconds: 50));
 
         // Act - update progress
@@ -95,7 +93,7 @@ void main() {
         );
         await mockRepository.saveUserProgress(initialProgress);
 
-        final sub = container.listen(userProgressProvider, (_, __) {});
+        final sub = container.listen(userProgressProvider, (_, _) {});
         await Future.delayed(const Duration(milliseconds: 50));
 
         final notifier = container.read(userProgressProvider.notifier);
@@ -123,7 +121,7 @@ void main() {
         );
         await mockRepository.saveUserProgress(initialProgress);
 
-        final sub = container.listen(userProgressProvider, (_, __) {});
+        final sub = container.listen(userProgressProvider, (_, _) {});
         await Future.delayed(const Duration(milliseconds: 50));
 
         final notifier = container.read(userProgressProvider.notifier);

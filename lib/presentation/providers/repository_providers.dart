@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:time_walker/core/config/supabase_config.dart';
+import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
 import 'package:time_walker/data/repositories/mock_country_repository.dart';
 import 'package:time_walker/data/repositories/mock_era_repository.dart';
 import 'package:time_walker/data/repositories/mock_region_repository.dart';
@@ -9,6 +12,11 @@ import 'package:time_walker/data/repositories/hive_user_progress_repository.dart
 import 'package:time_walker/data/repositories/mock_encyclopedia_repository.dart';
 import 'package:time_walker/data/repositories/mock_quiz_repository.dart';
 import 'package:time_walker/data/repositories/mock_shop_repository.dart';
+import 'package:time_walker/data/repositories/supabase_character_repository.dart';
+import 'package:time_walker/data/repositories/supabase_dialogue_repository.dart';
+import 'package:time_walker/data/repositories/supabase_encyclopedia_repository.dart';
+import 'package:time_walker/data/repositories/supabase_location_repository.dart';
+import 'package:time_walker/data/repositories/supabase_quiz_repository.dart';
 import 'package:time_walker/domain/repositories/country_repository.dart';
 import 'package:time_walker/domain/repositories/era_repository.dart';
 import 'package:time_walker/domain/repositories/region_repository.dart';
@@ -54,18 +62,43 @@ final countryRepositoryProvider = Provider<CountryRepository>((ref) {
   return MockCountryRepository();
 });
 
+final supabaseContentLoaderProvider = Provider<SupabaseContentLoader>((ref) {
+  if (!SupabaseConfig.isConfigured) {
+    throw StateError('Supabase is not configured');
+  }
+  return SupabaseContentLoader(Supabase.instance.client);
+});
+
 /// Location Repository Provider
 final locationRepositoryProvider = Provider<LocationRepository>((ref) {
+  if (SupabaseConfig.isConfigured) {
+    return SupabaseLocationRepository(
+      Supabase.instance.client,
+      ref.read(supabaseContentLoaderProvider),
+    );
+  }
   return MockLocationRepository();
 });
 
 /// Character Repository Provider
 final characterRepositoryProvider = Provider<CharacterRepository>((ref) {
+  if (SupabaseConfig.isConfigured) {
+    return SupabaseCharacterRepository(
+      Supabase.instance.client,
+      ref.read(supabaseContentLoaderProvider),
+    );
+  }
   return MockCharacterRepository();
 });
 
 /// Dialogue Repository Provider
 final dialogueRepositoryProvider = Provider<DialogueRepository>((ref) {
+  if (SupabaseConfig.isConfigured) {
+    return SupabaseDialogueRepository(
+      Supabase.instance.client,
+      ref.read(supabaseContentLoaderProvider),
+    );
+  }
   return MockDialogueRepository();
 });
 
@@ -78,11 +111,23 @@ final userProgressRepositoryProvider = Provider<UserProgressRepository>((ref) {
 
 /// Encyclopedia Repository Provider
 final encyclopediaRepositoryProvider = Provider<EncyclopediaRepository>((ref) {
+  if (SupabaseConfig.isConfigured) {
+    return SupabaseEncyclopediaRepository(
+      Supabase.instance.client,
+      ref.read(supabaseContentLoaderProvider),
+    );
+  }
   return MockEncyclopediaRepository();
 });
 
 /// Quiz Repository Provider
 final quizRepositoryProvider = Provider<QuizRepository>((ref) {
+  if (SupabaseConfig.isConfigured) {
+    return SupabaseQuizRepository(
+      Supabase.instance.client,
+      ref.read(supabaseContentLoaderProvider),
+    );
+  }
   return MockQuizRepository();
 });
 

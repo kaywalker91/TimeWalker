@@ -42,6 +42,7 @@ dependencies:
   shimmer: ^3.0.0 # Loading effects
   flutter_staggered_animations: ^1.1.1
   simple_animations: ^5.2.0
+  supabase_flutter: ^2.6.0
 
   # Firebase (to be configured later)
   # firebase_core: ^2.27.0
@@ -82,7 +83,9 @@ flutter:
     - assets/images/characters/renaissance/
     - assets/images/characters/industrial/
     - assets/images/locations/
+    - assets/images/encyclopedia/
     - assets/images/ui/
+    - assets/icons/kingdoms/
     - assets/audio/
     - assets/audio/bgm/
     - assets/audio/sfx/

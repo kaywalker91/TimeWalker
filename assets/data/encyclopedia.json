@@ -123,6 +123,46 @@
     ]
   },
   {
+    "id": "fact_battle_of_ansi",
+    "type": "event",
+    "title": "Battle of Ansi",
+    "titleKorean": "안시성 전투",
+    "summary": "당나라 태종의 100만 대군을 물리친 고구려의 승리",
+    "content": "645년, 당 태종이 직접 이끄는 당나라 군대가 고구려를 침공했다. 연개소문의 지휘 하에 고구려는 강력하게 저항했고, 특히 안시성에서는 성주 양만춘이 88일간의 치열한 공성전 끝에 당나라 군대를 물리쳤다. 당 태종은 결국 철군했고, 다시는 고구려를 침범하지 말라는 유언을 남겼다고 한다.",
+    "thumbnailAsset": "assets/images/encyclopedia/battle_of_ansi.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "yang_manchun",
+      "yeon_gaesomun",
+      "ansi_fortress"
+    ],
+    "tags": [
+      "안시성",
+      "양만춘",
+      "당태종",
+      "고구려"
+    ]
+  },
+  {
+    "id": "fact_goguryeo_mural",
+    "type": "artifact",
+    "title": "Goguryeo Tomb Murals",
+    "titleKorean": "고구려 고분 벽화",
+    "summary": "고구려인의 삶과 정신 세계를 보여주는 예술의 결정체",
+    "content": "고구려 고분 벽화는 고구려 사람들의 생활 모습, 신앙, 우주관 등을 생생하게 보여주는 귀중한 문화 유산이다. 무용총의 '무용도', 각저총의 '씨름도' 등이 유명하며, 힘차고 역동적인 필치와 화려한 색채가 특징이다. 유네스코 세계문화유산으로 지정되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/goguryeo_mural.png",
+    "eraId": "korea_three_kingdoms",
+    "relatedEntryIds": [
+      "fact_gwanggaeto_conquest"
+    ],
+    "tags": [
+      "고구려",
+      "벽화",
+      "무용총",
+      "예술"
+    ]
+  },
+  {
     "id": "fact_baekje_apex",
     "type": "event",
     "title": "Baekje's Peak",
@@ -2357,11 +2397,409 @@
     "content": "1990년대 말 IMF 위기 속에서도 인터넷 벤처를 창업해 성공한 청년 사업가를 대표하는 가상의 인물. 테헤란밸리의 열정으로 대한민국을 세계 최고의 IT 강국으로 만든 수많은 개발자와 창업가들의 이야기를 담고 있다.",
     "thumbnailAsset": "assets/images/characters/contemporary/it_pioneer.png",
     "eraId": "korea_contemporary_3",
-    "relatedEntryIds": [],
+    "relatedEntryIds": [
+      "term_digital_korea",
+      "fact_imf_crisis"
+    ],
     "tags": [
       "인물",
       "한기술 (IT 혁신가)",
       "Contemporary"
+    ]
+  },
+  {
+    "id": "fact_88_olympics",
+    "type": "event",
+    "title": "1988 Seoul Olympics",
+    "titleKorean": "88 서울올림픽",
+    "summary": "대한민국을 세계에 알린 역사적 순간, 글로벌 코리아의 시작",
+    "content": "1988년 9월 17일부터 10월 2일까지 서울에서 개최된 제24회 하계 올림픽. 냉전 시대 동서진영 159개국 8,391명의 선수가 참가한 역대 최대 규모의 올림픽이었다. 6.25 전쟁의 폐허에서 35년 만에 세계적 스포츠 행사를 개최함으로써 대한민국의 경제 성장과 발전을 전 세계에 알렸다. '손에 손잡고(Hand in Hand)'는 화합의 상징이 되었으며, 올림픽 준비 과정에서 민주화가 진전되는 계기도 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/88_olympics.png",
+    "imageAsset": "assets/images/encyclopedia/88_olympics_detail.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "sohn_kee_chung",
+      "seoul_olympic_stadium"
+    ],
+    "tags": [
+      "88올림픽",
+      "서울올림픽",
+      "1988",
+      "스포츠"
+    ]
+  },
+  {
+    "id": "fact_imf_crisis",
+    "type": "event",
+    "title": "IMF Financial Crisis",
+    "titleKorean": "IMF 외환위기",
+    "summary": "1997년 경제위기와 금모으기 운동, 다시 일어선 대한민국",
+    "content": "1997년 12월, 외환 보유고 고갈로 대한민국은 IMF(국제통화기금)에 구제금융을 요청했다. 수많은 기업이 도산하고 실업률이 치솟는 '국가 부도' 위기 속에서 350만 명의 국민이 자발적으로 금 227톤을 모아 약 22억 달러를 마련하는 '금 모으기 운동'을 펼쳤다. 결혼반지, 돌반지까지 내놓은 이 국민적 단결력으로 한국은 예상보다 3년 빨리 구제금융을 상환했다. 이 위기는 구조조정과 벤처 붐을 일으키며 IT 강국으로의 전환점이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/imf_crisis.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "imf_survivor",
+      "fact_it_boom"
+    ],
+    "tags": [
+      "IMF",
+      "외환위기",
+      "1997",
+      "금모으기"
+    ]
+  },
+  {
+    "id": "fact_2002_worldcup",
+    "type": "event",
+    "title": "2002 FIFA World Cup Korea/Japan",
+    "titleKorean": "2002 한일 월드컵",
+    "summary": "아시아 최초 4강 신화, 붉은악마와 거리응원의 탄생",
+    "content": "2002년 5월 31일부터 6월 30일까지 대한민국과 일본에서 공동 개최된 FIFA 월드컵. 히딩크 감독이 이끈 대한민국 축구대표팀은 폴란드, 포르투갈을 격파하고 16강에서 이탈리아, 8강에서 스페인을 꺾고 아시아 최초로 4강에 진출했다. 700만 붉은악마의 광화문 거리응원은 세계를 놀라게 했고, '오~ 필승 코리아', '대~한민국' 응원 문화를 만들어냈다. 이 경험은 2002년 이후 한국인의 자긍심과 단결력을 상징하는 아이콘이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/2002_worldcup.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [],
+    "tags": [
+      "월드컵",
+      "붉은악마",
+      "히딩크",
+      "4강신화"
+    ]
+  },
+  {
+    "id": "fact_candlelight_revolution",
+    "type": "event",
+    "title": "2016-2017 Candlelight Protests",
+    "titleKorean": "2016 촛불혁명",
+    "summary": "평화로운 민주주의의 새로운 모델, 세계가 주목한 시민혁명",
+    "content": "2016년 10월부터 2017년 3월까지 대한민국 전역에서 펼쳐진 대규모 촛불집회. 연인원 1,700만 명이 참여했으며, 단 한 건의 폭력 사태 없이 평화롭게 진행되었다. 2017년 3월 10일 헌법재판소의 대통령 탄핵 인용 결정으로 헌정 질서에 따른 민주적 정권 교체를 이뤄냈다. 성숙한 시민의식과 질서정연한 평화 시위는 전 세계에서 '촛불혁명'이라 불리며 민주주의의 새로운 모델로 주목받았다.",
+    "thumbnailAsset": "assets/images/encyclopedia/candlelight.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "democracy_activist"
+    ],
+    "tags": [
+      "촛불혁명",
+      "민주주의",
+      "2016",
+      "시민혁명"
+    ]
+  },
+  {
+    "id": "fact_kwave_global",
+    "type": "event",
+    "title": "Korean Wave Goes Global",
+    "titleKorean": "한류 세계화",
+    "summary": "K-Pop, K-Drama, K-Movie가 세계를 사로잡다",
+    "content": "2000년대 초 아시아에서 시작된 한류(韓流, Korean Wave)는 2010년대를 거치며 전 세계로 확산되었다. 싸이의 '강남스타일'(2012)이 유튜브 최초 10억 뷰를 돌파하고, BTS가 빌보드 1위를 차지하며 K-Pop이 글로벌 메인스트림으로 자리잡았다. 넷플릭스를 통한 K-드라마('오징어 게임', '지금 우리 학교는')의 세계적 흥행과, '기생충'의 아카데미 4관왕은 한국 콘텐츠의 보편적 매력을 증명했다. 한류는 이제 한국의 대표 소프트파워가 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/kwave.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "artifact_gangnam_style",
+      "artifact_parasite_oscar"
+    ],
+    "tags": [
+      "한류",
+      "K-Pop",
+      "K-Drama",
+      "글로벌"
+    ]
+  },
+  {
+    "id": "term_hallyu",
+    "type": "term",
+    "title": "Hallyu (Korean Wave)",
+    "titleKorean": "한류",
+    "summary": "한국 대중문화의 세계적 확산을 지칭하는 용어",
+    "content": "한류(韓流)는 1990년대 후반 중국에서 처음 사용된 용어로, 한국 대중문화(K-Pop, K-Drama, K-Movie, K-Beauty, K-Food 등)가 해외에서 인기를 끄는 현상을 의미한다. 초기에는 드라마('겨울연가', '대장금')를 통해 아시아에서 시작되었으나, 2010년대 이후 SNS와 유튜브를 통해 전 세계로 확산되었다. BTS, 블랙핑크 등 K-Pop 아티스트와 봉준호 감독의 영화를 통해 한류는 세계적인 문화현상으로 자리잡았다.",
+    "thumbnailAsset": "assets/images/encyclopedia/hallyu.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global"
+    ],
+    "tags": [
+      "한류",
+      "용어",
+      "문화",
+      "소프트파워"
+    ]
+  },
+  {
+    "id": "term_digital_korea",
+    "type": "term",
+    "title": "Digital Korea - IT Powerhouse",
+    "titleKorean": "IT 강국 대한민국",
+    "summary": "초고속 인터넷, 스마트폰 보급률, e스포츠 세계 1위",
+    "content": "대한민국은 세계 최고 수준의 IT 인프라와 디지털 경쟁력을 갖춘 'IT 강국'이다. 1990년대 말 IMF 위기 이후 정부의 초고속 인터넷 인프라 투자와 벤처 붐이 맞물리며 급성장했다. 세계 최초 CDMA 상용화, 세계 최고 인터넷 보급률, 삼성·LG의 스마트폰과 반도체, 카카오·네이버 등 글로벌 IT 기업들이 탄생했다. e스포츠의 종주국으로도 인정받으며, 디지털 기술은 한국의 핵심 경쟁력이 되었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/digital_korea.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "it_pioneer",
+      "gangnam_teheran"
+    ],
+    "tags": [
+      "IT강국",
+      "디지털",
+      "인터넷",
+      "기술"
+    ]
+  },
+  {
+    "id": "term_unesco_korea",
+    "type": "term",
+    "title": "UNESCO Heritage of Korea",
+    "titleKorean": "유네스코 세계유산",
+    "summary": "세계가 인정한 한국의 문화·자연 유산",
+    "content": "대한민국은 풍부한 유네스코 등재 유산을 보유하고 있다. 세계문화유산으로는 석굴암·불국사, 종묘, 창덕궁, 수원화성, 고인돌, 조선왕릉, 한국의 역사마을(하회·양동), 산사, 서원 등이 있다. 세계기록유산으로는 훈민정음 해례본, 조선왕조실록, 직지심체요절, 동의보감 등이 있으며, 무형유산으로는 종묘제례악, 판소리, 강강술래, 아리랑, 김장 문화 등이 등재되어 있다.",
+    "thumbnailAsset": "assets/images/encyclopedia/unesco_korea.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "gyeongbokgung",
+      "suwon_hwaseong"
+    ],
+    "tags": [
+      "유네스코",
+      "세계유산",
+      "문화유산",
+      "무형유산"
+    ]
+  },
+  {
+    "id": "artifact_gangnam_style",
+    "type": "artifact",
+    "title": "Gangnam Style Phenomenon",
+    "titleKorean": "강남스타일 현상",
+    "summary": "유튜브 최초 10억 뷰, K-Pop 글로벌 대중화의 신호탄",
+    "content": "2012년 7월 싸이(PSY)가 발표한 '강남스타일'은 K-Pop 역사의 전환점이 된 곡이다. 중독성 있는 멜로디와 '말춤'으로 5개월 만에 유튜브 최초로 조회수 10억 회를 돌파했으며, 현재 40억 뷰를 넘어섰다. 빌보드 Hot 100 2위, 영국 차트 1위를 기록하며 K-Pop이 아시아를 넘어 전 세계 대중문화의 일부가 될 수 있음을 증명했다. 이 성공은 BTS, 블랙핑크 등 후세대 K-Pop 아티스트들의 글로벌 진출에 길을 열었다.",
+    "thumbnailAsset": "assets/images/encyclopedia/gangnam_style.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "강남스타일",
+      "싸이",
+      "유튜브",
+      "K-Pop"
+    ]
+  },
+  {
+    "id": "artifact_parasite_oscar",
+    "type": "artifact",
+    "title": "Parasite at the Oscars",
+    "titleKorean": "기생충 아카데미상",
+    "summary": "비영어권 영화 최초 아카데미 작품상, 한국 영화의 정점",
+    "content": "2020년 2월, 봉준호 감독의 '기생충(Parasite)'이 제92회 아카데미 시상식에서 작품상, 감독상, 각본상, 국제영화상 4관왕을 달성했다. 92년 오스카 역사상 비영어권 영화가 작품상을 받은 최초의 사례로, 한국 영화의 세계적 위상을 입증했다. 봉준호 감독은 수상 소감에서 마틴 스콜세지 감독의 말 '가장 개인적인 것이 가장 창의적인 것'을 인용하며, 한국적 이야기의 보편성을 역설했다. 이 수상은 K-Content의 글로벌 경쟁력을 상징하는 역사적 사건이다.",
+    "thumbnailAsset": "assets/images/encyclopedia/parasite_oscar.png",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "기생충",
+      "봉준호",
+      "아카데미",
+      "오스카"
+    ]
+  },
+  {
+    "id": "kim_yuna",
+    "type": "character",
+    "title": "Kim Yuna (Figure Skating Queen)",
+    "titleKorean": "김연아",
+    "summary": "2010년 밴쿠버 동계올림픽 피겨 스케이팅 금메달리스트, 대한민국 피겨의 전설",
+    "content": "대한민국이 낳은 세계 최고의 피겨 스케이터. 2010년 밴쿠버 동계올림픽에서 역대 최고점(228.56)으로 금메달을 획득하며 '피겨 여왕'으로 등극했다. 2014년 소치 올림픽 은메달, 세계선수권 2회 우승 등 화려한 기록을 보유하고 있다. 척박한 환경에서 홀로 세계 정상에 오른 그녀의 이야기는 수많은 어린이들에게 꿈을 심어주었다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/kim_yuna.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_88_olympics",
+      "sohn_kee_chung"
+    ],
+    "tags": [
+      "인물",
+      "김연아",
+      "피겨 스케이팅",
+      "올림픽"
+    ]
+  },
+  {
+    "id": "son_heungmin",
+    "type": "character",
+    "title": "Son Heung-min (Football Star)",
+    "titleKorean": "손흥민",
+    "summary": "EPL 득점왕, 아시아 선수 최초의 기록을 써 내려가는 세계적인 축구 스타",
+    "content": "대한민국이 배출한 세계적인 축구 선수. 토트넘 핫스퍼의 에이스로서 2021-22시즌 EPL 득점왕에 올라 아시아 선수 최초로 유럽 5대 리그 득점왕을 기록했다. 손흥민과 케인의 '손케 콤비'는 EPL 역사상 최다 합작골 기록을 보유하고 있다. 항상 미소 짓는 모습과 팬들에 대한 친절함으로 '좋은 아들'이라는 별명을 얻었다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/son_heungmin.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_2002_worldcup"
+    ],
+    "tags": [
+      "인물",
+      "손흥민",
+      "축구",
+      "EPL"
+    ]
+  },
+  {
+    "id": "bong_joonho",
+    "type": "character",
+    "title": "Bong Joon-ho (Film Director)",
+    "titleKorean": "봉준호",
+    "summary": "'기생충'으로 비영어권 영화 최초 아카데미 작품상을 수상한 세계적인 영화감독",
+    "content": "대한민국을 대표하는 세계적인 영화감독. '살인의 추억', '괴물', '마더', '설국열차', '옥자' 등 장르를 넘나드는 걸작들을 만들어왔다. 2019년 칸 영화제에서 '기생충'으로 황금종려상을, 2020년 아카데미 시상식에서 작품상·감독상·각본상·국제영화상 4관왕을 달성하며 한국 영화의 세계적 위상을 입증했다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/bong_joonho.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "artifact_parasite_oscar",
+      "fact_kwave_global"
+    ],
+    "tags": [
+      "인물",
+      "봉준호",
+      "영화감독",
+      "아카데미"
+    ]
+  },
+  {
+    "id": "red_devils_supporter",
+    "type": "character",
+    "title": "Red Devils Supporter",
+    "titleKorean": "붉은악마",
+    "summary": "2002 월드컵 거리응원 문화를 만들어낸 700만 붉은악마의 이야기",
+    "content": "2002년 한일 월드컵 당시 광화문과 시청 앞 광장을 붉게 물들인 700만 시민을 대표하는 가상의 인물. '오~ 필승 코리아', '대~한민국'을 외치며 태극전사들을 응원했던 열정은 전 세계를 놀라게 했다. 거리응원 문화는 한국인의 단결력과 역동성을 보여주는 상징이 되었다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/red_devils.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_2002_worldcup"
+    ],
+    "tags": [
+      "인물",
+      "붉은악마",
+      "월드컵",
+      "응원문화"
+    ]
+  },
+  {
+    "id": "kpop_trainee",
+    "type": "character",
+    "title": "K-Pop Trainee",
+    "titleKorean": "K-Pop 연습생",
+    "summary": "춤과 노래로 세계를 감동시키는 K-Pop 아티스트를 꿈꾸는 연습생들의 이야기",
+    "content": "K-Pop의 세계적 성공 뒤에는 수년간의 혹독한 연습과 경쟁을 견딘 연습생들이 있다. 새벽까지 춤을 연습하고, 보컬 트레이닝을 받으며, 외국어를 공부하는 그들의 일상은 쉽지 않다. 하지만 BTS, 블랙핑크처럼 세계 무대에서 빛나는 선배들을 보며 꿈을 포기하지 않는다. 대한민국의 치열한 K-Pop 시스템 속에서 자신만의 빛을 찾아가는 수많은 청춘들을 대표하는 가상의 인물이다.",
+    "thumbnailAsset": "assets/images/characters/contemporary/kpop_trainee.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "인물",
+      "K-Pop",
+      "연습생",
+      "한류"
+    ]
+  },
+  {
+    "id": "sangam_worldcup_stadium",
+    "type": "location",
+    "title": "Seoul World Cup Stadium",
+    "titleKorean": "상암 월드컵경기장",
+    "summary": "2002 한일 월드컵 4강 신화의 현장, 700만 붉은악마의 열정이 담긴 곳",
+    "content": "2002년 한일 월드컵을 위해 건설된 서울의 대표 축구 전용 경기장. 약 66,000석 규모로, 2002년 월드컵 당시 대한민국 대 미국 조별예선, 대한민국 대 스페인 8강전 등 역사적인 경기가 열렸다. 경기장 주변에서 펼쳐진 700만 붉은악마의 거리응원은 전 세계를 놀라게 했고, '대~한민국' 응원 문화의 탄생지가 되었다. 현재는 FC서울의 홈구장으로 사용되고 있으며, 상암 디지털미디어시티(DMC)의 랜드마크이다.",
+    "thumbnailAsset": "assets/images/locations/sangam_worldcup_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_2002_worldcup",
+      "red_devils_supporter"
+    ],
+    "tags": [
+      "장소",
+      "월드컵",
+      "상암",
+      "축구"
+    ]
+  },
+  {
+    "id": "hongdae_street",
+    "type": "location",
+    "title": "Hongdae Street",
+    "titleKorean": "홍대 거리",
+    "summary": "K-인디 문화의 발상지, 젊은 예술가들의 자유로운 열정이 넘치는 거리",
+    "content": "홍익대학교 앞 거리를 중심으로 형성된 서울의 대표적인 젊은이들의 문화지구. 1990년대부터 인디 밴드와 클럽 문화가 꽃피며 한국 인디 음악의 메카로 자리잡았다. 길거리 공연, 프리마켓, 독립 갤러리, 독특한 카페와 술집들이 모여 자유롭고 창의적인 분위기를 형성한다. BTS가 데뷔 전 거리 버스킹을 했던 곳이기도 하며, 지금도 수많은 K-Pop 지망생들이 꿈을 키우는 곳이다.",
+    "thumbnailAsset": "assets/images/locations/hongdae_street_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "kpop_trainee",
+      "fact_kwave_global"
+    ],
+    "tags": [
+      "장소",
+      "홍대",
+      "인디문화",
+      "청년문화"
+    ]
+  },
+  {
+    "id": "hybe_building",
+    "type": "location",
+    "title": "HYBE Entertainment Building",
+    "titleKorean": "하이브 사옥",
+    "summary": "BTS의 본거지, K-Pop 세계화를 이끈 글로벌 엔터테인먼트의 상징",
+    "content": "서울 용산구에 위치한 HYBE(구 빅히트 엔터테인먼트)의 본사 건물. 빌보드 1위를 기록한 BTS, 세븐틴, 르세라핌 등 글로벌 K-Pop 아티스트들이 소속된 세계적인 엔터테인먼트 기업의 심장이다. 연습실, 녹음 스튜디오, 콘텐츠 제작 시설을 갖추고 있으며, 'HYBE INSIGHT' 전시관을 통해 팬들에게 K-Pop의 역사와 아티스트들의 이야기를 공유한다. K-Pop 팬들의 성지순례지로 꼽히는 곳이다.",
+    "thumbnailAsset": "assets/images/locations/hybe_building_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "kpop_trainee",
+      "fact_kwave_global",
+      "term_hallyu"
+    ],
+    "tags": [
+      "장소",
+      "하이브",
+      "BTS",
+      "K-Pop"
+    ]
+  },
+  {
+    "id": "gwanghwamun_candlelight",
+    "type": "location",
+    "title": "Gwanghwamun Candlelight Square",
+    "titleKorean": "광화문 촛불광장",
+    "summary": "2016-2017 촛불혁명의 현장, 평화로운 민주주의의 새로운 역사를 쓴 곳",
+    "content": "서울 광화문광장은 2016년 10월부터 2017년 3월까지 대한민국 촛불혁명의 중심지였다. 매주 토요일 수십만에서 수백만의 시민들이 촛불을 들고 평화롭게 모여 민주주의를 외쳤다. 단 한 건의 폭력 사태 없이 헌법재판소의 탄핵 결정까지 이끌어낸 이 현장은 성숙한 시민의식의 상징이 되었다. 세종대왕 동상과 이순신 장군 동상이 내려다보는 이곳에서, 대한민국 국민들은 민주주의의 새로운 역사를 썼다.",
+    "thumbnailAsset": "assets/images/locations/gwanghwamun_candlelight_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "fact_candlelight_revolution",
+      "democracy_activist"
+    ],
+    "tags": [
+      "장소",
+      "광화문",
+      "촛불혁명",
+      "민주주의"
+    ]
+  },
+  {
+    "id": "coex_convention",
+    "type": "location",
+    "title": "COEX Convention Center",
+    "titleKorean": "코엑스 컨벤션센터",
+    "summary": "대한민국 MICE 산업의 중심지, 세계 각국의 기업과 문화가 만나는 곳",
+    "content": "서울 강남구 삼성역에 위치한 대한민국 최대의 컨벤션센터. 지하 쇼핑몰 '코엑스몰', 아쿠아리움, 별마당 도서관 등이 함께 있어 복합 문화 공간으로 기능한다. 국제 전시회, 컨퍼런스, K-Pop 시상식 등 다양한 대형 이벤트가 열리는 곳으로, 글로벌 비즈니스와 한류 문화가 만나는 장소이다. 인근에는 SM타운, 현대백화점 등이 있어 서울의 대표적인 랜드마크 지역을 형성하고 있다.",
+    "thumbnailAsset": "assets/images/locations/coex_convention_bg.jpg",
+    "eraId": "korea_contemporary_3",
+    "relatedEntryIds": [
+      "it_pioneer",
+      "term_digital_korea"
+    ],
+    "tags": [
+      "장소",
+      "코엑스",
+      "컨벤션",
+      "MICE"
     ]
   },
   {
@@ -2490,6 +2928,739 @@
       "인물",
       "IMF 극복 기업가",
       "Contemporary"
+    ]
+  },
+  {
+    "id": "enc_jangbogo",
+    "type": "character",
+    "title": "Jang Bogo",
+    "titleKorean": "장보고",
+    "summary": "동아시아 해상 무역을 장악한 '바다의 왕'",
+    "content": "장보고(?~846)는 신라 말기의 무장이자 상인으로, 어린 시절 당나라로 건너가 무령군 소자장으로 활약했다. 당시 해적들에게 잡혀 노예로 팔려가는 신라인들을 목격하고 분개하여 귀국 후 흥덕왕에게 건의하여 완도에 청해진을 설치했다. 1만여 명의 병력을 지휘하며 해적을 소탕하고 당, 신라, 일본을 잇는 동아시아 해상 무역권을 장악하여 '해상왕'으로 불렸다. 신무왕 옹립에 공을 세웠으나, 딸을 왕비로 삼으려던 시도가 좌절되면서 염장에게 암살당하는 비극적 최후를 맞았다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/jangbogo.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_cheonghaejin"
+    ],
+    "tags": [
+      "인물",
+      "장보고",
+      "해상왕",
+      "청해진",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_wonhyo",
+    "type": "character",
+    "title": "Wonhyo",
+    "titleKorean": "원효",
+    "summary": "불교 대중화의 선구자이자 화쟁사상의 창시자",
+    "content": "원효(617~686)는 신라의 승려로, 젊은 시절 의상과 함께 당나라 유학을 시도했다. 도중에 해골에 고인 물을 마시고 '모든 것은 마음먹기에 달렸다(一切唯心造)'는 깨달음을 얻어 유학을 포기하고 돌아왔다. 이후 요석공주와의 사이에서 설총을 낳았으며, 오히려 속세에 들어가 거리의 백성들에게 염불을 가르치며 불교 대중화에 힘썼다. '화쟁(和諍)' 사상으로 종파 간의 갈등을 화해시키는 통합적 불교관을 정립했다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/wonhyo.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_hwajeng",
+      "enc_bulguksa"
+    ],
+    "tags": [
+      "인물",
+      "원효",
+      "화쟁",
+      "일체유심조",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_choi_chiwon",
+    "type": "character",
+    "title": "Choi Chi-won",
+    "titleKorean": "최치원",
+    "summary": "12세에 당나라 유학, 동아시아에 이름을 떨친 문장가",
+    "content": "최치원(857~?)은 신라 말기의 문인이자 학자로, 12세에 당나라로 유학을 떠났다. '10년 안에 과거에 급제하지 못하면 내 아들이 아니다'라는 아버지의 엄명을 가슴에 새기고, 18세에 빈공과에 장원 급제했다. 황소의 난 당시 '토황소격문'을 써서 반란군의 사기를 꺾었다는 일화로 유명하다. 귀국 후 진성여왕에게 시무10조를 올렸으나 받아들여지지 않자, 해인사에 은거하여 여생을 보냈다. 신라 문학의 최고봉으로 평가받는다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/choi_chiwon.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "최치원",
+      "고운",
+      "토황소격문",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_dae_joyeong",
+    "type": "character",
+    "title": "Dae Jo-yeong",
+    "titleKorean": "대조영",
+    "summary": "고구려 유민을 이끌고 발해를 건국한 영웅",
+    "content": "대조영(?~719)은 고구려 장군 출신으로, 668년 고구려 멸망 후 당나라에 의해 영주로 강제 이주되었다. 696년 거란족의 이진충 반란을 틈타 고구려 유민과 말갈족을 이끌고 동쪽으로 이동, 천문령 전투에서 당군을 격파하고 698년 동모산에서 발해를 건국했다. 처음에는 진국(震國)이라 했다가 713년 당나라로부터 발해군왕에 책봉되었다. 고구려의 정신을 계승한 발해를 강국으로 성장시키는 기반을 닦았다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/dae_joyeong.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_balhae_founding",
+      "enc_dae_muye"
+    ],
+    "tags": [
+      "인물",
+      "대조영",
+      "발해",
+      "고구려",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_dae_muye",
+    "type": "character",
+    "title": "King Mu of Balhae",
+    "titleKorean": "대무예(무왕)",
+    "summary": "발해를 '해동성국'으로 키운 정복 군주",
+    "content": "대무예(?~737)는 대조영의 아들로, 발해 제2대 왕이다. 재위 중 활발한 정복 활동을 펼쳐 영토를 크게 확장했다. 732년에는 장문휴로 하여금 수군을 이끌고 당나라 등주(산동성)를 기습 공격하게 하여, 발해의 군사력을 과시했다. 이는 고구려 이후 처음으로 중국 본토를 공격한 사건으로, 발해가 동아시아의 강국임을 선언한 것이었다. '인안(仁安)'이란 독자적인 연호를 사용하여 자주성을 드러냈다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/dae_muye.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_dae_joyeong"
+    ],
+    "tags": [
+      "인물",
+      "무왕",
+      "발해",
+      "등주공격",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_cheonghaejin",
+    "type": "location",
+    "title": "Cheonghaejin Garrison",
+    "titleKorean": "청해진",
+    "summary": "장보고가 설치한 동아시아 최대의 해상 무역 기지",
+    "content": "청해진은 828년 장보고가 완도에 설치한 해상 군사 기지이자 무역 거점이다. 당시 해적에게 잡혀 노예로 팔려가는 신라인들을 보호하고, 동아시아 해상 무역권을 장악하기 위해 설치되었다. 1만여 명의 병력을 보유하고 당, 신라, 일본을 잇는 해상 무역로를 지배하며, 현대적 의미의 무역 허브 역할을 수행했다. 장보고 사후 851년 폐지되었으나, 해양 강국의 가능성을 보여준 역사적 유산으로 평가받는다.",
+    "thumbnailAsset": "assets/images/locations/cheonghaejin_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_jangbogo"
+    ],
+    "tags": [
+      "장소",
+      "청해진",
+      "장보고",
+      "해상무역",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_bulguksa",
+    "type": "location",
+    "title": "Bulguksa Temple",
+    "titleKorean": "불국사",
+    "summary": "불교의 이상향을 지상에 구현한 통일신라 건축의 정수",
+    "content": "불국사는 751년 경덕왕 때 김대성이 창건한 사찰로, 불교적 이상 세계인 불국토(佛國土)를 지상에 구현하고자 했다. 석가탑과 다보탑이 대웅전 앞에 나란히 서 있어 과거불과 현재불을 상징하며, 청운교·백운교, 연화교·칠보교 등의 석조물은 뛰어난 예술성을 자랑한다. 1995년 석굴암과 함께 유네스코 세계문화유산에 등재되었다. 통일신라 불교 미술의 최고봉으로, 신라인의 신앙심과 예술적 역량을 보여준다.",
+    "thumbnailAsset": "assets/images/locations/bulguksa_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_seokguram"
+    ],
+    "tags": [
+      "장소",
+      "불국사",
+      "경주",
+      "세계문화유산",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_seokguram",
+    "type": "location",
+    "title": "Seokguram Grotto",
+    "titleKorean": "석굴암",
+    "summary": "토함산 정상에 자리한 신라 석굴 건축의 걸작",
+    "content": "석굴암은 751년 김대성이 불국사와 함께 창건한 인공 석굴 사원이다. 자연 석굴이 없는 한반도에서 화강암을 쌓아 석굴을 인공적으로 조성한 것은 세계적으로 유례가 없다. 본존불상은 높이 3.5m의 석가여래좌상으로, 온화하면서도 위엄 있는 표정과 완벽한 균형미를 자랑한다. 천장의 돔 구조, 과학적인 통풍 시스템 등 당시 신라의 높은 과학 기술 수준을 보여준다. 1995년 유네스코 세계문화유산에 등재되었다.",
+    "thumbnailAsset": "assets/images/locations/seokguram_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_bulguksa"
+    ],
+    "tags": [
+      "장소",
+      "석굴암",
+      "경주",
+      "세계문화유산",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_balhae_founding",
+    "type": "event",
+    "title": "Founding of Balhae",
+    "titleKorean": "발해 건국",
+    "summary": "고구려 유민이 세운 '해동성국', 한반도 역사의 북방 계승",
+    "content": "698년, 대조영은 고구려 유민과 말갈족을 이끌고 동모산(지린성)에서 발해를 건국했다. 고구려 멸망 30년 만에 그 영토와 민족의 일부를 이어받은 발해는 '고려(高麗)'라는 국호를 사용하기도 했다. 전성기인 9세기에는 만주와 연해주에 걸친 광대한 영토를 지배하며, 중국에서 '해동성국(海東盛國)'이라 불렸다. 926년 거란에 의해 멸망했으나, 역사적으로 고구려를 계승한 국가로 평가되어 한국사의 일부로 인정된다.",
+    "thumbnailAsset": "assets/images/locations/sanggyeong_bg.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_dae_joyeong",
+      "enc_dae_muye"
+    ],
+    "tags": [
+      "사건",
+      "발해건국",
+      "대조영",
+      "해동성국",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_hwajeng",
+    "type": "term",
+    "title": "Hwajeng (Harmonizing Disputes)",
+    "titleKorean": "화쟁사상",
+    "summary": "원효가 제창한 불교 통합 사상, 갈등을 넘어 화합으로",
+    "content": "화쟁(和諍)은 원효가 주창한 불교 사상으로, '다툼을 화해시킨다'는 뜻이다. 당시 불교계는 다양한 종파가 서로 자신의 교리만이 옳다고 주장하며 갈등했다. 원효는 어느 한 종파의 입장에 치우치지 않고, 각 종파의 주장이 모두 진리의 일면을 담고 있다고 보았다. 이러한 화쟁 사상은 대립과 갈등을 넘어 포용과 통합을 추구하는 것으로, 오늘날에도 갈등 해결의 지혜로 주목받고 있다.",
+    "thumbnailAsset": "assets/images/characters/unified_silla/wonhyo.png",
+    "eraId": "korea_unified_silla",
+    "relatedEntryIds": [
+      "enc_wonhyo"
+    ],
+    "tags": [
+      "용어",
+      "화쟁",
+      "원효",
+      "불교",
+      "남북국시대"
+    ]
+  },
+  {
+    "id": "enc_kim_gu",
+    "type": "character",
+    "title": "Kim Gu",
+    "titleKorean": "김구",
+    "summary": "대한민국 임시정부를 이끈 민족의 지도자",
+    "content": "김구(1876~1949)는 호가 백범(白凡)으로, 동학농민운동에 참여하고 의병 활동을 했다. 1919년 상해 임시정부에 합류하여 경무국장, 내무총장, 국무령을 거쳐 주석이 되었다. 윤봉길, 이봉창 의거를 주도하고 광복군을 조직해 독립운동을 지휘했다. 해방 후 남북 분단에 반대하며 통일정부 수립을 위해 노력했으나, 1949년 안두희에게 암살당했다. '나의 소원'에서 밝힌 '문화강국'의 비전은 오늘날에도 국민에게 영감을 주고 있다.",
+    "thumbnailAsset": "assets/images/characters/modern/kim_gu.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_shanghai_provisional"
+    ],
+    "tags": [
+      "인물",
+      "김구",
+      "백범",
+      "임시정부",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_ahn_changho",
+    "type": "character",
+    "title": "Ahn Chang-ho",
+    "titleKorean": "안창호",
+    "summary": "민족의 실력을 길러 독립을 이루고자 한 교육자",
+    "content": "안창호(1878~1938)는 호가 도산(島山)으로, 독립운동가이자 교육자다. 미국으로 건너가 대한인국민회를 조직하고, 귀국 후 신민회를 결성해 민족의 실력 양성 운동을 펼쳤다. 1913년 흥사단을 창립해 '무실역행(務實力行, 참되게 행하라)'을 강조하며 민족 개조론을 주창했다. 여러 차례 투옥되어 옥중에서 건강이 악화되어 순국했다. 그의 '힘을 기르자' 정신은 대한민국 발전의 정신적 토대가 되었다.",
+    "thumbnailAsset": "assets/images/characters/modern/ahn_changho.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "안창호",
+      "도산",
+      "흥사단",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_march_first",
+    "type": "event",
+    "title": "March First Movement",
+    "titleKorean": "3.1 운동",
+    "summary": "1919년 온 민족이 하나 되어 '대한독립만세'를 외친 날",
+    "content": "1919년 3월 1일, 탑골공원에서 민족대표 33인의 독립선언서가 낭독되고, 전국에서 '대한독립만세'가 울려 퍼졌다. 학생, 농민, 노동자, 상인 등 모든 계층이 참여한 거족적 비폭력 저항 운동이었다. 일제의 무력 진압으로 수천 명이 희생되었으나, 이 운동은 대한민국 임시정부 수립의 계기가 되었고, 중국의 5.4 운동, 인도의 비폭력 운동 등 세계 약소민족 독립운동에 큰 영향을 미쳤다.",
+    "thumbnailAsset": "assets/images/locations/tapgol_park_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_shanghai_provisional"
+    ],
+    "tags": [
+      "사건",
+      "3.1운동",
+      "만세운동",
+      "독립선언",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_shanghai_provisional",
+    "type": "location",
+    "title": "Shanghai Provisional Government",
+    "titleKorean": "대한민국 임시정부",
+    "summary": "망국의 설움 속에서 세운 대한민국 정부의 뿌리",
+    "content": "1919년 4월 11일, 3.1운동 직후 중국 상해에서 대한민국 임시정부가 수립되었다. 이는 대한민국 헌법 전문에도 명시된 우리나라 정통성의 근거다. 이승만을 초대 대통령으로 추대하고, 민주공화정 헌법을 제정했다. 일제의 탄압을 피해 항저우, 충칭 등으로 이동하며 활동을 이어갔고, 김구 주석 아래 광복군을 조직해 무장 독립운동을 전개했다. 27년간 망명정부로서 민족의 독립 의지를 지켰다.",
+    "thumbnailAsset": "assets/images/locations/shanghai_provisional_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_kim_gu",
+      "enc_march_first"
+    ],
+    "tags": [
+      "장소",
+      "임시정부",
+      "상해",
+      "대한민국",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_liberation_day",
+    "type": "event",
+    "title": "Liberation Day",
+    "titleKorean": "광복절 (1945년 8월 15일)",
+    "summary": "35년 만에 되찾은 우리나라의 자유",
+    "content": "1945년 8월 15일, 일본이 연합국에 무조건 항복하면서 한반도는 35년간의 일제 식민지배에서 해방되었다. '광복(光復)'은 '빛을 되찾다'라는 뜻으로, 잃어버린 나라를 되찾았다는 의미를 담고 있다. 전국에서 만세의 함성이 터져 나왔고, 해외에서 독립운동을 하던 인사들도 속속 귀국했다. 그러나 곧이어 미소 양국에 의한 38선 분단이라는 새로운 비극이 시작되었다.",
+    "thumbnailAsset": "assets/images/eras/modern.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_line_38"
+    ],
+    "tags": [
+      "사건",
+      "광복절",
+      "8.15",
+      "해방",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_line_38",
+    "type": "term",
+    "title": "38th Parallel",
+    "titleKorean": "38선",
+    "summary": "한반도를 둘로 가른 분단의 선",
+    "content": "38선은 북위 38도선을 기준으로 한반도를 남북으로 나누는 가상의 경계선이다. 1945년 광복 직후, 미국과 소련이 일본군 무장해제를 명목으로 이 선을 기준으로 남북을 각각 점령했다. 이는 임시적인 군사 분계선에 불과했으나, 냉전의 격화로 고착되어 1948년 남북한에 각각 별도의 정부가 수립되는 분단의 비극을 낳았다. 6.25 전쟁 이후 휴전선(DMZ)으로 대체되었다.",
+    "thumbnailAsset": "assets/images/locations/line_38_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [
+      "enc_liberation_day"
+    ],
+    "tags": [
+      "용어",
+      "38선",
+      "분단",
+      "휴전선",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_seodaemun_prison",
+    "type": "location",
+    "title": "Seodaemun Prison",
+    "titleKorean": "서대문형무소",
+    "summary": "독립운동가들의 피와 눈물이 서린 민족의 성지",
+    "content": "서대문형무소는 1908년 일제가 '경성감옥'이라는 이름으로 설립한 감옥이다. 일제강점기 수많은 독립운동가들이 이곳에 투옥되어 고문을 받고 순국했다. 유관순 열사도 이곳에서 옥중 만세운동을 벌이다 순국했다. 해방 후에도 민주화 운동가들이 수감되는 등 한국 근현대사의 아픈 역사를 간직한 곳이다. 1987년 폐쇄 후 '서대문형무소역사관'으로 조성되어 역사의 교훈을 전하고 있다.",
+    "thumbnailAsset": "assets/images/locations/seodaemun_prison_bg.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "장소",
+      "서대문형무소",
+      "독립운동",
+      "유관순",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_yeo_unhyeong",
+    "type": "character",
+    "title": "Yeo Un-hyeong",
+    "titleKorean": "여운형",
+    "summary": "좌우합작으로 통일정부를 이루고자 한 정치인",
+    "content": "여운형(1886~1947)은 호가 몽양(夢陽)으로, 독립운동가이자 정치인이다. 상해 임시정부에서 활동하고, 1919년 도쿄에서 열린 신한청년당대회에서 독립을 선언했다. 해방 직후 건국준비위원회를 조직하여 좌우합작 통일정부 수립을 위해 노력했으나, 남한 단독정부 수립에 반대하며 좌우합작운동을 벌이다 1947년 극우파 청년에게 암살당했다. 그의 중도 노선은 분단 극복의 가능성을 상징한다.",
+    "thumbnailAsset": "assets/images/characters/modern/yeo_unhyeong.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "여운형",
+      "몽양",
+      "건준",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_syngman_rhee",
+    "type": "character",
+    "title": "Syngman Rhee",
+    "titleKorean": "이승만",
+    "summary": "대한민국의 초대 대통령",
+    "content": "이승만(1875~1965)은 조선 왕족의 후손으로, 독립협회 활동 중 투옥된 후 미국으로 건너가 외교 독립운동을 펼쳤다. 1919년 임시정부 초대 대통령에 추대되었고, 1948년 대한민국 정부 수립과 함께 초대 대통령이 되었다. 반공 정책과 한미동맹을 강화했으나, 장기 집권과 부정선거로 1960년 4.19 혁명이 일어나 하야했다. 그의 공과 과에 대해서는 오늘날에도 역사적 평가가 엇갈린다.",
+    "thumbnailAsset": "assets/images/characters/modern/syngman_rhee.png",
+    "eraId": "korea_modern",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "이승만",
+      "대통령",
+      "건국",
+      "근현대"
+    ]
+  },
+  {
+    "id": "enc_manwoldae",
+    "type": "location",
+    "title": "Manwoldae Palace",
+    "titleKorean": "만월대",
+    "summary": "고려 500년 왕조의 법궁이 있던 곳",
+    "content": "만월대(滿月臺)는 고려 태조 왕건이 919년 개경(지금의 개성)에 지은 법궁 터를 말한다. '보름달처럼 가득 찬 터'라는 뜻으로, 고려 왕조의 정치와 문화의 중심이었다. 궁궐은 1361년 홍건적의 침입으로 불탔으나, 그 터는 고려 문화의 흔적을 간직한 세계문화유산으로 남아 있다. 지금은 북한 개성시에 위치하며, 남북 공동 발굴이 진행되기도 했다.",
+    "thumbnailAsset": "assets/images/locations/manwoldae_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_wanggeon"
+    ],
+    "tags": [
+      "장소",
+      "만월대",
+      "개경",
+      "개성",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_haeinsa",
+    "type": "location",
+    "title": "Haeinsa Temple",
+    "titleKorean": "해인사와 팔만대장경",
+    "summary": "세계 기록유산 팔만대장경이 보관된 천년 고찰",
+    "content": "해인사(海印寺)는 경남 합천 가야산에 위치한 사찰로, 802년에 창건되었다. 고려 시대에 만들어진 8만여 장의 대장경 목판(팔만대장경)이 보관되어 있어 유명하다. 대장경판은 몽골 침략 시기에 부처님의 힘으로 나라를 지키고자 만들어졌으며, 오자나 탈자가 거의 없는 놀라운 정밀함을 자랑한다. 해인사 장경판전은 유네스코 세계문화유산이자 세계기록유산으로 등재되어 있다.",
+    "thumbnailAsset": "assets/images/locations/haeinsa_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_tripitaka"
+    ],
+    "tags": [
+      "장소",
+      "해인사",
+      "팔만대장경",
+      "가야산",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_tripitaka",
+    "type": "term",
+    "title": "Tripitaka Koreana",
+    "titleKorean": "팔만대장경",
+    "summary": "세계에서 가장 완벽한 불교 경전 목판",
+    "content": "팔만대장경(八萬大藏經)은 고려 시대에 만들어진 약 81,258장의 대장경 목판이다. 1236년부터 1251년까지 무려 16년간 몽골 침략에 맞서 부처님의 가호를 빌며 제작되었다. 글자 하나하나를 새기기 전 세 번 절했다 하여 '일자삼배(一字三拜)'라 불리며, 오자나 탈자가 거의 없어 세계 목판 인쇄술의 정수로 꼽힌다. 유네스코 세계기록유산으로 등재되어 있다.",
+    "thumbnailAsset": "assets/images/locations/haeinsa_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_haeinsa"
+    ],
+    "tags": [
+      "용어",
+      "팔만대장경",
+      "불교",
+      "목판",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_ganghwa_resistance",
+    "type": "event",
+    "title": "Ganghwa Island Resistance",
+    "titleKorean": "강화도 천도와 몽골 항쟁",
+    "summary": "39년간 섬에서 몽골에 맞선 고려",
+    "content": "1231년 몽골이 고려를 침략하자, 고려 조정은 1232년 강화도로 수도를 옮겼다. 강화도는 바다로 둘러싸여 기마민족 몽골군이 접근하기 어려웠다. 이후 39년간 고려는 강화도에서 대몽 항쟁을 이어가며 팔만대장경을 제작하고, 삼별초가 결사 항전했다. 비록 1270년 결국 개경으로 환도했지만, 고려의 끈질긴 저항은 유례를 찾기 어려운 것이었다.",
+    "thumbnailAsset": "assets/images/locations/ganghwa_island_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_sambyeolcho"
+    ],
+    "tags": [
+      "사건",
+      "강화도",
+      "몽골",
+      "항쟁",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_sambyeolcho",
+    "type": "event",
+    "title": "Sambyeolcho Resistance",
+    "titleKorean": "삼별초의 항쟁",
+    "summary": "몽골에 끝까지 맞선 고려 무인들의 마지막 저항",
+    "content": "삼별초(三別抄)는 고려 후기 최씨 무신정권의 사병 조직에서 출발해 국가 군대가 된 정예 부대다. 1270년 고려 조정이 몽골과 화친을 맺고 개경으로 환도하자, 삼별초는 이에 반발해 배중손의 지휘 아래 진도로 내려가 항쟁을 이어갔다. 진도가 함락된 후에는 제주도로 옮겨 끝까지 싸웠다. 비록 1273년 전멸했지만, 그들의 항쟁정신은 후대에 큰 귀감이 되었다.",
+    "thumbnailAsset": "assets/images/locations/sambyeolcho_jindo_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_ganghwa_resistance"
+    ],
+    "tags": [
+      "사건",
+      "삼별초",
+      "항쟁",
+      "진도",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_goryeo_celadon",
+    "type": "term",
+    "title": "Goryeo Celadon",
+    "titleKorean": "고려청자",
+    "summary": "세계가 감탄한 고려의 비색(翡色) 도자기",
+    "content": "고려청자는 고려 시대에 발전한 청록색 도자기로, '비색(翡色)'이라 불리는 독특한 푸른빛으로 유명하다. 특히 상감청자(象嵌靑磁)는 도자기 표면에 무늬를 파고 백토나 자토를 메워 장식하는 고려 고유의 기법이다. 송나라 사신도 '고려의 도자기는 천하제일'이라 칭찬했을 정도로 국제적 명성을 얻었다. 오늘날에도 국보급 문화재로 사랑받고 있다.",
+    "thumbnailAsset": "assets/images/locations/gaegyeong_market_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [],
+    "tags": [
+      "용어",
+      "고려청자",
+      "도자기",
+      "상감",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_wanggeon",
+    "type": "character",
+    "title": "Wang Geon (King Taejo)",
+    "titleKorean": "왕건 (태조)",
+    "summary": "후삼국을 통일하고 고려를 세운 건국시조",
+    "content": "왕건(877~943)은 고려의 건국자이자 초대 왕이다. 송악(개성) 호족 출신으로, 궁예 휘하에서 공을 세운 뒤 918년 쿠데타로 왕위에 올랐다. 그는 '훈요 10조'를 남겨 후대 왕들에게 정치 지침을 제시했고, 결혼 정책으로 호족들을 포섭해 935년 신라, 936년 후백제를 차례로 항복시켜 후삼국 통일을 이루었다. 민족 통합과 불교 진흥에 힘썼다.",
+    "thumbnailAsset": "assets/images/characters/goryeo/wanggeon.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_manwoldae"
+    ],
+    "tags": [
+      "인물",
+      "왕건",
+      "태조",
+      "고려건국",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_seohee",
+    "type": "character",
+    "title": "Seo Hui",
+    "titleKorean": "서희",
+    "summary": "담판 한 번으로 강동 6주를 얻은 외교의 달인",
+    "content": "서희(942~998)는 고려 성종 때의 문신이자 외교가다. 993년 거란이 80만 대군으로 침략해오자, 서희는 거란 장수 소손녕과 담판을 벌여 '거란과 고려 사이에 송나라를 섬기는 것이 아니라 당당히 외교한다'는 논리로 거란군을 물리쳤다. 더 나아가 고려가 옛 고구려 영토인 강동 6주를 차지하게 했다. 무력 충돌 없이 영토를 확보한 역사상 유례없는 외교 승리였다.",
+    "thumbnailAsset": "assets/images/characters/goryeo/seohee.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "서희",
+      "외교",
+      "강동6주",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_davinci",
+    "type": "character",
+    "title": "Leonardo da Vinci",
+    "titleKorean": "레오나르도 다빈치",
+    "summary": "르네상스 시대를 대표하는 만능 천재",
+    "content": "레오나르도 다빈치(1452~1519)는 이탈리아 피렌체 출신의 화가, 조각가, 건축가, 과학자, 발명가이다. '모나리자', '최후의 만찬' 등의 회화 걸작을 남겼고, 비행기, 전차, 잠수함 등을 설계한 발명가이기도 하다. 인체 해부학에도 정통하여 완벽한 인체 비례도를 그렸다. 예술과 과학의 경계를 넘나든 '르네상스 맨'의 전형이다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/davinci.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_michelangelo",
+      "enc_renaissance"
+    ],
+    "tags": [
+      "인물",
+      "다빈치",
+      "화가",
+      "발명가",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_michelangelo",
+    "type": "character",
+    "title": "Michelangelo Buonarroti",
+    "titleKorean": "미켈란젤로 부오나로티",
+    "summary": "다비드상과 천지창조를 창조한 신적인 예술가",
+    "content": "미켈란젤로(1475~1564)는 이탈리아 피렌체 출신의 조각가, 화가, 건축가, 시인이다. 5m가 넘는 '다비드상'은 인체의 완벽한 비례와 내면의 긴장감을 담아낸 걸작이다. 시스티나 성당 천장에 그린 '천지창조'는 4년에 걸쳐 완성한 대작으로, 아담의 창조 장면은 서양 미술의 아이콘이 되었다. 성 베드로 대성당의 돔 설계에도 참여했다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/michelangelo.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_davinci",
+      "enc_sistine_chapel"
+    ],
+    "tags": [
+      "인물",
+      "미켈란젤로",
+      "조각가",
+      "다비드",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_galileo",
+    "type": "character",
+    "title": "Galileo Galilei",
+    "titleKorean": "갈릴레오 갈릴레이",
+    "summary": "근대 과학의 아버지, 지동설의 수호자",
+    "content": "갈릴레오(1564~1642)는 이탈리아의 천문학자, 물리학자, 수학자이다. 망원경을 개량하여 목성의 위성, 금성의 위상 변화, 달의 분화구 등을 관측하고 코페르니쿠스의 지동설을 지지했다. 교회와의 갈등으로 종교재판에 회부되었으나, '그래도 지구는 돈다'라는 명언을 남겼다. 낙하 운동, 관성의 법칙 등 물리학의 기초를 세웠다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/galileo.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_heliocentrism"
+    ],
+    "tags": [
+      "인물",
+      "갈릴레오",
+      "천문학",
+      "지동설",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_shakespeare",
+    "type": "character",
+    "title": "William Shakespeare",
+    "titleKorean": "윌리엄 셰익스피어",
+    "summary": "영어권 역사상 가장 위대한 극작가",
+    "content": "셰익스피어(1564~1616)는 영국 엘리자베스 시대의 극작가이자 시인이다. '햄릿', '맥베스', '리어왕', '오셀로' 등의 4대 비극과 '로미오와 줄리엣', '한여름 밤의 꿈' 등을 창작했다. '사느냐 죽느냐, 그것이 문제로다'(햄릿) 등의 명대사는 400년이 지난 오늘날에도 인용된다. 런던 글로브 극장에서 활동했다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/shakespeare.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_globe_theatre"
+    ],
+    "tags": [
+      "인물",
+      "셰익스피어",
+      "극작가",
+      "햄릿",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_gutenberg",
+    "type": "character",
+    "title": "Johannes Gutenberg",
+    "titleKorean": "요한네스 구텐베르크",
+    "summary": "금속 활자 인쇄술로 지식 혁명을 일으킨 인물",
+    "content": "구텐베르크(1398~1468)는 독일 마인츠 출신의 금속 세공사이자 인쇄업자이다. 1440년대에 금속 활자와 인쇄기를 발명하여 책의 대량 생산을 가능하게 했다. '구텐베르크 성경'(약 180부 인쇄)은 세계 최초의 금속 활자 인쇄본이다. 이 발명으로 종교개혁, 과학혁명, 계몽주의의 확산이 가능해졌으며, 현대 정보화 사회의 시초로 평가된다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/gutenberg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_printing_revolution"
+    ],
+    "tags": [
+      "인물",
+      "구텐베르크",
+      "인쇄",
+      "활자",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_renaissance",
+    "type": "term",
+    "title": "The Renaissance",
+    "titleKorean": "르네상스",
+    "summary": "14~17세기 유럽의 문화 부흥 운동",
+    "content": "르네상스(Renaissance)는 '재탄생'을 뜻하는 프랑스어로, 14세기 이탈리아에서 시작된 문화 부흥 운동이다. 중세의 신 중심 세계관에서 벗어나 인간과 자연에 관심을 두는 '인문주의(Humanism)'가 핵심이었다. 피렌체의 메디치 가문 후원 아래 다빈치, 미켈란젤로 등 천재들이 활약했다. 예술, 과학, 철학 등 모든 분야에서 근대의 출발점이 되었다.",
+    "thumbnailAsset": "assets/images/locations/florence_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_davinci",
+      "enc_michelangelo"
+    ],
+    "tags": [
+      "용어",
+      "르네상스",
+      "인문주의",
+      "피렌체",
+      "유럽"
+    ]
+  },
+  {
+    "id": "enc_sistine_chapel",
+    "type": "location",
+    "title": "Sistine Chapel",
+    "titleKorean": "시스티나 성당",
+    "summary": "미켈란젤로의 천지창조 천장화가 있는 곳",
+    "content": "시스티나 성당은 바티칸 시국 내에 위치한 성당으로, 교황 선출 콘클라베가 열리는 장소이다. 미켈란젤로가 1508년부터 1512년까지 4년에 걸쳐 천장에 그린 '천지창조'와 제대 뒷벽의 '최후의 심판'이 있다. 특히 신이 아담에게 생명을 불어넣는 장면은 서양 미술의 상징이 되었다.",
+    "thumbnailAsset": "assets/images/locations/rome_vatican_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_michelangelo"
+    ],
+    "tags": [
+      "장소",
+      "시스티나",
+      "바티칸",
+      "천지창조",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_globe_theatre",
+    "type": "location",
+    "title": "Globe Theatre",
+    "titleKorean": "글로브 극장",
+    "summary": "셰익스피어 희곡이 초연된 전설적 극장",
+    "content": "글로브 극장은 1599년 런던 템스강 남쪽에 세워진 극장이다. 셰익스피어의 극단이 상주하며 '햄릿', '오셀로', '리어왕' 등의 작품을 초연했다. 3층 구조의 원형 극장으로, 무대가 관객에게 둘러싸여 있어 배우와 관객의 거리가 매우 가까웠다. 1613년 화재로 소실되었으나 1997년 원형에 가깝게 복원되었다.",
+    "thumbnailAsset": "assets/images/locations/london_globe_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_shakespeare"
+    ],
+    "tags": [
+      "장소",
+      "글로브극장",
+      "런던",
+      "셰익스피어",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_printing_revolution",
+    "type": "event",
+    "title": "Printing Revolution",
+    "titleKorean": "인쇄 혁명",
+    "summary": "금속 활자로 시작된 지식 민주화의 대사건",
+    "content": "15세기 구텐베르크의 금속 활자 발명은 책의 대량 생산을 가능하게 하여 '인쇄 혁명'을 일으켰다. 이전에는 필사본이 귀족과 성직자의 전유물이었으나, 인쇄술 덕분에 일반인도 지식에 접근할 수 있게 되었다. 마르틴 루터의 95개조 반박문이 급속히 퍼질 수 있었던 것도 인쇄술 덕분이며, 과학혁명과 계몽주의의 확산에도 결정적 역할을 했다.",
+    "thumbnailAsset": "assets/images/locations/mainz_bg.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_gutenberg"
+    ],
+    "tags": [
+      "사건",
+      "인쇄혁명",
+      "구텐베르크",
+      "지식",
+      "르네상스"
+    ]
+  },
+  {
+    "id": "enc_heliocentrism",
+    "type": "term",
+    "title": "Heliocentrism",
+    "titleKorean": "지동설 (태양중심설)",
+    "summary": "태양이 우주의 중심이라는 혁명적 이론",
+    "content": "지동설은 지구가 태양 주위를 돈다는 천문학 이론이다. 코페르니쿠스가 1543년 '천구의 회전에 관하여'에서 주장했고, 갈릴레오가 망원경 관측으로 증거를 제시했다. 1000년 이상 믿어온 천동설(지구 중심설)을 뒤엎은 혁명적 발상으로, 교회와 갈등을 빚었지만 결국 과학의 승리로 끝났다. 근대 과학혁명의 상징이다.",
+    "thumbnailAsset": "assets/images/characters/renaissance/galileo.png",
+    "eraId": "europe_renaissance",
+    "relatedEntryIds": [
+      "enc_galileo"
+    ],
+    "tags": [
+      "용어",
+      "지동설",
+      "갈릴레오",
+      "코페르니쿠스",
+      "르네상스"
     ]
   }
 ]

@@ -5623,5 +5623,1059 @@
             }
         ],
         "description": "위기를 딛고 다시 일어서는 한국인들의 회복 이야기"
+    },
+    {
+        "id": "yeon_gaesomun_power_01",
+        "characterId": "yeon_gaesomun",
+        "title": "The Iron Fist of Goguryeo",
+        "titleKorean": "대막리지의 철권",
+        "description": "연개소문과 함께 고구려 말기의 격동기와 당나라에 맞선 결전의 의지를 논의합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_battle_of_ansi"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "serious",
+                "text": "그대가 먼 훗날에서 온 자인가? 좋다, 짐의 이야기를 들어보거라.\n다섯 자루의 칼을 차고 다닌다 하여 사람들이 나를 두려워하지.\n하지만 진정한 힘은 칼이 아니라 결단에서 나오는 법이다.",
+                "choices": [
+                    {
+                        "id": "c1_power",
+                        "text": "대막리지라는 관직은 무엇입니까?",
+                        "preview": "권력에 대해 묻기",
+                        "nextNodeId": "power_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_tang",
+                        "text": "당나라와의 전쟁은 어떻게 되었습니까?",
+                        "preview": "대당 전쟁 묻기",
+                        "nextNodeId": "tang_war_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_coup",
+                        "text": "정변을 일으킨 이유가 무엇입니까?",
+                        "preview": "정변의 이유 묻기",
+                        "nextNodeId": "coup_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "power_branch",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "determined",
+                "text": "대막리지(大莫離支)는 고구려 최고의 관직이다.\n군사권과 행정권을 모두 장악한 자리지.\n왕보다 더 큰 실권을 지닌다고 할 수 있다.\n난세에는 강력한 지도자가 필요한 법. 나약한 왕으로는 나라를 지킬 수 없었다.",
+                "nextNodeId": "tang_war_branch"
+            },
+            {
+                "id": "coup_branch",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "angry",
+                "text": "영류왕은 당나라에 굴복하려 했다!\n고구려의 자존심을 팔아 평화를 구걸하다니...\n나는 그것을 용납할 수 없었다. 차라리 싸우다 죽을지언정 무릎은 꿇지 않는다!\n그래서 정변을 일으켜 새 왕(보장왕)을 세우고, 내가 직접 군권을 잡았다.",
+                "nextNodeId": "tang_war_branch"
+            },
+            {
+                "id": "tang_war_branch",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "determined",
+                "text": "당 태종 이세민... 동아시아 최강의 정복자라 불리는 자가 직접 대군을 이끌고 왔다.\n하지만 우리는 안시성에서 그를 막아냈다!\n양만춘 성주가 88일간 버텨주었지. 결국 당 태종은 꼬리를 내리고 물러갔다.",
+                "choices": [
+                    {
+                        "id": "c2_ansi",
+                        "text": "안시성 전투에 대해 더 말씀해주세요.",
+                        "nextNodeId": "ansi_detail",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    },
+                    {
+                        "id": "c2_future",
+                        "text": "앞으로의 계획은 무엇입니까?",
+                        "nextNodeId": "future_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "ansi_detail",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "neutral",
+                "text": "당군은 토산(土山)을 쌓아 성벽보다 높게 올라가려 했다.\n하지만 토산이 무너지자 양만춘이 군사들을 이끌고 뛰어나가 토산을 점령해버렸지!\n그리고 야사에 따르면, 양만춘의 화살이 당 태종의 눈을 맞췄다고 한다.\n진위여부는 그대가 판단하라. 중요한 것은 우리가 이겼다는 것이다!",
+                "nextNodeId": "end_node",
+                "reward": {
+                    "unlockFactId": "fact_battle_of_ansi"
+                }
+            },
+            {
+                "id": "future_node",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "thoughtful",
+                "text": "당나라는 다시 올 것이다. 그들의 야욕은 끝이 없으니까.\n하지만 내가 살아있는 한, 고구려는 절대 무너지지 않는다.\n천리장성을 더욱 굳건히 쌓고, 병사들을 훈련시키겠다.\n다음에 오면 더 큰 패배를 안겨줄 것이다!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "yeon_gaesomun",
+                "emotion": "determined",
+                "text": "그대, 기억하거라.\n강대국 앞에서 굴복하는 것은 쉽지만, 그것은 망국의 길이다.\n비록 결과가 어찌 되든, 당당히 맞서 싸운 자만이 역사에 이름을 남기는 법.\n고구려의 기상을 잊지 말고 전해다오!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_battle_of_ansi"
+                }
+            }
+        ]
+    },
+    {
+        "id": "yang_manchun_ansi_01",
+        "characterId": "yang_manchun",
+        "title": "The Hero of Ansi Fortress",
+        "titleKorean": "안시성의 영웅",
+        "description": "양만춘 성주와 함께 안시성 전투의 현장에서 88일간의 사투와 고구려 군민의 결의에 대해 듣습니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_battle_of_ansi"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "yang_manchun",
+                "emotion": "neutral",
+                "text": "그대가 먼 훗날에서 온 여행자라 하였느냐?\n나는 양만춘. 안시성을 지키는 성주다.\n지금 성 밖에는 당 태종의 수십만 대군이 진을 치고 있다.\n그대는 왜 이 위험한 곳까지 왔는가?",
+                "choices": [
+                    {
+                        "id": "c1_situation",
+                        "text": "전황은 어떻습니까?",
+                        "preview": "전투 상황 묻기",
+                        "nextNodeId": "situation_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_courage",
+                        "text": "두렵지 않으십니까?",
+                        "preview": "용기에 대해 묻기",
+                        "nextNodeId": "courage_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_yeon",
+                        "text": "연개소문과의 관계는 어떠합니까?",
+                        "preview": "정치적 관계 묻기",
+                        "nextNodeId": "yeon_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "situation_branch",
+                "speakerId": "yang_manchun",
+                "emotion": "determined",
+                "text": "당군은 이미 여러 차례 총공격을 해왔다.\n하지만 우리 군민은 굳건히 버텨내고 있다.\n그들이 지금 성 동쪽에 토산을 쌓고 있다는 보고가 왔다.\n성벽보다 높게 쌓아 위에서 공격하려는 것이지.\n하지만... 우리에게도 계책이 있다!",
+                "nextNodeId": "tusan_branch"
+            },
+            {
+                "id": "courage_branch",
+                "speakerId": "yang_manchun",
+                "emotion": "serious",
+                "text": "두렵냐고? 솔직히 말하면... 두렵다.\n하지만 내 뒤에는 안시성의 백성들이 있다.\n노인, 아녀자, 어린아이들까지 모두가 성을 지키기 위해 함께 싸우고 있다.\n그들을 위해서라도 나는 물러설 수 없다.",
+                "nextNodeId": "tusan_branch"
+            },
+            {
+                "id": "yeon_branch",
+                "speakerId": "yang_manchun",
+                "emotion": "thoughtful",
+                "text": "연개소문... 솔직히 나는 그의 정변에 반대했다.\n왕을 시해하는 것은 옳지 않다고 보았기 때문이다.\n하지만 지금은 외적 앞에 있다. 개인의 원한보다 나라가 먼저다.\n당나라를 물리치는 것이 지금 가장 중요한 일이니까.",
+                "nextNodeId": "tusan_branch"
+            },
+            {
+                "id": "tusan_branch",
+                "speakerId": "yang_manchun",
+                "emotion": "neutral",
+                "text": "당군은 50만 인력을 동원해 토산을 쌓고 있다.\n60일이 넘도록 밤낮없이 흙을 쌓아올려 성벽보다 높아졌다.\n하지만 저것이 곧 우리의 기회가 될 것이다.",
+                "choices": [
+                    {
+                        "id": "c2_plan",
+                        "text": "어떤 계획이 있으십니까?",
+                        "nextNodeId": "plan_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "plan_node",
+                "speakerId": "yang_manchun",
+                "emotion": "determined",
+                "text": "토산의 흙이 마르면 무너질 수밖에 없다.\n무너지는 그 순간, 내가 직접 결사대를 이끌고 뛰쳐나가 토산을 점령할 것이다!\n적의 무기를 우리 것으로 만드는 것이지.\n그리고... 당 태종 그자에게 화살 한 발을 선물해 주겠다!",
+                "choices": [
+                    {
+                        "id": "c3_arrow",
+                        "text": "당 태종에게 화살을요?!",
+                        "nextNodeId": "arrow_legend",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "arrow_legend",
+                "speakerId": "yang_manchun",
+                "emotion": "happy",
+                "text": "하하! 성주가 직접 활을 들고 싸운다고 놀라는가?\n나는 활의 명수다. 천 보 밖의 과녁도 맞출 수 있지.\n당 태종이 전장에 나온다면... 내 화살을 피하지 못할 것이다!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "yang_manchun",
+                "emotion": "determined",
+                "text": "그대, 기억해 두어라.\n싸움에서 중요한 것은 군사의 숫자가 아니다.\n죽음을 두려워하지 않는 마음, 지켜야 할 것을 위해 싸우는 결의...\n이것이 있으면 백만 대군도 무섭지 않다!\n안시성의 이야기를 후세에 전해다오!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_battle_of_ansi"
+                }
+            }
+        ]
+    },
+    {
+        "id": "kim_yuna_dream_01",
+        "characterId": "kim_yuna",
+        "title": "Queen of Ice",
+        "titleKorean": "피겨 여왕의 꿈",
+        "description": "밴쿠버 올림픽 금메달리스트 김연아와 함께 꿈을 향한 여정, 피겨 스케이팅의 매력, 그리고 후배들에게 전하는 메시지를 나눕니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_88_olympics"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "kim_yuna",
+                "emotion": "neutral",
+                "text": "안녕하세요! 먼 미래에서 오셨다고요?\\n저는 김연아예요. 피겨 스케이팅을 했죠.\\n2010년 밴쿠버... 그날의 기억은 아직도 생생해요.\\n혹시 피겨에 관심 있으세요?",
+                "choices": [
+                    {
+                        "id": "c1_start",
+                        "text": "어떻게 피겨를 시작하게 되셨나요?",
+                        "preview": "시작 이야기 듣기",
+                        "nextNodeId": "beginning_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_vancouver",
+                        "text": "밴쿠버 올림픽 금메달의 순간이 궁금해요!",
+                        "preview": "올림픽 이야기 듣기",
+                        "nextNodeId": "vancouver_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_hardship",
+                        "text": "힘들었던 순간도 있었나요?",
+                        "preview": "어려움 극복 이야기",
+                        "nextNodeId": "hardship_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "beginning_branch",
+                "speakerId": "kim_yuna",
+                "emotion": "happy",
+                "text": "일곱 살 때 처음 스케이트를 탔어요.\\n처음엔 그냥 재미로 시작했는데, 빙판 위에 서는 순간 '이거다!' 싶었죠.\\n엄마가 많이 희생해주셨어요. 새벽부터 연습장까지 데려다주시고...\\n그 사랑이 없었다면 오늘의 저도 없었을 거예요.",
+                "nextNodeId": "dream_node"
+            },
+            {
+                "id": "vancouver_branch",
+                "speakerId": "kim_yuna",
+                "emotion": "thoughtful",
+                "text": "그날... 정말 이상했어요. 긴장되지 않더라고요.\\n수천 번 연습한 프로그램이니까, 몸이 알아서 움직였죠.\\n마지막 스핀을 끝내고 점수가 떴을 때... 228.56점!\\n그때서야 눈물이 났어요. '해냈구나...'",
+                "nextNodeId": "dream_node",
+                "reward": {
+                    "unlockFactId": "fact_vancouver_gold"
+                }
+            },
+            {
+                "id": "hardship_branch",
+                "speakerId": "kim_yuna",
+                "emotion": "sad",
+                "text": "당연히 있었죠. 부상도 많았고, 한국엔 제대로 된 훈련 시설도 없었어요.\\n외국 선수들처럼 좋은 환경이 부러웠던 때도 있었고요.\\n하지만 포기하고 싶을 때마다 생각했어요.\\n'이 길을 선택한 건 나야. 끝까지 가보자.'",
+                "nextNodeId": "dream_node"
+            },
+            {
+                "id": "dream_node",
+                "speakerId": "kim_yuna",
+                "emotion": "neutral",
+                "text": "꿈을 이루는 건 재능만으로는 안 돼요.\\n매일매일 포기하지 않는 것, 그게 진짜 실력이에요.\\n그대도 꿈이 있나요?",
+                "choices": [
+                    {
+                        "id": "c2_advice",
+                        "text": "후배들에게 어떤 조언을 해주고 싶으세요?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "kim_yuna",
+                "emotion": "happy",
+                "text": "남과 비교하지 마세요.\\n어제의 나와 오늘의 나를 비교하면 돼요.\\n조금씩이라도 나아지고 있다면, 그게 성공이에요.\\n그리고 꼭 기억하세요. 여러분 옆에서 응원하는 사람들이 있다는 걸.\\n저도 여러분의 팬이에요! 화이팅!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "kim_yuna"
+                }
+            }
+        ]
+    },
+    {
+        "id": "kim_yuna_olympics_01",
+        "characterId": "kim_yuna",
+        "title": "Olympic Glory",
+        "titleKorean": "올림픽의 영광",
+        "description": "올림픽 메달의 의미와 국가대표로서의 책임감에 대해 김연아와 깊은 대화를 나눕니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "kim_yuna",
+                "emotion": "thoughtful",
+                "text": "태극마크를 달고 빙판에 서면... 무게감이 달라요.\\n수천만 국민이 지켜보고 있다는 걸 알거든요.\\n그 부담이 때로는 무겁기도 했지만, 힘이 되기도 했어요.",
+                "choices": [
+                    {
+                        "id": "c1_pressure",
+                        "text": "그 압박감을 어떻게 견디셨나요?",
+                        "nextNodeId": "pressure_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_national",
+                        "text": "국가대표란 어떤 의미인가요?",
+                        "nextNodeId": "national_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "pressure_branch",
+                "speakerId": "kim_yuna",
+                "emotion": "neutral",
+                "text": "저만의 루틴이 있었어요.\\n경기 전엔 음악을 듣고, 혼자만의 시간을 가졌죠.\\n그리고 생각했어요. '나는 충분히 준비했어. 지금 이 순간을 즐기자.'\\n결국 마음가짐이 가장 중요해요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "national_branch",
+                "speakerId": "kim_yuna",
+                "emotion": "determined",
+                "text": "대한민국을 대표한다는 건... 영광이자 책임이에요.\\n내가 잘하면 우리나라의 위상이 올라가고,\\n내가 못하면 실망시키게 되죠.\\n하지만 그 무게를 지는 게 국가대표의 역할이라고 생각해요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "kim_yuna",
+                "emotion": "happy",
+                "text": "메달보다 더 소중한 건 함께 응원해준 사람들이에요.\\n그분들의 사랑 덕분에 은퇴한 지금도 행복해요.\\n감사합니다, 대한민국!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 40
+                }
+            }
+        ]
+    },
+    {
+        "id": "son_effort_01",
+        "characterId": "son_heungmin",
+        "title": "Father's Teachings",
+        "titleKorean": "아버지의 가르침",
+        "description": "손흥민 선수와 함께 아버지 손웅정의 가르침, 끊임없는 노력, 그리고 겸손함에 대해 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "son_heungmin",
+                "emotion": "happy",
+                "text": "안녕하세요! 손흥민입니다.\\n오늘도 훈련 끝나고 왔어요. 하하!\\n먼 미래에서 오셨다고요? 신기하네요!\\n혹시 축구 좋아하세요?",
+                "choices": [
+                    {
+                        "id": "c1_father",
+                        "text": "아버지의 훈련이 유명하던데, 어떠셨어요?",
+                        "preview": "아버지 훈련 이야기",
+                        "nextNodeId": "father_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_epl",
+                        "text": "EPL 득점왕이 되셨을 때 기분이 어땠나요?",
+                        "preview": "득점왕 소감",
+                        "nextNodeId": "epl_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_secret",
+                        "text": "성공의 비결이 뭘까요?",
+                        "preview": "성공 비결 묻기",
+                        "nextNodeId": "secret_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "father_branch",
+                "speakerId": "son_heungmin",
+                "emotion": "thoughtful",
+                "text": "아버지 훈련이요? 솔직히... 정말 힘들었어요.\\n기본기 훈련만 수천 번, 수만 번 반복했죠.\\n어릴 땐 '왜 이렇게까지 해야 하나' 싶었는데,\\n지금은 감사해요. 그 기본기가 저를 여기까지 오게 했으니까요.",
+                "nextNodeId": "humble_node"
+            },
+            {
+                "id": "epl_branch",
+                "speakerId": "son_heungmin",
+                "emotion": "happy",
+                "text": "아... 그날 정말 꿈만 같았어요.\\n아시아 선수 최초 EPL 득점왕이라니!\\n근데 솔직히 말하면, 팀 동료들 덕분이에요.\\n케인 형, 쿨루셉스키 형... 모두가 저를 도와줬거든요.",
+                "nextNodeId": "humble_node"
+            },
+            {
+                "id": "secret_branch",
+                "speakerId": "son_heungmin",
+                "emotion": "determined",
+                "text": "비결이요? 특별한 건 없어요.\\n그냥... 매일 조금씩 더 노력하는 거예요.\\n남들보다 30분 더 훈련하고, 경기 영상 10분 더 보고.\\n그게 쌓이면 차이가 나더라고요.",
+                "nextNodeId": "humble_node"
+            },
+            {
+                "id": "humble_node",
+                "speakerId": "son_heungmin",
+                "emotion": "neutral",
+                "text": "아버지가 항상 말씀하세요.\\n'겸손해라. 성공했다고 우쭐대지 마라.'\\n저도 항상 마음에 새기고 있어요.\\n팬들 앞에서 항상 웃으려고 하는 것도 그 때문이에요.",
+                "choices": [
+                    {
+                        "id": "c2_fans",
+                        "text": "팬들에게 하고 싶은 말이 있다면요?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "son_heungmin",
+                "emotion": "happy",
+                "text": "팬 여러분 사랑합니다!\\n새벽에 경기 보느라 힘드시죠? 그거 다 알아요.\\n그래서 저도 더 열심히 뛰어요.\\n앞으로도 최선 다하는 손흥민 보여드릴게요!\\n감사합니다! 하트~!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "son_heungmin"
+                }
+            }
+        ]
+    },
+    {
+        "id": "son_dream_01",
+        "characterId": "son_heungmin",
+        "title": "Dreams of Korean Football",
+        "titleKorean": "한국 축구의 꿈",
+        "description": "손흥민 선수와 함께 한국 축구의 미래와 다음 세대에 대한 희망을 나눕니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "son_heungmin",
+                "emotion": "thoughtful",
+                "text": "저도 어릴 때 2002년 월드컵 봤어요.\\n박지성 선배, 안정환 선배... 정말 멋있었죠.\\n그때 '나도 저렇게 되고 싶다' 생각했어요.\\n꿈은 이루어지더라고요.",
+                "choices": [
+                    {
+                        "id": "c1_future",
+                        "text": "한국 축구의 미래는 어떻게 될까요?",
+                        "nextNodeId": "future_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_next",
+                        "text": "다음 세대에게 바라는 것이 있나요?",
+                        "nextNodeId": "next_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "future_branch",
+                "speakerId": "son_heungmin",
+                "emotion": "happy",
+                "text": "저보다 잘하는 선수들이 엄청 많이 나올 거예요!\\n이강인, 김민재 형... 대단한 선수들이죠.\\n언젠가 한국이 월드컵 우승하는 날이 올 거예요.\\n저도 그날을 위해 길을 닦아놓을게요!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "next_branch",
+                "speakerId": "son_heungmin",
+                "emotion": "determined",
+                "text": "기본기를 무시하지 마세요.\\n화려한 플레이보다 중요한 게 기본이에요.\\n그리고 포기하지 마세요. 저도 수없이 좌절했지만,\\n다시 일어났기 때문에 지금 여기 있는 거예요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "son_heungmin",
+                "emotion": "happy",
+                "text": "대한민국 축구의 미래는 밝아요!\\n저도 계속 뛸 수 있는 한 뛰겠습니다.\\n함께 응원해주세요! 대~한민국!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 40
+                }
+            }
+        ]
+    },
+    {
+        "id": "bong_cinema_01",
+        "characterId": "bong_joonho",
+        "title": "Art of Cinema",
+        "titleKorean": "영화의 예술",
+        "description": "봉준호 감독과 함께 영화 철학, 스토리텔링, 그리고 한국 영화의 세계적 성공에 대해 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "artifact_parasite_oscar"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "bong_joonho",
+                "emotion": "neutral",
+                "text": "어서 오세요. 봉준호입니다.\\n지금 다음 작품 구상 중인데... 잠깐 쉬어가죠.\\n미래에서 오셨다고요? 흥미롭네요.\\n영화에 관심 있으세요?",
+                "choices": [
+                    {
+                        "id": "c1_parasite",
+                        "text": "'기생충'이 오스카를 받았을 때 기분이 어떠셨나요?",
+                        "preview": "오스카 수상 소감",
+                        "nextNodeId": "oscar_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_philosophy",
+                        "text": "감독님의 영화 철학이 궁금해요.",
+                        "preview": "영화 철학 듣기",
+                        "nextNodeId": "philosophy_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_korean",
+                        "text": "한국 영화가 세계적으로 성공한 비결이 뭘까요?",
+                        "preview": "한국 영화 성공 비결",
+                        "nextNodeId": "korean_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "oscar_branch",
+                "speakerId": "bong_joonho",
+                "emotion": "thoughtful",
+                "text": "솔직히... 아직도 실감이 안 나요.\\n비영어권 영화가 작품상을 받다니.\\n마틴 스콜세지 감독님 말씀이 떠올랐어요.\\n'가장 개인적인 것이 가장 창의적인 것이다.'\\n한국어로 만든 한국 이야기가 세계에 통했다는 게... 감격스럽죠.",
+                "nextNodeId": "storytelling_node"
+            },
+            {
+                "id": "philosophy_branch",
+                "speakerId": "bong_joonho",
+                "emotion": "neutral",
+                "text": "저는 장르에 갇히는 걸 좋아하지 않아요.\\n코미디인데 비극이고, 비극인데 웃기고...\\n인생이 그렇잖아요. 웃기면서도 슬프고, 슬프면서도 웃기고.\\n그 경계를 넘나드는 게 제 스타일이에요.",
+                "nextNodeId": "storytelling_node"
+            },
+            {
+                "id": "korean_branch",
+                "speakerId": "bong_joonho",
+                "emotion": "neutral",
+                "text": "한국 영화의 강점은... '날것'의 에너지라고 생각해요.\\n할리우드 시스템에 갇히지 않은 자유로움.\\n그리고 한국 사회의 역동성이 이야기에 녹아있죠.\\n압축 성장, 빈부격차, 갈등과 화합... 드라마틱한 소재가 많아요.",
+                "nextNodeId": "storytelling_node"
+            },
+            {
+                "id": "storytelling_node",
+                "speakerId": "bong_joonho",
+                "emotion": "determined",
+                "text": "영화는 결국 '이야기'예요.\\n좋은 이야기는 국경을 초월하죠.\\n기생충도 결국 '계단'과 '냄새'로 계급을 이야기한 거예요.\\n구체적이면서도 보편적인 것. 그게 핵심이에요.",
+                "choices": [
+                    {
+                        "id": "c2_advice",
+                        "text": "영화를 꿈꾸는 사람들에게 한마디 해주세요.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "bong_joonho",
+                "emotion": "happy",
+                "text": "많이 보세요. 많이 읽으세요. 많이 경험하세요.\\n그리고 두려워하지 마세요.\\n실패해도 괜찮아요. 실패가 쌓여야 좋은 작품이 나와요.\\n저도 아직 배우는 중이에요.\\n언젠가 여러분의 영화를 볼 날을 기대합니다!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "bong_joonho"
+                }
+            }
+        ]
+    },
+    {
+        "id": "bong_creativity_01",
+        "characterId": "bong_joonho",
+        "title": "Source of Creativity",
+        "titleKorean": "창의성의 원천",
+        "description": "봉준호 감독의 창의성의 비밀과 작품에 담긴 사회적 메시지에 대해 깊이 대화합니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "bong_joonho",
+                "emotion": "thoughtful",
+                "text": "창의성이요? 거창한 게 아니에요.\\n일상을 유심히 관찰하는 거죠.\\n길거리, 지하철, 편의점... 거기에 영화가 있어요.",
+                "choices": [
+                    {
+                        "id": "c1_social",
+                        "text": "작품에 사회적 메시지를 담는 이유가 있나요?",
+                        "nextNodeId": "social_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_process",
+                        "text": "시나리오는 어떻게 쓰시나요?",
+                        "nextNodeId": "process_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "social_branch",
+                "speakerId": "bong_joonho",
+                "emotion": "serious",
+                "text": "영화가 세상을 바꿀 순 없어요.\\n하지만 생각하게 만들 순 있죠.\\n'괴물'에서 환경 문제를, '기생충'에서 불평등을...\\n불편하더라도 말해야 할 것들이 있어요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "process_branch",
+                "speakerId": "bong_joonho",
+                "emotion": "neutral",
+                "text": "먼저 이미지가 떠올라요. 한 장면이.\\n그 장면을 중심으로 이야기를 붙여나가죠.\\n기생충도 '반지하에서 올려다보는 발' 이미지에서 시작했어요.\\n그 다음은... 그냥 앉아서 씁니다. 끝까지. 하하.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "bong_joonho",
+                "emotion": "happy",
+                "text": "좋은 영화는 질문을 던져요.\\n답을 주는 게 아니라 생각하게 만드는 거죠.\\n여러분도 세상을 바라보는 자신만의 눈을 가지세요.\\n그게 창의성의 시작이에요.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 40
+                }
+            }
+        ]
+    },
+    {
+        "id": "red_devils_worldcup_01",
+        "characterId": "red_devils_supporter",
+        "title": "2002 World Cup Miracle",
+        "titleKorean": "2002 월드컵의 기적",
+        "description": "2002년 월드컵 거리응원의 현장에서, 붉은악마와 함께 그날의 열정과 감동을 되새깁니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_2002_worldcup"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "red_devils_supporter",
+                "emotion": "happy",
+                "text": "오~ 필승 코리아! 대~한민국!\\n하하, 미래에서 오셨다고요?\\n2002년 6월의 이 열기를 직접 느껴보세요!\\n지금 광화문에 100만 명이 모였어요!",
+                "choices": [
+                    {
+                        "id": "c1_atmosphere",
+                        "text": "이 분위기가 정말 놀라워요! 어떻게 이렇게 모였나요?",
+                        "preview": "거리응원 시작 이야기",
+                        "nextNodeId": "atmosphere_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_feeling",
+                        "text": "4강에 올랐을 때 기분이 어땠어요?",
+                        "preview": "4강 감동 이야기",
+                        "nextNodeId": "semifinal_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_meaning",
+                        "text": "이 순간이 한국에 어떤 의미였을까요?",
+                        "preview": "역사적 의미 묻기",
+                        "nextNodeId": "meaning_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "atmosphere_branch",
+                "speakerId": "red_devils_supporter",
+                "emotion": "happy",
+                "text": "처음엔 몇천 명이었어요.\\n그런데 우리가 폴란드를 이기고, 포르투갈을 이기니까...\\n점점 더 많은 사람들이 모이기 시작했죠!\\n회사원, 학생, 할머니, 할아버지... 모두가 빨간 옷을 입고 나왔어요!",
+                "nextNodeId": "unity_node"
+            },
+            {
+                "id": "semifinal_branch",
+                "speakerId": "red_devils_supporter",
+                "emotion": "thoughtful",
+                "text": "스페인전 승부차기 때... 다들 울었어요.\\n경기가 끝나고 '대~한민국!' 외치는데...\\n서로 모르는 사람들끼리 부둥켜안고 울고 웃고.\\n평생 잊지 못할 순간이에요.",
+                "nextNodeId": "unity_node",
+                "reward": {
+                    "unlockFactId": "fact_spain_match"
+                }
+            },
+            {
+                "id": "meaning_branch",
+                "speakerId": "red_devils_supporter",
+                "emotion": "determined",
+                "text": "IMF 이후 우리 모두 지쳐있었어요.\\n경제위기, 구조조정, 실업...\\n그런데 이 월드컵이 우리에게 희망을 줬어요.\\n'하면 된다! 우리는 할 수 있다!'\\n다시 일어설 수 있다는 자신감을요.",
+                "nextNodeId": "unity_node"
+            },
+            {
+                "id": "unity_node",
+                "speakerId": "red_devils_supporter",
+                "emotion": "neutral",
+                "text": "그때 깨달았어요.\\n우리가 하나가 되면 못할 게 없다고.\\n정치적 성향도, 지역도, 나이도 상관없이...\\n그냥 '대한민국 국민'으로 하나가 됐어요.",
+                "choices": [
+                    {
+                        "id": "c2_legacy",
+                        "text": "그 정신이 지금도 살아있을까요?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "red_devils_supporter",
+                "emotion": "happy",
+                "text": "물론이죠! 그날의 함성은 우리 안에 남아있어요.\\n힘들 때마다 생각해요. 2002년의 그 열정을.\\n우리는 할 수 있다! 대~한민국!\\n함께 외쳐요! 오~ 필승 코리아!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "red_devils_supporter"
+                }
+            }
+        ]
+    },
+    {
+        "id": "red_devils_unity_01",
+        "characterId": "red_devils_supporter",
+        "title": "Power of Unity",
+        "titleKorean": "하나됨의 힘",
+        "description": "거리응원 문화가 한국 사회에 남긴 유산과 단결의 힘에 대해 이야기합니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "red_devils_supporter",
+                "emotion": "thoughtful",
+                "text": "거리응원이 특별한 건 뭔지 아세요?\\n서로 얼굴도 모르는 사람들이...\\n같은 노래 부르고, 같은 구호 외치고.\\n그 순간만큼은 하나가 되는 거예요.",
+                "choices": [
+                    {
+                        "id": "c1_culture",
+                        "text": "이런 응원 문화가 어떻게 시작됐나요?",
+                        "nextNodeId": "culture_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_after",
+                        "text": "월드컵 이후에도 이 정신이 이어졌나요?",
+                        "nextNodeId": "after_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "culture_branch",
+                "speakerId": "red_devils_supporter",
+                "emotion": "neutral",
+                "text": "붉은악마 서포터즈가 조직했어요.\\n1990년대부터 응원 문화를 만들어왔죠.\\n2002년에 그게 폭발적으로 퍼진 거예요.\\n'오 필승 코리아', '아리랑' 떼창... 우리만의 응원이었죠.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "after_branch",
+                "speakerId": "red_devils_supporter",
+                "emotion": "happy",
+                "text": "당연하죠! 지금도 월드컵 때마다 거리응원해요.\\n그리고 그 정신은 다른 곳에서도 나타났어요.\\n2016년 촛불집회... 수백만이 평화롭게 모인 것도\\n어쩌면 2002년의 경험 덕분인지도 몰라요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "red_devils_supporter",
+                "emotion": "determined",
+                "text": "우리 국민은 함께할 때 강해요.\\n천만 관중, 천만 시민... 함께하면 뭐든 가능해요.\\n그게 대한민국의 힘이에요!\\n대~한민국! 짝짝짝 짝짝!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 40
+                }
+            }
+        ]
+    },
+    {
+        "id": "kpop_trainee_dream_01",
+        "characterId": "kpop_trainee",
+        "title": "Dream of the Stage",
+        "titleKorean": "무대를 향한 꿈",
+        "description": "K-Pop 연습생과 함께 데뷔를 향한 꿈, 혹독한 연습, 그리고 포기하지 않는 이유에 대해 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_kwave_global"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "kpop_trainee",
+                "emotion": "neutral",
+                "text": "후... 방금 연습 끝났어요.\\n미래에서 오셨다고요? 신기하다...\\n저는 K-Pop 아이돌을 꿈꾸는 연습생이에요.\\n아직 데뷔 못 했지만요. 하하.",
+                "choices": [
+                    {
+                        "id": "c1_life",
+                        "text": "연습생 생활은 어때요?",
+                        "preview": "연습생 일상 듣기",
+                        "nextNodeId": "life_branch",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_hard",
+                        "text": "포기하고 싶을 때도 있나요?",
+                        "preview": "힘든 점 이야기",
+                        "nextNodeId": "hard_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_why",
+                        "text": "왜 K-Pop을 꿈꾸게 됐어요?",
+                        "preview": "꿈의 시작 이야기",
+                        "nextNodeId": "why_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "life_branch",
+                "speakerId": "kpop_trainee",
+                "emotion": "thoughtful",
+                "text": "새벽 6시에 일어나서 밤 12시까지 연습해요.\\n보컬, 댄스, 랩, 외국어... 배워야 할 게 너무 많아요.\\n월말 평가에서 탈락하면... 방출될 수도 있고요.\\n솔직히 매일 불안해요. 하지만 그래도 계속해요.",
+                "nextNodeId": "dream_node"
+            },
+            {
+                "id": "hard_branch",
+                "speakerId": "kpop_trainee",
+                "emotion": "sad",
+                "text": "솔직히요... 매일 그래요.\\n친구들은 대학 가고, 연애하고, 놀러 다니는데...\\n저는 연습실에서 땀 흘리고 있으니까요.\\n'이게 맞나?' 싶을 때도 있어요. 근데...",
+                "nextNodeId": "dream_node"
+            },
+            {
+                "id": "why_branch",
+                "speakerId": "kpop_trainee",
+                "emotion": "happy",
+                "text": "중학교 때 BTS 무대를 봤어요.\\n수만 명의 관객이 환호하고, 떼창하고...\\n그때 생각했어요. '나도 저 무대에 서고 싶다.'\\n그 꿈이 아직까지 저를 여기 있게 해요.",
+                "nextNodeId": "dream_node"
+            },
+            {
+                "id": "dream_node",
+                "speakerId": "kpop_trainee",
+                "emotion": "determined",
+                "text": "포기하지 않는 이유요?\\n무대에 설 때의 그 짜릿함을 알거든요.\\n연습 무대라도 조명 받으면... 세상을 가진 기분이에요.\\n그 순간을 위해 오늘도 버텨요.",
+                "choices": [
+                    {
+                        "id": "c2_future",
+                        "text": "데뷔하면 어떤 아티스트가 되고 싶어요?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "kpop_trainee",
+                "emotion": "happy",
+                "text": "팬들에게 희망을 주는 아티스트요!\\n힘들 때 제 노래 듣고 위로받는 사람이 있다면...\\n이 모든 고생이 의미 있는 거잖아요.\\n언젠가 제 무대 보러 와주세요!\\n꼭 데뷔할 테니까요! 약속해요!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "kpop_trainee"
+                }
+            }
+        ]
+    },
+    {
+        "id": "kpop_trainee_practice_01",
+        "characterId": "kpop_trainee",
+        "title": "Path of Training",
+        "titleKorean": "연습의 길",
+        "description": "연습생 시스템의 이면과 K-Pop 산업의 치열함, 그리고 꿈을 향한 노력에 대해 이야기합니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "kpop_trainee",
+                "emotion": "thoughtful",
+                "text": "K-Pop 시스템이 궁금하세요?\\n솔직히 말하면... 엄청 치열해요.\\n전 세계에서 수천 명이 지원하고, 연습생이 되는 것도 어렵죠.",
+                "choices": [
+                    {
+                        "id": "c1_system",
+                        "text": "연습생 시스템을 자세히 알려주세요.",
+                        "nextNodeId": "system_branch",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_global",
+                        "text": "K-Pop이 왜 세계적으로 인기 있을까요?",
+                        "nextNodeId": "global_branch",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "system_branch",
+                "speakerId": "kpop_trainee",
+                "emotion": "neutral",
+                "text": "오디션 합격하면 연습생 계약을 해요.\\n그 다음은 몇 년간의 트레이닝.\\n노래, 춤, 연기, 외국어, 예절... 모든 걸 배워요.\\n매달 비공개 평가가 있고, 언제든 방출될 수 있어요.\\n데뷔 확정될 때까지 마음 놓을 수 없죠.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "global_branch",
+                "speakerId": "kpop_trainee",
+                "emotion": "determined",
+                "text": "준비의 차이 아닐까요?\\n우리는 몇 년간 갈고 닦아서 데뷔해요.\\n노래, 춤, 비주얼, 팬 소통... 모든 면에서 완성도를 높이죠.\\n그리고 팬들과 직접 소통하는 것도 중요해요.\\nSNS, 팬미팅, 브이로그... 진심이 통하는 거죠.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "kpop_trainee",
+                "emotion": "happy",
+                "text": "힘들지만 후회는 없어요.\\n같은 꿈을 꾸는 친구들이 있고,\\n응원해주는 가족이 있으니까요.\\n오늘도 연습 가야 해요!\\n나중에 제가 유명해지면 이 대화 기억해주세요! 하하!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 40
+                }
+            }
+        ]
     }
 ]

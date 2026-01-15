@@ -128,7 +128,7 @@ class CountryUnlockRules {
 
   static const Map<String, String> _eraLabels = {
     'korea_three_kingdoms': '삼국시대',
-    'korea_unified_silla': '통일신라',
+    'korea_unified_silla': '남북국시대',
     'korea_goryeo': '고려시대',
     'korea_joseon': '조선시대',
   };

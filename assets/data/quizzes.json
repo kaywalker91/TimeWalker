@@ -268,6 +268,60 @@
                     "timeLimitSeconds": 35
                 },
                 {
+                    "id": "ansi_fortress_01",
+                    "question": "안시성 전투에서 고구려가 당나라 대군을 물리칠 수 있었던 가장 큰 요인은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "당나라 군대에 전염병이 돌아서",
+                        "연개소문이 지원군을 이끌고 와서",
+                        "안시성주 양만춘과 군민이 하나 되어 끝까지 항전했기 때문",
+                        "당 태종이 갑자기 병으로 죽어서"
+                    ],
+                    "correctAnswer": "안시성주 양만춘과 군민이 하나 되어 끝까지 항전했기 때문",
+                    "explanation": "안시성 싸움은 성주 양만춘의 뛰어난 리더십과 군민들의 단결력이 만들어낸 기적 같은 승리였습니다. 그들은 토산을 쌓아 공격하는 당나라 군에 맞서 토산을 점령하는 등 끈질기게 저항하여 결국 승리를 거두었습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedLocationId": "ansi_fortress",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "yeon_gaesomun_title_01",
+                    "question": "연개소문이 고구려의 모든 권력을 장악하고 올랐던 최고 관직의 이름은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "상대등",
+                        "대막리지",
+                        "영의정",
+                        "총리"
+                    ],
+                    "correctAnswer": "대막리지",
+                    "explanation": "연개소문은 정변을 일으켜 영류왕을 제거하고 '대막리지'라는 자리에 올라 군사권과 행정권을 모두 장악했습니다. 이는 전시 비상사태에 준하는 강력한 독재 체제였습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedCharacterId": "yeon_gaesomun",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "goguryeo_mural_01",
+                    "question": "고구려 고분 벽화(무용총)에 그려진 그림들이 당시 사람들의 생활에 대해 알려주는 것은?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "그들은 춤과 노래를 즐겼으며, 점무늬 옷을 입기도 했다",
+                        "그들은 항상 갑옷만 입고 다녔다",
+                        "그들은 슬픈 표정만 짓고 살았다",
+                        "그들은 그림을 그리지 않았다"
+                    ],
+                    "correctAnswer": "그들은 춤과 노래를 즐겼으며, 점무늬 옷을 입기도 했다",
+                    "explanation": "무용총의 무용도에는 남녀가 줄지어 춤을 추는 모습이 그려져 있는데, 특히 점무늬(땡땡이)가 있는 옷을 입고 있어 당시의 의복 문화와 낙천적인 생활상을 엿볼 수 있습니다.",
+                    "eraId": "korea_three_kingdoms",
+                    "relatedFactId": "fact_goguryeo_mural",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
                     "id": "tripitaka_insight_01",
                     "question": "고려가 몽골의 침략기에 '팔만대장경'을 조판한 근본적인 이유는?",
                     "type": "multipleChoice",
@@ -340,6 +394,186 @@
                     "timeLimitSeconds": 35
                 },
                 {
+                    "id": "balhae_founding_01",
+                    "question": "대조영이 발해를 건국한 것이 한국사에서 중요한 이유는 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 새로운 나라를 세웠기 때문",
+                        "고구려 멸망 후 그 유민과 영토를 계승하여 한민족의 역사를 만주까지 이어나갔기 때문",
+                        "당나라와 친하게 지냈기 때문",
+                        "신라를 정복했기 때문"
+                    ],
+                    "correctAnswer": "고구려 멸망 후 그 유민과 영토를 계승하여 한민족의 역사를 만주까지 이어나갔기 때문",
+                    "explanation": "발해는 고구려 멸망 30년 후인 698년, 대조영이 고구려 유민과 말갈족을 이끌고 건국했습니다. '고려(高麗)'라는 국호를 사용하기도 했으며, 전성기에는 '해동성국'으로 불릴 만큼 강성하여 한민족의 역사 영역을 만주까지 확장시킨 중요한 국가입니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "dae_joyeong",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "balhae_dengzhou_01",
+                    "question": "발해 무왕이 732년 당나라 등주를 공격한 것이 역사적으로 의미 있는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "당나라를 멸망시켰기 때문",
+                        "고구려 멸망 이후 처음으로 중국 본토를 공격하여 발해가 동아시아 강국임을 과시했기 때문",
+                        "일본과 동맹을 맺었기 때문",
+                        "무역 협정을 체결했기 때문"
+                    ],
+                    "correctAnswer": "고구려 멸망 이후 처음으로 중국 본토를 공격하여 발해가 동아시아 강국임을 과시했기 때문",
+                    "explanation": "대무예(무왕)는 장문휴로 하여금 수군을 이끌고 당나라 등주(산동성)를 기습 공격하게 했습니다. 이는 고구려 멸망 이후 처음으로 중국 본토를 공격한 사건으로, 발해의 군사력과 자주성을 동아시아에 선언한 역사적 의의가 있습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "dae_muye",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "bulguksa_seokguram_01",
+                    "question": "불국사와 석굴암이 UNESCO 세계문화유산으로 등재될 만큼 가치 있는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 오래된 건물이기 때문",
+                        "통일신라의 높은 예술적·과학적 기술력과 불교 신앙이 조화를 이룬 걸작이기 때문",
+                        "왕이 직접 만들었기 때문",
+                        "외국에서 수입해온 건축물이기 때문"
+                    ],
+                    "correctAnswer": "통일신라의 높은 예술적·과학적 기술력과 불교 신앙이 조화를 이룬 걸작이기 때문",
+                    "explanation": "불국사와 석굴암은 751년 김대성이 창건했습니다. 불국사는 석가탑과 다보탑의 조화로운 배치로, 석굴암은 자연 석굴이 없는 곳에 화강암으로 인공 석굴을 만든 세계적으로 유례없는 기술력으로 높은 평가를 받습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedLocationId": "bulguksa",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "seokguram_science_01",
+                    "question": "석굴암의 건축에 숨겨진 과학적 비밀은 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "돌 사이에 철로 연결했다",
+                        "정교한 돔 구조, 자연 통풍 시스템으로 습기를 조절하여 천년 넘게 보존될 수 있었다",
+                        "지하에 온돌을 설치했다",
+                        "돌대신 나무로 지었다"
+                    ],
+                    "correctAnswer": "정교한 돔 구조, 자연 통풍 시스템으로 습기를 조절하여 천년 넘게 보존될 수 있었다",
+                    "explanation": "석굴암 천장은 돌을 정교하게 쌓아 만든 돔 구조이며, 자연적인 통풍 시스템이 있어 내부 습도를 일정하게 유지합니다. 일제강점기 땜질 보수로 이 시스템이 훼손되어 현재 인공 제습이 필요하게 되었습니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedLocationId": "seokguram",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "hwajeng_philosophy_01",
+                    "question": "원효의 '화쟁(和諍)' 사상이 현대 사회에 주는 교훈은 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "자신의 주장만이 옳다",
+                        "서로 다른 의견도 진리의 일면을 담고 있으므로, 대립보다 화합을 추구해야 한다",
+                        "다툼은 피할 수 없다",
+                        "종교는 필요 없다"
+                    ],
+                    "correctAnswer": "서로 다른 의견도 진리의 일면을 담고 있으므로, 대립보다 화합을 추구해야 한다",
+                    "explanation": "화쟁(和諍)은 '다툼을 화해시킨다'는 뜻으로, 원효가 주창한 불교 통합 사상입니다. 각 종파의 주장이 모두 진리를 담고 있다고 보았으며, 이는 오늘날 사회적 갈등 해결에도 적용될 수 있는 포용과 통합의 지혜입니다.",
+                    "eraId": "korea_unified_silla",
+                    "relatedCharacterId": "wonhyo",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "kim_gu_legacy_01",
+                    "question": "김구 선생이 '나의 소원'에서 밝힌 꿈은 무엇이었을까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "군사 강대국",
+                        "세계에서 가장 아름다운 문화의 힘을 가진 나라",
+                        "경제 대국",
+                        "핵무기 보유국"
+                    ],
+                    "correctAnswer": "세계에서 가장 아름다운 문화의 힘을 가진 나라",
+                    "explanation": "김구 선생은 '나의 소원'에서 '오직 한없이 가지고 싶은 것은 높은 문화의 힘'이라며 물질적 부국강병보다 문화 강국을 꿈꿨습니다. 이는 오늘날 K-Pop, K-드라마 등 한류의 성공을 예견한 것 같은 비전입니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "kim_gu",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "provisional_government_01",
+                    "question": "대한민국 임시정부가 역사적으로 중요한 가장 큰 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "건물이 아름답기 때문",
+                        "대한민국 헌법에 명시된 우리나라 정통성의 뿌리이기 때문",
+                        "중국 정부의 지원을 받았기 때문",
+                        "일본과 평화 협정을 맺었기 때문"
+                    ],
+                    "correctAnswer": "대한민국 헌법에 명시된 우리나라 정통성의 뿌리이기 때문",
+                    "explanation": "대한민국 헌법 전문에는 '3.1운동으로 건립된 대한민국임시정부의 법통을 계승'한다고 명시되어 있습니다. 즉 오늘날 대한민국은 임시정부를 정통성의 근거로 삼고 있어 역사적 의의가 큽니다.",
+                    "eraId": "korea_modern",
+                    "relatedLocationId": "shanghai_provisional",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "liberation_and_division_01",
+                    "question": "1945년 광복 직후 38선 분단이 비극적인 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "남쪽이 더 땅이 넓어서",
+                        "독립을 되찾았으나 우리 의지와 무관하게 강대국에 의해 나라가 둘로 갈라졌기 때문",
+                        "38도선이 너무 추웠기 때문",
+                        "일본이 38선에서 계속 저항했기 때문"
+                    ],
+                    "correctAnswer": "독립을 되찾았으나 우리 의지와 무관하게 강대국에 의해 나라가 둘로 갈라졌기 때문",
+                    "explanation": "35년간 독립을 위해 싸웠지만, 해방 순간 미국과 소련의 결정으로 한반도는 38선을 경계로 분단되었습니다. 이는 한민족의 의사가 전혀 반영되지 않은 외세에 의한 비극이었습니다.",
+                    "eraId": "korea_modern",
+                    "relatedLocationId": "line_38",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "ahn_changho_spirit_01",
+                    "question": "안창호 선생이 강조한 '무실역행(務實力行)'의 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "무력으로 독립을 이룬다",
+                        "참되게 일하고 참되게 행한다",
+                        "빨리 힘을 길러서 싸운다",
+                        "외교만으로 독립한다"
+                    ],
+                    "correctAnswer": "참되게 일하고 참되게 행한다",
+                    "explanation": "무실역행(務實力行)은 '열심히 하되 거짓 없이 참되게 하고, 힘써서 실천한다'는 뜻입니다. 안창호는 말만 하지 말고 실천하라, 실력을 길러 독립을 이루자고 가르쳤습니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "ahn_changho",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "first_republic_01",
+                    "question": "1948년 대한민국 정부 수립이 갖는 역사적 의의는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "세계 최초의 민주주의 국가가 되었다",
+                        "한반도 역사상 최초의 민주공화국이 탄생했다",
+                        "왕조가 다시 부활했다",
+                        "일본의 속국이 되었다"
+                    ],
+                    "correctAnswer": "한반도 역사상 최초의 민주공화국이 탄생했다",
+                    "explanation": "1948년 8월 15일, 대한민국 정부가 수립되면서 한반도 역사상 최초로 국민이 주권을 가지는 민주공화국이 탄생했습니다. 비록 분단된 남쪽만의 정부였으나, 민주주의 체제의 출발점이었습니다.",
+                    "eraId": "korea_modern",
+                    "relatedCharacterId": "syngman_rhee",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
                     "id": "choe_museon_gunpowder_01",
                     "question": "최무선의 화약 국산화와 진포 대첩이 갖는 세계사적 의미는?",
                     "type": "multipleChoice",
@@ -373,6 +607,60 @@
                     "explanation": "당시 백성들은 겨울에도 얇은 삼베옷을 입어 추위에 떨었습니다. 문익점의 목화 반입과 보급은 '의생활 혁명'이라 불릴 만큼 백성들에게 따뜻함이라는 큰 선물을 가져다주었습니다.",
                     "eraId": "korea_goryeo",
                     "relatedCharacterId": "mun_ikjeom",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "tripitaka_koreana_01",
+                    "question": "팔만대장경을 만들던 고려인들이 몽골 침략 중에도 이 거대한 작업을 계속한 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "돈을 많이 벌기 위해서",
+                        "부처님의 힘으로 외적을 물리치고 나라를 지키고자 하는 간절한 호국 신앙",
+                        "왕이 취미 활동으로 시킨 것",
+                        "중국에 팔기 위해서"
+                    ],
+                    "correctAnswer": "부처님의 힘으로 외적을 물리치고 나라를 지키고자 하는 간절한 호국 신앙",
+                    "explanation": "고려인들은 불법(佛法)의 힘으로 나라를 지킬 수 있다고 믿었습니다. 몽골 침략으로 고통받는 가운데서도 16년간 팔만대장경을 완성한 것은 호국 불교 정신의 결정체입니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedLocationId": "haeinsa",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "seohee_diplomacy_01",
+                    "question": "서희가 거란 장수 소손녕과의 담판에서 사용한 '역사적 논리'는 무엇이었을까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "고려는 약소국이니 봐달라",
+                        "고려는 고구려를 계승한 나라이니 고구려 땅의 정당한 주인이다",
+                        "중국이 도와줄 것이다",
+                        "평화를 사랑하니 공격하지 마라"
+                    ],
+                    "correctAnswer": "고려는 고구려를 계승한 나라이니 고구려 땅의 정당한 주인이다",
+                    "explanation": "서희는 '고려(高麗)'라는 국호 자체가 고구려(高句麗)를 계승한 것임을 들어, 옛 고구려 땅은 마땅히 고려의 영토라고 주장했습니다. 이 역사적 논리로 오히려 강동 6주를 얻어냈습니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedCharacterId": "seohee",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "sambyeolcho_resistance_01",
+                    "question": "삼별초가 몽골에 끝까지 저항한 것이 역사적으로 갖는 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "무의미한 반란이었다",
+                        "고려인의 강인한 저항 정신과 자주 의식을 보여주는 상징이다",
+                        "몽골과 친해지게 된 계기다",
+                        "왕을 보호하기 위해서였다"
+                    ],
+                    "correctAnswer": "고려인의 강인한 저항 정신과 자주 의식을 보여주는 상징이다",
+                    "explanation": "조정이 항복해도 끝까지 싸운 삼별초의 항쟁은 고려 무인들의 불굴의 저항 정신을 보여줍니다. 비록 패배했지만, 그 정신은 후대 독립운동가들에게도 영감을 주었습니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedLocationId": "sambyeolcho_jindo",
                     "basePoints": 15,
                     "timeLimitSeconds": 30
                 },
@@ -664,6 +952,149 @@
                     "relatedCharacterId": "yi_sun_sin",
                     "basePoints": 10,
                     "timeLimitSeconds": 25
+                },
+                {
+                    "id": "seoul_olympics_88_01",
+                    "question": "1988년 서울 올림픽이 대한민국에 미친 가장 큰 영향은 무엇일까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "단순히 스포츠 경기를 개최했다는 것",
+                        "분단국가 대한민국을 세계에 알리고, 선진국으로 도약하는 계기를 마련했다",
+                        "관광객이 잠시 늘어났다가 줄어들었다",
+                        "올림픽 이후 경제가 오히려 위축되었다"
+                    ],
+                    "correctAnswer": "분단국가 대한민국을 세계에 알리고, 선진국으로 도약하는 계기를 마련했다",
+                    "explanation": "88 서울올림픽은 냉전 시대에 동서진영 159개국이 참가한 역대 최대 규모의 올림픽이었습니다. 전쟁의 폐허에서 일어난 대한민국의 성장을 전 세계에 알렸고, 민주화 이행, 국제적 위상 제고, 인프라 발전 등 국가 발전의 중요한 전환점이 되었습니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedLocationId": "seoul_olympic_stadium",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "imf_crisis_gold_01",
+                    "question": "1997년 IMF 외환위기 당시 '금 모으기 운동'이 전 세계에 보여준 한국인의 특성은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "금을 좋아하는 민족성",
+                        "정부에 대한 불신",
+                        "국난 극복을 위해 하나로 뭉치는 단결력과 희생정신",
+                        "경제에 대한 무지"
+                    ],
+                    "correctAnswer": "국난 극복을 위해 하나로 뭉치는 단결력과 희생정신",
+                    "explanation": "IMF 외환위기 당시 350만 명의 국민들이 자발적으로 금 227톤(약 22억 달러)을 모았습니다. 결혼반지, 돌반지까지 내놓은 이 운동은 국가 위기를 함께 극복하려는 한국인의 단결력을 보여주었고, 한국은 예상보다 3년 빨리 IMF 구제금융을 상환했습니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedFactId": "fact_imf_crisis",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "worldcup_2002_01",
+                    "question": "2002년 한일 월드컵에서 대한민국 축구대표팀의 4강 진출이 갖는 역사적 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "아시아 최초의 월드컵 4강 진출로 한국 축구의 위상을 높였다",
+                        "단순히 운이 좋았다",
+                        "다른 팀들이 기권했기 때문이다",
+                        "심판의 오심 덕분이었다"
+                    ],
+                    "correctAnswer": "아시아 최초의 월드컵 4강 진출로 한국 축구의 위상을 높였다",
+                    "explanation": "2002년 한일 월드컵에서 대한민국은 스페인, 이탈리아 등 강호들을 꺾고 아시아 최초로 4강에 올랐습니다. 히딩크 감독의 리더십과 700만 붉은악마의 거리응원은 '대~한민국' 응원 문화를 탄생시켰고, 국민 통합과 자긍심의 계기가 되었습니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedFactId": "fact_2002_worldcup",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "candlelight_democracy_01",
+                    "question": "2016-2017년 촛불집회가 세계 민주주의 역사에서 주목받은 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "가장 많은 인파가 모였기 때문",
+                        "폭력 없는 평화 시위로 헌정 질서를 지키며 민주적 정권 교체를 이뤄냈기 때문",
+                        "촛불을 사용했기 때문",
+                        "연예인들이 많이 참여했기 때문"
+                    ],
+                    "correctAnswer": "폭력 없는 평화 시위로 헌정 질서를 지키며 민주적 정권 교체를 이뤄냈기 때문",
+                    "explanation": "2016년 10월부터 2017년 3월까지 연인원 1,700만 명이 참여한 촛불집회는 단 한 건의 폭력 사태 없이 평화롭게 진행되었습니다. 헌법재판소의 탄핵 결정으로 민주적 절차에 따른 정권 교체를 이뤄내며, '촛불혁명'은 성숙한 시민의식과 민주주의의 새로운 모델로 세계의 주목을 받았습니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedFactId": "fact_candlelight_revolution",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 40
+                },
+                {
+                    "id": "hallyu_kwave_01",
+                    "question": "'한류(韓流, Korean Wave)'가 세계적으로 성공할 수 있었던 핵심 요인은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "정부의 강제적인 문화 수출 정책",
+                        "높은 완성도의 콘텐츠와 디지털 플랫폼을 활용한 글로벌 소통 전략",
+                        "다른 나라 문화보다 저렴했기 때문",
+                        "미국 할리우드의 지원"
+                    ],
+                    "correctAnswer": "높은 완성도의 콘텐츠와 디지털 플랫폼을 활용한 글로벌 소통 전략",
+                    "explanation": "한류의 성공은 K-Pop, K-Drama, K-Movie 등 높은 완성도의 콘텐츠와, 유튜브·넷플릭스 등 디지털 플랫폼을 활용한 글로벌 소통 전략의 결합입니다. 특히 팬들과 직접 소통하는 아티스트들의 친밀감과, 한국 고유의 정서를 보편적 감성으로 표현한 점이 성공 요인입니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedFactId": "fact_kwave_global",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "it_powerhouse_01",
+                    "question": "대한민국이 'IT 강국'으로 발돋움할 수 있었던 배경은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "땅이 좁아서 인터넷 케이블 설치가 쉬웠다",
+                        "IMF 위기 극복 과정에서 벤처 붐이 일어나고, 초고속 인터넷 인프라에 과감히 투자했다",
+                        "외국 IT 기업들이 모두 한국에 왔다",
+                        "컴퓨터가 저렴했기 때문"
+                    ],
+                    "correctAnswer": "IMF 위기 극복 과정에서 벤처 붐이 일어나고, 초고속 인터넷 인프라에 과감히 투자했다",
+                    "explanation": "1990년대 말 IMF 위기 이후 청년들은 IT 벤처 창업에 뛰어들었고, 정부는 초고속 인터넷 인프라에 과감히 투자했습니다. '테헤란밸리'로 불린 강남 일대에서 수많은 IT 기업들이 탄생하며 한국은 세계 최고 수준의 인터넷 보급률과 IT 경쟁력을 갖춘 나라가 되었습니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedLocationId": "gangnam_teheran",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "bong_joonho_parasite_01",
+                    "question": "영화 '기생충'이 2020년 아카데미 작품상을 수상한 것의 역사적 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "한국 영화가 처음으로 미국에서 상영되었다",
+                        "비영어권 영화 최초로 아카데미 작품상을 수상하며 한국 영화의 세계적 위상을 입증했다",
+                        "미국 감독이 만든 영화였다",
+                        "단순히 상업적으로 성공한 것"
+                    ],
+                    "correctAnswer": "비영어권 영화 최초로 아카데미 작품상을 수상하며 한국 영화의 세계적 위상을 입증했다",
+                    "explanation": "봉준호 감독의 '기생충'은 92년 아카데미 역사상 최초로 비영어권 영화로서 작품상, 감독상, 각본상, 국제영화상 4관왕을 달성했습니다. 봉 감독은 수상 소감에서 '가장 개인적인 것이 가장 창의적인 것'이라며 한국적 이야기의 보편성을 역설했습니다.",
+                    "eraId": "korea_contemporary_3",
+                    "relatedFactId": "artifact_parasite_oscar",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "global_korea_identity_01",
+                    "question": "글로벌 대한민국 시대(1988-2025)를 관통하는 한국인의 정체성 변화를 가장 잘 설명한 것은?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "여전히 가난한 나라의 국민이라는 인식",
+                        "전쟁과 분단의 아픔을 넘어 세계 무대에서 당당히 인정받는 문화 강국 국민으로의 자긍심 회복",
+                        "외국 문화만 동경하는 사대주의",
+                        "과거에만 집착하는 복고주의"
+                    ],
+                    "correctAnswer": "전쟁과 분단의 아픔을 넘어 세계 무대에서 당당히 인정받는 문화 강국 국민으로의 자긍심 회복",
+                    "explanation": "88올림픽에서 시작된 글로벌 대한민국 시대는 경제 위기를 극복하고, 민주화를 완성하며, K-문화로 세계를 사로잡은 여정입니다. '도움받는 나라'에서 '도움주는 나라'로, '따라가는 나라'에서 '이끌어가는 나라'로 변화한 한국인의 자긍심은 이 시대의 가장 큰 유산입니다.",
+                    "eraId": "korea_contemporary_3",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 45
                 }
             ]
         },
@@ -743,6 +1174,97 @@
                     "relatedFactId": "fact_factory_system",
                     "basePoints": 20,
                     "timeLimitSeconds": 40
+                },
+                {
+                    "id": "davinci_renaissance_man_01",
+                    "question": "레오나르도 다빈치가 '르네상스 맨(Renaissance Man)'이라고 불리는 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "르네상스 시대에 태어나서",
+                        "그림만 잘 그려서",
+                        "회화, 조각, 건축, 과학, 발명 등 모든 분야에 뛰어난 다재다능한 천재였기 때문",
+                        "이탈리아 사람이어서"
+                    ],
+                    "correctAnswer": "회화, 조각, 건축, 과학, 발명 등 모든 분야에 뛰어난 다재다능한 천재였기 때문",
+                    "explanation": "'르네상스 맨'은 한 분야가 아닌 여러 분야에 능통한 다재다능한 인물을 뜻합니다. 다빈치는 모나리자 같은 명화를 그리면서 동시에 비행기, 전차 같은 발명품을 설계하고 인체 해부도까지 그렸습니다.",
+                    "eraId": "europe_renaissance",
+                    "relatedCharacterId": "davinci",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "michelangelo_sistine_01",
+                    "question": "미켈란젤로가 시스티나 성당 천장에 그린 '천지창조' 중 가장 유명한 장면은?",
+                    "type": "multipleChoice",
+                    "difficulty": "easy",
+                    "options": [
+                        "모나리자",
+                        "신이 아담에게 생명을 불어넣는 장면 (아담의 창조)",
+                        "최후의 만찬",
+                        "비너스의 탄생"
+                    ],
+                    "correctAnswer": "신이 아담에게 생명을 불어넣는 장면 (아담의 창조)",
+                    "explanation": "신과 아담이 손가락을 뻗어 거의 닿을 듯한 이 장면은 서양 미술의 상징이 되었습니다. 미켈란젤로는 4년 동안 천장 아래에서 고개를 들고 그림을 그려 목과 눈에 심각한 손상을 입었다고 합니다.",
+                    "eraId": "europe_renaissance",
+                    "relatedCharacterId": "michelangelo",
+                    "relatedLocationId": "rome_vatican",
+                    "basePoints": 10,
+                    "timeLimitSeconds": 25
+                },
+                {
+                    "id": "gutenberg_printing_01",
+                    "question": "구텐베르크의 금속 활자 인쇄술 발명이 세계사에 미친 가장 큰 영향은?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "책이 예뻐졌다",
+                        "지식의 민주화로 종교개혁, 과학혁명, 계몽주의가 가능해졌다",
+                        "종이 가격이 올랐다",
+                        "필사승들이 일자리를 잃었다"
+                    ],
+                    "correctAnswer": "지식의 민주화로 종교개혁, 과학혁명, 계몽주의가 가능해졌다",
+                    "explanation": "인쇄술 발명 전에는 책이 귀족과 성직자만의 것이었습니다. 책의 대량 생산이 가능해지자 일반인도 지식에 접근할 수 있게 되었고, 마르틴 루터의 95개조 반박문도 급속히 퍼질 수 있었습니다.",
+                    "eraId": "europe_renaissance",
+                    "relatedCharacterId": "gutenberg",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "galileo_eppur_01",
+                    "question": "갈릴레오가 종교재판에서 '그래도 지구는 돈다(E pur si muove)'라고 말했다는 일화가 상징하는 것은?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "갈릴레오가 거짓말을 했다는 것",
+                        "권력에 굴복해도 진리는 바뀌지 않는다는 과학적 신념",
+                        "지구가 정말로 돌지 않는다는 것",
+                        "교회의 정당성"
+                    ],
+                    "correctAnswer": "권력에 굴복해도 진리는 바뀌지 않는다는 과학적 신념",
+                    "explanation": "이 말은 실제로 했는지 불분명하지만, 권력의 압박에도 과학적 진리를 포기하지 않는 과학자의 정신을 상징합니다. 결국 400년 뒤 교황청은 갈릴레오에 대한 판결이 오류였음을 인정했습니다.",
+                    "eraId": "europe_renaissance",
+                    "relatedCharacterId": "galileo",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "shakespeare_hamlet_01",
+                    "question": "셰익스피어의 '햄릿'에 나오는 'To be, or not to be'(사느냐 죽느냐)의 주제는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "요리법",
+                        "삶과 죽음, 존재의 의미에 대한 철학적 고민",
+                        "여행 계획",
+                        "사랑 고백"
+                    ],
+                    "correctAnswer": "삶과 죽음, 존재의 의미에 대한 철학적 고민",
+                    "explanation": "햄릿이 아버지의 죽음과 복수 사이에서 번민하며 읊는 이 대사는 인생의 고통을 견디며 살 것인가, 아니면 포기할 것인가를 묻는 철학적 질문입니다. 400년이 지난 지금도 가장 많이 인용되는 명대사입니다.",
+                    "eraId": "europe_renaissance",
+                    "relatedCharacterId": "shakespeare",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
                 }
             ]
         }

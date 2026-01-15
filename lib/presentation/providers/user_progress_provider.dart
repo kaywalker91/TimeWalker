@@ -135,4 +135,24 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
       return false;
     }
   }
+
+  /// Admin Mode: Unlock all content for testing
+  Future<void> unlockAllContent() async {
+    if (!state.hasValue) return;
+    final current = state.value!;
+    
+    try {
+      final unlockedProgress = UserProgressSeed.debugAllUnlocked(current.userId);
+      // Keep existing inventory if needed, or just overwrite. 
+      // For pure admin mode, overwriting is fine, but maybe preserve settings?
+      // Let's just use the seed as is for now as it gives max resources.
+      
+      await _repository.saveUserProgress(unlockedProgress);
+      
+      if (!mounted) return;
+      state = AsyncData(unlockedProgress);
+    } catch (e, stack) {
+      if (mounted) state = AsyncError(e, stack);
+    }
+  }
 }

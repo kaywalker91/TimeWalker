@@ -37,11 +37,32 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
   bool _isInitialized = false;
   final ScrollController _listController = ScrollController();
 
+  // 삼국시대 왕국별 메타데이터 (역사적 색상 적용)
   static const Map<String, KingdomMeta> _kingdomMeta = {
-    'goguryeo': KingdomMeta(label: '고구려', color: Color(0xFF5B6EFF)),
-    'baekje': KingdomMeta(label: '백제', color: Color(0xFFD17B2C)),
-    'silla': KingdomMeta(label: '신라', color: Color(0xFF2DBE7D)),
-    'gaya': KingdomMeta(label: '가야', color: Color(0xFF8D5DE8)),
+    'goguryeo': KingdomMeta(
+      label: '고구려',
+      color: AppColors.kingdomGoguryeo,
+      lightColor: AppColors.kingdomGoguryeoLight,
+      glowColor: AppColors.kingdomGoguryeoGlow,
+    ),
+    'baekje': KingdomMeta(
+      label: '백제',
+      color: AppColors.kingdomBaekje,
+      lightColor: AppColors.kingdomBaekjeLight,
+      glowColor: AppColors.kingdomBaekjeGlow,
+    ),
+    'silla': KingdomMeta(
+      label: '신라',
+      color: AppColors.kingdomSilla,
+      lightColor: AppColors.kingdomSillaLight,
+      glowColor: AppColors.kingdomSillaGlow,
+    ),
+    'gaya': KingdomMeta(
+      label: '가야',
+      color: AppColors.kingdomGaya,
+      lightColor: AppColors.kingdomGayaLight,
+      glowColor: AppColors.kingdomGayaGlow,
+    ),
   };
 
   static const List<_KingdomTab> _kingdomTabs = [
@@ -228,6 +249,12 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
 
     // 왕국별 파티클 색상 결정
     final particleColor = _getParticleColor(era, isThreeKingdoms);
+    
+    // 왕국별 분위기 오버레이 색상
+    final kingdomOverlayColor = isThreeKingdoms && _kingdomTabController != null
+        ? _kingdomMeta[_kingdomTabs[_kingdomTabController!.index].id]?.color
+            ?? era.theme.accentColor
+        : era.theme.accentColor;
 
     return Stack(
       children: [
@@ -239,6 +266,28 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
             ),
           ),
         ),
+        
+        // === Kingdom Atmosphere Overlay (Sprint 5) ===
+        // 왕국 전환 시 분위기 색상이 부드럽게 변화
+        if (isThreeKingdoms)
+          Positioned.fill(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    kingdomOverlayColor.withValues(alpha: 0.12),
+                    Colors.transparent,
+                    kingdomOverlayColor.withValues(alpha: 0.06),
+                  ],
+                  stops: const [0.0, 0.5, 1.0],
+                ),
+              ),
+            ),
+          ),
 
         // === Floating Particles Layer ===
         Positioned.fill(
@@ -495,6 +544,9 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     );
   }
 
+  /// 미니멀 스티키 스테이터스 바 (진행률 바 중심)
+  ///
+  /// Sprint 5: 더 단순한 UI로 인지 부하 감소
   Widget _buildStickyStatusBar({
     required BuildContext context,
     required Era era,
@@ -504,117 +556,112 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     required ResponsiveUtils responsive,
     required UserProgress userProgress,
   }) {
-    final activeKingdom = _kingdomTabController != null
-        ? _kingdomTabs[_kingdomTabController!.index].label
-        : era.nameKorean;
+    // 왕국별 악센트 색상
+    final accentColor = _kingdomTabController != null
+        ? _kingdomMeta[_kingdomTabs[_kingdomTabController!.index].id]?.color
+            ?? era.theme.accentColor
+        : era.theme.accentColor;
     
     final progress = userProgress.getEraProgress(era.id);
     final percent = (progress * 100).toInt();
 
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
       width: double.infinity,
       padding: EdgeInsets.fromLTRB(
         responsive.padding(16),
-        responsive.padding(10),
+        responsive.padding(8),
         responsive.padding(16),
-        0, // Bottom padding removed for progress bar integration
+        responsive.padding(8),
       ),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.65), // Slightly darker for readability
+        color: Colors.black.withValues(alpha: 0.5),
+        // 왕국 전환 시 미묘한 상단 테두리 색상 변화
         border: Border(
-           bottom: BorderSide.none,
+          bottom: BorderSide(
+            color: accentColor.withValues(alpha: 0.3),
+            width: 1,
+          ),
         ),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: responsive.padding(10)),
-            child: Row(
-              children: [
-                Icon(Icons.timeline, size: responsive.iconSize(18), color: era.theme.accentColor),
-                SizedBox(width: responsive.spacing(8)),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        activeKingdom,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: responsive.fontSize(14),
-                        ),
-                      ),
-                      SizedBox(height: 2),
-                      Text(
-                        '총 $totalCount개 중 $visibleCount개 표시',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: responsive.fontSize(11),
-                        ),
+          // 미니멀 정보 행 (진행률만)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // 표시 장소 수 (심플 텍스트)
+              Text(
+                '$visibleCount개 장소',
+                style: TextStyle(
+                  color: Colors.white.withValues(alpha: 0.6),
+                  fontSize: responsive.fontSize(11),
+                ),
+              ),
+              // 진행률 퍼센티지
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: responsive.padding(10),
+                  vertical: responsive.padding(3),
+                ),
+                decoration: BoxDecoration(
+                  color: accentColor.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: accentColor.withValues(alpha: 0.4),
+                    width: 1,
+                  ),
+                ),
+                child: Text(
+                  '진행률 $percent%',
+                  style: TextStyle(
+                    color: accentColor,
+                    fontSize: responsive.fontSize(11),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: responsive.spacing(8)),
+          
+          // 미니멀 진행률 바 (그라데이션 적용)
+          ClipRRect(
+            borderRadius: BorderRadius.circular(3),
+            child: Container(
+              height: 4,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.1),
+              ),
+              child: FractionallySizedBox(
+                alignment: Alignment.centerLeft,
+                widthFactor: progress,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        accentColor.withValues(alpha: 0.5),
+                        accentColor,
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(3),
+                    boxShadow: [
+                      BoxShadow(
+                        color: accentColor.withValues(alpha: 0.4),
+                        blurRadius: 4,
+                        spreadRadius: 0,
                       ),
                     ],
                   ),
                 ),
-                
-                // Progress Percent & Selected Location
-                if (selectedLocation != null)
-                  Container(
-                    margin: EdgeInsets.only(right: responsive.spacing(12)),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: responsive.padding(8),
-                      vertical: responsive.padding(4),
-                    ),
-                    decoration: BoxDecoration(
-                      color: era.theme.accentColor.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      selectedLocation.nameKorean,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: responsive.fontSize(11),
-                        fontWeight: FontWeight.w600,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-
-                // Progress Percentage
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: responsive.padding(8),
-                    vertical: responsive.padding(4),
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: era.theme.accentColor.withValues(alpha: 0.5)),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Text(
-                    '$percent%',
-                    style: TextStyle(
-                      color: era.theme.accentColor,
-                      fontSize: responsive.fontSize(12),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          
-          // Integrated Progress Bar
-          ClipRRect(
-            borderRadius: BorderRadius.circular(2),
-            child: LinearProgressIndicator(
-              value: progress,
-              backgroundColor: Colors.white.withValues(alpha: 0.1),
-              color: era.theme.accentColor,
-              minHeight: 3,
+              ),
             ),
           ),
         ],
-      ), // Row removed
+      ),
     );
   }
 
