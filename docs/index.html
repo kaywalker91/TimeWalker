@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <meta name="description" content="전 세계의 역사를 시간 여행과 지도 탐험으로 배우는 인터랙티브 교육 어드벤처 게임">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-gold: #D4AF37;
@@ -59,7 +62,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(74, 59, 107, 0.2) 0%, transparent 50%);
+                radial-gradient(circle at 70% 80%, rgba(74, 59, 107, 0.2) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -89,8 +92,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .hero h1 {
@@ -175,9 +185,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
 
         /* Screenshots Section */
@@ -404,6 +427,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Hero Section -->
     <section class="hero">
@@ -432,7 +456,7 @@
     <section id="screenshots" class="screenshots">
         <h2 class="section-title">📱 앱 스크린샷</h2>
         <p class="section-subtitle">TimeWalker의 다양한 기능을 미리 만나보세요</p>
-        
+
         <div class="screenshot-grid">
             <div class="screenshot-card">
                 <img src="screenshots/main_menu.jpg" alt="메인 메뉴">
@@ -441,7 +465,7 @@
                     <p>시공의 회랑, 역사 도감, 퀴즈 도전 등 다양한 기능에 접근하세요</p>
                 </div>
             </div>
-            
+
             <div class="screenshot-card">
                 <img src="screenshots/location_exploration.jpg" alt="장소 탐험">
                 <div class="caption">
@@ -449,7 +473,7 @@
                     <p>고구려 국내성에서 광개토대왕과 장수왕을 만나보세요</p>
                 </div>
             </div>
-            
+
             <div class="screenshot-card">
                 <img src="screenshots/character_card.jpg" alt="캐릭터 정보">
                 <div class="caption">
@@ -457,7 +481,7 @@
                     <p>역사적 인물의 상세 정보를 확인하고 대화를 시작하세요</p>
                 </div>
             </div>
-            
+
             <div class="screenshot-card">
                 <img src="screenshots/dialogue_scene.jpg" alt="대화 장면">
                 <div class="caption">
@@ -465,7 +489,7 @@
                     <p>역사 인물과의 몰입감 있는 대화를 경험하세요</p>
                 </div>
             </div>
-            
+
             <div class="screenshot-card">
                 <img src="screenshots/dialogue_choices.jpg" alt="대화 선택지">
                 <div class="caption">
@@ -480,38 +504,38 @@
     <section class="features">
         <h2 class="section-title">✨ 주요 기능</h2>
         <p class="section-subtitle">교육과 재미를 모두 담은 인터랙티브 경험</p>
-        
+
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🗺️</div>
                 <h3>인터랙티브 지도 탐험</h3>
                 <p>Flame 엔진 기반의 월드맵 시스템으로 실제 좌표 투영을 통한 지리적 정확성을 제공합니다.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">⏰</div>
                 <h3>시대 여행</h3>
                 <p>삼국시대부터 근현대사, 르네상스까지 다양한 시대를 여행하며 역사를 체험하세요.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
                 <h3>대화 시스템</h3>
                 <p>역사적 인물과의 상호작용을 통해 선택지에 따른 분기 스토리를 경험하세요.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">📚</div>
                 <h3>교육 콘텐츠</h3>
                 <p>백과사전, 퀴즈, 장소 탐험을 통해 자연스럽게 역사를 학습하세요.</p>
             </div>
-            
+
             <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>진행 시스템</h3>
-                <p>업적 달성, 시대/국가 해금, 인벤토리와 상점 시스템을 즐기세요.</p>
+                <div class="feature-icon">☁️</div>
+                <h3>Supabase 백엔드</h3>
+                <p>클라우드 기반 데이터 동기화와 오프라인 캐싱으로 어디서든 학습을 이어가세요.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">🌐</div>
                 <h3>다국어 지원</h3>
@@ -524,7 +548,7 @@
     <section class="eras">
         <h2 class="section-title">🕰️ 탐험 가능한 시대</h2>
         <p class="section-subtitle">다양한 시대와 지역을 여행하세요</p>
-        
+
         <div class="era-list">
             <span class="era-tag">🇰🇷 삼국시대 (고구려, 백제, 신라, 가야)</span>
             <span class="era-tag">🇰🇷 남북국시대 (통일신라, 발해)</span>
@@ -540,7 +564,7 @@
     <section class="tech-stack">
         <h2 class="section-title">🛠️ 기술 스택</h2>
         <p class="section-subtitle">최신 Flutter 기술로 구축된 앱</p>
-        
+
         <div class="tech-grid">
             <div class="tech-item">
                 <div class="tech-icon">💙</div>
@@ -599,4 +623,5 @@
         });
     </script>
 </body>
+
 </html>
