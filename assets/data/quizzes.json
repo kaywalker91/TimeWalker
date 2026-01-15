@@ -611,6 +611,60 @@
                     "timeLimitSeconds": 30
                 },
                 {
+                    "id": "tripitaka_koreana_01",
+                    "question": "팔만대장경을 만들던 고려인들이 몽골 침략 중에도 이 거대한 작업을 계속한 이유는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "돈을 많이 벌기 위해서",
+                        "부처님의 힘으로 외적을 물리치고 나라를 지키고자 하는 간절한 호국 신앙",
+                        "왕이 취미 활동으로 시킨 것",
+                        "중국에 팔기 위해서"
+                    ],
+                    "correctAnswer": "부처님의 힘으로 외적을 물리치고 나라를 지키고자 하는 간절한 호국 신앙",
+                    "explanation": "고려인들은 불법(佛法)의 힘으로 나라를 지킬 수 있다고 믿었습니다. 몽골 침략으로 고통받는 가운데서도 16년간 팔만대장경을 완성한 것은 호국 불교 정신의 결정체입니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedLocationId": "haeinsa",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
+                    "id": "seohee_diplomacy_01",
+                    "question": "서희가 거란 장수 소손녕과의 담판에서 사용한 '역사적 논리'는 무엇이었을까요?",
+                    "type": "multipleChoice",
+                    "difficulty": "hard",
+                    "options": [
+                        "고려는 약소국이니 봐달라",
+                        "고려는 고구려를 계승한 나라이니 고구려 땅의 정당한 주인이다",
+                        "중국이 도와줄 것이다",
+                        "평화를 사랑하니 공격하지 마라"
+                    ],
+                    "correctAnswer": "고려는 고구려를 계승한 나라이니 고구려 땅의 정당한 주인이다",
+                    "explanation": "서희는 '고려(高麗)'라는 국호 자체가 고구려(高句麗)를 계승한 것임을 들어, 옛 고구려 땅은 마땅히 고려의 영토라고 주장했습니다. 이 역사적 논리로 오히려 강동 6주를 얻어냈습니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedCharacterId": "seohee",
+                    "basePoints": 20,
+                    "timeLimitSeconds": 35
+                },
+                {
+                    "id": "sambyeolcho_resistance_01",
+                    "question": "삼별초가 몽골에 끝까지 저항한 것이 역사적으로 갖는 의미는?",
+                    "type": "multipleChoice",
+                    "difficulty": "medium",
+                    "options": [
+                        "무의미한 반란이었다",
+                        "고려인의 강인한 저항 정신과 자주 의식을 보여주는 상징이다",
+                        "몽골과 친해지게 된 계기다",
+                        "왕을 보호하기 위해서였다"
+                    ],
+                    "correctAnswer": "고려인의 강인한 저항 정신과 자주 의식을 보여주는 상징이다",
+                    "explanation": "조정이 항복해도 끝까지 싸운 삼별초의 항쟁은 고려 무인들의 불굴의 저항 정신을 보여줍니다. 비록 패배했지만, 그 정신은 후대 독립운동가들에게도 영감을 주었습니다.",
+                    "eraId": "korea_goryeo",
+                    "relatedLocationId": "sambyeolcho_jindo",
+                    "basePoints": 15,
+                    "timeLimitSeconds": 30
+                },
+                {
                     "id": "jikji_metal_type_01",
                     "question": "현존하는 세계 최고의 금속 활자본 '직지심체요절'이 증명하는 고려의 기술력은?",
                     "type": "multipleChoice",

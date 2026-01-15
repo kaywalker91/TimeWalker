@@ -1219,5 +1219,113 @@
         "eventIds": [],
         "status": "available",
         "isHistorical": true
+    },
+    {
+        "id": "manwoldae",
+        "eraId": "korea_goryeo",
+        "name": "Manwoldae Palace Site",
+        "nameKorean": "만월대",
+        "description": "고려 500년 왕조의 법궁(法宮)이 있던 곳, 개경(개성)의 심장부",
+        "thumbnailAsset": "assets/images/locations/manwoldae_bg.png",
+        "backgroundAsset": "assets/images/locations/manwoldae_bg.png",
+        "latitude": 37.9653,
+        "longitude": 126.5643,
+        "displayYear": "918",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.48,
+            "y": 0.32
+        },
+        "characterIds": [
+            "wanggeon",
+            "gongmin"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "haeinsa",
+        "eraId": "korea_goryeo",
+        "name": "Haeinsa Temple",
+        "nameKorean": "해인사",
+        "description": "팔만대장경이 보관된 사찰, 유네스코 세계문화유산",
+        "thumbnailAsset": "assets/images/locations/haeinsa_bg.png",
+        "backgroundAsset": "assets/images/locations/haeinsa_bg.png",
+        "latitude": 35.8019,
+        "longitude": 128.0936,
+        "displayYear": "1251",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.55,
+            "y": 0.6
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "ganghwa_island",
+        "eraId": "korea_goryeo",
+        "name": "Ganghwa Island",
+        "nameKorean": "강화도",
+        "description": "몽골 침략에 맞서 39년간 고려 조정이 피난한 섬",
+        "thumbnailAsset": "assets/images/locations/ganghwa_island_bg.png",
+        "backgroundAsset": "assets/images/locations/ganghwa_island_bg.png",
+        "latitude": 37.7467,
+        "longitude": 126.4874,
+        "displayYear": "1232",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.45,
+            "y": 0.35
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "sambyeolcho_jindo",
+        "eraId": "korea_goryeo",
+        "name": "Sambyeolcho Resistance Base",
+        "nameKorean": "삼별초 항전지 (진도)",
+        "description": "고려 무인들의 마지막 항전지, 몽골에 끝까지 맞선 삼별초의 본거지",
+        "thumbnailAsset": "assets/images/locations/sambyeolcho_jindo_bg.png",
+        "backgroundAsset": "assets/images/locations/sambyeolcho_jindo_bg.png",
+        "latitude": 34.4839,
+        "longitude": 126.2639,
+        "displayYear": "1270",
+        "timelineOrder": 4,
+        "position": {
+            "x": 0.35,
+            "y": 0.75
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "gaegyeong_market",
+        "eraId": "korea_goryeo",
+        "name": "Gaegyeong Market",
+        "nameKorean": "개경 시전(市廛)",
+        "description": "고려청자와 국제 무역의 중심지, 송·거란·아라비아 상인들이 모여든 번화가",
+        "thumbnailAsset": "assets/images/locations/gaegyeong_market_bg.png",
+        "backgroundAsset": "assets/images/locations/gaegyeong_market_bg.png",
+        "latitude": 37.9706,
+        "longitude": 126.5558,
+        "displayYear": "1000",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.48,
+            "y": 0.33
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
     }
 ]

@@ -3303,5 +3303,161 @@
       "건국",
       "근현대"
     ]
+  },
+  {
+    "id": "enc_manwoldae",
+    "type": "location",
+    "title": "Manwoldae Palace",
+    "titleKorean": "만월대",
+    "summary": "고려 500년 왕조의 법궁이 있던 곳",
+    "content": "만월대(滿月臺)는 고려 태조 왕건이 919년 개경(지금의 개성)에 지은 법궁 터를 말한다. '보름달처럼 가득 찬 터'라는 뜻으로, 고려 왕조의 정치와 문화의 중심이었다. 궁궐은 1361년 홍건적의 침입으로 불탔으나, 그 터는 고려 문화의 흔적을 간직한 세계문화유산으로 남아 있다. 지금은 북한 개성시에 위치하며, 남북 공동 발굴이 진행되기도 했다.",
+    "thumbnailAsset": "assets/images/locations/manwoldae_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_wanggeon"
+    ],
+    "tags": [
+      "장소",
+      "만월대",
+      "개경",
+      "개성",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_haeinsa",
+    "type": "location",
+    "title": "Haeinsa Temple",
+    "titleKorean": "해인사와 팔만대장경",
+    "summary": "세계 기록유산 팔만대장경이 보관된 천년 고찰",
+    "content": "해인사(海印寺)는 경남 합천 가야산에 위치한 사찰로, 802년에 창건되었다. 고려 시대에 만들어진 8만여 장의 대장경 목판(팔만대장경)이 보관되어 있어 유명하다. 대장경판은 몽골 침략 시기에 부처님의 힘으로 나라를 지키고자 만들어졌으며, 오자나 탈자가 거의 없는 놀라운 정밀함을 자랑한다. 해인사 장경판전은 유네스코 세계문화유산이자 세계기록유산으로 등재되어 있다.",
+    "thumbnailAsset": "assets/images/locations/haeinsa_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_tripitaka"
+    ],
+    "tags": [
+      "장소",
+      "해인사",
+      "팔만대장경",
+      "가야산",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_tripitaka",
+    "type": "term",
+    "title": "Tripitaka Koreana",
+    "titleKorean": "팔만대장경",
+    "summary": "세계에서 가장 완벽한 불교 경전 목판",
+    "content": "팔만대장경(八萬大藏經)은 고려 시대에 만들어진 약 81,258장의 대장경 목판이다. 1236년부터 1251년까지 무려 16년간 몽골 침략에 맞서 부처님의 가호를 빌며 제작되었다. 글자 하나하나를 새기기 전 세 번 절했다 하여 '일자삼배(一字三拜)'라 불리며, 오자나 탈자가 거의 없어 세계 목판 인쇄술의 정수로 꼽힌다. 유네스코 세계기록유산으로 등재되어 있다.",
+    "thumbnailAsset": "assets/images/locations/haeinsa_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_haeinsa"
+    ],
+    "tags": [
+      "용어",
+      "팔만대장경",
+      "불교",
+      "목판",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_ganghwa_resistance",
+    "type": "event",
+    "title": "Ganghwa Island Resistance",
+    "titleKorean": "강화도 천도와 몽골 항쟁",
+    "summary": "39년간 섬에서 몽골에 맞선 고려",
+    "content": "1231년 몽골이 고려를 침략하자, 고려 조정은 1232년 강화도로 수도를 옮겼다. 강화도는 바다로 둘러싸여 기마민족 몽골군이 접근하기 어려웠다. 이후 39년간 고려는 강화도에서 대몽 항쟁을 이어가며 팔만대장경을 제작하고, 삼별초가 결사 항전했다. 비록 1270년 결국 개경으로 환도했지만, 고려의 끈질긴 저항은 유례를 찾기 어려운 것이었다.",
+    "thumbnailAsset": "assets/images/locations/ganghwa_island_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_sambyeolcho"
+    ],
+    "tags": [
+      "사건",
+      "강화도",
+      "몽골",
+      "항쟁",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_sambyeolcho",
+    "type": "event",
+    "title": "Sambyeolcho Resistance",
+    "titleKorean": "삼별초의 항쟁",
+    "summary": "몽골에 끝까지 맞선 고려 무인들의 마지막 저항",
+    "content": "삼별초(三別抄)는 고려 후기 최씨 무신정권의 사병 조직에서 출발해 국가 군대가 된 정예 부대다. 1270년 고려 조정이 몽골과 화친을 맺고 개경으로 환도하자, 삼별초는 이에 반발해 배중손의 지휘 아래 진도로 내려가 항쟁을 이어갔다. 진도가 함락된 후에는 제주도로 옮겨 끝까지 싸웠다. 비록 1273년 전멸했지만, 그들의 항쟁정신은 후대에 큰 귀감이 되었다.",
+    "thumbnailAsset": "assets/images/locations/sambyeolcho_jindo_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_ganghwa_resistance"
+    ],
+    "tags": [
+      "사건",
+      "삼별초",
+      "항쟁",
+      "진도",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_goryeo_celadon",
+    "type": "term",
+    "title": "Goryeo Celadon",
+    "titleKorean": "고려청자",
+    "summary": "세계가 감탄한 고려의 비색(翡色) 도자기",
+    "content": "고려청자는 고려 시대에 발전한 청록색 도자기로, '비색(翡色)'이라 불리는 독특한 푸른빛으로 유명하다. 특히 상감청자(象嵌靑磁)는 도자기 표면에 무늬를 파고 백토나 자토를 메워 장식하는 고려 고유의 기법이다. 송나라 사신도 '고려의 도자기는 천하제일'이라 칭찬했을 정도로 국제적 명성을 얻었다. 오늘날에도 국보급 문화재로 사랑받고 있다.",
+    "thumbnailAsset": "assets/images/locations/gaegyeong_market_bg.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [],
+    "tags": [
+      "용어",
+      "고려청자",
+      "도자기",
+      "상감",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_wanggeon",
+    "type": "character",
+    "title": "Wang Geon (King Taejo)",
+    "titleKorean": "왕건 (태조)",
+    "summary": "후삼국을 통일하고 고려를 세운 건국시조",
+    "content": "왕건(877~943)은 고려의 건국자이자 초대 왕이다. 송악(개성) 호족 출신으로, 궁예 휘하에서 공을 세운 뒤 918년 쿠데타로 왕위에 올랐다. 그는 '훈요 10조'를 남겨 후대 왕들에게 정치 지침을 제시했고, 결혼 정책으로 호족들을 포섭해 935년 신라, 936년 후백제를 차례로 항복시켜 후삼국 통일을 이루었다. 민족 통합과 불교 진흥에 힘썼다.",
+    "thumbnailAsset": "assets/images/characters/goryeo/wanggeon.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [
+      "enc_manwoldae"
+    ],
+    "tags": [
+      "인물",
+      "왕건",
+      "태조",
+      "고려건국",
+      "고려"
+    ]
+  },
+  {
+    "id": "enc_seohee",
+    "type": "character",
+    "title": "Seo Hui",
+    "titleKorean": "서희",
+    "summary": "담판 한 번으로 강동 6주를 얻은 외교의 달인",
+    "content": "서희(942~998)는 고려 성종 때의 문신이자 외교가다. 993년 거란이 80만 대군으로 침략해오자, 서희는 거란 장수 소손녕과 담판을 벌여 '거란과 고려 사이에 송나라를 섬기는 것이 아니라 당당히 외교한다'는 논리로 거란군을 물리쳤다. 더 나아가 고려가 옛 고구려 영토인 강동 6주를 차지하게 했다. 무력 충돌 없이 영토를 확보한 역사상 유례없는 외교 승리였다.",
+    "thumbnailAsset": "assets/images/characters/goryeo/seohee.png",
+    "eraId": "korea_goryeo",
+    "relatedEntryIds": [],
+    "tags": [
+      "인물",
+      "서희",
+      "외교",
+      "강동6주",
+      "고려"
+    ]
   }
 ]

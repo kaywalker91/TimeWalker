@@ -192,7 +192,7 @@ class EraData {
     theme: EraThemes.goryeo,
     chapterIds: ['goryeo_ch1_unification', 'goryeo_ch2_diplomacy', 'goryeo_ch3_defense'],
     characterIds: ['wanggeon', 'seohee', 'gangamchan', 'gongmin', 'choe_museon', 'mun_ikjeom'],
-    locationIds: ['gaegyeong', 'gangdong_6ju', 'guju', 'haeinsa', 'cheongju'],
+    locationIds: ['manwoldae', 'haeinsa', 'ganghwa_island', 'sambyeolcho_jindo', 'gaegyeong_market'],
     status: ContentStatus.locked,
     estimatedMinutes: 40,
     unlockCondition: UnlockCondition(
