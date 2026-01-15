@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeWalker: Echoes of the Past</title>
+    <meta name="description" content="전 세계의 역사를 시간 여행과 지도 탐험으로 배우는 인터랙티브 교육 어드벤처 게임">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-dark: #0D0D1A;
+            --secondary-dark: #1A1A2E;
+            --accent-purple: #4A3B6B;
+            --text-light: #F5F5F5;
+            --text-muted: #A0A0C0;
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F0D78C 50%, #D4AF37 100%);
+            --gradient-dark: linear-gradient(180deg, #0D0D1A 0%, #1A1A2E 50%, #2D2D44 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--gradient-dark);
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(74, 59, 107, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-gold);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-muted);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 6rem 2rem;
+            background: var(--secondary-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .screenshot-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .screenshot-card .caption {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .screenshot-card .caption h3 {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .screenshot-card .caption p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--gradient-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Eras Section */
+        .eras {
+            padding: 6rem 2rem;
+            background: var(--secondary-dark);
+        }
+
+        .era-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .era-tag {
+            padding: 0.8rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 50px;
+            color: var(--primary-gold);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .era-tag:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 6rem 2rem;
+            background: var(--gradient-dark);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .tech-item .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tech-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            background: var(--primary-dark);
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer .heart {
+            color: #e74c3c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .screenshot-card img {
+                height: 300px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <div class="app-icon">⏳</div>
+            </div>
+            <h1>TimeWalker</h1>
+            <p class="subtitle">Echoes of the Past</p>
+            <p class="tagline">
+                시간을 걷는 자가 되어 역사를 탐험하세요.<br>
+                전 세계의 역사를 시간 여행과 지도 탐험으로 배우는<br>
+                인터랙티브 교육 어드벤처 게임
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/kaywalker91/TimeWalker" class="btn btn-primary">GitHub 저장소</a>
+                <a href="#screenshots" class="btn btn-secondary">스크린샷 보기</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+        <h2 class="section-title">📱 앱 스크린샷</h2>
+        <p class="section-subtitle">TimeWalker의 다양한 기능을 미리 만나보세요</p>
+        
+        <div class="screenshot-grid">
+            <div class="screenshot-card">
+                <img src="screenshots/main_menu.jpg" alt="메인 메뉴">
+                <div class="caption">
+                    <h3>🏠 메인 메뉴</h3>
+                    <p>시공의 회랑, 역사 도감, 퀴즈 도전 등 다양한 기능에 접근하세요</p>
+                </div>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="screenshots/location_exploration.jpg" alt="장소 탐험">
+                <div class="caption">
+                    <h3>🗺️ 장소 탐험</h3>
+                    <p>고구려 국내성에서 광개토대왕과 장수왕을 만나보세요</p>
+                </div>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="screenshots/character_card.jpg" alt="캐릭터 정보">
+                <div class="caption">
+                    <h3>👤 캐릭터 정보</h3>
+                    <p>역사적 인물의 상세 정보를 확인하고 대화를 시작하세요</p>
+                </div>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="screenshots/dialogue_scene.jpg" alt="대화 장면">
+                <div class="caption">
+                    <h3>💬 대화 장면</h3>
+                    <p>역사 인물과의 몰입감 있는 대화를 경험하세요</p>
+                </div>
+            </div>
+            
+            <div class="screenshot-card">
+                <img src="screenshots/dialogue_choices.jpg" alt="대화 선택지">
+                <div class="caption">
+                    <h3>🎯 대화 선택지</h3>
+                    <p>선택에 따라 다양한 스토리 분기를 경험하세요</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">✨ 주요 기능</h2>
+        <p class="section-subtitle">교육과 재미를 모두 담은 인터랙티브 경험</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3>인터랙티브 지도 탐험</h3>
+                <p>Flame 엔진 기반의 월드맵 시스템으로 실제 좌표 투영을 통한 지리적 정확성을 제공합니다.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>시대 여행</h3>
+                <p>삼국시대부터 근현대사, 르네상스까지 다양한 시대를 여행하며 역사를 체험하세요.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>대화 시스템</h3>
+                <p>역사적 인물과의 상호작용을 통해 선택지에 따른 분기 스토리를 경험하세요.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>교육 콘텐츠</h3>
+                <p>백과사전, 퀴즈, 장소 탐험을 통해 자연스럽게 역사를 학습하세요.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>진행 시스템</h3>
+                <p>업적 달성, 시대/국가 해금, 인벤토리와 상점 시스템을 즐기세요.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>다국어 지원</h3>
+                <p>한국어와 영어를 지원하여 더 많은 사용자가 역사를 배울 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eras Section -->
+    <section class="eras">
+        <h2 class="section-title">🕰️ 탐험 가능한 시대</h2>
+        <p class="section-subtitle">다양한 시대와 지역을 여행하세요</p>
+        
+        <div class="era-list">
+            <span class="era-tag">🇰🇷 삼국시대 (고구려, 백제, 신라, 가야)</span>
+            <span class="era-tag">🇰🇷 남북국시대 (통일신라, 발해)</span>
+            <span class="era-tag">🇰🇷 고려시대 (918-1392)</span>
+            <span class="era-tag">🇰🇷 조선시대 (1392-1897)</span>
+            <span class="era-tag">🇰🇷 대한민국 근현대사</span>
+            <span class="era-tag">🇮🇹 르네상스 (14-17세기)</span>
+            <span class="era-tag">🌍 그 외 다양한 시대 추가 중...</span>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <h2 class="section-title">🛠️ 기술 스택</h2>
+        <p class="section-subtitle">최신 Flutter 기술로 구축된 앱</p>
+        
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="tech-icon">💙</div>
+                <span>Flutter</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">🎯</div>
+                <span>Dart</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">🔥</div>
+                <span>Flame Engine</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">📦</div>
+                <span>Riverpod</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">💾</div>
+                <span>Hive</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">☁️</div>
+                <span>Supabase</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with <span class="heart">❤️</span> for History Education</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">© 2026 TimeWalker</p>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.screenshot-card, .feature-card, .tech-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -38,6 +38,35 @@
 | 🌏 **글로벌 콘텐츠** | 한국, 중국, 일본, 유럽 등 전 세계 역사 탐험 |
 | 🎨 **몰입형 경험** | 고품질 일러스트와 BGM으로 시대 분위기 재현 |
 
+### 📱 앱 스크린샷
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center"><b>메인 메뉴</b></td>
+    <td align="center"><b>장소 탐험</b></td>
+    <td align="center"><b>캐릭터 정보</b></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/main_menu.jpg" width="200"/></td>
+    <td><img src="docs/screenshots/location_exploration.jpg" width="200"/></td>
+    <td><img src="docs/screenshots/character_card.jpg" width="200"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>대화 장면</b></td>
+    <td align="center"><b>대화 선택지</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/dialogue_scene.jpg" width="200"/></td>
+    <td><img src="docs/screenshots/dialogue_choices.jpg" width="200"/></td>
+    <td></td>
+  </tr>
+</table>
+
+</div>
+
 ---
 
 ## ✨ 주요 기능
