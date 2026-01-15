@@ -55,8 +55,13 @@ DATASETS = {
         "table": "encyclopedia_entries",
         "staging_table": "stg_encyclopedia_entries",
     },
+    "quiz_categories": {
+        "file": "generated/quiz_categories_flat.json",
+        "table": "quiz_categories",
+        "staging_table": "stg_quiz_categories",
+    },
     "quizzes": {
-        "file": "quizzes.json",
+        "file": "generated/quizzes_flat.json",
         "table": "quizzes",
         "staging_table": "stg_quizzes",
     },

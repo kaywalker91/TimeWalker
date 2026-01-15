@@ -281,6 +281,27 @@ flutter devices  # 디바이스 목록 확인
 flutter run -d <device_id>
 ```
 
+### Supabase 연동 실행 (선택사항)
+
+Supabase 백엔드와 연동하려면 환경변수를 설정합니다:
+
+```bash
+# Supabase와 연동하여 실행
+flutter run \
+  --dart-define=SUPABASE_URL=https://your-project.supabase.co \
+  --dart-define=SUPABASE_ANON_KEY=your-anon-key
+
+# 또는 .env 파일 설정 후 마이그레이션 스크립트 실행
+cp .env.example .env
+# .env 파일에 Supabase 키 입력
+
+# 데이터 마이그레이션 (선택)
+pip install -r tools/supabase/requirements.txt
+python tools/supabase/migrate_data.py
+```
+
+> **참고**: Supabase 설정 없이 실행하면 앱은 자동으로 로컬 JSON 데이터를 사용합니다.
+
 ---
 
 ## 👨‍💻 개발자 가이드
@@ -394,6 +415,25 @@ dart format lib/
 ## 📝 최근 업데이트
 
 ### 🆕 2026-01-15 (최신)
+
+#### ☁️ Supabase 백엔드 통합 완료
+
+**Phase 1-3 마이그레이션 완료**
+- 📊 **데이터 마이그레이션**: 449개 항목 Supabase로 이전
+  - Characters: 62개
+  - Dialogues: 64개  
+  - Locations: 59개
+  - Encyclopedia: 194개
+  - Quizzes: 70개
+- 🔧 **마이그레이션 도구**: `tools/supabase/` 디렉토리에 스크립트 추가
+  - `migrate_data.py`: JSON → Supabase 마이그레이션
+  - `validate_data.py`: 데이터 무결성 검증
+  - `schema.sql`: 데이터베이스 스키마
+  - `load.sql`: 데이터 로드 SQL
+- 🏗️ **하이브리드 아키텍처**: Supabase + 로컬 JSON Fallback
+  - 환경변수 설정 시 Supabase 사용
+  - 미설정 시 로컬 JSON 자동 사용
+- 💾 **오프라인 캐싱**: Hive 기반 콘텐츠 캐시 시스템
 
 #### 🌍 역사 콘텐츠 대규모 확장
 

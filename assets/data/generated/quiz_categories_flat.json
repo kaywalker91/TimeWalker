@@ -1,0 +1,14 @@
+[
+  {
+    "id": "asia",
+    "title": "아시아",
+    "description": "동양 문명의 발상지, 5000년 역사를 품은 대륙",
+    "sortOrder": 0
+  },
+  {
+    "id": "europe",
+    "title": "유럽",
+    "description": "서양 문명의 중심, 그리스와 로마의 유산",
+    "sortOrder": 1
+  }
+]

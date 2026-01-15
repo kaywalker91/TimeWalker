@@ -22,6 +22,9 @@ Future<void> main() async {
       url: SupabaseConfig.url,
       anonKey: SupabaseConfig.anonKey,
     );
+    debugPrint('[TimeWalker] ✅ Supabase 연결됨: ${SupabaseConfig.url}');
+  } else {
+    debugPrint('[TimeWalker] ⚠️ Supabase 미설정 - Mock 데이터 사용');
   }
 
   runApp(

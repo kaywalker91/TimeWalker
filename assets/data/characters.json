@@ -1297,36 +1297,6 @@
         "status": "available"
     },
     {
-        "id": "kim_gu",
-        "eraId": "korea_contemporary_1",
-        "name": "Kim Gu",
-        "nameKorean": "김구",
-        "title": "대한민국 임시정부 주석",
-        "birth": "1876",
-        "death": "1949",
-        "biography": "평생을 조국의 독립과 통일을 위해 헌신한 민족 지도자",
-        "fullBiography": "황해도 해주 출신으로, 동학농민운동에 참여한 뒤 계몽운동과 독립운동에 투신했다. 상하이 임시정부에서 경무국장, 내무총장, 국무령을 거쳐 주석으로 활동하며 한인애국단을 조직해 이봉창, 윤봉길 의거를 이끌었다. 해방 후에는 통일 정부 수립을 위해 남북협상을 추진했으나 뜻을 이루지 못하고 안두희에게 암살당했다.",
-        "portraitAsset": "assets/images/characters/contemporary/kim_gu.png",
-        "emotionAssets": [
-            "assets/images/characters/contemporary/placeholder.png"
-        ],
-        "dialogueIds": [
-            "kim_gu_independence_01",
-            "kim_gu_unification_01"
-        ],
-        "relatedCharacterIds": [],
-        "relatedLocationIds": [
-            "cheonggyecheon_1950"
-        ],
-        "achievements": [
-            "대한민국 임시정부 주석",
-            "한인애국단 조직",
-            "백범일지 저술",
-            "남북통일 운동"
-        ],
-        "status": "available"
-    },
-    {
         "id": "sohn_kee_chung",
         "eraId": "korea_contemporary_2",
         "name": "Sohn Kee-chung",

@@ -49,7 +49,7 @@ DATASETS = {
         "id_field": "id",
     },
     "quizzes": {
-        "file": "quizzes.json",
+        "file": "generated/quizzes_flat.json",
         "table": "quizzes",
         "id_field": "id",
     },
