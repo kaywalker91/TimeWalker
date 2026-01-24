@@ -49,6 +49,9 @@ app.*.map.json
 .env.local
 .env.*.local
 
+# Claude Code local settings
+CLAUDE.local.md
+
 # Python
 __pycache__/
 *.py[cod]
