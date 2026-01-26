@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/presentation/providers/settings_provider.dart';
 import 'package:time_walker/presentation/screens/settings/widgets/settings_tiles.dart';
 import 'package:time_walker/presentation/providers/theme_provider.dart';
@@ -16,7 +17,7 @@ class SettingsScreen extends ConsumerWidget {
     final userProgressAsync = ref.watch(userProgressProvider);
 
     return Scaffold(
-      backgroundColor: SettingsColors.background,
+      backgroundColor: AppColors.darkSurfaceDeep,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -222,7 +223,7 @@ class SettingsScreen extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: SettingsColors.surface,
+        backgroundColor: AppColors.darkCard,
         title: const Text(
           'Enable Admin Mode?',
           style: TextStyle(color: Colors.white),
@@ -274,7 +275,7 @@ class SettingsScreen extends ConsumerWidget {
         title: const Text('Language', style: TextStyle(color: Colors.white)),
         trailing: DropdownButton<String>(
           value: currentLanguage,
-          dropdownColor: SettingsColors.surface,
+          dropdownColor: AppColors.darkCard,
           underline: const SizedBox(),
           icon: const Icon(Icons.arrow_drop_down, color: Colors.white70),
           items: languages.entries
@@ -302,7 +303,7 @@ class SettingsScreen extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: SettingsColors.surface,
+        backgroundColor: AppColors.darkCard,
         title: const Text(
           'Delete All Data?',
           style: TextStyle(color: Colors.white),

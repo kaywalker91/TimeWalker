@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
-/// 설정 화면 공통 색상
-class SettingsColors {
-  static const background = Color(0xFF1A1A2E);
-  static const surface = Color(0xFF16213E);
-  static const accent = Color(0xFF00FFFF);
-}
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 설정 섹션 헤더
 class SettingsSectionHeader extends StatelessWidget {
@@ -20,7 +14,7 @@ class SettingsSectionHeader extends StatelessWidget {
       child: Text(
         title,
         style: const TextStyle(
-          color: SettingsColors.accent,
+          color: AppColors.info,
           fontSize: 12,
           fontWeight: FontWeight.bold,
           letterSpacing: 2,
@@ -66,7 +60,7 @@ class SettingsSwitchTile extends StatelessWidget {
             : null,
         value: value,
         onChanged: onChanged,
-        activeTrackColor: SettingsColors.accent,
+        activeTrackColor: AppColors.info,
         trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
         thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.selected)) {
@@ -122,7 +116,7 @@ class SettingsSliderTile extends StatelessWidget {
                 Slider(
                   value: value,
                   onChanged: enabled ? onChanged : null,
-                  activeColor: SettingsColors.accent,
+                  activeColor: AppColors.info,
                   inactiveColor: Colors.white24,
                 ),
               ],

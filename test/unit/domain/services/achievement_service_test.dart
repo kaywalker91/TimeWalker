@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:time_walker/data/datasources/static/achievement_data.dart';
 import 'package:time_walker/domain/services/achievement_service.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
+import 'package:time_walker/domain/repositories/achievement_repository.dart';
 
 import '../../../helpers/test_utils.dart';
 
@@ -8,7 +10,7 @@ void main() {
   late AchievementService service;
 
   setUp(() {
-    service = AchievementService();
+    service = AchievementService(_FakeAchievementRepository());
   });
 
   group('AchievementService', () {
@@ -250,4 +252,20 @@ void main() {
       });
     });
   });
+}
+
+class _FakeAchievementRepository implements AchievementRepository {
+  @override
+  List<Achievement> getAllAchievements() => AchievementData.all;
+
+  @override
+  List<Achievement> getQuizAchievements() => AchievementData.quizAchievements;
+
+  @override
+  List<Achievement> getAchievementsByCategory(AchievementCategory category) {
+    return AchievementData.getByCategory(category);
+  }
+
+  @override
+  Achievement? getById(String id) => AchievementData.getById(id);
 }

@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 회전하는 시간 로더
 class TimeLoader extends StatefulWidget {
@@ -10,7 +11,7 @@ class TimeLoader extends StatefulWidget {
   const TimeLoader({
     super.key,
     this.size = 48,
-    this.color = const Color(0xFFD4AF37),
+    this.color = AppColors.primary,
     this.strokeWidth = 3,
   });
 

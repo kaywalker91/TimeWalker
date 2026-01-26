@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/country.dart';
-import 'package:time_walker/domain/entities/region.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 void main() {
   group('Country', () {

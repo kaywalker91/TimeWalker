@@ -4,6 +4,7 @@ import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 import 'package:time_walker/presentation/widgets/common/cards/base_time_card.dart';
 
 /// 타임라인 시대 카드 위젯

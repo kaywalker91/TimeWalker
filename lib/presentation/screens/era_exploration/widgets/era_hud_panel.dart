@@ -5,6 +5,7 @@ import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 
 /// 시대 탐험 플로팅 패널 위젯
 ///

@@ -31,7 +31,7 @@ class KingdomLocationSheet extends ConsumerWidget {
         maxHeight: MediaQuery.of(context).size.height * 0.7,
       ),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: AppColors.darkSurfaceDeep,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         border: Border.all(
           color: kingdom.color.withValues(alpha: 0.5),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 장소 배경 이미지 위젯
 /// 
@@ -51,9 +52,9 @@ class LocationBackground extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF1a1a2e),
-                        Color(0xFF16213e),
-                        Color(0xFF0f3460),
+                        AppColors.spaceGradientTop,
+                        AppColors.spaceGradientMid,
+                        AppColors.spaceGradientBottom,
                       ],
                     ),
                   ),

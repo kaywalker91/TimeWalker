@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 떠다니는 입자 효과 위젯
 class FloatingParticles extends StatefulWidget {
@@ -10,7 +11,7 @@ class FloatingParticles extends StatefulWidget {
   const FloatingParticles({
     super.key,
     this.particleCount = 30,
-    this.particleColor = const Color(0xFFFFFACD),
+    this.particleColor = AppColors.primaryLight,
     this.maxSize = 4,
   });
 
@@ -128,7 +129,7 @@ class TimePortalRings extends StatefulWidget {
   const TimePortalRings({
     super.key,
     this.size = 200,
-    this.color = const Color(0xFF7B68EE),
+    this.color = AppColors.secondary,
   });
 
   @override

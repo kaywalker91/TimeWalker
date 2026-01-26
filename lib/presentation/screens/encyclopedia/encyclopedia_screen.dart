@@ -169,7 +169,7 @@ class _EncyclopediaScreenState extends ConsumerState<EncyclopediaScreen>
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1525).withValues(alpha: 0.5),
+        color: AppColors.darkOverlay.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: AppColors.primary.withValues(alpha: 0.2),
@@ -270,6 +270,7 @@ class _EncyclopediaScreenState extends ConsumerState<EncyclopediaScreen>
         
         return GridView.builder(
           padding: EdgeInsets.fromLTRB(padding, padding / 2, padding, padding * 2),
+          cacheExtent: 300.0, // 화면 밖 300px까지 사전 렌더링
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
             childAspectRatio: responsive.isSmallPhone ? 0.62 : 0.68,

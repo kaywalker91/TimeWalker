@@ -12,11 +12,14 @@ import 'package:time_walker/data/repositories/hive_user_progress_repository.dart
 import 'package:time_walker/data/repositories/mock_encyclopedia_repository.dart';
 import 'package:time_walker/data/repositories/mock_quiz_repository.dart';
 import 'package:time_walker/data/repositories/mock_shop_repository.dart';
+import 'package:time_walker/data/repositories/static_achievement_repository.dart';
+import 'package:time_walker/data/seeds/default_user_progress_factory.dart';
 import 'package:time_walker/data/repositories/supabase_character_repository.dart';
 import 'package:time_walker/data/repositories/supabase_dialogue_repository.dart';
 import 'package:time_walker/data/repositories/supabase_encyclopedia_repository.dart';
 import 'package:time_walker/data/repositories/supabase_location_repository.dart';
 import 'package:time_walker/data/repositories/supabase_quiz_repository.dart';
+import 'package:time_walker/domain/repositories/achievement_repository.dart';
 import 'package:time_walker/domain/repositories/country_repository.dart';
 import 'package:time_walker/domain/repositories/era_repository.dart';
 import 'package:time_walker/domain/repositories/region_repository.dart';
@@ -28,6 +31,7 @@ import 'package:time_walker/domain/repositories/encyclopedia_repository.dart';
 import 'package:time_walker/domain/repositories/quiz_repository.dart';
 import 'package:time_walker/domain/repositories/shop_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
+import 'package:time_walker/domain/services/user_progress_factory.dart';
 
 // Re-export all providers for backward compatibility
 // 기존 코드와의 호환성을 위해 다른 provider 파일들을 re-export 합니다.
@@ -50,6 +54,11 @@ export 'content_providers.dart';
 /// Region Repository Provider
 final regionRepositoryProvider = Provider<RegionRepository>((ref) {
   return MockRegionRepository();
+});
+
+/// Achievement Repository Provider
+final achievementRepositoryProvider = Provider<AchievementRepository>((ref) {
+  return StaticAchievementRepository();
 });
 
 /// Era Repository Provider
@@ -107,6 +116,11 @@ final dialogueRepositoryProvider = Provider<DialogueRepository>((ref) {
 /// Hive를 사용한 영속성 저장 구현 (앱 종료 후에도 데이터 유지)
 final userProgressRepositoryProvider = Provider<UserProgressRepository>((ref) {
   return HiveUserProgressRepository();
+});
+
+/// UserProgress Factory Provider
+final userProgressFactoryProvider = Provider<UserProgressFactory>((ref) {
+  return DefaultUserProgressFactory();
 });
 
 /// Encyclopedia Repository Provider

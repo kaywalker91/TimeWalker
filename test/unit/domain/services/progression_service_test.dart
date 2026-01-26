@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/constants/era_theme_ids.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
@@ -69,7 +69,10 @@ void main() {
         ];
 
         // When: 해금 확인
-        final events = service.checkUnlocks(progress, allEras: testEras);
+        final events = service.checkUnlocks(
+          progress,
+          content: UnlockContent(eras: testEras),
+        );
 
         // Then: 이미 해금된 joseon의 해금 이벤트 없음
         final eraEvents = events.where((e) => e.type == UnlockType.era && e.id == 'joseon');
@@ -92,7 +95,10 @@ void main() {
         ];
 
         // When: 해금 확인
-        final events = service.checkUnlocks(progress, allEras: testEras);
+        final events = service.checkUnlocks(
+          progress,
+          content: UnlockContent(eras: testEras),
+        );
 
         // Then: joseon 해금 이벤트 발생
         final joseonEvent = events.firstWhere(
@@ -125,7 +131,10 @@ void main() {
         ];
 
         // When
-        final events = service.checkUnlocks(progress, allEras: testEras);
+        final events = service.checkUnlocks(
+          progress,
+          content: UnlockContent(eras: testEras),
+        );
 
         // Then: three_kingdoms 해금
         final tkEvent = events.firstWhere(
@@ -152,7 +161,10 @@ void main() {
         ];
 
         // When
-        final events = service.checkUnlocks(progress, allEras: testEras);
+        final events = service.checkUnlocks(
+          progress,
+          content: UnlockContent(eras: testEras),
+        );
 
         // Then: three_kingdoms 해금 이벤트 없음
         final tkEvents = events.where(
@@ -170,7 +182,10 @@ void main() {
         );
 
         // When
-        final events = service.checkUnlocks(progress, allEras: []);
+        final events = service.checkUnlocks(
+          progress,
+          content: const UnlockContent(eras: []),
+        );
 
         // Then: 랭크 승급 이벤트 발생
         final rankEvents = events.where((e) => e.type == UnlockType.rank);
@@ -185,7 +200,10 @@ void main() {
         );
 
         // When
-        final events = service.checkUnlocks(progress, allEras: []);
+        final events = service.checkUnlocks(
+          progress,
+          content: const UnlockContent(eras: []),
+        );
 
         // Then: europe 지역 해금 이벤트
         final regionEvents = events.where(
@@ -202,7 +220,10 @@ void main() {
         );
 
         // When
-        final events = service.checkUnlocks(progress, allEras: []);
+        final events = service.checkUnlocks(
+          progress,
+          content: const UnlockContent(eras: []),
+        );
 
         // Then: 등급 변경 이벤트 없음
         final rankEvents = events.where((e) => e.type == UnlockType.rank);
@@ -430,13 +451,7 @@ Era _createMockEra({
     thumbnailAsset: 'assets/images/eras/test_thumb.jpg',
     backgroundAsset: 'assets/images/eras/test_bg.jpg',
     bgmAsset: 'assets/audio/bgm/test.mp3',
-    theme: const EraTheme(
-      primaryColor: Color(0xFF3B82F6),
-      secondaryColor: Color(0xFF1E40AF),
-      accentColor: Color(0xFF60A5FA),
-      backgroundColor: Color(0xFF1F2937),
-      textColor: Color(0xFFFFFFFF),
-    ),
+    themeId: EraThemeIds.defaultTheme,
     chapterIds: const [],
     characterIds: const [],
     locationIds: const [],

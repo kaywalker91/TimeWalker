@@ -11,6 +11,7 @@ import 'package:time_walker/domain/repositories/era_repository.dart';
 import 'package:time_walker/domain/repositories/location_repository.dart';
 import 'package:time_walker/domain/repositories/region_repository.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 @GenerateNiceMocks([
   MockSpec<RegionRepository>(),

@@ -126,25 +126,44 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
     }
     
     // 화자 캐릭터 정보
-    final speakerAsync = ref.watch(characterListByEraProvider(widget.eraId));
-    final characters = speakerAsync.valueOrNull ?? const <Character>[];
+    // Crossover Support: 화자가 현재 시대의 인물이 아닐 수 있으므로 EraProvider가 아닌
+    // CharacterRepository를 통해 직접 ID로 조회하거나, 모든 캐릭터 풀에서 찾아야 함.
+    // 하지만 성능상 현재 대화의 speakerId로 개별 조회하는 것이 나음.
+    // 여기서는 간단하게 build method 내에서 async로 가져오기 어려우므로,
+    // FutureProvider를 사용하거나, ViewModel에서 speaker 정보를 관리하도록 변경하는 것이 이상적임.
+    // 차선책: ref.watch(characterByIdProvider(speakerId)) 같은 것이 있으면 좋음.
+    // 현재 구조에서는 ViewModel이 DialogueNode를 가지고 있으므로, 
+    // ViewModel이 speaker 캐릭터 객체도 로드해서 state에 포함시키는 것이 가장 깔끔함.
+    
+    // 하지만 ViewModel 수정 없이 처리하려면:
+    // characterRepositoryProvider.getCharacterById를 FutureBuilder로 처리?
+    // 아니면 ref.watch(characterProvider(speakerId)) 패턴?
+    
+    // 기존 코드:
+    // final speakerAsync = ref.watch(characterListByEraProvider(widget.eraId));
+    // final characters = speakerAsync.valueOrNull ?? const <Character>[];
+    // ... filtering ...
+    
+    // 개선 코드:
+    // CharacterListByEra는 현재 시대 캐릭터만 가져오므로 Crossover 시 타 시대 캐릭터(예: 다빈치)를 못 찾음.
+    // 해결책: speakerId가 있으면 해당 ID로 캐릭터를 가져오는 Provider를 watch.
+    
     final speakerId = state.currentNode?.speakerId;
+    
+    // Crossover Support: 화자 캐릭터 정보를 ID로 직접 조회
+    // 현재 시대에 구애받지 않고 모든 캐릭터를 로드할 수 있음
     Character? speaker;
     if (speakerId != null) {
-      try {
-        speaker = characters.firstWhere((c) => c.id == speakerId);
-      } catch (_) {
-        speaker = null;
-      }
+      final speakerAsync = ref.watch(characterByIdProvider(speakerId));
+      speaker = speakerAsync.valueOrNull;
     }
-    if (speaker == null) {
-      _log('speaker not found speakerId=${speakerId ?? 'null'}');
-    }
+
     final speakerName = _resolveSpeakerName(
       l10n: l10n,
       speakerId: speakerId,
       character: speaker,
     );
+    
 
     return Scaffold(
       backgroundColor: Colors.black,

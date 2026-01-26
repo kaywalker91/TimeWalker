@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
+import 'package:time_walker/presentation/themes/color_value_extensions.dart';
 
 /// 업적 카드 위젯
 class AchievementCard extends StatelessWidget {
@@ -17,7 +18,7 @@ class AchievementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = achievement.rarity.color;
+    final color = achievement.rarity.color.toColor();
     
     return GestureDetector(
       onTap: () {

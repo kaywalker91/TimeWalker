@@ -122,7 +122,7 @@ class _EncyclopediaEntryCardState extends State<EncyclopediaEntryCard>
                                 // 배경 (투명도 있는 어두운 색)
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF151020),
+                                    color: AppColors.darkOverlay,
                                     borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                                   ),
                                 ),
@@ -369,11 +369,15 @@ class _EncyclopediaEntryCardState extends State<EncyclopediaEntryCard>
   }
   
   String _getImageAsset() {
-    if (widget.characterPortraitAsset != null && 
+    if (widget.characterPortraitAsset != null &&
         widget.characterPortraitAsset!.isNotEmpty) {
       return widget.characterPortraitAsset!;
     }
-    return widget.entry.thumbnailAsset;
+    final thumbnail = widget.entry.thumbnailAsset;
+    if (thumbnail.isEmpty) {
+      return 'assets/images/characters/placeholder.png';
+    }
+    return thumbnail;
   }
   
   bool _isRecent(DateTime discoveredAt) {

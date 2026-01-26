@@ -121,7 +121,7 @@ class EncyclopediaEntry extends Equatable {
       titleKorean: json['titleKorean'] as String,
       summary: json['summary'] as String,
       content: json['content'] as String,
-      thumbnailAsset: json['thumbnailAsset'] as String,
+      thumbnailAsset: (json['thumbnailAsset'] as String?) ?? '',
       imageAsset: json['imageAsset'] as String?,
       eraId: json['eraId'] as String,
       relatedEntryIds: List<String>.from(json['relatedEntryIds'] as List? ?? []),

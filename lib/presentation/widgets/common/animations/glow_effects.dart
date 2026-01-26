@@ -12,7 +12,7 @@ class PulseGlowWidget extends StatefulWidget {
   const PulseGlowWidget({
     super.key,
     required this.child,
-    this.glowColor = const Color(0xFFD4AF37),
+    this.glowColor = AppColors.primary,
     this.minGlow = 0.3,
     this.maxGlow = 0.6,
     this.duration = const Duration(seconds: 2),

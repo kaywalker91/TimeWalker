@@ -3,30 +3,56 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/domain/repositories/country_repository.dart';
+import 'package:time_walker/domain/repositories/era_repository.dart';
+import 'package:time_walker/domain/repositories/region_repository.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
+import 'package:time_walker/domain/services/user_progress_factory.dart';
 import 'package:time_walker/domain/usecases/user_progress_usecases.dart';
 
 import '../../../helpers/test_utils.dart';
 @GenerateNiceMocks([
   MockSpec<UserProgressRepository>(),
+  MockSpec<UserProgressFactory>(),
   MockSpec<ProgressionService>(),
+  MockSpec<EraRepository>(),
+  MockSpec<CountryRepository>(),
+  MockSpec<RegionRepository>(),
 ])
 import 'user_progress_usecases_test.mocks.dart';
 
 void main() {
   late MockUserProgressRepository mockRepository;
+  late MockUserProgressFactory mockFactory;
   late MockProgressionService mockProgressionService;
+  late MockEraRepository mockEraRepository;
+  late MockCountryRepository mockCountryRepository;
+  late MockRegionRepository mockRegionRepository;
   late GetUserProgressUseCase getUserProgressUseCase;
   late UpdateUserProgressUseCase updateUserProgressUseCase;
   late AddKnowledgePointsUseCase addKnowledgePointsUseCase;
 
   setUp(() {
     mockRepository = MockUserProgressRepository();
+    mockFactory = MockUserProgressFactory();
     mockProgressionService = MockProgressionService();
-    getUserProgressUseCase = GetUserProgressUseCase(mockRepository);
-    updateUserProgressUseCase = UpdateUserProgressUseCase(mockRepository, mockProgressionService);
+    mockEraRepository = MockEraRepository();
+    mockCountryRepository = MockCountryRepository();
+    mockRegionRepository = MockRegionRepository();
+    getUserProgressUseCase = GetUserProgressUseCase(mockRepository, mockFactory);
+    updateUserProgressUseCase = UpdateUserProgressUseCase(
+      mockRepository,
+      mockProgressionService,
+      mockEraRepository,
+      mockCountryRepository,
+      mockRegionRepository,
+    );
     addKnowledgePointsUseCase = AddKnowledgePointsUseCase(updateUserProgressUseCase);
+
+    when(mockEraRepository.getAllEras()).thenAnswer((_) async => []);
+    when(mockCountryRepository.getAllCountries()).thenAnswer((_) async => []);
+    when(mockRegionRepository.getAllRegions()).thenAnswer((_) async => []);
   });
 
   group('GetUserProgressUseCase', () {
@@ -54,6 +80,8 @@ void main() {
           .thenAnswer((_) async => null);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
+      when(mockFactory.initial(userId))
+          .thenReturn(createMockUserProgress(userId: userId, totalKnowledge: 0));
 
       // When
       final result = await getUserProgressUseCase(userId);
@@ -90,7 +118,7 @@ void main() {
 
     test('업데이트 함수가 적용되고 저장된다', () async {
       // Given
-      when(mockProgressionService.checkUnlocks(any))
+      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
           .thenReturn([]); // 해금 없음
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
@@ -119,7 +147,7 @@ void main() {
         name: '삼국시대',
       );
 
-      when(mockProgressionService.checkUnlocks(any))
+      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
           .thenReturn([unlockEvent]);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
@@ -149,7 +177,7 @@ void main() {
         name: 'Apprentice',
       );
 
-      when(mockProgressionService.checkUnlocks(any))
+      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
           .thenReturn([unlockEvent]);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
@@ -172,7 +200,7 @@ void main() {
 
     test('지식 포인트가 추가된다', () async {
       // Given
-      when(mockProgressionService.checkUnlocks(any))
+      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
           .thenReturn([]);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});

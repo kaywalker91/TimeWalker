@@ -283,9 +283,76 @@ abstract class AppColors {
   static const Color dialogueReward = premiumGold;
 
   // ============================================
+  // ATMOSPHERE COLORS - 분위기 오버레이 색상
+  // ============================================
+  
+  /// 고대 분위기 - 테라코타/흙빛
+  static const Color atmosphereAncient = Color(0xFF8B4513);
+  
+  /// 자연 분위기 - 짙은 청록색
+  static const Color atmosphereNature = Color(0xFF2F4F4F);
+  
+  /// 왕실/귀족 분위기 - 황토색
+  static const Color atmosphereRoyal = Color(0xFF8B7355);
+  
+  /// 산업/도시 분위기 - 슬레이트 블루
+  static const Color atmosphereIndustrial = Color(0xFF2C3E50);
+  
+  /// 기본 분위기 색상
+  static const Color atmosphereDefault = Color(0xFF3D3D3D);
+  
+  /// 불꽃/화염 파티클 색상
+  static const Color particleFlame = Color(0xFFFF6B35);
+  
+  /// 자연/잎사귀 파티클 색상
+  static const Color particleNature = Color(0xFF90EE90);
+  
+  /// 철/금속 파티클 색상
+  static const Color particleMetal = Color(0xFFB8B8B8);
+
+  // ============================================
+  // SPACE/PORTAL COLORS - 우주/포탈 배경 색상
+  // ============================================
+  
+  /// 깊은 우주 색상
+  static const Color spaceDeep = Color(0xFF0D1B2A);
+  
+  /// 중간 톤 우주 색상
+  static const Color spaceMid = Color(0xFF1B263B);
+  
+  /// 우주 그라데이션 시작 (위)
+  static const Color spaceGradientTop = Color(0xFF1a1a2e);
+  
+  /// 우주 그라데이션 중간
+  static const Color spaceGradientMid = Color(0xFF16213e);
+  
+  /// 우주 그라데이션 끝 (아래)
+  static const Color spaceGradientBottom = Color(0xFF0f3460);
+
+  // ============================================
+  // COMMON DARK UI COLORS - 공통 다크 UI
+  // ============================================
+  
+  /// 다크 시트/패널 배경
+  static const Color darkSheet = Color(0xFF1E1E2C);
+  
+  /// 다크 카드 배경
+  static const Color darkCard = Color(0xFF2C2C3E);
+  
+  /// 다크 테두리
+  static const Color darkBorder = Color(0xFF3C3C4C);
+  
+  /// 진한 서피스 (시트 핸들 등)
+  static const Color darkSurfaceDeep = Color(0xFF1A1A2E);
+  
+  /// 반투명 다크 오버레이
+  static const Color darkOverlay = Color(0xFF151020);
+
+  // ============================================
   // LEGACY COMPATIBILITY - 레거시 호환
   // ============================================
   
   /// 레거시 골드 (amber 대체)
   static const Color gold = primary;
 }
+

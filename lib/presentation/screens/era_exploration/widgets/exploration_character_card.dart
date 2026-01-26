@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/domain/entities/character.dart';
-import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
+import 'package:time_walker/presentation/widgets/dialogue/dialogue_selection_sheet.dart';
 
 /// 캐릭터 카드 위젯
 /// 
@@ -99,18 +100,42 @@ class ExplorationCharacterCard extends ConsumerWidget {
       final dialogues =
           await ref.read(dialogueListByCharacterProvider(character.id).future);
       if (!context.mounted) return;
-      if (dialogues.isNotEmpty) {
-        AppRouter.goToDialogue(context, character.eraId, dialogues.first.id);
+      
+      if (dialogues.isEmpty) {
+        messenger.showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.exploration_no_dialogue),
+          ),
+        );
         return;
       }
+      
+      // dialogues가 1개 이상이면 항상 선택 시트를 보여줌 (다시보기 등 포함)
+      // 또는 2개 이상일 때만 보여주고 1개일 때는 바로 진입?
+      // 기획 의도에 따라 다르나, "Crossover" 같은 숨겨진 대화 발견의 기쁨을 위해
+      // 1개라도 시트를 보여줘서 확장성을 암시하는 것이 좋을 수도 있음.
+      // 하지만 편의성을 위해 1개일 때는 바로 진입하고, 2개 이상일 때만 시트를 띄우는 것이 일반적 UX.
+      // 다만, 구현 계획에서는 "Always show sheet"로 결정했음 (future content visibility).
+      
+      // Update logic: Always show sheet to handle locking logic & crossover visibility consistently
+      await showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) => DialogueSelectionSheet(
+          character: character,
+          dialogues: dialogues,
+        ),
+      );
+      
     } catch (_) {
       if (!context.mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.exploration_no_dialogue),
+        ),
+      );
     }
-
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.exploration_no_dialogue),
-      ),
-    );
   }
 }
+

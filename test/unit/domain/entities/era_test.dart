@@ -1,18 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/constants/era_theme_ids.dart';
 import 'package:time_walker/domain/entities/era.dart';
 
 void main() {
   group('Era', () {
-    const eraTheme = EraTheme(
-      primaryColor: Colors.blue,
-      secondaryColor: Colors.blueAccent,
-      accentColor: Colors.lightBlue,
-      backgroundColor: Colors.white,
-      textColor: Colors.black,
-    );
-
     final era = Era(
       id: 'joseon',
       countryId: 'korea',
@@ -25,7 +17,7 @@ void main() {
       thumbnailAsset: 'thumb.png',
       backgroundAsset: 'bg.png',
       bgmAsset: 'bgm.mp3',
-      theme: eraTheme,
+      themeId: EraThemeIds.joseon,
       chapterIds: const ['c1', 'c2'],
       characterIds: const ['ch1', 'ch2', 'ch3'],
       locationIds: const ['loc1', 'loc2'],
@@ -46,7 +38,7 @@ void main() {
         thumbnailAsset: 'thumb.png',
         backgroundAsset: 'bg.png',
         bgmAsset: 'bgm.mp3',
-        theme: eraTheme,
+        themeId: EraThemeIds.joseon,
         chapterIds: const ['c1', 'c2'],
         characterIds: const ['ch1', 'ch2', 'ch3'],
         locationIds: const ['loc1', 'loc2'],
@@ -69,7 +61,7 @@ void main() {
       expect(updatedEra.status, equals(ContentStatus.available));
       // 변경되지 않은 값은 유지
       expect(updatedEra.id, equals(era.id));
-      expect(updatedEra.theme, equals(era.theme));
+      expect(updatedEra.themeId, equals(era.themeId));
     });
 
     test('progressPercent가 올바른 정수 백분율을 반환한다', () {

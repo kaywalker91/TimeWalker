@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
+import 'package:time_walker/presentation/themes/color_value_extensions.dart';
 import 'achievement_stats_badges.dart';
 
 /// 업적 상세 바텀시트
@@ -15,14 +17,14 @@ class AchievementDetailSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = achievement.rarity.color;
+    final color = achievement.rarity.color.toColor();
     
     return Container(
       constraints: BoxConstraints(
         maxHeight: MediaQuery.of(context).size.height * 0.65,
       ),
       decoration: const BoxDecoration(
-        color: Color(0xFF1E1E2C),
+        color: AppColors.darkSheet,
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Column(

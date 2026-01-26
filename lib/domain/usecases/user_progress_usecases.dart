@@ -1,15 +1,19 @@
 import 'package:time_walker/core/constants/exploration_config.dart';
-import 'package:time_walker/data/seeds/user_progress_seed.dart';
 import 'package:time_walker/domain/core/use_case.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/domain/repositories/country_repository.dart';
+import 'package:time_walker/domain/repositories/era_repository.dart';
+import 'package:time_walker/domain/repositories/region_repository.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
+import 'package:time_walker/domain/services/user_progress_factory.dart';
 
 /// 사용자 진행 상태 조회 UseCase
 class GetUserProgressUseCase implements UseCase<String, Result<UserProgress>> {
   final UserProgressRepository _repository;
+  final UserProgressFactory _factory;
 
-  GetUserProgressUseCase(this._repository);
+  GetUserProgressUseCase(this._repository, this._factory);
 
   @override
   Future<Result<UserProgress>> call(String userId) async {
@@ -17,7 +21,7 @@ class GetUserProgressUseCase implements UseCase<String, Result<UserProgress>> {
       final progress = await _repository.getUserProgress(userId);
       if (progress == null) {
         // 새 사용자라면 기본 진행 상태 생성
-        final newProgress = UserProgressSeed.initial(userId);
+        final newProgress = _factory.initial(userId);
         await _repository.saveUserProgress(newProgress);
         return Success(newProgress);
       }
@@ -44,8 +48,17 @@ class UpdateUserProgressUseCase
     implements UseCase<UpdateProgressParams, Result<UpdateProgressResult>> {
   final UserProgressRepository _repository;
   final ProgressionService _progressionService;
+  final EraRepository _eraRepository;
+  final CountryRepository _countryRepository;
+  final RegionRepository _regionRepository;
 
-  UpdateUserProgressUseCase(this._repository, this._progressionService);
+  UpdateUserProgressUseCase(
+    this._repository,
+    this._progressionService,
+    this._eraRepository,
+    this._countryRepository,
+    this._regionRepository,
+  );
 
   @override
   Future<Result<UpdateProgressResult>> call(UpdateProgressParams params) async {
@@ -54,7 +67,11 @@ class UpdateUserProgressUseCase
       var updated = params.updateFn(params.currentProgress);
 
       // 2. 해금 이벤트 확인
-      final unlocks = _progressionService.checkUnlocks(updated);
+      final unlockContent = await _loadUnlockContent();
+      final unlocks = _progressionService.checkUnlocks(
+        updated,
+        content: unlockContent,
+      );
 
       // 3. 해금된 항목 적용
       if (unlocks.isNotEmpty) {
@@ -103,6 +120,21 @@ class UpdateUserProgressUseCase
     } catch (e) {
       return Failure(mapExceptionToFailure(e));
     }
+  }
+
+  Future<UnlockContent> _loadUnlockContent() async {
+    final eras = await _eraRepository.getAllEras();
+    final countries = await _countryRepository.getAllCountries();
+    final regions = await _regionRepository.getAllRegions();
+    final regionById = {
+      for (final region in regions) region.id: region,
+    };
+
+    return UnlockContent(
+      eras: eras,
+      countries: countries,
+      regionsById: regionById,
+    );
   }
 }
 

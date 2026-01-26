@@ -1,112 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
-import 'package:time_walker/core/utils/map_projection.dart';
-
-/// 기본 시대 테마
-class EraThemes {
-  EraThemes._();
-
-  static const EraTheme threeKingdoms = EraTheme(
-    primaryColor: Color(0xFF8B4513), // 갈색
-    secondaryColor: Color(0xFF228B22), // 녹색
-    accentColor: Color(0xFFFFD700), // 금색
-    backgroundColor: Color(0xFFF5DEB3), // 밀색
-    textColor: Color(0xFF2F1810),
-  );
-
-  static const EraTheme goryeo = EraTheme(
-    primaryColor: Color(0xFF4169E1), // 청색
-    secondaryColor: Color(0xFF20B2AA), // 청록
-    accentColor: Color(0xFFE6BE8A), // 금동색
-    backgroundColor: Color(0xFFF0F8FF), // 연청
-    textColor: Color(0xFF1C1C1C),
-  );
-
-  static const EraTheme joseon = EraTheme(
-    primaryColor: Color(0xFF800020), // 적색
-    secondaryColor: Color(0xFF2E8B57), // 녹색
-    accentColor: Color(0xFFFFD700), // 금색
-    backgroundColor: Color(0xFFFFF8DC), // 크림
-    textColor: Color(0xFF1C1C1C),
-  );
-
-  static const EraTheme renaissance = EraTheme(
-    primaryColor: Color(0xFF6A0DAD), // Royal Purple
-    secondaryColor: Color(0xFFDAA520), // Goldenrod
-    accentColor: Color(0xFFFFD700), // Gold
-    backgroundColor: Color(0xFFFDF5E6), // Old Lace
-    textColor: Color(0xFF2F1810),
-  );
-
-  static const EraTheme unifiedSilla = EraTheme(
-    primaryColor: Color(0xFF4B0082), // Indigo (보라빛 - 귀족적/불교적)
-    secondaryColor: Color(0xFFFFD700), // Gold (황금의 나라 신라)
-    accentColor: Color(0xFF9370DB), // Medium Purple
-    backgroundColor: Color(0xFFFAFAE6), // Ivory
-    textColor: Color(0xFF2C1B18),
-  );
-
-  static const EraTheme modern = EraTheme(
-    primaryColor: Color(0xFF263238), // Blue Grey (근대의 차분함과 암울함)
-    secondaryColor: Color(0xFFD84315), // Burnt Orange (독립을 향한 열망)
-    accentColor: Color(0xFF78909C), // Light Blue Grey
-    backgroundColor: Color(0xFFECEFF1), // Light Grey
-    textColor: Color(0xFF212121),
-  );
-
-  static const EraTheme industrial = EraTheme(
-    primaryColor: Color(0xFF37474F), // Charcoal
-    secondaryColor: Color(0xFFFF5722), // Furnace Orange
-    accentColor: Color(0xFFCFD8DC),
-    backgroundColor: Color(0xFFF5F5F5),
-    textColor: Color(0xFF263238),
-  );
-
-  static const EraTheme contemporary1 = EraTheme(
-    primaryColor: Color(0xFF5D4037), // Deep Brown (전쟁, 흙)
-    secondaryColor: Color(0xFF33691E), // Military Green
-    accentColor: Color(0xFFD84315),
-    backgroundColor: Color(0xFFEFEBE9),
-    textColor: Color(0xFF3E2723),
-  );
-
-  static const EraTheme contemporary2 = EraTheme(
-    primaryColor: Color(0xFF455A64), // Industrial Grey
-    secondaryColor: Color(0xFFFF6F00), // Flame Orange
-    accentColor: Color(0xFFCFD8DC),
-    backgroundColor: Color(0xFFECEFF1),
-    textColor: Color(0xFF263238),
-  );
-
-  static const EraTheme contemporary3 = EraTheme( // 기존 contemporary theme 재사용 또는 수정
-    primaryColor: Color(0xFF3F51B5), // Indigo (IT, 미래지향)
-    secondaryColor: Color(0xFFE91E63), // Pink (K-Culture)
-    accentColor: Color(0xFF03A9F4), // Light Blue
-    backgroundColor: Color(0xFFFAFAFA),
-    textColor: Color(0xFF212121),
-  );
-
-
-
-  /// 대한민국 현대사 테마 (1945-2025)
-  static const EraTheme contemporary = EraTheme(
-    primaryColor: Color(0xFF37474F), // Steel Grey (산업화/발전)
-    secondaryColor: Color(0xFFE53935), // Korean Red (태극기)
-    accentColor: Color(0xFF00BCD4), // Cyan (IT/미래지향)
-    backgroundColor: Color(0xFFF5F5F5), // Light Grey
-    textColor: Color(0xFF212121),
-  );
-
-  /// 미래 한반도 테마 (2026-2100)
-  static const EraTheme future = EraTheme(
-    primaryColor: Color(0xFF6200EE), // Deep Purple (미래/혁신)
-    secondaryColor: Color(0xFF00E5FF), // Cyan Accent (첨단)
-    accentColor: Color(0xFFE040FB), // Purple Accent (사이버펑크)
-    backgroundColor: Color(0xFF121212), // Dark Mode
-    textColor: Color(0xFFE0E0E0),
-  );
-}
+import 'package:time_walker/domain/constants/era_theme_ids.dart';
+import 'package:time_walker/domain/entities/era.dart';
+import 'package:time_walker/shared/geo/map_bounds.dart';
 
 /// 기본 시대 데이터 (MVP - 한반도)
 class EraData {
@@ -127,7 +22,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/three_kingdoms.png',
     backgroundAsset: 'assets/images/locations/three_kingdoms_bg_2.png',
     bgmAsset: 'assets/audio/bgm/three_kingdoms.mp3',
-    theme: EraThemes.threeKingdoms,
+    themeId: EraThemeIds.threeKingdoms,
     chapterIds: ['tk_ch1_rise', 'tk_ch2_gwanggaeto', 'tk_ch3_unification'],
     characterIds: ['gwanggaeto', 'geunchogo', 'kim_yushin', 'eulji_mundeok', 'seondeok'],
     locationIds: ['goguryeo_palace', 'wiryeseong', 'silla_capital', 'baekje_sabi'],
@@ -157,7 +52,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/unified_silla.png',
     backgroundAsset: 'assets/images/locations/unified_silla_bg.png',
     bgmAsset: 'assets/audio/bgm/unified_silla.mp3',
-    theme: EraThemes.unifiedSilla,
+    themeId: EraThemeIds.unifiedSilla,
     chapterIds: ['us_ch1_unification', 'us_ch2_buddhism', 'us_ch3_maritime', 'us_ch4_balhae'],
     characterIds: ['jangbogo', 'wonhyo', 'choi_chiwon', 'dae_joyeong', 'dae_muye'],
     locationIds: ['cheonghaejin', 'bulguksa', 'seokguram', 'gyeongju_anapji', 'sanggyeong'],
@@ -189,7 +84,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/goryeo.png',
     backgroundAsset: 'assets/images/locations/goryeo_bg.png',
     bgmAsset: 'assets/audio/bgm/goryeo.mp3',
-    theme: EraThemes.goryeo,
+    themeId: EraThemeIds.goryeo,
     chapterIds: ['goryeo_ch1_unification', 'goryeo_ch2_diplomacy', 'goryeo_ch3_defense'],
     characterIds: ['wanggeon', 'seohee', 'gangamchan', 'gongmin', 'choe_museon', 'mun_ikjeom'],
     locationIds: ['manwoldae', 'haeinsa', 'ganghwa_island', 'sambyeolcho_jindo', 'gaegyeong_market'],
@@ -215,7 +110,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/joseon.png',
     backgroundAsset: 'assets/images/locations/joseon_bg.png',
     bgmAsset: 'assets/audio/bgm/joseon.mp3',
-    theme: EraThemes.joseon,
+    themeId: EraThemeIds.joseon,
     chapterIds: [
       'js_ch1_founding',
       'js_ch2_sejong',
@@ -265,7 +160,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/modern.png',
     backgroundAsset: 'assets/images/locations/modern_bg.png',
     bgmAsset: 'assets/audio/bgm/modern.mp3',
-    theme: EraThemes.modern,
+    themeId: EraThemeIds.modern,
     chapterIds: ['modern_ch1_empire', 'modern_ch2_resistance', 'modern_ch3_independence', 'modern_ch4_liberation'],
     characterIds: ['gojong', 'ahn_junggeun', 'yu_gwansun', 'kim_gu', 'ahn_changho', 'yeo_unhyeong', 'syngman_rhee'],
     locationIds: ['deoksugung', 'harbin_station', 'seodaemun_prison', 'shanghai_provisional', 'tapgol_park', 'line_38'],
@@ -298,7 +193,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/contemporary.png',
     backgroundAsset: 'assets/images/locations/contemporary_bg.png',
     bgmAsset: 'assets/audio/bgm/contemporary.mp3',
-    theme: EraThemes.contemporary,
+    themeId: EraThemeIds.contemporary,
     chapterIds: ['cont_ch1_rebuild', 'cont_ch2_miracle', 'cont_ch3_global'],
     characterIds: [
       'kim_gu', 'sohn_kee_chung', 'student_soldier', // 초기
@@ -341,7 +236,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/contemporary_1.png',
     backgroundAsset: 'assets/images/locations/contemporary_1_bg.png',
     bgmAsset: 'assets/audio/bgm/war_memorial.mp3', // 임시
-    theme: EraThemes.contemporary1,
+    themeId: EraThemeIds.contemporary1,
     chapterIds: ['cont1_ch1_liberation', 'cont1_ch2_war', 'cont1_ch3_survival'],
     characterIds: [
       'kim_gu', // 광복 직후
@@ -381,7 +276,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/contemporary_2.png',
     backgroundAsset: 'assets/images/locations/contemporary_2_bg.png',
     bgmAsset: 'assets/audio/bgm/industrial_city.mp3', // 임시
-    theme: EraThemes.contemporary2,
+    themeId: EraThemeIds.contemporary2,
     chapterIds: ['cont2_ch1_industry', 'cont2_ch2_sacrifice', 'cont2_ch3_democracy'],
     characterIds: [
       'sohn_kee_chung', // 이 시기 고문/코치 활동
@@ -424,7 +319,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/contemporary_3.png',
     backgroundAsset: 'assets/images/locations/contemporary_3_bg.png',
     bgmAsset: 'assets/audio/bgm/contemporary.mp3',
-    theme: EraThemes.contemporary3,
+    themeId: EraThemeIds.contemporary3,
     chapterIds: ['cont3_ch1_globalstage', 'cont3_ch2_crisis', 'cont3_ch3_culture'],
     characterIds: [
       'imf_survivor', // (신규) IMF 기업가
@@ -467,7 +362,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/contemporary.png',
     backgroundAsset: 'assets/images/locations/contemporary_bg.png',
     bgmAsset: 'assets/audio/bgm/contemporary.mp3',
-    theme: EraThemes.contemporary,
+    themeId: EraThemeIds.contemporary,
     chapterIds: [
       'cont_ch1_liberation',   // 해방과 분단
       'cont_ch2_war',          // 전쟁과 재건
@@ -521,7 +416,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/future.png',
     backgroundAsset: 'assets/images/locations/future_bg.png',
     bgmAsset: 'assets/audio/bgm/future.mp3',
-    theme: EraThemes.future,
+    themeId: EraThemeIds.future,
     chapterIds: [
       'future_ch1_ai',          // AI 시대
       'future_ch2_climate',     // 기후위기 극복
@@ -557,6 +452,95 @@ class EraData {
     ),
   );
 
+  // ============== 유럽 고대 ==============
+  static const Era greeceClassical = Era(
+    id: 'greece_classical',
+    countryId: 'greece',
+    name: 'Classical Greece',
+    nameKorean: '고대 그리스',
+    period: 'BC 510 - BC 323',
+    startYear: -510,
+    endYear: -323,
+    description: '아테네의 민주주의와 스파르타의 규율, 소크라테스와 플라톤의 철학이 꽃피운 시기.',
+    thumbnailAsset: 'assets/images/eras/greece_classical.png',
+    backgroundAsset: 'assets/images/locations/greece_bg.png',
+    bgmAsset: 'assets/audio/bgm/greece.mp3',
+    themeId: EraThemeIds.renaissance, // 임시 재사용
+    chapterIds: ['gr_ch1_athens', 'gr_ch2_sparta', 'gr_ch3_persian_war'],
+    characterIds: ['socrates', 'pericles', 'leonidas'],
+    locationIds: ['parthenon', 'agora', 'thermopylae'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 50,
+    unlockCondition: UnlockCondition(requiredLevel: 2),
+    mapBounds: MapBounds(minLatitude: 35.0, maxLatitude: 42.0, minLongitude: 19.0, maxLongitude: 27.0),
+  );
+
+  static const Era greeceHellenistic = Era(
+    id: 'greece_hellenistic',
+    countryId: 'greece',
+    name: 'Hellenistic Period',
+    nameKorean: '헬레니즘 시대',
+    period: 'BC 323 - BC 31',
+    startYear: -323,
+    endYear: -31,
+    description: '알렉산드로스 대왕의 동방 원정으로 그리스 문화가 세계로 뻗어나간 시대.',
+    thumbnailAsset: 'assets/images/eras/greece_hellenistic.png',
+    backgroundAsset: 'assets/images/locations/hellenistic_bg.png',
+    bgmAsset: 'assets/audio/bgm/greece.mp3',
+    themeId: EraThemeIds.renaissance,
+    chapterIds: ['gr_ch4_alexander', 'gr_ch5_library'],
+    characterIds: ['alexander', 'archimedes'],
+    locationIds: ['alexandria', 'pergamon'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 45,
+    unlockCondition: UnlockCondition(previousEraId: 'greece_classical', requiredProgress: 0.3),
+    mapBounds: MapBounds(minLatitude: 30.0, maxLatitude: 45.0, minLongitude: 20.0, maxLongitude: 70.0),
+  );
+
+  static const Era romeRepublic = Era(
+    id: 'rome_republic',
+    countryId: 'rome',
+    name: 'Roman Republic',
+    nameKorean: '로마 공화정',
+    period: 'BC 509 - BC 27',
+    startYear: -509,
+    endYear: -27,
+    description: '원로원과 인민의 이름으로(SPQR). 카르타고와의 전쟁과 카이사르의 등장이 있었던 공화정 시대.',
+    thumbnailAsset: 'assets/images/eras/rome_republic.png',
+    backgroundAsset: 'assets/images/locations/rome_bg.png',
+    bgmAsset: 'assets/audio/bgm/rome.mp3',
+    themeId: EraThemeIds.renaissance,
+    chapterIds: ['rm_ch1_punic', 'rm_ch2_caesar'],
+    characterIds: ['caesar', 'scipio', 'cicero'],
+    locationIds: ['forum_romanum', 'colosseum_construction'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 55,
+    unlockCondition: UnlockCondition(requiredLevel: 3),
+    mapBounds: MapBounds(minLatitude: 30.0, maxLatitude: 50.0, minLongitude: -10.0, maxLongitude: 40.0),
+  );
+
+  static const Era romeEmpire = Era(
+    id: 'rome_empire',
+    countryId: 'rome',
+    name: 'Roman Empire',
+    nameKorean: '로마 제국',
+    period: 'BC 27 - AD 476',
+    startYear: -27,
+    endYear: 476,
+    description: '팍스 로마나. 모든 길은 로마로 통한다. 지중해를 호수처럼 품었던 대제국의 영광.',
+    thumbnailAsset: 'assets/images/eras/rome_empire.png',
+    backgroundAsset: 'assets/images/locations/rome_empire_bg.png',
+    bgmAsset: 'assets/audio/bgm/rome.mp3',
+    themeId: EraThemeIds.renaissance,
+    chapterIds: ['rm_ch3_augustus', 'rm_ch4_pax'],
+    characterIds: ['augustus', 'trajan', 'marcus_aurelius'],
+    locationIds: ['pantheon', 'pompeii'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 60,
+    unlockCondition: UnlockCondition(previousEraId: 'rome_republic', requiredProgress: 0.3),
+    mapBounds: MapBounds(minLatitude: 20.0, maxLatitude: 60.0, minLongitude: -10.0, maxLongitude: 50.0),
+  );
+
   static const Era europeRenaissance = Era(
     id: 'europe_renaissance',
     countryId: 'italy',
@@ -569,7 +553,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/renaissance.png',
     backgroundAsset: 'assets/images/locations/renaissance_bg.png',
     bgmAsset: 'assets/audio/bgm/renaissance.mp3',
-    theme: EraThemes.renaissance,
+    themeId: EraThemeIds.renaissance,
     chapterIds: ['rn_ch1_rebirth', 'rn_ch2_masters', 'rn_ch3_discovery'],
     characterIds: ['davinci', 'michelangelo', 'galileo', 'shakespeare', 'gutenberg'],
     locationIds: ['florence', 'rome_vatican', 'venice', 'london_globe', 'mainz'],
@@ -596,7 +580,7 @@ class EraData {
     thumbnailAsset: 'assets/images/eras/industrial_revolution.png',
     backgroundAsset: 'assets/images/locations/factory_bg.png',
     bgmAsset: 'assets/audio/bgm/industrial.mp3',
-    theme: EraThemes.industrial,
+    themeId: EraThemeIds.industrial,
     chapterIds: ['ind_ch1_steam', 'ind_ch2_factory', 'ind_ch3_change'],
     characterIds: ['james_watt', 'stephenson', 'adam_smith'],
     locationIds: ['london', 'manchester', 'steam_factory'],
@@ -611,7 +595,99 @@ class EraData {
     ),
   );
 
-  static List<Era> get all => [
+  // ============== 중국 ==============
+  static const Era chinaThreeKingdoms = Era(
+    id: 'china_three_kingdoms',
+    countryId: 'china',
+    name: 'Three Kingdoms Period',
+    nameKorean: '삼국시대',
+    period: 'AD 220 - 280',
+    startYear: 220,
+    endYear: 280,
+    description:
+        '위, 촉, 오 세 나라가 천하를 다투던 영웅들의 시대. '
+        '조조의 야심, 유비의 인의, 제갈량의 지략이 펼쳐지는 불멸의 서사시.',
+    thumbnailAsset: 'assets/images/eras/china_three_kingdoms.png',
+    backgroundAsset: 'assets/images/locations/china_three_kingdoms_bg.png',
+    bgmAsset: 'assets/audio/bgm/china_epic.mp3',
+    themeId: EraThemeIds.threeKingdoms,
+    chapterIds: ['cn3k_ch1_chaos', 'cn3k_ch2_heroes', 'cn3k_ch3_unification'],
+    characterIds: ['cao_cao', 'liu_bei', 'zhuge_liang', 'guan_yu', 'sun_quan'],
+    locationIds: ['chibi', 'chengdu', 'luoyang_wei', 'jianye'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 60,
+    unlockCondition: UnlockCondition(requiredLevel: 2),
+    mapBounds: MapBounds(
+      minLatitude: 22.0,
+      maxLatitude: 42.0,
+      minLongitude: 100.0,
+      maxLongitude: 125.0,
+    ),
+  );
+
+  // ============== 일본 ==============
+  static const Era japanSengoku = Era(
+    id: 'japan_sengoku',
+    countryId: 'japan',
+    name: 'Sengoku Period',
+    nameKorean: '전국시대',
+    period: 'AD 1467 - 1615',
+    startYear: 1467,
+    endYear: 1615,
+    description:
+        '하극상의 시대, 전국대명들이 천하통일을 꿈꾸던 격동기. '
+        '오다 노부나가, 도요토미 히데요시, 도쿠가와 이에야스 세 영웅의 이야기.',
+    thumbnailAsset: 'assets/images/eras/japan_sengoku.png',
+    backgroundAsset: 'assets/images/locations/japan_sengoku_bg.png',
+    bgmAsset: 'assets/audio/bgm/japan_samurai.mp3',
+    themeId: EraThemeIds.joseon, // 임시 - 비슷한 시대
+    chapterIds: ['jp_ch1_chaos', 'jp_ch2_unification', 'jp_ch3_peace'],
+    characterIds: ['oda_nobunaga', 'toyotomi_hideyoshi', 'tokugawa_ieyasu'],
+    locationIds: ['osaka_castle', 'azuchi_castle', 'sekigahara'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 55,
+    unlockCondition: UnlockCondition(requiredLevel: 2),
+    mapBounds: MapBounds(
+      minLatitude: 31.0,
+      maxLatitude: 42.0,
+      minLongitude: 129.0,
+      maxLongitude: 146.0,
+    ),
+  );
+
+  // ============== 이집트 ==============
+  static const Era egyptAncient = Era(
+    id: 'egypt_ancient',
+    countryId: 'egypt',
+    name: 'Ancient Egypt',
+    nameKorean: '고대 이집트',
+    period: 'BC 3100 - 30',
+    startYear: -3100,
+    endYear: 30,
+    description:
+        '나일강의 축복 아래 피라미드와 스핑크스를 건설한 찬란한 문명. '
+        '람세스 2세, 클레오파트라, 투탕카멘 등 파라오들의 신비로운 이야기.',
+    thumbnailAsset: 'assets/images/eras/egypt_ancient.png',
+    backgroundAsset: 'assets/images/locations/egypt_bg.png',
+    bgmAsset: 'assets/audio/bgm/egypt_mystic.mp3',
+    themeId: EraThemeIds.threeKingdoms, // 임시 테마
+    chapterIds: ['eg_ch1_pyramids', 'eg_ch2_empire', 'eg_ch3_twilight'],
+    characterIds: ['ramesses_ii', 'cleopatra', 'tutankhamun', 'imhotep'],
+    locationIds: ['pyramids', 'luxor', 'abushimbel', 'alexandria'],
+    status: ContentStatus.locked,
+    estimatedMinutes: 60,
+    unlockCondition: UnlockCondition(requiredLevel: 2),
+    mapBounds: MapBounds(
+      minLatitude: 22.0,
+      maxLatitude: 32.0,
+      minLongitude: 25.0,
+      maxLongitude: 35.0,
+    ),
+  );
+
+  // ============== 캐시된 데이터 ==============
+  /// 캐시된 전체 시대 목록 (한 번만 생성)
+  static final List<Era> _cachedAll = [
     koreaThreeKingdoms,
     koreaUnifiedSilla,
     koreaGoryeo,
@@ -621,7 +697,41 @@ class EraData {
     koreaContemporary2,
     koreaContemporary3,
     koreaFuture,
-    // renaissance,
-    // industrialRevolution,
+    greeceClassical,
+    greeceHellenistic,
+    romeRepublic,
+    romeEmpire,
+    europeRenaissance,
+    europeIndustrialRevolution,
+    chinaThreeKingdoms,
+    japanSengoku,
+    egyptAncient,
   ];
+  
+  /// ID 기반 인덱스 맵 (O(1) 조회)
+  static final Map<String, Era> _eraById = {
+    for (final era in _cachedAll) era.id: era,
+  };
+  
+  /// 국가별 시대 목록 캐시
+  static final Map<String, List<Era>> _erasByCountry = _buildCountryIndex();
+  
+  static Map<String, List<Era>> _buildCountryIndex() {
+    final map = <String, List<Era>>{};
+    for (final era in _cachedAll) {
+      map.putIfAbsent(era.countryId, () => []).add(era);
+    }
+    return map;
+  }
+
+  /// 모든 시대 목록 반환
+  static List<Era> get all => _cachedAll;
+
+  /// ID로 시대 조회 (O(1))
+  static Era? getById(String id) => _eraById[id];
+  
+  /// 국가별 시대 목록 조회 (O(1))
+  static List<Era> getByCountry(String countryId) {
+    return _erasByCountry[countryId] ?? [];
+  }
 }

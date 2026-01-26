@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
+import 'package:time_walker/presentation/themes/color_value_extensions.dart';
 
 /// 업적 달성 알림 카드
 /// 
@@ -11,26 +12,28 @@ class AchievementUnlockCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rarityColor = achievement.rarity.color.toColor();
+
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            achievement.rarity.color.withValues(alpha: 0.3),
-            achievement.rarity.color.withValues(alpha: 0.1),
+            rarityColor.withValues(alpha: 0.3),
+            rarityColor.withValues(alpha: 0.1),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: achievement.rarity.color,
+          color: rarityColor,
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: achievement.rarity.color.withValues(alpha: 0.3),
+            color: rarityColor.withValues(alpha: 0.3),
             blurRadius: 8,
             spreadRadius: 1,
           ),
@@ -42,12 +45,12 @@ class AchievementUnlockCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: achievement.rarity.color.withValues(alpha: 0.2),
+              color: rarityColor.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.emoji_events,
-              color: achievement.rarity.color,
+              color: rarityColor,
               size: 24,
             ),
           ),
@@ -76,7 +79,7 @@ class AchievementUnlockCard extends StatelessWidget {
                 Text(
                   achievement.titleKorean,
                   style: TextStyle(
-                    color: achievement.rarity.color,
+                    color: rarityColor,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),

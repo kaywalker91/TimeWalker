@@ -3,29 +3,59 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/domain/repositories/country_repository.dart';
+import 'package:time_walker/domain/repositories/era_repository.dart';
+import 'package:time_walker/domain/repositories/region_repository.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
+import 'package:time_walker/domain/services/user_progress_factory.dart';
 import 'package:time_walker/presentation/providers/user_progress_provider.dart';
 
 import '../../../helpers/test_utils.dart';
 @GenerateNiceMocks([
   MockSpec<UserProgressRepository>(),
   MockSpec<ProgressionService>(),
+  MockSpec<EraRepository>(),
+  MockSpec<CountryRepository>(),
+  MockSpec<RegionRepository>(),
+  MockSpec<UserProgressFactory>(),
 ])
 import 'user_progress_provider_test.mocks.dart';
 
 void main() {
   late MockUserProgressRepository mockRepository;
   late MockProgressionService mockProgressionService;
+  late MockEraRepository mockEraRepository;
+  late MockCountryRepository mockCountryRepository;
+  late MockRegionRepository mockRegionRepository;
+  late MockUserProgressFactory mockFactory;
   late UserProgressNotifier notifier;
 
   setUp(() {
     mockRepository = MockUserProgressRepository();
     mockProgressionService = MockProgressionService();
+    mockEraRepository = MockEraRepository();
+    mockCountryRepository = MockCountryRepository();
+    mockRegionRepository = MockRegionRepository();
+    mockFactory = MockUserProgressFactory();
+
+    when(mockEraRepository.getAllEras()).thenAnswer((_) async => []);
+    when(mockCountryRepository.getAllCountries()).thenAnswer((_) async => []);
+    when(mockRegionRepository.getAllRegions()).thenAnswer((_) async => []);
   });
 
   group('UserProgressNotifier', () {
     const userId = 'user_001';
+    UserProgressNotifier createNotifier() {
+      return UserProgressNotifier(
+        mockRepository,
+        mockProgressionService,
+        mockEraRepository,
+        mockCountryRepository,
+        mockRegionRepository,
+        mockFactory,
+      );
+    }
 
     test('초기화 시 저장된 진행 상태를 불러온다', () async {
       // Given
@@ -34,7 +64,7 @@ void main() {
           .thenAnswer((_) async => progress);
 
       // Re-initialize to trigger load
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       
       // Wait for async load
       await Future.delayed(Duration.zero);
@@ -49,9 +79,11 @@ void main() {
           .thenAnswer((_) async => null);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
+      when(mockFactory.initial(userId))
+          .thenReturn(createMockUserProgress(userId: userId, totalKnowledge: 0));
 
       // Re-initialize
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       
       // Wait for async load
       await Future.delayed(Duration.zero);
@@ -69,10 +101,10 @@ void main() {
           .thenAnswer((_) async => initialProgress);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
-      when(mockProgressionService.checkUnlocks(any))
+      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
           .thenReturn([]);
 
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       await Future.delayed(Duration.zero);
 
       // When
@@ -101,10 +133,10 @@ void main() {
         id: newEraId,
         name: 'New Era',
       );
-      when(mockProgressionService.checkUnlocks(any))
+      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
           .thenReturn([unlockEvent]);
 
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       await Future.delayed(Duration.zero);
 
       // When
@@ -126,7 +158,7 @@ void main() {
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
 
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       await Future.delayed(Duration.zero);
 
       // When
@@ -145,7 +177,7 @@ void main() {
       when(mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => progress);
 
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       await Future.delayed(Duration.zero);
 
       // When
@@ -163,8 +195,11 @@ void main() {
           .thenAnswer((_) async => progress);
       when(mockRepository.saveUserProgress(any))
           .thenAnswer((_) async => {});
+      when(mockFactory.debugAllUnlocked(userId)).thenReturn(
+        createMockUserProgress(userId: userId, rank: ExplorerRank.master),
+      );
 
-      notifier = UserProgressNotifier(mockRepository, mockProgressionService);
+      notifier = createNotifier();
       await Future.delayed(Duration.zero);
 
       // When

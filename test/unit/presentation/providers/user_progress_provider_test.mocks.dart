@@ -3,15 +3,21 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:time_walker/domain/entities/dialogue.dart' as _i7;
-import 'package:time_walker/domain/entities/era.dart' as _i6;
-import 'package:time_walker/domain/entities/user_progress.dart' as _i4;
+import 'package:time_walker/domain/entities/country.dart' as _i10;
+import 'package:time_walker/domain/entities/dialogue.dart' as _i6;
+import 'package:time_walker/domain/entities/era.dart' as _i7;
+import 'package:time_walker/domain/entities/region.dart' as _i12;
+import 'package:time_walker/domain/entities/user_progress.dart' as _i2;
+import 'package:time_walker/domain/repositories/country_repository.dart' as _i9;
+import 'package:time_walker/domain/repositories/era_repository.dart' as _i8;
+import 'package:time_walker/domain/repositories/region_repository.dart' as _i11;
 import 'package:time_walker/domain/repositories/user_progress_repository.dart'
-    as _i2;
+    as _i3;
 import 'package:time_walker/domain/services/progression_service.dart' as _i5;
+import 'package:time_walker/domain/services/user_progress_factory.dart' as _i13;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -26,32 +32,42 @@ import 'package:time_walker/domain/services/progression_service.dart' as _i5;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeUserProgress_0 extends _i1.SmartFake implements _i2.UserProgress {
+  _FakeUserProgress_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [UserProgressRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockUserProgressRepository extends _i1.Mock
-    implements _i2.UserProgressRepository {
+    implements _i3.UserProgressRepository {
   @override
-  _i3.Future<_i4.UserProgress?> getUserProgress(String? userId) =>
+  _i4.Future<_i2.UserProgress?> getUserProgress(String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getUserProgress,
           [userId],
         ),
-        returnValue: _i3.Future<_i4.UserProgress?>.value(),
-        returnValueForMissingStub: _i3.Future<_i4.UserProgress?>.value(),
-      ) as _i3.Future<_i4.UserProgress?>);
+        returnValue: _i4.Future<_i2.UserProgress?>.value(),
+        returnValueForMissingStub: _i4.Future<_i2.UserProgress?>.value(),
+      ) as _i4.Future<_i2.UserProgress?>);
 
   @override
-  _i3.Future<void> saveUserProgress(_i4.UserProgress? progress) =>
+  _i4.Future<void> saveUserProgress(_i2.UserProgress? progress) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveUserProgress,
           [progress],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }
 
 /// A class which mocks [ProgressionService].
@@ -61,14 +77,14 @@ class MockProgressionService extends _i1.Mock
     implements _i5.ProgressionService {
   @override
   List<_i5.UnlockEvent> checkUnlocks(
-    _i4.UserProgress? currentProgress, {
-    List<_i6.Era>? allEras,
+    _i2.UserProgress? currentProgress, {
+    _i5.UnlockContent? content = const _i5.UnlockContent(),
   }) =>
       (super.noSuchMethod(
         Invocation.method(
           #checkUnlocks,
           [currentProgress],
-          {#allEras: allEras},
+          {#content: content},
         ),
         returnValue: <_i5.UnlockEvent>[],
         returnValueForMissingStub: <_i5.UnlockEvent>[],
@@ -77,8 +93,8 @@ class MockProgressionService extends _i1.Mock
   @override
   double calculateEraProgress(
     String? eraId,
-    _i4.UserProgress? progress,
-    List<_i7.Dialogue>? eraDialogues,
+    _i2.UserProgress? progress,
+    List<_i6.Dialogue>? eraDialogues,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -96,8 +112,8 @@ class MockProgressionService extends _i1.Mock
   @override
   double calculateRegionProgress(
     String? regionId,
-    _i4.UserProgress? progress,
-    List<_i6.Era>? regionEras,
+    _i2.UserProgress? progress,
+    List<_i7.Era>? regionEras,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -111,4 +127,184 @@ class MockProgressionService extends _i1.Mock
         returnValue: 0.0,
         returnValueForMissingStub: 0.0,
       ) as double);
+}
+
+/// A class which mocks [EraRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockEraRepository extends _i1.Mock implements _i8.EraRepository {
+  @override
+  _i4.Future<List<_i7.Era>> getAllEras() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllEras,
+          [],
+        ),
+        returnValue: _i4.Future<List<_i7.Era>>.value(<_i7.Era>[]),
+        returnValueForMissingStub: _i4.Future<List<_i7.Era>>.value(<_i7.Era>[]),
+      ) as _i4.Future<List<_i7.Era>>);
+
+  @override
+  _i4.Future<List<_i7.Era>> getErasByCountry(String? countryId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getErasByCountry,
+          [countryId],
+        ),
+        returnValue: _i4.Future<List<_i7.Era>>.value(<_i7.Era>[]),
+        returnValueForMissingStub: _i4.Future<List<_i7.Era>>.value(<_i7.Era>[]),
+      ) as _i4.Future<List<_i7.Era>>);
+
+  @override
+  _i4.Future<_i7.Era?> getEraById(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getEraById,
+          [id],
+        ),
+        returnValue: _i4.Future<_i7.Era?>.value(),
+        returnValueForMissingStub: _i4.Future<_i7.Era?>.value(),
+      ) as _i4.Future<_i7.Era?>);
+
+  @override
+  _i4.Future<void> unlockEra(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #unlockEra,
+          [id],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [CountryRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCountryRepository extends _i1.Mock implements _i9.CountryRepository {
+  @override
+  _i4.Future<List<_i10.Country>> getAllCountries() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllCountries,
+          [],
+        ),
+        returnValue: _i4.Future<List<_i10.Country>>.value(<_i10.Country>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i10.Country>>.value(<_i10.Country>[]),
+      ) as _i4.Future<List<_i10.Country>>);
+
+  @override
+  _i4.Future<List<_i10.Country>> getCountriesByRegion(String? regionId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCountriesByRegion,
+          [regionId],
+        ),
+        returnValue: _i4.Future<List<_i10.Country>>.value(<_i10.Country>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i10.Country>>.value(<_i10.Country>[]),
+      ) as _i4.Future<List<_i10.Country>>);
+
+  @override
+  _i4.Future<_i10.Country?> getCountryById(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getCountryById,
+          [id],
+        ),
+        returnValue: _i4.Future<_i10.Country?>.value(),
+        returnValueForMissingStub: _i4.Future<_i10.Country?>.value(),
+      ) as _i4.Future<_i10.Country?>);
+
+  @override
+  _i4.Future<void> unlockCountry(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #unlockCountry,
+          [id],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [RegionRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRegionRepository extends _i1.Mock implements _i11.RegionRepository {
+  @override
+  _i4.Future<List<_i12.Region>> getAllRegions() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllRegions,
+          [],
+        ),
+        returnValue: _i4.Future<List<_i12.Region>>.value(<_i12.Region>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i12.Region>>.value(<_i12.Region>[]),
+      ) as _i4.Future<List<_i12.Region>>);
+
+  @override
+  _i4.Future<_i12.Region?> getRegionById(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getRegionById,
+          [id],
+        ),
+        returnValue: _i4.Future<_i12.Region?>.value(),
+        returnValueForMissingStub: _i4.Future<_i12.Region?>.value(),
+      ) as _i4.Future<_i12.Region?>);
+
+  @override
+  _i4.Future<void> unlockRegion(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #unlockRegion,
+          [id],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+}
+
+/// A class which mocks [UserProgressFactory].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockUserProgressFactory extends _i1.Mock
+    implements _i13.UserProgressFactory {
+  @override
+  _i2.UserProgress initial(String? userId) => (super.noSuchMethod(
+        Invocation.method(
+          #initial,
+          [userId],
+        ),
+        returnValue: _FakeUserProgress_0(
+          this,
+          Invocation.method(
+            #initial,
+            [userId],
+          ),
+        ),
+        returnValueForMissingStub: _FakeUserProgress_0(
+          this,
+          Invocation.method(
+            #initial,
+            [userId],
+          ),
+        ),
+      ) as _i2.UserProgress);
+
+  @override
+  _i2.UserProgress debugAllUnlocked(String? userId) => (super.noSuchMethod(
+        Invocation.method(
+          #debugAllUnlocked,
+          [userId],
+        ),
+        returnValue: _FakeUserProgress_0(
+          this,
+          Invocation.method(
+            #debugAllUnlocked,
+            [userId],
+          ),
+        ),
+        returnValueForMissingStub: _FakeUserProgress_0(
+          this,
+          Invocation.method(
+            #debugAllUnlocked,
+            [userId],
+          ),
+        ),
+      ) as _i2.UserProgress);
 }

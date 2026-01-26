@@ -6,10 +6,12 @@ import 'package:time_walker/core/constants/audio_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/civilization.dart';
+import 'package:time_walker/presentation/themes/color_value_extensions.dart';
 import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/civilization_provider.dart';
 import 'package:time_walker/presentation/screens/time_portal/widgets/civilization_portal.dart';
 import 'package:time_walker/presentation/screens/time_portal/widgets/exploration_panel.dart';
+import 'package:time_walker/presentation/screens/time_portal/widgets/locked_portal_dialog.dart';
 import 'package:time_walker/presentation/screens/time_portal/widgets/space_time_background.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 
@@ -59,75 +61,13 @@ class _TimePortalScreenState extends ConsumerState<TimePortalScreen> {
     }
   }
 
-  void _showLockedDialog(Civilization civilization) {
+  void _showLockedDialog(Civilization civ) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppColors.surface,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
-            color: civilization.portalColor.withValues(alpha: 0.3),
-            width: 1,
-          ),
-        ),
-        title: Row(
-          children: [
-            Icon(Icons.lock, color: AppColors.warning),
-            const SizedBox(width: 8),
-            Text(
-              civilization.name,
-              style: AppTextStyles.titleLarge.copyWith(
-                color: AppColors.textPrimary,
-              ),
-            ),
-          ],
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              civilization.description,
-              style: AppTextStyles.bodyMedium.copyWith(
-                color: AppColors.textSecondary,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: AppColors.warning.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: AppColors.warning.withValues(alpha: 0.3),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.info_outline, color: AppColors.warning, size: 20),
-                  const SizedBox(width: 8),
-                  Text(
-                    '탐험가 레벨 ${civilization.unlockLevel} 필요',
-                    style: AppTextStyles.labelMedium.copyWith(
-                      color: AppColors.warning,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(
-              '확인',
-              style: TextStyle(color: civilization.portalColor),
-            ),
-          ),
-        ],
+
+      builder: (context) => LockedPortalDialog(
+        civilization: civ,
+        onConfirm: () => Navigator.pop(context),
       ),
     );
   }
@@ -202,6 +142,7 @@ class _TimePortalScreenState extends ConsumerState<TimePortalScreen> {
         ],
       ),
       body: SpaceTimeBackground(
+        targetColor: currentCivAsync.value?.portalColor.toColor(),
         child: SafeArea(
           // SafeArea 내부에서 Column으로 영역 분리
           child: civilizationsAsync.when(
@@ -262,34 +203,130 @@ class _TimePortalScreenState extends ConsumerState<TimePortalScreen> {
     // 포탈 위치 정의 (가용 영역 기준 비율)
     // 2-1-2 다이아몬드 패턴
     final portalPositions = {
-      'asia': Offset(0.25, 0.12),        // 좌상단
-      'europe': Offset(0.75, 0.12),      // 우상단
-      'americas': Offset(0.50, 0.48),    // 정중앙
-      'middle_east': Offset(0.25, 0.82), // 좌하단
-      'africa': Offset(0.75, 0.82),      // 우하단
+      'asia': const Offset(0.20, 0.15),        // 좌상단 (조금 더 안쪽으로)
+      'europe': const Offset(0.80, 0.15),      // 우상단
+      'americas': const Offset(0.50, 0.50),    // 정중앙
+      'middle_east': const Offset(0.20, 0.85), // 좌하단
+      'africa': const Offset(0.80, 0.85),      // 우하단
     };
+
+    // 포탈 위치 계산 (캐싱하여 painter에도 전달)
+    final Map<String, Offset> calculatedPositions = {};
+    for (var entry in portalPositions.entries) {
+      final left = (entry.value.dx * availableWidth);
+      final top = (entry.value.dy * availableHeight);
+      calculatedPositions[entry.key] = Offset(left, top);
+    }
 
     return Stack(
       clipBehavior: Clip.none,
-      children: civilizations.map((civ) {
-        // 해당 문명의 위치 가져오기 (없으면 기본값)
-        final position = portalPositions[civ.id] ?? Offset(0.5, 0.5);
-        
-        // 가용 영역 내에서 실제 좌표 계산
-        final left = (position.dx * availableWidth) - (portalSize / 2);
-        final top = (position.dy * availableHeight) - (portalSize / 2);
-        
-        return Positioned(
-          left: left.clamp(0, availableWidth - portalSize),
-          top: top.clamp(0, availableHeight - portalSize),
-          child: CivilizationPortal(
-            civilization: civ,
-            size: portalSize,
-            onTap: () => _onCivilizationTap(civ),
+      alignment: Alignment.center,
+      children: [
+        // 1. 별자리 연결선 (가장 뒤) - RepaintBoundary로 분리
+        RepaintBoundary(
+          child: CustomPaint(
+            size: Size(availableWidth, availableHeight),
+            painter: _ConstellationPainter(
+              positions: calculatedPositions,
+              color: AppColors.primary.withValues(alpha: 0.3),
+            ),
           ),
-        );
-      }).toList(),
+        ),
+
+        // 2. 포탈들
+        ...civilizations.map((civ) {
+          // 해당 문명의 위치 가져오기 (없으면 기본값)
+          final centerPos = calculatedPositions[civ.id] ?? Offset(availableWidth/2, availableHeight/2);
+          
+          // 위젯은 좌상단 기준 좌표가 필요하므로 크기만큼 보정
+          final left = centerPos.dx - (portalSize / 2);
+          final top = centerPos.dy - (portalSize / 2);
+          
+          return Positioned(
+            left: left.clamp(0, availableWidth - portalSize),
+            top: top.clamp(0, availableHeight - portalSize),
+            child: CivilizationPortal(
+              civilization: civ,
+              size: portalSize,
+              onTap: () => _onCivilizationTap(civ),
+            ),
+          );
+        }),
+      ],
     );
   }
 }
 
+/// 별자리 연결선 페인터
+class _ConstellationPainter extends CustomPainter {
+  final Map<String, Offset> positions;
+  final Color color;
+
+  _ConstellationPainter({required this.positions, required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (positions.isEmpty) return;
+
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.0;
+
+    // 연결 정의 (시작점 id -> 끝점 id)
+    final connections = [
+      // 중앙(아메리카)에서 4방향으로 방사
+      ('americas', 'asia'),
+      ('americas', 'europe'),
+      ('americas', 'middle_east'),
+      ('americas', 'africa'),
+      
+      // 외곽 연결 (역사적/지리적 흐름)
+      ('asia', 'middle_east'),     // 실크로드
+      ('middle_east', 'africa'),   // 인접
+      ('middle_east', 'europe'),   // 인접/교류
+      ('africa', 'europe'),        // 지중해
+    ];
+
+    for (var conn in connections) {
+      final start = positions[conn.$1];
+      final end = positions[conn.$2];
+
+      if (start != null && end != null) {
+        // 점선 그리기
+        _drawDashedLine(canvas, start, end, paint);
+      }
+    }
+  }
+
+  void _drawDashedLine(Canvas canvas, Offset p1, Offset p2, Paint paint) {
+    const double dashWidth = 4.0;
+    const double dashSpace = 4.0;
+    
+    double distance = (p2 - p1).distance;
+    double dx = (p2.dx - p1.dx) / distance;
+    double dy = (p2.dy - p1.dy) / distance;
+    
+    double currentDistance = 0.0;
+    
+    while (currentDistance < distance) {
+      double startX = p1.dx + currentDistance * dx;
+      double startY = p1.dy + currentDistance * dy;
+      
+      // 선 그리기
+      canvas.drawLine(
+        Offset(startX, startY),
+        Offset(
+          startX + dashWidth * dx,
+          startY + dashWidth * dy,
+        ),
+        paint,
+      );
+      
+      currentDistance += dashWidth + dashSpace;
+    }
+  }
+
+  @override
+  bool shouldRepaint(_ConstellationPainter oldDelegate) => false;
+}

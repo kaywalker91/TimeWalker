@@ -1,4 +1,5 @@
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/data/datasources/static/region_data.dart';
 import '../../domain/entities/region.dart';
 import '../../domain/repositories/region_repository.dart';
 

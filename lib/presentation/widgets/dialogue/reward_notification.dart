@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 
 /// 보상 획득 시 표시되는 알림 위젯
@@ -19,10 +20,10 @@ class RewardNotification extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFF2C2C3E),
+        color: AppColors.darkCard,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color(0xFFFFD700),
+          color: AppColors.premiumGold,
           width: 2,
         ),
         boxShadow: [
@@ -38,7 +39,7 @@ class RewardNotification extends StatelessWidget {
         children: [
           const Icon(
             Icons.star,
-            color: Color(0xFFFFD700),
+            color: AppColors.premiumGold,
             size: 24,
           ),
           const SizedBox(width: 12),

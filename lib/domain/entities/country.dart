@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
-import 'package:time_walker/domain/entities/region.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 /// 국가/문명 엔티티
 /// 예: 한반도, 중국, 일본, 그리스, 로마
@@ -89,5 +89,4 @@ class Country extends Equatable {
   @override
   String toString() => 'Country(id: $id, name: $nameKorean, status: $status)';
 }
-
 

@@ -1,9 +1,14 @@
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
-import 'package:time_walker/data/seeds/user_progress_seed.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/domain/repositories/country_repository.dart';
+import 'package:time_walker/domain/repositories/era_repository.dart';
+import 'package:time_walker/domain/repositories/region_repository.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
+import 'package:time_walker/domain/services/user_progress_factory.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
 // ============== User Progress Provider ==============
@@ -16,17 +21,52 @@ final userProgressProvider =
     ) {
       final repository = ref.watch(userProgressRepositoryProvider);
       final progressionService = ref.watch(progressionServiceProvider);
-      return UserProgressNotifier(repository, progressionService);
+      final eraRepository = ref.watch(eraRepositoryProvider);
+      final countryRepository = ref.watch(countryRepositoryProvider);
+      final regionRepository = ref.watch(regionRepositoryProvider);
+      final factory = ref.watch(userProgressFactoryProvider);
+      return UserProgressNotifier(
+        repository,
+        progressionService,
+        eraRepository,
+        countryRepository,
+        regionRepository,
+        factory,
+      );
     });
 
 /// 사용자 진행 상태를 관리하는 StateNotifier
 class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
   final UserProgressRepository _repository;
   final ProgressionService _progressionService;
+  final EraRepository _eraRepository;
+  final CountryRepository _countryRepository;
+  final RegionRepository _regionRepository;
+  final UserProgressFactory _factory;
+  UnlockContent? _cachedUnlockContent;
+  
+  // 디바운싱 저장을 위한 타이머
+  Timer? _saveTimer;
+  UserProgress? _pendingSave;
+  static const _saveDebounceDuration = Duration(milliseconds: 500);
 
-  UserProgressNotifier(this._repository, this._progressionService)
-      : super(const AsyncLoading()) {
+  UserProgressNotifier(
+    this._repository,
+    this._progressionService,
+    this._eraRepository,
+    this._countryRepository,
+    this._regionRepository,
+    this._factory,
+  ) : super(const AsyncLoading()) {
     _loadProgress();
+  }
+  
+  @override
+  void dispose() {
+    // 보류 중인 저장 작업 즉시 실행
+    _flushPendingSave();
+    _saveTimer?.cancel();
+    super.dispose();
   }
 
   Future<void> _loadProgress() async {
@@ -41,7 +81,7 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
         state = AsyncData(progress);
       } else {
         // Create new if null
-        final newProgress = UserProgressSeed.initial('user_001');
+        final newProgress = _factory.initial('user_001');
         await _repository.saveUserProgress(newProgress);
         
         if (!mounted) return;
@@ -65,7 +105,11 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
       var updated = updateFn(currentProgress);
 
       // 2. Check for new unlocks using the service
-      final unlocks = _progressionService.checkUnlocks(updated);
+      final unlockContent = await _loadUnlockContent();
+      final unlocks = _progressionService.checkUnlocks(
+        updated,
+        content: unlockContent,
+      );
 
       // 3. Apply unlocks to the state if any found
       if (unlocks.isNotEmpty) {
@@ -100,7 +144,8 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
         );
       }
 
-      await _repository.saveUserProgress(updated);
+      // 디바운싱 저장 (빈번한 업데이트 최적화)
+      _scheduleSave(updated);
       
       if (!mounted) return [];
       state = AsyncData(updated);
@@ -126,7 +171,8 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
       
       final updated = current.copyWith(inventoryIds: newInventory);
       
-      await _repository.saveUserProgress(updated);
+      // 즉시 저장 (인벤토리 변경은 중요)
+      await _saveImmediately(updated);
       
       if (!mounted) return false;
       state = AsyncData(updated);
@@ -142,17 +188,67 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
     final current = state.value!;
     
     try {
-      final unlockedProgress = UserProgressSeed.debugAllUnlocked(current.userId);
+      final unlockedProgress = _factory.debugAllUnlocked(current.userId);
       // Keep existing inventory if needed, or just overwrite. 
       // For pure admin mode, overwriting is fine, but maybe preserve settings?
       // Let's just use the seed as is for now as it gives max resources.
       
-      await _repository.saveUserProgress(unlockedProgress);
+      // 즉시 저장 (관리자 모드는 즉시 반영)
+      await _saveImmediately(unlockedProgress);
       
       if (!mounted) return;
       state = AsyncData(unlockedProgress);
     } catch (e, stack) {
       if (mounted) state = AsyncError(e, stack);
     }
+  }
+
+  Future<UnlockContent> _loadUnlockContent() async {
+    final cached = _cachedUnlockContent;
+    if (cached != null) return cached;
+
+    final eras = await _eraRepository.getAllEras();
+    final countries = await _countryRepository.getAllCountries();
+    final regions = await _regionRepository.getAllRegions();
+    final regionById = {
+      for (final region in regions) region.id: region,
+    };
+
+    final content = UnlockContent(
+      eras: eras,
+      countries: countries,
+      regionsById: regionById,
+    );
+    _cachedUnlockContent = content;
+    return content;
+  }
+  
+  // ============== 디바운싱 저장 메서드 ==============
+  
+  /// 디바운싱된 저장 - 500ms 내 중복 호출은 무시하고 마지막 상태만 저장
+  void _scheduleSave(UserProgress progress) {
+    _pendingSave = progress;
+    _saveTimer?.cancel();
+    _saveTimer = Timer(_saveDebounceDuration, () {
+      _flushPendingSave();
+    });
+  }
+  
+  /// 보류 중인 저장 즉시 실행
+  void _flushPendingSave() {
+    final pending = _pendingSave;
+    if (pending != null) {
+      _pendingSave = null;
+      _repository.saveUserProgress(pending).catchError((e) {
+        debugPrint('[UserProgressNotifier] Save error: $e');
+      });
+    }
+  }
+  
+  /// 즉시 저장 (중요한 변경사항용)
+  Future<void> _saveImmediately(UserProgress progress) async {
+    _saveTimer?.cancel();
+    _pendingSave = null;
+    await _repository.saveUserProgress(progress);
   }
 }

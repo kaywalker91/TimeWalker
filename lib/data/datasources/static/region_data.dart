@@ -1,5 +1,6 @@
 import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/region.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 /// 기본 지역 데이터 (MVP)
 /// 
@@ -78,13 +79,18 @@ class RegionData {
     unlockLevel: 20,
   );
 
-  static List<Region> get all => [asia, europe, africa, americas, middleEast];
+  // ============== 캐시된 데이터 ==============
+  /// 캐시된 전체 지역 목록 (한 번만 생성)
+  static final List<Region> _cachedAll = [asia, europe, africa, americas, middleEast];
+  
+  /// ID 기반 인덱스 맵 (O(1) 조회)
+  static final Map<String, Region> _regionById = {
+    for (final region in _cachedAll) region.id: region,
+  };
 
-  static Region? getById(String id) {
-    try {
-      return all.firstWhere((r) => r.id == id);
-    } catch (_) {
-      return null;
-    }
-  }
+  /// 모든 지역 목록 반환
+  static List<Region> get all => _cachedAll;
+
+  /// ID로 지역 조회 (O(1))
+  static Region? getById(String id) => _regionById[id];
 }

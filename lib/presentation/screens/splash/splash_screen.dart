@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/app_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/services/image_cache_service.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/widgets/common/widgets.dart';
@@ -91,7 +92,12 @@ class _SplashScreenState extends State<SplashScreen>
         ),
       );
 
-      // 2. 최소 로딩 시간 보장 (애니메이션 효과)
+      // 2. 핵심 이미지 사전 캐싱 (백그라운드에서 실행)
+      if (mounted) {
+        ImageCacheService.precacheCriticalImages(context);
+      }
+
+      // 3. 최소 로딩 시간 보장 (애니메이션 효과)
       await Future.delayed(const Duration(milliseconds: 2500));
       
     } catch (e) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/encyclopedia_entry.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
@@ -14,7 +15,7 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
     final entryAsync = ref.watch(encyclopediaEntryByIdProvider(entryId));
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2C),
+      backgroundColor: AppColors.darkSheet,
       body: entryAsync.when(
         data: (entry) {
           if (entry == null) {
@@ -138,7 +139,7 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
     return SliverAppBar(
       expandedHeight: 300,
       pinned: true,
-      backgroundColor: const Color(0xFF1E1E2C),
+      backgroundColor: AppColors.darkSheet,
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,
@@ -157,8 +158,8 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                   colors: [
                     Colors.black26,
                     Colors.transparent,
-                    const Color(0xFF1E1E2C).withValues(alpha: 0.8),
-                    const Color(0xFF1E1E2C),
+                    AppColors.darkSheet.withValues(alpha: 0.8),
+                    AppColors.darkSheet,
                   ],
                   stops: const [0.0, 0.4, 0.8, 1.0],
                 ),

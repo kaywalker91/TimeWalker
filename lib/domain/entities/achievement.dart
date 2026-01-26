@@ -1,5 +1,5 @@
-import 'dart:ui';
 import 'package:equatable/equatable.dart';
+import 'package:time_walker/domain/value_objects/color_value.dart';
 
 /// 업적 카테고리
 enum AchievementCategory {
@@ -101,8 +101,7 @@ extension AchievementRarityExtension on AchievementRarity {
     }
   }
 
-  /// Color 객체로 반환
-  Color get color => Color(colorValue);
+  ColorValue get color => ColorValue(colorValue);
 
   int get bonusPoints {
     switch (this) {
@@ -233,6 +232,5 @@ enum AchievementConditionType {
   visitLocations, // N개의 장소 방문
   specialEvent, // 특별 이벤트 (대화 중 특정 선택)
 }
-
 
 

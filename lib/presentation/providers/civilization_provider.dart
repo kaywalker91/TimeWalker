@@ -19,12 +19,15 @@ final civilizationsWithProgressProvider = FutureProvider<List<Civilization>>((re
     // 진행도 로딩 중이면 기본 상태로 반환
     return civilizations;
   }
-  
+
+  // 사용자 레벨 (rank index)
+  final userLevel = userProgress.rank.index;
+
   return civilizations.map((civ) {
-    // 사용자 레벨 계산 (rank index * 5)
-    // novice=0, apprentice=5, intermediate=10, advanced=15, expert=20, master=25
-    final userLevel = userProgress.rank.index * 5;
-    final isUnlocked = civ.unlockLevel <= userLevel;
+    // 레벨 조건 충족 또는 명시적 해금 여부 확인 (Admin Mode 지원)
+    final isExplicitlyUnlocked = userProgress.unlockedRegionIds.contains(civ.id) || 
+                               userProgress.unlockedRegionIds.contains('all');
+    final isUnlocked = civ.unlockLevel <= userLevel || isExplicitlyUnlocked;
     
     // 문명에 속한 지역들의 진행도 계산
     double totalProgress = 0.0;
