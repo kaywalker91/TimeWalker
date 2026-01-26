@@ -1,8 +1,7 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/entities/quiz.dart';
-import 'package:time_walker/data/datasources/static/achievement_data.dart';
+import 'package:time_walker/domain/repositories/achievement_repository.dart';
 
 
 /// 업적 달성 결과를 담는 데이터 클래스
@@ -32,7 +31,7 @@ class AchievementUnlockResult {
 /// 
 /// ## 사용 예시
 /// ```dart
-/// final service = ref.read(achievementServiceProvider);
+/// final service = AchievementService(repository);
 /// 
 /// // 퀴즈 정답 후 업적 체크
 /// final achievements = service.checkAllAfterQuiz(
@@ -42,8 +41,7 @@ class AchievementUnlockResult {
 /// 
 /// // 달성한 업적이 있으면 알림 표시
 /// if (achievements.isNotEmpty) {
-///   ref.read(achievementNotifierProvider.notifier)
-///       .addUnlockedAchievements(achievements);
+///   // UI layer handles notifications/state updates
 /// }
 /// ```
 /// 
@@ -57,6 +55,10 @@ class AchievementUnlockResult {
 /// - [Achievement] - 업적 엔티티
 /// - [AchievementNotifier] - 업적 달성 알림 상태 관리
 class AchievementService {
+  AchievementService(this._repository);
+
+  final AchievementRepository _repository;
+
   /// 퀴즈 정답 후 업적 조건 확인
   /// 
   /// [userProgress]: 현재 사용자 진행 상태
@@ -73,7 +75,7 @@ class AchievementService {
     final completedCount = userProgress.completedQuizIds.length;
     final alreadyUnlocked = userProgress.achievementIds;
 
-    for (final achievement in AchievementData.quizAchievements) {
+    for (final achievement in _repository.getQuizAchievements()) {
       // 이미 달성한 업적은 스킵
       if (alreadyUnlocked.contains(achievement.id)) continue;
 
@@ -114,7 +116,7 @@ class AchievementService {
     final completedCount = userProgress.completedDialogueIds.length;
     final alreadyUnlocked = userProgress.achievementIds;
 
-    for (final achievement in AchievementData.all) {
+    for (final achievement in _repository.getAllAchievements()) {
       if (alreadyUnlocked.contains(achievement.id)) continue;
 
       final condition = achievement.condition;
@@ -147,7 +149,7 @@ class AchievementService {
     final totalKnowledge = userProgress.totalKnowledge;
     final alreadyUnlocked = userProgress.achievementIds;
 
-    for (final achievement in AchievementData.all) {
+    for (final achievement in _repository.getAllAchievements()) {
       if (alreadyUnlocked.contains(achievement.id)) continue;
 
       final condition = achievement.condition;
@@ -201,48 +203,3 @@ class AchievementService {
     )).toList();
   }
 }
-
-/// AchievementService Provider
-final achievementServiceProvider = Provider<AchievementService>((ref) {
-  return AchievementService();
-});
-
-/// 업적 달성 이벤트를 위한 StateNotifier
-class AchievementNotifier extends StateNotifier<List<AchievementUnlockResult>> {
-  AchievementNotifier() : super([]);
-
-  /// 새로운 업적 달성 알림 추가
-  void addUnlockedAchievements(List<Achievement> achievements) {
-    if (achievements.isEmpty) return;
-    
-    final now = DateTime.now();
-    final results = achievements.map((a) => AchievementUnlockResult(
-      achievement: a,
-      bonusPoints: a.bonusPoints,
-      unlockedAt: now,
-    )).toList();
-    
-    state = [...state, ...results];
-  }
-
-  /// 알림 처리 완료 (첫 번째 업적 제거)
-  void dismissFirst() {
-    if (state.isNotEmpty) {
-      state = state.sublist(1);
-    }
-  }
-
-  /// 모든 알림 제거
-  void dismissAll() {
-    state = [];
-  }
-
-  /// 대기 중인 알림 있는지 확인
-  bool get hasPending => state.isNotEmpty;
-}
-
-/// 업적 달성 알림 Provider
-final achievementNotifierProvider = 
-    StateNotifierProvider<AchievementNotifier, List<AchievementUnlockResult>>((ref) {
-  return AchievementNotifier();
-});

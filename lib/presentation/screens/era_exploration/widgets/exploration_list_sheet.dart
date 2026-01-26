@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/domain/entities/character.dart';
@@ -7,6 +8,7 @@ import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/character_providers.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_models.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_character_card.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 
 /// 탐험 목록 바텀시트
 ///
@@ -62,7 +64,7 @@ class _ExplorationListSheetState extends ConsumerState<ExplorationListSheet>
       builder: (context, scrollController) {
         return Container(
           decoration: const BoxDecoration(
-            color: Color(0xFF1E1E2C),
+            color: AppColors.darkSheet,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(

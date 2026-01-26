@@ -29,14 +29,24 @@ final getEraByIdUseCaseProvider = Provider<GetEraByIdUseCase>((ref) {
 /// 사용자 진행 상태 조회 UseCase Provider
 final getUserProgressUseCaseProvider = Provider<GetUserProgressUseCase>((ref) {
   final repository = ref.watch(userProgressRepositoryProvider);
-  return GetUserProgressUseCase(repository);
+  final factory = ref.watch(userProgressFactoryProvider);
+  return GetUserProgressUseCase(repository, factory);
 });
 
 /// 사용자 진행 상태 업데이트 UseCase Provider
 final updateUserProgressUseCaseProvider = Provider<UpdateUserProgressUseCase>((ref) {
   final repository = ref.watch(userProgressRepositoryProvider);
   final progressionService = ref.watch(progressionServiceProvider);
-  return UpdateUserProgressUseCase(repository, progressionService);
+  final eraRepository = ref.watch(eraRepositoryProvider);
+  final countryRepository = ref.watch(countryRepositoryProvider);
+  final regionRepository = ref.watch(regionRepositoryProvider);
+  return UpdateUserProgressUseCase(
+    repository,
+    progressionService,
+    eraRepository,
+    countryRepository,
+    regionRepository,
+  );
 });
 
 /// 지식 포인트 추가 UseCase Provider

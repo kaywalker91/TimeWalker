@@ -142,7 +142,7 @@ class CountryUnlockRules {
     'greece': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),
     'rome': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),
     'uk': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),
-    'britain': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),
+    'britain': CountryUnlockRule.level(3),
     'france': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),
     'germany': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),
     'italy': CountryUnlockRule.eraProgress('korea_three_kingdoms', 1.0),

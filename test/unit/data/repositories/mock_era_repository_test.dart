@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/data/repositories/mock_era_repository.dart';
 import 'package:time_walker/domain/entities/era.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 
 void main() {
   group('MockEraRepository', () {

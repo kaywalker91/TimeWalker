@@ -20,6 +20,7 @@ import 'package:time_walker/presentation/screens/era_exploration/widgets/enhance
 import 'package:time_walker/presentation/screens/era_exploration/widgets/enhanced_timeline_gutter.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/location_story_card.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/era_hud_panel.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 
 class EraExplorationScreen extends ConsumerStatefulWidget {
   final String eraId;
@@ -409,7 +410,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     if (isThreeKingdoms && _kingdomTabController != null) {
       final activeKingdom = _kingdomTabs[_kingdomTabController!.index].id;
       return _kingdomMeta[activeKingdom]?.color.withValues(alpha: 0.6) ??
-             const Color(0xFFFFFACD);
+             AppColors.primaryLight;
     }
     return era.theme.accentColor.withValues(alpha: 0.5);
   }

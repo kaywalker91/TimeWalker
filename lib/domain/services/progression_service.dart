@@ -1,12 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/entities/era.dart';
+import 'package:time_walker/domain/entities/region.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/services/country_unlock_rules.dart';
-import 'package:time_walker/data/datasources/static/country_data.dart';
-import 'package:time_walker/data/datasources/static/era_data.dart';
-import 'package:time_walker/data/datasources/static/region_data.dart';
 
 
 /// 해금 이벤트 유형
@@ -38,6 +37,18 @@ class UnlockEvent extends Equatable {
   List<Object?> get props => [type, id, name, message];
 }
 
+class UnlockContent {
+  final List<Era> eras;
+  final List<Country> countries;
+  final Map<String, Region> regionsById;
+
+  const UnlockContent({
+    this.eras = const [],
+    this.countries = const [],
+    this.regionsById = const {},
+  });
+}
+
 /// 진행 및 해금 처리를 담당하는 도메인 서비스
 class ProgressionService {
   /// 등급별 해금 항목 (PRD 기반)
@@ -51,13 +62,13 @@ class ProgressionService {
   /// 현재 진행 상태를 기반으로 해금 가능한 항목을 확인합니다.
   /// 
   /// [currentProgress] : 현재 사용자 진행 상태
-  /// [allEras] : 전체 시대 데이터 (기본값은 EraData.all)
+  /// [content] : 해금 계산에 필요한 콘텐츠 목록
   List<UnlockEvent> checkUnlocks(
     UserProgress currentProgress, {
-    List<Era>? allEras,
+    UnlockContent content = const UnlockContent(),
   }) {
     final events = <UnlockEvent>[];
-    final erasToCheck = allEras ?? EraData.all;
+    final erasToCheck = content.eras;
 
     // 1. 시대 해금 확인 (Era Unlocks)
     for (final era in erasToCheck) {
@@ -120,7 +131,11 @@ class ProgressionService {
     final progressForUnlocks = newRank.index > currentProgress.rank.index
         ? currentProgress.copyWith(rank: newRank)
         : currentProgress;
-    events.addAll(_checkCountryUnlocks(progressForUnlocks));
+    events.addAll(_checkCountryUnlocks(
+      progressForUnlocks,
+      content.countries,
+      content.regionsById,
+    ));
 
     // 4. 지역 해금 확인 (Region Unlocks) -> 추후 구현
 
@@ -228,14 +243,18 @@ class ProgressionService {
     return average.clamp(0.0, 1.0);
   }
 
-  List<UnlockEvent> _checkCountryUnlocks(UserProgress progress) {
+  List<UnlockEvent> _checkCountryUnlocks(
+    UserProgress progress,
+    List<Country> countries,
+    Map<String, Region> regionsById,
+  ) {
     final events = <UnlockEvent>[];
-    for (final country in CountryData.all) {
+    for (final country in countries) {
       if (progress.unlockedCountryIds.contains(country.id)) {
         continue;
       }
 
-      final region = RegionData.getById(country.regionId);
+      final region = regionsById[country.regionId];
       if (region == null) {
         continue;
       }

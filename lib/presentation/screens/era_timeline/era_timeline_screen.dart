@@ -251,6 +251,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       scrollDirection: Axis.horizontal,
+      cacheExtent: 150.0, // 화면 밖 150px까지 사전 렌더링 (수평 스크롤)
       itemCount: eras.length,
       itemBuilder: (context, index) {
         return TimelineEraCard(

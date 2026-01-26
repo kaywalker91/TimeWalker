@@ -111,7 +111,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
       margin: const EdgeInsets.symmetric(horizontal: 32),
       constraints: const BoxConstraints(maxWidth: 320),
       decoration: BoxDecoration(
-        color: const Color(0xFF1E1E2C),
+        color: AppColors.darkSheet,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
           color: AppColors.primary.withValues(alpha: 0.5),

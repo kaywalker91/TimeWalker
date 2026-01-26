@@ -3,6 +3,7 @@ import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/region.dart';
 import 'package:time_walker/domain/services/country_unlock_rules.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 import '../../../helpers/test_utils.dart';
 

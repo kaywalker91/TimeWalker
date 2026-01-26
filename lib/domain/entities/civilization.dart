@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+import 'package:time_walker/domain/value_objects/color_value.dart';
+import 'package:time_walker/domain/value_objects/point2.dart';
 
 /// 문명 엔티티
 /// 
@@ -11,10 +12,10 @@ class Civilization extends Equatable {
   final String nameEnglish;
   final String description;
   final String iconAsset;
-  final Color portalColor;
-  final Color glowColor;
+  final ColorValue portalColor;
+  final ColorValue glowColor;
   final List<String> countryIds;
-  final Offset position;  // 화면상 정규화된 위치 (0.0 ~ 1.0)
+  final Point2 position;  // 화면상 정규화된 위치 (0.0 ~ 1.0)
   final int unlockLevel;
   final CivilizationStatus status;
   final double progress;
@@ -40,10 +41,10 @@ class Civilization extends Equatable {
     String? nameEnglish,
     String? description,
     String? iconAsset,
-    Color? portalColor,
-    Color? glowColor,
+    ColorValue? portalColor,
+    ColorValue? glowColor,
     List<String>? countryIds,
-    Offset? position,
+    Point2? position,
     int? unlockLevel,
     CivilizationStatus? status,
     double? progress,

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
-import 'package:time_walker/domain/entities/region.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 /// 탐험 장소 엔티티
 class Location extends Equatable {

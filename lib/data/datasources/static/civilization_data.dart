@@ -1,5 +1,6 @@
-import 'dart:ui';
 import 'package:time_walker/domain/entities/civilization.dart';
+import 'package:time_walker/domain/value_objects/color_value.dart';
+import 'package:time_walker/domain/value_objects/point2.dart';
 
 /// 5대 문명 정적 데이터
 /// 
@@ -14,10 +15,10 @@ class CivilizationData {
     nameEnglish: 'Asia',
     description: '동양 문명의 발상지, 5000년 역사를 품은 대륙',
     iconAsset: 'assets/images/portals/portal_asia.png',
-    portalColor: Color(0xFF3B82F6),  // 청색
-    glowColor: Color(0xFFFFD700),     // 황금
+    portalColor: ColorValue(0xFF3B82F6),  // 청색
+    glowColor: ColorValue(0xFFFFD700),     // 황금
     countryIds: ['korea', 'china', 'japan'],
-    position: Offset(0.25, 0.22),     // 좌상단
+    position: Point2(x: 0.25, y: 0.22),     // 좌상단
     unlockLevel: 0,
     status: CivilizationStatus.available,
   );
@@ -29,10 +30,10 @@ class CivilizationData {
     nameEnglish: 'Europe',
     description: '서양 문명의 중심, 그리스와 로마의 유산',
     iconAsset: 'assets/images/portals/portal_europe.png',
-    portalColor: Color(0xFF22C55E),  // 청록
-    glowColor: Color(0xFF60A5FA),     // 하늘색
-    countryIds: ['greece', 'rome', 'uk'],
-    position: Offset(0.75, 0.22),     // 우상단
+    portalColor: ColorValue(0xFF22C55E),  // 청록
+    glowColor: ColorValue(0xFF60A5FA),     // 하늘색
+    countryIds: ['greece', 'rome', 'italy', 'uk'],
+    position: Point2(x: 0.75, y: 0.22),     // 우상단
     unlockLevel: 5,
     status: CivilizationStatus.locked,
   );
@@ -44,10 +45,10 @@ class CivilizationData {
     nameEnglish: 'Americas',
     description: '마야, 아즈텍, 잉카의 신비로운 고대 문명',
     iconAsset: 'assets/images/portals/portal_americas.png',
-    portalColor: Color(0xFFEF4444),  // 적색
-    glowColor: Color(0xFFFBBF24),     // 태양색
+    portalColor: ColorValue(0xFFEF4444),  // 적색
+    glowColor: ColorValue(0xFFFBBF24),     // 태양색
     countryIds: ['maya', 'aztec', 'inca'],
-    position: Offset(0.50, 0.52),     // 중앙
+    position: Point2(x: 0.50, y: 0.52),     // 중앙
     unlockLevel: 10,
     status: CivilizationStatus.locked,
   );
@@ -59,10 +60,10 @@ class CivilizationData {
     nameEnglish: 'Middle East',
     description: '문명의 교차로, 메소포타미아와 페르시아',
     iconAsset: 'assets/images/portals/portal_middle_east.png',
-    portalColor: Color(0xFF8B5CF6),  // 자주색
-    glowColor: Color(0xFFC084FC),     // 연보라
+    portalColor: ColorValue(0xFF8B5CF6),  // 자주색
+    glowColor: ColorValue(0xFFC084FC),     // 연보라
     countryIds: ['mesopotamia', 'persia', 'ottoman'],
-    position: Offset(0.20, 0.78),     // 좌하단
+    position: Point2(x: 0.20, y: 0.78),     // 좌하단
     unlockLevel: 15,
     status: CivilizationStatus.locked,
   );
@@ -74,34 +75,37 @@ class CivilizationData {
     nameEnglish: 'Africa',
     description: '인류의 요람, 고대 이집트 문명의 땅',
     iconAsset: 'assets/images/portals/portal_africa.png',
-    portalColor: Color(0xFFF59E0B),  // 황금색
-    glowColor: Color(0xFFFCD34D),     // 밝은 황금
+    portalColor: ColorValue(0xFFF59E0B),  // 황금색
+    glowColor: ColorValue(0xFFFCD34D),     // 밝은 황금
     countryIds: ['egypt', 'ethiopia', 'mali'],
-    position: Offset(0.80, 0.78),     // 우하단
+    position: Point2(x: 0.80, y: 0.78),     // 우하단
     unlockLevel: 15,
     status: CivilizationStatus.locked,
   );
 
-  /// 모든 문명 목록
-  static List<Civilization> get all => [
+  // ============== 캐시된 데이터 ==============
+  /// 캐시된 전체 문명 목록 (한 번만 생성)
+  static final List<Civilization> _cachedAll = [
     asia,
     europe,
     americas,
     middleEast,
     africa,
   ];
+  
+  /// ID 기반 인덱스 맵 (O(1) 조회)
+  static final Map<String, Civilization> _civilizationById = {
+    for (final civ in _cachedAll) civ.id: civ,
+  };
 
-  /// ID로 문명 찾기
-  static Civilization? getById(String id) {
-    try {
-      return all.firstWhere((c) => c.id == id);
-    } catch (_) {
-      return null;
-    }
-  }
+  /// 모든 문명 목록 반환
+  static List<Civilization> get all => _cachedAll;
+
+  /// ID로 문명 조회 (O(1))
+  static Civilization? getById(String id) => _civilizationById[id];
 
   /// 해금된 문명 목록
   static List<Civilization> getUnlocked(int userLevel) {
-    return all.where((c) => c.unlockLevel <= userLevel).toList();
+    return _cachedAll.where((c) => c.unlockLevel <= userLevel).toList();
   }
 }

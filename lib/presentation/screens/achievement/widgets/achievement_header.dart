@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 업적 헤더 (진행률 표시)
 class AchievementHeader extends StatelessWidget {
@@ -22,7 +23,7 @@ class AchievementHeader extends StatelessWidget {
           end: Alignment.bottomCenter,
           colors: [
             Colors.amber.withValues(alpha: 0.3),
-            const Color(0xFF1E1E2C),
+            AppColors.darkSheet,
           ],
         ),
       ),
@@ -105,7 +106,7 @@ class AchievementTabBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: const Color(0xFF1E1E2C),
+      color: AppColors.darkSheet,
       child: tabBar,
     );
   }

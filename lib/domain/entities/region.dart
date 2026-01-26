@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
-
-// Re-export RegionData for backward compatibility
-export 'package:time_walker/data/datasources/static/region_data.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 
 /// 지역 (대륙) 엔티티
@@ -94,22 +92,3 @@ class Region extends Equatable {
   @override
   String toString() => 'Region(id: $id, name: $nameKorean, status: $status)';
 }
-
-/// 지도 좌표
-class MapCoordinates extends Equatable {
-  final double x;
-  final double y;
-
-  const MapCoordinates({required this.x, required this.y});
-
-  MapCoordinates copyWith({double? x, double? y}) {
-    return MapCoordinates(x: x ?? this.x, y: y ?? this.y);
-  }
-
-  @override
-  List<Object?> get props => [x, y];
-
-  @override
-  String toString() => 'MapCoordinates(x: $x, y: $y)';
-}
-

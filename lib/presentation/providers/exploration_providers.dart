@@ -9,6 +9,7 @@ import 'package:time_walker/presentation/providers/repository_providers.dart';
 
 /// 모든 지역 목록 불러오기
 final regionListProvider = FutureProvider<List<Region>>((ref) async {
+  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(regionRepositoryProvider);
   return repository.getAllRegions();
 });
@@ -18,6 +19,7 @@ final regionByIdProvider = FutureProvider.family<Region?, String>((
   ref,
   id,
 ) async {
+  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(regionRepositoryProvider);
   return repository.getRegionById(id);
 });
@@ -29,12 +31,14 @@ final eraListByCountryProvider = FutureProvider.family<List<Era>, String>((
   ref,
   countryId,
 ) async {
+  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(eraRepositoryProvider);
   return repository.getErasByCountry(countryId);
 });
 
 /// 시대 ID로 시대 정보 불러오기
 final eraByIdProvider = FutureProvider.family<Era?, String>((ref, id) async {
+  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(eraRepositoryProvider);
   return repository.getEraById(id);
 });
@@ -44,6 +48,7 @@ final eraByIdProvider = FutureProvider.family<Era?, String>((ref, id) async {
 /// 특정 지역의 국가 목록 불러오기
 final countryListByRegionProvider =
     FutureProvider.family<List<Country>, String>((ref, regionId) async {
+      ref.keepAlive(); // 결과 캐시 유지
       final repository = ref.watch(countryRepositoryProvider);
       return repository.getCountriesByRegion(regionId);
     });
@@ -53,6 +58,7 @@ final countryByIdProvider = FutureProvider.family<Country?, String>((
   ref,
   id,
 ) async {
+  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(countryRepositoryProvider);
   return repository.getCountryById(id);
 });
@@ -62,6 +68,7 @@ final countryByIdProvider = FutureProvider.family<Country?, String>((
 /// 시대별 장소 목록 불러오기
 final locationListByEraProvider = FutureProvider.family<List<Location>, String>(
   (ref, eraId) async {
+    ref.keepAlive(); // 결과 캐시 유지
     final repository = ref.watch(locationRepositoryProvider);
     return repository.getLocationsByEra(eraId);
   },
@@ -70,6 +77,7 @@ final locationListByEraProvider = FutureProvider.family<List<Location>, String>(
 /// 장소 ID로 장소 정보 불러오기
 final locationByIdProvider = FutureProvider.family<Location?, String>(
   (ref, locationId) async {
+    ref.keepAlive(); // 결과 캐시 유지
     final repository = ref.watch(locationRepositoryProvider);
     return repository.getLocationById(locationId);
   },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 왕국 메타데이터
 class KingdomInfo {
@@ -26,28 +27,28 @@ class ThreeKingdomsData {
     KingdomInfo(
       id: 'goguryeo',
       name: '고구려',
-      color: Color(0xFFB22222),
+      color: AppColors.kingdomGoguryeoLight,
       locationCount: 3,
       position: Offset(0.48, 0.25), // 북부 (상단 중앙)
     ),
     KingdomInfo(
       id: 'baekje',
       name: '백제',
-      color: Color(0xFF228B22),
+      color: AppColors.kingdomSillaLight,
       locationCount: 3,
       position: Offset(0.36, 0.65), // 동쪽으로 이동 (내륙 위치)
     ),
     KingdomInfo(
       id: 'silla',
       name: '신라',
-      color: Color(0xFF4169E1),
+      color: AppColors.eraThreeKingdoms,
       locationCount: 2,
       position: Offset(0.68, 0.60), // 위치 유지
     ),
     KingdomInfo(
       id: 'gaya',
       name: '가야',
-      color: Color(0xFFDAA520),
+      color: AppColors.kingdomBaekjeLight,
       locationCount: 3,
       position: Offset(0.60, 0.82), // 동쪽으로 이동 (낙동강 하류/김해)
     ),

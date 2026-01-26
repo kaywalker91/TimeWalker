@@ -1,6 +1,6 @@
 import 'package:time_walker/domain/entities/country.dart';
-import 'package:time_walker/domain/entities/region.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 /// 기본 국가 데이터 (MVP - 한반도)
 class CountryData {
@@ -86,6 +86,19 @@ class CountryData {
     status: ContentStatus.locked,
   );
 
+  static const Country italy = Country(
+    id: 'italy',
+    regionId: 'europe',
+    name: 'Italy',
+    nameKorean: '이탈리아',
+    description: '르네상스의 발상지, 예술과 낭만의 나라',
+    thumbnailAsset: 'assets/images/map/italy.png',
+    backgroundAsset: 'assets/images/locations/italy_bg.png',
+    position: MapCoordinates(x: 0.50, y: 0.38), // 로마 근처
+    eraIds: ['europe_renaissance'],
+    status: ContentStatus.locked,
+  );
+
   // ============== 아프리카 ==============
   static const Country egypt = Country(
     id: 'egypt',
@@ -100,17 +113,34 @@ class CountryData {
     status: ContentStatus.locked,
   );
 
-  static List<Country> get all => [korea, china, japan, greece, rome, uk, egypt];
-
-  static List<Country> getByRegion(String regionId) {
-    return all.where((c) => c.regionId == regionId).toList();
-  }
-
-  static Country? getById(String id) {
-    try {
-      return all.firstWhere((c) => c.id == id);
-    } catch (_) {
-      return null;
+  // ============== 캐시된 데이터 ==============
+  /// 캐시된 전체 국가 목록 (한 번만 생성)
+  static final List<Country> _cachedAll = [korea, china, japan, greece, rome, italy, uk, egypt];
+  
+  /// ID 기반 인덱스 맵 (O(1) 조회)
+  static final Map<String, Country> _countryById = {
+    for (final country in _cachedAll) country.id: country,
+  };
+  
+  /// 지역별 국가 목록 캐시
+  static final Map<String, List<Country>> _countriesByRegion = _buildRegionIndex();
+  
+  static Map<String, List<Country>> _buildRegionIndex() {
+    final map = <String, List<Country>>{};
+    for (final country in _cachedAll) {
+      map.putIfAbsent(country.regionId, () => []).add(country);
     }
+    return map;
   }
+
+  /// 모든 국가 목록 반환
+  static List<Country> get all => _cachedAll;
+
+  /// 지역별 국가 목록 조회 (O(1))
+  static List<Country> getByRegion(String regionId) {
+    return _countriesByRegion[regionId] ?? [];
+  }
+
+  /// ID로 국가 조회 (O(1))
+  static Country? getById(String id) => _countryById[id];
 }

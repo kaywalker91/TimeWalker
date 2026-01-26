@@ -19,15 +19,16 @@
         "dialogueIds": [
             "sejong_hangul_01",
             "sejong_science_01",
-            "sejong_policy_01"
+            "sejong_policy_01",
+            "crossover_sejong_davinci",
+            "connect_jeongjo_sejong"
         ],
         "relatedCharacterIds": [
             "jang_yeongshil",
             "choe_manri"
         ],
         "relatedLocationIds": [
-            "gyeongbokgung",
-            "jiphyeonjeon"
+            "gyeongbokgung"
         ],
         "achievements": [
             "훈민정음(한글) 창제",
@@ -56,14 +57,14 @@
         "dialogueIds": [
             "yi_geobukseon_01",
             "yi_battle_01",
-            "yi_strategy_01"
+            "yi_strategy_01",
+            "crossover_yisunsin_hideyoshi"
         ],
         "relatedCharacterIds": [
             "won_gyun"
         ],
         "relatedLocationIds": [
             "geobukseon",
-            "hansando",
             "myeongnyang"
         ],
         "achievements": [
@@ -97,8 +98,7 @@
             "jeongjo"
         ],
         "relatedLocationIds": [
-            "suwon_hwaseong",
-            "gangjin"
+            "suwon_hwaseong"
         ],
         "achievements": [
             "목민심서 저술",
@@ -126,7 +126,8 @@
         ],
         "dialogueIds": [
             "jeongjo_reform_01",
-            "jeongjo_hwaseong_01"
+            "jeongjo_hwaseong_01",
+            "connect_jeongjo_sejong"
         ],
         "relatedCharacterIds": [
             "jeong_yakyong",
@@ -135,7 +136,7 @@
         ],
         "relatedLocationIds": [
             "suwon_hwaseong",
-            "gyujanggak"
+            "gyeongbokgung"
         ],
         "achievements": [
             "규장각 설치",
@@ -168,10 +169,7 @@
         "relatedCharacterIds": [
             "sejong"
         ],
-        "relatedLocationIds": [
-            "jiphyeonjeon",
-            "royal_observatory"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "자격루(물시계) 발명",
             "앙부일구(해시계) 제작",
@@ -204,10 +202,7 @@
             "seonjo",
             "gwanghaegun"
         ],
-        "relatedLocationIds": [
-            "royal_clinic",
-            "sancheong"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "동의보감 집필",
             "어의 역임",
@@ -233,7 +228,8 @@
         ],
         "dialogueIds": [
             "gwanggaeto_conquest_01",
-            "gwanggaeto_legacy_01"
+            "gwanggaeto_legacy_01",
+            "connect_kim_yushin_gwanggaeto"
         ],
         "relatedCharacterIds": [
             "jangsu"
@@ -458,8 +454,7 @@
             "geunchogo"
         ],
         "relatedLocationIds": [
-            "sabi",
-            "nakhwaam"
+            "sabi"
         ],
         "achievements": [
             "해동증자 칭호",
@@ -483,7 +478,8 @@
             "assets/images/characters/three_kingdoms/kim_yushin.png"
         ],
         "dialogueIds": [
-            "kim_yushin_unification_01"
+            "kim_yushin_unification_01",
+            "connect_kim_yushin_gwanggaeto"
         ],
         "relatedCharacterIds": [
             "seondeok",
@@ -546,7 +542,7 @@
         "portraitAsset": "assets/images/characters/three_kingdoms/suro.png",
         "emotionAssets": [
             "assets/images/characters/three_kingdoms/suro.png",
-            "assets/images/characters/three_kingdoms/suro_pleased.png"
+            "assets/images/characters/three_kingdoms/suro.png"
         ],
         "dialogueIds": [
             "suro_founding_01",
@@ -583,7 +579,7 @@
         "portraitAsset": "assets/images/characters/three_kingdoms/hwangok.png",
         "emotionAssets": [
             "assets/images/characters/three_kingdoms/hwangok.png",
-            "assets/images/characters/three_kingdoms/hwangok_graceful.png"
+            "assets/images/characters/three_kingdoms/hwangok.png"
         ],
         "dialogueIds": [
             "hwangok_arrival_01",
@@ -594,8 +590,7 @@
             "suro"
         ],
         "relatedLocationIds": [
-            "gimhae_palace",
-            "mangsan_island"
+            "gimhae_palace"
         ],
         "achievements": [
             "해상 실크로드 개척",
@@ -618,7 +613,7 @@
         "portraitAsset": "assets/images/characters/three_kingdoms/ureuk.png",
         "emotionAssets": [
             "assets/images/characters/three_kingdoms/ureuk.png",
-            "assets/images/characters/three_kingdoms/ureuk_playing.png"
+            "assets/images/characters/three_kingdoms/ureuk.png"
         ],
         "dialogueIds": [
             "ureuk_gayageum_01",
@@ -653,12 +648,14 @@
         "portraitAsset": "assets/images/characters/renaissance/davinci.png",
         "emotionAssets": [
             "assets/images/characters/renaissance/davinci.png",
-            "assets/images/characters/renaissance/davinci.png"
+            "assets/images/characters/renaissance/davinci_thoughtful.png",
+            "assets/images/characters/renaissance/davinci_inspired.png"
         ],
         "dialogueIds": [
             "davinci_intro",
             "davinci_art",
-            "davinci_science"
+            "davinci_science",
+            "crossover_sejong_davinci"
         ],
         "relatedCharacterIds": [
             "michelangelo"
@@ -690,7 +687,9 @@
             "assets/images/characters/renaissance/michelangelo.png",
             "assets/images/characters/renaissance/michelangelo.png"
         ],
-        "dialogueIds": [],
+        "dialogueIds": [
+            "michelangelo_david_01"
+        ],
         "relatedCharacterIds": [
             "davinci"
         ],
@@ -720,7 +719,8 @@
         "portraitAsset": "assets/images/characters/renaissance/galileo.png",
         "emotionAssets": [
             "assets/images/characters/renaissance/galileo.png",
-            "assets/images/characters/renaissance/galileo.png"
+            "assets/images/characters/renaissance/galileo_determined.png",
+            "assets/images/characters/renaissance/galileo_curious.png"
         ],
         "dialogueIds": [
             "galileo_intro",
@@ -754,7 +754,9 @@
             "assets/images/characters/renaissance/shakespeare.png",
             "assets/images/characters/renaissance/shakespeare.png"
         ],
-        "dialogueIds": [],
+        "dialogueIds": [
+            "shakespeare_hamlet_01"
+        ],
         "relatedCharacterIds": [],
         "relatedLocationIds": [
             "london_globe"
@@ -783,7 +785,9 @@
             "assets/images/characters/renaissance/gutenberg.png",
             "assets/images/characters/renaissance/gutenberg.png"
         ],
-        "dialogueIds": [],
+        "dialogueIds": [
+            "gutenberg_printing_01"
+        ],
         "relatedCharacterIds": [],
         "relatedLocationIds": [
             "mainz"
@@ -820,7 +824,6 @@
             "gangamchan"
         ],
         "relatedLocationIds": [
-            "gaegyeong",
             "manwoldae"
         ],
         "achievements": [
@@ -854,10 +857,7 @@
             "wanggeon",
             "gangamchan"
         ],
-        "relatedLocationIds": [
-            "gaegyeong",
-            "gangdong_6ju"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "거란군 철수 협상",
             "강동 6주 획득",
@@ -879,7 +879,7 @@
         "portraitAsset": "assets/images/characters/goryeo/gangamchan_v2.png",
         "emotionAssets": [
             "assets/images/characters/goryeo/gangamchan_v2.png",
-            "assets/images/characters/goryeo/gangamchan_determined.png"
+            "assets/images/characters/goryeo/gangamchan_v2.png"
         ],
         "dialogueIds": [
             "gangamchan_guju_01",
@@ -889,10 +889,7 @@
             "seohee",
             "wanggeon"
         ],
-        "relatedLocationIds": [
-            "guju",
-            "heunghwajin"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "귀주대첩 승리",
             "거란 10만 섬멸",
@@ -924,8 +921,7 @@
             "wanggeon"
         ],
         "relatedLocationIds": [
-            "gaegyeong",
-            "ssangseong"
+            "manwoldae"
         ],
         "achievements": [
             "반원 개혁 추진",
@@ -990,10 +986,7 @@
         "relatedCharacterIds": [
             "jang_bogo"
         ],
-        "relatedLocationIds": [
-            "gyeongju",
-            "gaya_mountain"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "빈공과 장원 급제",
             "토황소격문 집필",
@@ -1025,7 +1018,7 @@
             "seondeok"
         ],
         "relatedLocationIds": [
-            "bunhwangsa"
+            "bulguksa"
         ],
         "achievements": [
             "불교 대중화",
@@ -1092,8 +1085,7 @@
             "kim_koo"
         ],
         "relatedLocationIds": [
-            "harbin",
-            "lushun_prison"
+            "harbin_station"
         ],
         "achievements": [
             "이토 히로부미 저격",
@@ -1124,8 +1116,7 @@
         ],
         "relatedCharacterIds": [],
         "relatedLocationIds": [
-            "seodaemun_prison",
-            "aunae_marketplace"
+            "seodaemun_prison"
         ],
         "achievements": [
             "아우내 장터 만세 운동",
@@ -1157,9 +1148,7 @@
         "relatedCharacterIds": [
             "gongmin"
         ],
-        "relatedLocationIds": [
-            "jinpo"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "화약 국산화 성공",
             "화통도감 설치",
@@ -1189,9 +1178,7 @@
         "relatedCharacterIds": [
             "gongmin"
         ],
-        "relatedLocationIds": [
-            "sancheong"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "목화씨 전래",
             "목화 재배 성공",
@@ -1222,9 +1209,7 @@
         "relatedCharacterIds": [
             "stephenson"
         ],
-        "relatedLocationIds": [
-            "steam_factory"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "증기기관 개량",
             "분리 응축기 발명",
@@ -1255,9 +1240,7 @@
         "relatedCharacterIds": [
             "james_watt"
         ],
-        "relatedLocationIds": [
-            "manchester"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "증기 기관차 실용화",
             "로켓호 제작",
@@ -1285,9 +1268,7 @@
             "smith_market_01"
         ],
         "relatedCharacterIds": [],
-        "relatedLocationIds": [
-            "london"
-        ],
+        "relatedLocationIds": [],
         "achievements": [
             "국부론 저술",
             "보이지 않는 손",
@@ -1314,7 +1295,9 @@
             "sohn_marathon_01"
         ],
         "relatedCharacterIds": [],
-        "relatedLocationIds": [],
+        "relatedLocationIds": [
+            "seoul_olympic_stadium"
+        ],
         "achievements": [
             "1936 베를린 올림픽 마라톤 금메달",
             "세계 신기록 수립",
@@ -1369,7 +1352,8 @@
         ],
         "relatedCharacterIds": [],
         "relatedLocationIds": [
-            "ulsan_shipyard"
+            "ulsan_shipyard",
+            "seoul_expressway"
         ],
         "achievements": [
             "현대그룹 창업",
@@ -1426,7 +1410,8 @@
         ],
         "relatedCharacterIds": [],
         "relatedLocationIds": [
-            "gwanghwamun_1987"
+            "gwanghwamun_1987",
+            "gwanghwamun_candlelight"
         ],
         "achievements": [
             "6월 민주항쟁 참여",
@@ -1455,7 +1440,8 @@
         "relatedCharacterIds": [],
         "relatedLocationIds": [
             "gangnam_teheran",
-            "ddp_dongdaemun"
+            "ddp_dongdaemun",
+            "coex_convention"
         ],
         "achievements": [
             "IT 벤처 창업",
@@ -1777,7 +1763,11 @@
             "가족의 생존",
             "시장 개척"
         ],
-        "status": "available"
+        "status": "available",
+        "relatedLocationIds": [
+            "busan_provisional_capital",
+            "gukje_market"
+        ]
     },
     {
         "id": "sewing_worker",
@@ -1797,7 +1787,10 @@
             "동생 학비 지원",
             "야학 졸업"
         ],
-        "status": "available"
+        "status": "available",
+        "relatedLocationIds": [
+            "pyeonghwa_market"
+        ]
     },
     {
         "id": "imf_survivor",
@@ -1817,7 +1810,10 @@
             "재기 성공",
             "수출탑 수상"
         ],
-        "status": "available"
+        "status": "available",
+        "relatedLocationIds": [
+            "seoul_olympic_stadium"
+        ]
     },
     {
         "id": "kim_gu",
@@ -1839,7 +1835,11 @@
             "백범일지 저술"
         ],
         "status": "available",
-        "isHistorical": true
+        "isHistorical": true,
+        "relatedLocationIds": [
+            "cheonggyecheon_1950",
+            "shanghai_provisional"
+        ]
     },
     {
         "id": "ahn_changho",
@@ -1861,7 +1861,10 @@
             "대한인국민회 조직"
         ],
         "status": "available",
-        "isHistorical": true
+        "isHistorical": true,
+        "relatedLocationIds": [
+            "shanghai_provisional"
+        ]
     },
     {
         "id": "yeo_unhyeong",
@@ -1883,7 +1886,10 @@
             "조선건국동맹"
         ],
         "status": "available",
-        "isHistorical": true
+        "isHistorical": true,
+        "relatedLocationIds": [
+            "line_38"
+        ]
     },
     {
         "id": "syngman_rhee",
@@ -1903,6 +1909,528 @@
             "대한민국 초대 대통령",
             "임시정부 초대 대통령",
             "대한민국 건국"
+        ],
+        "status": "available",
+        "isHistorical": true,
+        "relatedLocationIds": [
+            "line_38"
+        ]
+    },
+    {
+        "id": "cao_cao",
+        "eraId": "china_three_kingdoms",
+        "name": "Cao Cao",
+        "nameKorean": "조조",
+        "title": "난세의 영웅",
+        "birth": "155",
+        "death": "220",
+        "biography": "위나라의 실질적 건국자로, 뛰어난 군사 전략가이자 시인",
+        "fullBiography": "환관의 양자 집안 출신으로 황건적의 난 진압에 참여하며 두각을 나타냈다. 헌제를 옹립해 '황제를 끼고 제후를 호령'하는 전략으로 화북을 통일했다. 관도대전에서 원소를 격파하고 북방의 패자가 되었으나, 적벽대전에서 손권-유비 연합군에게 대패하여 천하통일의 꿈을 이루지 못했다. 탁월한 인재 등용과 둔전제 시행으로 위나라의 기반을 닦았다.",
+        "portraitAsset": "assets/images/characters/china/cao_cao.png",
+        "emotionAssets": [
+            "assets/images/characters/china/cao_cao.png"
+        ],
+        "dialogueIds": [
+            "cao_cao_ambition_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "sun_quan"
+        ],
+        "relatedLocationIds": [
+            "luoyang_wei",
+            "chibi"
+        ],
+        "achievements": [
+            "관도대전 승리",
+            "화북 통일",
+            "둔전제 시행",
+            "건안문학 주도"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "liu_bei",
+        "eraId": "china_three_kingdoms",
+        "name": "Liu Bei",
+        "nameKorean": "유비",
+        "title": "촉한의 창업주",
+        "birth": "161",
+        "death": "223",
+        "biography": "인의를 내세워 촉한을 건국한 황실의 후예",
+        "fullBiography": "한 황실의 먼 후손으로 태어나 돗자리와 신발을 팔며 생계를 이었다. 관우, 장비와 도원결의를 맺고 황건적의 난 진압에 참여했다. 조조, 원소, 유표 등의 세력을 전전하다 제갈량을 삼고초려로 영입한 후 적벽대전에서 승리하고 형주, 익주를 차지해 촉한을 건국했다. 관우의 복수를 위해 오나라를 쳤다가 이릉대전에서 대패하고 백제성에서 세상을 떠났다.",
+        "portraitAsset": "assets/images/characters/china/liu_bei.png",
+        "emotionAssets": [
+            "assets/images/characters/china/liu_bei.png"
+        ],
+        "dialogueIds": [
+            "liu_bei_virtue_01"
+        ],
+        "relatedCharacterIds": [
+            "zhuge_liang",
+            "guan_yu",
+            "cao_cao"
+        ],
+        "relatedLocationIds": [
+            "chengdu"
+        ],
+        "achievements": [
+            "도원결의",
+            "삼고초려",
+            "촉한 건국",
+            "한중왕 즉위"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "zhuge_liang",
+        "eraId": "china_three_kingdoms",
+        "name": "Zhuge Liang",
+        "nameKorean": "제갈량",
+        "title": "와룡선생",
+        "birth": "181",
+        "death": "234",
+        "biography": "천하삼분지계로 유명한 촉한의 전설적 군사",
+        "fullBiography": "남양에서 초야에 묻혀 살다 유비의 삼고초려에 감동하여 출사했다. 천하삼분지계를 제시하고 손권과 동맹을 맺어 적벽대전을 승리로 이끌었다. 유비 사후 후주 유선을 보좌하며 북벌을 거듭했으나 오장원에서 병사했다. 출사표는 충성심의 대명사로 남아있다. '죽은 제갈량이 산 사마의를 쫓았다'는 고사로도 유명하다.",
+        "portraitAsset": "assets/images/characters/china/zhuge_liang.png",
+        "emotionAssets": [
+            "assets/images/characters/china/zhuge_liang.png"
+        ],
+        "dialogueIds": [
+            "zhuge_liang_strategy_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "guan_yu"
+        ],
+        "relatedLocationIds": [
+            "chengdu",
+            "chibi"
+        ],
+        "achievements": [
+            "천하삼분지계",
+            "적벽대전 승리",
+            "출사표",
+            "북벌 추진"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "guan_yu",
+        "eraId": "china_three_kingdoms",
+        "name": "Guan Yu",
+        "nameKorean": "관우",
+        "title": "무신의 화신",
+        "birth": "160",
+        "death": "220",
+        "biography": "의리의 상징으로 후세에 무신으로 추앙받는 촉한의 명장",
+        "fullBiography": "유비, 장비와 도원결의를 맺고 평생 의형제를 보좌했다. 조조에게 패해 잠시 투항했을 때도 유비의 행방을 알자 곧바로 떠났고, 오관참육장의 일화를 남겼다. 적벽대전 후 형주를 지키며 '수엄장군'의 위엄을 떨쳤으나, 맥성에서 손권군에게 사로잡혀 최후를 맞았다. 후세에 관제묘에서 신으로 모셔졌다.",
+        "portraitAsset": "assets/images/characters/china/guan_yu.png",
+        "emotionAssets": [
+            "assets/images/characters/china/guan_yu.png"
+        ],
+        "dialogueIds": [
+            "guan_yu_loyalty_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "zhuge_liang",
+            "cao_cao"
+        ],
+        "relatedLocationIds": [],
+        "achievements": [
+            "도원결의",
+            "오관참육장",
+            "수엄장군",
+            "무신 추앙"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "sun_quan",
+        "eraId": "china_three_kingdoms",
+        "name": "Sun Quan",
+        "nameKorean": "손권",
+        "title": "오나라 대제",
+        "birth": "182",
+        "death": "252",
+        "biography": "강동을 지켜 오나라를 건국한 젊은 군주",
+        "fullBiography": "형 손책의 뒤를 이어 19세에 강동의 주인이 되었다. 주유, 노숙 등 명장들의 보좌를 받아 적벽대전에서 조조와 유비와 맞서 승리했다. 이후 형주 문제로 유비와 갈등하다 관우를 죽이고 손유 동맹을 파기했다. 위, 촉과 번갈아 싸우며 오나라를 삼국 중 가장 오래 유지했다.",
+        "portraitAsset": "assets/images/characters/china/sun_quan.png",
+        "emotionAssets": [
+            "assets/images/characters/china/sun_quan.png"
+        ],
+        "dialogueIds": [
+            "sun_quan_defense_01"
+        ],
+        "relatedCharacterIds": [
+            "cao_cao",
+            "liu_bei"
+        ],
+        "relatedLocationIds": [
+            "jianye",
+            "chibi"
+        ],
+        "achievements": [
+            "적벽대전 승리",
+            "오나라 건국",
+            "강동 통치",
+            "해상 교역 발전"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "oda_nobunaga",
+        "eraId": "japan_sengoku",
+        "name": "Oda Nobunaga",
+        "nameKorean": "오다 노부나가",
+        "title": "제육천마왕",
+        "birth": "1534",
+        "death": "1582",
+        "biography": "천하통일의 기틀을 닦은 혁신적 전략가",
+        "fullBiography": "오와리 국의 작은 다이묘 가문에서 태어났으나 오케하자마 전투에서 이마가와 요시모토를 기습 격파하며 두각을 나타냈다. 철포 대량 활용, 라쿠이치라쿠자(자유 상업) 정책 등 혁신적 방법으로 기나이 지방을 제압하고 천하통일에 가장 근접했다. 아즈치성을 본거지로 삼았으나 혼노지의 변에서 부하 아케치 미츠히데의 반란으로 최후를 맞았다.",
+        "portraitAsset": "assets/images/characters/japan/oda_nobunaga.png",
+        "emotionAssets": [
+            "assets/images/characters/japan/oda_nobunaga.png"
+        ],
+        "dialogueIds": [
+            "nobunaga_ambition_01"
+        ],
+        "relatedCharacterIds": [
+            "toyotomi_hideyoshi",
+            "tokugawa_ieyasu"
+        ],
+        "relatedLocationIds": [
+            "azuchi_castle"
+        ],
+        "achievements": [
+            "오케하자마 전투",
+            "철포 전술",
+            "라쿠이치라쿠자",
+            "아즈치성 축조"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "toyotomi_hideyoshi",
+        "eraId": "japan_sengoku",
+        "name": "Toyotomi Hideyoshi",
+        "nameKorean": "도요토미 히데요시",
+        "title": "태합",
+        "birth": "1537",
+        "death": "1598",
+        "biography": "농민 출신으로 천하통일을 이룬 입지전적 인물",
+        "fullBiography": "농민의 아들로 태어나 오다 노부나가의 가신이 되어 출세했다. 혼노지의 변 후 재빠르게 아케치 미츠히데를 토벌하고 노부나가의 후계자 자리를 확보했다. 오다와라 정벌로 전국 통일을 완성하고 관백(태합)이 되었다. 두 차례에 걸쳐 조선을 침략(임진왜란, 정유재란)했으나 이순신 장군에게 수군이 궤멸되고 명군 참전으로 실패했다.",
+        "portraitAsset": "assets/images/characters/japan/toyotomi_hideyoshi.png",
+        "emotionAssets": [
+            "assets/images/characters/japan/toyotomi_hideyoshi.png"
+        ],
+        "dialogueIds": [
+            "hideyoshi_unification_01",
+            "crossover_yisunsin_hideyoshi"
+        ],
+        "relatedCharacterIds": [
+            "oda_nobunaga",
+            "tokugawa_ieyasu"
+        ],
+        "relatedLocationIds": [
+            "osaka_castle"
+        ],
+        "achievements": [
+            "천하통일",
+            "오사카성 축조",
+            "조선 침략",
+            "도요토미 정권"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "tokugawa_ieyasu",
+        "eraId": "japan_sengoku",
+        "name": "Tokugawa Ieyasu",
+        "nameKorean": "도쿠가와 이에야스",
+        "title": "에도막부 초대 쇼군",
+        "birth": "1543",
+        "death": "1616",
+        "biography": "인내와 기다림으로 천하를 얻은 노련한 전략가",
+        "fullBiography": "미카와 국의 작은 다이묘 가문 출신으로 어린 시절 인질로 보내지는 고난을 겪었다. 오다 노부나가, 도요토미 히데요시와 동맹 관계를 유지하며 서서히 세력을 키웠다. 히데요시 사후 세키가하라 전투에서 승리해 천하의 패권을 잡고 에도막부를 열었다. '두껍아 두껍아 울어라, 울지 않으면 죽여버리겠다(노부나가), 울게 만들겠다(히데요시), 울 때까지 기다리겠다(이에야스)'의 고사로 유명하다.",
+        "portraitAsset": "assets/images/characters/japan/tokugawa_ieyasu.png",
+        "emotionAssets": [
+            "assets/images/characters/japan/tokugawa_ieyasu.png"
+        ],
+        "dialogueIds": [
+            "ieyasu_patience_01"
+        ],
+        "relatedCharacterIds": [
+            "oda_nobunaga",
+            "toyotomi_hideyoshi"
+        ],
+        "relatedLocationIds": [
+            "sekigahara"
+        ],
+        "achievements": [
+            "세키가하라 전투",
+            "에도막부 개창",
+            "도쿠가와 가법",
+            "260년 태평"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "uisang",
+        "eraId": "korea_unified_silla",
+        "name": "Uisang",
+        "nameKorean": "의상대사",
+        "title": "화엄종의 시조",
+        "birth": "625",
+        "death": "702",
+        "biography": "원효와 함께 당나라 유학을 떠났으며, 부석사를 창건하여 화엄 사상을 널리 알린 승려.",
+        "fullBiography": "신라의 승려로 원효와 함께 당나라 유학길에 올랐으나, 원효가 깨달음을 얻고 돌아간 후 홀로 당나라로 건너가 화엄학을 공부했다. 귀국 후 영주에 부석사를 세우고 화엄종을 개창하여 수많은 제자를 양성했다. 선묘 낭자와의 설화로도 유명하며, 관음 신앙을 전파하는 데 힘썼다.",
+        "portraitAsset": "assets/images/characters/unified_silla/uisang.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/uisang.png"
+        ],
+        "dialogueIds": [
+            "uisang_buseoksa_01"
+        ],
+        "relatedCharacterIds": [
+            "wonhyo"
+        ],
+        "relatedLocationIds": [
+            "buseoksa"
+        ],
+        "achievements": [
+            "부석사 창건",
+            "화엄일승법계도 저술",
+            "해동 화엄종 개창"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "cheoyong",
+        "eraId": "korea_unified_silla",
+        "name": "Cheoyong",
+        "nameKorean": "처용",
+        "title": "동해 용왕의 아들",
+        "birth": "?",
+        "death": "?",
+        "biography": "동해 용왕의 아들로, 역신을 물리친 설화 속 인물.",
+        "fullBiography": "신라 헌강왕 때 동해 용왕의 아들로 나타나 급간 벼슬을 지냈다. 아내가 역신과 동침하는 것을 목격하고도 노래와 춤으로 관용을 베풀어 역신을 감복시켰다. 이후 처용의 얼굴을 그린 부적은 잡귀를 쫓는 벽사의 상징이 되었다. 향가 '처용가'의 주인공이다.",
+        "portraitAsset": "assets/images/characters/unified_silla/cheoyong.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/cheoyong.png"
+        ],
+        "dialogueIds": [
+            "cheoyong_song_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "gyeongju"
+        ],
+        "achievements": [
+            "처용가",
+            "역신 퇴치",
+            "관용의 미덕"
+        ],
+        "status": "available",
+        "isHistorical": false
+    },
+    {
+        "id": "jeong_mongju",
+        "eraId": "korea_goryeo",
+        "name": "Jeong Mong-ju",
+        "nameKorean": "정몽주",
+        "title": "포은",
+        "birth": "1337",
+        "death": "1392",
+        "biography": "고려에 대한 끝없는 충성을 바친 마지막 충신.",
+        "fullBiography": "고려 말의 문신이자 성리학자로, 동방이학의 조라 불린다. 이성계와 협력하여 개혁을 추진했으나, 고려 왕조를 유지하려는 입장을 고수하여 역성혁명파와 대립했다. 이방원이 하여가를 읊으며 회유하려 했으나 단심가로 고려에 대한 일편단심을 표했고, 결국 선죽교에서 피살되었다.",
+        "portraitAsset": "assets/images/characters/goryeo/jeong_mongju.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/jeong_mongju.png"
+        ],
+        "dialogueIds": [
+            "jeong_mongju_loyalty_01"
+        ],
+        "relatedCharacterIds": [
+            "yi_seong_gye"
+        ],
+        "relatedLocationIds": [
+            "kaesong"
+        ],
+        "achievements": [
+            "단심가",
+            "동방이학의 조",
+            "고려 수호 노력"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "yi_seong_gye",
+        "eraId": "korea_goryeo",
+        "name": "Yi Seong-gye",
+        "nameKorean": "이성계",
+        "title": "태조",
+        "birth": "1335",
+        "death": "1408",
+        "biography": "위화도 회군으로 고려를 멸하고 조선을 건국한 태조.",
+        "fullBiography": "고려 말 홍건적과 왜구 토벌로 명성을 떨친 무장. 요동 정벌을 위해 출정했다가 위화도에서 회군하여 고려 정권을 장악했다. 이후 정몽주 등 반대파를 제거하고 1392년 조선을 건국하여 초대 국왕(태조)이 되었다. 한양으로 도읍을 옮기고 새 왕조의 기틀을 다졌다.",
+        "portraitAsset": "assets/images/characters/goryeo/yi_seong_gye.png",
+        "emotionAssets": [
+            "assets/images/characters/goryeo/yi_seong_gye.png"
+        ],
+        "dialogueIds": [
+            "yi_seong_gye_wihwado_01"
+        ],
+        "relatedCharacterIds": [
+            "jeong_mongju",
+            "choe_yeong"
+        ],
+        "relatedLocationIds": [
+            "kaesong",
+            "hanyang"
+        ],
+        "achievements": [
+            "위화도 회군",
+            "조선 건국",
+            "한양 천도",
+            "왜구 토벌"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "ramesses_ii",
+        "eraId": "egypt_ancient",
+        "name": "Ramesses II",
+        "nameKorean": "람세스 2세",
+        "title": "대왕, 태양의 아들",
+        "birth": "BC 1303",
+        "death": "BC 1213",
+        "biography": "이집트 제19왕조의 전성기를 이끈 위대한 파라오.",
+        "fullBiography": "이집트 역사상 가장 위대하고 강력한 파라오 중 한 명. 히타이트와의 카데시 전투 후 세계 최초의 평화 조약을 체결했다. 아부심벨 신전, 라메세움 등 거대한 건축물을 많이 남겼으며, 66년이나 통치하며 이집트의 황금기를 구가했다.",
+        "portraitAsset": "assets/images/characters/egypt/ramesses_ii.png",
+        "emotionAssets": [
+            "assets/images/characters/egypt/ramesses_ii.png"
+        ],
+        "dialogueIds": [
+            "ramesses_kadesh_01"
+        ],
+        "relatedCharacterIds": [
+            "nefertari"
+        ],
+        "relatedLocationIds": [
+            "abushimbel",
+            "luxor"
+        ],
+        "achievements": [
+            "카데시 평화 조약",
+            "아부심벨 신전 건립",
+            "이집트 최전성기"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "cleopatra",
+        "eraId": "egypt_ancient",
+        "name": "Cleopatra VII",
+        "nameKorean": "클레오파트라",
+        "title": "마지막 파라오",
+        "birth": "BC 69",
+        "death": "BC 30",
+        "biography": "이집트를 지키기 위해 로마 영웅들과 운명을 함께한 여왕.",
+        "fullBiography": "프톨레마이오스 왕조의 마지막 파라오. 뛰어난 지성과 정치력, 매력으로 율리우스 카이사르, 마르쿠스 안토니우스와 연합하여 이집트의 독립을 유지하려 했다. 악티움 해전 패배 후 스스로 생을 마감함으로써 고대 이집트 역사의 막을 내렸다.",
+        "portraitAsset": "assets/images/characters/egypt/cleopatra.png",
+        "emotionAssets": [
+            "assets/images/characters/egypt/cleopatra.png"
+        ],
+        "dialogueIds": [
+            "cleopatra_diplomacy_01"
+        ],
+        "relatedCharacterIds": [
+            "caesar",
+            "antonius"
+        ],
+        "relatedLocationIds": [
+            "alexandria"
+        ],
+        "achievements": [
+            "이집트 독립 유지 노력",
+            "뛰어난 외교술",
+            "9개 국어 구사"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "tutankhamun",
+        "eraId": "egypt_ancient",
+        "name": "Tutankhamun",
+        "nameKorean": "투탕카멘",
+        "title": "소년 파라오",
+        "birth": "BC 1341",
+        "death": "BC 1323",
+        "biography": "황금 마스크로 유명한 비운의 소년 왕.",
+        "fullBiography": "이집트 제18왕조의 파라오로 어린 나이에 즉위하여 19세에 요절했다. 생전의 업적보다 1922년 거의 도굴되지 않은 채 발견된 무덤과 황금 마스크로 더욱 유명하다. 그의 무덤 발굴은 이집트 고고학 역사상 가장 위대한 발견으로 꼽힌다.",
+        "portraitAsset": "assets/images/characters/egypt/tutankhamun.png",
+        "emotionAssets": [
+            "assets/images/characters/egypt/tutankhamun.png"
+        ],
+        "dialogueIds": [
+            "tutankhamun_gold_01"
+        ],
+        "relatedCharacterIds": [
+            "akhenaten"
+        ],
+        "relatedLocationIds": [
+            "valley_of_the_kings"
+        ],
+        "achievements": [
+            "아텐 신앙 폐지",
+            "테베 천도",
+            "황금 유물"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "imhotep",
+        "eraId": "egypt_ancient",
+        "name": "Imhotep",
+        "nameKorean": "임호텝",
+        "title": "최초의 건축가",
+        "birth": "BC 2650",
+        "death": "BC 2600",
+        "biography": "최초의 피라미드를 설계한 천재 건축가이자 의사.",
+        "fullBiography": "이집트 제3왕조 조세르 왕 때의 재상. 사카라의 계단식 피라미드를 설계하여 석조 건축의 시대를 열었다. 건축뿐만 아니라 의학, 천문학에도 정통하여 사후에 의술의 신으로 추앙받았다. 평민 출신으로 신의 반열에 오른 입지전적인 인물이다.",
+        "portraitAsset": "assets/images/characters/egypt/imhotep.png",
+        "emotionAssets": [
+            "assets/images/characters/egypt/imhotep.png"
+        ],
+        "dialogueIds": [
+            "imhotep_pyramid_01"
+        ],
+        "relatedCharacterIds": [
+            "djoser"
+        ],
+        "relatedLocationIds": [
+            "saqqara"
+        ],
+        "achievements": [
+            "계단식 피라미드 설계",
+            "석조 건축 발명",
+            "의술의 신"
         ],
         "status": "available",
         "isHistorical": true

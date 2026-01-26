@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
-import 'package:time_walker/data/datasources/static/achievement_data.dart';
 import 'package:time_walker/presentation/screens/achievement/widgets/achievement_widgets.dart';
 
 
@@ -41,7 +41,8 @@ class _AchievementScreenState extends ConsumerState<AchievementScreen>
   Widget build(BuildContext context) {
     final userProgress = ref.watch(userProgressProvider).valueOrNull;
     final unlockedIds = userProgress?.achievementIds ?? [];
-    final allAchievements = AchievementData.all;
+    final repository = ref.watch(achievementRepositoryProvider);
+    final allAchievements = repository.getAllAchievements();
     
     // 전체 진행률 계산
     final totalCount = allAchievements.length;
@@ -49,7 +50,7 @@ class _AchievementScreenState extends ConsumerState<AchievementScreen>
     final progress = totalCount > 0 ? unlockedCount / totalCount : 0.0;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2C),
+      backgroundColor: AppColors.darkSheet,
       body: CustomScrollView(
         slivers: [
           // AppBar with progress
@@ -57,7 +58,7 @@ class _AchievementScreenState extends ConsumerState<AchievementScreen>
             expandedHeight: 180,
             floating: false,
             pinned: true,
-            backgroundColor: const Color(0xFF1E1E2C),
+            backgroundColor: AppColors.darkSheet,
             flexibleSpace: FlexibleSpaceBar(
               background: AchievementHeader(
                 totalCount: totalCount,
@@ -76,8 +77,8 @@ class _AchievementScreenState extends ConsumerState<AchievementScreen>
               TabBar(
                 controller: _tabController,
                 isScrollable: true,
-                indicatorColor: Colors.amber,
-                labelColor: Colors.amber,
+                indicatorColor: AppColors.primary,
+                labelColor: AppColors.primary,
                 unselectedLabelColor: Colors.white54,
                 tabs: [
                   const Tab(text: '전체'),
@@ -99,7 +100,7 @@ class _AchievementScreenState extends ConsumerState<AchievementScreen>
                 ),
                 // 카테고리별 탭
                 ..._categories.map((category) => AchievementGrid(
-                  achievements: AchievementData.getByCategory(category),
+                  achievements: repository.getAchievementsByCategory(category),
                   unlockedIds: unlockedIds,
                 )),
               ],

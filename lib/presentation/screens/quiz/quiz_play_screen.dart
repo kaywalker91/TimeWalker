@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
-import 'package:time_walker/domain/services/achievement_service.dart';
+import 'package:time_walker/presentation/providers/achievement_providers.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/screens/quiz/widgets/achievement_unlock_card.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
@@ -225,7 +225,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xFF2C2C3E), // Dark theme consistent with quiz screen
+        backgroundColor: AppColors.darkCard, // Dark theme consistent with quiz screen
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side: const BorderSide(color: Colors.white24),
@@ -254,7 +254,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
     final userProgressAsync = ref.watch(userProgressProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2C),
+      backgroundColor: AppColors.darkSheet,
       appBar: AppBar(
         title: const Text('Quiz Challenge'),
         backgroundColor: Colors.transparent,
@@ -367,7 +367,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                           }
 
                           final isSelected = _selectedAnswer == option;
-                          Color tileColor = const Color(0xFF2C2C3E);
+                          Color tileColor = AppColors.darkCard;
                           Color borderColor = Colors.white10;
 
                           if (_isSubmitted) {
@@ -379,8 +379,8 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                               borderColor = Colors.red;
                             }
                           } else if (isSelected) {
-                            borderColor = Colors.amber;
-                            tileColor = Colors.amber.withValues(alpha: 0.1);
+                            borderColor = AppColors.primary;
+                            tileColor = AppColors.primary.withValues(alpha: 0.1);
                           }
 
                           return Padding(
@@ -459,11 +459,11 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                           ElevatedButton(
                             onPressed: _selectedAnswer != null ? () => _submitAnswer() : null,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.amber,
+                              backgroundColor: AppColors.primary,
                               padding: EdgeInsets.symmetric(vertical: isSmallScreen ? 12 : 16),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                             ),
-                            child: Text('Submit Answer', style: TextStyle(color: Colors.black, fontSize: isSmallScreen ? 16 : 18, fontWeight: FontWeight.bold)),
+                            child: Text('Submit Answer', style: TextStyle(color: AppColors.background, fontSize: isSmallScreen ? 16 : 18, fontWeight: FontWeight.bold)),
                           )
                         else
                           Column(
@@ -621,4 +621,3 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
     );
   }
 }
-

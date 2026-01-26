@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:time_walker/domain/entities/era.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 
 import 'exploration_character_card.dart';
 
@@ -37,7 +38,7 @@ class LocationDetailSheet extends ConsumerWidget {
       builder: (context, scrollController) {
         return Container(
           decoration: const BoxDecoration(
-            color: Color(0xFF1E1E2C),
+            color: AppColors.darkSheet,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(

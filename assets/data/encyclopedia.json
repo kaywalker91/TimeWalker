@@ -2251,7 +2251,7 @@
     "titleKorean": "제임스 와트",
     "summary": "증기기관을 획기적으로 개량하여 산업혁명의 불을 지핀 발명가",
     "content": "뉴커먼의 증기기관을 수리하다가 효율이 낮은 문제를 발견하고, 분리 응축기를 고안하여 효율을 획기적으로 높인 증기기관을 발명했다. 이 발명은 방적기, 기차, 선박 등 다양한 기계의 동력원으로 사용되어 산업혁명을 가속화시켰다. 일률의 단위인 '와트(W)'는 그의 이름에서 유래했다.",
-    "thumbnailAsset": "assets/images/characters/james_watt.png",
+    "thumbnailAsset": "assets/images/characters/industrial/james_watt.png",
     "eraId": "europe_industrial_revolution",
     "relatedEntryIds": [],
     "tags": [
@@ -2267,7 +2267,7 @@
     "titleKorean": "조지 스티븐슨",
     "summary": "최초의 실용적인 증기 기관차를 만든 철도의 선구자",
     "content": "탄광에서 일하며 독학으로 기술을 익혀 증기 기관차를 개발했다. 1825년 스톡턴과 달링턴을 잇는 세계 최초의 공공 철도를 개통했고, 1829년 '로켓호'를 제작하여 증기 기관차의 성능을 입증했다. 그의 발명은 교통과 물류의 혁명을 가져왔다.",
-    "thumbnailAsset": "assets/images/characters/stephenson.png",
+    "thumbnailAsset": "assets/images/characters/industrial/stephenson.png",
     "eraId": "europe_industrial_revolution",
     "relatedEntryIds": [],
     "tags": [
@@ -2283,7 +2283,7 @@
     "titleKorean": "애덤 스미스",
     "summary": "국부론을 저술하여 자본주의 경제학의 기초를 닦은 학자",
     "content": "1776년 <국부론>을 출간하여 '보이지 않는 손'에 의한 자유 시장 경제 원리를 주장했다. 분업의 효율성을 강조하며 산업혁명 초기의 경제 이론적 토대를 마련했다. 그의 사상은 현대 자본주의 경제학의 시초가 되었다.",
-    "thumbnailAsset": "assets/images/characters/adam_smith.png",
+    "thumbnailAsset": "assets/images/characters/industrial/adam_smith.png",
     "eraId": "europe_industrial_revolution",
     "relatedEntryIds": [],
     "tags": [
@@ -2937,7 +2937,7 @@
     "titleKorean": "장보고",
     "summary": "동아시아 해상 무역을 장악한 '바다의 왕'",
     "content": "장보고(?~846)는 신라 말기의 무장이자 상인으로, 어린 시절 당나라로 건너가 무령군 소자장으로 활약했다. 당시 해적들에게 잡혀 노예로 팔려가는 신라인들을 목격하고 분개하여 귀국 후 흥덕왕에게 건의하여 완도에 청해진을 설치했다. 1만여 명의 병력을 지휘하며 해적을 소탕하고 당, 신라, 일본을 잇는 동아시아 해상 무역권을 장악하여 '해상왕'으로 불렸다. 신무왕 옹립에 공을 세웠으나, 딸을 왕비로 삼으려던 시도가 좌절되면서 염장에게 암살당하는 비극적 최후를 맞았다.",
-    "thumbnailAsset": "assets/images/characters/unified_silla/jangbogo.png",
+    "thumbnailAsset": "assets/images/characters/unified_silla/jang_bogo.png",
     "eraId": "korea_unified_silla",
     "relatedEntryIds": [
       "enc_cheonghaejin"

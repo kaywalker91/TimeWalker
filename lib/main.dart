@@ -7,6 +7,7 @@ import 'package:time_walker/core/utils/app_lifecycle_manager.dart';
 import 'package:time_walker/core/themes/app_theme.dart';
 import 'package:time_walker/core/config/supabase_config.dart';
 import 'package:time_walker/core/services/hive_service.dart';
+import 'package:time_walker/core/services/image_cache_service.dart';
 import 'package:time_walker/presentation/providers/theme_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -16,6 +17,9 @@ Future<void> main() async {
 
   // Hive 데이터베이스 초기화
   await HiveService.initialize();
+
+  // 이미지 캐시 설정 (100개 이미지, 50MB 제한)
+  ImageCacheService.configureImageCache();
 
   if (SupabaseConfig.isConfigured) {
     await Supabase.initialize(

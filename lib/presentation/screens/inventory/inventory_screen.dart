@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/shop_item.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
@@ -13,7 +14,7 @@ class InventoryScreen extends ConsumerWidget {
     final allShopItemsAsync = ref.watch(shopItemListProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1E2C),
+      backgroundColor: AppColors.darkSheet,
       appBar: AppBar(
         title: const Text('My Inventory'),
         backgroundColor: Colors.transparent,
@@ -52,6 +53,7 @@ class InventoryScreen extends ConsumerWidget {
               // Group by type or just list? Let's just list with a nice card.
               return ListView.builder(
                 padding: const EdgeInsets.all(16),
+                cacheExtent: 200.0, // 화면 밖 200px까지 사전 렌더링
                 itemCount: myItems.length,
                 itemBuilder: (context, index) {
                   final item = myItems[index];
@@ -87,7 +89,7 @@ class InventoryScreen extends ConsumerWidget {
 
   Widget _buildInventoryItemCard(BuildContext context, ShopItem item) {
     return Card(
-      color: const Color(0xFF2C2C3E),
+      color: AppColors.darkCard,
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
@@ -100,7 +102,7 @@ class InventoryScreen extends ConsumerWidget {
             borderRadius: BorderRadius.circular(8),
             border: Border.all(color: Colors.white10),
           ),
-          child: Icon(Icons.shopping_bag, color: Colors.amber), // Placeholder icon
+          child: Icon(Icons.shopping_bag, color: AppColors.primary), // Placeholder icon
         ),
         title: Text(
           item.name,
@@ -113,8 +115,8 @@ class InventoryScreen extends ConsumerWidget {
         trailing: item.type == ShopItemType.consumable 
           ? ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.amber,
-                foregroundColor: Colors.black,
+                backgroundColor: AppColors.primary,
+                foregroundColor: AppColors.background,
               ),
               onPressed: () {
                 // Future integration: Consume item logic

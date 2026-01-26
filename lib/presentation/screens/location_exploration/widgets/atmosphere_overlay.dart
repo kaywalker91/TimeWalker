@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 시대별 분위기 오버레이 위젯
 /// 
@@ -47,18 +48,18 @@ class AtmosphereOverlay extends StatelessWidget {
     switch (kingdom) {
       case 'goguryeo':
         // 고구려: 강인한 붉은/갈색 톤
-        return const Color(0xFF8B4513);
+        return AppColors.atmosphereAncient;
       case 'baekje':
         // 백제: 우아한 녹색/청록 톤
-        return const Color(0xFF2F4F4F);
+        return AppColors.atmosphereNature;
       case 'silla':
         // 신라: 황금빛 톤
-        return const Color(0xFF8B7355);
+        return AppColors.atmosphereRoyal;
       case 'gaya':
         // 가야: 철기 문화의 깊은 청색
-        return const Color(0xFF2C3E50);
+        return AppColors.atmosphereIndustrial;
       default:
-        return defaultColor ?? const Color(0xFF3D3D3D);
+        return defaultColor ?? AppColors.atmosphereDefault;
     }
   }
 }
@@ -91,8 +92,8 @@ class KingdomAtmosphere {
   /// 고구려 분위기
   static const goguryeo = KingdomAtmosphere(
     kingdom: 'goguryeo',
-    overlayColor: Color(0xFF8B4513),
-    particleColor: Color(0xFFFF6B35), // 불꽃 같은 주황
+    overlayColor: AppColors.atmosphereAncient,
+    particleColor: AppColors.particleFlame, // 불꽃 같은 주황
     particleCount: 25,
     description: '강인한 기상의 고구려',
   );
@@ -100,8 +101,8 @@ class KingdomAtmosphere {
   /// 백제 분위기
   static const baekje = KingdomAtmosphere(
     kingdom: 'baekje',
-    overlayColor: Color(0xFF2F4F4F),
-    particleColor: Color(0xFF90EE90), // 부드러운 연녹색
+    overlayColor: AppColors.atmosphereNature,
+    particleColor: AppColors.particleNature, // 부드러운 연녹색
     particleCount: 35,
     description: '우아한 백제의 문화',
   );
@@ -109,8 +110,8 @@ class KingdomAtmosphere {
   /// 신라 분위기
   static const silla = KingdomAtmosphere(
     kingdom: 'silla',
-    overlayColor: Color(0xFF8B7355),
-    particleColor: Color(0xFFFFD700), // 황금빛
+    overlayColor: AppColors.atmosphereRoyal,
+    particleColor: AppColors.premiumGold, // 황금빛
     particleCount: 40,
     description: '황금의 나라 신라',
   );
@@ -118,8 +119,8 @@ class KingdomAtmosphere {
   /// 가야 분위기
   static const gaya = KingdomAtmosphere(
     kingdom: 'gaya',
-    overlayColor: Color(0xFF2C3E50),
-    particleColor: Color(0xFFB8B8B8), // 철빛
+    overlayColor: AppColors.atmosphereIndustrial,
+    particleColor: AppColors.particleMetal, // 철빛
     particleCount: 30,
     description: '철의 왕국 가야',
   );
