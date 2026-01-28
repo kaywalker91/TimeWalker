@@ -10,6 +10,7 @@ class GameSettings {
   final AccessibilitySettings accessibility;
   final bool tutorialCompleted;
   final bool adsRemoved;
+  final bool developerMode;
 
   const GameSettings({
     this.soundEnabled = true,
@@ -21,6 +22,7 @@ class GameSettings {
     this.accessibility = const AccessibilitySettings(),
     this.tutorialCompleted = false,
     this.adsRemoved = false,
+    this.developerMode = false,
   });
 
   GameSettings copyWith({
@@ -33,6 +35,7 @@ class GameSettings {
     AccessibilitySettings? accessibility,
     bool? tutorialCompleted,
     bool? adsRemoved,
+    bool? developerMode,
   }) {
     return GameSettings(
       soundEnabled: soundEnabled ?? this.soundEnabled,
@@ -44,6 +47,7 @@ class GameSettings {
       accessibility: accessibility ?? this.accessibility,
       tutorialCompleted: tutorialCompleted ?? this.tutorialCompleted,
       adsRemoved: adsRemoved ?? this.adsRemoved,
+      developerMode: developerMode ?? this.developerMode,
     );
   }
 
@@ -57,6 +61,7 @@ class GameSettings {
     'accessibility': accessibility.toJson(),
     'tutorialCompleted': tutorialCompleted,
     'adsRemoved': adsRemoved,
+    'developerMode': developerMode,
   };
 
   factory GameSettings.fromJson(Map<String, dynamic> json) => GameSettings(
@@ -71,6 +76,7 @@ class GameSettings {
         : const AccessibilitySettings(),
     tutorialCompleted: json['tutorialCompleted'] ?? false,
     adsRemoved: json['adsRemoved'] ?? false,
+    developerMode: json['developerMode'] ?? false,
   );
 }
 

@@ -43,6 +43,10 @@ class SettingsNotifier extends StateNotifier<GameSettings> {
     state = state.copyWith(adsRemoved: true);
   }
 
+  void toggleDeveloperMode(bool enabled) {
+    state = state.copyWith(developerMode: enabled);
+  }
+
   void loadSettings(GameSettings settings) {
     state = settings;
   }

@@ -207,6 +207,15 @@ class SettingsScreen extends ConsumerWidget {
 
           // 개발자 옵션 (Admin Mode)
           const SettingsSectionHeader(title: 'DEVELOPER'),
+          SettingsSwitchTile(
+            icon: Icons.developer_mode,
+            title: 'Developer Mode',
+            subtitle: 'Enable developer features',
+            value: settings.developerMode,
+            onChanged: (value) {
+              ref.read(settingsProvider.notifier).toggleDeveloperMode(value);
+            },
+          ),
           SettingsActionTile(
             icon: Icons.admin_panel_settings,
             title: 'Admin Mode (Unlock All)',
