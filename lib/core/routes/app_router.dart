@@ -154,7 +154,11 @@ class AppRouter {
         pageBuilder: (context, state) {
           final eraId = state.pathParameters['eraId'] ?? '';
           final dialogueId = state.pathParameters['dialogueId'] ?? '';
-          return _goldenPage(DialogueScreen(dialogueId: dialogueId, eraId: eraId), state);
+          final bg = state.uri.queryParameters['bg'];
+          return _goldenPage(
+            DialogueScreen(dialogueId: dialogueId, eraId: eraId, backgroundAsset: bg),
+            state,
+          );
         },
       ),
 
@@ -370,11 +374,15 @@ class AppRouter {
   static void goToDialogue(
     BuildContext context,
     String eraId,
-    String dialogueId,
-  ) {
+    String dialogueId, {
+    String? backgroundAsset,
+  }) {
     context.pushNamed(
       'dialogue',
       pathParameters: {'eraId': eraId, 'dialogueId': dialogueId},
+      queryParameters: {
+        if (backgroundAsset != null) 'bg': backgroundAsset,
+      },
     );
   }
 

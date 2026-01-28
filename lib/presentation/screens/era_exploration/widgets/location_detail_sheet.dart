@@ -9,13 +9,13 @@ import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 import 'exploration_character_card.dart';
 
 /// 위치 상세 바텀시트
-/// 
+///
 /// 시대 탐험 화면에서 특정 위치를 선택했을 때 표시되는 상세 정보 시트입니다.
 /// 위치 정보와 해당 위치의 캐릭터 목록을 표시합니다.
 class LocationDetailSheet extends ConsumerWidget {
   /// 표시할 위치
   final Location location;
-  
+
   /// 시대 테마
   final EraTheme theme;
 
@@ -104,7 +104,7 @@ class LocationDetailSheet extends ConsumerWidget {
 
               const Divider(color: Colors.white10),
 
-              // Characters Section
+              // Content Section
               Expanded(
                 child: charactersAsync.when(
                   loading: () =>
@@ -119,17 +119,17 @@ class LocationDetailSheet extends ConsumerWidget {
                         ),
                       );
                     }
-                    return ListView.builder(
+                    return ListView(
                       controller: scrollController,
                       padding: const EdgeInsets.all(16),
-                      itemCount: characters.length,
-                      itemBuilder: (context, index) {
-                        final char = characters[index];
-                        return ExplorationCharacterCard(
-                          character: char,
-                          theme: theme,
-                        );
-                      },
+                      children: [
+                        ...characters.map(
+                          (char) => ExplorationCharacterCard(
+                            character: char,
+                            theme: theme,
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),

@@ -422,7 +422,13 @@ class _LocationExplorationScreenState
       if (!mounted) return;
       
       if (dialogues.isNotEmpty) {
-        AppRouter.goToDialogue(context, widget.eraId, dialogues.first.id);
+        final location = ref.read(locationByIdProvider(widget.locationId)).valueOrNull;
+        AppRouter.goToDialogue(
+          context,
+          widget.eraId,
+          dialogues.first.id,
+          backgroundAsset: location?.backgroundAsset,
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
