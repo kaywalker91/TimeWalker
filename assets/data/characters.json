@@ -21,14 +21,16 @@
             "sejong_science_01",
             "sejong_policy_01",
             "crossover_sejong_davinci",
-            "connect_jeongjo_sejong"
+            "crossover_jeongjo_sejong",
+            "crossover_sejong_davinci_ai"
         ],
         "relatedCharacterIds": [
             "jang_yeongshil",
             "choe_manri"
         ],
         "relatedLocationIds": [
-            "gyeongbokgung"
+            "gyeongbokgung",
+            "coex_convention"
         ],
         "achievements": [
             "훈민정음(한글) 창제",
@@ -127,7 +129,7 @@
         "dialogueIds": [
             "jeongjo_reform_01",
             "jeongjo_hwaseong_01",
-            "connect_jeongjo_sejong"
+            "crossover_jeongjo_sejong"
         ],
         "relatedCharacterIds": [
             "jeong_yakyong",
@@ -229,7 +231,7 @@
         "dialogueIds": [
             "gwanggaeto_conquest_01",
             "gwanggaeto_legacy_01",
-            "connect_kim_yushin_gwanggaeto"
+            "crossover_kim_yushin_gwanggaeto"
         ],
         "relatedCharacterIds": [
             "jangsu"
@@ -479,7 +481,7 @@
         ],
         "dialogueIds": [
             "kim_yushin_unification_01",
-            "connect_kim_yushin_gwanggaeto"
+            "crossover_kim_yushin_gwanggaeto"
         ],
         "relatedCharacterIds": [
             "seondeok",
@@ -655,13 +657,15 @@
             "davinci_intro",
             "davinci_art",
             "davinci_science",
-            "crossover_sejong_davinci"
+            "crossover_sejong_davinci",
+            "crossover_sejong_davinci_ai"
         ],
         "relatedCharacterIds": [
             "michelangelo"
         ],
         "relatedLocationIds": [
-            "florence"
+            "florence",
+            "coex_convention"
         ],
         "achievements": [
             "모나리자",

@@ -921,7 +921,9 @@
             "y": 0.38
         },
         "characterIds": [
-            "it_pioneer"
+            "it_pioneer",
+            "sejong",
+            "davinci"
         ],
         "eventIds": [],
         "status": "available",
