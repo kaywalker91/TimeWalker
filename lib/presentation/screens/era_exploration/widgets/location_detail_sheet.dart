@@ -50,7 +50,7 @@ class LocationDetailSheet extends ConsumerWidget {
                   height: 4,
                   margin: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.grey[600],
+                    color: AppColors.greyDark,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -71,7 +71,7 @@ class LocationDetailSheet extends ConsumerWidget {
                           Text(
                             location.nameKorean,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: AppColors.white,
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
@@ -80,7 +80,7 @@ class LocationDetailSheet extends ConsumerWidget {
                           Text(
                             location.description,
                             style: const TextStyle(
-                              color: Colors.white70,
+                              color: AppColors.white70,
                               fontSize: 14,
                             ),
                           ),
@@ -92,7 +92,7 @@ class LocationDetailSheet extends ConsumerWidget {
                     Container(
                       width: 60,
                       height: 60,
-                      color: Colors.white10,
+                      color: AppColors.white10,
                       child: Icon(
                         Icons.travel_explore,
                         color: theme.primaryColor,
@@ -102,7 +102,7 @@ class LocationDetailSheet extends ConsumerWidget {
                 ),
               ),
 
-              const Divider(color: Colors.white10),
+              const Divider(color: AppColors.white10),
 
               // Content Section
               Expanded(
@@ -115,7 +115,7 @@ class LocationDetailSheet extends ConsumerWidget {
                       return Center(
                         child: Text(
                           AppLocalizations.of(context)!.exploration_no_characters,
-                          style: const TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: AppColors.grey),
                         ),
                       );
                     }

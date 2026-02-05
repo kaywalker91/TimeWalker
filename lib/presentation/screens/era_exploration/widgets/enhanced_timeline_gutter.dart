@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:time_walker/core/constants/exploration_config.dart' show ContentStatus;
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 
 /// 강화된 타임라인 거터 위젯
@@ -184,7 +185,7 @@ class _TimelineNodeState extends State<_TimelineNode>
                       colors: [
                         nodeColor.withValues(alpha: glowIntensity),
                         nodeColor.withValues(alpha: 0.1),
-                        Colors.transparent,
+                        AppColors.transparent,
                       ],
                       stops: const [0.0, 0.5, 1.0],
                     ),
@@ -207,7 +208,7 @@ class _TimelineNodeState extends State<_TimelineNode>
               color: nodeColor,
               border: Border.all(
                 color: widget.isSelected
-                    ? Colors.white
+                    ? AppColors.white
                     : widget.accentColor.withValues(alpha: 0.9),
                 width: widget.isSelected ? 3 : 2,
               ),
@@ -249,19 +250,19 @@ class _TimelineNodeState extends State<_TimelineNode>
         return Icon(
           Icons.lock,
           size: iconSize,
-          color: Colors.white60,
+          color: AppColors.white60,
         );
       case ContentStatus.completed:
         return Icon(
           Icons.check,
           size: iconSize,
-          color: Colors.white,
+          color: AppColors.white,
         );
       case ContentStatus.inProgress:
         return Icon(
           Icons.play_arrow,
           size: iconSize,
-          color: Colors.white,
+          color: AppColors.white,
         );
       case ContentStatus.available:
         return null; // 비어있는 노드
@@ -271,7 +272,7 @@ class _TimelineNodeState extends State<_TimelineNode>
   Color _getNodeColor() {
     switch (widget.status) {
       case ContentStatus.locked:
-        return Colors.grey.withValues(alpha: 0.5);
+        return AppColors.grey.withValues(alpha: 0.5);
       case ContentStatus.available:
         return widget.isSelected
             ? widget.accentColor.withValues(alpha: 0.9)
@@ -279,7 +280,7 @@ class _TimelineNodeState extends State<_TimelineNode>
       case ContentStatus.inProgress:
         return widget.accentColor.withValues(alpha: 0.85);
       case ContentStatus.completed:
-        return Colors.greenAccent.withValues(alpha: 0.9);
+        return AppColors.greenAccent.withValues(alpha: 0.9);
     }
   }
 }

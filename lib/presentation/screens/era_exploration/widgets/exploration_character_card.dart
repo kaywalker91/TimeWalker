@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
@@ -39,11 +39,11 @@ class ExplorationCharacterCard extends ConsumerWidget {
     return Container(
       margin: EdgeInsets.only(top: topMargin, bottom: bottomMargin),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: isLocked
-              ? Colors.transparent
+              ? AppColors.transparent
               : theme.primaryColor.withValues(alpha: 0.3),
         ),
       ),
@@ -51,17 +51,17 @@ class ExplorationCharacterCard extends ConsumerWidget {
         contentPadding: const EdgeInsets.all(12),
         leading: CircleAvatar(
           radius: 28,
-          backgroundColor: isLocked ? Colors.grey[700] : theme.primaryColor,
-          backgroundImage: 
+          backgroundColor: isLocked ? AppColors.greyDark : theme.primaryColor,
+          backgroundImage:
               isLocked ? null : AssetImage(character.portraitAsset),
           child: isLocked
-              ? const Icon(Icons.lock, color: Colors.white30)
+              ? const Icon(Icons.lock, color: AppColors.white30)
               : null,
         ),
         title: Text(
           isLocked ? AppLocalizations.of(context)!.common_unknown_character : character.nameKorean,
           style: TextStyle(
-            color: isLocked ? Colors.grey : Colors.white,
+            color: isLocked ? AppColors.grey : AppColors.white,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
@@ -69,7 +69,7 @@ class ExplorationCharacterCard extends ConsumerWidget {
         subtitle: Text(
           isLocked ? AppLocalizations.of(context)!.common_locked_status : character.title,
           style: TextStyle(
-            color: isLocked ? Colors.grey[700] : theme.accentColor,
+            color: isLocked ? AppColors.greyDark : theme.accentColor,
             fontSize: 12,
           ),
         ),
@@ -78,7 +78,7 @@ class ExplorationCharacterCard extends ConsumerWidget {
             : ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: theme.primaryColor,
-                  foregroundColor: Colors.white,
+                  foregroundColor: AppColors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -113,7 +113,7 @@ class ExplorationCharacterCard extends ConsumerWidget {
       // Always show sheet for dialogue selection
       await showModalBottomSheet(
         context: context,
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         isScrollControlled: true,
         builder: (context) => DialogueSelectionSheet(
           character: character,

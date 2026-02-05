@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
@@ -38,7 +39,7 @@ class EraHudPanel extends ConsumerWidget {
         vertical: responsive.padding(6),
       ),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.85),
+        color: AppColors.black.withValues(alpha: 0.85),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: era.theme.accentColor.withValues(alpha: 0.4),
@@ -46,7 +47,7 @@ class EraHudPanel extends ConsumerWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.4),
+            color: AppColors.black.withValues(alpha: 0.4),
             blurRadius: 12,
             spreadRadius: 0,
             offset: const Offset(0, 4),
@@ -60,29 +61,33 @@ class EraHudPanel extends ConsumerWidget {
         ],
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
-          // 장소 버튼 (인장 스타일)
-          _SealStyleButton(
-            icon: Icons.location_on,
-            label: AppLocalizations.of(context)!.exploration_list_locations,
-            accentColor: era.theme.accentColor,
-            onTap: onShowLocations,
-            responsive: responsive,
+          // 진행 현황 버튼 (통계/데이터 관점)
+          Expanded(
+            child: _SealStyleButton(
+              icon: Icons.analytics_outlined,
+              label: AppLocalizations.of(context)!.exploration_tab_progress,
+              accentColor: era.theme.accentColor,
+              onTap: onShowLocations,
+              responsive: responsive,
+            ),
           ),
           Container(
             height: responsive.spacing(28),
             width: 1,
-            color: Colors.white.withValues(alpha: 0.15),
+            color: AppColors.white.withValues(alpha: 0.15),
             margin: EdgeInsets.symmetric(horizontal: responsive.spacing(4)),
           ),
           // 캐릭터 버튼 (인장 스타일)
-          _SealStyleButton(
-            icon: Icons.person,
-            label: AppLocalizations.of(context)!.exploration_list_characters,
-            accentColor: era.theme.accentColor,
-            onTap: onShowCharacters,
-            responsive: responsive,
+          Expanded(
+            child: _SealStyleButton(
+              icon: Icons.person,
+              label: AppLocalizations.of(context)!.exploration_list_characters,
+              accentColor: era.theme.accentColor,
+              onTap: onShowCharacters,
+              responsive: responsive,
+            ),
           ),
         ],
       ),
@@ -109,7 +114,7 @@ class _SealStyleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: () {
           HapticFeedback.selectionClick();
@@ -122,7 +127,8 @@ class _SealStyleButton extends StatelessWidget {
             vertical: responsive.padding(10),
           ),
           child: Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // 인장 스타일 아이콘 컨테이너
               Container(
@@ -145,7 +151,7 @@ class _SealStyleButton extends StatelessWidget {
               Text(
                 label,
                 style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.9),
+                  color: AppColors.white.withValues(alpha: 0.9),
                   fontSize: responsive.fontSize(12),
                   fontWeight: FontWeight.w500,
                 ),

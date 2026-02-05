@@ -109,10 +109,10 @@ class EnhancedKingdomTabs extends StatelessWidget {
         vertical: responsive.padding(8),
       ),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.3),
+        color: AppColors.black.withValues(alpha: 0.3),
         border: Border(
           bottom: BorderSide(
-            color: Colors.white.withValues(alpha: 0.08),
+            color: AppColors.white.withValues(alpha: 0.08),
             width: 0.5,
           ),
         ),
@@ -238,7 +238,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                   ],
                 )
               : null,
-          color: widget.isActive ? null : Colors.white.withValues(alpha: 0.05),
+          color: widget.isActive ? null : AppColors.white.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: widget.isActive
@@ -273,7 +273,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                         : color.withValues(alpha: 0.2),
                     border: Border.all(
                       color: widget.isActive
-                          ? Colors.white.withValues(alpha: 0.6)
+                          ? AppColors.white.withValues(alpha: 0.6)
                           : color.withValues(alpha: 0.4),
                       width: 1.5,
                     ),
@@ -301,7 +301,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
             Text(
               widget.kingdom.label,
               style: TextStyle(
-                color: widget.isActive ? Colors.white : Colors.white70,
+                color: widget.isActive ? AppColors.white : AppColors.white70,
                 fontSize: responsive.fontSize(14),
                 fontWeight: widget.isActive ? FontWeight.w700 : FontWeight.w500,
               ),
@@ -317,12 +317,12 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                 ),
                 decoration: BoxDecoration(
                   color: widget.isActive
-                      ? Colors.white.withValues(alpha: 0.25)
+                      ? AppColors.white.withValues(alpha: 0.25)
                       : color.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
                     color: widget.isActive
-                        ? Colors.white.withValues(alpha: 0.4)
+                        ? AppColors.white.withValues(alpha: 0.4)
                         : color.withValues(alpha: 0.3),
                   ),
                 ),
@@ -330,7 +330,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                   '${widget.locationCount}',
                   style: TextStyle(
                     color: widget.isActive
-                        ? Colors.white
+                        ? AppColors.white
                         : color.withValues(alpha: 0.9),
                     fontSize: responsive.fontSize(11),
                     fontWeight: FontWeight.w600,
@@ -361,7 +361,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
             widget.kingdom.fallbackIcon ?? Icons.place,
             size: responsive.iconSize(16),
             color: widget.isActive
-                ? Colors.white
+                ? AppColors.white
                 : color.withValues(alpha: 0.8),
           );
         },
@@ -373,7 +373,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
       widget.kingdom.fallbackIcon ?? Icons.place,
       size: responsive.iconSize(16),
       color: widget.isActive
-          ? Colors.white
+          ? AppColors.white
           : color.withValues(alpha: 0.8),
     );
   }

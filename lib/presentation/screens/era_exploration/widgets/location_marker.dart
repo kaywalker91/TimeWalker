@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 
@@ -52,8 +53,8 @@ class LocationMarker extends StatelessWidget {
     final isLocked = !location.isAccessible;
     final iconSize = markerSize * 0.56;
     final opacity = isDimmed ? 0.25 : 1.0;
-    final markerColor = isLocked ? Colors.grey[800]! : baseColor;
-    final borderColor = isLocked ? Colors.grey : baseColor;
+    final markerColor = isLocked ? AppColors.greyDark : baseColor;
+    final borderColor = isLocked ? AppColors.grey : baseColor;
     final icon = isLocked
         ? Icons.lock
         : location.isCompleted
@@ -117,7 +118,7 @@ class LocationMarker extends StatelessWidget {
                               ),
                             ],
                     ),
-                    child: Icon(icon, color: Colors.white, size: iconSize),
+                    child: Icon(icon, color: AppColors.white, size: iconSize),
                   ),
                 ],
               ),
@@ -130,14 +131,14 @@ class LocationMarker extends StatelessWidget {
                     vertical: markerSize * 0.08,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.black87,
+                    color: AppColors.black87,
                     borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: Colors.white10),
+                    border: Border.all(color: AppColors.white10),
                   ),
                   child: Text(
                     location.nameKorean,
                     style: TextStyle(
-                      color: isLocked ? Colors.grey : Colors.white,
+                      color: isLocked ? AppColors.grey : AppColors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: markerSize * 0.24,
                     ),
@@ -199,7 +200,7 @@ class LocationAnchor extends StatelessWidget {
             shape: BoxShape.circle,
             color: color.withValues(alpha: 0.9),
             border: Border.all(
-              color: Colors.white.withValues(alpha: 0.6),
+              color: AppColors.white.withValues(alpha: 0.6),
               width: indicatorSize * 0.2,
             ),
             boxShadow: [
@@ -246,7 +247,7 @@ class StatusLegend extends StatelessWidget {
         const SizedBox(width: 6),
         Text(
           label,
-          style: const TextStyle(color: Colors.white70, fontSize: 11),
+          style: const TextStyle(color: AppColors.white70, fontSize: 11),
         ),
       ],
     );

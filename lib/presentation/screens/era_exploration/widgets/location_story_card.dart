@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:time_walker/core/constants/exploration_config.dart' show ContentStatus;
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/location.dart';
 
@@ -113,7 +114,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
                 boxShadow: [
                   // 기본 그림자
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.5),
+                    color: AppColors.black.withValues(alpha: 0.5),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -168,7 +169,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
                               end: Alignment.bottomCenter,
                               colors: [
                                 widget.accentColor.withValues(alpha: 0.1),
-                                Colors.transparent,
+                                AppColors.transparent,
                                 widget.accentColor.withValues(alpha: 0.05),
                               ],
                             ),
@@ -197,7 +198,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
           vertical: responsive.padding(4),
         ),
         decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.6),
+          color: AppColors.black.withValues(alpha: 0.6),
           borderRadius: BorderRadius.circular(4),
           border: Border.all(
             color: widget.accentColor.withValues(alpha: 0.3),
@@ -207,7 +208,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
         child: Text(
           displayYear,
           style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.9),
+            color: AppColors.white.withValues(alpha: 0.9),
             fontSize: responsive.fontSize(10),
             fontWeight: FontWeight.w500,
             letterSpacing: 0.5,
@@ -247,7 +248,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
                 child: const Center(
                   child: Icon(
                     Icons.image_not_supported,
-                    color: Colors.white38,
+                    color: AppColors.white38,
                     size: 32,
                   ),
                 ),
@@ -261,8 +262,8 @@ class _LocationStoryCardState extends State<LocationStoryCard>
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.black.withValues(alpha: 0.2),
-                  Colors.black.withValues(alpha: 0.7),
+                  AppColors.black.withValues(alpha: 0.2),
+                  AppColors.black.withValues(alpha: 0.7),
                 ],
                 stops: const [0.3, 1.0],
               ),
@@ -288,14 +289,14 @@ class _LocationStoryCardState extends State<LocationStoryCard>
           Text(
             location.nameKorean,
             style: TextStyle(
-              color: Colors.white,
+              color: AppColors.white,
               fontSize: responsive.fontSize(18),
               fontWeight: FontWeight.w700,
               letterSpacing: 0.3, // 약간의 자간으로 가독성 향상
               shadows: const [
                 Shadow(
                   blurRadius: 4,
-                  color: Colors.black87,
+                  color: AppColors.black87,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -325,7 +326,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              color: Colors.white70,
+              color: AppColors.white70,
               fontSize: responsive.fontSize(12),
               height: 1.3,
             ),
@@ -353,7 +354,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
       child: Text(
         label,
         style: TextStyle(
-          color: Colors.white,
+          color: AppColors.white,
           fontSize: responsive.fontSize(10),
           fontWeight: FontWeight.w600,
         ),
@@ -383,12 +384,12 @@ class _LocationStoryCardState extends State<LocationStoryCard>
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: responsive.iconSize(12), color: Colors.white),
+          Icon(icon, size: responsive.iconSize(12), color: AppColors.white),
           SizedBox(width: responsive.spacing(4)),
           Text(
             label,
             style: TextStyle(
-              color: Colors.white,
+              color: AppColors.white,
               fontSize: responsive.fontSize(10),
               fontWeight: FontWeight.w700,
             ),
@@ -401,13 +402,13 @@ class _LocationStoryCardState extends State<LocationStoryCard>
   (IconData, Color, String) _getStatusConfig(ContentStatus status) {
     switch (status) {
       case ContentStatus.locked:
-        return (Icons.lock, Colors.grey.shade600, '잠김');
+        return (Icons.lock, AppColors.grey600, '잠김');
       case ContentStatus.available:
         return (Icons.explore, widget.accentColor, '탐험 가능');
       case ContentStatus.inProgress:
-        return (Icons.play_circle_fill, Colors.orange, '진행 중');
+        return (Icons.play_circle_fill, AppColors.orange, '진행 중');
       case ContentStatus.completed:
-        return (Icons.check_circle, Colors.green, '완료');
+        return (Icons.check_circle, AppColors.green, '완료');
     }
   }
 
@@ -415,7 +416,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
     return Positioned.fill(
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.6),
+          color: AppColors.black.withValues(alpha: 0.6),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
@@ -426,15 +427,15 @@ class _LocationStoryCardState extends State<LocationStoryCard>
                 padding: EdgeInsets.all(responsive.padding(14)),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.black.withValues(alpha: 0.5),
+                  color: AppColors.black.withValues(alpha: 0.5),
                   border: Border.all(
-                    color: Colors.white.withValues(alpha: 0.3),
+                    color: AppColors.white.withValues(alpha: 0.3),
                     width: 2,
                   ),
                 ),
                 child: Icon(
                   Icons.lock,
-                  color: Colors.white.withValues(alpha: 0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                   size: responsive.iconSize(28),
                 ),
               ),
@@ -442,7 +443,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
               Text(
                 '잠겨 있음',
                 style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                   fontSize: responsive.fontSize(13),
                   fontWeight: FontWeight.w600,
                 ),
@@ -451,7 +452,7 @@ class _LocationStoryCardState extends State<LocationStoryCard>
               Text(
                 '이전 장소를 완료하세요',
                 style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.5),
+                  color: AppColors.white.withValues(alpha: 0.5),
                   fontSize: responsive.fontSize(11),
                 ),
               ),

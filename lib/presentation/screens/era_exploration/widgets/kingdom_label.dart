@@ -133,7 +133,7 @@ class _KingdomLabelState extends State<KingdomLabel>
             color: widget.kingdom.color.withValues(alpha: 0.9),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: Colors.white.withValues(alpha: 0.8),
+              color: AppColors.white.withValues(alpha: 0.8),
               width: widget.isSelected ? 3 : 2,
             ),
             boxShadow: [
@@ -143,7 +143,7 @@ class _KingdomLabelState extends State<KingdomLabel>
                 spreadRadius: widget.isSelected ? 4 : 2,
               ),
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: AppColors.black.withValues(alpha: 0.3),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),
@@ -155,12 +155,12 @@ class _KingdomLabelState extends State<KingdomLabel>
               Text(
                 widget.kingdom.name,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   shadows: [
                     Shadow(
-                      color: Colors.black54,
+                      color: AppColors.black54,
                       blurRadius: 4,
                       offset: Offset(1, 1),
                     ),
@@ -171,13 +171,13 @@ class _KingdomLabelState extends State<KingdomLabel>
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.25),
+                  color: AppColors.white.withValues(alpha: 0.25),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   '${widget.kingdom.locationCount}개 장소',
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.95),
+                    color: AppColors.white.withValues(alpha: 0.95),
                     fontSize: 11,
                     fontWeight: FontWeight.w500,
                   ),

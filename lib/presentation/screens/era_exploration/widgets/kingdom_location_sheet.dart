@@ -47,7 +47,7 @@ class KingdomLocationSheet extends ConsumerWidget {
             width: 40,
             height: 4,
             decoration: BoxDecoration(
-              color: Colors.white24,
+              color: AppColors.white24,
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -55,7 +55,7 @@ class KingdomLocationSheet extends ConsumerWidget {
           // 헤더
           _buildHeader(context),
           
-          const Divider(color: Colors.white12, height: 1),
+          const Divider(color: AppColors.white12, height: 1),
           
           // 장소 리스트
           Flexible(
@@ -71,7 +71,7 @@ class KingdomLocationSheet extends ConsumerWidget {
                   padding: const EdgeInsets.all(32),
                   child: Text(
                     '장소를 불러올 수 없습니다',
-                    style: TextStyle(color: Colors.white54),
+                    style: TextStyle(color: AppColors.white54),
                   ),
                 ),
               ),
@@ -91,12 +91,12 @@ class KingdomLocationSheet extends ConsumerWidget {
                           Icon(
                             Icons.location_off,
                             size: 48,
-                            color: Colors.white24,
+                            color: AppColors.white24,
                           ),
                           const SizedBox(height: 12),
                           Text(
                             '등록된 장소가 없습니다',
-                            style: TextStyle(color: Colors.white54),
+                            style: TextStyle(color: AppColors.white54),
                           ),
                         ],
                       ),
@@ -109,7 +109,7 @@ class KingdomLocationSheet extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   itemCount: kingdomLocations.length,
                   separatorBuilder: (_, _) => const Divider(
-                    color: Colors.white12,
+                    color: AppColors.white12,
                     height: 1,
                     indent: 16,
                     endIndent: 16,
@@ -175,7 +175,7 @@ class KingdomLocationSheet extends ConsumerWidget {
                 Text(
                   kingdom.name,
                   style: AppTextStyles.headlineSmall.copyWith(
-                    color: Colors.white,
+                    color: AppColors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -191,7 +191,7 @@ class KingdomLocationSheet extends ConsumerWidget {
                     Text(
                       '${kingdom.locationCount}개 장소',
                       style: AppTextStyles.bodySmall.copyWith(
-                        color: Colors.white54,
+                        color: AppColors.white54,
                       ),
                     ),
                   ],
@@ -202,7 +202,7 @@ class KingdomLocationSheet extends ConsumerWidget {
           
           // 닫기 버튼
           IconButton(
-            icon: Icon(Icons.close, color: Colors.white54),
+            icon: Icon(Icons.close, color: AppColors.white54),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ],
@@ -230,7 +230,7 @@ class _LocationListTile extends ConsumerWidget {
     );
 
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: () {
           HapticFeedback.lightImpact();
@@ -276,7 +276,7 @@ class _LocationListTile extends ConsumerWidget {
                     Text(
                       location.nameKorean,
                       style: AppTextStyles.titleMedium.copyWith(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -284,7 +284,7 @@ class _LocationListTile extends ConsumerWidget {
                     Text(
                       location.description,
                       style: AppTextStyles.bodySmall.copyWith(
-                        color: Colors.white54,
+                        color: AppColors.white54,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -329,15 +329,15 @@ class _LocationListTile extends ConsumerWidget {
               margin: const EdgeInsets.only(right: 4),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.white24, width: 1),
+                border: Border.all(color: AppColors.white24, width: 1),
               ),
               child: ClipOval(
                 child: Image.asset(
                   char.portraitAsset,
                   fit: BoxFit.cover,
                   errorBuilder: (_, _, _) => Container(
-                    color: Colors.grey[700],
-                    child: Icon(Icons.person, size: 14, color: Colors.grey),
+                    color: AppColors.greyDark,
+                    child: Icon(Icons.person, size: 14, color: AppColors.grey),
                   ),
                 ),
               ),
@@ -349,7 +349,7 @@ class _LocationListTile extends ConsumerWidget {
             Text(
               '+${characters.length - 3}',
               style: TextStyle(
-                color: Colors.white38,
+                color: AppColors.white38,
                 fontSize: 11,
               ),
             ),
