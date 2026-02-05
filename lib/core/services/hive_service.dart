@@ -1,30 +1,34 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:time_walker/data/models/user_progress_hive_model.dart';
 
 /// Hive 데이터베이스 초기화 서비스
-/// 
-/// 앱 시작 시 Hive를 초기화하고 필요한 TypeAdapter를 등록합니다.
+///
+/// 앱 시작 시 Hive를 초기화합니다.
+/// TypeAdapter 등록은 data 레이어에서 수행합니다.
 class HiveService {
   static bool _isInitialized = false;
-  
+
   /// Hive 초기화
-  /// 
+  ///
   /// 앱 시작 시 한 번만 호출해야 합니다.
-  static Future<void> initialize() async {
+  /// TypeAdapter 등록은 별도로 수행해야 합니다.
+  ///
+  /// [registerAdapters] - Adapter 등록 콜백 (옵션)
+  /// data 레이어에서 HiveAdapters.registerAll을 전달합니다.
+  static Future<void> initialize({VoidCallback? registerAdapters}) async {
     if (_isInitialized) {
       debugPrint('[HiveService] Already initialized');
       return;
     }
-    
+
     try {
       // Hive Flutter 초기화
       await Hive.initFlutter();
       debugPrint('[HiveService] Hive initialized');
-      
-      // TypeAdapter 등록
-      _registerAdapters();
-      
+
+      // TypeAdapter 등록 (data 레이어에서 제공)
+      registerAdapters?.call();
+
       _isInitialized = true;
       debugPrint('[HiveService] Initialization complete');
     } catch (e) {
@@ -32,24 +36,10 @@ class HiveService {
       rethrow;
     }
   }
-  
-  /// TypeAdapter 등록
-  static void _registerAdapters() {
-    // UserProgressHiveModel Adapter
-    if (!Hive.isAdapterRegistered(0)) {
-      Hive.registerAdapter(UserProgressHiveModelAdapter());
-      debugPrint('[HiveService] Registered UserProgressHiveModelAdapter');
-    }
-    
-    // 향후 추가될 다른 모델들의 Adapter도 여기에 등록
-    // if (!Hive.isAdapterRegistered(1)) {
-    //   Hive.registerAdapter(SomeOtherModelAdapter());
-    // }
-  }
-  
+
   /// 초기화 여부 확인
   static bool get isInitialized => _isInitialized;
-  
+
   /// 모든 Box 닫기 (앱 종료 시)
   static Future<void> closeAll() async {
     try {

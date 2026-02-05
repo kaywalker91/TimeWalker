@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/presentation/screens/splash/splash_screen.dart';
 import 'package:time_walker/presentation/screens/settings/settings_screen.dart';
 import 'package:time_walker/presentation/screens/main_menu/main_menu_screen.dart';
@@ -274,7 +275,7 @@ class AppRouter {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.error_outline, size: 64, color: Colors.red),
+            const Icon(Icons.error_outline, size: 64, color: AppColors.red),
             const SizedBox(height: 16),
             Text(
               '페이지를 찾을 수 없습니다',

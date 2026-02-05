@@ -4,6 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/region.dart';
 
 /// 지역 마커 컴포넌트
@@ -53,7 +54,7 @@ class RegionMarkerComponent extends PositionComponent
           shadows: const [
             Shadow(
               blurRadius: 4,
-              color: Colors.black54,
+              color: AppColors.black54,
               offset: Offset(0, 2),
             ),
           ],
@@ -175,18 +176,18 @@ class RegionMarkerComponent extends PositionComponent
   Color get _baseColor {
     switch (status) {
       case ContentStatus.locked:
-        return Colors.grey;
+        return AppColors.grey;
       case ContentStatus.available:
-        return Colors.amber;
+        return AppColors.amber;
       case ContentStatus.inProgress:
-        return Colors.blue;
+        return AppColors.blue;
       case ContentStatus.completed:
-        return Colors.green;
+        return AppColors.green;
     }
   }
 
   Color get _fillColor => _baseColor.withValues(alpha: _isLocked ? 0.15 : 0.2);
   Color get _borderColor => _baseColor;
   Color get _labelColor =>
-      _isLocked ? Colors.white38 : _baseColor.withValues(alpha: 0.9);
+      _isLocked ? AppColors.white38 : _baseColor.withValues(alpha: 0.9);
 }

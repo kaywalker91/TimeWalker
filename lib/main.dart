@@ -8,6 +8,7 @@ import 'package:time_walker/core/themes/app_theme.dart';
 import 'package:time_walker/core/config/supabase_config.dart';
 import 'package:time_walker/core/services/hive_service.dart';
 import 'package:time_walker/core/services/image_cache_service.dart';
+import 'package:time_walker/data/datasources/local/hive_adapters.dart';
 import 'package:time_walker/presentation/providers/theme_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -15,8 +16,8 @@ Future<void> main() async {
   // Flutter 엔진 초기화 보장
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Hive 데이터베이스 초기화
-  await HiveService.initialize();
+  // Hive 데이터베이스 초기화 (TypeAdapter 등록 콜백 전달)
+  await HiveService.initialize(registerAdapters: HiveAdapters.registerAll);
 
   // 이미지 캐시 설정 (100개 이미지, 50MB 제한)
   ImageCacheService.configureImageCache();

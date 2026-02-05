@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 지도 배경 컴포넌트
 /// SpriteComponent를 상속하지 않고 PositionComponent를 사용하여
@@ -62,7 +63,7 @@ class MapBackgroundComponent extends PositionComponent with HasGameReference<Fla
   /// 그리드 오버레이 그리기
   void _drawGrid(Canvas canvas) {
     final paint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.05)
+      ..color = AppColors.white.withValues(alpha: 0.05)
       ..strokeWidth = 1;
     
     // 수직선
