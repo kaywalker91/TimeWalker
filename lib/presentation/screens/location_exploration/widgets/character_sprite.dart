@@ -64,9 +64,14 @@ class _CharacterSpriteState extends State<CharacterSprite>
   @override
   Widget build(BuildContext context) {
     final isLocked = !widget.character.isAccessible;
-    
+    debugPrint('[CharacterSprite] ${widget.character.id}: isLocked=$isLocked, status=${widget.character.status}');
+
     return GestureDetector(
-      onTap: isLocked ? null : widget.onTap,
+      behavior: HitTestBehavior.opaque,
+      onTap: isLocked ? null : () {
+        debugPrint('[CharacterSprite] TAP DETECTED for ${widget.character.id}');
+        widget.onTap();
+      },
       child: AnimatedBuilder(
         listenable: _breathingAnimation,
         builder: (context, child) {
@@ -113,7 +118,7 @@ class _CharacterSpriteState extends State<CharacterSprite>
             margin: const EdgeInsets.only(bottom: 4),
             child: const Icon(
               Icons.touch_app,
-              color: Colors.white,
+              color: AppColors.white,
               size: 20,
             ),
           ),
@@ -142,7 +147,7 @@ class _CharacterSpriteState extends State<CharacterSprite>
             ),
             // 내부 그림자
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.3),
+              color: AppColors.black.withValues(alpha: 0.3),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -156,7 +161,7 @@ class _CharacterSpriteState extends State<CharacterSprite>
             border: Border.all(
               color: widget.isSelected
                   ? AppColors.primary
-                  : Colors.white.withValues(alpha: 0.5),
+                  : AppColors.white.withValues(alpha: 0.5),
               width: widget.isSelected ? 3 : 2,
             ),
           ),
@@ -178,11 +183,11 @@ class _CharacterSpriteState extends State<CharacterSprite>
 
   Widget _buildLockedCharacter() {
     return Container(
-      color: Colors.grey[800],
+      color: AppColors.grey800,
       child: Center(
         child: Icon(
           Icons.lock,
-          color: Colors.grey[600],
+          color: AppColors.grey600,
           size: 40,
         ),
       ),
@@ -191,11 +196,11 @@ class _CharacterSpriteState extends State<CharacterSprite>
 
   Widget _buildPlaceholderCharacter() {
     return Container(
-      color: Colors.grey[700],
+      color: AppColors.grey700,
       child: Center(
         child: Icon(
           Icons.person,
-          color: Colors.grey[500],
+          color: AppColors.grey500,
           size: 40,
         ),
       ),
@@ -208,18 +213,18 @@ class _CharacterSpriteState extends State<CharacterSprite>
       decoration: BoxDecoration(
         color: widget.isSelected
             ? AppColors.primary.withValues(alpha: 0.9)
-            : Colors.black.withValues(alpha: 0.7),
+            : AppColors.black.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: widget.isSelected
               ? AppColors.primary
-              : Colors.white.withValues(alpha: 0.3),
+              : AppColors.white.withValues(alpha: 0.3),
         ),
       ),
       child: Text(
         isLocked ? '???' : widget.character.nameKorean,
         style: AppTextStyles.labelMedium.copyWith(
-          color: Colors.white,
+          color: AppColors.white,
           fontWeight: widget.isSelected ? FontWeight.bold : FontWeight.normal,
         ),
       ),

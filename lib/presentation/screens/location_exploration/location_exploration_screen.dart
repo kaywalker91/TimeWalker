@@ -67,7 +67,7 @@ class _LocationExplorationScreenState
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.black,
       body: locationAsync.when(
         loading: () => const Center(
           child: CircularProgressIndicator(color: AppColors.primary),
@@ -76,11 +76,11 @@ class _LocationExplorationScreenState
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.error_outline, color: Colors.red, size: 48),
+              const Icon(Icons.error_outline, color: AppColors.red, size: 48),
               const SizedBox(height: 16),
               Text(
                 '장소를 불러올 수 없습니다',
-                style: AppTextStyles.titleMedium.copyWith(color: Colors.white),
+                style: AppTextStyles.titleMedium.copyWith(color: AppColors.white),
               ),
               const SizedBox(height: 24),
               ElevatedButton(
@@ -137,7 +137,7 @@ class _LocationExplorationScreenState
           opacity: _fadeAnimation,
           child: FloatingParticles(
             particleCount: atmosphere?.particleCount ?? 25,
-            particleColor: atmosphere?.particleColor ?? Colors.white70,
+            particleColor: atmosphere?.particleColor ?? AppColors.white70,
             maxParticleSize: 3.5,
             speedMultiplier: 0.8,
           ),
@@ -186,15 +186,15 @@ class _LocationExplorationScreenState
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Colors.black.withValues(alpha: 0.7),
-                Colors.transparent,
+                AppColors.black.withValues(alpha: 0.7),
+                AppColors.transparent,
               ],
             ),
           ),
           child: Row(
             children: [
               IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back, color: AppColors.white),
                 onPressed: () {
                   HapticFeedback.lightImpact();
                   context.pop();
@@ -207,7 +207,7 @@ class _LocationExplorationScreenState
                   vertical: 8,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.5),
+                  color: AppColors.black.withValues(alpha: 0.5),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: AppColors.primary.withValues(alpha: 0.5),
@@ -225,7 +225,7 @@ class _LocationExplorationScreenState
                     Text(
                       location.nameKorean,
                       style: AppTextStyles.titleSmall.copyWith(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -245,6 +245,11 @@ class _LocationExplorationScreenState
     BuildContext context,
     List<Character> characters,
   ) {
+    // 디버그: 로드된 캐릭터 정보 출력
+    for (final c in characters) {
+      debugPrint('[LocationExploration] Character: ${c.id}, status: ${c.status}, isAccessible: ${c.isAccessible}');
+    }
+
     if (characters.isEmpty) {
       return Center(
         child: Column(
@@ -253,13 +258,13 @@ class _LocationExplorationScreenState
             Icon(
               Icons.person_off,
               size: 64,
-              color: Colors.white.withValues(alpha: 0.3),
+              color: AppColors.white.withValues(alpha: 0.3),
             ),
             const SizedBox(height: 16),
             Text(
               '아직 아무도 없습니다',
               style: AppTextStyles.bodyLarge.copyWith(
-                color: Colors.white.withValues(alpha: 0.5),
+                color: AppColors.white.withValues(alpha: 0.5),
               ),
             ),
           ],
@@ -305,9 +310,9 @@ class _LocationExplorationScreenState
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
           colors: [
-            Colors.black.withValues(alpha: 0.9),
-            Colors.black.withValues(alpha: 0.7),
-            Colors.transparent,
+            AppColors.black.withValues(alpha: 0.9),
+            AppColors.black.withValues(alpha: 0.7),
+            AppColors.transparent,
           ],
           stops: const [0.0, 0.7, 1.0],
         ),
@@ -333,7 +338,7 @@ class _LocationExplorationScreenState
                 child: Text(
                   _getKingdomName(location.kingdom!),
                   style: AppTextStyles.labelSmall.copyWith(
-                    color: Colors.white,
+                    color: AppColors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -341,7 +346,7 @@ class _LocationExplorationScreenState
             Text(
               location.description,
               style: AppTextStyles.bodyMedium.copyWith(
-                color: Colors.white.withValues(alpha: 0.9),
+                color: AppColors.white.withValues(alpha: 0.9),
                 height: 1.5,
               ),
               maxLines: 3,
@@ -359,7 +364,7 @@ class _LocationExplorationScreenState
                 Text(
                   '만날 수 있는 인물: ${location.characterIds.length}명',
                   style: AppTextStyles.labelMedium.copyWith(
-                    color: Colors.white.withValues(alpha: 0.7),
+                    color: AppColors.white.withValues(alpha: 0.7),
                   ),
                 ),
               ],
@@ -401,6 +406,7 @@ class _LocationExplorationScreenState
   }
 
   void _onCharacterTap(Character character) {
+    debugPrint('[LocationExploration] _onCharacterTap called for ${character.id}');
     HapticFeedback.mediumImpact();
     setState(() {
       if (_selectedCharacter?.id == character.id) {
@@ -412,16 +418,20 @@ class _LocationExplorationScreenState
   }
 
   Future<void> _startDialogue(Character character) async {
+    debugPrint('[_startDialogue] START - characterId: ${character.id}, dialogueIds: ${character.dialogueIds}');
     setState(() => _selectedCharacter = null);
-    
+
     try {
       final dialogues = await ref.read(
         dialogueListByCharacterProvider(character.id).future,
       );
-      
+
+      debugPrint('[_startDialogue] Loaded ${dialogues.length} dialogues');
+
       if (!mounted) return;
-      
+
       if (dialogues.isNotEmpty) {
+        debugPrint('[_startDialogue] Navigating to: ${dialogues.first.id}');
         final location = ref.read(locationByIdProvider(widget.locationId)).valueOrNull;
         AppRouter.goToDialogue(
           context,
@@ -430,19 +440,22 @@ class _LocationExplorationScreenState
           backgroundAsset: location?.backgroundAsset,
         );
       } else {
+        debugPrint('[_startDialogue] NO DIALOGUES FOUND');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('${character.nameKorean}와의 대화가 아직 준비 중입니다'),
-            backgroundColor: Colors.orange,
+            backgroundColor: AppColors.orange,
           ),
         );
       }
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('[_startDialogue] ERROR: $e');
+      debugPrint('[_startDialogue] STACK: $stack');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('대화를 불러오는 중 오류가 발생했습니다'),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.red,
         ),
       );
     }

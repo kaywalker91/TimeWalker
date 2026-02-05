@@ -87,7 +87,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
           child: FadeTransition(
             opacity: _fadeAnimation,
             child: Container(
-              color: Colors.black.withValues(alpha: 0.6),
+              color: AppColors.black.withValues(alpha: 0.6),
             ),
           ),
         ),
@@ -123,10 +123,10 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
             blurRadius: 30,
             spreadRadius: 5,
           ),
-          const BoxShadow(
-            color: Colors.black54,
+          BoxShadow(
+            color: AppColors.black54,
             blurRadius: 20,
-            offset: Offset(0, 10),
+            offset: const Offset(0, 10),
           ),
         ],
       ),
@@ -144,7 +144,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                 Text(
                   widget.character.nameKorean,
                   style: AppTextStyles.headlineSmall.copyWith(
-                    color: Colors.white,
+                    color: AppColors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -162,7 +162,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.bodySmall.copyWith(
-                    color: Colors.white70,
+                    color: AppColors.white70,
                     height: 1.5,
                   ),
                 ),
@@ -178,7 +178,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
+                      foregroundColor: AppColors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
@@ -193,7 +193,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                         Text(
                           '대화하기',
                           style: AppTextStyles.titleSmall.copyWith(
-                            color: Colors.white,
+                            color: AppColors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -210,7 +210,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                   child: Text(
                     '닫기',
                     style: AppTextStyles.bodyMedium.copyWith(
-                      color: Colors.white54,
+                      color: AppColors.white54,
                     ),
                   ),
                 ),
@@ -233,7 +233,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
           end: Alignment.bottomCenter,
           colors: [
             AppColors.primary.withValues(alpha: 0.3),
-            Colors.transparent,
+            AppColors.transparent,
           ],
         ),
       ),
@@ -265,11 +265,11 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    color: Colors.grey[800],
+                    color: AppColors.grey,
                     child: const Icon(
                       Icons.person,
                       size: 60,
-                      color: Colors.grey,
+                      color: AppColors.grey,
                     ),
                   );
                 },
@@ -286,12 +286,12 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
               icon: Container(
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.5),
+                  color: AppColors.black.withValues(alpha: 0.5),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   Icons.close,
-                  color: Colors.white70,
+                  color: AppColors.white70,
                   size: 20,
                 ),
               ),

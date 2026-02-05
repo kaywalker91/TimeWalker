@@ -28,7 +28,7 @@ class RewardNotification extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.3),
+            color: AppColors.black.withValues(alpha: 0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -51,7 +51,7 @@ class RewardNotification extends StatelessWidget {
                 Text(
                   '+${reward.knowledgePoints} 지식',
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -60,7 +60,7 @@ class RewardNotification extends StatelessWidget {
                 Text(
                   '역사 사실 해금!',
                   style: TextStyle(
-                    color: Colors.amber[300],
+                    color: AppColors.amberLight,
                     fontSize: 12,
                   ),
                 ),
@@ -68,7 +68,7 @@ class RewardNotification extends StatelessWidget {
                 Text(
                   '인물 해금!',
                   style: TextStyle(
-                    color: Colors.amber[300],
+                    color: AppColors.amberLight,
                     fontSize: 12,
                   ),
                 ),

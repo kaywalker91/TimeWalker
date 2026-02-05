@@ -57,16 +57,37 @@ class CharacterPortrait extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Expanded(
-              child: Image.asset(
-                assetPath,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                   return Icon(
-                     Icons.person, 
-                     size: responsive.iconSize(200), 
-                     color: AppColors.textDisabled,
-                   );
-                },
+              // 글로우 효과 및 드롭 섀도우를 위한 컨테이너
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    // 드롭 섀도우 - 캐릭터 뒤 은은한 그림자로 깊이감 추가
+                    BoxShadow(
+                      color: AppColors.black.withValues(alpha: 0.4),
+                      blurRadius: 30,
+                      spreadRadius: 10,
+                      offset: const Offset(0, 10),
+                    ),
+                    // 골든 글로우 - 캐릭터 강조 효과
+                    BoxShadow(
+                      color: AppColors.goldenGlow.withValues(alpha: 0.15),
+                      blurRadius: 50,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  assetPath,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    debugPrint('[CharacterPortrait] Image load error: $assetPath - $error');
+                    return Icon(
+                      Icons.person,
+                      size: responsive.iconSize(200),
+                      color: AppColors.textDisabled,
+                    );
+                  },
+                ),
               ),
             ),
           ],
@@ -107,6 +128,85 @@ class PlaceholderPortrait extends StatelessWidget {
             style: TextStyle(
               color: AppColors.textDisabled,
               fontSize: responsive.fontSize(14),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// 로딩 중 초상화 위젯
+///
+/// 캐릭터 정보를 로드하는 동안 표시되는 초상화입니다.
+class LoadingPortrait extends StatefulWidget {
+  /// 표시할 레이블 (화자 이름)
+  final String label;
+
+  const LoadingPortrait({
+    super.key,
+    required this.label,
+  });
+
+  @override
+  State<LoadingPortrait> createState() => _LoadingPortraitState();
+}
+
+class _LoadingPortraitState extends State<LoadingPortrait>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _pulseAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat(reverse: true);
+
+    _pulseAnimation = Tween<double>(begin: 0.3, end: 0.6).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = context.responsive;
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          AnimatedBuilder(
+            animation: _pulseAnimation,
+            builder: (context, child) => Icon(
+              Icons.person,
+              color: AppColors.textDisabled.withValues(alpha: _pulseAnimation.value),
+              size: responsive.iconSize(160),
+            ),
+          ),
+          SizedBox(height: responsive.spacing(12)),
+          Text(
+            widget.label,
+            style: TextStyle(
+              color: AppColors.textDisabled,
+              fontSize: responsive.fontSize(14),
+            ),
+          ),
+          SizedBox(height: responsive.spacing(8)),
+          SizedBox(
+            width: 24,
+            height: 24,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              color: AppColors.goldenGlow.withValues(alpha: 0.5),
             ),
           ),
         ],

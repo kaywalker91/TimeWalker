@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 떠다니는 파티클 애니메이션 위젯
 /// 
@@ -20,7 +21,7 @@ class FloatingParticles extends StatefulWidget {
   const FloatingParticles({
     super.key,
     this.particleCount = 30,
-    this.particleColor = Colors.white,
+    this.particleColor = AppColors.white,
     this.maxParticleSize = 4.0,
     this.speedMultiplier = 1.0,
   });

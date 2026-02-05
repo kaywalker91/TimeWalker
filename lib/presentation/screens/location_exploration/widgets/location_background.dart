@@ -82,8 +82,8 @@ class LocationBackground extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.black.withValues(alpha: 0.5),
-                  Colors.transparent,
+                  AppColors.black.withValues(alpha: 0.5),
+                  AppColors.transparent,
                 ],
               ),
             ),
@@ -97,8 +97,8 @@ class LocationBackground extends StatelessWidget {
               center: Alignment.center,
               radius: 1.2,
               colors: [
-                Colors.transparent,
-                Colors.black.withValues(alpha: 0.3),
+                AppColors.transparent,
+                AppColors.black.withValues(alpha: 0.3),
               ],
               stops: const [0.6, 1.0],
             ),

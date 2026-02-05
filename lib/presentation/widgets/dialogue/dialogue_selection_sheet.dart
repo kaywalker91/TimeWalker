@@ -30,7 +30,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
         color: AppColors.darkSheet,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         border: Border(
-          top: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
+          top: BorderSide(color: AppColors.white.withValues(alpha: 0.1)),
         ),
       ),
       child: Column(
@@ -68,7 +68,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
       children: [
         CircleAvatar(
           radius: 24,
-          backgroundColor: Colors.transparent,
+          backgroundColor: AppColors.transparent,
           backgroundImage: AssetImage(character.portraitAsset),
         ),
         const SizedBox(width: 16),
@@ -78,7 +78,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
             Text(
               character.nameKorean,
               style: const TextStyle(
-                color: Colors.white,
+                color: AppColors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -87,7 +87,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
             Text(
               '대화를 선택하세요',
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.7),
+                color: AppColors.white.withValues(alpha: 0.7),
                 fontSize: 14,
               ),
             ),
@@ -96,7 +96,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
         const Spacer(),
         IconButton(
           onPressed: () => context.pop(),
-          icon: const Icon(Icons.close, color: Colors.white70),
+          icon: const Icon(Icons.close, color: AppColors.white70),
         ),
       ],
     );
@@ -108,7 +108,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
         padding: EdgeInsets.all(32.0),
         child: Text(
           '가능한 대화가 없습니다.',
-          style: TextStyle(color: Colors.white54),
+          style: TextStyle(color: AppColors.white54),
         ),
       ),
     );
@@ -122,7 +122,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
     final isCompleted = userProgress?.isDialogueCompleted(dialogue.id) ?? false;
 
     return Material(
-      color: Colors.transparent,
+      color: AppColors.transparent,
       child: InkWell(
         onTap: () {
           context.pop(); // Close sheet
@@ -137,10 +137,10 @@ class DialogueSelectionSheet extends ConsumerWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.05),
+            color: AppColors.white.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withValues(alpha: 0.1),
+              color: AppColors.white.withValues(alpha: 0.1),
             ),
           ),
           child: Row(
@@ -150,11 +150,11 @@ class DialogueSelectionSheet extends ConsumerWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withValues(alpha: 0.1),
+                  color: AppColors.white.withValues(alpha: 0.1),
                 ),
                 child: const Icon(
                   Icons.chat_bubble_outline,
-                  color: Colors.white,
+                  color: AppColors.white,
                   size: 20,
                 ),
               ),
@@ -168,7 +168,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
                     Text(
                       dialogue.titleKorean,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -178,7 +178,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
                     Text(
                       dialogue.description,
                       style: const TextStyle(
-                        color: Colors.white60,
+                        color: AppColors.white60,
                         fontSize: 12,
                       ),
                       maxLines: 2,
@@ -190,7 +190,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
 
               // Status
               if (isCompleted)
-                const Icon(Icons.check_circle, color: Colors.green, size: 16),
+                const Icon(Icons.check_circle, color: AppColors.green, size: 16),
             ],
           ),
         ),

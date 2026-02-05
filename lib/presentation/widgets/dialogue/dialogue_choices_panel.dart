@@ -77,7 +77,7 @@ class DialogueChoicesPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black54,
+      color: AppColors.black54,
       padding: const EdgeInsets.symmetric(horizontal: 40),
       alignment: Alignment.center,
       child: Column(
@@ -146,7 +146,7 @@ class _ChoiceButton extends StatelessWidget {
           fontSize: 16,
           fontWeight: FontWeight.bold,
           height: 1.3,
-          color: canSelect ? Colors.white : Colors.white38,
+          color: canSelect ? AppColors.white : AppColors.white38,
         ),
         textAlign: TextAlign.center,
       ),

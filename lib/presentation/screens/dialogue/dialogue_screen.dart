@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:time_walker/core/constants/audio_constants.dart';
 import 'package:time_walker/core/routes/app_router.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
@@ -33,21 +34,51 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
   void initState() {
     super.initState();
     _log('initState dialogueId=${widget.dialogueId} eraId=${widget.eraId}');
-    
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref
           .read(dialogueViewModelProvider(widget.dialogueId).notifier)
           .initialize(widget.dialogueId);
-      
+
       // 관련 퀴즈 미리 로드
       ref.read(quizListByDialogueProvider(widget.dialogueId));
-      
+
+      // 대화에 등장하는 캐릭터 미리 로드
+      _prefetchDialogueCharacters();
+
       // BGM 시작
       final currentTrack = ref.read(currentBgmTrackProvider);
       if (currentTrack != AudioConstants.bgmDialogue) {
         ref.read(bgmControllerProvider.notifier).playDialogueBgm();
       }
     });
+  }
+
+  /// 대화에 등장하는 모든 화자 캐릭터를 미리 로드
+  Future<void> _prefetchDialogueCharacters() async {
+    try {
+      final dialogue = await ref.read(dialogueByIdProvider(widget.dialogueId).future);
+      if (dialogue == null) return;
+
+      final speakerIds = dialogue.nodes
+          .map((n) => n.speakerId)
+          .where((id) => id.isNotEmpty)
+          .toSet();
+
+      // 모든 캐릭터를 병렬로 프리페치
+      _log('prefetching ${speakerIds.length} characters: $speakerIds');
+      await Future.wait(
+        speakerIds.map((id) => ref.read(characterByIdProvider(id).future)),
+      );
+      _log('prefetch completed for ${speakerIds.length} characters');
+
+      // 프리페치 완료 후 UI 강제 rebuild (mounted 체크)
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (e) {
+      _log('prefetch error: $e');
+    }
   }
 
   @override
@@ -129,34 +160,26 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
     
     // 화자 캐릭터 정보를 ID로 직접 조회
     final speakerId = state.currentNode?.speakerId;
-    Character? speaker;
-    if (speakerId != null) {
-      final speakerAsync = ref.watch(characterByIdProvider(speakerId));
-      speaker = speakerAsync.valueOrNull;
-    }
+    _log('speakerId from currentNode: "$speakerId"');
+    final speakerAsync = (speakerId != null && speakerId.isNotEmpty)
+        ? ref.watch(characterByIdProvider(speakerId))
+        : null;
 
     final speakerName = _resolveSpeakerName(
       l10n: l10n,
       speakerId: speakerId,
-      character: speaker,
+      character: speakerAsync?.valueOrNull,
     );
     
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.black,
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // 1. 배경
+          // 1. 단색 배경 - 인물 이미지 자체에 배경이 포함되어 있으므로 간결하게 처리
           Positioned.fill(
-            child: widget.backgroundAsset != null
-                ? Image.asset(
-                    widget.backgroundAsset!,
-                    fit: BoxFit.cover,
-                    colorBlendMode: BlendMode.darken,
-                    color: Colors.black.withValues(alpha: 0.5),
-                  )
-                : Container(color: AppColors.dialogueBackground),
+            child: Container(color: AppColors.dialogueBackground),
           ),
           
           // 1.5. 보상 알림 오버레이
@@ -165,12 +188,11 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
           // 2. 캐릭터 초상화
           Positioned.fill(
             bottom: 200,
-            child: speaker == null
-                ? PlaceholderPortrait(label: speakerName)
-                : CharacterPortrait(
-                    character: speaker,
-                    emotion: state.currentNode!.emotion,
-                  ),
+            child: _buildCharacterPortrait(
+              speakerAsync: speakerAsync,
+              speakerName: speakerName,
+              emotion: state.currentNode!.emotion,
+            ),
           ),
 
           // 3. 대화 상자
@@ -207,7 +229,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
             top: 40,
             right: 20,
             child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white70),
+              icon: const Icon(Icons.close, color: AppColors.white70),
               onPressed: closeAction,
             ),
           ),
@@ -218,6 +240,37 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
 
   void _log(String message) {
     debugPrint('[DialogueScreen] $message');
+  }
+
+  /// 캐릭터 포트레이트 위젯 빌드
+  Widget _buildCharacterPortrait({
+    required AsyncValue<Character?>? speakerAsync,
+    required String speakerName,
+    required String emotion,
+  }) {
+    _log('buildPortrait speakerName=$speakerName speakerAsync=$speakerAsync');
+
+    if (speakerAsync == null) {
+      _log('buildPortrait -> PlaceholderPortrait (speakerAsync is null)');
+      return PlaceholderPortrait(label: speakerName);
+    }
+
+    return speakerAsync.when(
+      loading: () {
+        _log('buildPortrait -> LoadingPortrait');
+        return LoadingPortrait(label: speakerName);
+      },
+      error: (e, _) {
+        _log('buildPortrait -> PlaceholderPortrait (error: $e)');
+        return PlaceholderPortrait(label: speakerName);
+      },
+      data: (character) {
+        _log('buildPortrait -> data: ${character?.id ?? 'null'} portrait=${character?.portraitAsset ?? 'null'}');
+        return character == null
+            ? PlaceholderPortrait(label: speakerName)
+            : CharacterPortrait(character: character, emotion: emotion);
+      },
+    );
   }
 
   Future<void> _showCompletionDialog(List<UnlockEvent> unlocks) async {
@@ -238,7 +291,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
         },
         onQuizStart: (quiz) {
           Navigator.of(dialogContext).pop();
-          context.go('/quiz/${quiz.id}');
+          AppRouter.goToQuizPlay(context, quiz.id);
         },
       ),
     );
