@@ -63,6 +63,16 @@ dev_dependencies:
   hive_generator: ^2.0.1
   mockito: ^5.4.4
   mocktail: ^1.0.4
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.jpg"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+  adaptive_icon_background: "#0D0D1A"
+  adaptive_icon_foreground: "assets/images/app_icon.jpg"
 
 flutter:
   uses-material-design: true
@@ -73,6 +83,9 @@ flutter:
     - assets/images/map/
     - assets/images/eras/
     - assets/images/characters/
+    - assets/images/characters/egypt/
+    - assets/images/characters/china/
+    - assets/images/characters/japan/
     - assets/images/characters/three_kingdoms/
     - assets/images/characters/unified_silla/
     - assets/images/characters/goryeo/
