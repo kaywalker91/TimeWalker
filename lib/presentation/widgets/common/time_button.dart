@@ -293,7 +293,7 @@ class _TimeIconButtonState extends State<TimeIconButton> {
         );
       case TimeButtonVariant.outline:
         return BoxDecoration(
-          color: Colors.transparent,
+          color: AppColors.transparent,
           shape: BoxShape.circle,
           border: Border.all(
             color: AppColors.primary.withValues(alpha: 0.6),

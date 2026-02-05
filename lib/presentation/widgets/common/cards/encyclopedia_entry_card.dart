@@ -169,7 +169,7 @@ class _EncyclopediaEntryCardState extends State<EncyclopediaEntryCard>
                                         begin: Alignment.topCenter,
                                         end: Alignment.bottomCenter,
                                         colors: [
-                                          Colors.transparent,
+                                          AppColors.transparent,
                                           AppColors.surface.withValues(alpha: 0.8),
                                           AppColors.surface,
                                         ],
@@ -210,7 +210,7 @@ class _EncyclopediaEntryCardState extends State<EncyclopediaEntryCard>
                                               border: Border.all(
                                                 color: widget.isUnlocked 
                                                     ? AppColors.primary.withValues(alpha: 0.3)
-                                                    : Colors.transparent,
+                                                    : AppColors.transparent,
                                                 width: 0.5,
                                               ),
                                             ),
@@ -321,9 +321,9 @@ class _EncyclopediaEntryCardState extends State<EncyclopediaEntryCard>
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              Colors.white.withValues(alpha: 0.05),
-                              Colors.transparent,
-                              Colors.transparent,
+                              AppColors.white.withValues(alpha: 0.05),
+                              AppColors.transparent,
+                              AppColors.transparent,
                             ],
                             stops: const [0.0, 0.4, 1.0],
                           ),

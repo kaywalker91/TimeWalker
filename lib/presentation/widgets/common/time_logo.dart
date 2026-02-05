@@ -197,7 +197,7 @@ class TimeTitle extends StatelessWidget {
           fontSize: fontSize,
           fontWeight: FontWeight.bold,
           letterSpacing: letterSpacing,
-          color: Colors.white,
+          color: AppColors.white,
           fontFamily: AppTextStyles.fontFamilyDisplay,
         ),
       ),

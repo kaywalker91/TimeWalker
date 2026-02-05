@@ -229,7 +229,7 @@ class _TimelineEraCardState extends State<TimelineEraCard> with TimeCardMixin, T
                 ? AppLocalizations.of(context)!.common_locked
                 : AppLocalizations.of(context)!.common_explore,
             style: AppTextStyles.labelLarge.copyWith(
-              color: isLocked ? AppColors.textDisabled : Colors.white,
+              color: isLocked ? AppColors.textDisabled : AppColors.white,
               fontWeight: FontWeight.bold,
             ),
           ),

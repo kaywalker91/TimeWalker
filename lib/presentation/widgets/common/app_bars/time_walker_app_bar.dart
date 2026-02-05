@@ -56,7 +56,7 @@ class TimeWalkerAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.onBack,
     this.actions,
     this.centerTitle = true,
-  })  : backgroundColor = Colors.transparent,
+  })  : backgroundColor = AppColors.transparent,
         showBackButtonBackground = true,
         height = kToolbarHeight;
 
@@ -69,14 +69,14 @@ class TimeWalkerAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.centerTitle = true,
   })  : showBackButton = true,
-        backgroundColor = Colors.transparent,
+        backgroundColor = AppColors.transparent,
         showBackButtonBackground = false,
         height = kToolbarHeight;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: backgroundColor ?? Colors.transparent,
+      backgroundColor: backgroundColor ?? AppColors.transparent,
       elevation: 0,
       centerTitle: centerTitle,
       toolbarHeight: height,

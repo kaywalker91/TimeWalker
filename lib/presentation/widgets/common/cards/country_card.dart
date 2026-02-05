@@ -72,7 +72,7 @@ class _CountryCardState extends State<CountryCard> with TimeCardMixin {
               : (isHovered ? AppShadows.goldenGlowMd : AppShadows.card),
         ),
         child: Material(
-          color: Colors.transparent,
+          color: AppColors.transparent,
           child: InkWell(
             onTap: () => _handleTap(context),
             borderRadius: BorderRadius.circular(16),

@@ -116,9 +116,9 @@ class _GoldenShimmerState extends State<GoldenShimmer>
               begin: Alignment(-1.0 + 2 * _controller.value, 0),
               end: Alignment(-0.5 + 2 * _controller.value, 0),
               colors: [
-                Colors.transparent,
+                AppColors.transparent,
                 AppColors.primaryLight.withValues(alpha: 0.5),
-                Colors.transparent,
+                AppColors.transparent,
               ],
             ).createShader(bounds);
           },

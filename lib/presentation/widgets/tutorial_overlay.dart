@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 class TutorialOverlay extends StatefulWidget {
   final Widget child;
@@ -53,7 +54,7 @@ class _TutorialOverlayState extends State<TutorialOverlay>
             onTap: widget.onDismiss,
             behavior: HitTestBehavior.translucent,
             child: Container(
-              color: Colors.black54, // Dim background
+              color: AppColors.black54, // Dim background
               child: Stack(
                 children: [
                   // Hole Puncher effect (simplified: just overlaying child on top for now)
@@ -69,11 +70,11 @@ class _TutorialOverlayState extends State<TutorialOverlay>
                           padding: const EdgeInsets.all(16),
                           margin: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: AppColors.white,
                             borderRadius: BorderRadius.circular(16),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black26,
+                                color: AppColors.black26,
                                 blurRadius: 10,
                                 offset: const Offset(0, 4),
                               ),
@@ -82,7 +83,7 @@ class _TutorialOverlayState extends State<TutorialOverlay>
                           child: Text(
                             widget.message,
                             style: const TextStyle(
-                              color: Colors.black87,
+                              color: AppColors.black87,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -96,7 +97,7 @@ class _TutorialOverlayState extends State<TutorialOverlay>
                           child: const Icon(
                             Icons.touch_app,
                             size: 60,
-                            color: Colors.amber,
+                            color: AppColors.amber,
                           ),
                         ),
                       ],

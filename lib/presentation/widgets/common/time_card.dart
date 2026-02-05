@@ -214,7 +214,7 @@ class _TimeCardState extends State<TimeCard> with TimeCardMixin {
             child: Container(
               margin: widget.margin,
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.4),
+                color: AppColors.black.withValues(alpha: 0.4),
                 borderRadius: _borderRadius,
               ),
               child: const Center(
@@ -327,7 +327,7 @@ class _EraCardState extends State<EraCard> with TimeCardMixin, ThemedCardMixin {
             child: Container(
               margin: widget.margin,
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.5),
+                color: AppColors.black.withValues(alpha: 0.5),
                 borderRadius: borderRadius,
               ),
               child: const Center(
