@@ -936,39 +936,6 @@
         "status": "available"
     },
     {
-        "id": "jang_bogo",
-        "eraId": "korea_unified_silla",
-        "name": "Jang Bogo",
-        "nameKorean": "장보고",
-        "title": "해상왕",
-        "birth": "787",
-        "death": "846",
-        "biography": "청해진을 설치하여 동아시아 해상 무역을 제패한 해상왕",
-        "fullBiography": "신라의 평민 출신으로 당나라 매물도에서 활약하다 귀국하여 흥덕왕에게 청해진 설치를 건의했다. 완도에 청해진을 설치하고 해적을 소탕하여 황해의 해상권을 장악, 한·중·일을 잇는 국제 무역을 주도했다. 그의 딸을 왕비로 보내려다 암살당하는 비운의 최후를 맞았으나, 한국 역사상 가장 위대한 해양 영웅으로 꼽힌다.",
-        "portraitAsset": "assets/images/characters/unified_silla/jang_bogo.png",
-        "emotionAssets": [
-            "assets/images/characters/unified_silla/jang_bogo.png",
-            "assets/images/characters/unified_silla/jang_bogo_determined.png"
-        ],
-        "dialogueIds": [
-            "jang_bogo_trade_01",
-            "jang_bogo_sea_01"
-        ],
-        "relatedCharacterIds": [
-            "choi_chiwon"
-        ],
-        "relatedLocationIds": [
-            "cheonghaejin"
-        ],
-        "achievements": [
-            "청해진 설치",
-            "해적 소탕",
-            "동아시아 해상권 장악",
-            "국제 무역 주도"
-        ],
-        "status": "available"
-    },
-    {
         "id": "choi_chiwon",
         "eraId": "korea_unified_silla",
         "name": "Choi Chi-won",
@@ -984,13 +951,14 @@
             "assets/images/characters/unified_silla/choi_chiwon_sad.png"
         ],
         "dialogueIds": [
-            "choi_simu_01",
-            "choi_poetry_01"
+            "choi_chiwon_reform_01"
         ],
         "relatedCharacterIds": [
             "jang_bogo"
         ],
-        "relatedLocationIds": [],
+        "relatedLocationIds": [
+            "gyeongju_anapji"
+        ],
         "achievements": [
             "빈공과 장원 급제",
             "토황소격문 집필",
@@ -1015,8 +983,7 @@
             "assets/images/characters/unified_silla/wonhyo_smile.png"
         ],
         "dialogueIds": [
-            "wonhyo_skull_01",
-            "wonhyo_dance_01"
+            "wonhyo_enlightenment_01"
         ],
         "relatedCharacterIds": [
             "seondeok"
@@ -1626,7 +1593,10 @@
         "fullBiography": "2030년대 대한민국을 이끄는 젊은 AI 연구자. 인공지능의 발전이 인류에게 축복이 되도록 AI 윤리와 안전한 기술 개발을 연구한다. '기술은 인간을 위해 존재한다'는 철학을 가진 미래 과학자.",
         "portraitAsset": "assets/images/characters/future/han_jinue.png",
         "emotionAssets": [
-            "assets/images/characters/future/placeholder.png"
+            "assets/images/characters/future/han_jinue.png",
+            "assets/images/characters/future/han_jinue_happy.png",
+            "assets/images/characters/future/han_jinue_thoughtful.png",
+            "assets/images/characters/future/han_jinue_sad.png"
         ],
         "dialogueIds": [
             "ai_ethics_01"
@@ -1653,7 +1623,10 @@
         "fullBiography": "2040년대 기후위기 시대의 영웅. 그린 수소, 탄소포집 기술을 개발해 대한민국을 탄소중립 국가로 만든 환경 과학자. 제주 에코시티 프로젝트를 이끌며 지속가능한 미래를 현실로 만들어가고 있다.",
         "portraitAsset": "assets/images/characters/future/pureunsol.png",
         "emotionAssets": [
-            "assets/images/characters/future/placeholder.png"
+            "assets/images/characters/future/pureunsol.png",
+            "assets/images/characters/future/pureunsol_happy.png",
+            "assets/images/characters/future/pureunsol_thoughtful.png",
+            "assets/images/characters/future/pureunsol_sad.png"
         ],
         "dialogueIds": [
             "climate_solution_01"
@@ -1680,7 +1653,10 @@
         "fullBiography": "2050년대 한국 우주 개발의 꿈을 실현한 우주비행사. 달 기지 '백두'의 초대 건설 대원으로 참여해 한국의 우주 역사를 새로 쓰고 있다. 어린 시절 밤하늘의 별을 보며 꿈꿨던 우주가 이제 그의 일터가 되었다.",
         "portraitAsset": "assets/images/characters/future/byeolhaneul.png",
         "emotionAssets": [
-            "assets/images/characters/future/placeholder.png"
+            "assets/images/characters/future/byeolhaneul.png",
+            "assets/images/characters/future/byeolhaneul_happy.png",
+            "assets/images/characters/future/byeolhaneul_thoughtful.png",
+            "assets/images/characters/future/byeolhaneul_sad.png"
         ],
         "dialogueIds": [
             "space_exploration_01"
@@ -1707,7 +1683,10 @@
         "fullBiography": "2060년대, 평양과 서울을 자유롭게 오가는 첫 세대. 평양에서 태어나 서울에서 공부하고, 남북 문화 교류 사업을 이끌고 있다. 할머니가 들려주던 분단과 이산의 아픔은 이제 역사책 속 이야기가 되었다.",
         "portraitAsset": "assets/images/characters/future/hanaro.png",
         "emotionAssets": [
-            "assets/images/characters/future/placeholder.png"
+            "assets/images/characters/future/hanaro.png",
+            "assets/images/characters/future/hanaro_happy.png",
+            "assets/images/characters/future/hanaro_thoughtful.png",
+            "assets/images/characters/future/hanaro_sad.png"
         ],
         "dialogueIds": [
             "unification_story_01"
@@ -1734,7 +1713,8 @@
         "fullBiography": "2080년대, 뇌-컴퓨터 인터페이스와 수명 연장 기술이 보편화된 시대의 철학자. '영생이 가능한 시대에 삶의 의미는 무엇인가?', '디지털 의식은 진정한 자아인가?' 등 인류의 근본적 질문에 답을 찾는 미래의 사상가.",
         "portraitAsset": "assets/images/characters/future/youngwon.png",
         "emotionAssets": [
-            "assets/images/characters/future/placeholder.png"
+            "assets/images/characters/future/youngwon.png",
+            "assets/images/characters/future/youngwon_happy.png"
         ],
         "dialogueIds": [
             "posthuman_philosophy_01"
@@ -1757,8 +1737,8 @@
         "description": "6.25 전쟁으로 모든 것을 잃고 부산으로 피난 온 어머니. 억척스럽게 시장에서 장사하며 자식들을 키워낸 강인한 생명력의 상징.",
         "gender": "female",
         "job": "merchant",
-        "thumbnailAsset": "assets/images/characters/contemporary/placeholder.png",
-        "fullBodyAsset": "assets/images/characters/contemporary/placeholder.png",
+        "thumbnailAsset": "assets/images/characters/contemporary/refugee_merchant.png",
+        "fullBodyAsset": "assets/images/characters/contemporary/refugee_merchant.png",
         "dialogueIds": [
             "rm_1_hardship",
             "rm_2_hope"
@@ -1781,8 +1761,8 @@
         "description": "평화시장의 열악한 환경 속에서도 가족의 생계를 책임진 70년대 산업 역군. 꿈을 잃지 않고 야학을 다니며 배움의 끈을 놓지 않았다.",
         "gender": "female",
         "job": "worker",
-        "thumbnailAsset": "assets/images/characters/contemporary/placeholder.png",
-        "fullBodyAsset": "assets/images/characters/contemporary/placeholder.png",
+        "thumbnailAsset": "assets/images/characters/contemporary/sewing_worker.png",
+        "fullBodyAsset": "assets/images/characters/contemporary/sewing_worker.png",
         "dialogueIds": [
             "sw_1_labor",
             "sw_2_dream"
@@ -1804,8 +1784,8 @@
         "description": "1997년 외환위기로 회사가 부도나는 절망을 겪었으나, 포기하지 않고 벤처 기업으로 재기에 성공한 불굴의 아버지.",
         "gender": "male",
         "job": "entrepreneur",
-        "thumbnailAsset": "assets/images/characters/contemporary/placeholder.png",
-        "fullBodyAsset": "assets/images/characters/contemporary/placeholder.png",
+        "thumbnailAsset": "assets/images/characters/contemporary/imf_survivor.png",
+        "fullBodyAsset": "assets/images/characters/contemporary/imf_survivor.png",
         "dialogueIds": [
             "is_1_collapse",
             "is_2_rise"
@@ -1832,7 +1812,7 @@
         "job": "independence_fighter",
         "thumbnailAsset": "assets/images/characters/modern/kim_gu.png",
         "fullBodyAsset": "assets/images/characters/modern/kim_gu.png",
-        "dialogueIds": [],
+        "dialogueIds": ["kim_gu_independence_01"],
         "achievements": [
             "대한민국 임시정부 주석",
             "광복군 총사령관",
@@ -2328,7 +2308,10 @@
             "assets/images/characters/egypt/ramesses_ii.png"
         ],
         "dialogueIds": [
-            "ramesses_kadesh_01"
+            "ramesses_kadesh_01",
+            "ramesses_temple_builder_01",
+            "ramesses_long_reign_01",
+            "ramesses_family_01"
         ],
         "relatedCharacterIds": [
             "nefertari"
@@ -2360,7 +2343,10 @@
             "assets/images/characters/egypt/cleopatra.png"
         ],
         "dialogueIds": [
-            "cleopatra_diplomacy_01"
+            "cleopatra_diplomacy_01",
+            "cleopatra_library_01",
+            "cleopatra_caesar_01",
+            "cleopatra_last_pharaoh_01"
         ],
         "relatedCharacterIds": [
             "caesar",
@@ -2392,7 +2378,10 @@
             "assets/images/characters/egypt/tutankhamun.png"
         ],
         "dialogueIds": [
-            "tutankhamun_gold_01"
+            "tutankhamun_gold_01",
+            "tutankhamun_young_king_01",
+            "tutankhamun_discovery_01",
+            "tutankhamun_restoration_01"
         ],
         "relatedCharacterIds": [
             "akhenaten"
@@ -2423,7 +2412,10 @@
             "assets/images/characters/egypt/imhotep.png"
         ],
         "dialogueIds": [
-            "imhotep_pyramid_01"
+            "imhotep_pyramid_01",
+            "imhotep_medicine_01",
+            "imhotep_architect_01",
+            "imhotep_wisdom_01"
         ],
         "relatedCharacterIds": [
             "djoser"
@@ -2435,6 +2427,265 @@
             "계단식 피라미드 설계",
             "석조 건축 발명",
             "의술의 신"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "dae_joyeong",
+        "eraId": "korea_unified_silla",
+        "name": "Dae Joyeong",
+        "nameKorean": "대조영",
+        "title": "발해 고왕",
+        "birth": "?",
+        "death": "719",
+        "biography": "고구려 유민을 이끌고 발해를 건국한 초대 국왕",
+        "fullBiography": "고구려가 멸망한 후 당나라에 맞서 유민들을 이끌고 천문령 전투에서 승리하였다. 698년 동모산에서 발해(진국)를 건국하여 고구려의 계승을 천명하였다. 그의 건국으로 남북국 시대가 열리게 되었다.",
+        "portraitAsset": "assets/images/characters/unified_silla/dae_joyeong.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/dae_joyeong.png"
+        ],
+        "dialogueIds": [
+            "dae_joyeong_founding_01"
+        ],
+        "relatedCharacterIds": [
+            "dae_muye"
+        ],
+        "relatedLocationIds": [
+            "sanggyeong"
+        ],
+        "achievements": [
+            "발해 건국",
+            "천문령 전투 승리",
+            "고구려 계승"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "dae_muye",
+        "eraId": "korea_unified_silla",
+        "name": "King Mu (Dae Muye)",
+        "nameKorean": "무왕 (대무예)",
+        "title": "발해 제2대 국왕",
+        "birth": "?",
+        "death": "737",
+        "biography": "당나라와 대결하며 영토를 확장한 정복 군주",
+        "fullBiography": "대조영의 아들로, 발해의 2대 왕이다. 인안(仁安)이라는 독자적인 연호를 사용하였으며, 당나라와 흑수말갈의 연합에 맞서 산둥 반도를 선제공격하는 등 강경한 대외 정책을 펼쳤다. 발해를 해동성국으로 발전시키는 기틀을 마련하였다.",
+        "portraitAsset": "assets/images/characters/unified_silla/dae_muye.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/dae_muye.png"
+        ],
+        "dialogueIds": [
+            "dae_muye_expansion_01"
+        ],
+        "relatedCharacterIds": [
+            "dae_joyeong"
+        ],
+        "relatedLocationIds": [
+            "sanggyeong"
+        ],
+        "achievements": [
+            "인안 연호 사용",
+            "당 등주(산둥) 공격",
+            "영토 확장"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "jang_bogo",
+        "eraId": "korea_unified_silla",
+        "name": "Jang Bogo",
+        "nameKorean": "장보고",
+        "title": "해상왕",
+        "birth": "?",
+        "death": "846",
+        "biography": "청해진을 설치하여 동아시아 해상권을 장악한 영웅",
+        "fullBiography": "완도 출신으로 당나라에서 활약하다 귀국하여 흥덕왕에게 청해진 설치를 건의했다. 해적을 소탕하고 신라, 당, 일본을 잇는 해상 무역을 독점하여 거대한 부와 세력을 쌓았다. 왕위 쟁탈전에 휘말려 암살당했으나 그의 해상 네트워크는 전설로 남았다.",
+        "portraitAsset": "assets/images/characters/unified_silla/jang_bogo.png",
+        "emotionAssets": [
+            "assets/images/characters/unified_silla/jang_bogo.png"
+        ],
+        "dialogueIds": [
+            "jangbogo_marine_01"
+        ],
+        "relatedCharacterIds": [],
+        "relatedLocationIds": [
+            "cheonghaejin"
+        ],
+        "achievements": [
+            "청해진 설치",
+            "해적 소탕",
+            "동아시아 해상권 장악"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "cao_cao",
+        "eraId": "china_three_kingdoms",
+        "name": "Cao Cao",
+        "nameKorean": "조조",
+        "title": "King of Wei",
+        "birth": "155",
+        "death": "220",
+        "biography": "A brilliant strategist and poet who laid the foundations for the Wei Dynasty.",
+        "fullBiography": "A central figure of the Three Kingdoms period, Cao Cao was a warlord, statesman, and poet. He rose to power during the decline of the Eastern Han Dynasty and laid the foundations for the state of Cao Wei. Though often depicted as a cruel tyrant in fiction, historically he was a brilliant ruler and military genius who valued talent above all else.",
+        "portraitAsset": "assets/images/characters/china/cao_cao.png",
+        "emotionAssets": [
+            "assets/images/characters/china/cao_cao.png"
+        ],
+        "dialogueIds": [
+            "cao_cao_hero_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "sun_quan",
+            "guan_yu"
+        ],
+        "relatedLocationIds": [
+            "luoyang_wei",
+            "chibi"
+        ],
+        "achievements": [
+            "Unification of Northern China",
+            "Writing famous poems (Short Song Style)",
+            "System of Tuntian (Agricultural Colonies)"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "liu_bei",
+        "eraId": "china_three_kingdoms",
+        "name": "Liu Bei",
+        "nameKorean": "유비",
+        "title": "King of Shu Han",
+        "birth": "161",
+        "death": "223",
+        "biography": "A compassionate leader who founded the Shu Han Dynasty based on benevolence.",
+        "fullBiography": "Starting as a humble weaver of straw sandals, Liu Bei rose to became the founding emperor of Shu Han. Known for his benevolence and charisma, he attracted loyal followers like Guan Yu, Zhang Fei, and Zhuge Liang. He spent his life fighting to restore the Han Dynasty.",
+        "portraitAsset": "assets/images/characters/china/liu_bei.png",
+        "emotionAssets": [
+            "assets/images/characters/china/liu_bei.png"
+        ],
+        "dialogueIds": [
+            "liu_bei_benevolence_01"
+        ],
+        "relatedCharacterIds": [
+            "guan_yu",
+            "zhuge_liang",
+            "cao_cao"
+        ],
+        "relatedLocationIds": [
+            "chengdu",
+            "chibi"
+        ],
+        "achievements": [
+            "Founding of Shu Han",
+            "Alliance with Sun Quan",
+            "Recruiting Zhuge Liang"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "zhuge_liang",
+        "eraId": "china_three_kingdoms",
+        "name": "Zhuge Liang",
+        "nameKorean": "제갈량",
+        "title": "Sleeping Dragon",
+        "birth": "181",
+        "death": "234",
+        "biography": "The greatest strategist of his era, known for his wisdom and the 'Longzhong Plan'.",
+        "fullBiography": "Prime Minister of Shu Han and a symbol of wisdom and loyalty. He formulated the 'Longzhong Plan' to divide China into three mutually opposing states. His Northern Expeditions showed his unwavering dedication to the Han cause. He is often depicted holding a feather fan.",
+        "portraitAsset": "assets/images/characters/china/zhuge_liang.png",
+        "emotionAssets": [
+            "assets/images/characters/china/zhuge_liang.png"
+        ],
+        "dialogueIds": [
+            "zhuge_liang_strategy_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "guan_yu"
+        ],
+        "relatedLocationIds": [
+            "chengdu",
+            "chibi"
+        ],
+        "achievements": [
+            "Longzhong Plan",
+            "Alliance at Red Cliffs",
+            "Northern Expeditions",
+            "Invention of Wooden Ox"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "guan_yu",
+        "eraId": "china_three_kingdoms",
+        "name": "Guan Yu",
+        "nameKorean": "관우",
+        "title": "God of War",
+        "birth": "160",
+        "death": "220",
+        "biography": "A legendary general worshipped as a symbol of loyalty and righteousness.",
+        "fullBiography": "A general serving under Liu Bei, Guan Yu is famous for his immense strength, distinctive long beard, and Green Dragon Crescent Blade. His loyalty to his sworn brother Liu Bei is legendary, making him a deity of war and brotherhood in later centuries.",
+        "portraitAsset": "assets/images/characters/china/guan_yu.png",
+        "emotionAssets": [
+            "assets/images/characters/china/guan_yu.png"
+        ],
+        "dialogueIds": [
+            "guan_yu_loyalty_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "zhuge_liang",
+            "cao_cao"
+        ],
+        "relatedLocationIds": [
+            "chibi"
+        ],
+        "achievements": [
+            "Slaying Yan Liang",
+            "Flooding the Seven Armies",
+            "Deified as Guandi"
+        ],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "sun_quan",
+        "eraId": "china_three_kingdoms",
+        "name": "Sun Quan",
+        "nameKorean": "손권",
+        "title": "Emperor of Wu",
+        "birth": "182",
+        "death": "252",
+        "biography": "The resourceful ruler of Eastern Wu who secured his realm at the Red Cliffs.",
+        "fullBiography": "The founder of Eastern Wu, Sun Quan inherited the territory from his brother Sun Ce. He is best known for allying with Liu Bei to defeat Cao Cao at the Battle of Red Cliffs, securing the independence of the South. He ruled the longest among the Three Kingdoms founders.",
+        "portraitAsset": "assets/images/characters/china/sun_quan.png",
+        "emotionAssets": [
+            "assets/images/characters/china/sun_quan.png"
+        ],
+        "dialogueIds": [
+            "sun_quan_red_cliffs_01"
+        ],
+        "relatedCharacterIds": [
+            "liu_bei",
+            "cao_cao"
+        ],
+        "relatedLocationIds": [
+            "jianye",
+            "chibi"
+        ],
+        "achievements": [
+            "Victory at Red Cliffs",
+            "Consolidating the South",
+            "Development of Shipbuilding"
         ],
         "status": "available",
         "isHistorical": true

@@ -1,0 +1,155 @@
+[
+    {
+        "id": "jeong_yagjeon_exile_01",
+        "characterId": "jeong_yagjeon",
+        "title": "Exile Research",
+        "titleKorean": "유배지의 학문",
+        "description": "정약전이 흑산도 유배지에서 자산어보를 집필하며 역경을 학문으로 승화합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_yagjeon_exile"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "이 험한 바다 한가운데 섬에 유배된 지 벌써 몇 해가 흘렀소.\n하지만 이곳에서 나는 새로운 학문을 발견했소.",
+                "choices": [
+                    {
+                        "id": "c1_research",
+                        "text": "무슨 연구를 하고 계신가요?",
+                        "preview": "연구 내용",
+                        "nextNodeId": "research_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_exile",
+                        "text": "유배 생활이 힘드시겠어요.",
+                        "preview": "유배 생활",
+                        "nextNodeId": "exile_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "research_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "happy",
+                "text": "바다 생물을 연구하고 있소. 이 섬 주변에는 온갖 물고기와 조개, 해조류가 있소.\n어민들에게 물어가며 하나하나 기록하고 있소. 이름과 생김새, 습성까지 말이오.",
+                "nextNodeId": "book_node",
+                "reward": {
+                    "unlockFactId": "fact_marine_biology"
+                }
+            },
+            {
+                "id": "exile_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "sad",
+                "text": "힘들지 않다면 거짓말이겠소. 가족도 멀고, 동생 약용이와도 떨어져 있소.\n하지만 한탄만 하고 있을 수는 없지 않소? 이곳에서도 배울 것이 있다오.",
+                "nextNodeId": "book_node"
+            },
+            {
+                "id": "book_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "thoughtful",
+                "text": "나는 이 연구를 '자산어보(玆山魚譜)'라는 책으로 엮고 있소.\n우리나라 바다 생물을 체계적으로 정리한 최초의 책이 될 것이오.",
+                "choices": [
+                    {
+                        "id": "c2_method",
+                        "text": "어떻게 연구하시나요?",
+                        "preview": "연구 방법",
+                        "nextNodeId": "method_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_purpose",
+                        "text": "왜 이런 연구를 하시나요?",
+                        "preview": "연구 목적",
+                        "nextNodeId": "purpose_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "method_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "어민들과 친해지는 것이 중요하오. 그들이 평생 바다와 함께 살아온 경험이\n어떤 책보다 귀하오. 또 직접 물고기를 관찰하고, 해부도 하오.",
+                "nextNodeId": "learning_node",
+                "reward": {
+                    "unlockFactId": "fact_practical_research"
+                }
+            },
+            {
+                "id": "purpose_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "serious",
+                "text": "실학(實學)의 정신 때문이오. 백성들의 실제 삶에 도움이 되는 학문을 해야 하오.\n어부들이 물고기를 알면 더 잘 잡을 수 있고, 상인들은 거래에 활용할 수 있소.",
+                "nextNodeId": "learning_node"
+            },
+            {
+                "id": "learning_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "happy",
+                "text": "유배지에서의 삶이 나를 더 겸손하게 만들었소.\n양반인 내가 어부들에게 배우는 것, 이것이 진정한 학문이 아니겠소?",
+                "choices": [
+                    {
+                        "id": "c3_hope",
+                        "text": "언젠가 풀려나실 수 있을까요?",
+                        "preview": "미래 희망",
+                        "nextNodeId": "hope_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_legacy",
+                        "text": "자산어보가 후대에 큰 도움이 될 겁니다.",
+                        "preview": "유산",
+                        "nextNodeId": "legacy_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "hope_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "sad",
+                "text": "모르겠소. 하지만 기다리기만 할 수는 없지 않소?\n지금 이 순간에도 의미를 찾고, 학문을 하는 것이 내가 할 수 있는 일이오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "그렇게 되길 바라오. 이 험한 섬에서의 시간이 헛되지 않았다는 것을\n후대 사람들이 알아주면 그것으로 족하오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "오늘은 문어를 관찰해야겠소. 어부들이 큰 문어를 잡아왔다고 하더군.\n학문은 어디서든 할 수 있소!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_jasaneobo"
+                }
+            }
+        ]
+    }
+]

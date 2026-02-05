@@ -8817,5 +8817,3193 @@
                 }
             }
         ]
+    },
+    {
+        "id": "dae_joyeong_founding_01",
+        "characterId": "dae_joyeong",
+        "title": "Founding of Balhae",
+        "titleKorean": "발해 건국",
+        "description": "고구려 멸망 후 유민들을 이끌고 발해를 건국한 대조영의 결의를 듣습니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_balhae_founding"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "dae_joyeong",
+                "emotion": "determined",
+                "text": "고구려는 멸망했으나 그 정신은 사라지지 않았다.\n우리는 당나라의 추격을 뿌리치고 이곳 동모산에서 새로운 나라를 세울 것이다.\n그대가 보기에 우리는 어떤 나라가 되어야 하겠는가?",
+                "choices": [
+                    {
+                        "id": "c1_goguryeo",
+                        "text": "고구려의 기상을 계승해야 합니다.",
+                        "preview": "고구려 계승 지지",
+                        "nextNodeId": "succession_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_new",
+                        "text": "새로운 독자적인 제국이 되어야 합니다.",
+                        "preview": "독자성 강조",
+                        "nextNodeId": "empire_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "succession_node",
+                "speakerId": "dae_joyeong",
+                "emotion": "happy",
+                "text": "그렇다. 우리는 부여와 고구려의 후예다.\n남쪽의 신라도 우리를 '북국'이라 부르며 인정하게 될 것이다.\n고구려의 옛 영토를 되찾고, 다시금 만주 벌판을 호령하리라!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "empire_node",
+                "speakerId": "dae_joyeong",
+                "emotion": "determined",
+                "text": "좋은 말이다. 우리는 당나라에 굴복하지 않는 자주적인 나라다.\n연호를 '천통(天統)'이라 하였으니, 이는 하늘의 도를 잇는다는 뜻이다.\n이제 발해는 바다 동쪽의 성대하고 번영하는 나라(해동성국)가 될 것이다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "dae_joyeong",
+                "emotion": "determined",
+                "text": "천문령에서의 승리는 시작일 뿐이다.\n지켜보아라. 우리의 깃발이 저 넓은 대륙에 휘날리는 모습을!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_cheonmunryeong_battle"
+                }
+            }
+        ]
+    },
+    {
+        "id": "dae_muye_expansion_01",
+        "characterId": "dae_muye",
+        "title": "Expansion and Conflict",
+        "titleKorean": "북진과 대결",
+        "description": "당나라와 대결하며 발해의 영토를 넓힌 무왕의 강경책에 대해 논의합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_balhae_expansion"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "dae_muye",
+                "emotion": "serious",
+                "text": "당나라와 흑수말갈이 손을 잡고 우리를 포위하려 한다.\n내 아우 대문예는 당나라와의 화친을 주장하지만, 나는 생각이 다르다.\n당나라가 우리를 넘본다면, 우리가 먼저 그들의 심장을 찔러야 하지 않겠는가?",
+                "choices": [
+                    {
+                        "id": "c1_attack",
+                        "text": "공격이 최선의 방어입니다!",
+                        "preview": "선제공격 지지",
+                        "nextNodeId": "attack_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c1_diplomacy",
+                        "text": "일본과 연합하여 견제해야 합니다.",
+                        "preview": "외교적 해결 제안",
+                        "nextNodeId": "japan_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "attack_node",
+                "speakerId": "dae_muye",
+                "emotion": "determined",
+                "text": "통쾌하구나! 장문휴 장군을 시켜 당나라의 등주(산둥)를 칠 것이다.\n당나라 놈들도 발해의 힘을 뼈저리게 느끼게 될 것이다.\n우리는 더 이상 고구려의 유민이 아니라, 강력한 제국의 전사들이다!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "japan_node",
+                "speakerId": "dae_muye",
+                "emotion": "thoughtful",
+                "text": "일리가 있다. 왜(일본)에 사신을 보내 신라와 당을 견제하게 하자.\n우리는 고구려의 뒤를 이은 나라이니, 왜도 우리를 상국으로 대우할 것이다.\n외교와 무력, 양쪽 모두를 사용하여 발해의 위엄을 세우겠다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "dae_muye",
+                "emotion": "determined",
+                "text": "나의 연호는 인안(仁安)이다.\n하지만 평안은 거저 얻어지는 것이 아니라, 힘으로 쟁취하는 것이다.\n발해의 말발굽 소리가 천하를 울리게 하리라!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_jang_munhyu_attack"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jangbogo_marine_01",
+        "characterId": "jang_bogo",
+        "title": "King of the Sea",
+        "titleKorean": "해상왕 장보고",
+        "description": "청해진을 설치하여 해적을 소탕하고 해상 무역을 장악한 장보고의 이야기를 듣습니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_cheonghaejin"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jang_bogo",
+                "emotion": "neutral",
+                "text": "바다를 보아라. 저 넓은 바다가 무서운가, 아니면 기회의 땅으로 보이는가?\n나는 당나라에서 신라 사람들이 해적에게 잡혀가 노예로 팔리는 것을 보고 피가 거꾸로 솟았다.\n귀국하여 왕께 청해진 설치를 건의했지. 왜 그랬겠는가?",
+                "choices": [
+                    {
+                        "id": "c1_pirates",
+                        "text": "해적을 소탕하기 위해서입니다.",
+                        "preview": "해적 소탕",
+                        "nextNodeId": "pirate_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_trade",
+                        "text": "무역을 주도하기 위해서입니다.",
+                        "preview": "무역 장악",
+                        "nextNodeId": "trade_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "pirate_node",
+                "speakerId": "jang_bogo",
+                "emotion": "determined",
+                "text": "그렇다. 내 칼 앞에 해적들은 추풍낙엽처럼 쓰러졌다.\n이제 서해 바다 어디에도 신라 사람을 노예로 삼는 자는 없다.\n바다가 평온해지니 자연스레 배들이 모여들더구나.",
+                "nextNodeId": "vision_node"
+            },
+            {
+                "id": "trade_node",
+                "speakerId": "jang_bogo",
+                "emotion": "happy",
+                "text": "정확하다. 바다를 지배하는 자가 부를 지배한다.\n신라, 당, 일본을 잇는 뱃길은 황금이나 다름없지.\n청해진은 단순한 군사 기지가 아니다. 동아시아 물류의 중심이다.",
+                "nextNodeId": "vision_node"
+            },
+            {
+                "id": "vision_node",
+                "speakerId": "jang_bogo",
+                "emotion": "determined",
+                "text": "하지만 진정한 힘은 칼이 아니라 신용에서 나온다.\n상인들이 믿고 거래할 수 있는 바다를 만드는 것, 그것이 나의 꿈이다.",
+                "choices": [
+                    {
+                        "id": "c2_respect",
+                        "text": "진정한 해상왕이십니다.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jang_bogo",
+                "emotion": "neutral",
+                "text": "고맙네. 그대도 기억하게나.\n길은 땅 위에만 있는 것이 아니다. 파도 너머에 더 큰 세상이 있다는 것을.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_maritime_trade_network"
+                }
+            }
+        ]
+    },
+    {
+        "id": "wonhyo_enlightenment_01",
+        "characterId": "wonhyo",
+        "title": "Everything depends on the Mind",
+        "titleKorean": "일체유심조",
+        "description": "해골물 일화를 통해 원효대사가 얻은 깨달음, '모든 것은 마음에 달렸다'는 진리를 배웁니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_ilche_yushimjo"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "wonhyo",
+                "emotion": "neutral",
+                "text": "나무아미타불... 그대 얼굴에 근심이 가득하구나.\n무엇이 그대를 힘들게 하는가? 세상인가, 아니면 그대의 마음인가?",
+                "choices": [
+                    {
+                        "id": "c1_world",
+                        "text": "세상이 제 뜻대로 되지 않습니다.",
+                        "preview": "세상 탓하기",
+                        "nextNodeId": "mind_story",
+                        "reward": {
+                            "knowledgePoints": 10
+                        }
+                    },
+                    {
+                        "id": "c1_mind",
+                        "text": "제 마음이 흔들려서 그렇습니다.",
+                        "preview": "자신의 마음 탓하기",
+                        "nextNodeId": "mind_story_praise",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "mind_story",
+                "speakerId": "wonhyo",
+                "emotion": "happy",
+                "text": "허허, 세상은 원래 뜻대로 되지 않는 법이지.\n내 이야기를 들어보게. 나는 당나라로 유학을 가던 길에 동굴에서 하룻밤을 묵었지.\n목이 말라 어둠 속에서 바가지에 담긴 물을 달게 마셨는데...",
+                "nextNodeId": "skull_node"
+            },
+            {
+                "id": "mind_story_praise",
+                "speakerId": "wonhyo",
+                "emotion": "happy",
+                "text": "지혜로운 대답이구나. 이미 반은 깨달았어.\n나도 당나라 유학 길에 비슷한 일을 겪었다네.\n어두운 동굴에서 마신 달콤한 물이, 아침에 보니 해골에 고인 썩은 물이었지.",
+                "nextNodeId": "skull_reaction"
+            },
+            {
+                "id": "skull_node",
+                "speakerId": "wonhyo",
+                "emotion": "serious",
+                "text": "다음 날 아침에 보니, 그것은 해골에 고인 썩은 물이었다네.\n그것을 본 순간 나는 구역질을 쏟아냈지. 어젯밤엔 그리도 달콤했는데 말이야.",
+                "nextNodeId": "skull_reaction"
+            },
+            {
+                "id": "skull_reaction",
+                "speakerId": "wonhyo",
+                "emotion": "determined",
+                "text": "물은 그대로인데, 내 마음이 달라지니 단물이 똥물이 된 것이다.\n그때 깨달았네. 진리는 당나라에 있는 것이 아니라, 내 마음속에 있다는 것을.\n이것이 바로 일체유심조(一切唯心造)니라.",
+                "choices": [
+                    {
+                        "id": "c2_realization",
+                        "text": "모든 것은 마음먹기에 달렸다는 뜻이군요!",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "wonhyo",
+                "emotion": "happy",
+                "text": "그렇다! 부처는 절에만 있는 것이 아니다. 저잣거리에도 있고, 그대 마음속에도 있다.\n나는 이제 무거운 경전을 내려놓고, 노래하고 춤추며 백성들 속으로 들어갈 것이다.\n그대도 마음의 짐을 내려놓고 자유로워지시게. 나무아미타불!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_buddhism_masses"
+                }
+            }
+        ]
+    },
+    {
+        "id": "choi_chiwon_reform_01",
+        "characterId": "choi_chiwon",
+        "title": "A Genius in Turbulent Times",
+        "titleKorean": "난세의 천재",
+        "description": "당나라 유학파 최치원의 고뇌와 골품제의 한계, 그리고 시무 10조를 통한 개혁 의지를 듣습니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_simu_10jo"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "choi_chiwon",
+                "emotion": "sad",
+                "text": "가을바람은 쓸쓸히 부는데, 세상에 나를 알아주는 이는 적구나(秋風唯苦吟 世路少知音).\n나는 12살에 당나라로 건너가 18살에 과거에 급제하고 문장가로 이름을 날렸다.\n허나 고국 신라에 돌아오니, 나를 반기는 것은 부패한 귀족들과 꽉 막힌 골품제뿐이구나.",
+                "choices": [
+                    {
+                        "id": "c1_comfort",
+                        "text": "선생님의 재주를 펼칠 곳이 없으니 안타깝습니다.",
+                        "preview": "위로하기",
+                        "nextNodeId": "frustration_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_reform",
+                        "text": "왕에게 개혁을 건의해보시지요.",
+                        "preview": "개혁 건의 제안",
+                        "nextNodeId": "reform_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "frustration_node",
+                "speakerId": "choi_chiwon",
+                "emotion": "sad",
+                "text": "육두품이라는 신분이 내 발목을 잡는구나.\n당나라에서는 능력을 인정받아 관리로 일했는데, 여기서는 뼈다귀의 등급(골품)이 사람의 가치를 결정한다.\n이러니 인재들이 어찌 나라를 위해 일하겠는가.",
+                "nextNodeId": "reform_node"
+            },
+            {
+                "id": "reform_node",
+                "speakerId": "choi_chiwon",
+                "emotion": "determined",
+                "text": "그래서 내가 진성여왕 님께 '시무 10조'를 올렸네.\n나라를 살리려면 쓸데없는 낭비를 줄이고, 인재를 등용하며, 백성의 세금을 줄여야 한다고.\n왕께서는 좋다고 하셨으나... 귀족들이 내 말을 들을 리가 만무하지.",
+                "choices": [
+                    {
+                        "id": "c2_result",
+                        "text": "그래서 개혁은 성공했습니까?",
+                        "nextNodeId": "hermit_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "hermit_node",
+                "speakerId": "choi_chiwon",
+                "emotion": "neutral",
+                "text": "실패했다. 귀족들은 기득권을 놓지 않으려 하고, 나라는 점점 도적 떼(원종과 애노의 난)로 들끓고 있다.\n이제 나는 관직을 버리고 산천을 유람하며 신선처럼 살려 하네.\n내 뜻은 실패했으나, 훗날 누군가는 이 병든 세상을 고쳐주길 바랄 뿐이다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "choi_chiwon",
+                "emotion": "neutral",
+                "text": "그대도 기억하게. 능력 있는 사람이 맘껏 뜻을 펼칠 수 있는 세상...\n그것이 진정으로 살기 좋은 나라라는 것을.\n나는 가야산으로 떠나네. 부디 안녕하시게.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_bone_rank_system"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ramesses_temple_builder_01",
+        "characterId": "ramesses_ii",
+        "title": "The Great Builder",
+        "titleKorean": "위대한 건축가",
+        "description": "람세스 2세와 함께 아부심벨 신전과 거대 건축물들에 대해 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_abu_simbel"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "ramesses_ii",
+                "emotion": "neutral",
+                "text": "짐은 람세스 2세, 태양신 라의 아들이다.\\n그대가 보았는가? 저 아부심벨의 거대한 신전을.\\n높이 20미터의 짐의 좌상 네 개가 입구를 지키고 있지.",
+                "choices": [
+                    {
+                        "id": "c1_temple",
+                        "text": "신전 건설에 얼마나 걸렸나요?",
+                        "preview": "건축 기간 묻기",
+                        "nextNodeId": "construction_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_nefertari",
+                        "text": "왕비 네페르타리를 위한 신전도 있다고 들었습니다.",
+                        "preview": "사랑 이야기 듣기",
+                        "nextNodeId": "nefertari_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "construction_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "neutral",
+                "text": "20년이 걸렸다. 수만 명의 장인과 노동자가 참여했지.\\n바위산을 깎아 만든 것이라 더욱 어려웠다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "nefertari_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "happy",
+                "text": "아, 네페르타리... 짐의 가장 사랑하는 왕비였지.\\n그녀를 위해 작은 신전을 지었다.\\n신전 벽에는 이렇게 새겼다. '태양이 그녀를 위해 떠오른다'고.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "neutral",
+                "text": "돌에 새겨진 이름은 모래바람에도 지워지지 않는다.\\n그대의 시대에서 짐의 신전은 여전히 서 있는가?",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "ramesses_long_reign_01",
+        "characterId": "ramesses_ii",
+        "title": "66 Years of Glory",
+        "titleKorean": "66년의 영광",
+        "description": "람세스 2세의 긴 통치 기간과 그가 이룬 업적들에 대해 듣습니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_ramesses_reign"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "ramesses_ii",
+                "emotion": "neutral",
+                "text": "짐은 25세에 파라오가 되어 91세까지 66년간 통치했다.\\n이집트 역사상 가장 오래 재위한 파라오 중 하나지.",
+                "choices": [
+                    {
+                        "id": "c1_children",
+                        "text": "자녀가 매우 많았다고 들었습니다.",
+                        "preview": "가족 이야기 듣기",
+                        "nextNodeId": "children_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_greatest",
+                        "text": "가장 자랑스러운 업적은 무엇입니까?",
+                        "preview": "업적 묻기",
+                        "nextNodeId": "achievement_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "children_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "happy",
+                "text": "짐에게는 아들이 약 50명, 딸이 약 50명 있었다!\\n장남 아멘헤르케프세프부터 시작해 많은 아들이 있었지만 대부분이 짐보다 먼저 세상을 떠났다.",
+                "nextNodeId": "legacy_node"
+            },
+            {
+                "id": "achievement_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "determined",
+                "text": "히타이트와의 평화 조약이다.\\n전쟁이 아닌 외교로 평화를 얻은 것이지.",
+                "nextNodeId": "legacy_node"
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "thoughtful",
+                "text": "66년... 긴 세월이었지만 짐에게는 짧게 느껴진다.\\n그래서 짐은 돌에 모든 것을 새겨 넣었다. 영원을 위해서.",
+                "choices": [
+                    {
+                        "id": "c2_memory",
+                        "text": "폐하의 이름은 영원히 기억될 것입니다.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "happy",
+                "text": "고맙다. 짐은 람세스 2세, 태양신의 아들.\\n이집트의 황금기를 이끈 파라오로 기억되길 바란다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "ramesses_family_01",
+        "characterId": "ramesses_ii",
+        "title": "Love and Family",
+        "titleKorean": "사랑과 가족",
+        "description": "람세스 2세의 가장 사랑했던 왕비 네페르타리와의 이야기를 듣습니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100,
+                "unlockFactId": "fact_nefertari_love"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "ramesses_ii",
+                "emotion": "thoughtful",
+                "text": "짐에게는 여러 왕비가 있었지만, 네페르타리는 특별했다.\\n그녀는 짐의 첫 번째이자 가장 위대한 왕비였지.",
+                "choices": [
+                    {
+                        "id": "c1_meet",
+                        "text": "어떻게 만나게 되셨나요?",
+                        "preview": "첫 만남 이야기",
+                        "nextNodeId": "meeting_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_tomb",
+                        "text": "네페르타리의 무덤이 가장 아름답다고 들었습니다.",
+                        "preview": "무덤 이야기 듣기",
+                        "nextNodeId": "tomb_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "meeting_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "happy",
+                "text": "짐이 아직 왕자였을 때 만났지.\\n교양과 지성을 겸비한 여인이었다.",
+                "nextNodeId": "partnership_node"
+            },
+            {
+                "id": "tomb_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "sad",
+                "text": "왕들의 계곡에 짐이 그녀를 위해 특별히 지은 무덤이 있다.\\n벽화는 색채가 살아있어 지금도 아름답다고 하더군.",
+                "nextNodeId": "partnership_node"
+            },
+            {
+                "id": "partnership_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "thoughtful",
+                "text": "네페르타리는 짐이 40대 중반일 때 세상을 떠났다.\\n아부심벨 작은 신전도, 화려한 무덤도 모두 그녀를 위한 것이었다.",
+                "choices": [
+                    {
+                        "id": "c2_eternal",
+                        "text": "사랑은 죽음을 넘어서는군요.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "ramesses_ii",
+                "emotion": "happy",
+                "text": "그렇다. 이집트인은 죽음을 끝이라 생각지 않는다.\\n네페르타리... 그녀를 위해 태양이 떠오른다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "cleopatra_library_01",
+        "characterId": "cleopatra",
+        "title": "Alexandria Library",
+        "titleKorean": "알렉산드리아 도서관",
+        "description": "클레오파트라와 함께 고대 세계 최대의 도서관에 대해 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_alexandria_library"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "cleopatra",
+                "emotion": "thoughtful",
+                "text": "나는 9개 국어를 할 수 있다. 그리스어는 물론 이집트어, 히브리어, 아람어까지.\\n알렉산드리아 도서관에서 배운 것들이지.",
+                "choices": [
+                    {
+                        "id": "c1_library",
+                        "text": "도서관에는 무엇이 있었나요?",
+                        "preview": "도서관 내용 묻기",
+                        "nextNodeId": "library_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_knowledge",
+                        "text": "왜 그렇게 많이 공부하셨나요?",
+                        "preview": "학문의 이유 묻기",
+                        "nextNodeId": "knowledge_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "library_node",
+                "speakerId": "cleopatra",
+                "emotion": "happy",
+                "text": "70만 권의 두루마리가 있었다. 그리스 철학, 의학, 수학, 천문학...\\n전 세계의 지식이 그곳에 모였지.",
+                "nextNodeId": "wisdom_node"
+            },
+            {
+                "id": "knowledge_node",
+                "speakerId": "cleopatra",
+                "emotion": "determined",
+                "text": "사람들은 나를 미모로만 기억하지만, 진짜 힘은 지성에서 나온다.\\n외교 협상, 경제 정책, 군사 전략... 모두 공부가 필요했다.",
+                "nextNodeId": "wisdom_node"
+            },
+            {
+                "id": "wisdom_node",
+                "speakerId": "cleopatra",
+                "emotion": "neutral",
+                "text": "불행히도 도서관은 화재로 많은 부분이 소실되었다.\\n지식을 보존하는 것이 얼마나 중요한지... 그때 깨달았지.",
+                "choices": [
+                    {
+                        "id": "c2_legacy",
+                        "text": "폐하의 지혜는 영원히 기억될 것입니다.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "cleopatra",
+                "emotion": "happy",
+                "text": "고맙다. 아름다움은 시들지만, 지혜는 영원하다.\\n그대도 끊임없이 배워라.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "cleopatra_caesar_01",
+        "characterId": "cleopatra",
+        "title": "Meeting Caesar",
+        "titleKorean": "카이사르와의 만남",
+        "description": "클레오파트라가 율리우스 카이사르를 처음 만난 극적인 순간을 듣습니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_cleopatra_caesar"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "cleopatra",
+                "emotion": "thoughtful",
+                "text": "나의 동생 프톨레마이오스 13세가 왕권을 빼앗으려 했다.\\n그래서 나는 카이사르를 만나기로 결심했지. 하지만 궁전은 봉쇄되어 있었다.",
+                "choices": [
+                    {
+                        "id": "c1_carpet",
+                        "text": "어떻게 만나셨나요?",
+                        "preview": "유명한 양탄자 이야기",
+                        "nextNodeId": "carpet_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_strategy",
+                        "text": "카이사르를 선택한 이유는 무엇인가요?",
+                        "preview": "전략적 선택",
+                        "nextNodeId": "strategy_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "carpet_node",
+                "speakerId": "cleopatra",
+                "emotion": "happy",
+                "text": "양탄자에 몸을 숨겨 카이사르의 방에 들어갔다.\\n펼쳐진 양탄자에서 이집트의 여왕이 나타났을 때... 그의 표정을 잊을 수 없다.",
+                "nextNodeId": "alliance_node"
+            },
+            {
+                "id": "strategy_node",
+                "speakerId": "cleopatra",
+                "emotion": "determined",
+                "text": "로마는 지중해의 지배자였다. 이집트를 지키려면 로마와 동맹이 필요했지.\\n카이사르는 강력하고 야심찬 사람이었다.",
+                "nextNodeId": "alliance_node"
+            },
+            {
+                "id": "alliance_node",
+                "speakerId": "cleopatra",
+                "emotion": "neutral",
+                "text": "나는 카이사르와 동맹을 맺었고, 그와의 사이에서 아들 카이사리온을 낳았다.\\n하지만 카이사르는 로마에서 암살당했지...",
+                "choices": [
+                    {
+                        "id": "c2_continue",
+                        "text": "그 후 어떻게 하셨나요?",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "cleopatra",
+                "emotion": "determined",
+                "text": "나는 포기하지 않았다. 마르쿠스 안토니우스와 다시 동맹을 맺었지.\\n이집트를 위해서라면 무엇이든 했다. 그것이 여왕의 의무니까.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "cleopatra_last_pharaoh_01",
+        "characterId": "cleopatra",
+        "title": "The Last Pharaoh",
+        "titleKorean": "마지막 파라오",
+        "description": "클레오파트라가 이집트의 마지막 파라오로서 느꼈던 책임과 비극을 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 100,
+                "unlockFactId": "fact_last_pharaoh"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "cleopatra",
+                "emotion": "sad",
+                "text": "나는 3천 년 이집트 역사의 마지막 파라오가 될 줄 몰랐다.\\n악티움 해전에서 패배했고, 옥타비아누스의 군대가 알렉산드리아로 진군하고 있다.",
+                "choices": [
+                    {
+                        "id": "c1_actium",
+                        "text": "악티움 해전은 어땠나요?",
+                        "preview": "해전 이야기",
+                        "nextNodeId": "actium_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_choice",
+                        "text": "이제 어떻게 하실 건가요?",
+                        "preview": "마지막 선택",
+                        "nextNodeId": "choice_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "actium_node",
+                "speakerId": "cleopatra",
+                "emotion": "angry",
+                "text": "안토니우스와 나는 옥타비아누스와 전투를 벌였지만 패배했다.\\n로마 원로원은 나를 적으로 선포했다.",
+                "nextNodeId": "legacy_node"
+            },
+            {
+                "id": "choice_node",
+                "speakerId": "cleopatra",
+                "emotion": "determined",
+                "text": "나는 로마의 포로로 끌려가 구경거리가 되느니 차라리 죽음을 선택하겠다.\\n독사의 독으로... 파라오답게 떠나겠다.",
+                "nextNodeId": "legacy_node"
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "cleopatra",
+                "emotion": "thoughtful",
+                "text": "나의 죽음과 함께 고대 이집트는 끝날 것이다.\\n하지만 내 이름은 역사에 남을 것이다. 마지막까지 싸운 여왕으로.",
+                "choices": [
+                    {
+                        "id": "c2_remember",
+                        "text": "이집트는 영원히 기억될 것입니다.",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "cleopatra",
+                "emotion": "neutral",
+                "text": "고맙다. 나는 실패했지만, 최선을 다했다.\\n가끔은 최선을 다해도 부족할 때가 있지. 그것이 역사다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "tutankhamun_young_king_01",
+        "characterId": "tutankhamun",
+        "title": "The Boy King",
+        "titleKorean": "소년왕",
+        "description": "투탕카멘이 어린 나이에 파라오가 된 이야기를 듣습니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100,
+                "unlockFactId": "fact_boy_king"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "tutankhamun",
+                "emotion": "thoughtful",
+                "text": "나는 겨우 9살에 파라오가 되었다.\\n아버지 아크나톤이 남긴 혼란을 정리해야 했지.",
+                "choices": [
+                    {
+                        "id": "c1_young",
+                        "text": "너무 어린 나이였네요.",
+                        "preview": "어린 왕의 고충",
+                        "nextNodeId": "young_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_aten",
+                        "text": "아텐 신앙은 무엇인가요?",
+                        "preview": "아버지의 개혁",
+                        "nextNodeId": "aten_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "young_node",
+                "speakerId": "tutankhamun",
+                "emotion": "sad",
+                "text": "재상들이 대신 결정했다. 나는... 그저 왕좌에 앉아 있었을 뿐.\\n하지만 백성들을 위해 최선을 다했다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "aten_node",
+                "speakerId": "tutankhamun",
+                "emotion": "neutral",
+                "text": "아버지는 태양신 아텐만 섬기라 했다. 다른 신들을 부정했지.\\n하지만 백성들은 혼란스러워했다. 나는 전통 신앙으로 돌아갔다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "tutankhamun",
+                "emotion": "neutral",
+                "text": "나는 19살에 죽었다. 짧은 삶이었지만... 이집트를 사랑했다.\\n내 무덤이 발견될 줄은 몰랐지만, 그래도 기쁘다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "tutankhamun_discovery_01",
+        "characterId": "tutankhamun",
+        "title": "Discovery of the Tomb",
+        "titleKorean": "무덤의 발견",
+        "description": "1922년 투탕카멘 무덤 발견의 의미를 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_tut_discovery"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "tutankhamun",
+                "emotion": "happy",
+                "text": "3천 년 후, 하워드 카터가 내 무덤을 발견했다고 하더군.\\n거의 도굴되지 않은 채로.",
+                "choices": [
+                    {
+                        "id": "c1_treasure",
+                        "text": "무덤에는 무엇이 있었나요?",
+                        "preview": "부장품 이야기",
+                        "nextNodeId": "treasure_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_mask",
+                        "text": "황금 마스크가 유명하죠.",
+                        "preview": "황금 마스크 설명",
+                        "nextNodeId": "mask_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "treasure_node",
+                "speakerId": "tutankhamun",
+                "emotion": "neutral",
+                "text": "5천 개가 넘는 유물이 있었다. 황금 옥좌, 전차, 보석들...\\n내세를 위해 준비한 것들이지.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "mask_node",
+                "speakerId": "tutankhamun",
+                "emotion": "happy",
+                "text": "11kg의 순금으로 만들어졌다. 청금석과 흑요석으로 장식했지.\\n전 세계 사람들이 내 얼굴을 알게 되었다니... 신기하다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "tutankhamun",
+                "emotion": "thoughtful",
+                "text": "생전엔 중요하지 않은 왕이었지만, 죽어서 가장 유명해졌다.\\n역사는 참 아이러니하구나.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "tutankhamun_restoration_01",
+        "characterId": "tutankhamun",
+        "title": "Restoration of Faith",
+        "titleKorean": "신앙의 복원",
+        "description": "투탕카멘이 전통 신앙을 복원한 과정을 듣습니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "tutankhamun",
+                "emotion": "determined",
+                "text": "아버지의 개혁은 실패했다. 신관들과 백성들이 모두 원래 신들로 돌아가길 원했지.",
+                "choices": [
+                    {
+                        "id": "c1_decision",
+                        "text": "어떤 결정을 내리셨나요?",
+                        "nextNodeId": "decision_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "decision_node",
+                "speakerId": "tutankhamun",
+                "emotion": "neutral",
+                "text": "테베로 수도를 옮기고, 아문 신전을 다시 열었다.\\n이름도 투탕카텐에서 투탕카문으로 바꿨지. '아문의 살아있는 형상'이란 뜻이다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "tutankhamun",
+                "emotion": "happy",
+                "text": "백성들이 다시 웃었다. 그것만으로도 충분했다.\\n어린 왕이었지만, 백성을 위한 선택을 했다.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "imhotep_medicine_01",
+        "characterId": "imhotep",
+        "title": "God of Medicine",
+        "titleKorean": "의학의 신",
+        "description": "임호텝의 의학 지식과 후세에 신이 된 이야기를 듣습니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 120,
+                "unlockFactId": "fact_imhotep_medicine"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "imhotep",
+                "emotion": "thoughtful",
+                "text": "나는 평민 출신이지만 지식으로 재상의 자리까지 올랐다.\\n그리고 죽은 후... 의술의 신이 되었지.",
+                "choices": [
+                    {
+                        "id": "c1_medicine",
+                        "text": "어떤 의술을 행하셨나요?",
+                        "preview": "의학 업적",
+                        "nextNodeId": "medicine_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_god",
+                        "text": "어떻게 신이 되셨나요?",
+                        "preview": "신격화 과정",
+                        "nextNodeId": "god_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "medicine_node",
+                "speakerId": "imhotep",
+                "emotion": "neutral",
+                "text": "골절, 상처, 질병을 치료했다. 주술이 아닌 관찰과 경험으로.\\n약초를 연구하고, 수술 기법을 개발했지.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "god_node",
+                "speakerId": "imhotep",
+                "emotion": "happy",
+                "text": "죽은 지 2천 년 후, 사람들이 나를 치유의 신으로 숭배하기 시작했다.\\n그리스인들은 나를 아스클레피오스와 동일시했지.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "imhotep",
+                "emotion": "neutral",
+                "text": "평민이 신이 된 유일한 경우다. 지식의 힘을 증명한 셈이지.\\n그대도 배움을 멈추지 마라.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "imhotep_architect_01",
+        "characterId": "imhotep",
+        "title": "First Architect",
+        "titleKorean": "최초의 건축가",
+        "description": "임호텝이 최초로 계단식 피라미드를 설계한 이야기를 듣습니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_step_pyramid"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "imhotep",
+                "emotion": "neutral",
+                "text": "조세르 왕을 위해 사카라에 계단식 피라미드를 설계했다.\\n세계 최초의 거대 석조 건축물이지.",
+                "choices": [
+                    {
+                        "id": "c1_stone",
+                        "text": "왜 돌을 사용하셨나요?",
+                        "preview": "재료 선택",
+                        "nextNodeId": "stone_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_design",
+                        "text": "계단식 설계는 어떻게 생각하셨나요?",
+                        "preview": "설계 아이디어",
+                        "nextNodeId": "design_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "stone_node",
+                "speakerId": "imhotep",
+                "emotion": "determined",
+                "text": "진흙 벽돌은 썩지만 돌은 영원하다.\\n왕의 무덤은 영원해야 하니까.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "design_node",
+                "speakerId": "imhotep",
+                "emotion": "happy",
+                "text": "하늘로 오르는 계단이다. 파라오가 태양신 라에게 오를 수 있도록.\\n6단의 계단으로 높이 62미터를 쌓아올렸지.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "imhotep",
+                "emotion": "neutral",
+                "text": "이 피라미드가 후대의 모든 피라미드 건축의 시작이 되었다.\\n기자의 대피라미드도 내 아이디어에서 출발한 것이지.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "imhotep_wisdom_01",
+        "characterId": "imhotep",
+        "title": "Wisdom of Imhotep",
+        "titleKorean": "임호텝의 지혜",
+        "description": "임호텝의 다방면 지식과 철학을 듣습니다.",
+        "estimatedMinutes": 5,
+        "rewards": [
+            {
+                "knowledgePoints": 100
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "imhotep",
+                "emotion": "thoughtful",
+                "text": "나는 건축가이자 의사, 천문학자, 시인이었다.\\n모든 것을 배우려 했지. 지식에는 한계가 없으니까.",
+                "choices": [
+                    {
+                        "id": "c1_secret",
+                        "text": "지혜의 비결은 무엇인가요?",
+                        "preview": "지혜의 원천",
+                        "nextNodeId": "secret_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "secret_node",
+                "speakerId": "imhotep",
+                "emotion": "neutral",
+                "text": "끊임없이 질문하고, 관찰하고, 실험하는 것.\\n신관들은 주술에 의지했지만, 나는 이유를 찾으려 했다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "imhotep",
+                "emotion": "happy",
+                "text": "평민이었던 내가 신이 될 수 있었던 이유는 지식 때문이다.\\n신분은 태어나지만, 지혜는 얻는 것이다. 기억해라.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "cao_cao_hero_01",
+        "characterId": "cao_cao",
+        "title": "Definition of a Hero",
+        "titleKorean": "영웅의 정의",
+        "description": "Cao Cao asks you what defines a true hero in chaotic times.",
+        "estimatedMinutes": 3,
+        "rewards": [
+            {
+                "knowledgePoints": 30
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "cao_cao",
+                "emotion": "neutral",
+                "text": "The world is in chaos. Amidst this turmoil, many claim to be heroes. But tell me, traveler, what do you think defines a true hero?",
+                "choices": [
+                    {
+                        "id": "c1_might",
+                        "text": "Strength to conquer all.",
+                        "textKorean": "모든 것을 정복할 힘.",
+                        "nextNodeId": "might_node"
+                    },
+                    {
+                        "id": "c1_virtue",
+                        "text": "Virtue to save the people.",
+                        "textKorean": "백성을 구할 덕.",
+                        "nextNodeId": "virtue_node"
+                    },
+                    {
+                        "id": "c1_adapt",
+                        "text": "Adaptability to the times.",
+                        "textKorean": "시대에 적응하는 능력.",
+                        "nextNodeId": "adapt_node"
+                    }
+                ]
+            },
+            {
+                "id": "might_node",
+                "speakerId": "cao_cao",
+                "emotion": "happy",
+                "text": "Hahaha! Indeed, power is essential. Without power, one cannot protect anything. But brute force alone is not enough; one needs strategy to wield it.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "virtue_node",
+                "speakerId": "cao_cao",
+                "emotion": "angry",
+                "text": "Virtue? Bah! Hypocritical nonsense. Those who preach benevolence often lack the resolve to make the hard decisions necessary to end the chaos.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "adapt_node",
+                "speakerId": "cao_cao",
+                "emotion": "happy",
+                "text": "Precisely! A true hero is like water, adapting to the shape of the container. That is the only way to survive and thrive.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "cao_cao",
+                "emotion": "neutral",
+                "text": "Interesting perspective. Perhaps you have the makings of a strategist. We shall see.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "liu_bei_benevolence_01",
+        "characterId": "liu_bei",
+        "title": "The Burden of Virtue",
+        "titleKorean": "덕의 무게",
+        "description": "Liu Bei struggles with the cost of holding onto his principles.",
+        "estimatedMinutes": 3,
+        "rewards": [
+            {
+                "knowledgePoints": 30
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "liu_bei",
+                "emotion": "sad",
+                "text": "Look at these people... innocent families displaced by war. They follow me, yet I have no land to offer them. Am I leading them to ruin?",
+                "choices": [
+                    {
+                        "id": "c1_survival",
+                        "text": "You must prioritize survival.",
+                        "textKorean": "생존을 우선해야 합니다.",
+                        "nextNodeId": "survival_node"
+                    },
+                    {
+                        "id": "c1_virtue",
+                        "text": "They follow you for your virtue.",
+                        "textKorean": "그들은 당신의 덕을 따르는 것입니다.",
+                        "nextNodeId": "virtue_node"
+                    }
+                ]
+            },
+            {
+                "id": "survival_node",
+                "speakerId": "liu_bei",
+                "emotion": "sad",
+                "text": "Survival... yes. But if I abandon my principles to survive, am I any different from Cao Cao? A ruler who discards his people is no ruler at all.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "virtue_node",
+                "speakerId": "liu_bei",
+                "emotion": "happy",
+                "text": "You are kind. Indeed, as long as the people trust me, I cannot abandon them. Even if the path is arduous, I must walk it with them.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "liu_bei",
+                "emotion": "neutral",
+                "text": "Thank you for your words. The burden is heavy, but sharing it makes it lighter.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "zhuge_liang_strategy_01",
+        "characterId": "zhuge_liang",
+        "title": "The Longzhong Plan",
+        "titleKorean": "융중대책",
+        "description": "Zhuge Liang explains his grand strategy for the future.",
+        "estimatedMinutes": 4,
+        "rewards": [
+            {
+                "knowledgePoints": 40
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "zhuge_liang",
+                "emotion": "neutral",
+                "text": "The north is held by Cao Cao, millions strong. The south is held by the Sun clan, defensible by river. We cannot fight them directly.",
+                "choices": [
+                    {
+                        "id": "c1_surrender",
+                        "text": "Then we must surrender.",
+                        "textKorean": "그렇다면 항복해야 합니다.",
+                        "nextNodeId": "surrender_node"
+                    },
+                    {
+                        "id": "c1_third_option",
+                        "text": "Is there a third option?",
+                        "textKorean": "제3의 길이 있습니까?",
+                        "nextNodeId": "third_option_node"
+                    }
+                ]
+            },
+            {
+                "id": "surrender_node",
+                "speakerId": "zhuge_liang",
+                "emotion": "neutral",
+                "text": "Surrender would mean peace, but it would also mean the end of the Han. My lord seeks to restore the dynasty, not bury it.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "third_option_node",
+                "speakerId": "zhuge_liang",
+                "emotion": "happy",
+                "text": "Indeed. We must take Jing Province and Yi Province to the west. A tripod stands firm. With three kingdoms balancing each other, we can bide our time.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "zhuge_liang",
+                "emotion": "neutral",
+                "text": "Heaven's timing, Earth's advantage, and Human harmony. We need all three.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "guan_yu_loyalty_01",
+        "characterId": "guan_yu",
+        "title": "The Peach Garden Oath",
+        "titleKorean": "도원결의",
+        "description": "Guan Yu speaks of his bond with his sworn brothers.",
+        "estimatedMinutes": 3,
+        "rewards": [
+            {
+                "knowledgePoints": 30
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "guan_yu",
+                "emotion": "neutral",
+                "text": "Wealth and titles mean nothing to me. Cao Cao offered me everything, but my heart remains with my Brother Liu Bei.",
+                "choices": [
+                    {
+                        "id": "c1_bond",
+                        "text": "Why is this bond so strong?",
+                        "textKorean": "왜 그 유대감이 그렇게 강한가요?",
+                        "nextNodeId": "bond_node"
+                    },
+                    {
+                        "id": "c1_king",
+                        "text": "You could have been a King.",
+                        "textKorean": "당신은 왕이 될 수도 있었습니다.",
+                        "nextNodeId": "king_node"
+                    }
+                ]
+            },
+            {
+                "id": "bond_node",
+                "speakerId": "guan_yu",
+                "emotion": "happy",
+                "text": "In the Peach Garden, we swore to die on the same day. That oath is heavier than any mountain. A man without loyalty is a man without a soul.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "king_node",
+                "speakerId": "guan_yu",
+                "emotion": "angry",
+                "text": "Do not insult me! A king without honor is merely a bandit. I serve righteousness, not ambition.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "guan_yu",
+                "emotion": "neutral",
+                "text": "Remember this: Loyalty is the mark of a true warrior.",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "sun_quan_red_cliffs_01",
+        "characterId": "sun_quan",
+        "title": "Decision at Red Cliffs",
+        "titleKorean": "적벽의 결단",
+        "description": "Sun Quan faces the most critical decision of his life.",
+        "estimatedMinutes": 4,
+        "rewards": [
+            {
+                "knowledgePoints": 40
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "sun_quan",
+                "emotion": "neutral",
+                "text": "Cao Cao demands my submission. My advisors say we cannot win. But my generals say we must fight. The burden of this decision crushes me.",
+                "choices": [
+                    {
+                        "id": "c1_peace",
+                        "text": "Peace is safer.",
+                        "textKorean": "평화가 더 안전합니다.",
+                        "nextNodeId": "peace_node"
+                    },
+                    {
+                        "id": "c1_legacy",
+                        "text": "Trust in your legacy.",
+                        "textKorean": "가문의 유산을 믿으세요.",
+                        "nextNodeId": "legacy_node"
+                    }
+                ]
+            },
+            {
+                "id": "peace_node",
+                "speakerId": "sun_quan",
+                "emotion": "angry",
+                "text": "Safe... for now. But I would live as a hostage in my own land. My father and brother did not conquer these lands for me to give them away.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "sun_quan",
+                "emotion": "happy",
+                "text": "Yes. My brother Sun Ce conquered the Southlands with his courage. I will not be the one to lose it. We fight!",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "sun_quan",
+                "emotion": "neutral",
+                "text": "Prepare the ships! We meet Cao Cao at the river!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50
+                }
+            }
+        ]
+    },
+    {
+        "id": "jeongjo_hwaseong_01",
+        "characterId": "jeongjo",
+        "title": "Building Hwaseong Fortress",
+        "titleKorean": "화성 축조",
+        "description": "정조가 수원화성을 건설하며 효심과 개혁 의지를 담아낸 이야기를 듣습니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_hwaseong_construction"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jeongjo",
+                "emotion": "neutral",
+                "text": "이곳 수원에 새로운 성을 쌓고 있다네. 화성(華城)이라 이름 지었지.\n나의 아버지 사도세자의 묘소를 이곳으로 옮기고, 그 주변을 튼튼한 성곽으로 지키려 하네.\n그대는 이 공사를 보며 무엇이 떠오르는가?",
+                "choices": [
+                    {
+                        "id": "c1_filial",
+                        "text": "아버님을 향한 깊은 효심이 느껴집니다.",
+                        "preview": "효심에 공감하기",
+                        "nextNodeId": "filial_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_political",
+                        "text": "정치적 의도도 있지 않으신가요?",
+                        "preview": "정치적 목적 묻기",
+                        "nextNodeId": "political_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "filial_node",
+                "speakerId": "jeongjo",
+                "emotion": "sad",
+                "text": "그렇다... 아버지는 뒤주 안에서 안타깝게 돌아가셨지.\n할아버지 영조와 노론 대신들에 의해 비극적인 최후를 맞으셨다.\n나는 아들로서 아버지의 명예를 회복하고, 그 뜻을 이루고 싶다.",
+                "nextNodeId": "technology_node"
+            },
+            {
+                "id": "political_node",
+                "speakerId": "jeongjo",
+                "emotion": "serious",
+                "text": "날카롭구나. 맞다. 이 성은 단순한 방어 시설이 아니야.\n한양의 노론 세력을 견제하고, 왕권을 강화할 새로운 거점이 될 것이다.\n또한 이곳을 상업과 농업이 발달한 모범 도시로 만들어, 백성들에게도 이익이 되도록 하려네.",
+                "nextNodeId": "technology_node",
+                "reward": {
+                    "unlockFactId": "fact_hwaseong_political"
+                }
+            },
+            {
+                "id": "technology_node",
+                "speakerId": "jeongjo",
+                "emotion": "neutral",
+                "text": "이 공사에는 정약용이 설계한 거중기를 활용하고 있지.\n무거운 돌을 적은 인력으로 들어 올릴 수 있어 공사 기간도 단축되고 백성들의 수고도 덜었네.\n그리고 무엇보다...",
+                "choices": [
+                    {
+                        "id": "c2_wage",
+                        "text": "백성들에게 임금을 지급하신다고요?",
+                        "preview": "임금제 묻기",
+                        "nextNodeId": "wage_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "wage_node",
+                "speakerId": "jeongjo",
+                "emotion": "happy",
+                "text": "그렇다! 강제 부역이 아니라, 일한 만큼 품삯을 지급하고 있네.\n백성을 위한 성을 백성의 고혈로 짓는다면 무슨 의미가 있겠는가?\n이것이 내가 꿈꾸는 군주의 도리라네.",
+                "nextNodeId": "architecture_node",
+                "reward": {
+                    "unlockFactId": "fact_wage_labor_system"
+                }
+            },
+            {
+                "id": "architecture_node",
+                "speakerId": "jeongjo",
+                "emotion": "thoughtful",
+                "text": "화성은 조선 성곽 건축의 집대성이 될 것이다.\n벽돌과 석재를 함께 사용하고, 서양의 축성 기술도 참고했지.\n적대치, 공심돈, 암문 등 다양한 방어 시설을 갖추었네.",
+                "choices": [
+                    {
+                        "id": "c3_future",
+                        "text": "이 성이 조선의 미래를 지키겠군요.",
+                        "preview": "미래 비전",
+                        "nextNodeId": "vision_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_people",
+                        "text": "백성들도 기뻐하겠습니다.",
+                        "preview": "백성 중심",
+                        "nextNodeId": "people_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "vision_node",
+                "speakerId": "jeongjo",
+                "emotion": "determined",
+                "text": "그렇다. 이 화성은 나의 개혁 정치의 상징이 될 것이네.\n규장각의 인재들과 함께, 낡은 관습을 깨고 새로운 조선을 만들어갈 것이다.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "people_node",
+                "speakerId": "jeongjo",
+                "emotion": "happy",
+                "text": "백성이 국가의 근본이라는 것을 잊지 않으려 하네.\n아버지가 꿈꾸셨던 '백성이 편안한 나라', 내가 반드시 이루어내겠네.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jeongjo",
+                "emotion": "neutral",
+                "text": "화성은 곧 완성될 것이다. 그때가 되면 이곳에서 백성들과 함께 축제를 열 것이네.\n그대도 꼭 참석하게나!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_suwon_hwaseong_complete"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jang_celestial_01",
+        "characterId": "jang_yeongshil",
+        "title": "Observing the Heavens",
+        "titleKorean": "하늘을 관측하다",
+        "description": "장영실이 혼천의와 간의 등 천문 관측 기구를 제작한 이야기를 듣습니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_astronomical_instruments"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jang_yeongshil",
+                "emotion": "neutral",
+                "text": "이것 좀 보게. 혼천의(渾天儀)라고 하네.\n하늘의 별자리와 천체의 움직임을 관측하는 기구지.\n전하께서 정확한 천문 관측을 위해 만들라 하셨어.",
+                "choices": [
+                    {
+                        "id": "c1_why",
+                        "text": "왜 하늘을 관측하는 게 중요한가요?",
+                        "preview": "중요성 묻기",
+                        "nextNodeId": "importance_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_how",
+                        "text": "어떻게 작동하나요?",
+                        "preview": "원리 묻기",
+                        "nextNodeId": "principle_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "importance_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "thoughtful",
+                "text": "농사는 절기를 따라야 하고, 국가의 중요한 일은 길일을 택해야 하지.\n또한 일식이나 월식 같은 천문 현상을 미리 알아야 백성들이 놀라지 않아.\n정확한 역법(曆法)을 만들려면 천문 관측이 필수라네.",
+                "nextNodeId": "instruments_node"
+            },
+            {
+                "id": "principle_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "excited",
+                "text": "이 혼천의는 여러 겹의 고리로 이루어져 있지.\n바깥 고리는 지평을, 안쪽 고리는 천체의 적도를 나타내네.\n고리를 돌려가며 별의 위치를 정확히 측정할 수 있어.",
+                "nextNodeId": "instruments_node",
+                "reward": {
+                    "unlockFactId": "fact_honcheonui_principle"
+                }
+            },
+            {
+                "id": "instruments_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "neutral",
+                "text": "혼천의 외에도 간의(簡儀)라는 것도 만들었지.\n이것은 혼천의보다 간단하면서도 더 정밀하게 천체의 위치를 측정할 수 있어.\n중국의 것을 참고했지만, 우리 실정에 맞게 개량했다네.",
+                "choices": [
+                    {
+                        "id": "c2_sejong",
+                        "text": "세종대왕께서 크게 기뻐하시겠어요.",
+                        "preview": "세종의 반응",
+                        "nextNodeId": "sejong_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c2_difficulty",
+                        "text": "만들 때 어려운 점은 없었나요?",
+                        "preview": "제작 과정",
+                        "nextNodeId": "difficulty_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sejong_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "happy",
+                "text": "전하께서는 항상 백성을 위한 과학 기술을 강조하시지.\n'백성이 때를 알아야 농사를 잘 지을 수 있다'고 하시며 밤낮으로 연구를 격려하셨어.\n나 같은 천민 출신도 능력만 있으면 중용하시는 성군이시지.",
+                "nextNodeId": "legacy_node"
+            },
+            {
+                "id": "difficulty_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "thoughtful",
+                "text": "정밀한 눈금을 새기고, 각도를 정확히 맞추는 게 가장 어려웠어.\n조금만 어긋나도 관측 결과가 크게 달라지거든.\n수십 번 시행착오를 거쳐 겨우 완성했다네.",
+                "nextNodeId": "legacy_node",
+                "reward": {
+                    "unlockFactId": "fact_precision_crafting"
+                }
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "serious",
+                "text": "이 기구들로 조선만의 정확한 역법을 만들 수 있게 되었어.\n더 이상 중국의 역법에만 의존하지 않아도 되는 거지.\n이것이야말로 진정한 자주독립이 아니겠는가?",
+                "choices": [
+                    {
+                        "id": "c3_pride",
+                        "text": "조선의 과학 기술이 자랑스럽습니다.",
+                        "preview": "자부심",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jang_yeongshil",
+                "emotion": "happy",
+                "text": "고맙네. 앞으로도 백성을 위한 과학 기구를 더 많이 만들 것이네.\n측우기, 풍기대... 모두 백성의 삶을 풍요롭게 할 것들이지!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_joseon_science"
+                }
+            }
+        ]
+    },
+    {
+        "id": "heo_plague_01",
+        "characterId": "heo_jun",
+        "title": "Fighting the Plague",
+        "titleKorean": "역병과의 싸움",
+        "description": "허준이 전염병을 치료하며 동의보감을 집필하게 된 계기를 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 140,
+                "unlockFactId": "fact_epidemic_treatment"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "heo_jun",
+                "emotion": "sad",
+                "text": "또 역병이 돌고 있소이다...\n가난한 백성들은 약을 구하지 못해 속수무책으로 죽어가고 있소.\n귀한 약재로만 병을 고치려 하니, 백성들에게 무슨 소용이 있겠소?",
+                "choices": [
+                    {
+                        "id": "c1_help",
+                        "text": "어떻게 도울 수 있을까요?",
+                        "preview": "돕고 싶음",
+                        "nextNodeId": "treatment_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_cause",
+                        "text": "역병의 원인을 아시나요?",
+                        "preview": "원인 묻기",
+                        "nextNodeId": "cause_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "treatment_node",
+                "speakerId": "heo_jun",
+                "emotion": "neutral",
+                "text": "고맙소. 지금 환자들에게 침을 놓고, 우리 땅에서 나는 약초로 탕약을 지어주고 있소.\n인삼이나 사향 같은 귀한 약재가 아니어도, 쑥이나 감초로도 충분히 효과를 볼 수 있다오.",
+                "nextNodeId": "philosophy_node"
+            },
+            {
+                "id": "cause_node",
+                "speakerId": "heo_jun",
+                "emotion": "thoughtful",
+                "text": "역병은 습기와 더위가 뒤섞인 환경에서 발생하는 것 같소.\n또한 굶주림과 피로로 몸이 약해진 사람들이 더 쉽게 걸린다오.\n결국 백성의 삶이 나아져야 역병도 줄어들 것이오.",
+                "nextNodeId": "philosophy_node",
+                "reward": {
+                    "unlockFactId": "fact_disease_understanding"
+                }
+            },
+            {
+                "id": "philosophy_node",
+                "speakerId": "heo_jun",
+                "emotion": "serious",
+                "text": "내가 의원이 된 것은 벼슬을 하기 위함이 아니라, 백성을 구하기 위함이오.\n임진왜란 때 수많은 백성이 죽어가는 것을 보고 결심했소.\n누구나 쉽게 구할 수 있는 약재로, 누구나 치료받을 수 있는 의학을 만들겠다고.",
+                "choices": [
+                    {
+                        "id": "c2_book",
+                        "text": "그래서 책을 쓰고 계신가요?",
+                        "preview": "동의보감",
+                        "nextNodeId": "book_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "book_node",
+                "speakerId": "heo_jun",
+                "emotion": "neutral",
+                "text": "그렇소. '동의보감(東醫寶鑑)'이라는 이름으로 우리 조선의 의학을 집대성하고 있소.\n중국의 의서들을 참고하되, 우리 풍토와 체질에 맞는 치료법을 정리하고 있소.\n우리 땅에서 나는 약초들의 효능도 자세히 기록하고 있다오.",
+                "nextNodeId": "accessibility_node",
+                "reward": {
+                    "unlockFactId": "fact_dongui_bogam_writing"
+                }
+            },
+            {
+                "id": "accessibility_node",
+                "speakerId": "heo_jun",
+                "emotion": "thoughtful",
+                "text": "이 책은 단순히 의원들만을 위한 것이 아니오.\n일반 백성들도 읽고 이해할 수 있도록 쉽게 쓰려 노력하고 있소.\n병명, 증상, 치료법을 체계적으로 정리하여 누구나 찾아볼 수 있게 하려 하오.",
+                "choices": [
+                    {
+                        "id": "c3_dedication",
+                        "text": "평생을 바치신 거네요.",
+                        "preview": "헌신",
+                        "nextNodeId": "dedication_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_future",
+                        "text": "많은 생명을 구하실 겁니다.",
+                        "preview": "미래 가치",
+                        "nextNodeId": "future_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "dedication_node",
+                "speakerId": "heo_jun",
+                "emotion": "neutral",
+                "text": "의원으로서 당연한 일을 할 뿐이오.\n다만 이 책이 완성되면, 내가 죽은 후에도 계속해서 백성들을 구할 수 있겠지요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "future_node",
+                "speakerId": "heo_jun",
+                "emotion": "happy",
+                "text": "그렇게만 된다면 더 바랄 게 없겠소.\n약방에서 약을 못 구하는 시골 마을에서도, 이 책만 있으면 스스로 병을 고칠 수 있을 것이오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "heo_jun",
+                "emotion": "determined",
+                "text": "이제 환자들을 더 돌봐야겠소. 역병이 잦아들 때까지 쉴 수 없소이다.\n그대도 건강을 조심하시오!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_heo_jun_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "toegye_philosophy_01",
+        "characterId": "toegye",
+        "title": "Neo-Confucian Philosophy",
+        "titleKorean": "성리학의 길",
+        "description": "이황이 사단칠정론과 이기론을 설명하며 성리학의 깊은 뜻을 전합니다.",
+        "estimatedMinutes": 8,
+        "rewards": [
+            {
+                "knowledgePoints": 160,
+                "unlockFactId": "fact_toegye_philosophy"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "toegye",
+                "emotion": "thoughtful",
+                "text": "어서 오게. 막 성학십도(聖學十圖)를 정리하던 참이었네.\n임금이 성군이 되기 위해서는 무엇보다 마음을 바로잡는 것이 중요하다네.\n그대는 사람의 마음에 대해 생각해본 적이 있는가?",
+                "choices": [
+                    {
+                        "id": "c1_curious",
+                        "text": "사단칠정이란 무엇인가요?",
+                        "preview": "사단칠정 묻기",
+                        "nextNodeId": "sadan_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_difficult",
+                        "text": "너무 어려운 이야기 같습니다.",
+                        "preview": "어려움 표현",
+                        "nextNodeId": "explain_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sadan_node",
+                "speakerId": "toegye",
+                "emotion": "neutral",
+                "text": "좋은 질문이네. 사단(四端)은 측은지심, 수오지심, 사양지심, 시비지심을 말하지.\n즉 남을 불쌍히 여기고, 부끄러워하고, 양보하고, 옳고 그름을 가리는 마음이네.\n이것은 인간이 태어날 때부터 가진 선한 마음의 싹이라네.",
+                "nextNodeId": "chiljeong_node"
+            },
+            {
+                "id": "explain_node",
+                "speakerId": "toegye",
+                "emotion": "happy",
+                "text": "하하, 처음엔 모두 그렇다네. 쉽게 설명해주지.\n사람의 마음에는 선한 마음도 있고, 희로애락 같은 감정도 있네.\n이 둘이 어떻게 생겨나는지를 연구하는 것이 성리학이라네.",
+                "nextNodeId": "chiljeong_node"
+            },
+            {
+                "id": "chiljeong_node",
+                "speakerId": "toegye",
+                "emotion": "thoughtful",
+                "text": "칠정(七情)은 희(기쁨), 노(노여움), 애(슬픔), 구(두려움), 애(사랑), 오(미움), 욕(욕심)을 말하지.\n이것은 외부 환경에 반응하여 일어나는 자연스러운 감정이네.\n사단과 칠정의 관계를 이해하는 것이 수양의 핵심이라네.",
+                "choices": [
+                    {
+                        "id": "c2_difference",
+                        "text": "둘의 차이점은 무엇인가요?",
+                        "preview": "차이점 묻기",
+                        "nextNodeId": "difference_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "difference_node",
+                "speakerId": "toegye",
+                "emotion": "serious",
+                "text": "사단은 이(理, 본성)에서 나오고, 칠정은 기(氣, 감정)에서 나온다고 보네.\n사단은 순수하게 선하지만, 칠정은 지나치면 악이 될 수 있지.\n그래서 우리는 사단을 기르고, 칠정을 절제해야 하네.",
+                "nextNodeId": "cultivation_node",
+                "reward": {
+                    "unlockFactId": "fact_li_qi_theory"
+                }
+            },
+            {
+                "id": "cultivation_node",
+                "speakerId": "toegye",
+                "emotion": "neutral",
+                "text": "이것이 바로 '경(敬)' 사상이네. 항상 마음을 경건히 하여 흐트러지지 않게 하는 것이지.\n아침에 일어나서 옷을 여미고, 책을 읽을 때도, 사람을 대할 때도 항상 경건한 마음을 유지하네.",
+                "choices": [
+                    {
+                        "id": "c3_practice",
+                        "text": "실천하기 어렵지 않나요?",
+                        "preview": "실천 방법",
+                        "nextNodeId": "practice_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_ruler",
+                        "text": "임금에게는 why 중요한가요?",
+                        "preview": "정치 적용",
+                        "nextNodeId": "ruler_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "practice_node",
+                "speakerId": "toegye",
+                "emotion": "thoughtful",
+                "text": "처음엔 어렵지. 하지만 매일 조금씩 실천하면 자연스럽게 몸에 배이게 되네.\n독서를 하고, 조용히 명상하고, 예절을 지키는 것부터 시작하면 되네.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "ruler_node",
+                "speakerId": "toegye",
+                "emotion": "serious",
+                "text": "임금의 마음가짐이 온 나라를 좌우하네.\n임금이 경건한 마음으로 백성을 대하면 좋은 정치가 이루어지고,\n사욕에 빠지면 나라가 어지러워지지. 그래서 성학십도를 지어 선조 임금께 올렸네.",
+                "nextNodeId": "end_node",
+                "reward": {
+                    "unlockFactId": "fact_seonghak_sipdo"
+                }
+            },
+            {
+                "id": "end_node",
+                "speakerId": "toegye",
+                "emotion": "happy",
+                "text": "오늘 대화가 즐거웠네. 학문은 끝이 없지만, 매일 조금씩 나아가면 되네.\n그대도 꾸준히 공부하여 자신을 닦기 바라네!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 60,
+                    "unlockFactId": "fact_toegye_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "toegye_education_01",
+        "characterId": "toegye",
+        "title": "Educational Philosophy",
+        "titleKorean": "교육의 도",
+        "description": "이황이 도산서원에서 제자들을 가르치며 교육 철학을 나눕니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_dosan_seowon"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "toegye",
+                "emotion": "neutral",
+                "text": "이곳이 내가 지은 도산서원이네. 낙동강이 내려다보이는 이 조용한 곳에서\n벼슬을 버리고 제자들을 가르치며 학문에 전념하고 있지.\n그대는 배움이란 무엇이라 생각하는가?",
+                "choices": [
+                    {
+                        "id": "c1_knowledge",
+                        "text": "지식을 쌓는 것입니다.",
+                        "preview": "지식 중심",
+                        "nextNodeId": "knowledge_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_character",
+                        "text": "인격을 닦는 것입니다.",
+                        "preview": "인격 수양",
+                        "nextNodeId": "character_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "knowledge_node",
+                "speakerId": "toegye",
+                "emotion": "thoughtful",
+                "text": "지식도 중요하지. 하지만 지식만 많고 덕이 없으면 무슨 소용이겠는가?\n책을 많이 읽되, 그것을 실천하지 않으면 진정한 배움이 아니라네.",
+                "nextNodeId": "true_learning_node"
+            },
+            {
+                "id": "character_node",
+                "speakerId": "toegye",
+                "emotion": "happy",
+                "text": "잘 이해하고 있구나! 맞네, 배움의 목적은 바로 인격을 닦는 것이지.\n지식은 수단이고, 인격 수양이 목적이라네.\n이것이 바로 군자(君子)가 되는 길이네.",
+                "nextNodeId": "true_learning_node",
+                "reward": {
+                    "unlockFactId": "fact_character_education"
+                }
+            },
+            {
+                "id": "true_learning_node",
+                "speakerId": "toegye",
+                "emotion": "serious",
+                "text": "진정한 배움은 '독서-사색-실천'의 순환이라네.\n책을 읽고(讀書), 깊이 생각하고(思索), 일상에서 실천하는(實踐) 것이지.\n나는 제자들에게 항상 이 세 가지를 강조하네.",
+                "choices": [
+                    {
+                        "id": "c2_students",
+                        "text": "제자들을 어떻게 가르치시나요?",
+                        "preview": "교육 방법",
+                        "nextNodeId": "teaching_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "teaching_node",
+                "speakerId": "toegye",
+                "emotion": "neutral",
+                "text": "제자마다 재능과 성격이 다르네. 그래서 각자에 맞는 방법으로 가르치지.\n어떤 이는 글을 좋아하니 더 많은 책을 권하고,\n어떤 이는 실천을 좋아하니 예절과 실무를 가르치네.\n이것을 '인재 양성'이라 하네.",
+                "nextNodeId": "seowon_node",
+                "reward": {
+                    "unlockFactId": "fact_individualized_education"
+                }
+            },
+            {
+                "id": "seowon_node",
+                "speakerId": "toegye",
+                "emotion": "thoughtful",
+                "text": "이 도산서원은 단순한 학교가 아니라네.\n함께 생활하며 학문을 논하고, 인격을 닦고, 서로 격려하는 공동체지.\n아침에 일어나 예를 올리고, 낮에는 공부하고, 저녁에는 반성하는 규칙적인 생활을 하네.",
+                "choices": [
+                    {
+                        "id": "c3_legacy",
+                        "text": "선생님의 뜻이 후세에 전해질 겁니다.",
+                        "preview": "유산",
+                        "nextNodeId": "legacy_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_hope",
+                        "text": "제자들이 훌륭한 인재가 되겠네요.",
+                        "preview": "미래 희망",
+                        "nextNodeId": "hope_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "toegye",
+                "emotion": "neutral",
+                "text": "그렇게만 된다면 다행이겠네. 나는 다만 맡은 도리를 다할 뿐이네.\n중요한 것은 이 제자들이 배운 것을 세상에 널리 펼치는 것이지.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "hope_node",
+                "speakerId": "toegye",
+                "emotion": "happy",
+                "text": "그렇게 되길 바라네. 이들이 관직에 나가서는 청렴한 관리가 되고,\n고향에 머물면 지역을 이끄는 지도자가 되길 바라네.\n이것이 교육의 진정한 목적이라네.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "toegye",
+                "emotion": "neutral",
+                "text": "해가 기울어가는구나. 이제 제자들과 함께 저녁 강론을 해야겠네.\n그대도 언제든 이곳을 찾아와 함께 공부하기 바라네!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_toegye_educational_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "yulgok_reform_01",
+        "characterId": "yulgok",
+        "title": "Reform Proposals",
+        "titleKorean": "개혁의 길",
+        "description": "이이가 10만 양병설과 사회 개혁안을 제시하며 조선의 미래를 걱정합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_yulgok_reforms"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "yulgok",
+                "emotion": "serious",
+                "text": "요즘 나라의 형세가 심상치 않소이다.\n외적의 침입 위협은 커지는데, 군사력은 약하고, 백성들의 삶은 피폐해지고 있소.\n지금 당장 개혁하지 않으면 조선의 앞날이 위태롭소.",
+                "choices": [
+                    {
+                        "id": "c1_military",
+                        "text": "군사 개혁이 시급하다는 말씀이신가요?",
+                        "preview": "군사력 강화",
+                        "nextNodeId": "military_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_people",
+                        "text": "백성들의 삶을 먼저 챙겨야 하지 않을까요?",
+                        "preview": "민생 우선",
+                        "nextNodeId": "people_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "military_node",
+                "speakerId": "yulgok",
+                "emotion": "neutral",
+                "text": "맞소. 나는 10만 양병설(十萬養兵說)을 주장하고 있소.\n평시에 10만 명의 정예병을 양성하여 전쟁에 대비해야 하오.\n임진왜란이 일어나기 전에 미리 준비해야 한다오!",
+                "nextNodeId": "reform_vision_node",
+                "reward": {
+                    "unlockFactId": "fact_100000_soldiers"
+                }
+            },
+            {
+                "id": "people_node",
+                "speakerId": "yulgok",
+                "emotion": "thoughtful",
+                "text": "물론이오. 백성이 편안해야 나라도 강해지는 법이오.\n하지만 외적의 침입을 막지 못하면 백성들이 더 큰 고통을 받게 될 것이오.\n안보와 민생, 둘 다 챙겨야 한다오.",
+                "nextNodeId": "reform_vision_node"
+            },
+            {
+                "id": "reform_vision_node",
+                "speakerId": "yulgok",
+                "emotion": "serious",
+                "text": "내가 제시한 개혁안은 단순히 군사만을 다룬 것이 아니오.\n토지 제도 개혁, 조세 제도 개선, 관리 선발 방식 혁신...\n모두 백성을 위한, 나라를 튼튼하게 하기 위한 방안들이오.",
+                "choices": [
+                    {
+                        "id": "c2_land",
+                        "text": "토지 제도는 어떻게 바꾸려 하시나요?",
+                        "preview": "토지 개혁",
+                        "nextNodeId": "land_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_tax",
+                        "text": "조세 제도의 문제는 무엇인가요?",
+                        "preview": "조세 개혁",
+                        "nextNodeId": "tax_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "land_node",
+                "speakerId": "yulgok",
+                "emotion": "thoughtful",
+                "text": "지금은 토지가 양반과 권세가들에게 집중되어 있소.\n백성들은 땅이 없어 소작농으로 전락하고, 세금 부담만 늘어나고 있소.\n토지를 재분배하고, 농민에게 경작할 땅을 보장해야 하오.",
+                "nextNodeId": "opposition_node",
+                "reward": {
+                    "unlockFactId": "fact_land_reform"
+                }
+            },
+            {
+                "id": "tax_node",
+                "speakerId": "yulgok",
+                "emotion": "serious",
+                "text": "조세가 불공평하게 걷히고 있소. 가난한 백성들만 세금을 내고,\n양반과 권력자들은 면세 혜택을 누리고 있소.\n모든 토지에 공평하게 세금을 부과하는 제도가 필요하오.",
+                "nextNodeId": "opposition_node",
+                "reward": {
+                    "unlockFactId": "fact_tax_reform"
+                }
+            },
+            {
+                "id": "opposition_node",
+                "speakerId": "yulgok",
+                "emotion": "sad",
+                "text": "하지만... 이런 개혁안들은 모두 기득권층의 반대에 부딪히고 있소.\n선조 임금께 여러 번 상소를 올렸지만, 실행되지 못하고 있소.\n답답하고 안타까울 따름이오.",
+                "choices": [
+                    {
+                        "id": "c3_continue",
+                        "text": "포기하지 마시고 계속 노력하셔야죠.",
+                        "preview": "격려",
+                        "nextNodeId": "determination_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_future",
+                        "text": "후대가 선생님의 뜻을 이어받을 겁니다.",
+                        "preview": "미래 희망",
+                        "nextNodeId": "legacy_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "determination_node",
+                "speakerId": "yulgok",
+                "emotion": "determined",
+                "text": "고맙소. 나는 포기하지 않을 것이오.\n비록 지금은 받아들여지지 않더라도, 언젠가는 이 개혁안이 빛을 볼 것이라 믿소.\n나라를 사랑하는 마음만 있다면 방법은 찾을 수 있을 것이오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "yulgok",
+                "emotion": "neutral",
+                "text": "그렇게 되길 바라오... 내가 죽은 후에라도 이 개혁안들이 실현되어\n조선이 강한 나라가 되고, 백성들이 편안하게 살 수 있다면\n그것으로 족하오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "yulgok",
+                "emotion": "serious",
+                "text": "이제 다시 상소문을 써야겠소. 임금께서 귀 기울여 주시길 기도하며...\n그대도 나라를 걱정하는 마음을 잊지 마시오!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_yulgok_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "yulgok_society_01",
+        "characterId": "yulgok",
+        "title": "Social Philosophy",
+        "titleKorean": "사회를 바라보다",
+        "description": "이이가 바라본 이상적인 사회 제도와 백성을 위한 정치를 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 140,
+                "unlockFactId": "fact_yulgok_social_thought"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "yulgok",
+                "emotion": "thoughtful",
+                "text": "나는 평생 '경세제민(經世濟民)'을 꿈꿔왔소.\n세상을 다스리고 백성을 구제한다는 뜻이지요.\n그대가 생각하는 좋은 정치란 무엇이오?",
+                "choices": [
+                    {
+                        "id": "c1_order",
+                        "text": "질서가 잘 잡힌 사회입니다.",
+                        "preview": "질서 중시",
+                        "nextNodeId": "order_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_welfare",
+                        "text": "백성이 잘 사는 사회입니다.",
+                        "preview": "민생 중시",
+                        "nextNodeId": "welfare_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "order_node",
+                "speakerId": "yulgok",
+                "emotion": "neutral",
+                "text": "질서도 중요하오. 하지만 질서만 있고 백성이 굶주린다면 무슨 소용이겠소?\n진정한 질서는 백성이 편안할 때 자연스럽게 이루어지는 것이오.",
+                "nextNodeId": "ideal_society_node"
+            },
+            {
+                "id": "welfare_node",
+                "speakerId": "yulgok",
+                "emotion": "happy",
+                "text": "바로 그것이오! 정치의 목적은 백성을 잘 살게 하는 것이오.\n백성이 먹고살 걱정 없이 편안하면, 나라도 자연히 안정되는 법이오.",
+                "nextNodeId": "ideal_society_node",
+                "reward": {
+                    "unlockFactId": "fact_people_centered_politics"
+                }
+            },
+            {
+                "id": "ideal_society_node",
+                "speakerId": "yulgok",
+                "emotion": "thoughtful",
+                "text": "나는 '양반과 평민이 함께 잘 사는 사회'를 꿈꾸오.\n신분의 차이는 있을지언정, 모두가 인간다운 삶을 살 수 있어야 하오.\n교육의 기회도, 일할 기회도 공평하게 주어져야 한다오.",
+                "choices": [
+                    {
+                        "id": "c2_education",
+                        "text": "교육이 그렇게 중요한가요?",
+                        "preview": "교육의 중요성",
+                        "nextNodeId": "education_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "education_node",
+                "speakerId": "yulgok",
+                "emotion": "serious",
+                "text": "매우 중요하오! 교육은 사람을 사람답게 만드는 것이오.\n양반의 자제든, 평민의 자식이든, 제대로 배우면 훌륭한 사람이 될 수 있소.\n나는 서원을 세워 신분에 관계없이 배우고 싶은 이들을 가르치고 있소.",
+                "nextNodeId": "practical_node",
+                "reward": {
+                    "unlockFactId": "fact_education_equality"
+                }
+            },
+            {
+                "id": "practical_node",
+                "speakerId": "yulgok",
+                "emotion": "neutral",
+                "text": "하지만 공부만으로는 부족하오. 실천이 중요하지.\n나는 '실학(實學)'을 강조하오. 백성에게 실제로 도움이 되는 학문 말이오.\n농사법, 의학, 과학 기술... 이런 것들을 배워 백성을 이롭게 해야 하오.",
+                "choices": [
+                    {
+                        "id": "c3_toegye",
+                        "text": "퇴계 선생님과는 다른 생각이시네요.",
+                        "preview": "퇴계와 비교",
+                        "nextNodeId": "toegye_comparison_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_practice",
+                        "text": "실천을 어떻게 하면 될까요?",
+                        "preview": "실천 방법",
+                        "nextNodeId": "practice_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "toegye_comparison_node",
+                "speakerId": "yulgok",
+                "emotion": "neutral",
+                "text": "퇴계 선생님은 심성 수양을 중시하셨고, 나는 실천을 강조하오.\n하지만 궁극적으로는 같은 목표를 향하고 있소.\n군자가 되어 세상을 이롭게 하는 것 말이오.",
+                "nextNodeId": "end_node",
+                "reward": {
+                    "unlockFactId": "fact_toegye_yulgok_comparison"
+                }
+            },
+            {
+                "id": "practice_node",
+                "speakerId": "yulgok",
+                "emotion": "thoughtful",
+                "text": "먼저 자신의 위치에서 최선을 다하는 것이오.\n관리라면 청렴하게, 농부라면 부지런히, 학자라면 성실히...\n각자의 자리에서 성실하게 살면, 그것이 곧 세상을 바꾸는 힘이 되오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "yulgok",
+                "emotion": "happy",
+                "text": "오늘 그대와 좋은 대화를 나누었소.\n작은 실천이 모여 큰 변화를 만든다는 것, 잊지 마시오!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_yulgok_practical_learning"
+                }
+            }
+        ]
+    },
+    {
+        "id": "danwon_art_01",
+        "characterId": "danwon",
+        "title": "Art of Common People",
+        "titleKorean": "서민을 그리다",
+        "description": "김홍도가 풍속화를 통해 백성들의 삶을 기록하는 이유를 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_danwon_genre_painting"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "danwon",
+                "emotion": "happy",
+                "text": "이리 오게나. 막 그림을 그리고 있었다네.\n씨름하는 사람들을 그리고 있었지. 보게나, 이 역동적인 움직임을!",
+                "choices": [
+                    {
+                        "id": "c1_interesting",
+                        "text": "정말 생생하네요! 움직이는 것 같아요.",
+                        "preview": "그림 칭찬",
+                        "nextNodeId": "technique_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_why",
+                        "text": "왜 서민들의 모습을 그리시나요?",
+                        "preview": "주제 선택 이유",
+                        "nextNodeId": "subject_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "technique_node",
+                "speakerId": "danwon",
+                "emotion": "neutral",
+                "text": "고맙네. 사람의 동작을 포착하는 것이 쉽지 않지.\n근육의 긴장, 표정의 변화, 옷자락의 움직임... 모든 것을 관찰해야 하네.\n나는 시장이며 들판이며 다니며 백성들의 모습을 그려왔다네.",
+                "nextNodeId": "philosophy_node"
+            },
+            {
+                "id": "subject_node",
+                "speakerId": "danwon",
+                "emotion": "thoughtful",
+                "text": "좋은 질문이네. 양반이나 왕족의 초상화도 중요하지.\n하지만 백성들의 일상, 그들의 희로애락이야말로 진짜 조선의 모습이 아니겠나?\n나는 이 시대를 살아가는 사람들의 진실을 그리고 싶다네.",
+                "nextNodeId": "philosophy_node",
+                "reward": {
+                    "unlockFactId": "fact_genre_painting_value"
+                }
+            },
+            {
+                "id": "philosophy_node",
+                "speakerId": "danwon",
+                "emotion": "serious",
+                "text": "대장간에서 일하는 대장장이, 밭을 가는 농부, 길쌈하는 여인...\n이들이 없다면 조선은 돌아가지 않네.\n그들의 수고와 땀을 기록으로 남기는 것이 화가의 도리라고 생각하네.",
+                "choices": [
+                    {
+                        "id": "c2_official",
+                        "text": "도화서 화원으로서도 바쁘시겠어요.",
+                        "preview": "공식 임무",
+                        "nextNodeId": "official_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c2_joy",
+                        "text": "그림 그리는 게 즐거우신가요?",
+                        "preview": "예술의 기쁨",
+                        "nextNodeId": "joy_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "official_node",
+                "speakerId": "danwon",
+                "emotion": "neutral",
+                "text": "맞네. 정조 대왕께서 나를 총애하셔서 많은 일을 맡기시지.\n궁중 행사를 기록하고, 임금님의 초상화를 그리고...\n하지만 내 마음이 가는 곳은 역시 백성들의 모습이라네.",
+                "nextNodeId": "future_node"
+            },
+            {
+                "id": "joy_node",
+                "speakerId": "danwon",
+                "emotion": "happy",
+                "text": "물론이지! 그림을 그릴 때만큼은 모든 걱정을 잊게 되네.\n붓을 들고 종이 위에 생명을 불어넣는 그 순간이 가장 행복하다네.\n특히 사람들이 내 그림을 보고 웃을 때, 그때가 최고지!",
+                "nextNodeId": "future_node",
+                "reward": {
+                    "unlockFactId": "fact_artist_joy"
+                }
+            },
+            {
+                "id": "future_node",
+                "speakerId": "danwon",
+                "emotion": "thoughtful",
+                "text": "내가 그린 이 풍속화들이 후세에 남아서,\n사람들이 '아, 조선 시대 백성들은 이렇게 살았구나'라고 알 수 있다면\n그것으로 족하다네.",
+                "choices": [
+                    {
+                        "id": "c3_legacy",
+                        "text": "꼭 그렇게 될 겁니다!",
+                        "preview": "격려",
+                        "nextNodeId": "end_node",
+                        "reward": {
+                            "knowledgePoints": 30
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "end_node",
+                "speakerId": "danwon",
+                "emotion": "happy",
+                "text": "고맙네! 자, 이제 다시 그림을 그려야겠네.\n오늘은 타작하는 모습을 그려볼 생각이라네. 함께 보겠나?",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_danwon_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "danwon_life_01",
+        "characterId": "danwon",
+        "title": "Life of a Court Painter",
+        "titleKorean": "화원의 삶",
+        "description": "김홍도가 도화서 화원으로서의 삶과 예술가로서의 고뇌를 나눕니다.",
+        "estimatedMinutes": 6,
+        "rewards": [
+            {
+                "knowledgePoints": 130,
+                "unlockFactId": "fact_dohwaseo_painter"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "danwon",
+                "emotion": "neutral",
+                "text": "도화서(圖畫署)... 나는 이곳에서 화원으로 일하고 있다네.\n왕실의 그림을 그리는 일이지. 영광스러운 일이지만, 때로는 힘들기도 하네.",
+                "choices": [
+                    {
+                        "id": "c1_work",
+                        "text": "어떤 일을 하시나요?",
+                        "preview": "업무 내용",
+                        "nextNodeId": "work_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_difficulty",
+                        "text": "무엇이 힘드신가요?",
+                        "preview": "어려움",
+                        "nextNodeId": "difficulty_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "work_node",
+                "speakerId": "danwon",
+                "emotion": "neutral",
+                "text": "왕과 왕족의 초상화(御眞)를 그리고, 궁중 행사를 기록하고,\n외국 사신에게 줄 선물 그림도 그리지.\n또 지도를 그리거나, 건축 설계도를 그리기도 하네.",
+                "nextNodeId": "king_node"
+            },
+            {
+                "id": "difficulty_node",
+                "speakerId": "danwon",
+                "emotion": "sad",
+                "text": "관료들의 간섭이 심할 때가 있지.\n'이렇게 그려라, 저렇게 그려라' 하면서 내 예술성을 인정하지 않을 때가 있네.\n하지만 나는 화원이니 따라야 하지...",
+                "nextNodeId": "king_node",
+                "reward": {
+                    "unlockFactId": "fact_court_painter_constraints"
+                }
+            },
+            {
+                "id": "king_node",
+                "speakerId": "danwon",
+                "emotion": "happy",
+                "text": "다행히 정조 대왕께서는 다르시네.\n전하께서는 내 재능을 알아보시고, 자유롭게 그림을 그리도록 격려해주시지.\n덕분에 풍속화도 마음껏 그릴 수 있었다네.",
+                "choices": [
+                    {
+                        "id": "c2_meeting",
+                        "text": "정조 대왕과는 어떻게 친해지셨나요?",
+                        "preview": "정조와의 만남",
+                        "nextNodeId": "meeting_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "meeting_node",
+                "speakerId": "danwon",
+                "emotion": "thoughtful",
+                "text": "전하께서 나의 그림을 보시고 '생동감이 넘친다'고 칭찬해주셨지.\n그 후로 자주 불러주셔서 그림도 그리고, 이야기도 나누곤 하네.\n전하는 그림을 정말 사랑하시는 분이라네.",
+                "nextNodeId": "teaching_node",
+                "reward": {
+                    "unlockFactId": "fact_jeongjo_danwon_relationship"
+                }
+            },
+            {
+                "id": "teaching_node",
+                "speakerId": "danwon",
+                "emotion": "neutral",
+                "text": "나는 제자들도 가르치고 있다네.\n그림은 단순히 비슷하게 그리는 것이 아니라, 대상의 정신을 담아내는 것이라고 가르치지.\n형사(形似)보다 신사(神似)가 중요하다고 말일세.",
+                "choices": [
+                    {
+                        "id": "c3_meaning",
+                        "text": "정신을 담는다는 게 무슨 뜻인가요?",
+                        "preview": "예술 철학",
+                        "nextNodeId": "philosophy_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_students",
+                        "text": "제자들이 많으신가요?",
+                        "preview": "제자 양성",
+                        "nextNodeId": "students_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "philosophy_node",
+                "speakerId": "danwon",
+                "emotion": "serious",
+                "text": "예를 들어 사람을 그린다면, 단순히 얼굴 생김새만 그리는 게 아니라\n그 사람의 성격, 감정, 삶까지도 담아내야 한다는 거지.\n그래야 보는 이가 '아, 이 사람이구나!' 하고 느끼게 되네.",
+                "nextNodeId": "end_node",
+                "reward": {
+                    "unlockFactId": "fact_spirit_resemblance"
+                }
+            },
+            {
+                "id": "students_node",
+                "speakerId": "danwon",
+                "emotion": "happy",
+                "text": "몇 명 있지. 그중에는 재능 있는 이들도 있네.\n내가 죽은 후에도 이들이 조선의 그림을 이어갈 것이라 믿네.\n예술은 이렇게 대대로 전해지는 것이니까.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "danwon",
+                "emotion": "neutral",
+                "text": "화원의 삶이 늘 순탄한 것은 아니지만, 그림을 그릴 수 있다는 것만으로도 행복하다네.\n그대도 자신이 좋아하는 일을 찾길 바라네!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_danwon_teaching"
+                }
+            }
+        ]
+    },
+    {
+        "id": "saimdang_art_01",
+        "characterId": "saimdang",
+        "title": "Artistic Expression",
+        "titleKorean": "예술혼을 펼치다",
+        "description": "신사임당이 초충도와 산수화를 그리며 예술가로서의 삶을 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 140,
+                "unlockFactId": "fact_saimdang_art"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "saimdang",
+                "emotion": "neutral",
+                "text": "어서 오세요. 지금 막 초충도(草蟲圖)를 그리고 있었어요.\n풀잎 위의 개구리와 메뚜기를 보세요. 얼마나 생생한지요.",
+                "choices": [
+                    {
+                        "id": "c1_detail",
+                        "text": "정말 섬세하네요! 살아있는 것 같아요.",
+                        "preview": "세밀함 칭찬",
+                        "nextNodeId": "detail_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    },
+                    {
+                        "id": "c1_reason",
+                        "text": "왜 풀벌레를 그리시나요?",
+                        "preview": "주제 선택",
+                        "nextNodeId": "reason_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "detail_node",
+                "speakerId": "saimdang",
+                "emotion": "happy",
+                "text": "감사해요. 작은 곤충 하나라도 자세히 관찰하면 경이로운 아름다움이 있어요.\n날개의 투명함, 다리의 섬세함, 색깔의 조화...\n자연의 모든 것이 예술 작품이에요.",
+                "nextNodeId": "philosophy_node"
+            },
+            {
+                "id": "reason_node",
+                "speakerId": "saimdang",
+                "emotion": "thoughtful",
+                "text": "큰 산이나 호화로운 궁궐도 좋지만, 우리 주변의 작은 생명들에게도\n존귀함이 있어요. 풀벌레, 꽃, 포도... 이런 평범한 것들 속에\n진정한 아름다움이 숨어 있다고 생각해요.",
+                "nextNodeId": "philosophy_node",
+                "reward": {
+                    "unlockFactId": "fact_chochungdo_meaning"
+                }
+            },
+            {
+                "id": "philosophy_node",
+                "speakerId": "saimdang",
+                "emotion": "serious",
+                "text": "저에게 예술은 단순한 취미가 아니에요.\n제 생각과 감정을 표현하는 방법이자,\n세상의 아름다움을 기록하는 방법이에요.",
+                "choices": [
+                    {
+                        "id": "c2_woman",
+                        "text": "여성이 예술 활동을 하기 어렵지 않나요?",
+                        "preview": "여성 예술가의 어려움",
+                        "nextNodeId": "woman_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_landscape",
+                        "text": "산수화도 그리신다고요?",
+                        "preview": "산수화",
+                        "nextNodeId": "landscape_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "woman_node",
+                "speakerId": "saimdang",
+                "emotion": "sad",
+                "text": "사실... 쉽지 않아요. 여자는 집안일을 돌봐야 한다는 시선이 많아요.\n하지만 저는 포기하지 않았어요. 아이들을 키우면서도,\n틈틈이 붓을 들었죠. 제 열정을 꺾을 수는 없었어요.",
+                "nextNodeId": "balance_node",
+                "reward": {
+                    "unlockFactId": "fact_woman_artist_challenge"
+                }
+            },
+            {
+                "id": "landscape_node",
+                "speakerId": "saimdang",
+                "emotion": "neutral",
+                "text": "네, 산수화도 즐겨 그려요. 강릉의 산과 바다를 많이 그렸어요.\n고향의 풍경을 그릴 때면 마음이 편안해져요.\n먹으로 산의 기운을 담아내려 노력하죠.",
+                "nextNodeId": "balance_node",
+                "reward": {
+                    "unlockFactId": "fact_saimdang_landscape"
+                }
+            },
+            {
+                "id": "balance_node",
+                "speakerId": "saimdang",
+                "emotion": "thoughtful",
+                "text": "어머니로서, 아내로서의 역할도 소중해요.\n하지만 동시에 예술가로서의 제 자신도 소중히 여기고 싶어요.\n둘 다 균형있게 해내는 것, 그것이 제 목표예요.",
+                "choices": [
+                    {
+                        "id": "c3_children",
+                        "text": "자녀들도 예술에 관심이 있나요?",
+                        "preview": "자녀 교육",
+                        "nextNodeId": "children_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_legacy",
+                        "text": "후대에 작품을 남기고 싶으신가요?",
+                        "preview": "예술적 유산",
+                        "nextNodeId": "legacy_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "children_node",
+                "speakerId": "saimdang",
+                "emotion": "happy",
+                "text": "제 아들 이이는 글을 좋아하고, 딸들도 그림에 관심을 보여요.\n아이들에게 예술을 강요하지는 않지만, 함께 그림을 그리거나\n시를 읊을 때의 즐거움은 알려주고 싶어요.",
+                "nextNodeId": "end_node",
+                "reward": {
+                    "unlockFactId": "fact_saimdang_yulgok_mother"
+                }
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "saimdang",
+                "emotion": "neutral",
+                "text": "제 그림이 후세에 남아서, '조선 시대에도 이런 훌륭한 여성 예술가가 있었구나'\n라고 기억된다면 영광이겠어요.\n여성도 예술가가 될 수 있다는 것을 보여주고 싶어요.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "saimdang",
+                "emotion": "happy",
+                "text": "이제 다음 그림을 구상해야겠어요. 오늘은 포도를 그려볼까 해요.\n그대도 무언가 창작해보세요. 예술은 누구에게나 열려 있으니까요!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_saimdang_legacy"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jeong_yagjeon_exile_01",
+        "characterId": "jeong_yagjeon",
+        "title": "Exile Research",
+        "titleKorean": "유배지의 학문",
+        "description": "정약전이 흑산도 유배지에서 자산어보를 집필하며 역경을 학문으로 승화합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [
+            {
+                "knowledgePoints": 150,
+                "unlockFactId": "fact_yagjeon_exile"
+            }
+        ],
+        "nodes": [
+            {
+                "id": "start",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "이 험한 바다 한가운데 섬에 유배된 지 벌써 몇 해가 흘렀소.\n하지만 이곳에서 나는 새로운 학문을 발견했소.",
+                "choices": [
+                    {
+                        "id": "c1_research",
+                        "text": "무슨 연구를 하고 계신가요?",
+                        "preview": "연구 내용",
+                        "nextNodeId": "research_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c1_exile",
+                        "text": "유배 생활이 힘드시겠어요.",
+                        "preview": "유배 생활",
+                        "nextNodeId": "exile_node",
+                        "reward": {
+                            "knowledgePoints": 15
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "research_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "happy",
+                "text": "바다 생물을 연구하고 있소. 이 섬 주변에는 온갖 물고기와 조개, 해조류가 있소.\n어민들에게 물어가며 하나하나 기록하고 있소. 이름과 생김새, 습성까지 말이오.",
+                "nextNodeId": "book_node",
+                "reward": {
+                    "unlockFactId": "fact_marine_biology"
+                }
+            },
+            {
+                "id": "exile_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "sad",
+                "text": "힘들지 않다면 거짓말이겠소. 가족도 멀고, 동생 약용이와도 떨어져 있소.\n하지만 한탄만 하고 있을 수는 없지 않소? 이곳에서도 배울 것이 있다오.",
+                "nextNodeId": "book_node"
+            },
+            {
+                "id": "book_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "thoughtful",
+                "text": "나는 이 연구를 '자산어보(玆山魚譜)'라는 책으로 엮고 있소.\n우리나라 바다 생물을 체계적으로 정리한 최초의 책이 될 것이오.",
+                "choices": [
+                    {
+                        "id": "c2_method",
+                        "text": "어떻게 연구하시나요?",
+                        "preview": "연구 방법",
+                        "nextNodeId": "method_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    },
+                    {
+                        "id": "c2_purpose",
+                        "text": "왜 이런 연구를 하시나요?",
+                        "preview": "연구 목적",
+                        "nextNodeId": "purpose_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "method_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "어민들과 친해지는 것이 중요하오. 그들이 평생 바다와 함께 살아온 경험이\n어떤 책보다 귀하오. 또 직접 물고기를 관찰하고, 해부도 하오.",
+                "nextNodeId": "learning_node",
+                "reward": {
+                    "unlockFactId": "fact_practical_research"
+                }
+            },
+            {
+                "id": "purpose_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "serious",
+                "text": "실학(實學)의 정신 때문이오. 백성들의 실제 삶에 도움이 되는 학문을 해야 하오.\n어부들이 물고기를 알면 더 잘 잡을 수 있고, 상인들은 거래에 활용할 수 있소.",
+                "nextNodeId": "learning_node"
+            },
+            {
+                "id": "learning_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "happy",
+                "text": "유배지에서의 삶이 나를 더 겸손하게 만들었소.\n양반인 내가 어부들에게 배우는 것, 이것이 진정한 학문이 아니겠소?",
+                "choices": [
+                    {
+                        "id": "c3_hope",
+                        "text": "언젠가 풀려나실 수 있을까요?",
+                        "preview": "미래 희망",
+                        "nextNodeId": "hope_node",
+                        "reward": {
+                            "knowledgePoints": 20
+                        }
+                    },
+                    {
+                        "id": "c3_legacy",
+                        "text": "자산어보가 후대에 큰 도움이 될 겁니다.",
+                        "preview": "유산",
+                        "nextNodeId": "legacy_node",
+                        "reward": {
+                            "knowledgePoints": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "hope_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "sad",
+                "text": "모르겠소. 하지만 기다리기만 할 수는 없지 않소?\n지금 이 순간에도 의미를 찾고, 학문을 하는 것이 내가 할 수 있는 일이오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "legacy_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "그렇게 되길 바라오. 이 험한 섬에서의 시간이 헛되지 않았다는 것을\n후대 사람들이 알아주면 그것으로 족하오.",
+                "nextNodeId": "end_node"
+            },
+            {
+                "id": "end_node",
+                "speakerId": "jeong_yagjeon",
+                "emotion": "neutral",
+                "text": "오늘은 문어를 관찰해야겠소. 어부들이 큰 문어를 잡아왔다고 하더군.\n학문은 어디서든 할 수 있소!",
+                "isEnd": true,
+                "reward": {
+                    "knowledgePoints": 50,
+                    "unlockFactId": "fact_jasaneobo"
+                }
+            }
+        ]
+    }
+,
+    {
+        "id": "saimdang_motherhood_01",
+        "characterId": "saimdang",
+        "title": "Motherhood",
+        "titleKorean": "어머니의 마음",
+        "description": "신사임당이 예술가이자 어머니로서 자녀 교육과 삶의 균형을 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [{"knowledgePoints": 130}],
+        "nodes": [
+            {"id": "start", "speakerId": "saimdang", "emotion": "neutral", "text": "오늘도 아이들을 가르치느라 바쁜 하루였어요.\n자녀를 키우는 일은 그림을 그리는 것만큼이나 중요하답니다.", "choices": [{"id": "c1", "text": "어떻게 가르치시나요?", "nextNodeId": "teach", "reward": {"knowledgePoints": 15}}, {"id": "c2", "text": "힘들지 않으세요?", "nextNodeId": "balance", "reward": {"knowledgePoints": 10}}]},
+            {"id": "teach", "speakerId": "saimdang", "emotion": "thoughtful", "text": "아이마다 성향이 달라요. 이이는 책을 좋아하니 학문을, 딸들은 예술에 관심이 있으니 그림을 가르쳐요.\n각자의 재능을 발견하고 키워주는 것이 중요해요.", "nextNodeId": "yulgok"},
+            {"id": "balance", "speakerId": "saimdang", "emotion": "sad", "text": "쉽지 않아요. 하지만 내 꿈도 포기할 수 없고, 아이들도 소중하니까요.\n둘 다 하려면 시간을 아껴 써야 해요.", "nextNodeId": "yulgok"},
+            {"id": "yulgok", "speakerId": "saimdang", "emotion": "happy", "text": "특히 이이는 총명해서 가르치는 보람이 있어요.\n언젠가는 큰 학자가 될 거예요. 어머니의 직감이에요.", "choices": [{"id": "c3", "text": "자랑스러우시겠어요!", "nextNodeId": "end", "reward": {"knowledgePoints": 20}}]},
+            {"id": "end", "speakerId": "saimdang", "emotion": "neutral", "text": "감사해요. 자녀를 잘 키우는 것도 후세에 남기는 유산이에요.\n이제 저녁 준비를 해야겠네요!", "isEnd": true, "reward": {"knowledgePoints": 50}}
+        ]
+    },
+    {
+        "id": "gwanggaeto_legacy_01",
+        "characterId": "gwanggaeto",
+        "title": "Conquest Legacy",
+        "titleKorean": "정복의 유산",
+        "description": "광개토대왕이 영토 확장의 업적과 고구려의 미래를 이야기합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [{"knowledgePoints": 150}],
+        "nodes": [
+            {"id": "start", "speakerId": "gwanggaeto", "emotion": "serious", "text": "짐은 고구려의 영토를 크게 넓혔노라.\n만주벌판에서 한반도까지, 이제 고구려는 동아시아의 강국이니라!", "choices": [{"id": "c1", "text": "어떻게 그리 넓히셨습니까?", "nextNodeId": "conquest", "reward": {"knowledgePoints": 20}}, {"id": "c2", "text": "전쟁이 많으셨겠어요.", "nextNodeId": "war", "reward": {"knowledgePoints": 15}}]},
+            {"id": "conquest", "speakerId": "gwanggaeto", "emotion": "neutral", "text": "북으로는 거란을, 남으로는 백제를, 동으로는 동부여를 정복하였노라.\n64성 1,400촌을 손에 넣었으니, 이것이 짐의 공적이니라.", "nextNodeId": "stele", "reward": {"unlockFactId": "fact_gwanggaeto_conquest"}},
+            {"id": "war", "speakerId": "gwanggaeto", "emotion": "thoughtful", "text": "전쟁은 불가피했노라. 고구려를 지키고 백성을 지키기 위해서는\n강해져야 하였느니라.", "nextNodeId": "stele"},
+            {"id": "stele", "speakerId": "gwanggaeto", "emotion": "serious", "text": "짐이 죽은 후에도 이 업적을 기억하라! 광개토대왕비를 세워\n짐의 정복 사업을 돌에 새겨 후세에 전하리라.", "choices": [{"id": "c3", "text": "위대하신 업적입니다!", "nextNodeId": "end", "reward": {"knowledgePoints": 25}}]},
+            {"id": "end", "speakerId": "gwanggaeto", "emotion": "neutral", "text": "고구려는 영원하리라! 짐의 뒤를 이을 왕들이여, 이 강성함을 이어가라!", "isEnd": true, "reward": {"knowledgePoints": 50}}
+        ]
+    },
+    {
+        "id": "eulji_salsu_01",
+        "characterId": "eulji_mundeok",
+        "title": "Battle of Salsu",
+        "titleKorean": "살수의 승리",
+        "description": "을지문덕이 살수대첩의 전략과 전투를 회상합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [{"knowledgePoints": 150}],
+        "nodes": [
+            {"id": "start", "speakerId": "eulji_mundeok", "emotion": "serious", "text": "수나라 113만 대군이 쳐들어왔을 때, 모두가 고구려의 운명이 다했다고 생각했소.\n하지만 지혜와 용기로 그들을 물리쳤소!", "choices": [{"id": "c1", "text": "어떤 전략을 쓰셨나요?", "nextNodeId": "strategy", "reward": {"knowledgePoints": 20}}, {"id": "c2", "text": "수가 너무 많았을 텐데요.", "nextNodeId": "numbers", "reward": {"knowledgePoints": 15}}]},
+            {"id": "strategy", "speakerId": "eulji_mundeok", "emotion": "thoughtful", "text": "후퇴 작전을 썼소. 일부러 져주며 적을 깊숙이 끌어들였소.\n그들이 지치고 보급이 끊기길 기다렸지.", "nextNodeId": "salsu", "reward": {"unlockFactId": "fact_retreat_strategy"}},
+            {"id": "numbers", "speakerId": "eulji_mundeok", "emotion": "neutral", "text": "많다고 다 좋은 것이 아니오. 보급이 어렵고, 지휘가 복잡해지오.\n오히려 그것이 약점이 되었소.", "nextNodeId": "salsu"},
+            {"id": "salsu", "speakerId": "eulji_mundeok", "emotion": "serious", "text": "그리고 살수(薩水)에서 기다렸다가 일거에 물을 터뜨렸소!\n30만이 넘는 적군이 물에 휩쓸려갔소. 이것이 살수대첩이오!", "choices": [{"id": "c3", "text": "대단한 승리입니다!", "nextNodeId": "end", "reward": {"knowledgePoints": 25}}]},
+            {"id": "end", "speakerId": "eulji_mundeok", "emotion": "neutral", "text": "이것이 고구려의 힘이오. 우리는 끝까지 싸워 조국을 지켰소!", "isEnd": true, "reward": {"knowledgePoints": 50, "unlockFactId": "fact_salsu_victory"}}
+        ]
+    },
+    {
+        "id": "jangsu_stele_01",
+        "characterId": "jangsu",
+        "title": "Gwanggaeto Stele",
+        "titleKorean": "광개토대왕비",
+        "description": "장수왕이 부왕 광개토대왕의 업적을 기리는 비석을 세운 이유를 말합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [{"knowledgePoints": 140}],
+        "nodes": [
+            {"id": "start", "speakerId": "jangsu", "emotion": "serious", "text": "선왕이신 아버지 광개토대왕의 위업을 어찌 잊을 수 있겠는가!\n이 거대한 비석에 그 공적을 새겨 영원히 기억하리라.", "choices": [{"id": "c1", "text": "어떤 내용을 새기셨나요?", "nextNodeId": "content", "reward": {"knowledgePoints": 20}}, {"id": "c2", "text": "비석이 정말 크군요!", "nextNodeId": "size", "reward": {"knowledgePoints": 15}}]},
+            {"id": "content", "speakerId": "jangsu", "emotion": "neutral", "text": "64성 1,400촌을 정복하신 업적, 백제와 신라를 굴복시킨 일,\n고구려의 기원과 역사... 모두 돌에 새겼느니라.", "nextNodeId": "purpose", "reward": {"unlockFactId": "fact_stele_content"}},
+            {"id": "size", "speakerId": "jangsu", "emotion": "neutral", "text": "높이 6.39미터에 달하는 거대한 비석이니라!\n후세 사람들이 보고 고구려의 위대함을 깨닫게 하려 하였느니라.", "nextNodeId": "purpose"},
+            {"id": "purpose", "speakerId": "jangsu", "emotion": "thoughtful", "text": "이 비석은 단순한 기념물이 아니니라. 고구려의 정통성과 강함을\n천하에 알리는 선언문이니라!", "choices": [{"id": "c3", "text": "훌륭한 효도입니다!", "nextNodeId": "end", "reward": {"knowledgePoints": 20}}]},
+            {"id": "end", "speakerId": "jangsu", "emotion": "neutral", "text": "짐 또한 아버지의 뜻을 이어 고구려를 더욱 강하게 만들리라!", "isEnd": true, "reward": {"knowledgePoints": 50}}
+        ]
+    },
+    {
+        "id": "yeon_gaesomun_power_01",
+        "characterId": "yeon_gaesomun",
+        "title": "Seizing Power",
+        "titleKorean": "권력의 길",
+        "description": "연개소문이 쿠데타를 통해 권력을 장악한 배경을 이야기합니다.",
+        "estimatedMinutes": 6,
+        "rewards": [{"knowledgePoints": 140}],
+        "nodes": [
+            {"id": "start", "speakerId": "yeon_gaesomun", "emotion": "serious", "text": "나약한 귀족들이 나라를 망치고 있었소. 그래서 내가 나섰소.\n강한 고구려를 만들기 위해서는 강한 지도자가 필요하오!", "choices": [{"id": "c1", "text": "쿠데타를 일으키신 건가요?", "nextNodeId": "coup", "reward": {"knowledgePoints": 20}}, {"id": "c2", "text": "왜 그런 선택을 하셨나요?", "nextNodeId": "reason", "reward": {"knowledgePoints": 15}}]},
+            {"id": "coup", "speakerId": "yeon_gaesomun", "emotion": "neutral", "text": "그렇소. 귀족 100여 명을 제거하고 영류왕을 폐위시켰소.\n그리고 보장왕을 옹립하여 실권을 장악했소.", "nextNodeId": "policy"},
+            {"id": "reason", "speakerId": "yeon_gaesomun", "emotion": "thoughtful", "text": "당나라가 호시탐탐 노리고 있었소. 내부 분열을 끝내고\n강력한 중앙집권이 필요했소.", "nextNodeId": "policy"},
+            {"id": "policy", "speakerId": "yeon_gaesomun", "emotion": "serious", "text": "나는 대막리지(大莫離支)로서 군사와 정치를 모두 장악했소.\n불교를 억압하고 도교를 장려하며, 당나라와 맞서 싸울 준비를 했소!", "choices": [{"id": "c3", "text": "강한 리더십이군요.", "nextNodeId": "end", "reward": {"knowledgePoints": 20}}]},
+            {"id": "end", "speakerId": "yeon_gaesomun", "emotion": "neutral", "text": "강함만이 나라를 지키오. 나약함은 멸망을 부를 뿐이오!", "isEnd": true, "reward": {"knowledgePoints": 50}}
+        ]
+    },
+    {
+        "id": "wanggeon_unification_01",
+        "characterId": "wanggeon",
+        "title": "Unification",
+        "titleKorean": "후삼국 통일",
+        "description": "왕건이 후삼국을 통일하고 고려를 건국한 과정을 회고합니다.",
+        "estimatedMinutes": 7,
+        "rewards": [{"knowledgePoints": 150}],
+        "nodes": [
+            {"id": "start", "speakerId": "wanggeon", "emotion": "thoughtful", "text": "후백제와 후고구려, 신라... 삼국으로 나뉘어 서로 싸우던 시절이 있었소.\n짐이 이 혼란을 끝내고 고려를 세웠소!", "choices": [{"id": "c1", "text": "어떻게 통일하셨나요?", "nextNodeId": "strategy", "reward": {"knowledgePoints": 20}}, {"id": "c2", "text": "힘든 과정이었겠어요.", "nextNodeId": "difficulty", "reward": {"knowledgePoints": 15}}]},
+            {"id": "strategy", "speakerId": "wanggeon", "emotion": "neutral", "text": "힘만으로는 안 되오. 호족들을 포용하고, 백성들의 마음을 얻었소.\n후백제 견훤의 폭정이 스스로 무너지게 했지.", "nextNodeId": "policy", "reward": {"unlockFactId": "fact_unification_strategy"}},
+            {"id": "difficulty", "speakerId": "wanggeon", "emotion": "sad", "text": "20년 넘게 싸웠소. 많은 사람이 죽었고, 땅은 황폐해졌소.\n하지만 통일 없이는 평화도 없었소.", "nextNodeId": "policy"},
+            {"id": "policy", "speakerId": "wanggeon", "emotion": "serious", "text": "통일 후 '훈요십조'를 남겼소. 불교를 숭상하고,\n풍수지리를 중시하며, 백성을 아끼라고... 후손들이 지켜주길 바라오.", "choices": [{"id": "c3", "text": "위대한 업적입니다!", "nextNodeId": "end", "reward": {"knowledgePoints": 25}}]},
+            {"id": "end", "speakerId": "wanggeon", "emotion": "neutral", "text": "고려는 500년을 이어갈 것이오. 짐의 후손들이 잘 다스리길!", "isEnd": true, "reward": {"knowledgePoints": 50, "unlockFactId": "fact_goryeo_founding"}}
+        ]
     }
 ]
