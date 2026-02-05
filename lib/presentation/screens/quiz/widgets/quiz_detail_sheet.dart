@@ -134,7 +134,7 @@ class QuizDetailSheet extends StatelessWidget {
                             : AppColors.surfaceLight.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          color: isCorrect ? AppColors.success : Colors.transparent,
+                          color: isCorrect ? AppColors.success : AppColors.transparent,
                           width: 1.5,
                         ),
                       ),
@@ -151,7 +151,7 @@ class QuizDetailSheet extends StatelessWidget {
                               shape: BoxShape.circle,
                             ),
                             child: isCorrect
-                                ? const Icon(Icons.check, size: 14, color: Colors.white)
+                                ? const Icon(Icons.check, size: 14, color: AppColors.white)
                                 : Text(
                                     '${index + 1}',
                                     style: AppTextStyles.labelSmall.copyWith(
@@ -251,8 +251,8 @@ class QuizDetailSheet extends StatelessWidget {
                             icon: const Icon(Icons.refresh),
                             label: Text(AppLocalizations.of(context)!.quiz_retry),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              shadowColor: Colors.transparent,
+                              backgroundColor: AppColors.transparent,
+                              shadowColor: AppColors.transparent,
                               foregroundColor: AppColors.background,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(

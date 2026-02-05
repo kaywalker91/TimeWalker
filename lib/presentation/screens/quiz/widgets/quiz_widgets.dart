@@ -4,3 +4,4 @@ library;
 export 'quiz_detail_sheet.dart';
 export 'quiz_filter.dart';
 export 'quiz_card.dart'; // 기존에 있던 파일도 export
+export 'quiz_summary_card.dart';

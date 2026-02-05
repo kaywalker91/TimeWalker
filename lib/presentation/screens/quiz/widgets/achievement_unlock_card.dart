@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
 import 'package:time_walker/presentation/themes/color_value_extensions.dart';
 
@@ -63,12 +64,12 @@ class AchievementUnlockCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.celebration, size: 14, color: Colors.amber),
+                    const Icon(Icons.celebration, size: 14, color: AppColors.amber),
                     const SizedBox(width: 4),
                     const Text(
                       '업적 달성!',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: AppColors.amber,
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
                       ),
@@ -87,7 +88,7 @@ class AchievementUnlockCard extends StatelessWidget {
                 Text(
                   achievement.description,
                   style: const TextStyle(
-                    color: Colors.white70,
+                    color: AppColors.white70,
                     fontSize: 11,
                   ),
                 ),
@@ -100,13 +101,13 @@ class AchievementUnlockCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.amber.withValues(alpha: 0.2),
+                color: AppColors.amber.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
                 '+${achievement.bonusPoints}',
                 style: const TextStyle(
-                  color: Colors.amber,
+                  color: AppColors.amber,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                 ),

@@ -55,8 +55,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
         : ref.watch(quizListByCategoryProvider(_selectedCategoryId));
     final userProgress = ref.watch(userProgressProvider).valueOrNull;
     final completedQuizIds = userProgress?.completedQuizIds ?? [];
-
-    // BGM은 initState에서 처리됨 (build에서 중복 실행 방지)
+    final totalPoints = userProgress?.totalKnowledge ?? 0;
 
     return Scaffold(
       body: Container(
@@ -66,112 +65,129 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // 커스텀 앱바
-              _buildAppBar(context, completedQuizIds.length),
+              // 1. Cleaner AppBar
+              _buildAppBar(context),
               
-              // 필터 타입 선택 (전체 / 맞춘 퀴즈)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Row(
-                  children: [
-                    QuizFilterToggleButton(
-                      label: AppLocalizations.of(context)!.quiz_filter_all,
-                      icon: Icons.list_alt,
-                      isSelected: _selectedFilter == QuizFilterType.all,
-                      onTap: () => setState(() => _selectedFilter = QuizFilterType.all),
-                    ),
-                    const SizedBox(width: 8),
-                    QuizFilterToggleButton(
-                      label: AppLocalizations.of(context)!.quiz_filter_completed,
-                      icon: Icons.check_circle_outline,
-                      isSelected: _selectedFilter == QuizFilterType.completed,
-                      count: completedQuizIds.length,
-                      onTap: () => setState(() => _selectedFilter = QuizFilterType.completed),
-                    ),
-                  ],
-                ),
-              ),
-              
-              // Category Filter
-              categoriesAsync.when(
-                data: (categories) => SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Row(
-                    children: [
-                      QuizCategoryChip(
-                        label: AppLocalizations.of(context)!.quiz_category_all,
-                        isSelected: _selectedCategoryId == 'all',
-                        onSelected: (selected) {
-                          if (selected) setState(() => _selectedCategoryId = 'all');
-                        },
+              Expanded(
+                child: CustomScrollView(
+                  slivers: [
+                    // 2. Summary Card
+                    SliverToBoxAdapter(
+                      child: quizListAsync.when(
+                        data: (quizzes) => QuizSummaryCard(
+                          completedCount: completedQuizIds.length,
+                          totalCount: quizzes.length,
+                          totalPoints: totalPoints,
+                        ),
+                        loading: () => const SizedBox.shrink(),
+                        error: (error, _) => const SizedBox.shrink(),
                       ),
-                      const SizedBox(width: 8),
-                      ...categories.map((category) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: QuizCategoryChip(
-                            label: category.title,
-                            isSelected: _selectedCategoryId == category.id,
-                            onSelected: (selected) {
-                              if (selected) setState(() => _selectedCategoryId = category.id);
+                    ),
+
+                    // 3. Filters & Categories
+                    SliverToBoxAdapter(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Filter Tabs
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                            child: Row(
+                              children: [
+                                QuizFilterTab(
+                                  label: AppLocalizations.of(context)!.quiz_filter_all,
+                                  isSelected: _selectedFilter == QuizFilterType.all,
+                                  onTap: () => setState(() => _selectedFilter = QuizFilterType.all),
+                                ),
+                                const SizedBox(width: 12),
+                                QuizFilterTab(
+                                  label: AppLocalizations.of(context)!.quiz_filter_completed,
+                                  isSelected: _selectedFilter == QuizFilterType.completed,
+                                  onTap: () => setState(() => _selectedFilter = QuizFilterType.completed),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          // Category Cards
+                          categoriesAsync.when(
+                            data: (categories) => SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              child: Row(
+                                children: [
+                                  QuizCategoryCard(
+                                    label: AppLocalizations.of(context)!.quiz_category_all,
+                                    isSelected: _selectedCategoryId == 'all',
+                                    onSelected: (selected) {
+                                      if (selected) setState(() => _selectedCategoryId = 'all');
+                                    },
+                                  ),
+                                  const SizedBox(width: 8),
+                                  ...categories.map((category) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(right: 8),
+                                      child: QuizCategoryCard(
+                                        label: category.title,
+                                        isSelected: _selectedCategoryId == category.id,
+                                        onSelected: (selected) {
+                                          if (selected) setState(() => _selectedCategoryId = category.id);
+                                        },
+                                      ),
+                                    );
+                                  }),
+                                ],
+                              ),
+                            ),
+                            loading: () => const Center(child: CircularProgressIndicator()),
+                            error: (error, _) => const SizedBox.shrink(),
+                          ),
+                          const SizedBox(height: 16),
+                        ],
+                      ),
+                    ),
+
+                    // 4. Quiz List
+                    quizListAsync.when(
+                      data: (quizzes) {
+                        final filteredQuizzes = _selectedFilter == QuizFilterType.completed
+                            ? quizzes.where((q) => completedQuizIds.contains(q.id)).toList()
+                            : quizzes;
+                        
+                        if (filteredQuizzes.isEmpty) {
+                          return SliverFillRemaining(
+                            child: _buildEmptyState(context),
+                          );
+                        }
+
+                        return SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              final quiz = filteredQuizzes[index];
+                              final isCompleted = completedQuizIds.contains(quiz.id);
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                child: QuizCard(
+                                  quiz: quiz,
+                                  isCompleted: isCompleted,
+                                  showReviewMode: _selectedFilter == QuizFilterType.completed,
+                                  onDetailShow: () => _showQuizDetailSheet(context, quiz),
+                                ),
+                              );
                             },
+                            childCount: filteredQuizzes.length,
                           ),
                         );
-                      }),
-                    ],
-                  ),
-                ),
-                loading: () => const SizedBox(
-                  height: 50, 
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
-                    ),
-                  ),
-                ),
-                error: (_, _) => const SizedBox(),
-              ),
-              
-              // Quiz List
-              Expanded(
-                child: quizListAsync.when(
-                  data: (quizzes) {
-                    // 필터 적용
-                    final filteredQuizzes = _selectedFilter == QuizFilterType.completed
-                        ? quizzes.where((q) => completedQuizIds.contains(q.id)).toList()
-                        : quizzes;
-                    
-                    if (filteredQuizzes.isEmpty) {
-                      return _buildEmptyState(context);
-                    }
-                    return ListView.separated(
-                      padding: const EdgeInsets.all(16),
-                      itemCount: filteredQuizzes.length,
-                      separatorBuilder: (_, _) => const SizedBox(height: 16),
-                      itemBuilder: (context, index) {
-                        final quiz = filteredQuizzes[index];
-                        final isCompleted = completedQuizIds.contains(quiz.id);
-                        return QuizCard(
-                          quiz: quiz,
-                          isCompleted: isCompleted,
-                          showReviewMode: _selectedFilter == QuizFilterType.completed,
-                          onDetailShow: () => _showQuizDetailSheet(context, quiz),
-                        );
                       },
-                    );
-                  },
-                  loading: () => Center(
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                      loading: () => const SliverFillRemaining(
+                        child: Center(child: CircularProgressIndicator()),
+                      ),
+                      error: (e, _) => SliverFillRemaining(
+                        child: Center(child: Text('Error: $e')),
+                      ),
                     ),
-                  ),
-                  error: (e, s) => Center(
-                    child: Text(
-                      'Error: $e', 
-                      style: AppTextStyles.bodyMedium.copyWith(color: AppColors.error),
-                    ),
-                  ),
+                    const SliverPadding(padding: EdgeInsets.only(bottom: 24)),
+                  ],
                 ),
               ),
             ],
@@ -180,58 +196,31 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
       ),
     );
   }
-  
-  Widget _buildAppBar(BuildContext context, int completedCount) {
+
+  Widget _buildAppBar(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          // 뒤로가기 버튼
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.surface.withValues(alpha: 0.5),
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
-              onPressed: () => Navigator.pop(context),
+          IconButton(
+            icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
+            onPressed: () => Navigator.pop(context),
+          ),
+          const SizedBox(width: 8),
+          const Hero(
+            tag: 'quiz_hero_icon',
+            child: Icon(Icons.quiz, color: AppColors.primary, size: 28),
+          ),
+          const SizedBox(width: 12),
+          Text(
+            AppLocalizations.of(context)!.quiz_title,
+            style: AppTextStyles.headlineMedium.copyWith(
+              color: AppColors.textPrimary,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(width: 16),
-          
-          // 타이틀
-          Expanded(
-            child: Text(
-              AppLocalizations.of(context)!.quiz_title,
-              style: AppTextStyles.headlineMedium.copyWith(
-                color: AppColors.textPrimary,
-              ),
-            ),
-          ),
-          
-          // 완료 통계 표시
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            decoration: BoxDecoration(
-              color: AppColors.success.withValues(alpha: 0.15),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.success.withValues(alpha: 0.4)),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.check_circle, size: 16, color: AppColors.success),
-                const SizedBox(width: 6),
-                Text(
-                  AppLocalizations.of(context)!.quiz_completed_count(completedCount),
-                  style: AppTextStyles.labelMedium.copyWith(
-                    color: AppColors.success,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const Spacer(),
+          // Optional: You could add a simple Help button here if needed
         ],
       ),
     );
@@ -275,7 +264,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
   void _showQuizDetailSheet(BuildContext context, Quiz quiz) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       isScrollControlled: true,
       builder: (context) => QuizDetailSheet(quiz: quiz),
     );

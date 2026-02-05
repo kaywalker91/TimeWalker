@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/core/themes/app_colors.dart';
+import 'package:time_walker/core/themes/app_text_styles.dart';
 import 'package:time_walker/domain/entities/quiz.dart';
 import 'package:time_walker/core/routes/app_router.dart';
 
-class QuizCard extends StatelessWidget {
+class QuizCard extends StatefulWidget {
   final Quiz quiz;
   final bool isCompleted;
   final bool showReviewMode;
@@ -20,155 +21,168 @@ class QuizCard extends StatelessWidget {
   });
 
   @override
+  State<QuizCard> createState() => _QuizCardState();
+}
+
+class _QuizCardState extends State<QuizCard> {
+  bool _isPressed = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Card(
-      color: isCompleted 
-          ? AppColors.quizCardCompleted
-          : AppColors.quizCardDefault,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: InkWell(
-        onTap: () {
-          HapticFeedback.lightImpact();
-          if (showReviewMode && isCompleted) {
-            if (onDetailShow != null) {
-              onDetailShow!();
-            }
-          } else {
-            AppRouter.goToQuizPlay(context, quiz.id);
+    return GestureDetector(
+      onTapDown: (_) => setState(() => _isPressed = true),
+      onTapUp: (_) => setState(() => _isPressed = false),
+      onTapCancel: () => setState(() => _isPressed = false),
+      onTap: () {
+        HapticFeedback.lightImpact();
+        if (widget.showReviewMode && widget.isCompleted) {
+          if (widget.onDetailShow != null) {
+            widget.onDetailShow!();
           }
-        },
-        borderRadius: BorderRadius.circular(16),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        } else {
+          AppRouter.goToQuizPlay(context, widget.quiz.id);
+        }
+      },
+      child: AnimatedScale(
+        scale: _isPressed ? 0.98 : 1.0,
+        duration: const Duration(milliseconds: 100),
+        child: Container(
+          decoration: BoxDecoration(
+            color: widget.isCompleted 
+                ? AppColors.quizCardCompleted.withValues(alpha: 0.8)
+                : AppColors.quizCardDefault.withValues(alpha: 0.6),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: widget.isCompleted
+                  ? AppColors.success.withValues(alpha: 0.3)
+                  : AppColors.white.withValues(alpha: 0.1),
+              width: 1,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.black.withValues(alpha: 0.1),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Stack(
+              children: [
+                // Glass effect overlay (using gradient for simulation)
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        AppColors.white.withValues(alpha: 0.1),
+                        AppColors.white.withValues(alpha: 0.05),
+                      ],
+                    ),
+                  ),
+                ),
+                
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Top Row: Type Badge
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
-                              color: AppColors.gold.withValues(alpha: 0.2),
+                              color: AppColors.primary.withValues(alpha: 0.15),
                               borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: AppColors.primary.withValues(alpha: 0.3),
+                              ),
                             ),
                             child: Text(
-                              quiz.type.displayName,
-                              style: const TextStyle(
-                                color: AppColors.gold,
+                              widget.quiz.type.displayName,
+                              style: AppTextStyles.labelSmall.copyWith(
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 12,
                               ),
                             ),
                           ),
-                          if (isCompleted) ...[
-                            const SizedBox(width: 8),
+                          if (widget.isCompleted)
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                              decoration: BoxDecoration(
-                                color: Colors.green.withValues(alpha: 0.2),
-                                borderRadius: BorderRadius.circular(8),
+                              padding: const EdgeInsets.all(4),
+                              decoration: const BoxDecoration(
+                                color: AppColors.success,
+                                shape: BoxShape.circle,
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(Icons.check_circle, size: 12, color: Colors.green),
-                                  SizedBox(width: 4),
-                                  Text(
-                                    AppLocalizations.of(context)!.common_completed,
-                                    style: TextStyle(
-                                      color: Colors.green,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 11,
-                                    ),
-                                  ),
-                                ],
+                              child: const Icon(
+                                Icons.check,
+                                size: 12,
+                                color: AppColors.white,
                               ),
                             ),
-                          ],
                         ],
                       ),
+                      
+                      const SizedBox(height: 16),
+                      
+                      // Question
                       Text(
-                        '${quiz.basePoints} ${AppLocalizations.of(context)!.quiz_pts}',
-                        style: TextStyle(
-                          color: isCompleted ? Colors.green : Colors.white54,
-                          fontSize: 12,
+                        widget.quiz.question,
+                        style: AppTextStyles.titleMedium.copyWith(
+                          color: AppColors.textPrimary,
+                          fontWeight: FontWeight.w600,
+                          height: 1.4,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      
+                      const SizedBox(height: 16),
+                      
+                      // Bottom Row: Points, Time, Arrow
+                      Row(
+                        children: [
+                          // Points
+                          Icon(Icons.stars_rounded, size: 16, color: AppColors.secondary),
+                          const SizedBox(width: 4),
+                          Text(
+                            '${widget.quiz.basePoints} ${AppLocalizations.of(context)!.quiz_pts}',
+                            style: AppTextStyles.labelMedium.copyWith(
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                          
+                          const SizedBox(width: 12),
+                          
+                          // Time
+                          const Icon(Icons.timer_outlined, size: 16, color: AppColors.textSecondary),
+                          const SizedBox(width: 4),
+                          Text(
+                            '${widget.quiz.timeLimitSeconds}s',
+                            style: AppTextStyles.labelMedium.copyWith(
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                          
+                          const Spacer(),
+                          
+                          // Action Arrow
+                          Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 16,
+                            color: widget.isCompleted ? AppColors.success : AppColors.textDisabled,
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    quiz.question,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      const Icon(Icons.timer, size: 16, color: Colors.white38),
-                      const SizedBox(width: 4),
-                      Text(
-                        '${quiz.timeLimitSeconds}${AppLocalizations.of(context)!.quiz_sec}',
-                        style: const TextStyle(color: Colors.white38, fontSize: 12),
-                      ),
-                      const Spacer(),
-                      Text(
-                        showReviewMode && isCompleted
-                            ? AppLocalizations.of(context)!.quiz_view_explanation
-                            : (isCompleted ? AppLocalizations.of(context)!.quiz_retry : AppLocalizations.of(context)!.quiz_start_challenge),
-                        style: TextStyle(
-                          color: isCompleted ? Colors.green : Colors.blueAccent,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Icon(
-                        showReviewMode && isCompleted 
-                            ? Icons.menu_book 
-                            : Icons.arrow_forward_ios, 
-                        size: 12, 
-                        color: isCompleted ? Colors.green : Colors.blueAccent,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            if (isCompleted)
-              Positioned(
-                top: 8,
-                right: 8,
-                child: Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.green.withValues(alpha: 0.4),
-                        blurRadius: 8,
-                        spreadRadius: 1,
-                      ),
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.check,
-                    size: 14,
-                    color: Colors.white,
                   ),
                 ),
-              ),
-          ],
+              ],
+            ),
+          ),
         ),
       ),
     );
