@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:time_walker/core/config/supabase_config.dart';
 import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
+import 'package:time_walker/data/repositories/mock_civilization_repository.dart';
 import 'package:time_walker/data/repositories/mock_country_repository.dart';
 import 'package:time_walker/data/repositories/mock_era_repository.dart';
 import 'package:time_walker/data/repositories/mock_region_repository.dart';
@@ -20,6 +21,7 @@ import 'package:time_walker/data/repositories/supabase_encyclopedia_repository.d
 import 'package:time_walker/data/repositories/supabase_location_repository.dart';
 import 'package:time_walker/data/repositories/supabase_quiz_repository.dart';
 import 'package:time_walker/domain/repositories/achievement_repository.dart';
+import 'package:time_walker/domain/repositories/civilization_repository.dart';
 import 'package:time_walker/domain/repositories/country_repository.dart';
 import 'package:time_walker/domain/repositories/era_repository.dart';
 import 'package:time_walker/domain/repositories/region_repository.dart';
@@ -50,6 +52,11 @@ export 'content_providers.dart';
 // - character_providers.dart: Character, Dialogue
 // - content_providers.dart: Encyclopedia, Quiz, Shop
 // ============================================================================
+
+/// Civilization Repository Provider
+final civilizationRepositoryProvider = Provider<CivilizationRepository>((ref) {
+  return MockCivilizationRepository();
+});
 
 /// Region Repository Provider
 final regionRepositoryProvider = Provider<RegionRepository>((ref) {

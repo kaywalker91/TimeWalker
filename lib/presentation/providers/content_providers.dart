@@ -8,24 +8,24 @@ import 'package:time_walker/presentation/providers/repository_providers.dart';
 // ============== Encyclopedia Providers ==============
 
 /// 모든 도감 항목 불러오기
+/// Note: keepAlive 제거 - 대량 데이터는 화면 이탈 시 메모리 해제
 final encyclopediaListProvider = FutureProvider<List<EncyclopediaEntry>>((ref) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(encyclopediaRepositoryProvider);
   return repository.getAllEntries();
 });
 
 /// 타입별 도감 항목 불러오기
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final encyclopediaListByTypeProvider =
     FutureProvider.family<List<EncyclopediaEntry>, EntryType>((ref, type) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(encyclopediaRepositoryProvider);
   return repository.getEntriesByType(type);
 });
 
 /// 도감 항목 ID로 상세 정보 불러오기
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final encyclopediaEntryByIdProvider =
     FutureProvider.family<EncyclopediaEntry?, String>((ref, id) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(encyclopediaRepositoryProvider);
   return repository.getEntryById(id);
 });
@@ -33,45 +33,46 @@ final encyclopediaEntryByIdProvider =
 // ============== Quiz Providers ==============
 
 /// 모든 퀴즈 목록 불러오기
+/// Note: keepAlive 제거 - 대량 데이터는 화면 이탈 시 메모리 해제
 final quizListProvider = FutureProvider<List<Quiz>>((ref) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getAllQuizzes();
 });
 
 /// 시대별 퀴즈 목록 불러오기
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final quizListByEraProvider = FutureProvider.family<List<Quiz>, String>((ref, eraId) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getQuizzesByEra(eraId);
 });
 
 /// 퀴즈 ID로 정보 불러오기
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final quizByIdProvider = FutureProvider.family<Quiz?, String>((ref, id) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getQuizById(id);
 });
 
 /// 퀴즈 카테고리 목록 불러오기
+/// Note: keepAlive 유지 - 작은 정적 데이터, 자주 참조됨
 final quizCategoryListProvider = FutureProvider<List<QuizCategory>>((ref) async {
-  ref.keepAlive(); // 결과 캐시 유지
+  ref.keepAlive();
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getQuizCategories();
 });
 
 /// 카테고리별 퀴즈 목록 불러오기
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final quizListByCategoryProvider =
     FutureProvider.family<List<Quiz>, String>((ref, categoryId) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getQuizzesByCategory(categoryId);
 });
 
 /// 대화 ID 연관 퀴즈 목록 불러오기 (대화 후 퀴즈용)
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final quizListByDialogueProvider =
     FutureProvider.family<List<Quiz>, String>((ref, dialogueId) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(quizRepositoryProvider);
   return repository.getQuizzesByDialogueId(dialogueId);
 });
@@ -79,8 +80,8 @@ final quizListByDialogueProvider =
 // ============== Shop Providers ==============
 
 /// 모든 상점 아이템 불러오기
+/// Note: keepAlive 제거 - 화면별 데이터는 화면 이탈 시 해제
 final shopItemListProvider = FutureProvider<List<ShopItem>>((ref) async {
-  ref.keepAlive(); // 결과 캐시 유지
   final repository = ref.watch(shopRepositoryProvider);
   return repository.getShopItems();
 });

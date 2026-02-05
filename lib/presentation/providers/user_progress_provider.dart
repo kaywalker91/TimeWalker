@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/core/constants/app_durations.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/country_repository.dart';
 import 'package:time_walker/domain/repositories/era_repository.dart';
@@ -48,7 +48,7 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
   // 디바운싱 저장을 위한 타이머
   Timer? _saveTimer;
   UserProgress? _pendingSave;
-  static const _saveDebounceDuration = Duration(milliseconds: 500);
+  static const _saveDebounceDuration = AppDurations.saveDebounce;
 
   UserProgressNotifier(
     this._repository,
@@ -111,42 +111,12 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
         content: unlockContent,
       );
 
-      // 3. Apply unlocks to the state if any found
-      if (unlocks.isNotEmpty) {
-        final newEraIds = List<String>.from(updated.unlockedEraIds);
-        final newCountryIds = List<String>.from(updated.unlockedCountryIds);
-        final newRegionIds = List<String>.from(updated.unlockedRegionIds);
-        ExplorerRank? newRank;
-
-        for (final event in unlocks) {
-          if (event.type == UnlockType.era && !newEraIds.contains(event.id)) {
-            newEraIds.add(event.id);
-          } else if (event.type == UnlockType.country &&
-              !newCountryIds.contains(event.id)) {
-            newCountryIds.add(event.id);
-          } else if (event.type == UnlockType.region &&
-              !newRegionIds.contains(event.id)) {
-            newRegionIds.add(event.id);
-          } else if (event.type == UnlockType.rank) {
-            try {
-              newRank = ExplorerRank.values.firstWhere(
-                (e) => e.name == event.id,
-              );
-            } catch (_) {}
-          }
-        }
-
-        updated = updated.copyWith(
-          unlockedEraIds: newEraIds,
-          unlockedCountryIds: newCountryIds,
-          unlockedRegionIds: newRegionIds,
-          rank: newRank ?? updated.rank,
-        );
-      }
+      // 3. Apply unlocks using ProgressionService (single source of truth)
+      updated = _progressionService.applyUnlocks(updated, unlocks);
 
       // 디바운싱 저장 (빈번한 업데이트 최적화)
       _scheduleSave(updated);
-      
+
       if (!mounted) return [];
       state = AsyncData(updated);
       return unlocks;
