@@ -7,6 +7,76 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-02-05
+
+### Added
+- **Quiz System Refactor**
+  - `QuizPlayProvider` with proper state management (extracted from screen)
+  - New widget components: `QuizOptionCard`, `QuizTimerWidget`, `QuizResultSheet`, `QuizItemButton`
+  - Quiz summary card for result display
+- **AppColors Opacity Variants**
+  - Complete white opacity series (white, white70, white60, white54, white38, white30, white24, white12, white10)
+  - Complete black opacity series (black, black87, black54, black45, black38, black26)
+  - Eliminates need for `Colors.white.withValues()` throughout codebase
+- **Era Exploration Improvements**
+  - `EraStatusBar` widget for progress display
+  - `StoryNodeTile` for narrative content display
+  - `ExplorationSearchBar` for content filtering
+  - `ExplorationStatCircle` for statistics visualization
+  - `CompactLocationTile` for condensed location display
+- **New Character Images**
+  - Future era emotion variants: byeolhaneul, han_jinue, hanaro, pureunsol, youngwon (happy/sad/thoughtful)
+  - Goryeo: jeong_mongju, yi_seong_gye
+  - Unified Silla: cheoyong, uisang
+  - Contemporary: imf_survivor, refugee_merchant, sewing_worker
+- **New Location Images** (40+ images)
+  - Egypt: pyramids, luxor, alexandria, abushimbel
+  - China Three Kingdoms: changan, chengdu, chibi, jianye, luoyang_wei, wuzhang_plains
+  - Japan: azuchi_castle, edo_castle, honnoji, osaka_castle, sekigahara
+  - Contemporary Korea: ddp_dongdaemun, gangnam_teheran, gwanghwamun_1987, incheon_airport, seoul_expressway, seoul_olympic_stadium
+  - Industrial/Modern: crystal_palace, steam_factory, ulsan_shipyard
+  - Korean War era: busan_provisional_capital, cheonggyecheon_1950, gukje_market, pyeonghwa_market
+- **New Era Background**: unified_silla.png
+- **New BGM**: unified_silla.mp3
+- **App Icon Update**: New launcher icons for iOS and Android (all densities)
+- **Core Infrastructure**
+  - `AppDurations` constants for animation timing consistency
+  - `HiveAdapters` for local storage type adapters
+  - `CivilizationRepository` interface
+  - `MockCivilizationRepository` implementation
+  - `UnlockEvent` entity for unlock tracking
+- **Test Infrastructure**
+  - Centralized `mock_repositories.dart` for test mocks
+  - Supabase repository unit tests (character, dialogue, encyclopedia, location, quiz)
+  - Quiz play provider unit tests
+  - Quiz presentation tests
+
+### Changed
+- **Quiz Play Screen**: Complete refactor to use provider-based state management (859 -> 355 lines)
+- **Quiz Screen**: Simplified with better component separation
+- **Quiz Card/Filter**: Improved UI components with cleaner code
+- **Era Exploration Screen**: Major refactoring (823 lines changed), extracted kingdom metadata and timeline ordering
+- **Exploration List Sheet**: Enhanced with new UI patterns
+- **Theme System**: Standardized color usage across all widgets (removed direct Colors.white/black usage)
+- **Dialogue System**
+  - Enhanced `DialogueEntity` with additional fields
+  - `DialogueChoice` improvements
+  - `DialogueRepository` interface expansion
+- **Repository Implementations**: Improved error handling and caching in all Supabase repositories
+- **Progression Service**: Enhanced progression logic (97 lines changed)
+- **User Progress Usecases**: Extended functionality
+- **Character Portrait Widget**: Major enhancement (120 lines changed)
+- **Settings Screen**: UI improvements and reorganization
+- **Localization**: Added 50+ new Korean and English strings
+
+### Fixed
+- Removed deprecated mock files (mockito-generated `.mocks.dart` files replaced with mocktail)
+- Fixed test utilities and integration tests
+- Improved Hive service initialization
+
+### Removed
+- Legacy mock generation files (user_progress_usecases_test.mocks.dart, content_providers_test.mocks.dart, etc.)
+
 ## [0.9.0] - 2026-01-28
 
 ### Added
@@ -106,6 +176,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| 0.10.0 | 2026-02-05 | Quiz refactor, color system, 40+ new images |
 | 0.9.0 | 2026-01-28 | Crossover dialogue system, developer mode |
 | 0.8.0 | 2026-01-26 | Achievement system expansion, Renaissance content |
 | 0.7.0 | 2026-01-15 | Supabase integration, major content expansion |
@@ -114,7 +185,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 | 0.4.0 | 2025-12-31 | Achievement system, UI overhaul |
 | 0.3.0 | 2025-12-23 | Audio system, Gaya content |
 
-[Unreleased]: https://github.com/kaywalker91/TimeWalker/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/kaywalker91/TimeWalker/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.6.0...v0.7.0
