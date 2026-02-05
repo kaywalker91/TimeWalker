@@ -36,7 +36,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get common_locked_status => 'Locked';
 
   @override
-  String get common_completed => '완료';
+  String get common_completed => 'Completed';
+
+  @override
+  String get quiz_progress_title => 'Quiz Challenge';
+
+  @override
+  String get quiz_completed => 'Completed';
 
   @override
   String get common_unknown_character => '???';
@@ -107,6 +113,41 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exploration_tab_locations => 'Locations';
 
   @override
+  String get exploration_tab_progress => 'Progress';
+
+  @override
+  String get exploration_stats_completed => 'Completed';
+
+  @override
+  String get exploration_stats_in_progress => 'In Progress';
+
+  @override
+  String get exploration_stats_locked => 'Locked';
+
+  @override
+  String get exploration_filter_all => 'All';
+
+  @override
+  String get exploration_filter_completed => 'Completed';
+
+  @override
+  String get exploration_filter_in_progress => 'In Progress';
+
+  @override
+  String get exploration_filter_locked => 'Unexplored';
+
+  @override
+  String get exploration_search_placeholder => 'Search locations...';
+
+  @override
+  String exploration_location_characters_count(Object count) {
+    return '$count';
+  }
+
+  @override
+  String get exploration_no_search_results => 'No results found';
+
+  @override
   String get exploration_tab_characters => 'Characters';
 
   @override
@@ -163,27 +204,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get app_tagline => 'Become a TimeWalker and explore history.';
 
   @override
-  String get quiz_title => '역사 퀴즈';
+  String get quiz_title => 'History Quiz';
 
   @override
   String quiz_completed_count(Object count) {
-    return '$count개 완료';
+    return '$count completed';
   }
 
   @override
-  String get quiz_filter_all => '전체';
+  String get quiz_filter_all => 'All';
 
   @override
-  String get quiz_filter_completed => '맞춘 퀴즈';
+  String get quiz_filter_completed => 'Completed';
 
   @override
-  String get quiz_category_all => '전체';
+  String get quiz_category_all => 'All';
 
   @override
-  String get quiz_empty_completed => '아직 맞춘 퀴즈가 없습니다.\n퀴즈에 도전해보세요!';
+  String get quiz_empty_completed => 'No completed quizzes yet.\nTry a quiz!';
 
   @override
-  String get quiz_empty_all => '퀴즈가 없습니다.';
+  String get quiz_empty_all => 'No quizzes available.';
 
   @override
   String get quiz_pts => 'pts';
@@ -192,33 +233,103 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quiz_sec => 's';
 
   @override
-  String get quiz_view_explanation => '해설 보기';
+  String get quiz_view_explanation => 'View explanation';
 
   @override
-  String get quiz_retry => '다시 풀기';
+  String get quiz_retry => 'Try again';
 
   @override
-  String get quiz_start_challenge => '도전하기';
+  String get quiz_start_challenge => 'Challenge';
 
   @override
-  String get quiz_correct_message => '정답을 맞췄습니다!';
+  String get quiz_correct_message => 'Correct!';
 
   @override
   String quiz_points_earned(Object points) {
-    return '$points포인트 획득';
+    return '$points points earned';
   }
 
   @override
-  String get quiz_question => '문제';
+  String get quiz_question => 'Question';
 
   @override
-  String get quiz_options => '선택지';
+  String get quiz_options => 'Options';
 
   @override
-  String get quiz_explanation => '해설';
+  String get quiz_explanation => 'Explanation';
 
   @override
-  String get quiz_close => '닫기';
+  String get quiz_close => 'Close';
+
+  @override
+  String get quiz_play_title => 'Quiz Challenge';
+
+  @override
+  String get quiz_submit => 'Submit Answer';
+
+  @override
+  String quiz_time_remaining(int seconds) {
+    return 'Time Remaining: ${seconds}s';
+  }
+
+  @override
+  String get quiz_time_frozen => 'Time Frozen!';
+
+  @override
+  String get quiz_correct_review => 'Correct! (Review)';
+
+  @override
+  String quiz_correct_points(int points) {
+    return 'Correct! +$points pts';
+  }
+
+  @override
+  String get quiz_incorrect => 'Incorrect!';
+
+  @override
+  String get quiz_hint_used => 'Hint used! 2 wrong answers removed.';
+
+  @override
+  String get quiz_time_freeze_used =>
+      'Chronos Time Stop! Time frozen for 10 seconds.';
+
+  @override
+  String get quiz_item_use_failed => 'Failed to use item!';
+
+  @override
+  String get quiz_not_found => 'Quiz not found';
+
+  @override
+  String get quiz_difficulty_easy => 'Easy';
+
+  @override
+  String get quiz_difficulty_medium => 'Medium';
+
+  @override
+  String get quiz_difficulty_hard => 'Hard';
+
+  @override
+  String get quiz_move_to_joseon => 'Go to Joseon Dynasty';
+
+  @override
+  String get quiz_move_to_three_kingdoms => 'Go to Three Kingdoms';
+
+  @override
+  String get quiz_move_to_goryeo => 'Go to Goryeo Dynasty';
+
+  @override
+  String get quiz_move_to_gaya => 'Go to Gaya Period';
+
+  @override
+  String get quiz_move_to_ancient => 'Go to Ancient Korea';
+
+  @override
+  String get quiz_move_to_era => 'Go to Era Exploration';
+
+  @override
+  String quiz_progress(int completed, int total) {
+    return '$completed/$total';
+  }
 
   @override
   String get shop_title => '아이템 상점';

@@ -10,6 +10,8 @@
   "common_talk": "대화하기",
   "common_locked_status": "잠겨있음",
   "common_completed": "완료",
+  "quiz_progress_title": "퀴즈 도전 현황",
+  "quiz_completed": "완료",
   "common_unknown_character": "???",
 
   "era_timeline_title": "시대 연대기",
@@ -32,6 +34,17 @@
   "exploration_list_locations": "장소 목록",
   "exploration_list_characters": "인물 목록",
   "exploration_tab_locations": "장소",
+  "exploration_tab_progress": "진행 현황",
+  "exploration_stats_completed": "완료",
+  "exploration_stats_in_progress": "진행중",
+  "exploration_stats_locked": "잠김",
+  "exploration_filter_all": "전체",
+  "exploration_filter_completed": "완료",
+  "exploration_filter_in_progress": "진행중",
+  "exploration_filter_locked": "미탐험",
+  "exploration_search_placeholder": "장소 검색...",
+  "exploration_location_characters_count": "{count}명",
+  "exploration_no_search_results": "검색 결과가 없습니다",
   "exploration_tab_characters": "인물",
   "exploration_no_locations": "장소가 없습니다.",
   "exploration_legend_title": "왕국 필터",
@@ -71,6 +84,43 @@
   "quiz_options": "선택지",
   "quiz_explanation": "해설",
   "quiz_close": "닫기",
+  "quiz_play_title": "퀴즈 도전",
+  "quiz_submit": "정답 제출",
+  "quiz_time_remaining": "남은 시간: {seconds}초",
+  "@quiz_time_remaining": {
+    "placeholders": {
+      "seconds": {"type": "int"}
+    }
+  },
+  "quiz_time_frozen": "시간 정지!",
+  "quiz_correct_review": "정답! (복습)",
+  "quiz_correct_points": "정답! +{points}점",
+  "@quiz_correct_points": {
+    "placeholders": {
+      "points": {"type": "int"}
+    }
+  },
+  "quiz_incorrect": "오답!",
+  "quiz_hint_used": "힌트 사용! 오답이 제거되었습니다.",
+  "quiz_time_freeze_used": "크로노스 타임 스톱! 시간이 10초간 멈춥니다.",
+  "quiz_item_use_failed": "아이템 사용 실패!",
+  "quiz_not_found": "퀴즈를 찾을 수 없습니다",
+  "quiz_difficulty_easy": "쉬움",
+  "quiz_difficulty_medium": "보통",
+  "quiz_difficulty_hard": "어려움",
+  "quiz_move_to_joseon": "조선시대로 이동",
+  "quiz_move_to_three_kingdoms": "삼국시대로 이동",
+  "quiz_move_to_goryeo": "고려시대로 이동",
+  "quiz_move_to_gaya": "가야시대로 이동",
+  "quiz_move_to_ancient": "고조선으로 이동",
+  "quiz_move_to_era": "시대 탐험으로 이동",
+  "quiz_progress": "{completed}/{total}",
+  "@quiz_progress": {
+    "placeholders": {
+      "completed": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
 
   "shop_title": "아이템 상점",
   "shop_tab_all": "전체",

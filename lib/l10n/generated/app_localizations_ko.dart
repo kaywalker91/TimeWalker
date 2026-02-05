@@ -39,6 +39,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get common_completed => '완료';
 
   @override
+  String get quiz_progress_title => '퀴즈 도전 현황';
+
+  @override
+  String get quiz_completed => '완료';
+
+  @override
   String get common_unknown_character => '???';
 
   @override
@@ -102,6 +108,41 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exploration_tab_locations => '장소';
+
+  @override
+  String get exploration_tab_progress => '진행 현황';
+
+  @override
+  String get exploration_stats_completed => '완료';
+
+  @override
+  String get exploration_stats_in_progress => '진행중';
+
+  @override
+  String get exploration_stats_locked => '잠김';
+
+  @override
+  String get exploration_filter_all => '전체';
+
+  @override
+  String get exploration_filter_completed => '완료';
+
+  @override
+  String get exploration_filter_in_progress => '진행중';
+
+  @override
+  String get exploration_filter_locked => '미탐험';
+
+  @override
+  String get exploration_search_placeholder => '장소 검색...';
+
+  @override
+  String exploration_location_characters_count(Object count) {
+    return '$count명';
+  }
+
+  @override
+  String get exploration_no_search_results => '검색 결과가 없습니다';
 
   @override
   String get exploration_tab_characters => '인물';
@@ -216,6 +257,75 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get quiz_close => '닫기';
+
+  @override
+  String get quiz_play_title => '퀴즈 도전';
+
+  @override
+  String get quiz_submit => '정답 제출';
+
+  @override
+  String quiz_time_remaining(int seconds) {
+    return '남은 시간: $seconds초';
+  }
+
+  @override
+  String get quiz_time_frozen => '시간 정지!';
+
+  @override
+  String get quiz_correct_review => '정답! (복습)';
+
+  @override
+  String quiz_correct_points(int points) {
+    return '정답! +$points점';
+  }
+
+  @override
+  String get quiz_incorrect => '오답!';
+
+  @override
+  String get quiz_hint_used => '힌트 사용! 오답이 제거되었습니다.';
+
+  @override
+  String get quiz_time_freeze_used => '크로노스 타임 스톱! 시간이 10초간 멈춥니다.';
+
+  @override
+  String get quiz_item_use_failed => '아이템 사용 실패!';
+
+  @override
+  String get quiz_not_found => '퀴즈를 찾을 수 없습니다';
+
+  @override
+  String get quiz_difficulty_easy => '쉬움';
+
+  @override
+  String get quiz_difficulty_medium => '보통';
+
+  @override
+  String get quiz_difficulty_hard => '어려움';
+
+  @override
+  String get quiz_move_to_joseon => '조선시대로 이동';
+
+  @override
+  String get quiz_move_to_three_kingdoms => '삼국시대로 이동';
+
+  @override
+  String get quiz_move_to_goryeo => '고려시대로 이동';
+
+  @override
+  String get quiz_move_to_gaya => '가야시대로 이동';
+
+  @override
+  String get quiz_move_to_ancient => '고조선으로 이동';
+
+  @override
+  String get quiz_move_to_era => '시대 탐험으로 이동';
+
+  @override
+  String quiz_progress(int completed, int total) {
+    return '$completed/$total';
+  }
 
   @override
   String get shop_title => '아이템 상점';

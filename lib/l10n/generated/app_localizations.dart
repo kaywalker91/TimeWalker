@@ -158,6 +158,18 @@ abstract class AppLocalizations {
   /// **'완료'**
   String get common_completed;
 
+  /// No description provided for @quiz_progress_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'퀴즈 도전 현황'**
+  String get quiz_progress_title;
+
+  /// No description provided for @quiz_completed.
+  ///
+  /// In ko, this message translates to:
+  /// **'완료'**
+  String get quiz_completed;
+
   /// No description provided for @common_unknown_character.
   ///
   /// In ko, this message translates to:
@@ -277,6 +289,72 @@ abstract class AppLocalizations {
   /// In ko, this message translates to:
   /// **'장소'**
   String get exploration_tab_locations;
+
+  /// No description provided for @exploration_tab_progress.
+  ///
+  /// In ko, this message translates to:
+  /// **'진행 현황'**
+  String get exploration_tab_progress;
+
+  /// No description provided for @exploration_stats_completed.
+  ///
+  /// In ko, this message translates to:
+  /// **'완료'**
+  String get exploration_stats_completed;
+
+  /// No description provided for @exploration_stats_in_progress.
+  ///
+  /// In ko, this message translates to:
+  /// **'진행중'**
+  String get exploration_stats_in_progress;
+
+  /// No description provided for @exploration_stats_locked.
+  ///
+  /// In ko, this message translates to:
+  /// **'잠김'**
+  String get exploration_stats_locked;
+
+  /// No description provided for @exploration_filter_all.
+  ///
+  /// In ko, this message translates to:
+  /// **'전체'**
+  String get exploration_filter_all;
+
+  /// No description provided for @exploration_filter_completed.
+  ///
+  /// In ko, this message translates to:
+  /// **'완료'**
+  String get exploration_filter_completed;
+
+  /// No description provided for @exploration_filter_in_progress.
+  ///
+  /// In ko, this message translates to:
+  /// **'진행중'**
+  String get exploration_filter_in_progress;
+
+  /// No description provided for @exploration_filter_locked.
+  ///
+  /// In ko, this message translates to:
+  /// **'미탐험'**
+  String get exploration_filter_locked;
+
+  /// No description provided for @exploration_search_placeholder.
+  ///
+  /// In ko, this message translates to:
+  /// **'장소 검색...'**
+  String get exploration_search_placeholder;
+
+  /// No description provided for @exploration_location_characters_count.
+  ///
+  /// In ko, this message translates to:
+  /// **'{count}명'**
+  String exploration_location_characters_count(Object count);
+
+  /// No description provided for @exploration_no_search_results.
+  ///
+  /// In ko, this message translates to:
+  /// **'검색 결과가 없습니다'**
+  String get exploration_no_search_results;
 
   /// No description provided for @exploration_tab_characters.
   ///
@@ -493,6 +571,132 @@ abstract class AppLocalizations {
   /// In ko, this message translates to:
   /// **'닫기'**
   String get quiz_close;
+
+  /// No description provided for @quiz_play_title.
+  ///
+  /// In ko, this message translates to:
+  /// **'퀴즈 도전'**
+  String get quiz_play_title;
+
+  /// No description provided for @quiz_submit.
+  ///
+  /// In ko, this message translates to:
+  /// **'정답 제출'**
+  String get quiz_submit;
+
+  /// No description provided for @quiz_time_remaining.
+  ///
+  /// In ko, this message translates to:
+  /// **'남은 시간: {seconds}초'**
+  String quiz_time_remaining(int seconds);
+
+  /// No description provided for @quiz_time_frozen.
+  ///
+  /// In ko, this message translates to:
+  /// **'시간 정지!'**
+  String get quiz_time_frozen;
+
+  /// No description provided for @quiz_correct_review.
+  ///
+  /// In ko, this message translates to:
+  /// **'정답! (복습)'**
+  String get quiz_correct_review;
+
+  /// No description provided for @quiz_correct_points.
+  ///
+  /// In ko, this message translates to:
+  /// **'정답! +{points}점'**
+  String quiz_correct_points(int points);
+
+  /// No description provided for @quiz_incorrect.
+  ///
+  /// In ko, this message translates to:
+  /// **'오답!'**
+  String get quiz_incorrect;
+
+  /// No description provided for @quiz_hint_used.
+  ///
+  /// In ko, this message translates to:
+  /// **'힌트 사용! 오답이 제거되었습니다.'**
+  String get quiz_hint_used;
+
+  /// No description provided for @quiz_time_freeze_used.
+  ///
+  /// In ko, this message translates to:
+  /// **'크로노스 타임 스톱! 시간이 10초간 멈춥니다.'**
+  String get quiz_time_freeze_used;
+
+  /// No description provided for @quiz_item_use_failed.
+  ///
+  /// In ko, this message translates to:
+  /// **'아이템 사용 실패!'**
+  String get quiz_item_use_failed;
+
+  /// No description provided for @quiz_not_found.
+  ///
+  /// In ko, this message translates to:
+  /// **'퀴즈를 찾을 수 없습니다'**
+  String get quiz_not_found;
+
+  /// No description provided for @quiz_difficulty_easy.
+  ///
+  /// In ko, this message translates to:
+  /// **'쉬움'**
+  String get quiz_difficulty_easy;
+
+  /// No description provided for @quiz_difficulty_medium.
+  ///
+  /// In ko, this message translates to:
+  /// **'보통'**
+  String get quiz_difficulty_medium;
+
+  /// No description provided for @quiz_difficulty_hard.
+  ///
+  /// In ko, this message translates to:
+  /// **'어려움'**
+  String get quiz_difficulty_hard;
+
+  /// No description provided for @quiz_move_to_joseon.
+  ///
+  /// In ko, this message translates to:
+  /// **'조선시대로 이동'**
+  String get quiz_move_to_joseon;
+
+  /// No description provided for @quiz_move_to_three_kingdoms.
+  ///
+  /// In ko, this message translates to:
+  /// **'삼국시대로 이동'**
+  String get quiz_move_to_three_kingdoms;
+
+  /// No description provided for @quiz_move_to_goryeo.
+  ///
+  /// In ko, this message translates to:
+  /// **'고려시대로 이동'**
+  String get quiz_move_to_goryeo;
+
+  /// No description provided for @quiz_move_to_gaya.
+  ///
+  /// In ko, this message translates to:
+  /// **'가야시대로 이동'**
+  String get quiz_move_to_gaya;
+
+  /// No description provided for @quiz_move_to_ancient.
+  ///
+  /// In ko, this message translates to:
+  /// **'고조선으로 이동'**
+  String get quiz_move_to_ancient;
+
+  /// No description provided for @quiz_move_to_era.
+  ///
+  /// In ko, this message translates to:
+  /// **'시대 탐험으로 이동'**
+  String get quiz_move_to_era;
+
+  /// No description provided for @quiz_progress.
+  ///
+  /// In ko, this message translates to:
+  /// **'{completed}/{total}'**
+  String quiz_progress(int completed, int total);
 
   /// No description provided for @shop_title.
   ///
