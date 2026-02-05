@@ -1,25 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/domain/entities/region.dart';
-import 'package:time_walker/domain/repositories/country_repository.dart';
-import 'package:time_walker/domain/repositories/era_repository.dart';
-import 'package:time_walker/domain/repositories/location_repository.dart';
-import 'package:time_walker/domain/repositories/region_repository.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/shared/geo/map_coordinates.dart';
 
-@GenerateNiceMocks([
-  MockSpec<RegionRepository>(),
-  MockSpec<EraRepository>(),
-  MockSpec<CountryRepository>(),
-  MockSpec<LocationRepository>(),
-])
-import 'exploration_providers_test.mocks.dart';
+import '../../../mocks/mock_repositories.dart';
 
 void main() {
   late MockRegionRepository mockRegionRepo;
@@ -60,11 +49,11 @@ void main() {
           center: MapCoordinates(x: 0, y: 0),
         ),
       ];
-      when(mockRegionRepo.getAllRegions()).thenAnswer((_) async => mockRegions);
+      when(() => mockRegionRepo.getAllRegions()).thenAnswer((_) async => mockRegions);
 
       final result = await container.read(regionListProvider.future);
       expect(result, equals(mockRegions));
-      verify(mockRegionRepo.getAllRegions()).called(1);
+      verify(() => mockRegionRepo.getAllRegions()).called(1);
     });
 
     test('regionByIdProvider가 ID로 지역을 반환한다', () async {
@@ -79,11 +68,11 @@ void main() {
         countryIds: [],
         center: MapCoordinates(x: 0, y: 0),
       );
-      when(mockRegionRepo.getRegionById('asia')).thenAnswer((_) async => mockRegion);
+      when(() => mockRegionRepo.getRegionById('asia')).thenAnswer((_) async => mockRegion);
 
       final result = await container.read(regionByIdProvider('asia').future);
       expect(result, equals(mockRegion));
-      verify(mockRegionRepo.getRegionById('asia')).called(1);
+      verify(() => mockRegionRepo.getRegionById('asia')).called(1);
     });
   });
 
@@ -91,7 +80,7 @@ void main() {
     test('eraListByCountryProvider가 국가별 시대 목록을 반환한다', () async {
       final container = createContainer();
       final mockEras = <Era>[];
-      when(mockEraRepo.getErasByCountry('korea')).thenAnswer((_) async => mockEras);
+      when(() => mockEraRepo.getErasByCountry('korea')).thenAnswer((_) async => mockEras);
 
       final result = await container.read(eraListByCountryProvider('korea').future);
       expect(result, equals(mockEras));
@@ -102,7 +91,7 @@ void main() {
     test('countryListByRegionProvider가 지역별 국가 목록을 반환한다', () async {
       final container = createContainer();
       final mockCountries = <Country>[];
-      when(mockCountryRepo.getCountriesByRegion('asia')).thenAnswer((_) async => mockCountries);
+      when(() => mockCountryRepo.getCountriesByRegion('asia')).thenAnswer((_) async => mockCountries);
 
       final result = await container.read(countryListByRegionProvider('asia').future);
       expect(result, equals(mockCountries));
@@ -113,7 +102,7 @@ void main() {
     test('locationListByEraProvider가 시대별 장소 목록을 반환한다', () async {
       final container = createContainer();
       final mockLocations = <Location>[];
-      when(mockLocationRepo.getLocationsByEra('joseon')).thenAnswer((_) async => mockLocations);
+      when(() => mockLocationRepo.getLocationsByEra('joseon')).thenAnswer((_) async => mockLocations);
 
       final result = await container.read(locationListByEraProvider('joseon').future);
       expect(result, equals(mockLocations));

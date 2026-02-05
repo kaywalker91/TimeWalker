@@ -1,26 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-import 'package:mockito/annotations.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/entities/unlock_event.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
-import 'package:time_walker/domain/repositories/country_repository.dart';
-import 'package:time_walker/domain/repositories/era_repository.dart';
-import 'package:time_walker/domain/repositories/region_repository.dart';
-import 'package:time_walker/domain/repositories/user_progress_repository.dart';
-import 'package:time_walker/domain/services/progression_service.dart';
-import 'package:time_walker/domain/services/user_progress_factory.dart';
 import 'package:time_walker/domain/usecases/user_progress_usecases.dart';
 
 import '../../../helpers/test_utils.dart';
-@GenerateNiceMocks([
-  MockSpec<UserProgressRepository>(),
-  MockSpec<UserProgressFactory>(),
-  MockSpec<ProgressionService>(),
-  MockSpec<EraRepository>(),
-  MockSpec<CountryRepository>(),
-  MockSpec<RegionRepository>(),
-])
-import 'user_progress_usecases_test.mocks.dart';
 
 void main() {
   late MockUserProgressRepository mockRepository;
@@ -32,6 +17,13 @@ void main() {
   late GetUserProgressUseCase getUserProgressUseCase;
   late UpdateUserProgressUseCase updateUserProgressUseCase;
   late AddKnowledgePointsUseCase addKnowledgePointsUseCase;
+
+  setUpAll(() {
+    // Register fallback values for mocktail
+    registerFallbackValue(createMockUserProgress());
+    registerFallbackValue(const UnlockContent());
+    registerFallbackValue(<UnlockEvent>[]);
+  });
 
   setUp(() {
     mockRepository = MockUserProgressRepository();
@@ -50,9 +42,9 @@ void main() {
     );
     addKnowledgePointsUseCase = AddKnowledgePointsUseCase(updateUserProgressUseCase);
 
-    when(mockEraRepository.getAllEras()).thenAnswer((_) async => []);
-    when(mockCountryRepository.getAllCountries()).thenAnswer((_) async => []);
-    when(mockRegionRepository.getAllRegions()).thenAnswer((_) async => []);
+    when(() => mockEraRepository.getAllEras()).thenAnswer((_) async => []);
+    when(() => mockCountryRepository.getAllCountries()).thenAnswer((_) async => []);
+    when(() => mockRegionRepository.getAllRegions()).thenAnswer((_) async => []);
   });
 
   group('GetUserProgressUseCase', () {
@@ -61,7 +53,7 @@ void main() {
     test('저장된 진행 상태가 있으면 반환한다', () async {
       // Given
       final existingProgress = createMockUserProgress(userId: userId);
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => existingProgress);
 
       // When
@@ -70,17 +62,17 @@ void main() {
       // Then
       expect(result.isSuccess, isTrue);
       expect(result.data, equals(existingProgress));
-      verify(mockRepository.getUserProgress(userId)).called(1);
-      verifyNever(mockRepository.saveUserProgress(any));
+      verify(() => mockRepository.getUserProgress(userId)).called(1);
+      verifyNever(() => mockRepository.saveUserProgress(any()));
     });
 
     test('저장된 진행 상태가 없으면 초기 상태를 생성하고 저장 후 반환한다', () async {
       // Given
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => null);
-      when(mockRepository.saveUserProgress(any))
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
-      when(mockFactory.initial(userId))
+      when(() => mockFactory.initial(userId))
           .thenReturn(createMockUserProgress(userId: userId, totalKnowledge: 0));
 
       // When
@@ -92,14 +84,14 @@ void main() {
       expect(progress, isNotNull);
       expect(progress!.userId, equals(userId));
       expect(progress.totalKnowledge, equals(0)); // 초기값
-      
-      verify(mockRepository.getUserProgress(userId)).called(1);
-      verify(mockRepository.saveUserProgress(any)).called(1);
+
+      verify(() => mockRepository.getUserProgress(userId)).called(1);
+      verify(() => mockRepository.saveUserProgress(any())).called(1);
     });
 
     test('리포지토리 에러 시 Failure 반환', () async {
       // Given
-      when(mockRepository.getUserProgress(any))
+      when(() => mockRepository.getUserProgress(any()))
           .thenThrow(Exception('DB Error'));
 
       // When
@@ -118,9 +110,14 @@ void main() {
 
     test('업데이트 함수가 적용되고 저장된다', () async {
       // Given
-      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
+      when(() => mockProgressionService.checkUnlocks(any(), content: any(named: 'content')))
           .thenReturn([]); // 해금 없음
-      when(mockRepository.saveUserProgress(any))
+      // Mock applyUnlocks to return the progress unchanged (no unlocks)
+      when(() => mockProgressionService.applyUnlocks(any(), any()))
+          .thenAnswer((invocation) {
+            return invocation.positionalArguments[0] as UserProgress;
+          });
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
 
       // When
@@ -133,8 +130,8 @@ void main() {
       expect(result.isSuccess, isTrue);
       final updated = result.data?.progress;
       expect(updated!.totalKnowledge, equals(200));
-      verify(mockRepository.saveUserProgress(argThat(
-        isA<UserProgress>().having((p) => p.totalKnowledge, 'knowledge', 200)
+      verify(() => mockRepository.saveUserProgress(any(
+        that: isA<UserProgress>().having((p) => p.totalKnowledge, 'knowledge', 200)
       ))).called(1);
     });
 
@@ -147,9 +144,17 @@ void main() {
         name: '삼국시대',
       );
 
-      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
+      when(() => mockProgressionService.checkUnlocks(any(), content: any(named: 'content')))
           .thenReturn([unlockEvent]);
-      when(mockRepository.saveUserProgress(any))
+      // Mock applyUnlocks to return progress with unlocked era
+      when(() => mockProgressionService.applyUnlocks(any(), any()))
+          .thenAnswer((invocation) {
+            final progress = invocation.positionalArguments[0] as UserProgress;
+            return progress.copyWith(
+              unlockedEraIds: [...progress.unlockedEraIds, newEraId],
+            );
+          });
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
 
       // When
@@ -163,9 +168,9 @@ void main() {
       final updateResult = result.data;
       expect(updateResult!.unlocks, contains(unlockEvent));
       expect(updateResult.progress.unlockedEraIds, contains(newEraId));
-      
-      verify(mockRepository.saveUserProgress(argThat(
-        isA<UserProgress>().having((p) => p.unlockedEraIds, 'eras', contains(newEraId))
+
+      verify(() => mockRepository.saveUserProgress(any(
+        that: isA<UserProgress>().having((p) => p.unlockedEraIds, 'eras', contains(newEraId))
       ))).called(1);
     });
 
@@ -177,9 +182,15 @@ void main() {
         name: 'Apprentice',
       );
 
-      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
+      when(() => mockProgressionService.checkUnlocks(any(), content: any(named: 'content')))
           .thenReturn([unlockEvent]);
-      when(mockRepository.saveUserProgress(any))
+      // Mock applyUnlocks to return progress with new rank
+      when(() => mockProgressionService.applyUnlocks(any(), any()))
+          .thenAnswer((invocation) {
+            final progress = invocation.positionalArguments[0] as UserProgress;
+            return progress.copyWith(rank: ExplorerRank.apprentice);
+          });
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
 
       // When
@@ -200,9 +211,14 @@ void main() {
 
     test('지식 포인트가 추가된다', () async {
       // Given
-      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
+      when(() => mockProgressionService.checkUnlocks(any(), content: any(named: 'content')))
           .thenReturn([]);
-      when(mockRepository.saveUserProgress(any))
+      // Mock applyUnlocks to return the progress unchanged (no unlocks)
+      when(() => mockProgressionService.applyUnlocks(any(), any()))
+          .thenAnswer((invocation) {
+            return invocation.positionalArguments[0] as UserProgress;
+          });
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
 
       // When

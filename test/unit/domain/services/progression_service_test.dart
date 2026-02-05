@@ -419,9 +419,177 @@ void main() {
 
       test('master 등급에 hidden era와 master title이 포함됨', () {
         final unlocks = ProgressionService.rankUnlocks[ExplorerRank.master];
-        
+
         expect(unlocks, contains('era_hidden'));
         expect(unlocks, contains('title_master'));
+      });
+    });
+
+    // =========================================================
+    // applyUnlocks 테스트
+    // =========================================================
+    group('applyUnlocks', () {
+      test('빈 해금 목록은 progress를 변경하지 않음', () {
+        // Given
+        final progress = createMockUserProgress(
+          unlockedEraIds: ['joseon'],
+          unlockedCountryIds: ['korea'],
+          unlockedRegionIds: ['asia'],
+          rank: ExplorerRank.novice,
+        );
+
+        // When
+        final result = service.applyUnlocks(progress, []);
+
+        // Then
+        expect(result, equals(progress));
+      });
+
+      test('era 해금이 적용됨', () {
+        // Given
+        final progress = createMockUserProgress(
+          unlockedEraIds: ['joseon'],
+        );
+        const unlocks = [
+          UnlockEvent(
+            type: UnlockType.era,
+            id: 'goryeo',
+            name: '고려',
+          ),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then
+        expect(result.unlockedEraIds, contains('joseon'));
+        expect(result.unlockedEraIds, contains('goryeo'));
+      });
+
+      test('country 해금이 적용됨', () {
+        // Given
+        final progress = createMockUserProgress(
+          unlockedCountryIds: ['korea'],
+        );
+        const unlocks = [
+          UnlockEvent(
+            type: UnlockType.country,
+            id: 'china',
+            name: '중국',
+          ),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then
+        expect(result.unlockedCountryIds, contains('korea'));
+        expect(result.unlockedCountryIds, contains('china'));
+      });
+
+      test('region 해금이 적용됨', () {
+        // Given
+        final progress = createMockUserProgress(
+          unlockedRegionIds: ['asia'],
+        );
+        const unlocks = [
+          UnlockEvent(
+            type: UnlockType.region,
+            id: 'europe',
+            name: '유럽',
+          ),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then
+        expect(result.unlockedRegionIds, contains('asia'));
+        expect(result.unlockedRegionIds, contains('europe'));
+      });
+
+      test('rank 해금이 적용됨', () {
+        // Given
+        final progress = createMockUserProgress(
+          rank: ExplorerRank.novice,
+        );
+        final unlocks = [
+          UnlockEvent(
+            type: UnlockType.rank,
+            id: ExplorerRank.apprentice.name,
+            name: 'Apprentice',
+          ),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then
+        expect(result.rank, equals(ExplorerRank.apprentice));
+      });
+
+      test('중복 해금은 추가되지 않음', () {
+        // Given
+        final progress = createMockUserProgress(
+          unlockedEraIds: ['joseon', 'goryeo'],
+        );
+        const unlocks = [
+          UnlockEvent(
+            type: UnlockType.era,
+            id: 'goryeo', // 이미 있음
+            name: '고려',
+          ),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then
+        expect(result.unlockedEraIds.length, equals(2));
+        expect(result.unlockedEraIds.where((id) => id == 'goryeo').length, equals(1));
+      });
+
+      test('여러 종류의 해금이 동시에 적용됨', () {
+        // Given
+        final progress = createMockUserProgress(
+          unlockedEraIds: ['joseon'],
+          unlockedCountryIds: ['korea'],
+          unlockedRegionIds: ['asia'],
+          rank: ExplorerRank.novice,
+        );
+        final unlocks = [
+          const UnlockEvent(type: UnlockType.era, id: 'goryeo', name: '고려'),
+          const UnlockEvent(type: UnlockType.country, id: 'china', name: '중국'),
+          const UnlockEvent(type: UnlockType.region, id: 'europe', name: '유럽'),
+          UnlockEvent(type: UnlockType.rank, id: ExplorerRank.apprentice.name, name: 'Apprentice'),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then
+        expect(result.unlockedEraIds, containsAll(['joseon', 'goryeo']));
+        expect(result.unlockedCountryIds, containsAll(['korea', 'china']));
+        expect(result.unlockedRegionIds, containsAll(['asia', 'europe']));
+        expect(result.rank, equals(ExplorerRank.apprentice));
+      });
+
+      test('feature 타입은 progress를 변경하지 않음', () {
+        // Given
+        final progress = createMockUserProgress();
+        const unlocks = [
+          UnlockEvent(
+            type: UnlockType.feature,
+            id: 'feature_quiz',
+            name: '퀴즈 모드',
+          ),
+        ];
+
+        // When
+        final result = service.applyUnlocks(progress, unlocks);
+
+        // Then: feature 해금은 progress에 영향 없음
+        expect(result, equals(progress));
       });
     });
   });

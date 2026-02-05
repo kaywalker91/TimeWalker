@@ -1,26 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/entities/unlock_event.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
-import 'package:time_walker/domain/repositories/country_repository.dart';
-import 'package:time_walker/domain/repositories/era_repository.dart';
-import 'package:time_walker/domain/repositories/region_repository.dart';
-import 'package:time_walker/domain/repositories/user_progress_repository.dart';
-import 'package:time_walker/domain/services/progression_service.dart';
-import 'package:time_walker/domain/services/user_progress_factory.dart';
 import 'package:time_walker/presentation/providers/user_progress_provider.dart';
 
 import '../../../helpers/test_utils.dart';
-@GenerateNiceMocks([
-  MockSpec<UserProgressRepository>(),
-  MockSpec<ProgressionService>(),
-  MockSpec<EraRepository>(),
-  MockSpec<CountryRepository>(),
-  MockSpec<RegionRepository>(),
-  MockSpec<UserProgressFactory>(),
-])
-import 'user_progress_provider_test.mocks.dart';
 
 void main() {
   late MockUserProgressRepository mockRepository;
@@ -31,6 +16,13 @@ void main() {
   late MockUserProgressFactory mockFactory;
   late UserProgressNotifier notifier;
 
+  setUpAll(() {
+    // Register fallback values for mocktail
+    registerFallbackValue(createMockUserProgress());
+    registerFallbackValue(const UnlockContent());
+    registerFallbackValue(<UnlockEvent>[]);
+  });
+
   setUp(() {
     mockRepository = MockUserProgressRepository();
     mockProgressionService = MockProgressionService();
@@ -39,9 +31,9 @@ void main() {
     mockRegionRepository = MockRegionRepository();
     mockFactory = MockUserProgressFactory();
 
-    when(mockEraRepository.getAllEras()).thenAnswer((_) async => []);
-    when(mockCountryRepository.getAllCountries()).thenAnswer((_) async => []);
-    when(mockRegionRepository.getAllRegions()).thenAnswer((_) async => []);
+    when(() => mockEraRepository.getAllEras()).thenAnswer((_) async => []);
+    when(() => mockCountryRepository.getAllCountries()).thenAnswer((_) async => []);
+    when(() => mockRegionRepository.getAllRegions()).thenAnswer((_) async => []);
   });
 
   group('UserProgressNotifier', () {
@@ -60,12 +52,12 @@ void main() {
     test('초기화 시 저장된 진행 상태를 불러온다', () async {
       // Given
       final progress = createMockUserProgress(userId: userId);
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => progress);
 
       // Re-initialize to trigger load
       notifier = createNotifier();
-      
+
       // Wait for async load
       await Future.delayed(Duration.zero);
 
@@ -75,34 +67,37 @@ void main() {
 
     test('저장된 상태가 없으면 초기 상태를 생성하고 저장한다', () async {
       // Given
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => null);
-      when(mockRepository.saveUserProgress(any))
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
-      when(mockFactory.initial(userId))
+      when(() => mockFactory.initial(userId))
           .thenReturn(createMockUserProgress(userId: userId, totalKnowledge: 0));
 
       // Re-initialize
       notifier = createNotifier();
-      
+
       // Wait for async load
       await Future.delayed(Duration.zero);
 
       // Then
       expect(notifier.state.value, isNotNull);
       expect(notifier.state.value!.totalKnowledge, equals(0));
-      verify(mockRepository.saveUserProgress(any)).called(1);
+      verify(() => mockRepository.saveUserProgress(any())).called(1);
     });
 
     test('updateProgress가 상태를 업데이트하고 저장한다', () async {
       // Given: Initial load complete
       final initialProgress = createMockUserProgress(userId: userId);
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => initialProgress);
-      when(mockRepository.saveUserProgress(any))
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
-      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
+      when(() => mockProgressionService.checkUnlocks(any(), content: any(named: 'content')))
           .thenReturn([]);
+      // Mock applyUnlocks to return the progress unchanged (no unlocks)
+      when(() => mockProgressionService.applyUnlocks(any(), any()))
+          .thenAnswer((invocation) => invocation.positionalArguments[0] as UserProgress);
 
       notifier = createNotifier();
       await Future.delayed(Duration.zero);
@@ -112,29 +107,41 @@ void main() {
         (p) => p.copyWith(totalKnowledge: 100),
       );
 
-      // Then
+      // Then - state should be updated immediately
       expect(notifier.state.value!.totalKnowledge, equals(100));
-      verify(mockRepository.saveUserProgress(argThat(
-        isA<UserProgress>().having((p) => p.totalKnowledge, 'knowledge', 100)
+
+      // Wait for debounced save (500ms + buffer)
+      await Future.delayed(const Duration(milliseconds: 600));
+
+      verify(() => mockRepository.saveUserProgress(any(
+        that: isA<UserProgress>().having((p) => p.totalKnowledge, 'knowledge', 100)
       ))).called(1);
     });
 
     test('updateProgress가 해금 이벤트를 처리하고 반영한다', () async {
       // Given
       final initialProgress = createMockUserProgress(userId: userId);
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => initialProgress);
-      when(mockRepository.saveUserProgress(any))
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
-      
+
       const newEraId = 'new_era';
       final unlockEvent = UnlockEvent(
         type: UnlockType.era,
         id: newEraId,
         name: 'New Era',
       );
-      when(mockProgressionService.checkUnlocks(any, content: anyNamed('content')))
+      when(() => mockProgressionService.checkUnlocks(any(), content: any(named: 'content')))
           .thenReturn([unlockEvent]);
+      // Mock applyUnlocks to return progress with unlocked era
+      when(() => mockProgressionService.applyUnlocks(any(), any()))
+          .thenAnswer((invocation) {
+            final progress = invocation.positionalArguments[0] as UserProgress;
+            return progress.copyWith(
+              unlockedEraIds: [...progress.unlockedEraIds, newEraId],
+            );
+          });
 
       notifier = createNotifier();
       await Future.delayed(Duration.zero);
@@ -142,10 +149,14 @@ void main() {
       // When
       final unlocks = await notifier.updateProgress((p) => p);
 
-      // Then
+      // Then - state updates immediately
       expect(unlocks, contains(unlockEvent));
       expect(notifier.state.value!.unlockedEraIds, contains(newEraId));
-      verify(mockRepository.saveUserProgress(any)).called(1);
+
+      // Wait for debounced save (500ms + buffer)
+      await Future.delayed(const Duration(milliseconds: 600));
+
+      verify(() => mockRepository.saveUserProgress(any())).called(1);
     });
 
     test('consumeItem이 아이템을 제거하고 저장한다', () async {
@@ -153,9 +164,9 @@ void main() {
       final progress = createMockUserProgress(userId: userId).copyWith(
         inventoryIds: ['item1', 'item2'],
       );
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => progress);
-      when(mockRepository.saveUserProgress(any))
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
 
       notifier = createNotifier();
@@ -168,13 +179,13 @@ void main() {
       expect(result, isTrue);
       expect(notifier.state.value!.inventoryIds, isNot(contains('item1')));
       expect(notifier.state.value!.inventoryIds, contains('item2'));
-      verify(mockRepository.saveUserProgress(any)).called(1);
+      verify(() => mockRepository.saveUserProgress(any())).called(1);
     });
 
     test('consumeItem이 없는 아이템에 대해 false를 반환한다', () async {
       // Given
       final progress = createMockUserProgress(userId: userId); // Empty inventory
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => progress);
 
       notifier = createNotifier();
@@ -185,17 +196,17 @@ void main() {
 
       // Then
       expect(result, isFalse);
-      verifyNever(mockRepository.saveUserProgress(any));
+      verifyNever(() => mockRepository.saveUserProgress(any()));
     });
 
     test('unlockAllContent가 모든 콘텐츠를 해금한다 (Admin)', () async {
       // Given
       final progress = createMockUserProgress(userId: userId);
-      when(mockRepository.getUserProgress(userId))
+      when(() => mockRepository.getUserProgress(userId))
           .thenAnswer((_) async => progress);
-      when(mockRepository.saveUserProgress(any))
+      when(() => mockRepository.saveUserProgress(any()))
           .thenAnswer((_) async => {});
-      when(mockFactory.debugAllUnlocked(userId)).thenReturn(
+      when(() => mockFactory.debugAllUnlocked(userId)).thenReturn(
         createMockUserProgress(userId: userId, rank: ExplorerRank.master),
       );
 
@@ -209,7 +220,7 @@ void main() {
       final updated = notifier.state.value!;
       expect(updated.rank, equals(ExplorerRank.master));
       // UserProgressSeed.debugAllUnlocked implementation check (assumed full unlock)
-      verify(mockRepository.saveUserProgress(any)).called(1);
+      verify(() => mockRepository.saveUserProgress(any())).called(1);
     });
   });
 }

@@ -74,14 +74,14 @@ void main() {
           coins: 1000,
         ));
 
-        // Test environment wait for async write
-        await Future.delayed(const Duration(milliseconds: 50));
+        // Wait for debounced save (500ms + buffer)
+        await Future.delayed(const Duration(milliseconds: 600));
 
         // Assert
         final savedProgress = await mockRepository.getUserProgress('user_001');
         expect(savedProgress?.totalKnowledge, equals(2000));
         expect(savedProgress?.coins, equals(1000));
-        
+
         sub.close();
       });
 
@@ -104,12 +104,13 @@ void main() {
         await notifier.updateProgress((p) => p.copyWith(totalKnowledge: p.totalKnowledge + 200));
         await notifier.updateProgress((p) => p.copyWith(totalKnowledge: p.totalKnowledge + 300));
 
-        await Future.delayed(const Duration(milliseconds: 50));
+        // Wait for debounced save (500ms + buffer)
+        await Future.delayed(const Duration(milliseconds: 600));
 
         // Assert
         final finalProgress = await mockRepository.getUserProgress('user_001');
         expect(finalProgress?.totalKnowledge, equals(600));
-        
+
         sub.close();
       });
 

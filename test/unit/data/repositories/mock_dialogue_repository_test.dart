@@ -77,6 +77,21 @@ void main() {
       expect(emptyDialogues, isEmpty);
     });
 
+    test('getDialoguesByIds returns matching dialogues', () async {
+      // 1. Existing IDs
+      final dialogues = await repository.getDialoguesByIds(['test_dialogue']);
+      expect(dialogues, isNotEmpty);
+      expect(dialogues.first.id, equals('test_dialogue'));
+
+      // 2. Empty list
+      final emptyResult = await repository.getDialoguesByIds([]);
+      expect(emptyResult, isEmpty);
+
+      // 3. Non-existent IDs
+      final noMatch = await repository.getDialoguesByIds(['non_existent']);
+      expect(noMatch, isEmpty);
+    });
+
     test('save and get DialogueProgress', () async {
       final progress = DialogueProgress(
         dialogueId: 'test_dialogue',

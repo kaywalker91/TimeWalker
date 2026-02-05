@@ -9,6 +9,7 @@ import 'package:time_walker/domain/entities/quiz/quiz_entities.dart';
 // Mock 클래스 export
 export '../mocks/mock_audio_service.dart';
 export '../mocks/mock_providers.dart';
+export '../mocks/mock_repositories.dart';
 
 /// 테스트용 ProviderContainer 생성
 /// 
