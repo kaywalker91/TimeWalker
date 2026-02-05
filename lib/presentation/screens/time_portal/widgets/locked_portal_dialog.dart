@@ -51,7 +51,7 @@ class _LockedPortalDialogState extends State<LockedPortalDialog>
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       elevation: 0,
       child: AnimatedBuilder(
         animation: _shakeAnimation,

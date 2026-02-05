@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/themes/themes.dart';
 
 /// 시공간 배경 위젯
@@ -95,7 +96,7 @@ class _SpaceTimeBackgroundState extends State<SpaceTimeBackground>
                 // 타겟 컬러가 있으면 은은하게 섞임
                 widget.targetColor?.withValues(alpha: 0.15) ?? AppColors.spaceGradientMid,
                 AppColors.spaceDeep,
-                Colors.black,
+                AppColors.black,
               ],
               stops: const [0.0, 0.6, 1.0],
             ),
@@ -139,7 +140,7 @@ class _SpaceTimeBackgroundState extends State<SpaceTimeBackground>
               end: Alignment.bottomRight,
               colors: [
                 AppColors.spaceDeep.withValues(alpha: 0.4),
-                Colors.transparent,
+                AppColors.transparent,
                 AppColors.spaceDeep.withValues(alpha: 0.6),
               ],
             ),
@@ -206,7 +207,7 @@ class _DeepSpacePainter extends CustomPainter {
         final blink = math.sin((animationValue * 50) + star.blinkOffset);
         final opacity = ((blink + 1) / 2 * 0.5 + 0.5) * layer.brightness;
         
-        paint.color = Colors.white.withValues(alpha: opacity);
+        paint.color = AppColors.white.withValues(alpha: opacity);
 
         // 좌표 계산 (Looping)
         double yPos = (star.y * size.height + dy) % size.height;

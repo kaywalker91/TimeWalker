@@ -46,27 +46,27 @@ class SettingsSwitchTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
       ),
       child: SwitchListTile(
-        secondary: Icon(icon, color: Colors.white70),
-        title: Text(title, style: const TextStyle(color: Colors.white)),
+        secondary: Icon(icon, color: AppColors.white70),
+        title: Text(title, style: const TextStyle(color: AppColors.white)),
         subtitle: subtitle != null
             ? Text(
                 subtitle!,
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
+                style: TextStyle(color: AppColors.white.withValues(alpha: 0.5)),
               )
             : null,
         value: value,
         onChanged: onChanged,
         activeTrackColor: AppColors.info,
-        trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+        trackOutlineColor: WidgetStateProperty.all(AppColors.transparent),
         thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.selected)) {
-            return Colors.white;
+            return AppColors.white;
           }
-          return Colors.white70;
+          return AppColors.white70;
         }),
       ),
     );
@@ -96,12 +96,12 @@ class SettingsSliderTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
-          Icon(icon, color: enabled ? Colors.white70 : Colors.white30),
+          Icon(icon, color: enabled ? AppColors.white70 : AppColors.white38),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
@@ -110,14 +110,14 @@ class SettingsSliderTile extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: enabled ? Colors.white : Colors.white30,
+                    color: enabled ? AppColors.white : AppColors.white38,
                   ),
                 ),
                 Slider(
                   value: value,
                   onChanged: enabled ? onChanged : null,
                   activeColor: AppColors.info,
-                  inactiveColor: Colors.white24,
+                  inactiveColor: AppColors.white24,
                 ),
               ],
             ),
@@ -148,20 +148,20 @@ class SettingsActionTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
       ),
       child: ListTile(
-        leading: Icon(icon, color: isDestructive ? Colors.red : Colors.white70),
+        leading: Icon(icon, color: isDestructive ? AppColors.red : AppColors.white70),
         title: Text(
           title,
-          style: TextStyle(color: isDestructive ? Colors.red : Colors.white),
+          style: TextStyle(color: isDestructive ? AppColors.red : AppColors.white),
         ),
         trailing: Icon(
           Icons.chevron_right,
           color: isDestructive
-              ? Colors.red.withValues(alpha: 0.5)
-              : Colors.white30,
+              ? AppColors.red.withValues(alpha: 0.5)
+              : AppColors.white38,
         ),
         onTap: onTap,
       ),
@@ -186,14 +186,14 @@ class SettingsInfoTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(color: Colors.white)),
-          Text(value, style: const TextStyle(color: Colors.white54)),
+          Text(label, style: const TextStyle(color: AppColors.white)),
+          Text(value, style: const TextStyle(color: AppColors.white54)),
         ],
       ),
     );

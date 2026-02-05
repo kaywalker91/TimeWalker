@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
 import 'achievement_card.dart';
 import 'achievement_detail_sheet.dart';
@@ -20,7 +21,7 @@ class AchievementGrid extends StatelessWidget {
       return const Center(
         child: Text(
           '이 카테고리에 업적이 없습니다.',
-          style: TextStyle(color: Colors.white54),
+          style: TextStyle(color: AppColors.white54),
         ),
       );
     }
@@ -50,7 +51,7 @@ class AchievementGrid extends StatelessWidget {
   void _showAchievementDetail(BuildContext context, Achievement achievement, bool isUnlocked) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       isScrollControlled: true,
       builder: (context) => AchievementDetailSheet(
         achievement: achievement,

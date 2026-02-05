@@ -79,7 +79,7 @@ class _AchievementScreenState extends ConsumerState<AchievementScreen>
                 isScrollable: true,
                 indicatorColor: AppColors.primary,
                 labelColor: AppColors.primary,
-                unselectedLabelColor: Colors.white54,
+                unselectedLabelColor: AppColors.white54,
                 tabs: [
                   const Tab(text: '전체'),
                   ..._categories.map((c) => Tab(text: c.displayName)),

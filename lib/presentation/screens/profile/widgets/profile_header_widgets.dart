@@ -67,7 +67,7 @@ class _TimeWalkerIdCardState extends State<TimeWalkerIdCard> with SingleTickerPr
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: AppColors.black.withValues(alpha: 0.3),
                 blurRadius: 20,
                 offset: const Offset(0, 10),
               ),
@@ -95,9 +95,9 @@ class _TimeWalkerIdCardState extends State<TimeWalkerIdCard> with SingleTickerPr
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                Colors.transparent,
-                                Colors.white.withValues(alpha: 0.05),
-                                Colors.transparent,
+                                AppColors.transparent,
+                                AppColors.white.withValues(alpha: 0.05),
+                                AppColors.transparent,
                               ],
                               stops: const [0, 0.5, 1],
                             ),
@@ -133,7 +133,7 @@ class _TimeWalkerIdCardState extends State<TimeWalkerIdCard> with SingleTickerPr
                                     'Time Walker',
                                     style: AppTextStyles.headlineSmall.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: AppColors.white,
                                     ),
                                   ),
                                 ),
@@ -151,7 +151,7 @@ class _TimeWalkerIdCardState extends State<TimeWalkerIdCard> with SingleTickerPr
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.2),
+                          color: AppColors.black.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(color: AppColors.primary.withValues(alpha: 0.1)),
                         ),
@@ -211,7 +211,7 @@ class _TimeWalkerIdCardState extends State<TimeWalkerIdCard> with SingleTickerPr
   Widget _buildAvatarSection(double radius) {
     final hasGoldenFrame = widget.userProgress.inventoryIds.contains('avatar_frame_gold');
     final primaryColor = hasGoldenFrame ? AppColors.gold : AppColors.primary;
-    final secondaryColor = hasGoldenFrame ? Colors.amber[100]! : AppColors.secondary;
+    final secondaryColor = hasGoldenFrame ? const Color(0xFFFFE082) : AppColors.secondary;
 
     return AnimatedBuilder(
       animation: _glowController,
@@ -352,11 +352,11 @@ class NeonRankProgress extends StatelessWidget {
         Container(
           height: 16,
           decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.3),
+            color: AppColors.black.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(
-                color: Colors.white.withValues(alpha: 0.05),
+                color: AppColors.white.withValues(alpha: 0.05),
                 offset: const Offset(0, 2),
                 blurRadius: 4,
                 blurStyle: BlurStyle.inner, // Inset Shadow 느낌
@@ -393,10 +393,10 @@ class NeonRankProgress extends StatelessWidget {
                         width: 8,
                         height: 8,
                         decoration: const BoxDecoration(
-                          color: Colors.white,
+                          color: AppColors.white,
                           shape: BoxShape.circle,
                           boxShadow: [
-                            BoxShadow(color: Colors.white, blurRadius: 6, spreadRadius: 2),
+                            BoxShadow(color: AppColors.white, blurRadius: 6, spreadRadius: 2),
                           ],
                         ),
                       ),

@@ -36,7 +36,7 @@ class AchievementDetailSheet extends StatelessWidget {
             width: 40,
             height: 4,
             decoration: BoxDecoration(
-              color: Colors.white24,
+              color: AppColors.white24,
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -59,10 +59,10 @@ class AchievementDetailSheet extends StatelessWidget {
                             end: Alignment.bottomRight,
                           )
                         : null,
-                    color: isUnlocked ? null : Colors.white.withValues(alpha: 0.1),
+                    color: isUnlocked ? null : AppColors.white.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: isUnlocked ? color : Colors.white24,
+                      color: isUnlocked ? color : AppColors.white24,
                       width: 2,
                     ),
                     boxShadow: isUnlocked
@@ -78,7 +78,7 @@ class AchievementDetailSheet extends StatelessWidget {
                   child: Icon(
                     isUnlocked ? Icons.emoji_events : Icons.emoji_events_outlined,
                     size: 48,
-                    color: isUnlocked ? color : Colors.white38,
+                    color: isUnlocked ? color : AppColors.white38,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -88,11 +88,11 @@ class AchievementDetailSheet extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: isUnlocked
-                        ? Colors.green.withValues(alpha: 0.2)
-                        : Colors.white.withValues(alpha: 0.1),
+                        ? AppColors.green.withValues(alpha: 0.2)
+                        : AppColors.white.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: isUnlocked ? Colors.green : Colors.white24,
+                      color: isUnlocked ? AppColors.green : AppColors.white24,
                     ),
                   ),
                   child: Row(
@@ -101,13 +101,13 @@ class AchievementDetailSheet extends StatelessWidget {
                       Icon(
                         isUnlocked ? Icons.check_circle : Icons.lock_outline,
                         size: 14,
-                        color: isUnlocked ? Colors.green : Colors.white54,
+                        color: isUnlocked ? AppColors.green : AppColors.white54,
                       ),
                       const SizedBox(width: 4),
                       Text(
                         isUnlocked ? '달성 완료' : '미달성',
                         style: TextStyle(
-                          color: isUnlocked ? Colors.green : Colors.white54,
+                          color: isUnlocked ? AppColors.green : AppColors.white54,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -121,7 +121,7 @@ class AchievementDetailSheet extends StatelessWidget {
                 Text(
                   achievement.titleKorean,
                   style: TextStyle(
-                    color: isUnlocked ? Colors.white : Colors.white70,
+                    color: isUnlocked ? AppColors.white : AppColors.white70,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -130,7 +130,7 @@ class AchievementDetailSheet extends StatelessWidget {
                 Text(
                   achievement.title,
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.5),
+                    color: AppColors.white.withValues(alpha: 0.5),
                     fontSize: 14,
                   ),
                 ),
@@ -141,13 +141,13 @@ class AchievementDetailSheet extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.05),
+                    color: AppColors.white.withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     achievement.description,
                     style: const TextStyle(
-                      color: Colors.white70,
+                      color: AppColors.white70,
                       fontSize: 14,
                       height: 1.5,
                     ),
@@ -173,7 +173,7 @@ class AchievementDetailSheet extends StatelessWidget {
                       emoji: achievement.category.icon,
                       label: '카테고리',
                       value: achievement.category.displayName,
-                      color: Colors.white70,
+                      color: AppColors.white70,
                     ),
                     
                     // 보너스 포인트
@@ -182,7 +182,7 @@ class AchievementDetailSheet extends StatelessWidget {
                         icon: Icons.add_circle,
                         label: '보너스',
                         value: '+${achievement.bonusPoints}pt',
-                        color: Colors.amber,
+                        color: AppColors.amber,
                       ),
                   ],
                 ),
@@ -195,8 +195,8 @@ class AchievementDetailSheet extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () => Navigator.pop(context),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: isUnlocked ? color : Colors.white24,
-                      foregroundColor: Colors.white,
+                      backgroundColor: isUnlocked ? color : AppColors.white24,
+                      foregroundColor: AppColors.white,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),

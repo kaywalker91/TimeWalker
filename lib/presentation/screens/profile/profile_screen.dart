@@ -25,7 +25,7 @@ class ProfileScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
           icon: Container(
@@ -158,9 +158,9 @@ class ProfileScreen extends ConsumerWidget {
       {'label': l10n.profile_stat_exploration, 'value': '${(explorationRate * 100).toInt()}%', 'icon': Icons.map, 'color': AppColors.info},
       {'label': l10n.profile_stat_collection, 'value': '${(collectionRate * 100).toInt()}%', 'icon': Icons.book, 'color': AppColors.secondary},
       {'label': l10n.profile_stat_knowledge, 'value': '${userProgress.totalKnowledge}', 'icon': Icons.lightbulb, 'color': AppColors.primary},
-      {'label': l10n.profile_stat_playtime, 'value': userProgress.totalPlayTimeFormatted, 'icon': Icons.timer, 'color': Colors.teal},
-      {'label': l10n.profile_stat_eras, 'value': '${userProgress.unlockedEraIds.length}', 'icon': Icons.history_edu, 'color': Colors.orangeAccent},
-      {'label': l10n.profile_stat_dialogues, 'value': '${userProgress.completedDialogueIds.length}', 'icon': Icons.chat_bubble_outline, 'color': Colors.pinkAccent},
+      {'label': l10n.profile_stat_playtime, 'value': userProgress.totalPlayTimeFormatted, 'icon': Icons.timer, 'color': AppColors.teal},
+      {'label': l10n.profile_stat_eras, 'value': '${userProgress.unlockedEraIds.length}', 'icon': Icons.history_edu, 'color': AppColors.orange},
+      {'label': l10n.profile_stat_dialogues, 'value': '${userProgress.completedDialogueIds.length}', 'icon': Icons.chat_bubble_outline, 'color': AppColors.pink},
     ];
 
     return GridView.builder(
@@ -196,10 +196,10 @@ class ProfileScreen extends ConsumerWidget {
       decoration: BoxDecoration(
         color: AppColors.surface.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: AppColors.black.withValues(alpha: 0.2),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -226,7 +226,7 @@ class ProfileScreen extends ConsumerWidget {
                   value,
                   style: AppTextStyles.titleLarge.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),

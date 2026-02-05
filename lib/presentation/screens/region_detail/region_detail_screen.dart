@@ -49,7 +49,7 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
             color: AppColors.textPrimary,
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
@@ -109,7 +109,7 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
           end: Alignment.bottomCenter,
           colors: [
             AppColors.surface.withValues(alpha: 0.3),
-            Colors.transparent,
+            AppColors.transparent,
           ],
         ),
       ),

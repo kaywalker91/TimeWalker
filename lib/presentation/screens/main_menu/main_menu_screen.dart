@@ -163,7 +163,7 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
     final menuItems = [
       MenuItem(label: l10n.menu_world_map, icon: Icons.blur_circular, isPrimary: true, route: AppRouter.timePortal),
       MenuItem(label: l10n.menu_encyclopedia, icon: Icons.menu_book, route: AppRouter.encyclopedia),
-      MenuItem(label: l10n.menu_quiz, icon: Icons.quiz, route: AppRouter.quiz),
+      MenuItem(label: l10n.menu_quiz, icon: Icons.quiz, route: AppRouter.quiz, heroTag: 'quiz_hero_icon'),
       MenuItem(label: l10n.menu_profile, icon: Icons.person, route: AppRouter.profile),
       MenuItem(label: l10n.menu_settings, icon: Icons.settings, route: AppRouter.settings),
       MenuItem(label: l10n.menu_shop, icon: Icons.shopping_bag, route: AppRouter.shop),
@@ -189,6 +189,7 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
                 isPrimary: item.isPrimary,
                 isDisabled: item.isDisabled,
                 responsive: responsive,
+                heroTag: item.heroTag,
                 onPressed: item.isDisabled
                     ? () => _showComingSoon(context)
                     : () => context.push(item.route),

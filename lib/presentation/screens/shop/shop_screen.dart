@@ -306,7 +306,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
         unselectedLabelColor: AppColors.textSecondary,
         labelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.bold),
         unselectedLabelStyle: AppTextStyles.labelMedium,
-        dividerColor: Colors.transparent,
+        dividerColor: AppColors.transparent,
         tabs: [
           Tab(text: AppLocalizations.of(context)!.shop_tab_all),
           ..._tabs.map((type) => Tab(text: _getTabLabel(context, type))),

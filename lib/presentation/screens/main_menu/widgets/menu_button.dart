@@ -9,6 +9,7 @@ class MenuItem {
   final String route;
   final bool isPrimary;
   final bool isDisabled;
+  final String? heroTag;
 
   const MenuItem({
     required this.label,
@@ -16,6 +17,7 @@ class MenuItem {
     required this.route,
     this.isPrimary = false,
     this.isDisabled = false,
+    this.heroTag,
   });
 }
 
@@ -29,6 +31,7 @@ class MenuButton extends StatefulWidget {
   final bool isPrimary;
   final bool isDisabled;
   final ResponsiveUtils responsive;
+  final String? heroTag;
 
   const MenuButton({
     super.key,
@@ -38,6 +41,7 @@ class MenuButton extends StatefulWidget {
     required this.responsive,
     this.isPrimary = false,
     this.isDisabled = false,
+    this.heroTag,
   });
 
   @override
@@ -123,11 +127,20 @@ class _MenuButtonState extends State<MenuButton>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        widget.icon,
-                        size: iconSize,
-                        color: textColor,
-                      ),
+                      widget.heroTag != null 
+                          ? Hero(
+                              tag: widget.heroTag!,
+                              child: Icon(
+                                widget.icon,
+                                size: iconSize,
+                                color: textColor,
+                              ),
+                            )
+                          : Icon(
+                              widget.icon,
+                              size: iconSize,
+                              color: textColor,
+                            ),
                       SizedBox(width: widget.responsive.spacing(10)),
                       Text(
                         widget.label,

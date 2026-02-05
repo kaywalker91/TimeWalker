@@ -17,10 +17,10 @@ class InventoryScreen extends ConsumerWidget {
       backgroundColor: AppColors.darkSheet,
       appBar: AppBar(
         title: const Text('My Inventory'),
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: AppColors.white),
           onPressed: () => context.pop(),
         ),
       ),
@@ -62,11 +62,11 @@ class InventoryScreen extends ConsumerWidget {
               );
             },
             loading: () => const Center(child: CircularProgressIndicator()),
-            error: (e, s) => Center(child: Text('Error loading items: $e', style: const TextStyle(color: Colors.white))),
+            error: (e, s) => Center(child: Text('Error loading items: $e', style: const TextStyle(color: AppColors.white))),
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, s) => Center(child: Text('Error loading inventory: $e', style: const TextStyle(color: Colors.white))),
+        error: (e, s) => Center(child: Text('Error loading inventory: $e', style: const TextStyle(color: AppColors.white))),
       ),
     );
   }
@@ -76,11 +76,11 @@ class InventoryScreen extends ConsumerWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.inventory_2_outlined, size: 64, color: Colors.white.withValues(alpha: 0.3)),
+          Icon(Icons.inventory_2_outlined, size: 64, color: AppColors.white.withValues(alpha: 0.3)),
           const SizedBox(height: 16),
           Text(
             'Your inventory is empty.',
-            style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 16),
+            style: TextStyle(color: AppColors.white.withValues(alpha: 0.5), fontSize: 16),
           ),
         ],
       ),
@@ -98,19 +98,19 @@ class InventoryScreen extends ConsumerWidget {
           width: 50,
           height: 50,
           decoration: BoxDecoration(
-            color: Colors.black26,
+            color: AppColors.black,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.white10),
+            border: Border.all(color: AppColors.white12),
           ),
           child: Icon(Icons.shopping_bag, color: AppColors.primary), // Placeholder icon
         ),
         title: Text(
           item.name,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColors.white, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
           item.type.displayName,
-          style: const TextStyle(color: Colors.white54, fontSize: 12),
+          style: const TextStyle(color: AppColors.white54, fontSize: 12),
         ),
         trailing: item.type == ShopItemType.consumable 
           ? ElevatedButton(
@@ -128,7 +128,7 @@ class InventoryScreen extends ConsumerWidget {
             )
           : const Chip(
               label: Text('Equipped', style: TextStyle(fontSize: 10)),
-              backgroundColor: Colors.green,
+              backgroundColor: AppColors.green,
             ),
       ),
     );

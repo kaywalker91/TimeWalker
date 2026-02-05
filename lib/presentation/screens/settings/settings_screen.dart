@@ -19,34 +19,40 @@ class SettingsScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: AppColors.darkSurfaceDeep,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: AppColors.white),
           onPressed: () => context.pop(),
         ),
         title: const Text(
-          'SETTINGS',
+          '설정',
           style: TextStyle(
-            color: Colors.white,
+            color: AppColors.white,
             fontWeight: FontWeight.bold,
-            letterSpacing: 3,
+            letterSpacing: 2,
           ),
         ),
         centerTitle: true,
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.fromLTRB(
+            20,
+            20,
+            20,
+            20 + MediaQuery.of(context).padding.bottom,
+          ),
         children: [
-          // 테마 섹션 (APPEARANCE)
-          const SettingsSectionHeader(title: 'APPEARANCE'),
+          // 테마 섹션 (외관)
+          const SettingsSectionHeader(title: '외관'),
           userProgressAsync.when(
             data: (userProgress) {
               final isUnlocked = userProgress.inventoryIds.contains('theme_dark_mode');
               return SettingsSwitchTile(
                 icon: Icons.nightlight_round,
-                title: 'Midnight Theme',
-                subtitle: isUnlocked ? 'Apply the special midnight theme' : 'Locked (Purchase in Shop)',
+                title: '미드나잇 테마',
+                subtitle: isUnlocked ? '특별한 미드나잇 테마 적용' : '잠금 (상점에서 구매)',
                 value: themeStyle == AppThemeStyle.midnight,
                 onChanged: (value) {
                   if (isUnlocked) {
@@ -54,7 +60,7 @@ class SettingsScreen extends ConsumerWidget {
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Purchase "Midnight Theme" in the Shop to unlock!'),
+                        content: Text('상점에서 "미드나잇 테마"를 구매하여 잠금 해제하세요!'),
                         duration: Duration(seconds: 2),
                       ),
                     );
@@ -68,10 +74,10 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 사운드 섹션
-          const SettingsSectionHeader(title: 'SOUND'),
+          const SettingsSectionHeader(title: '소리'),
           SettingsSwitchTile(
             icon: Icons.volume_up,
-            title: 'Sound Effects',
+            title: '효과음',
             value: settings.soundEnabled,
             onChanged: (value) {
               ref.read(settingsProvider.notifier).updateSound(value);
@@ -79,7 +85,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SettingsSliderTile(
             icon: Icons.volume_down,
-            title: 'Sound Volume',
+            title: '효과음 볼륨',
             value: settings.soundVolume,
             enabled: settings.soundEnabled,
             onChanged: (value) {
@@ -88,7 +94,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SettingsSwitchTile(
             icon: Icons.music_note,
-            title: 'Background Music',
+            title: '배경 음악',
             value: settings.musicEnabled,
             onChanged: (value) {
               ref.read(settingsProvider.notifier).updateMusic(value);
@@ -96,7 +102,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SettingsSliderTile(
             icon: Icons.music_off,
-            title: 'Music Volume',
+            title: '음악 볼륨',
             value: settings.musicVolume,
             enabled: settings.musicEnabled,
             onChanged: (value) {
@@ -106,10 +112,10 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 피드백 섹션
-          const SettingsSectionHeader(title: 'FEEDBACK'),
+          const SettingsSectionHeader(title: '피드백'),
           SettingsSwitchTile(
             icon: Icons.vibration,
-            title: 'Vibration',
+            title: '진동',
             value: settings.vibrationEnabled,
             onChanged: (value) {
               ref.read(settingsProvider.notifier).updateVibration(value);
@@ -118,11 +124,11 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 접근성 섹션
-          const SettingsSectionHeader(title: 'ACCESSIBILITY'),
+          const SettingsSectionHeader(title: '접근성'),
           SettingsSwitchTile(
             icon: Icons.remove_red_eye,
-            title: 'Color Blind Mode',
-            subtitle: 'Enhance visual distinction',
+            title: '색맹 모드',
+            subtitle: '색상 구분 강화',
             value: settings.accessibility.colorBlindMode,
             onChanged: (value) {
               ref
@@ -134,8 +140,8 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SettingsSwitchTile(
             icon: Icons.contrast,
-            title: 'High Contrast',
-            subtitle: 'Increase background contrast',
+            title: '고대비 모드',
+            subtitle: '배경 대비 증가',
             value: settings.accessibility.highContrastMode,
             onChanged: (value) {
               ref
@@ -147,8 +153,8 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SettingsSwitchTile(
             icon: Icons.subtitles,
-            title: 'Subtitles',
-            subtitle: 'Show sound effect text',
+            title: '자막',
+            subtitle: '효과음 텍스트 표시',
             value: settings.accessibility.subtitlesEnabled,
             onChanged: (value) {
               ref
@@ -160,8 +166,8 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SettingsSwitchTile(
             icon: Icons.pan_tool,
-            title: 'One-Handed Mode',
-            subtitle: 'Rearrange controls',
+            title: '한손 모드',
+            subtitle: '컨트롤 재배치',
             value: settings.accessibility.oneHandedMode,
             onChanged: (value) {
               ref
@@ -174,30 +180,30 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 언어 섹션
-          const SettingsSectionHeader(title: 'LANGUAGE'),
+          const SettingsSectionHeader(title: '언어'),
           _buildLanguageTile(context, ref, settings.languageCode),
           const SizedBox(height: 30),
 
           // 기타 정보
-          const SettingsSectionHeader(title: 'ABOUT'),
-          const SettingsInfoTile(label: 'Version', value: '1.0.0'),
+          const SettingsSectionHeader(title: '앱 정보'),
+          const SettingsInfoTile(label: '버전', value: '1.0.0'),
           SettingsActionTile(
             icon: Icons.policy,
-            title: 'Privacy Policy',
+            title: '개인정보 처리방침',
             onTap: () {
               // TODO: 개인정보처리방침 열기
             },
           ),
           SettingsActionTile(
             icon: Icons.description,
-            title: 'Terms of Service',
+            title: '이용약관',
             onTap: () {
               // TODO: 이용약관 열기
             },
           ),
           SettingsActionTile(
             icon: Icons.delete_forever,
-            title: 'Delete All Data',
+            title: '모든 데이터 삭제',
             isDestructive: true,
             onTap: () {
               _showDeleteDataDialog(context, ref);
@@ -205,25 +211,17 @@ class SettingsScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 30),
 
-          // 개발자 옵션 (Admin Mode)
-          const SettingsSectionHeader(title: 'DEVELOPER'),
-          SettingsSwitchTile(
-            icon: Icons.developer_mode,
-            title: 'Developer Mode',
-            subtitle: 'Enable developer features',
-            value: settings.developerMode,
-            onChanged: (value) {
-              ref.read(settingsProvider.notifier).toggleDeveloperMode(value);
-            },
-          ),
+          // 관리자 모드
+          const SettingsSectionHeader(title: '관리자'),
           SettingsActionTile(
             icon: Icons.admin_panel_settings,
-            title: 'Admin Mode (Unlock All)',
+            title: '관리자 모드',
             onTap: () {
               _showAdminModeDialog(context, ref);
             },
           ),
         ],
+        ),
       ),
     );
   }
@@ -234,17 +232,17 @@ class SettingsScreen extends ConsumerWidget {
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.darkCard,
         title: const Text(
-          'Enable Admin Mode?',
-          style: TextStyle(color: Colors.white),
+          '관리자 모드 활성화',
+          style: TextStyle(color: AppColors.white),
         ),
         content: const Text(
-          'This will UNLOCK ALL content (regions, eras, countries, characters) and grant unlimited resources.\n\nUse this for testing purposes only. Your current progress will be overwritten.',
-          style: TextStyle(color: Colors.white70),
+          '모든 콘텐츠(지역, 시대, 국가, 인물)가 잠금 해제되고 무제한 리소스가 제공됩니다.\n\n테스트 목적으로만 사용하세요. 현재 진행 상황이 덮어씌워집니다.',
+          style: TextStyle(color: AppColors.white70),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: const Text('취소'),
           ),
           TextButton(
             onPressed: () async {
@@ -253,13 +251,13 @@ class SettingsScreen extends ConsumerWidget {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text('Admin Mode Enabled: All Content Unlocked!'),
-                    backgroundColor: Colors.green,
+                    content: Text('관리자 모드 활성화: 모든 콘텐츠 잠금 해제!'),
+                    backgroundColor: AppColors.green,
                   ),
                 );
               }
             },
-            child: const Text('ENABLE', style: TextStyle(color: Colors.amber)),
+            child: const Text('활성화', style: TextStyle(color: AppColors.amber)),
           ),
         ],
       ),
@@ -276,24 +274,24 @@ class SettingsScreen extends ConsumerWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: AppColors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
       ),
       child: ListTile(
-        leading: const Icon(Icons.language, color: Colors.white70),
-        title: const Text('Language', style: TextStyle(color: Colors.white)),
+        leading: const Icon(Icons.language, color: AppColors.white70),
+        title: const Text('언어 설정', style: TextStyle(color: AppColors.white)),
         trailing: DropdownButton<String>(
           value: currentLanguage,
           dropdownColor: AppColors.darkCard,
           underline: const SizedBox(),
-          icon: const Icon(Icons.arrow_drop_down, color: Colors.white70),
+          icon: const Icon(Icons.arrow_drop_down, color: AppColors.white70),
           items: languages.entries
               .map(
                 (e) => DropdownMenuItem(
                   value: e.key,
                   child: Text(
                     e.value,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.white),
                   ),
                 ),
               )
@@ -314,27 +312,27 @@ class SettingsScreen extends ConsumerWidget {
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.darkCard,
         title: const Text(
-          'Delete All Data?',
-          style: TextStyle(color: Colors.white),
+          '모든 데이터 삭제',
+          style: TextStyle(color: AppColors.white),
         ),
         content: const Text(
-          'This will reset all your progress, high scores, and settings. This action cannot be undone.',
-          style: TextStyle(color: Colors.white70),
+          '모든 진행 상황, 최고 점수, 설정이 초기화됩니다. 이 작업은 되돌릴 수 없습니다.',
+          style: TextStyle(color: AppColors.white70),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: const Text('취소'),
           ),
           TextButton(
             onPressed: () {
               // TODO: 데이터 삭제 로직
               Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('All data deleted')),
+                const SnackBar(content: Text('모든 데이터가 삭제되었습니다')),
               );
             },
-            child: const Text('Delete', style: TextStyle(color: Colors.red)),
+            child: const Text('삭제', style: TextStyle(color: AppColors.red)),
           ),
         ],
       ),

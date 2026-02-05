@@ -140,7 +140,7 @@ class _EncyclopediaScreenState extends ConsumerState<EncyclopediaScreen>
               children: [
                 ShaderMask(
                   shaderCallback: (bounds) => AppGradients.goldenText.createShader(bounds),
-                  child: const Icon(Icons.auto_stories, color: Colors.white, size: 28),
+                  child: const Icon(Icons.auto_stories, color: AppColors.white, size: 28),
                 ),
                 const SizedBox(width: 12),
                 Text(
@@ -177,7 +177,7 @@ class _EncyclopediaScreenState extends ConsumerState<EncyclopediaScreen>
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: AppColors.black.withValues(alpha: 0.2),
             blurRadius: 10,
             offset: const Offset(0, 4),
           )
@@ -203,7 +203,7 @@ class _EncyclopediaScreenState extends ConsumerState<EncyclopediaScreen>
         unselectedLabelColor: AppColors.textSecondary,
         labelStyle: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.bold),
         unselectedLabelStyle: AppTextStyles.labelMedium,
-        dividerColor: Colors.transparent,
+        dividerColor: AppColors.transparent,
         tabAlignment: TabAlignment.start,
         padding: EdgeInsets.zero,
         tabs: [

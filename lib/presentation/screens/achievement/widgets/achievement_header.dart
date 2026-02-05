@@ -22,7 +22,7 @@ class AchievementHeader extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.amber.withValues(alpha: 0.3),
+            AppColors.amber.withValues(alpha: 0.3),
             AppColors.darkSheet,
           ],
         ),
@@ -37,11 +37,11 @@ class AchievementHeader extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.amber.withValues(alpha: 0.2),
+                  color: AppColors.amber.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.amber.withValues(alpha: 0.3),
+                      color: AppColors.amber.withValues(alpha: 0.3),
                       blurRadius: 20,
                       spreadRadius: 5,
                     ),
@@ -50,7 +50,7 @@ class AchievementHeader extends StatelessWidget {
                 child: const Icon(
                   Icons.emoji_events,
                   size: 32,
-                  color: Colors.amber,
+                  color: AppColors.amber,
                 ),
               ),
               const SizedBox(height: 16),
@@ -61,7 +61,7 @@ class AchievementHeader extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.white,
                 ),
               ),
               const SizedBox(height: 4),
@@ -69,7 +69,7 @@ class AchievementHeader extends StatelessWidget {
                 '업적 달성률 ${(progress * 100).toInt()}%',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.white.withValues(alpha: 0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                 ),
               ),
               const SizedBox(height: 12),
@@ -79,8 +79,8 @@ class AchievementHeader extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: LinearProgressIndicator(
                   value: progress,
-                  backgroundColor: Colors.white.withValues(alpha: 0.1),
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.amber),
+                  backgroundColor: AppColors.white.withValues(alpha: 0.1),
+                  valueColor: const AlwaysStoppedAnimation<Color>(AppColors.amber),
                   minHeight: 8,
                 ),
               ),

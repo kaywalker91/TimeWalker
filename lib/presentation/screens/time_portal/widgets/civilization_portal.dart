@@ -193,7 +193,7 @@ class _CivilizationPortalState extends State<CivilizationPortal>
                       child: CircularProgressIndicator(
                         value: civ.progress,
                         strokeWidth: 3,
-                        backgroundColor: Colors.transparent,
+                        backgroundColor: AppColors.transparent,
                         valueColor: AlwaysStoppedAnimation(glowColor),
                       ),
                     ),
@@ -219,7 +219,7 @@ class _CivilizationPortalState extends State<CivilizationPortal>
         color: AppColors.background.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: isUnlocked ? glowColor.withValues(alpha: 0.3) : Colors.transparent,
+          color: isUnlocked ? glowColor.withValues(alpha: 0.3) : AppColors.transparent,
           width: 0.5,
         ),
       ),

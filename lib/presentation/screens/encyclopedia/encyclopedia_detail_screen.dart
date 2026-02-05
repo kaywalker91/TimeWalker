@@ -33,11 +33,11 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                       // Type & Tags
                       Row(
                         children: [
-                          _buildTag(entry.type.displayName, Colors.amber),
+                          _buildTag(entry.type.displayName, AppColors.amber),
                           const SizedBox(width: 8),
                           ...entry.tags.map((tag) => Padding(
                                 padding: const EdgeInsets.only(right: 8),
-                                child: _buildTag('#$tag', Colors.white30),
+                                child: _buildTag('#$tag', AppColors.white38),
                               )),
                         ],
                       ),
@@ -49,14 +49,14 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                         style: const TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                       ),
                       Text(
                         entry.title,
                         style: const TextStyle(
                           fontSize: 18,
-                          color: Colors.white54,
+                          color: AppColors.white54,
                           fontStyle: FontStyle.italic,
                         ),
                       ),
@@ -66,15 +66,15 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.05),
+                          color: AppColors.white.withValues(alpha: 0.05),
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: Colors.white10),
+                          border: Border.all(color: AppColors.white12),
                         ),
                         child: Text(
                           entry.summary,
                           style: const TextStyle(
                             fontSize: 16,
-                            color: Colors.amber,
+                            color: AppColors.amber,
                             height: 1.5,
                             fontWeight: FontWeight.w500,
                           ),
@@ -88,7 +88,7 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white70,
+                          color: AppColors.white70,
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -96,7 +96,7 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                         entry.content,
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: AppColors.white,
                           height: 1.8,
                         ),
                       ),
@@ -105,21 +105,21 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                       
                       // Related entries (optional expansion)
                       if (entry.relatedCount > 0) ...[
-                        const Divider(color: Colors.white12),
+                        const Divider(color: AppColors.white12),
                         const SizedBox(height: 16),
                         const Text(
                           'Related',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white70,
+                            color: AppColors.white70,
                           ),
                         ),
                         const SizedBox(height: 16),
                         // Horizontal list could go here
                         Text(
                           '${entry.relatedCount} related entries available.',
-                          style: const TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: AppColors.grey),
                         ),
                       ],
                     ],
@@ -147,7 +147,7 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
             Image.asset(
               entry.imageAsset ?? entry.thumbnailAsset,
               fit: BoxFit.cover,
-              errorBuilder: (_, _, _) => Container(color: Colors.black26),
+              errorBuilder: (_, _, _) => Container(color: AppColors.black),
             ),
             // Gradient Overlay
             Container(
@@ -156,8 +156,8 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.black26,
-                    Colors.transparent,
+                    AppColors.black,
+                    AppColors.transparent,
                     AppColors.darkSheet.withValues(alpha: 0.8),
                     AppColors.darkSheet,
                   ],
@@ -172,10 +172,10 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
         icon: Container(
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.black45,
+            color: AppColors.black,
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.arrow_back, color: Colors.white),
+          child: Icon(Icons.arrow_back, color: AppColors.white),
         ),
         onPressed: () => context.pop(),
       ),
@@ -206,9 +206,9 @@ class EncyclopediaDetailScreen extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.error_outline, size: 48, color: Colors.red),
+          const Icon(Icons.error_outline, size: 48, color: AppColors.red),
           const SizedBox(height: 16),
-          Text(message, style: const TextStyle(color: Colors.white)),
+          Text(message, style: const TextStyle(color: AppColors.white)),
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () => context.pop(),

@@ -107,13 +107,17 @@ class _TimePortalScreenState extends ConsumerState<TimePortalScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
           onPressed: () {
             HapticFeedback.lightImpact();
-            context.go(AppRouter.mainMenu);
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go(AppRouter.mainMenu);
+            }
           },
         ),
         title: Text(

@@ -60,7 +60,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
               letterSpacing: 1.5,
             ),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: AppColors.transparent,
           elevation: 0,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
@@ -159,7 +159,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.2),
+              color: AppColors.black.withValues(alpha: 0.2),
               blurRadius: 15,
               offset: const Offset(0, 8),
             ),
@@ -196,7 +196,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
                     child: Text(
                       country.nameKorean,
                       style: AppTextStyles.displaySmall.copyWith(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontWeight: FontWeight.bold,
                         height: 1.1,
                       ),

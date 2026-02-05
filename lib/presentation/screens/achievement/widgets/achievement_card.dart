@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/domain/entities/achievement.dart';
 import 'package:time_walker/presentation/themes/color_value_extensions.dart';
 
@@ -30,10 +31,10 @@ class AchievementCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: isUnlocked 
               ? color.withValues(alpha: 0.15)
-              : Colors.white.withValues(alpha: 0.05),
+              : AppColors.white.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isUnlocked ? color : Colors.white.withValues(alpha: 0.1),
+            color: isUnlocked ? color : AppColors.white.withValues(alpha: 0.1),
             width: isUnlocked ? 2 : 1,
           ),
           boxShadow: isUnlocked
@@ -57,13 +58,13 @@ class AchievementCard extends StatelessWidget {
                     Icon(
                       Icons.lock_outline,
                       size: 48,
-                      color: Colors.white.withValues(alpha: 0.3),
+                      color: AppColors.white.withValues(alpha: 0.3),
                     ),
                     const SizedBox(height: 8),
                     const Text(
                       '???',
                       style: TextStyle(
-                        color: Colors.white38,
+                        color: AppColors.white38,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -72,7 +73,7 @@ class AchievementCard extends StatelessWidget {
                     const Text(
                       '비밀 업적',
                       style: TextStyle(
-                        color: Colors.white24,
+                        color: AppColors.white24,
                         fontSize: 12,
                       ),
                     ),
@@ -91,13 +92,13 @@ class AchievementCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: isUnlocked 
                             ? color.withValues(alpha: 0.2)
-                            : Colors.white.withValues(alpha: 0.1),
+                            : AppColors.white.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         isUnlocked ? Icons.emoji_events : Icons.emoji_events_outlined,
                         size: 32,
-                        color: isUnlocked ? color : Colors.white38,
+                        color: isUnlocked ? color : AppColors.white38,
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -106,7 +107,7 @@ class AchievementCard extends StatelessWidget {
                     Text(
                       achievement.titleKorean,
                       style: TextStyle(
-                        color: isUnlocked ? Colors.white : Colors.white54,
+                        color: isUnlocked ? AppColors.white : AppColors.white54,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -120,7 +121,7 @@ class AchievementCard extends StatelessWidget {
                     Text(
                       achievement.description,
                       style: TextStyle(
-                        color: isUnlocked ? Colors.white70 : Colors.white38,
+                        color: isUnlocked ? AppColors.white70 : AppColors.white38,
                         fontSize: 11,
                       ),
                       textAlign: TextAlign.center,
@@ -135,13 +136,13 @@ class AchievementCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: isUnlocked 
                             ? color.withValues(alpha: 0.3)
-                            : Colors.white.withValues(alpha: 0.1),
+                            : AppColors.white.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         achievement.rarity.displayName,
                         style: TextStyle(
-                          color: isUnlocked ? color : Colors.white38,
+                          color: isUnlocked ? color : AppColors.white38,
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
@@ -166,7 +167,7 @@ class AchievementCard extends StatelessWidget {
                   child: const Icon(
                     Icons.check,
                     size: 12,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),

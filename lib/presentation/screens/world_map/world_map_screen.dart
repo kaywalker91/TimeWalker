@@ -67,11 +67,17 @@ class _WorldMapScreenState extends ConsumerState<WorldMapScreen> {
             letterSpacing: 1.5,
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColors.iconPrimary),
-          onPressed: () => context.go(AppRouter.mainMenu),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go(AppRouter.mainMenu);
+            }
+          },
         ),
         actions: [
           IconButton(

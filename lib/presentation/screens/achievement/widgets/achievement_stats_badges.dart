@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/themes/app_colors.dart';
 
 /// 정보 배지
 class InfoBadge extends StatelessWidget {
@@ -24,7 +25,7 @@ class InfoBadge extends StatelessWidget {
         Text(
           label,
           style: const TextStyle(
-            color: Colors.white38,
+            color: AppColors.white38,
             fontSize: 10,
           ),
         ),
@@ -69,7 +70,7 @@ class InfoBadgeWithEmoji extends StatelessWidget {
         Text(
           label,
           style: const TextStyle(
-            color: Colors.white38,
+            color: AppColors.white38,
             fontSize: 10,
           ),
         ),

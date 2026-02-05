@@ -43,7 +43,7 @@ class ShopItemCard extends ConsumerWidget {
                 child: Icon(
                   Icons.shopping_bag, // Ideally use item.iconAsset if it were an IconData or Image widget
                   size: iconSize,
-                  color: isOwned ? Colors.grey : AppColors.gold,
+                  color: isOwned ? AppColors.grey : AppColors.gold,
                 ),
               ),
             ),
@@ -56,7 +56,7 @@ class ShopItemCard extends ConsumerWidget {
                     Text(
                       item.name,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: isOwned ? Colors.grey : Colors.white,
+                            color: isOwned ? AppColors.grey : AppColors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: nameFontSize,
                           ),
@@ -69,7 +69,7 @@ class ShopItemCard extends ConsumerWidget {
                       child: Text(
                         item.description,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: isOwned ? Colors.grey : Colors.white60,
+                              color: isOwned ? AppColors.grey : AppColors.white60,
                               fontSize: descFontSize,
                             ),
                         textAlign: TextAlign.center,
@@ -87,7 +87,7 @@ class ShopItemCard extends ConsumerWidget {
                         ),
                         decoration: BoxDecoration(
                           color: isOwned
-                              ? Colors.grey.withValues(alpha: 0.2)
+                              ? AppColors.grey.withValues(alpha: 0.2)
                               : AppColors.gold.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -96,7 +96,7 @@ class ShopItemCard extends ConsumerWidget {
                               ? l10n.shop_item_owned
                               : l10n.shop_item_price(item.price),
                           style: TextStyle(
-                            color: isOwned ? Colors.grey : AppColors.gold,
+                            color: isOwned ? AppColors.grey : AppColors.gold,
                             fontWeight: FontWeight.bold,
                             fontSize: priceFontSize,
                           ),
