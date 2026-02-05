@@ -92,7 +92,7 @@ abstract class AppDecorations {
   
   /// Outline 버튼
   static BoxDecoration buttonOutline = BoxDecoration(
-    color: Colors.transparent,
+    color: AppColors.transparent,
     borderRadius: BorderRadius.circular(12),
     border: Border.all(
       color: AppColors.primary.withValues(alpha: 0.6),

@@ -351,8 +351,154 @@ abstract class AppColors {
   // ============================================
   // LEGACY COMPATIBILITY - 레거시 호환
   // ============================================
-  
+
   /// 레거시 골드 (amber 대체)
   static const Color gold = primary;
+
+  // ============================================
+  // OPACITY VARIANTS - 투명도 변형
+  // ============================================
+
+  /// 화이트 100% (Colors.white 대체)
+  static const Color white = Color(0xFFFFFFFF);
+
+  /// 화이트 70% (Colors.white70 대체)
+  static const Color white70 = Color(0xB3FFFFFF);
+
+  /// 화이트 60% (Colors.white60 대체)
+  static const Color white60 = Color(0x99FFFFFF);
+
+  /// 화이트 54% (Colors.white54 대체)
+  static const Color white54 = Color(0x8AFFFFFF);
+
+  /// 화이트 38% (Colors.white38 대체)
+  static const Color white38 = Color(0x62FFFFFF);
+
+  /// 화이트 30% (Colors.white30 대체)
+  static const Color white30 = Color(0x4DFFFFFF);
+
+  /// 화이트 24% (Colors.white24 대체)
+  static const Color white24 = Color(0x3DFFFFFF);
+
+  /// 화이트 12% (Colors.white12 대체)
+  static const Color white12 = Color(0x1FFFFFFF);
+
+  /// 화이트 10% (Colors.white10 대체)
+  static const Color white10 = Color(0x1AFFFFFF);
+
+  /// 블랙 100% (Colors.black 대체)
+  static const Color black = Color(0xFF000000);
+
+  /// 블랙 87% (Colors.black87 대체)
+  static const Color black87 = Color(0xDE000000);
+
+  /// 블랙 54% (Colors.black54 대체)
+  static const Color black54 = Color(0x8A000000);
+
+  /// 블랙 45% (Colors.black45 대체)
+  static const Color black45 = Color(0x73000000);
+
+  /// 블랙 38% (Colors.black38 대체)
+  static const Color black38 = Color(0x62000000);
+
+  /// 블랙 26% (Colors.black26 대체)
+  static const Color black26 = Color(0x42000000);
+
+  /// 블랙 12% (Colors.black12 대체)
+  static const Color black12 = Color(0x1F000000);
+
+  // ============================================
+  // SEMANTIC ACCENT COLORS - 의미론적 강조 색상
+  // ============================================
+
+  /// 레드 (Colors.red 대체)
+  static const Color red = Color(0xFFF44336);
+
+  /// 레드 다크
+  static const Color redDark = Color(0xFFD32F2F);
+
+  /// 앰버 (Colors.amber 대체)
+  static const Color amber = Color(0xFFFFC107);
+
+  /// 앰버 다크
+  static const Color amberDark = Color(0xFFFFA000);
+
+  /// 앰버 라이트 (Colors.amber[300] 대체)
+  static const Color amberLight = Color(0xFFFFD54F);
+
+  /// 블루 (Colors.blue 대체)
+  static const Color blue = Color(0xFF2196F3);
+
+  /// 블루 다크
+  static const Color blueDark = Color(0xFF1976D2);
+
+  /// 그린 (Colors.green 대체)
+  static const Color green = Color(0xFF4CAF50);
+
+  /// 그린 다크
+  static const Color greenDark = Color(0xFF388E3C);
+
+  /// 오렌지 (Colors.orange 대체)
+  static const Color orange = Color(0xFFFF9800);
+
+  /// 오렌지 다크
+  static const Color orangeDark = Color(0xFFF57C00);
+
+  /// 옐로우 (Colors.yellow 대체)
+  static const Color yellow = Color(0xFFFFEB3B);
+
+  /// 옐로우 다크
+  static const Color yellowDark = Color(0xFFFBC02D);
+
+  /// 그레이 (Colors.grey 대체)
+  static const Color grey = Color(0xFF9E9E9E);
+
+  /// 그레이 다크 (Colors.grey[700] 대체)
+  static const Color greyDark = Color(0xFF616161);
+
+  /// 그레이 라이트 (Colors.grey[300] 대체)
+  static const Color greyLight = Color(0xFFE0E0E0);
+
+  /// 그레이 400 (Colors.grey[400] 대체)
+  static const Color grey400 = Color(0xFFBDBDBD);
+
+  /// 그레이 500 (Colors.grey[500] 대체)
+  static const Color grey500 = Color(0xFF9E9E9E);
+
+  /// 그레이 600 (Colors.grey[600] 대체)
+  static const Color grey600 = Color(0xFF757575);
+
+  /// 그레이 700 (Colors.grey[700] 대체)
+  static const Color grey700 = Color(0xFF616161);
+
+  /// 그레이 800 (Colors.grey[800] 대체)
+  static const Color grey800 = Color(0xFF424242);
+
+  /// 틸 (Colors.teal 대체)
+  static const Color teal = Color(0xFF009688);
+
+  /// 퍼플 (Colors.purple 대체)
+  static const Color purple = Color(0xFF9C27B0);
+
+  /// 핑크 (Colors.pink 대체)
+  static const Color pink = Color(0xFFE91E63);
+
+  /// 인디고 (Colors.indigo 대체)
+  static const Color indigo = Color(0xFF3F51B5);
+
+  /// 시안 (Colors.cyan 대체)
+  static const Color cyan = Color(0xFF00BCD4);
+
+  /// 라임 (Colors.lime 대체)
+  static const Color lime = Color(0xFFCDDC39);
+
+  /// 시안 악센트 (Colors.cyanAccent 대체)
+  static const Color cyanAccent = Color(0xFF18FFFF);
+
+  /// 그린 악센트 (Colors.greenAccent 대체)
+  static const Color greenAccent = Color(0xFF69F0AE);
+
+  /// 투명 (Colors.transparent 대체)
+  static const Color transparent = Color(0x00000000);
 }
 

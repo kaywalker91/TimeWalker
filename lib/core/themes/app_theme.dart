@@ -76,7 +76,7 @@ class AppTheme {
       // APP BAR
       // ========================================
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         foregroundColor: AppColors.textPrimary,
         elevation: 0,
         centerTitle: true,
@@ -168,7 +168,7 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: AppColors.surface,
         elevation: 4,
-        shadowColor: Colors.black54,
+        shadowColor: AppColors.black54,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: const BorderSide(
@@ -330,7 +330,7 @@ class AppTheme {
           if (states.contains(WidgetState.selected)) {
             return AppColors.primary;
           }
-          return Colors.transparent;
+          return AppColors.transparent;
         }),
         checkColor: WidgetStateProperty.all(AppColors.background),
         side: const BorderSide(color: AppColors.border, width: 2),
@@ -357,7 +357,7 @@ class AppTheme {
       listTileTheme: const ListTileThemeData(
         iconColor: AppColors.iconPrimary,
         textColor: AppColors.textPrimary,
-        tileColor: Colors.transparent,
+        tileColor: AppColors.transparent,
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       ),
       
@@ -488,7 +488,7 @@ class AppTheme {
       // APP BAR
       // ========================================
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         foregroundColor: AppColors.textPrimary,
         elevation: 0,
         centerTitle: true,

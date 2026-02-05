@@ -299,4 +299,26 @@ abstract class AppShadows {
       offset: Offset(0, 4),
     ),
   ];
+
+  // ============================================
+  // DIALOGUE SCREEN SHADOWS - 대화 화면용 그림자
+  // ============================================
+  
+  /// 대화 화면 캐릭터 글로우
+  /// 
+  /// 캐릭터 초상화에 드롭 섀도우와 골든 글로우를 적용하여
+  /// 배경과 분리되도록 깊이감을 추가합니다.
+  static List<BoxShadow> dialogueCharacterGlow = [
+    BoxShadow(
+      color: const Color(0x66000000), // 40% 불투명도 검정
+      blurRadius: 30,
+      spreadRadius: 10,
+      offset: const Offset(0, 10),
+    ),
+    BoxShadow(
+      color: AppColors.goldenGlow.withValues(alpha: 0.15),
+      blurRadius: 50,
+      spreadRadius: 5,
+    ),
+  ];
 }
