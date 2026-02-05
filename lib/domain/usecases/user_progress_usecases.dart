@@ -1,4 +1,3 @@
-import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/core/use_case.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/country_repository.dart';
@@ -73,42 +72,8 @@ class UpdateUserProgressUseCase
         content: unlockContent,
       );
 
-      // 3. 해금된 항목 적용
-      if (unlocks.isNotEmpty) {
-        final newEraIds = List<String>.from(updated.unlockedEraIds);
-        final newCountryIds = List<String>.from(updated.unlockedCountryIds);
-        final newRegionIds = List<String>.from(updated.unlockedRegionIds);
-
-        for (final event in unlocks) {
-          if (event.type == UnlockType.era && !newEraIds.contains(event.id)) {
-            newEraIds.add(event.id);
-          } else if (event.type == UnlockType.country &&
-              !newCountryIds.contains(event.id)) {
-            newCountryIds.add(event.id);
-          } else if (event.type == UnlockType.region &&
-              !newRegionIds.contains(event.id)) {
-            newRegionIds.add(event.id);
-          }
-        }
-
-        updated = updated.copyWith(
-          unlockedEraIds: newEraIds,
-          unlockedCountryIds: newCountryIds,
-          unlockedRegionIds: newRegionIds,
-        );
-
-        // Rank 업데이트
-        for (final event in unlocks) {
-          if (event.type == UnlockType.rank) {
-            try {
-              final newRank = ExplorerRank.values.firstWhere(
-                (e) => e.name == event.id,
-              );
-              updated = updated.copyWith(rank: newRank);
-            } catch (_) {}
-          }
-        }
-      }
+      // 3. 해금된 항목 적용 (ProgressionService에 위임)
+      updated = _progressionService.applyUnlocks(updated, unlocks);
 
       // 4. 저장
       await _repository.saveUserProgress(updated);

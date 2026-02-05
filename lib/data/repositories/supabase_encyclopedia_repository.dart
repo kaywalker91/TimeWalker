@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
@@ -27,13 +28,44 @@ class SupabaseEncyclopediaRepository implements EncyclopediaRepository {
         },
         transform: _mapRow,
       );
-      _entries = rows.map((e) => EncyclopediaEntry.fromJson(e)).toList();
-    } catch (_) {
-      final jsonString = await rootBundle.loadString('assets/data/encyclopedia.json');
-      final List<dynamic> jsonList = jsonDecode(jsonString);
-      _entries = jsonList.map((e) => EncyclopediaEntry.fromJson(e)).toList();
+      _entries = _parseEntries(rows);
+    } on PostgrestException catch (e) {
+      debugPrint('[SupabaseEncyclopediaRepository] Supabase error: ${e.message}');
+      await _loadFallback();
+    } on FormatException catch (e) {
+      debugPrint('[SupabaseEncyclopediaRepository] JSON parse error: $e');
+      await _loadFallback();
+    } catch (e) {
+      debugPrint('[SupabaseEncyclopediaRepository] Unexpected error: $e');
+      await _loadFallback();
     }
     _isLoaded = true;
+  }
+
+  List<EncyclopediaEntry> _parseEntries(List<Map<String, dynamic>> rows) {
+    final result = <EncyclopediaEntry>[];
+    for (final json in rows) {
+      try {
+        result.add(EncyclopediaEntry.fromJson(json));
+      } catch (e) {
+        debugPrint('[SupabaseEncyclopediaRepository] Skip invalid entry: $e');
+      }
+    }
+    return result;
+  }
+
+  Future<void> _loadFallback() async {
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/encyclopedia.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      _entries = _parseEntries(
+        jsonList.map((e) => e as Map<String, dynamic>).toList(),
+      );
+      debugPrint('[SupabaseEncyclopediaRepository] Loaded ${_entries.length} from fallback');
+    } catch (e) {
+      debugPrint('[SupabaseEncyclopediaRepository] Fallback load failed: $e');
+      _entries = [];
+    }
   }
 
   @override
@@ -59,7 +91,7 @@ class SupabaseEncyclopediaRepository implements EncyclopediaRepository {
     await _ensureLoaded();
     try {
       return _entries.firstWhere((e) => e.id == id);
-    } catch (_) {
+    } on StateError {
       return null;
     }
   }

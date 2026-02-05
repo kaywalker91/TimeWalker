@@ -21,7 +21,8 @@ class DialogueChoice extends Equatable {
 
   factory DialogueChoice.fromJson(Map<String, dynamic> json) {
     return DialogueChoice(
-      id: json['id'] as String,
+      id: json['id'] as String? ??
+          'choice_${json['nextNodeId'] ?? DateTime.now().microsecondsSinceEpoch}',
       text: json['text'] as String,
       preview: json['preview'] as String?,
       nextNodeId: json['nextNodeId'] as String,

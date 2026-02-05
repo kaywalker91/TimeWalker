@@ -39,9 +39,14 @@ class MockCharacterRepository implements CharacterRepository {
   @override
   Future<List<Character>> getCharactersByLocation(String locationId) async {
     await _ensureLoaded();
-    return _characters
+    final result = _characters
         .where((c) => c.relatedLocationIds.contains(locationId))
         .toList();
+    // 디버그: 장소별 캐릭터 조회 결과
+    for (final c in result) {
+      debugPrint('[MockCharacterRepository] getCharactersByLocation($locationId): ${c.id}, status=${c.status}');
+    }
+    return result;
   }
 
   @override

@@ -54,9 +54,9 @@ class EraData {
     bgmAsset: 'assets/audio/bgm/unified_silla.mp3',
     themeId: EraThemeIds.unifiedSilla,
     chapterIds: ['us_ch1_unification', 'us_ch2_buddhism', 'us_ch3_maritime', 'us_ch4_balhae'],
-    characterIds: ['jangbogo', 'wonhyo', 'choi_chiwon', 'dae_joyeong', 'dae_muye'],
+    characterIds: ['jang_bogo', 'wonhyo', 'choi_chiwon', 'dae_joyeong', 'dae_muye'],
     locationIds: ['cheonghaejin', 'bulguksa', 'seokguram', 'gyeongju_anapji', 'sanggyeong'],
-    status: ContentStatus.locked,
+    status: ContentStatus.available,
     estimatedMinutes: 50,
     unlockCondition: UnlockCondition(
       previousEraId: 'korea_three_kingdoms',

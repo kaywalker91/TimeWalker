@@ -1,53 +1,14 @@
-import 'package:equatable/equatable.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/region.dart';
+import 'package:time_walker/domain/entities/unlock_event.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/services/country_unlock_rules.dart';
 
-
-/// 해금 이벤트 유형
-enum UnlockType {
-  era,
-  country,
-  region,
-  rank,
-  feature,
-  encyclopedia, // 역사 도감 항목
-  character, // 인물 해금
-}
-
-/// 해금 이벤트 데이터
-class UnlockEvent extends Equatable {
-  final UnlockType type;
-  final String id; // Era ID, Region ID, or formatted string for rank
-  final String name; // Display name
-  final String? message; // Optional message
-
-  const UnlockEvent({
-    required this.type,
-    required this.id,
-    required this.name,
-    this.message,
-  });
-
-  @override
-  List<Object?> get props => [type, id, name, message];
-}
-
-class UnlockContent {
-  final List<Era> eras;
-  final List<Country> countries;
-  final Map<String, Region> regionsById;
-
-  const UnlockContent({
-    this.eras = const [],
-    this.countries = const [],
-    this.regionsById = const {},
-  });
-}
+// Re-export for backward compatibility
+export 'package:time_walker/domain/entities/unlock_event.dart';
 
 /// 진행 및 해금 처리를 담당하는 도메인 서비스
 class ProgressionService {
@@ -299,5 +260,57 @@ class ProgressionService {
       'whatif': '역사 What-If 모드',
     };
     return featureNames[featureId] ?? featureId;
+  }
+
+  /// 해금 이벤트를 UserProgress에 적용합니다.
+  ///
+  /// [progress]: 현재 UserProgress
+  /// [unlocks]: 적용할 해금 이벤트 목록
+  /// Returns: 해금이 적용된 새로운 UserProgress
+  UserProgress applyUnlocks(UserProgress progress, List<UnlockEvent> unlocks) {
+    if (unlocks.isEmpty) return progress;
+
+    final newEraIds = List<String>.from(progress.unlockedEraIds);
+    final newCountryIds = List<String>.from(progress.unlockedCountryIds);
+    final newRegionIds = List<String>.from(progress.unlockedRegionIds);
+    ExplorerRank? newRank;
+
+    for (final event in unlocks) {
+      switch (event.type) {
+        case UnlockType.era:
+          if (!newEraIds.contains(event.id)) {
+            newEraIds.add(event.id);
+          }
+        case UnlockType.country:
+          if (!newCountryIds.contains(event.id)) {
+            newCountryIds.add(event.id);
+          }
+        case UnlockType.region:
+          if (!newRegionIds.contains(event.id)) {
+            newRegionIds.add(event.id);
+          }
+        case UnlockType.rank:
+          try {
+            newRank = ExplorerRank.values.firstWhere(
+              (e) => e.name == event.id,
+            );
+          } catch (_) {
+            // Invalid rank, ignore
+          }
+        case UnlockType.feature:
+        case UnlockType.encyclopedia:
+        case UnlockType.character:
+          // These types don't modify UserProgress directly
+          // They are handled by other systems (achievements, encyclopedia, etc.)
+          break;
+      }
+    }
+
+    return progress.copyWith(
+      unlockedEraIds: newEraIds,
+      unlockedCountryIds: newCountryIds,
+      unlockedRegionIds: newRegionIds,
+      rank: newRank ?? progress.rank,
+    );
   }
 }

@@ -94,10 +94,23 @@ class Dialogue extends Equatable {
       titleKorean: json['titleKorean'] as String,
       description: json['description'] as String? ?? '',
       nodes: (json['nodes'] as List).map((e) => DialogueNode.fromJson(e)).toList(),
-      rewards: (json['rewards'] as List? ?? []).map((e) => DialogueReward.fromJson(e)).toList(),
+      rewards: _parseRewards(json['rewards']),
       isCompleted: json['isCompleted'] as bool? ?? false,
       estimatedMinutes: json['estimatedMinutes'] as int? ?? 5,
     );
+  }
+
+  static List<DialogueReward> _parseRewards(dynamic rewards) {
+    if (rewards == null) return [];
+    if (rewards is List) {
+      return rewards
+          .map((e) => DialogueReward.fromJson(e as Map<String, dynamic>))
+          .toList();
+    }
+    if (rewards is Map<String, dynamic>) {
+      return [DialogueReward.fromJson(rewards)];
+    }
+    return [];
   }
 
   @override

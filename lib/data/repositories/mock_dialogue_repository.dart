@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:time_walker/core/constants/app_durations.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
 import 'package:time_walker/domain/repositories/dialogue_repository.dart';
 import 'package:time_walker/data/datasources/local/dialogue_yaml_parser.dart';
@@ -120,14 +121,28 @@ class MockDialogueRepository implements DialogueRepository {
   }
 
   @override
+  Future<List<Dialogue>> getDialoguesByIds(List<String> ids) async {
+    debugPrint('[MockDialogueRepository] getDialoguesByIds: $ids');
+    await _ensureLoaded();
+    if (ids.isEmpty) {
+      debugPrint('[MockDialogueRepository] ids is EMPTY!');
+      return [];
+    }
+    final idSet = ids.toSet();
+    final result = _dialogues.where((d) => idSet.contains(d.id)).toList();
+    debugPrint('[MockDialogueRepository] found ${result.length} dialogues: ${result.map((d) => d.id).toList()}');
+    return result;
+  }
+
+  @override
   Future<void> saveDialogueProgress(DialogueProgress progress) async {
-    await Future.delayed(const Duration(milliseconds: 50));
+    await Future.delayed(AppDurations.mockDelayShort);
     _progressMap[progress.dialogueId] = progress;
   }
 
   @override
   Future<DialogueProgress?> getDialogueProgress(String dialogueId) async {
-    await Future.delayed(const Duration(milliseconds: 50));
+    await Future.delayed(AppDurations.mockDelayShort);
     return _progressMap[dialogueId];
   }
 }

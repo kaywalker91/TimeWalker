@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:time_walker/core/constants/app_durations.dart';
 import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
 import 'package:time_walker/data/repositories/supabase_mapping_utils.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
@@ -28,13 +30,44 @@ class SupabaseDialogueRepository implements DialogueRepository {
         },
         transform: _mapRow,
       );
-      _dialogues = rows.map((e) => Dialogue.fromJson(e)).toList();
-    } catch (_) {
-      final jsonString = await rootBundle.loadString('assets/data/dialogues.json');
-      final List<dynamic> jsonList = jsonDecode(jsonString);
-      _dialogues = jsonList.map((e) => Dialogue.fromJson(e)).toList();
+      _dialogues = _parseDialogues(rows);
+    } on PostgrestException catch (e) {
+      debugPrint('[SupabaseDialogueRepository] Supabase error: ${e.message}');
+      await _loadFallback();
+    } on FormatException catch (e) {
+      debugPrint('[SupabaseDialogueRepository] JSON parse error: $e');
+      await _loadFallback();
+    } catch (e) {
+      debugPrint('[SupabaseDialogueRepository] Unexpected error: $e');
+      await _loadFallback();
     }
     _isLoaded = true;
+  }
+
+  List<Dialogue> _parseDialogues(List<Map<String, dynamic>> rows) {
+    final result = <Dialogue>[];
+    for (final json in rows) {
+      try {
+        result.add(Dialogue.fromJson(json));
+      } catch (e) {
+        debugPrint('[SupabaseDialogueRepository] Skip invalid dialogue: $e');
+      }
+    }
+    return result;
+  }
+
+  Future<void> _loadFallback() async {
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/dialogues.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      _dialogues = _parseDialogues(
+        jsonList.map((e) => e as Map<String, dynamic>).toList(),
+      );
+      debugPrint('[SupabaseDialogueRepository] Loaded ${_dialogues.length} from fallback');
+    } catch (e) {
+      debugPrint('[SupabaseDialogueRepository] Fallback load failed: $e');
+      _dialogues = [];
+    }
   }
 
   @override
@@ -60,20 +93,28 @@ class SupabaseDialogueRepository implements DialogueRepository {
     await _ensureLoaded();
     try {
       return _dialogues.firstWhere((d) => d.id == id);
-    } catch (_) {
+    } on StateError {
       return null;
     }
   }
 
   @override
+  Future<List<Dialogue>> getDialoguesByIds(List<String> ids) async {
+    await _ensureLoaded();
+    if (ids.isEmpty) return [];
+    final idSet = ids.toSet();
+    return _dialogues.where((d) => idSet.contains(d.id)).toList();
+  }
+
+  @override
   Future<void> saveDialogueProgress(DialogueProgress progress) async {
-    await Future.delayed(const Duration(milliseconds: 50));
+    await Future.delayed(AppDurations.mockDelayShort);
     _progressMap[progress.dialogueId] = progress;
   }
 
   @override
   Future<DialogueProgress?> getDialogueProgress(String dialogueId) async {
-    await Future.delayed(const Duration(milliseconds: 50));
+    await Future.delayed(AppDurations.mockDelayShort);
     return _progressMap[dialogueId];
   }
 }

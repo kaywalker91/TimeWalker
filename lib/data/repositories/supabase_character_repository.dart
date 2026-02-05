@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
@@ -27,13 +28,44 @@ class SupabaseCharacterRepository implements CharacterRepository {
         },
         transform: _mapRow,
       );
-      _characters = rows.map((e) => Character.fromJson(e)).toList();
-    } catch (_) {
-      final jsonString = await rootBundle.loadString('assets/data/characters.json');
-      final List<dynamic> jsonList = jsonDecode(jsonString);
-      _characters = jsonList.map((e) => Character.fromJson(e)).toList();
+      _characters = _parseCharacters(rows);
+    } on PostgrestException catch (e) {
+      debugPrint('[SupabaseCharacterRepository] Supabase error: ${e.message}');
+      await _loadFallback();
+    } on FormatException catch (e) {
+      debugPrint('[SupabaseCharacterRepository] JSON parse error: $e');
+      await _loadFallback();
+    } catch (e) {
+      debugPrint('[SupabaseCharacterRepository] Unexpected error: $e');
+      await _loadFallback();
     }
     _isLoaded = true;
+  }
+
+  List<Character> _parseCharacters(List<Map<String, dynamic>> rows) {
+    final result = <Character>[];
+    for (final json in rows) {
+      try {
+        result.add(Character.fromJson(json));
+      } catch (e) {
+        debugPrint('[SupabaseCharacterRepository] Skip invalid character: $e');
+      }
+    }
+    return result;
+  }
+
+  Future<void> _loadFallback() async {
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/characters.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      _characters = _parseCharacters(
+        jsonList.map((e) => e as Map<String, dynamic>).toList(),
+      );
+      debugPrint('[SupabaseCharacterRepository] Loaded ${_characters.length} from fallback');
+    } catch (e) {
+      debugPrint('[SupabaseCharacterRepository] Fallback load failed: $e');
+      _characters = [];
+    }
   }
 
   @override
@@ -58,10 +90,16 @@ class SupabaseCharacterRepository implements CharacterRepository {
 
   @override
   Future<Character?> getCharacterById(String id) async {
+    debugPrint('[SupabaseCharacterRepository] getCharacterById id=$id');
     await _ensureLoaded();
+    debugPrint('[SupabaseCharacterRepository] loaded ${_characters.length} characters');
     try {
-      return _characters.firstWhere((c) => c.id == id);
-    } catch (_) {
+      final char = _characters.firstWhere((c) => c.id == id);
+      debugPrint('[SupabaseCharacterRepository] found: ${char.id} portrait=${char.portraitAsset}');
+      return char;
+    } on StateError {
+      debugPrint('[SupabaseCharacterRepository] NOT FOUND: $id');
+      debugPrint('[SupabaseCharacterRepository] available IDs: ${_characters.map((c) => c.id).toList()}');
       return null;
     }
   }

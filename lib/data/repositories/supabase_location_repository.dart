@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
@@ -27,13 +28,44 @@ class SupabaseLocationRepository implements LocationRepository {
         },
         transform: _mapRow,
       );
-      _locations = rows.map((e) => Location.fromJson(e)).toList();
-    } catch (_) {
-      final jsonString = await rootBundle.loadString('assets/data/locations.json');
-      final List<dynamic> jsonList = jsonDecode(jsonString);
-      _locations = jsonList.map((e) => Location.fromJson(e)).toList();
+      _locations = _parseLocations(rows);
+    } on PostgrestException catch (e) {
+      debugPrint('[SupabaseLocationRepository] Supabase error: ${e.message}');
+      await _loadFallback();
+    } on FormatException catch (e) {
+      debugPrint('[SupabaseLocationRepository] JSON parse error: $e');
+      await _loadFallback();
+    } catch (e) {
+      debugPrint('[SupabaseLocationRepository] Unexpected error: $e');
+      await _loadFallback();
     }
     _isLoaded = true;
+  }
+
+  List<Location> _parseLocations(List<Map<String, dynamic>> rows) {
+    final result = <Location>[];
+    for (final json in rows) {
+      try {
+        result.add(Location.fromJson(json));
+      } catch (e) {
+        debugPrint('[SupabaseLocationRepository] Skip invalid location: $e');
+      }
+    }
+    return result;
+  }
+
+  Future<void> _loadFallback() async {
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/locations.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      _locations = _parseLocations(
+        jsonList.map((e) => e as Map<String, dynamic>).toList(),
+      );
+      debugPrint('[SupabaseLocationRepository] Loaded ${_locations.length} from fallback');
+    } catch (e) {
+      debugPrint('[SupabaseLocationRepository] Fallback load failed: $e');
+      _locations = [];
+    }
   }
 
   @override
@@ -53,7 +85,7 @@ class SupabaseLocationRepository implements LocationRepository {
     await _ensureLoaded();
     try {
       return _locations.firstWhere((l) => l.id == id);
-    } catch (_) {
+    } on StateError {
       return null;
     }
   }

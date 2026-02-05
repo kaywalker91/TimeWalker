@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:time_walker/data/datasources/remote/supabase_content_loader.dart';
@@ -23,7 +24,14 @@ class SupabaseQuizRepository implements QuizRepository {
     if (_isLoaded) return;
     try {
       await _loadFromSupabase();
-    } catch (_) {
+    } on PostgrestException catch (e) {
+      debugPrint('[SupabaseQuizRepository] Supabase error: ${e.message}');
+      await _loadFromAssets();
+    } on FormatException catch (e) {
+      debugPrint('[SupabaseQuizRepository] JSON parse error: $e');
+      await _loadFromAssets();
+    } catch (e) {
+      debugPrint('[SupabaseQuizRepository] Unexpected error: $e');
       await _loadFromAssets();
     }
     _isLoaded = true;
@@ -51,48 +59,93 @@ class SupabaseQuizRepository implements QuizRepository {
       transform: _mapQuizRow,
     );
 
-    _categories = categoryRows.map((e) => QuizCategory.fromJson(e)).toList();
+    _categories = _parseCategories(categoryRows);
     _quizzes = [];
     _quizzesByCategory = {};
 
     for (final quizJson in quizRows) {
-      final quiz = Quiz.fromJson(quizJson);
-      _quizzes.add(quiz);
-      final categoryId = quizJson['categoryId'] as String?;
-      if (categoryId != null) {
-        _quizzesByCategory.putIfAbsent(categoryId, () => []).add(quiz);
+      try {
+        final quiz = Quiz.fromJson(quizJson);
+        _quizzes.add(quiz);
+        final categoryId = quizJson['categoryId'] as String?;
+        if (categoryId != null) {
+          _quizzesByCategory.putIfAbsent(categoryId, () => []).add(quiz);
+        }
+      } catch (e) {
+        debugPrint('[SupabaseQuizRepository] Skip invalid quiz: $e');
       }
     }
   }
 
-  Future<void> _loadFromAssets() async {
-    final jsonString = await rootBundle.loadString('assets/data/quizzes.json');
-    final dynamic jsonResponse = jsonDecode(jsonString);
-
-    if (jsonResponse is List) {
-      _quizzes = jsonResponse.map((e) => Quiz.fromJson(e)).toList();
-      _categories = [];
-      _quizzesByCategory = {};
-      return;
+  List<QuizCategory> _parseCategories(List<Map<String, dynamic>> rows) {
+    final result = <QuizCategory>[];
+    for (final json in rows) {
+      try {
+        result.add(QuizCategory.fromJson(json));
+      } catch (e) {
+        debugPrint('[SupabaseQuizRepository] Skip invalid category: $e');
+      }
     }
+    return result;
+  }
 
-    if (jsonResponse is Map<String, dynamic> && jsonResponse.containsKey('categories')) {
-      final categories = jsonResponse['categories'] as List;
+  Future<void> _loadFromAssets() async {
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/quizzes.json');
+      final dynamic jsonResponse = jsonDecode(jsonString);
+
+      if (jsonResponse is List) {
+        _quizzes = _parseQuizzes(
+          jsonResponse.map((e) => e as Map<String, dynamic>).toList(),
+        );
+        _categories = [];
+        _quizzesByCategory = {};
+        debugPrint('[SupabaseQuizRepository] Loaded ${_quizzes.length} from fallback (list)');
+        return;
+      }
+
+      if (jsonResponse is Map<String, dynamic> && jsonResponse.containsKey('categories')) {
+        final categories = jsonResponse['categories'] as List;
+        _quizzes = [];
+        _categories = [];
+        _quizzesByCategory = {};
+
+        for (final categoryJson in categories) {
+          try {
+            final category = QuizCategory.fromJson(categoryJson);
+            _categories.add(category);
+
+            final quizzesJson = categoryJson['quizzes'] as List;
+            final quizzes = _parseQuizzes(
+              quizzesJson.map((e) => e as Map<String, dynamic>).toList(),
+            );
+
+            _quizzesByCategory[category.id] = quizzes;
+            _quizzes.addAll(quizzes);
+          } catch (e) {
+            debugPrint('[SupabaseQuizRepository] Skip invalid category group: $e');
+          }
+        }
+        debugPrint('[SupabaseQuizRepository] Loaded ${_quizzes.length} from fallback (categories)');
+      }
+    } catch (e) {
+      debugPrint('[SupabaseQuizRepository] Fallback load failed: $e');
       _quizzes = [];
       _categories = [];
       _quizzesByCategory = {};
+    }
+  }
 
-      for (final categoryJson in categories) {
-        final category = QuizCategory.fromJson(categoryJson);
-        _categories.add(category);
-
-        final quizzesJson = categoryJson['quizzes'] as List;
-        final quizzes = quizzesJson.map((e) => Quiz.fromJson(e)).toList();
-
-        _quizzesByCategory[category.id] = quizzes;
-        _quizzes.addAll(quizzes);
+  List<Quiz> _parseQuizzes(List<Map<String, dynamic>> rows) {
+    final result = <Quiz>[];
+    for (final json in rows) {
+      try {
+        result.add(Quiz.fromJson(json));
+      } catch (e) {
+        debugPrint('[SupabaseQuizRepository] Skip invalid quiz: $e');
       }
     }
+    return result;
   }
 
   @override
@@ -118,7 +171,7 @@ class SupabaseQuizRepository implements QuizRepository {
     await _ensureLoaded();
     try {
       return _quizzes.firstWhere((q) => q.id == id);
-    } catch (_) {
+    } on StateError {
       return null;
     }
   }
