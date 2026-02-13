@@ -112,6 +112,58 @@ void main() {
       expect(parsed.characterIds, contains('c1'));
     });
 
+    test('fromJson with missing position defaults to (0,0)', () {
+      final json = {
+        'id': 'loc_test',
+        'eraId': 'joseon',
+        'name': 'Test Loc',
+        'nameKorean': '테스트 장소',
+        'thumbnailAsset': 'thumb.png',
+        'backgroundAsset': 'bg.png',
+        // position intentionally omitted
+      };
+
+      final parsed = Location.fromJson(json);
+
+      expect(parsed.position.x, equals(0.0));
+      expect(parsed.position.y, equals(0.0));
+    });
+
+    test('fromJson with null kingdom parses successfully', () {
+      final json = {
+        'id': 'loc_test',
+        'eraId': 'korea_three_kingdoms',
+        'name': 'Test Loc',
+        'nameKorean': '테스트 장소',
+        'thumbnailAsset': 'thumb.png',
+        'backgroundAsset': 'bg.png',
+        'position': {'x': 1.0, 'y': 2.0},
+        // kingdom intentionally omitted
+      };
+
+      final parsed = Location.fromJson(json);
+
+      expect(parsed.kingdom, isNull);
+      expect(parsed.id, equals('loc_test'));
+    });
+
+    test('fromJson with kingdom value parses correctly', () {
+      final json = {
+        'id': 'loc_test',
+        'eraId': 'korea_three_kingdoms',
+        'name': 'Test Loc',
+        'nameKorean': '테스트 장소',
+        'thumbnailAsset': 'thumb.png',
+        'backgroundAsset': 'bg.png',
+        'kingdom': 'goguryeo',
+        'position': {'x': 1.0, 'y': 2.0},
+      };
+
+      final parsed = Location.fromJson(json);
+
+      expect(parsed.kingdom, equals('goguryeo'));
+    });
+
     test('fromJson이 대체 키(lat/lon)를 처리한다', () {
       final json = {
         'id': 'loc_test',

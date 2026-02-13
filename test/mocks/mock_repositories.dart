@@ -14,6 +14,7 @@ import 'package:time_walker/domain/repositories/era_repository.dart';
 import 'package:time_walker/domain/repositories/location_repository.dart';
 import 'package:time_walker/domain/repositories/quiz_repository.dart';
 import 'package:time_walker/domain/repositories/region_repository.dart';
+import 'package:time_walker/domain/repositories/settings_repository.dart';
 import 'package:time_walker/domain/repositories/shop_repository.dart';
 import 'package:time_walker/domain/repositories/user_progress_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
@@ -40,6 +41,8 @@ class MockEncyclopediaRepository extends Mock
     implements EncyclopediaRepository {}
 
 class MockQuizRepository extends Mock implements QuizRepository {}
+
+class MockSettingsRepository extends Mock implements SettingsRepository {}
 
 class MockShopRepository extends Mock implements ShopRepository {}
 

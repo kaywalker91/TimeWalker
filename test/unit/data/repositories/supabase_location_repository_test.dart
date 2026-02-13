@@ -42,6 +42,7 @@ void main() {
       'displayYear': '1395년',
       'kingdom': 'joseon',
       'isVirtual': false,
+      'position': {'x': 0.5, 'y': 0.3},
     };
 
     test('getAllLocations returns all locations when loader succeeds', () async {

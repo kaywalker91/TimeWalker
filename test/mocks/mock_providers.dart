@@ -4,6 +4,7 @@ import 'package:time_walker/presentation/providers/audio_provider.dart';
 import 'package:time_walker/presentation/providers/settings_provider.dart';
 
 import 'mock_audio_service.dart';
+import 'mock_repositories.dart';
 
 // ============== Mock Providers ==============
 
@@ -26,7 +27,7 @@ List<Override> createMockAudioOverrides({
   return [
     // SettingsProvider override (AudioService가 의존)
     settingsProvider.overrideWith((ref) {
-      final notifier = SettingsNotifier();
+      final notifier = SettingsNotifier(MockSettingsRepository());
       if (initialSettings != null) {
         notifier.loadSettings(initialSettings);
       }

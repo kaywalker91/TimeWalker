@@ -318,6 +318,74 @@ void main() {
     });
 
     // =========================================================
+    // calculateCountryProgress 테스트 (NEW)
+    // =========================================================
+    group('calculateCountryProgress', () {
+      test('Country에 Era가 없으면 진행률 0 반환', () {
+        // Given: 빈 Era 리스트
+        final progress = createMockUserProgress();
+        final eras = <Era>[];
+
+        // When
+        final result = service.calculateCountryProgress('korea', progress, eras);
+
+        // Then
+        expect(result, equals(0.0));
+      });
+
+      test('진행한 Era가 없으면 진행률 0 반환', () {
+        // Given: 모든 Era 진행률이 0
+        final progress = createMockUserProgress(
+          eraProgress: {'joseon': 0.0, 'goryeo': 0.0},
+        );
+        final eras = [
+          _createMockEra(id: 'joseon', nameKorean: '조선'),
+          _createMockEra(id: 'goryeo', nameKorean: '고려'),
+        ];
+
+        // When
+        final result = service.calculateCountryProgress('korea', progress, eras);
+
+        // Then
+        expect(result, equals(0.0));
+      });
+
+      test('진행한 Era들의 평균 진행률 반환', () {
+        // Given: joseon 80%, goryeo 40% → 평균 60%
+        final progress = createMockUserProgress().copyWith(
+          eraProgress: {'joseon': 0.8, 'goryeo': 0.4},
+        );
+        final eras = [
+          _createMockEra(id: 'joseon', nameKorean: '조선'),
+          _createMockEra(id: 'goryeo', nameKorean: '고려'),
+        ];
+
+        // When
+        final result = service.calculateCountryProgress('korea', progress, eras);
+
+        // Then: (0.8 + 0.4) / 2 = 0.6
+        expect(result, closeTo(0.6, 0.001));
+      });
+
+      test('0보다 큰 진행률만 평균에 포함', () {
+        // Given: joseon 100%, goryeo 0% → joseon만 포함
+        final progress = createMockUserProgress().copyWith(
+          eraProgress: {'joseon': 1.0, 'goryeo': 0.0},
+        );
+        final eras = [
+          _createMockEra(id: 'joseon', nameKorean: '조선'),
+          _createMockEra(id: 'goryeo', nameKorean: '고려'),
+        ];
+
+        // When
+        final result = service.calculateCountryProgress('korea', progress, eras);
+
+        // Then: joseon만 포함되어 1.0
+        expect(result, equals(1.0));
+      });
+    });
+
+    // =========================================================
     // calculateRegionProgress 테스트
     // =========================================================
     group('calculateRegionProgress', () {

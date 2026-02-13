@@ -27,11 +27,24 @@ const mockDialogueJson = '''
 ]
 ''';
 
+const mockCharacterJson = '''
+[
+  {
+    "id": "test_char",
+    "eraId": "test_era",
+    "name": {"ko": "테스트", "en": "Test"}
+  }
+]
+''';
+
 class MockAssetBundle extends Fake implements AssetBundle {
   @override
   Future<String> loadString(String key, {bool cache = true}) async {
     if (key == 'assets/data/dialogues.json') {
       return mockDialogueJson;
+    }
+    if (key == 'assets/data/characters.json') {
+      return mockCharacterJson;
     }
     throw FormatException('Unexpected key: $key');
   }
@@ -74,6 +87,18 @@ void main() {
 
       // 2. Non-existent character
       final emptyDialogues = await repository.getDialoguesByCharacter('other_char');
+      expect(emptyDialogues, isEmpty);
+    });
+
+    test('getDialoguesByEra filters correctly', () async {
+      // 1. Existing era
+      final dialogues = await repository.getDialoguesByEra('test_era');
+      expect(dialogues, isNotEmpty);
+      expect(dialogues.length, equals(1));
+      expect(dialogues.first.characterId, equals('test_char'));
+
+      // 2. Non-existent era
+      final emptyDialogues = await repository.getDialoguesByEra('other_era');
       expect(emptyDialogues, isEmpty);
     });
 
