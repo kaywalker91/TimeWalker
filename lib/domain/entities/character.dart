@@ -1,22 +1,32 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:time_walker/domain/entities/localized_string.dart';
 
 /// 역사 인물 엔티티
 class Character extends Equatable {
   final String id;
   final String eraId;
+  
+  // OLD: Keep for backward compatibility during migration
   final String name;
   final String nameKorean;
-  final String title; // 칭호 (예: "조선 제4대 국왕")
+  final String title;
+  final String biography;
+  final String fullBiography;
+  final List<String> achievements;
+  
+  // NEW: i18n-aware fields
+  final LocalizedString? localizedName;
+  final LocalizedString? localizedTitle;
+  // biography, fullBiography, achievements will be loaded from i18n files
+  
   final String birth;
   final String death;
-  final String biography; // 짧은 소개
-  final String fullBiography; // 상세 소개
   final String portraitAsset;
   final List<String> emotionAssets; // 표정별 에셋
   final List<String> dialogueIds;
   final List<String> relatedCharacterIds;
   final List<String> relatedLocationIds;
-  final List<String> achievements; // 업적/공적
   final CharacterStatus status;
   final bool isHistorical; // 실존 인물 여부
 
@@ -38,6 +48,8 @@ class Character extends Equatable {
     this.achievements = const [],
     this.status = CharacterStatus.locked,
     this.isHistorical = true,
+    this.localizedName,
+    this.localizedTitle,
   });
 
   Character copyWith({
@@ -58,6 +70,8 @@ class Character extends Equatable {
     List<String>? achievements,
     CharacterStatus? status,
     bool? isHistorical,
+    LocalizedString? localizedName,
+    LocalizedString? localizedTitle,
   }) {
     return Character(
       id: id ?? this.id,
@@ -77,6 +91,8 @@ class Character extends Equatable {
       achievements: achievements ?? this.achievements,
       status: status ?? this.status,
       isHistorical: isHistorical ?? this.isHistorical,
+      localizedName: localizedName ?? this.localizedName,
+      localizedTitle: localizedTitle ?? this.localizedTitle,
     );
   }
 
@@ -94,6 +110,36 @@ class Character extends Equatable {
 
   /// 대화 수
   int get dialogueCount => dialogueIds.length;
+  
+  /// Get localized name for the given locale.
+  /// Falls back to old string fields if localizedName is not available.
+  String getName(Locale locale) {
+    if (localizedName != null) {
+      return localizedName!.get(locale);
+    }
+    // Fallback to old fields
+    return locale.languageCode == 'ko' ? nameKorean : name;
+  }
+  
+  /// Get localized name for the given context.
+  String getNameForContext(BuildContext context) {
+    return getName(Localizations.localeOf(context));
+  }
+  
+  /// Get localized title for the given locale.
+  /// Falls back to old string field if localizedTitle is not available.
+  String getTitle(Locale locale) {
+    if (localizedTitle != null) {
+      return localizedTitle!.get(locale);
+    }
+    // Fallback to old field
+    return title;
+  }
+  
+  /// Get localized title for the given context.
+  String getTitleForContext(BuildContext context) {
+    return getTitle(Localizations.localeOf(context));
+  }
 
   @override
   List<Object?> get props => [
@@ -114,15 +160,50 @@ class Character extends Equatable {
     achievements,
     status,
     isHistorical,
+    localizedName,
+    localizedTitle,
   ];
 
   factory Character.fromJson(Map<String, dynamic> json) {
+    // Parse name - support both old (separate fields) and new (LocalizedString) formats
+    final nameJson = json['name'];
+    final LocalizedString? localizedName;
+    final String name;
+    final String nameKorean;
+    
+    if (nameJson is Map<String, dynamic>) {
+      // New format: {"ko": "...", "en": "..."}
+      localizedName = LocalizedString.fromJson(nameJson);
+      name = localizedName.en ?? localizedName.ko;
+      nameKorean = localizedName.ko;
+    } else {
+      // Old format: separate "name" and "nameKorean" fields
+      localizedName = null;
+      name = nameJson ?? json['nameKorean'] as String? ?? 'Unknown';
+      nameKorean = json['nameKorean'] as String? ?? nameJson ?? '알 수 없음';
+    }
+    
+    // Parse title - support both formats
+    final titleJson = json['title'];
+    final LocalizedString? localizedTitle;
+    final String title;
+    
+    if (titleJson is Map<String, dynamic>) {
+      // New format
+      localizedTitle = LocalizedString.fromJson(titleJson);
+      title = localizedTitle.ko;
+    } else {
+      // Old format
+      localizedTitle = null;
+      title = titleJson as String? ?? json['description'] as String? ?? '';
+    }
+    
     return Character(
       id: json['id'] as String,
       eraId: json['eraId'] as String,
-      name: json['name'] as String? ?? json['nameKorean'] as String? ?? 'Unknown',
-      nameKorean: json['nameKorean'] as String? ?? json['name'] as String? ?? '알 수 없음',
-      title: json['title'] as String? ?? json['description'] as String? ?? '',
+      name: name,
+      nameKorean: nameKorean,
+      title: title,
       birth: json['birth'] as String? ?? '?',
       death: json['death'] as String? ?? '?',
       biography: json['biography'] as String? ?? json['description'] as String? ?? '',
@@ -138,6 +219,8 @@ class Character extends Equatable {
         orElse: () => CharacterStatus.locked,
       ),
       isHistorical: json['isHistorical'] as bool? ?? true,
+      localizedName: localizedName,
+      localizedTitle: localizedTitle,
     );
   }
 

@@ -1,14 +1,23 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:time_walker/core/constants/exploration_config.dart';
+import 'package:time_walker/domain/entities/localized_string.dart';
 import 'package:time_walker/shared/geo/map_coordinates.dart';
 
 /// 탐험 장소 엔티티
 class Location extends Equatable {
   final String id;
   final String eraId;
+  
+  // OLD: Keep for backward compatibility
   final String name;
   final String nameKorean;
   final String description;
+  
+  // NEW: i18n-aware fields
+  final LocalizedString? localizedName;
+  // description will be loaded from i18n files
+  
   final String thumbnailAsset;
   final String backgroundAsset;
   final String? kingdom; // 삼국시대 전용 구분 (고구려/백제/신라/가야)
@@ -27,7 +36,7 @@ class Location extends Equatable {
     required this.eraId,
     required this.name,
     required this.nameKorean,
-    required this.description,
+    this.description = '',
     required this.thumbnailAsset,
     required this.backgroundAsset,
     this.kingdom,
@@ -40,6 +49,7 @@ class Location extends Equatable {
     this.eventIds = const [],
     this.status = ContentStatus.locked,
     this.isHistorical = true,
+    this.localizedName,
   });
 
   Location copyWith({
@@ -60,6 +70,7 @@ class Location extends Equatable {
     List<String>? eventIds,
     ContentStatus? status,
     bool? isHistorical,
+    LocalizedString? localizedName,
   }) {
     return Location(
       id: id ?? this.id,
@@ -79,6 +90,7 @@ class Location extends Equatable {
       eventIds: eventIds ?? this.eventIds,
       status: status ?? this.status,
       isHistorical: isHistorical ?? this.isHistorical,
+      localizedName: localizedName ?? this.localizedName,
     );
   }
 
@@ -90,6 +102,19 @@ class Location extends Equatable {
 
   /// 만날 수 있는 인물 수
   int get characterCount => characterIds.length;
+  
+  /// Get localized name for the given locale.
+  String getName(Locale locale) {
+    if (localizedName != null) {
+      return localizedName!.get(locale);
+    }
+    return locale.languageCode == 'ko' ? nameKorean : name;
+  }
+  
+  /// Get localized name for the given context.
+  String getNameForContext(BuildContext context) {
+    return getName(Localizations.localeOf(context));
+  }
 
   @override
   List<Object?> get props => [
@@ -110,15 +135,34 @@ class Location extends Equatable {
     eventIds,
     status,
     isHistorical,
+    localizedName,
   ];
 
   factory Location.fromJson(Map<String, dynamic> json) {
+    // Parse name - support both old and new formats
+    final nameJson = json['name'];
+    final LocalizedString? localizedName;
+    final String name;
+    final String nameKorean;
+    
+    if (nameJson is Map<String, dynamic>) {
+      // New format: {"ko": "...", "en": "..."}
+      localizedName = LocalizedString.fromJson(nameJson);
+      name = localizedName.en ?? localizedName.ko;
+      nameKorean = localizedName.ko;
+    } else {
+      // Old format: separate fields
+      localizedName = null;
+      name = nameJson as String;
+      nameKorean = json['nameKorean'] as String;
+    }
+    
     return Location(
       id: json['id'] as String,
       eraId: json['eraId'] as String,
-      name: json['name'] as String,
-      nameKorean: json['nameKorean'] as String,
-      description: json['description'] as String,
+      name: name,
+      nameKorean: nameKorean,
+      description: json['description'] as String? ?? '',
       thumbnailAsset: json['thumbnailAsset'] as String,
       backgroundAsset: json['backgroundAsset'] as String,
       kingdom: json['kingdom'] as String?,
@@ -128,10 +172,12 @@ class Location extends Equatable {
           (json['lon'] as num?)?.toDouble(),
       displayYear: json['displayYear'] as String?,
       timelineOrder: (json['timelineOrder'] as num?)?.toInt(),
-      position: MapCoordinates(
-        x: (json['position']['x'] as num).toDouble(),
-        y: (json['position']['y'] as num).toDouble(),
-      ),
+      position: json['position'] != null
+          ? MapCoordinates(
+              x: (json['position']['x'] as num).toDouble(),
+              y: (json['position']['y'] as num).toDouble(),
+            )
+          : const MapCoordinates(x: 0.0, y: 0.0),
       characterIds: List<String>.from(json['characterIds'] as List? ?? []),
       eventIds: List<String>.from(json['eventIds'] as List? ?? []),
       status: ContentStatus.values.firstWhere(
@@ -139,6 +185,7 @@ class Location extends Equatable {
         orElse: () => ContentStatus.locked,
       ),
       isHistorical: json['isHistorical'] as bool? ?? true,
+      localizedName: localizedName,
     );
   }
 

@@ -1,6 +1,8 @@
 // 사용자 설정 엔티티
 
 class GameSettings {
+  final String playerName;
+  final int playerAvatarIndex;
   final bool soundEnabled;
   final bool musicEnabled;
   final double soundVolume;
@@ -13,6 +15,8 @@ class GameSettings {
   final bool developerMode;
 
   const GameSettings({
+    this.playerName = '시간 여행자',
+    this.playerAvatarIndex = 0,
     this.soundEnabled = true,
     this.musicEnabled = true,
     this.soundVolume = 0.8,
@@ -26,6 +30,8 @@ class GameSettings {
   });
 
   GameSettings copyWith({
+    String? playerName,
+    int? playerAvatarIndex,
     bool? soundEnabled,
     bool? musicEnabled,
     double? soundVolume,
@@ -38,6 +44,8 @@ class GameSettings {
     bool? developerMode,
   }) {
     return GameSettings(
+      playerName: playerName ?? this.playerName,
+      playerAvatarIndex: playerAvatarIndex ?? this.playerAvatarIndex,
       soundEnabled: soundEnabled ?? this.soundEnabled,
       musicEnabled: musicEnabled ?? this.musicEnabled,
       soundVolume: soundVolume ?? this.soundVolume,
@@ -52,6 +60,8 @@ class GameSettings {
   }
 
   Map<String, dynamic> toJson() => {
+    'playerName': playerName,
+    'playerAvatarIndex': playerAvatarIndex,
     'soundEnabled': soundEnabled,
     'musicEnabled': musicEnabled,
     'soundVolume': soundVolume,
@@ -65,6 +75,8 @@ class GameSettings {
   };
 
   factory GameSettings.fromJson(Map<String, dynamic> json) => GameSettings(
+    playerName: json['playerName'] ?? '시간 여행자',
+    playerAvatarIndex: json['playerAvatarIndex'] ?? 0,
     soundEnabled: json['soundEnabled'] ?? true,
     musicEnabled: json['musicEnabled'] ?? true,
     soundVolume: (json['soundVolume'] ?? 0.8).toDouble(),

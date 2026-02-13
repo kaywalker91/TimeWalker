@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:time_walker/domain/entities/localized_string.dart';
 import 'package:time_walker/domain/entities/dialogue/dialogue_reward.dart';
 import 'package:time_walker/domain/entities/dialogue/dialogue_node.dart';
 
@@ -6,9 +8,16 @@ import 'package:time_walker/domain/entities/dialogue/dialogue_node.dart';
 class Dialogue extends Equatable {
   final String id;
   final String characterId;
+  
+  // OLD: Keep for backward compatibility
   final String title;
   final String titleKorean;
   final String description;
+  
+  // NEW: i18n-aware fields
+  final LocalizedString? localizedTitle;
+  // description and nodes will be loaded from i18n files
+  
   final List<DialogueNode> nodes;
   final List<DialogueReward> rewards;
   final bool isCompleted;
@@ -24,6 +33,7 @@ class Dialogue extends Equatable {
     this.rewards = const [],
     this.isCompleted = false,
     this.estimatedMinutes = 5,
+    this.localizedTitle,
   });
 
   Dialogue copyWith({
@@ -36,6 +46,7 @@ class Dialogue extends Equatable {
     List<DialogueReward>? rewards,
     bool? isCompleted,
     int? estimatedMinutes,
+    LocalizedString? localizedTitle,
   }) {
     return Dialogue(
       id: id ?? this.id,
@@ -47,6 +58,7 @@ class Dialogue extends Equatable {
       rewards: rewards ?? this.rewards,
       isCompleted: isCompleted ?? this.isCompleted,
       estimatedMinutes: estimatedMinutes ?? this.estimatedMinutes,
+      localizedTitle: localizedTitle ?? this.localizedTitle,
     );
   }
 
@@ -72,6 +84,19 @@ class Dialogue extends Equatable {
   int get totalRewardPoints {
     return rewards.fold(0, (sum, r) => sum + r.knowledgePoints);
   }
+  
+  /// Get localized title for the given locale.
+  String getTitle(Locale locale) {
+    if (localizedTitle != null) {
+      return localizedTitle!.get(locale);
+    }
+    return locale.languageCode == 'ko' ? titleKorean : title;
+  }
+  
+  /// Get localized title for the given context.
+  String getTitleForContext(BuildContext context) {
+    return getTitle(Localizations.localeOf(context));
+  }
 
   @override
   List<Object?> get props => [
@@ -84,19 +109,39 @@ class Dialogue extends Equatable {
     rewards,
     isCompleted,
     estimatedMinutes,
+    localizedTitle,
   ];
 
   factory Dialogue.fromJson(Map<String, dynamic> json) {
+    // Parse title - support both old and new formats
+    final titleJson = json['title'];
+    final LocalizedString? localizedTitle;
+    final String title;
+    final String titleKorean;
+    
+    if (titleJson is Map<String, dynamic>) {
+      // New format: {"ko": "...", "en": "..."}
+      localizedTitle = LocalizedString.fromJson(titleJson);
+      title = localizedTitle.en ?? localizedTitle.ko;
+      titleKorean = localizedTitle.ko;
+    } else {
+      // Old format: separate fields
+      localizedTitle = null;
+      title = titleJson as String;
+      titleKorean = json['titleKorean'] as String;
+    }
+    
     return Dialogue(
       id: json['id'] as String,
       characterId: json['characterId'] as String,
-      title: json['title'] as String,
-      titleKorean: json['titleKorean'] as String,
+      title: title,
+      titleKorean: titleKorean,
       description: json['description'] as String? ?? '',
       nodes: (json['nodes'] as List).map((e) => DialogueNode.fromJson(e)).toList(),
       rewards: _parseRewards(json['rewards']),
       isCompleted: json['isCompleted'] as bool? ?? false,
       estimatedMinutes: json['estimatedMinutes'] as int? ?? 5,
+      localizedTitle: localizedTitle,
     );
   }
 

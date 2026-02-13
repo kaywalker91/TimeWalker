@@ -163,10 +163,23 @@ class UserProgress extends Equatable {
   }
 
   /// 전체 진행률 계산
+  ///
+  /// Country 진행률 기반으로 전체 진행률을 계산합니다.
+  /// Country 진행률이 없으면 Era 진행률로 폴백합니다 (하위 호환성).
   double get overallProgress {
-    if (eraProgress.isEmpty) return 0.0;
-    final total = eraProgress.values.fold(0.0, (sum, p) => sum + p);
-    return total / eraProgress.length;
+    // Country 진행률 우선 사용
+    if (countryProgress.isNotEmpty) {
+      final total = countryProgress.values.fold(0.0, (sum, p) => sum + p);
+      return total / countryProgress.length;
+    }
+
+    // 폴백: Era 진행률 사용 (하위 호환성)
+    if (eraProgress.isNotEmpty) {
+      final total = eraProgress.values.fold(0.0, (sum, p) => sum + p);
+      return total / eraProgress.length;
+    }
+
+    return 0.0;
   }
 
   /// 다음 등급까지 필요한 포인트

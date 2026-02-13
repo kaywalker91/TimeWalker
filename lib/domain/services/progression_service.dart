@@ -180,8 +180,30 @@ class ProgressionService {
     return dialogueProgress.clamp(0.0, 1.0);
   }
   
+  /// 국가 진행률 계산
+  ///
+  /// 해당 국가의 모든 시대 진행률의 평균을 계산합니다.
+  double calculateCountryProgress(
+    String countryId,
+    UserProgress progress,
+    List<Era> countryEras,
+  ) {
+    if (countryEras.isEmpty) return 0.0;
+
+    // 각 시대의 진행률을 가져와서 평균 계산
+    final eraProgresses = countryEras
+        .map((era) => progress.getEraProgress(era.id))
+        .where((p) => p > 0.0) // 진행한 시대만 포함
+        .toList();
+
+    if (eraProgresses.isEmpty) return 0.0;
+
+    final average = eraProgresses.fold(0.0, (sum, p) => sum + p) / eraProgresses.length;
+    return average.clamp(0.0, 1.0);
+  }
+
   /// 지역 진행률 계산
-  /// 
+  ///
   /// 해당 지역의 모든 시대 진행률의 평균을 계산합니다.
   double calculateRegionProgress(
     String regionId,
@@ -189,7 +211,7 @@ class ProgressionService {
     List<Era> regionEras,
   ) {
     if (regionEras.isEmpty) return 0.0;
-    
+
     // 각 시대의 진행률을 가져와서 평균 계산
     // 주의: 실제 진행률은 calculateEraProgress를 통해 계산되어야 함
     // 여기서는 progress에 저장된 값을 사용
@@ -197,9 +219,9 @@ class ProgressionService {
         .map((era) => progress.getEraProgress(era.id))
         .where((p) => p > 0.0) // 진행한 시대만 포함
         .toList();
-    
+
     if (eraProgresses.isEmpty) return 0.0;
-    
+
     final average = eraProgresses.fold(0.0, (sum, p) => sum + p) / eraProgresses.length;
     return average.clamp(0.0, 1.0);
   }
