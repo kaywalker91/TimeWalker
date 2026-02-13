@@ -95,9 +95,6 @@ See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 | Document | Description |
 |----------|-------------|
-| [📁 Portfolio](docs/PORTFOLIO.md) | **Complete project portfolio (Korean)** |
-| [📁 Portfolio (EN)](docs/PORTFOLIO_EN.md) | **Complete project portfolio (English)** |
-| [📄 Portfolio Summary](docs/PORTFOLIO_SUMMARY.md) | **1-page resume/portfolio summary** |
 | [Architecture](docs/ARCHITECTURE.md) | Clean Architecture, layers, data flow |
 | [Contributing](CONTRIBUTING.md) | Development setup, coding standards, PR process |
 | [Changelog](CHANGELOG.md) | Version history |
