@@ -1,0 +1,230 @@
+{
+    "gyeongbokgung": {
+        "description": "조선의 법궁, 왕과 신하들이 정사를 논하던 곳"
+    },
+    "hanyang_market": {
+        "description": "조선 수도 한양의 번화한 시장 거리"
+    },
+    "suwon_hwaseong": {
+        "description": "정조가 건설한 신도시의 성곽, 실학의 결정체"
+    },
+    "geobukseon": {
+        "description": "이순신 장군의 전설적인 철갑선"
+    },
+    "myeongnyang": {
+        "description": "13척의 배로 133척의 적군을 물리친 기적의 승전지 (울돌목)"
+    },
+    "florence": {
+        "description": "르네상스가 탄생한 예술의 도시. 메디치 가문의 후원으로 천재들이 모여들었다."
+    },
+    "venice": {
+        "description": "물 위의 도시이자 무역의 중심지. 동서양의 문물이 교차하는 곳."
+    },
+    "rome_vatican": {
+        "description": "교황청과 시스티나 성당. 미켈란젤로의 천지창조와 라파엘로의 걸작이 있는 곳."
+    },
+    "london_globe": {
+        "description": "셰익스피어의 희극이 초연된 엘리자베스 시대의 전설적 극장."
+    },
+    "mainz": {
+        "description": "구텐베르크가 금속 활자를 발명한 인쇄 혁명의 시작점."
+    },
+    "goguryeo_palace": {
+        "description": "광개토대왕 시대 고구려의 도읍지"
+    },
+    "salsu": {
+        "description": "30만 수나라 군을 수장시킨 살수대첩의 현장"
+    },
+    "pyongyang_fortress": {
+        "description": "고구려 후기 도읍, 장수왕이 천도한 곳"
+    },
+    "ansi_fortress": {
+        "description": "당나라 태종의 대군을 물리친 고구려의 철옹성"
+    },
+    "wiryeseong": {
+        "description": "백제의 초기 수도, 한강 유역의 요충지"
+    },
+    "hwangsanbeol": {
+        "description": "백제 계백 장군과 신라 김유신이 격돌한 삼국시대 최후의 결전지"
+    },
+    "sabi": {
+        "description": "백제 후기 도읍, 성왕이 천도하고 의자왕이 최후를 맞은 곳"
+    },
+    "gyeongju_palace": {
+        "description": "천년 신라의 심장부, 반월성이라고도 불리는 신라 왕궁"
+    },
+    "cheomseongdae": {
+        "description": "동양에서 가장 오래된 천문대, 선덕여왕이 건립"
+    },
+    "gujibong": {
+        "description": "하늘에서 황금알이 내려와 수로왕이 탄생했다는 전설의 성지"
+    },
+    "gimhae_palace": {
+        "description": "낙동강 하류의 철기 강국 금관가야의 중심부"
+    },
+    "goryeong_palace": {
+        "description": "가야 연맹 후기의 맹주 대가야의 수도, 우륵과 가야금의 본거지"
+    },
+    "cheonggyecheon_1950": {
+        "description": "6.25 전쟁 이후 서울 재건의 상징, 피란민들이 모여 살던 곳"
+    },
+    "ulsan_shipyard": {
+        "description": "한강의 기적을 상징하는 세계 최대의 조선소"
+    },
+    "gwanghwamun_1987": {
+        "description": "1987년 6월 항쟁의 현장, 민주주의를 외친 100만 시민의 함성이 울려 퍼진 곳"
+    },
+    "gangnam_teheran": {
+        "description": "대한민국 IT 벤처 창업의 메카, 디지털 혁명이 시작된 곳"
+    },
+    "ddp_dongdaemun": {
+        "description": "K-디자인과 문화의 중심지, 전통과 미래가 공존하는 랜드마크"
+    },
+    "busan_provisional_capital": {
+        "description": "6.25 전쟁 당시 대한민국의 심장부이자 피란민들의 애환이 서린 곳"
+    },
+    "gukje_market": {
+        "description": "피난민들의 삶의 터전이자 희망의 시장. '굳세어라 금순아'의 무대."
+    },
+    "pyeonghwa_market": {
+        "description": "1970년대 한국 의류 산업의 중심지이자 전태일 열사의 정신이 깃든 곳"
+    },
+    "seoul_expressway": {
+        "description": "서울과 부산을 잇는 국토 대동맥. 한강의 기적을 상징하는 토목 공사."
+    },
+    "seoul_olympic_stadium": {
+        "description": "88 서울올림픽의 영광이 서린 곳. 세계로 도약하는 대한민국의 시작점."
+    },
+    "incheon_airport": {
+        "description": "세계 최고의 허브 공항. 글로벌 대한민국을 연결하는 관문."
+    },
+    "sangam_worldcup_stadium": {
+        "description": "2002 한일 월드컵 4강 신화의 현장. 700만 붉은악마의 열정이 담긴 곳."
+    },
+    "hongdae_street": {
+        "description": "K-인디 문화의 발상지. 젊은 예술가들의 자유로운 열정이 넘치는 거리."
+    },
+    "hybe_building": {
+        "description": "BTS의 본거지. K-Pop 세계화를 이끈 글로벌 엔터테인먼트의 상징."
+    },
+    "gwanghwamun_candlelight": {
+        "description": "2016-2017 촛불혁명의 현장. 평화로운 민주주의의 새로운 역사를 쓴 곳."
+    },
+    "coex_convention": {
+        "description": "대한민국 MICE 산업의 중심지. 세계 각국의 기업과 문화가 만나는 곳."
+    },
+    "seoul_metaverse_hub": {
+        "description": "2030년대, 가상현실과 현실이 융합된 미래 도시의 중심"
+    },
+    "jeju_eco_city": {
+        "description": "2040년대 탄소중립을 실현한 지속가능한 미래 도시"
+    },
+    "pyongyang_seoul_rail": {
+        "description": "2060년대 하나된 한반도의 상징, 1시간 만에 평양과 서울을 연결"
+    },
+    "brain_interface_lab": {
+        "description": "2080년대 뇌-컴퓨터 인터페이스 기술의 최전선"
+    },
+    "moon_base_baekdu": {
+        "description": "2050년대 대한민국 우주 개발의 전초기지"
+    },
+    "cheonghaejin": {
+        "description": "장보고가 설치한 동아시아 최대의 해상 무역 기지"
+    },
+    "bulguksa": {
+        "description": "통일신라 불교 미술의 정수, 유네스코 세계문화유산"
+    },
+    "seokguram": {
+        "description": "토함산 정상의 석굴 사원, 본존불의 미소가 천년을 빛낸다"
+    },
+    "gyeongju_anapji": {
+        "description": "신라 왕실의 연회장이자 별궁"
+    },
+    "sanggyeong": {
+        "description": "발해의 수도, 해동성국의 심장부"
+    },
+    "deoksugung": {
+        "description": "대한제국의 황궁, 고종이 대한제국을 선포한 역사적 장소"
+    },
+    "harbin_station": {
+        "description": "1909년 안중근 의사가 이토 히로부미를 저격한 역사적 현장"
+    },
+    "seodaemun_prison": {
+        "description": "일제강점기 독립운동가들이 갇혀 고문받던 곳. 유관순, 안중근 등이 수감되었다."
+    },
+    "shanghai_provisional": {
+        "description": "1919년 3.1운동 이후 수립된 대한민국 정부의 뿌리"
+    },
+    "tapgol_park": {
+        "description": "1919년 3월 1일, 독립선언서가 낭독되고 만세운동이 시작된 곳"
+    },
+    "line_38": {
+        "description": "1945년 광복 후 미소 양국에 의해 한반도가 분단된 비극의 선"
+    },
+    "manwoldae": {
+        "description": "고려 500년 왕조의 법궁(法宮)이 있던 곳, 개경(개성)의 심장부"
+    },
+    "haeinsa": {
+        "description": "팔만대장경이 보관된 사찰, 유네스코 세계문화유산"
+    },
+    "ganghwa_island": {
+        "description": "몽골 침략에 맞서 39년간 고려 조정이 피난한 섬"
+    },
+    "sambyeolcho_jindo": {
+        "description": "고려 무인들의 마지막 항전지, 몽골에 끝까지 맞선 삼별초의 본거지"
+    },
+    "gaegyeong_market": {
+        "description": "고려청자와 국제 무역의 중심지, 송·거란·아라비아 상인들이 모여든 번화가"
+    },
+    "pyramids": {
+        "description": "세계 7대 불가사의 중 하나인 거대한 파라오의 무덤."
+    },
+    "luxor": {
+        "description": "테베의 영광을 상징하는 웅장한 신전이자 아멘 신앙의 중심지."
+    },
+    "abushimbel": {
+        "description": "람세스 2세가 자신과 왕비 네페르타리를 위해 지은 거대 암굴 신전."
+    },
+    "alexandria": {
+        "description": "지중해의 진주, 세계 최대의 도서관과 파로스 등대가 있던 학문의 도시."
+    },
+    "luoyang_wei": {
+        "description": "후한과 위나라의 수도, 조조가 권력을 행사한 정치적 중심지."
+    },
+    "wuzhang_plains": {
+        "description": "제갈량이 숙적 사마의와 대치하다 생을 마감한 비운의 전장."
+    },
+    "changan": {
+        "description": "고대 중국의 수도이자 실크로드의 기점. 수많은 왕조가 도읍으로 삼았던 역사적 도시."
+    },
+    "honno_ji": {
+        "description": "오다 노부나가가 아케치 미츠히데의 배신으로 최후를 맞이한 사찰."
+    },
+    "edo_castle": {
+        "description": "도쿠가와 이에야스가 닦은 에도 막부의 거점이자 현재의 도쿄 황궁."
+    },
+    "crystal_palace": {
+        "description": "1851년 런던 만국박람회가 열린 거대한 유리 건축물. 산업혁명의 상징."
+    },
+    "steam_factory": {
+        "description": "검은 연기와 굉음이 가득한 19세기 산업 현장. 대량 생산의 시작."
+    },
+    "seonggyungwan_academy": {
+        "description": "조선시대 최고 교육기관. 유생들이 사서삼경을 공부하고 과거시험을 준비하던 곳."
+    },
+    "sosuseowon_academy": {
+        "description": "한국 최초의 사액서원. 퇴계 이황이 후학을 양성하던 유학의 성지."
+    },
+    "scholar_study": {
+        "description": "조선 선비가 학문에 전념하던 정갈한 공간. 책과 붓, 벼루가 놓인 사랑방."
+    },
+    "gaeseong_songdo": {
+        "description": "옛 고려의 수도이자 조선시대 중요 상업 도시. 황진이가 활동하던 예술의 도시."
+    },
+    "deoksugung_palace": {
+        "description": "대한제국의 황궁. 고종황제가 광무개혁을 추진하고 근대화의 꿈을 꾸던 곳."
+    },
+    "shanghai_provisional_govt": {
+        "description": "1919년 설립된 대한민국 임시정부 청사. 김구 주석이 독립운동을 이끈 곳."
+    }
+}
