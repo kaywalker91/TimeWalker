@@ -4,6 +4,7 @@ import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/era_exploration_layout_spec.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_models.dart';
 import 'package:time_walker/presentation/themes/era_theme_registry.dart';
 
@@ -15,6 +16,7 @@ class EraStatusBar extends StatelessWidget {
   final Location? selectedLocation;
   final UserProgress userProgress;
   final int? currentKingdomIndex;
+  final EraExplorationLayoutSpec layoutSpec;
 
   const EraStatusBar({
     super.key,
@@ -24,6 +26,7 @@ class EraStatusBar extends StatelessWidget {
     required this.selectedLocation,
     required this.userProgress,
     this.currentKingdomIndex,
+    required this.layoutSpec,
   });
 
   @override
@@ -32,8 +35,10 @@ class EraStatusBar extends StatelessWidget {
 
     // 왕국별 악센트 색상
     final accentColor = currentKingdomIndex != null
-        ? KingdomConfig.meta[KingdomConfig.tabs[currentKingdomIndex!].id]?.color
-            ?? era.theme.accentColor
+        ? KingdomConfig
+                  .meta[KingdomConfig.tabs[currentKingdomIndex!].id]
+                  ?.color ??
+              era.theme.accentColor
         : era.theme.accentColor;
 
     final progress = userProgress.getEraProgress(era.id);
@@ -45,9 +50,13 @@ class EraStatusBar extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.fromLTRB(
         responsive.padding(16),
-        responsive.padding(8),
+        responsive.padding(
+          layoutSpec.widthClass == EraExplorationWidthClass.compact ? 7 : 8,
+        ),
         responsive.padding(16),
-        responsive.padding(8),
+        responsive.padding(
+          layoutSpec.widthClass == EraExplorationWidthClass.compact ? 7 : 8,
+        ),
       ),
       decoration: BoxDecoration(
         color: AppColors.black.withValues(alpha: 0.5),
@@ -61,7 +70,7 @@ class EraStatusBar extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildInfoRow(context, responsive, accentColor, percent),
+          _buildInfoRow(context, responsive, accentColor, percent, layoutSpec),
           SizedBox(height: responsive.spacing(8)),
           _buildProgressBar(responsive, accentColor, progress),
         ],
@@ -74,36 +83,55 @@ class EraStatusBar extends StatelessWidget {
     ResponsiveUtils responsive,
     Color accentColor,
     int percent,
+    EraExplorationLayoutSpec layoutSpec,
   ) {
+    final labelFontSize =
+        layoutSpec.textScaleClass == EraExplorationTextScaleClass.xlarge ||
+            layoutSpec.textScaleClass == EraExplorationTextScaleClass.max
+        ? responsive.fontSize(10)
+        : responsive.fontSize(11);
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          '$visibleCount개 장소',
-          style: TextStyle(
-            color: AppColors.white.withValues(alpha: 0.6),
-            fontSize: responsive.fontSize(11),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: responsive.padding(10),
-            vertical: responsive.padding(3),
-          ),
-          decoration: BoxDecoration(
-            color: accentColor.withValues(alpha: 0.15),
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: accentColor.withValues(alpha: 0.4),
-              width: 1,
+        Expanded(
+          flex: 2,
+          child: Text(
+            '$visibleCount개 장소',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: AppColors.white.withValues(alpha: 0.6),
+              fontSize: labelFontSize,
             ),
           ),
-          child: Text(
-            '진행률 $percent%',
-            style: TextStyle(
-              color: accentColor,
-              fontSize: responsive.fontSize(11),
-              fontWeight: FontWeight.w600,
+        ),
+        SizedBox(width: responsive.spacing(8)),
+        Flexible(
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              constraints: BoxConstraints(maxWidth: responsive.wp(46)),
+              padding: EdgeInsets.symmetric(
+                horizontal: responsive.padding(10),
+                vertical: responsive.padding(3),
+              ),
+              decoration: BoxDecoration(
+                color: accentColor.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: accentColor.withValues(alpha: 0.4),
+                  width: 1,
+                ),
+              ),
+              child: Text(
+                '진행률 $percent%',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: accentColor,
+                  fontSize: labelFontSize,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
           ),
         ),
@@ -130,10 +158,7 @@ class EraStatusBar extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  accentColor.withValues(alpha: 0.5),
-                  accentColor,
-                ],
+                colors: [accentColor.withValues(alpha: 0.5), accentColor],
               ),
               borderRadius: BorderRadius.circular(3),
               boxShadow: [

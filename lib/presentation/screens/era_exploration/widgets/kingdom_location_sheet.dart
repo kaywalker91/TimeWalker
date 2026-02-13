@@ -274,21 +274,14 @@ class _LocationListTile extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      location.nameKorean,
+                      location.getNameForContext(context),
                       style: AppTextStyles.titleMedium.copyWith(
                         color: AppColors.white,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      location.description,
-                      style: AppTextStyles.bodySmall.copyWith(
-                        color: AppColors.white54,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    _buildDescription(context, ref),
                     const SizedBox(height: 6),
                     
                     // 캐릭터 아바타들
@@ -309,6 +302,48 @@ class _LocationListTile extends ConsumerWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// Description with i18n support
+  Widget _buildDescription(BuildContext context, WidgetRef ref) {
+    final locale = Localizations.localeOf(context);
+    final i18nContent = ref.watch(locationI18nContentProvider(locale.languageCode));
+    
+    return i18nContent.when(
+      data: (content) {
+        // Try to get localized description from i18n content
+        final locationData = content[location.id] as Map<String, dynamic>?;
+        final localizedDescription = locationData?['description'] as String?;
+        
+        // Use localized description if available, otherwise fall back to entity field
+        final displayDescription = localizedDescription ?? location.description;
+        
+        return Text(
+          displayDescription,
+          style: AppTextStyles.bodySmall.copyWith(
+            color: AppColors.white54,
+          ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        );
+      },
+      loading: () => Text(
+        location.description, // Show legacy field while loading
+        style: AppTextStyles.bodySmall.copyWith(
+          color: AppColors.white54,
+        ),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      error: (_, stackTrace) => Text(
+        location.description, // Fall back to legacy field on error
+        style: AppTextStyles.bodySmall.copyWith(
+          color: AppColors.white54,
+        ),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }

@@ -16,6 +16,7 @@ import 'package:time_walker/presentation/widgets/common/animations/particles.dar
 import 'package:time_walker/presentation/widgets/common/animations/fade_scale_animations.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_widgets.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/enhanced_kingdom_tabs.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/era_exploration_layout_spec.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/era_hud_panel.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/era_status_bar.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/story_node_tile.dart';
@@ -86,6 +87,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     final eraAsync = ref.watch(eraByIdProvider(widget.eraId));
     final locationsAsync = ref.watch(locationListByEraProvider(widget.eraId));
     final userProgressAsync = ref.watch(userProgressProvider);
+    final layoutSpec = EraExplorationLayoutSpec.fromContext(context);
 
     return Scaffold(
       extendBodyBehindAppBar: false,
@@ -96,23 +98,36 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
         data: (era) {
           if (era == null) {
             return Center(
-              child: Text(AppLocalizations.of(context)!.exploration_era_not_found),
+              child: Text(
+                AppLocalizations.of(context)!.exploration_era_not_found,
+              ),
             );
           }
 
           return locationsAsync.when(
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (err, stack) => Center(
-              child: Text(AppLocalizations.of(context)!.exploration_location_error(err.toString())),
+              child: Text(
+                AppLocalizations.of(
+                  context,
+                )!.exploration_location_error(err.toString()),
+              ),
             ),
             data: (locations) => _buildWithUserProgress(
               context,
               era,
               locations,
               userProgressAsync,
+              layoutSpec,
             ),
           );
         },
+      ),
+      bottomNavigationBar: _buildBottomNavigationBar(
+        context: context,
+        eraAsync: eraAsync,
+        locationsAsync: locationsAsync,
+        layoutSpec: layoutSpec,
       ),
     );
   }
@@ -126,7 +141,8 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
       elevation: 0,
       title: eraAsync.when(
         data: (era) => Text(
-          era?.nameKorean ?? AppLocalizations.of(context)!.exploration_title_default,
+          era?.nameKorean ??
+              AppLocalizations.of(context)!.exploration_title_default,
           style: const TextStyle(
             shadows: [
               Shadow(
@@ -164,18 +180,29 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     Era era,
     List<Location> locations,
     AsyncValue<UserProgress> userProgressAsync,
+    EraExplorationLayoutSpec layoutSpec,
   ) {
     return userProgressAsync.when(
       data: (userProgress) {
         final showTutorial = !userProgress.hasCompletedTutorial;
-        final content = _buildExplorationView(context, ref, era, locations, userProgress);
+        final content = _buildExplorationView(
+          context,
+          era,
+          locations,
+          userProgress,
+          layoutSpec,
+        );
 
         if (showTutorial) {
           return TutorialOverlay(
             message: AppLocalizations.of(context)!.exploration_tutorial_msg,
             onDismiss: () async {
-              final newProgress = userProgress.copyWith(hasCompletedTutorial: true);
-              await ref.read(userProgressRepositoryProvider).saveUserProgress(newProgress);
+              final newProgress = userProgress.copyWith(
+                hasCompletedTutorial: true,
+              );
+              await ref
+                  .read(userProgressRepositoryProvider)
+                  .saveUserProgress(newProgress);
               ref.invalidate(userProgressProvider);
             },
             child: content,
@@ -190,28 +217,32 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
 
   Widget _buildExplorationView(
     BuildContext context,
-    WidgetRef ref,
     Era era,
     List<Location> locations,
     UserProgress userProgress,
+    EraExplorationLayoutSpec layoutSpec,
   ) {
     final responsive = context.responsive;
     final isThreeKingdoms = era.id == 'korea_three_kingdoms';
-    final visibleLocations = _filteredLocations(locations, isThreeKingdoms: isThreeKingdoms);
+    final visibleLocations = _filteredLocations(
+      locations,
+      isThreeKingdoms: isThreeKingdoms,
+    );
     final selectedLocation = _resolveSelectedLocation(visibleLocations);
 
-    final hudPanelHeight = responsive.spacing(90);
     final listPadding = EdgeInsets.fromLTRB(
       responsive.padding(20),
       responsive.padding(12),
       responsive.padding(20),
-      hudPanelHeight + MediaQuery.of(context).padding.bottom,
+      layoutSpec.listBottomSafePadding + MediaQuery.of(context).padding.bottom,
     );
 
     final particleColor = _getParticleColor(era, isThreeKingdoms);
     final kingdomOverlayColor = isThreeKingdoms && _kingdomTabController != null
-        ? KingdomConfig.meta[KingdomConfig.tabs[_kingdomTabController!.index].id]?.color
-            ?? era.theme.accentColor
+        ? KingdomConfig
+                  .meta[KingdomConfig.tabs[_kingdomTabController!.index].id]
+                  ?.color ??
+              era.theme.accentColor
         : era.theme.accentColor;
 
     return Stack(
@@ -229,14 +260,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
           isThreeKingdoms,
           listPadding,
           responsive,
-        ),
-        _buildHudPanel(
-          context,
-          era,
-          locations,
-          visibleLocations,
-          selectedLocation,
-          responsive,
+          layoutSpec,
         ),
       ],
     );
@@ -245,9 +269,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
   Widget _buildBackgroundLayer() {
     return Positioned.fill(
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: AppGradients.timePortal,
-        ),
+        decoration: const BoxDecoration(gradient: AppGradients.timePortal),
       ),
     );
   }
@@ -295,10 +317,12 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     bool isThreeKingdoms,
     EdgeInsets listPadding,
     ResponsiveUtils responsive,
+    EraExplorationLayoutSpec layoutSpec,
   ) {
     return Column(
       children: [
-        if (isThreeKingdoms) _buildKingdomTabs(context, era, allLocations),
+        if (isThreeKingdoms)
+          _buildKingdomTabs(context, era, allLocations, layoutSpec),
         EraStatusBar(
           era: era,
           totalCount: allLocations.length,
@@ -306,6 +330,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
           selectedLocation: selectedLocation,
           userProgress: userProgress,
           currentKingdomIndex: _kingdomTabController?.index,
+          layoutSpec: layoutSpec,
         ),
         Expanded(
           child: AnimatedSwitcher(
@@ -325,9 +350,9 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
               );
             },
             child: ListView.separated(
-              key: ValueKey(isThreeKingdoms
-                  ? _kingdomTabController?.index ?? 0
-                  : era.id),
+              key: ValueKey(
+                isThreeKingdoms ? _kingdomTabController?.index ?? 0 : era.id,
+              ),
               controller: _listController,
               padding: listPadding,
               cacheExtent: 200,
@@ -350,6 +375,7 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
                     isFirst: isFirst,
                     isLast: isLast,
                     isSelected: isSelected,
+                    layoutSpec: layoutSpec,
                     onTap: () {
                       setState(() {
                         _selectedLocation = location;
@@ -368,42 +394,6 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     );
   }
 
-  Widget _buildHudPanel(
-    BuildContext context,
-    Era era,
-    List<Location> allLocations,
-    List<Location> visibleLocations,
-    Location? selectedLocation,
-    ResponsiveUtils responsive,
-  ) {
-    return Positioned(
-      left: responsive.padding(16),
-      right: responsive.padding(16),
-      bottom: MediaQuery.of(context).padding.bottom + responsive.padding(16),
-      child: FadeInWidget(
-        delay: const Duration(milliseconds: 300),
-        slideOffset: const Offset(0, 0.5),
-        child: EraHudPanel(
-          era: era,
-          locations: visibleLocations,
-          selectedLocation: selectedLocation,
-          onShowLocations: () => _showExplorationListSheet(
-            context,
-            era,
-            allLocations,
-            initialTabIndex: 0,
-          ),
-          onShowCharacters: () => _showExplorationListSheet(
-            context,
-            era,
-            allLocations,
-            initialTabIndex: 1,
-          ),
-        ),
-      ),
-    );
-  }
-
   Color _getParticleColor(Era era, bool isThreeKingdoms) {
     if (isThreeKingdoms && _kingdomTabController != null) {
       final activeKingdom = KingdomConfig.tabs[_kingdomTabController!.index].id;
@@ -417,20 +407,23 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
     BuildContext context,
     Era era,
     List<Location> allLocations,
+    EraExplorationLayoutSpec layoutSpec,
   ) {
     final controller = _kingdomTabController;
     if (controller == null) return const SizedBox.shrink();
 
     final locationCounts = <String, int>{};
     for (final kingdom in ThreeKingdomsTabs.kingdoms) {
-      locationCounts[kingdom.id] =
-          allLocations.where((l) => l.kingdom == kingdom.id).length;
+      locationCounts[kingdom.id] = allLocations
+          .where((l) => l.kingdom == kingdom.id)
+          .length;
     }
 
     return EnhancedKingdomTabs(
       controller: controller,
       eraAccentColor: era.theme.accentColor,
       locationCounts: locationCounts,
+      layoutSpec: layoutSpec,
       onTabChanged: (index) {
         setState(() {
           _listController.animateTo(
@@ -439,6 +432,66 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
             curve: Curves.easeOut,
           );
         });
+      },
+    );
+  }
+
+  Widget? _buildBottomNavigationBar({
+    required BuildContext context,
+    required AsyncValue<Era?> eraAsync,
+    required AsyncValue<List<Location>> locationsAsync,
+    required EraExplorationLayoutSpec layoutSpec,
+  }) {
+    return eraAsync.when(
+      loading: () => null,
+      error: (_, _) => null,
+      data: (era) {
+        if (era == null) return null;
+        return locationsAsync.when(
+          loading: () => null,
+          error: (_, _) => null,
+          data: (allLocations) {
+            final responsive = context.responsive;
+            final isThreeKingdoms = era.id == 'korea_three_kingdoms';
+            final visibleLocations = _filteredLocations(
+              allLocations,
+              isThreeKingdoms: isThreeKingdoms,
+            );
+            final selectedLocation = _resolveSelectedLocation(visibleLocations);
+
+            return SafeArea(
+              top: false,
+              minimum: EdgeInsets.fromLTRB(
+                responsive.padding(16),
+                responsive.padding(8),
+                responsive.padding(16),
+                responsive.padding(10),
+              ),
+              child: FadeInWidget(
+                delay: const Duration(milliseconds: 300),
+                slideOffset: const Offset(0, 0.2),
+                child: EraHudPanel(
+                  era: era,
+                  locations: visibleLocations,
+                  selectedLocation: selectedLocation,
+                  layoutSpec: layoutSpec,
+                  onShowLocations: () => _showExplorationListSheet(
+                    context,
+                    era,
+                    allLocations,
+                    initialTabIndex: 0,
+                  ),
+                  onShowCharacters: () => _showExplorationListSheet(
+                    context,
+                    era,
+                    allLocations,
+                    initialTabIndex: 1,
+                  ),
+                ),
+              ),
+            );
+          },
+        );
       },
     );
   }
@@ -456,8 +509,10 @@ class _EraExplorationScreenState extends ConsumerState<EraExplorationScreen>
       filtered = locations.where((l) => l.kingdom == activeKingdomId).toList();
       final fallbackOrder = KingdomConfig.timelineOrder[activeKingdomId];
       filtered.sort((a, b) {
-        final aOrder = a.timelineOrder ?? (fallbackOrder?.indexOf(a.id) ?? 9999);
-        final bOrder = b.timelineOrder ?? (fallbackOrder?.indexOf(b.id) ?? 9999);
+        final aOrder =
+            a.timelineOrder ?? (fallbackOrder?.indexOf(a.id) ?? 9999);
+        final bOrder =
+            b.timelineOrder ?? (fallbackOrder?.indexOf(b.id) ?? 9999);
         final cmp = aOrder.compareTo(bOrder);
         if (cmp != 0) return cmp;
         return (a.displayYear ?? '').compareTo(b.displayYear ?? '');

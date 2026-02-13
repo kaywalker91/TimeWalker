@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:time_walker/core/themes/app_colors.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/era_exploration_layout_spec.dart';
 
 /// 왕국 메타데이터 (탭용)
-/// 
+///
 /// 삼국시대 4개 왕국의 역사적 정체성을 담은 메타데이터
 class KingdomTabMeta {
   final String id;
@@ -27,7 +28,7 @@ class KingdomTabMeta {
 }
 
 /// 삼국시대 왕국 탭 메타데이터
-/// 
+///
 /// 역사적 고증을 바탕으로 한 색상과 상징 아이콘 적용
 class ThreeKingdomsTabs {
   static const List<KingdomTabMeta> kingdoms = [
@@ -89,6 +90,7 @@ class EnhancedKingdomTabs extends StatelessWidget {
   final TabController controller;
   final Color eraAccentColor;
   final Map<String, int> locationCounts;
+  final EraExplorationLayoutSpec layoutSpec;
   final ValueChanged<int>? onTabChanged;
 
   const EnhancedKingdomTabs({
@@ -96,6 +98,7 @@ class EnhancedKingdomTabs extends StatelessWidget {
     required this.controller,
     required this.eraAccentColor,
     this.locationCounts = const {},
+    required this.layoutSpec,
     this.onTabChanged,
   });
 
@@ -105,8 +108,12 @@ class EnhancedKingdomTabs extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: responsive.padding(12),
-        vertical: responsive.padding(8),
+        horizontal: responsive.padding(
+          layoutSpec.widthClass == EraExplorationWidthClass.compact ? 10 : 12,
+        ),
+        vertical: responsive.padding(
+          layoutSpec.widthClass == EraExplorationWidthClass.compact ? 6 : 8,
+        ),
       ),
       decoration: BoxDecoration(
         color: AppColors.black.withValues(alpha: 0.3),
@@ -123,32 +130,32 @@ class EnhancedKingdomTabs extends StatelessWidget {
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: List.generate(
-                ThreeKingdomsTabs.kingdoms.length,
-                (index) {
-                  final kingdom = ThreeKingdomsTabs.kingdoms[index];
-                  final isActive = controller.index == index;
-                  final count = locationCounts[kingdom.id] ?? 0;
+              children: List.generate(ThreeKingdomsTabs.kingdoms.length, (
+                index,
+              ) {
+                final kingdom = ThreeKingdomsTabs.kingdoms[index];
+                final isActive = controller.index == index;
+                final count = locationCounts[kingdom.id] ?? 0;
 
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      right: index < ThreeKingdomsTabs.kingdoms.length - 1
-                          ? responsive.spacing(8)
-                          : 0,
-                    ),
-                    child: _EnhancedKingdomTab(
-                      kingdom: kingdom,
-                      isActive: isActive,
-                      locationCount: count,
-                      onTap: () {
-                        HapticFeedback.selectionClick();
-                        controller.animateTo(index);
-                        onTabChanged?.call(index);
-                      },
-                    ),
-                  );
-                },
-              ),
+                return Padding(
+                  padding: EdgeInsets.only(
+                    right: index < ThreeKingdomsTabs.kingdoms.length - 1
+                        ? responsive.spacing(8)
+                        : 0,
+                  ),
+                  child: _EnhancedKingdomTab(
+                    kingdom: kingdom,
+                    isActive: isActive,
+                    locationCount: count,
+                    layoutSpec: layoutSpec,
+                    onTap: () {
+                      HapticFeedback.selectionClick();
+                      controller.animateTo(index);
+                      onTabChanged?.call(index);
+                    },
+                  ),
+                );
+              }),
             ),
           );
         },
@@ -162,12 +169,14 @@ class _EnhancedKingdomTab extends StatefulWidget {
   final KingdomTabMeta kingdom;
   final bool isActive;
   final int locationCount;
+  final EraExplorationLayoutSpec layoutSpec;
   final VoidCallback onTap;
 
   const _EnhancedKingdomTab({
     required this.kingdom,
     required this.isActive,
     required this.locationCount,
+    required this.layoutSpec,
     required this.onTap,
   });
 
@@ -217,15 +226,30 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
   Widget build(BuildContext context) {
     final responsive = context.responsive;
     final color = widget.kingdom.color;
+    final labelMaxWidth = switch (widget.layoutSpec.widthClass) {
+      EraExplorationWidthClass.compact => responsive.wp(22),
+      EraExplorationWidthClass.phone => responsive.wp(24),
+      EraExplorationWidthClass.phablet => responsive.wp(18),
+      EraExplorationWidthClass.tablet => responsive.wp(14),
+    };
 
     return GestureDetector(
       onTap: widget.onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
+        constraints: BoxConstraints(minHeight: widget.layoutSpec.tabMinHeight),
         padding: EdgeInsets.symmetric(
-          horizontal: responsive.padding(14),
-          vertical: responsive.padding(10),
+          horizontal: responsive.padding(
+            widget.layoutSpec.widthClass == EraExplorationWidthClass.compact
+                ? 12
+                : 14,
+          ),
+          vertical: responsive.padding(
+            widget.layoutSpec.widthClass == EraExplorationWidthClass.compact
+                ? 8
+                : 10,
+          ),
         ),
         decoration: BoxDecoration(
           gradient: widget.isActive
@@ -238,7 +262,9 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                   ],
                 )
               : null,
-          color: widget.isActive ? null : AppColors.white.withValues(alpha: 0.05),
+          color: widget.isActive
+              ? null
+              : AppColors.white.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: widget.isActive
@@ -281,16 +307,16 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                     boxShadow: widget.isActive
                         ? [
                             BoxShadow(
-                              color: widget.kingdom.glowColor.withValues(alpha: 0.4),
+                              color: widget.kingdom.glowColor.withValues(
+                                alpha: 0.4,
+                              ),
                               blurRadius: 8,
                               spreadRadius: 1,
                             ),
                           ]
                         : null,
                   ),
-                  child: ClipOval(
-                    child: _buildKingdomIcon(responsive),
-                  ),
+                  child: ClipOval(child: _buildKingdomIcon(responsive)),
                 );
               },
             ),
@@ -298,12 +324,19 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
             SizedBox(width: responsive.spacing(8)),
 
             // 왕국 이름
-            Text(
-              widget.kingdom.label,
-              style: TextStyle(
-                color: widget.isActive ? AppColors.white : AppColors.white70,
-                fontSize: responsive.fontSize(14),
-                fontWeight: widget.isActive ? FontWeight.w700 : FontWeight.w500,
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: labelMaxWidth),
+              child: Text(
+                widget.kingdom.label,
+                maxLines: widget.layoutSpec.tabLabelMaxLines,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: widget.isActive ? AppColors.white : AppColors.white70,
+                  fontSize: responsive.fontSize(14),
+                  fontWeight: widget.isActive
+                      ? FontWeight.w700
+                      : FontWeight.w500,
+                ),
               ),
             ),
 
@@ -328,6 +361,8 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
                 ),
                 child: Text(
                   '${widget.locationCount}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: widget.isActive
                         ? AppColors.white
@@ -348,7 +383,7 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
   Widget _buildKingdomIcon(ResponsiveUtils responsive) {
     final iconAsset = widget.kingdom.iconAsset;
     final color = widget.kingdom.color;
-    
+
     if (iconAsset != null) {
       return Image.asset(
         iconAsset,
@@ -367,14 +402,12 @@ class _EnhancedKingdomTabState extends State<_EnhancedKingdomTab>
         },
       );
     }
-    
+
     // iconAsset이 없으면 fallback 아이콘 사용
     return Icon(
       widget.kingdom.fallbackIcon ?? Icons.place,
       size: responsive.iconSize(16),
-      color: widget.isActive
-          ? AppColors.white
-          : color.withValues(alpha: 0.8),
+      color: widget.isActive ? AppColors.white : color.withValues(alpha: 0.8),
     );
   }
 }

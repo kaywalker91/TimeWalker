@@ -69,7 +69,7 @@ class LocationDetailSheet extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            location.nameKorean,
+                            location.getNameForContext(context),
                             style: const TextStyle(
                               color: AppColors.white,
                               fontSize: 24,
@@ -77,13 +77,7 @@ class LocationDetailSheet extends ConsumerWidget {
                             ),
                           ),
                           const SizedBox(height: 4),
-                          Text(
-                            location.description,
-                            style: const TextStyle(
-                              color: AppColors.white70,
-                              fontSize: 14,
-                            ),
-                          ),
+                          _buildDescription(context, ref),
                         ],
                       ),
                     ),
@@ -138,6 +132,42 @@ class LocationDetailSheet extends ConsumerWidget {
           ),
         );
       },
+    );
+  }
+
+  /// Description with i18n support
+  Widget _buildDescription(BuildContext context, WidgetRef ref) {
+    final locale = Localizations.localeOf(context);
+    final i18nContent = ref.watch(locationI18nContentProvider(locale.languageCode));
+    
+    return i18nContent.when(
+      data: (content) {
+        final locationData = content[location.id] as Map<String, dynamic>?;
+        final localizedDescription = locationData?['description'] as String?;
+        final displayDescription = localizedDescription ?? location.description;
+        
+        return Text(
+          displayDescription,
+          style: const TextStyle(
+            color: AppColors.white70,
+            fontSize: 14,
+          ),
+        );
+      },
+      loading: () => Text(
+        location.description,
+        style: const TextStyle(
+          color: AppColors.white70,
+          fontSize: 14,
+        ),
+      ),
+      error: (_, stackTrace) => Text(
+        location.description,
+        style: const TextStyle(
+          color: AppColors.white70,
+          fontSize: 14,
+        ),
+      ),
     );
   }
 }

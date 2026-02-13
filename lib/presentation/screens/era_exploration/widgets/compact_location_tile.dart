@@ -45,7 +45,7 @@ class CompactLocationTile extends StatelessWidget {
             children: [
               _buildStatusIcon(statusIcon, statusColor),
               const SizedBox(width: 12),
-              _buildLocationName(isLocked),
+              _buildLocationName(context, isLocked),
               if (isCompleted) _buildCompletedCheckmark(),
               if (characterCount > 0) _buildCharacterCount(characterCount),
               if (!isLocked) _buildChevron(),
@@ -72,10 +72,10 @@ class CompactLocationTile extends StatelessWidget {
     );
   }
 
-  Widget _buildLocationName(bool isLocked) {
+  Widget _buildLocationName(BuildContext context, bool isLocked) {
     return Expanded(
       child: Text(
-        location.nameKorean,
+        location.getNameForContext(context),
         style: TextStyle(
           color: isLocked ? AppColors.grey : AppColors.white,
           fontSize: 14,

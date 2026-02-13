@@ -59,7 +59,9 @@ class ExplorationCharacterCard extends ConsumerWidget {
               : null,
         ),
         title: Text(
-          isLocked ? AppLocalizations.of(context)!.common_unknown_character : character.nameKorean,
+          isLocked 
+              ? AppLocalizations.of(context)!.common_unknown_character 
+              : character.getNameForContext(context),
           style: TextStyle(
             color: isLocked ? AppColors.grey : AppColors.white,
             fontWeight: FontWeight.bold,
@@ -67,7 +69,9 @@ class ExplorationCharacterCard extends ConsumerWidget {
           ),
         ),
         subtitle: Text(
-          isLocked ? AppLocalizations.of(context)!.common_locked_status : character.title,
+          isLocked 
+              ? AppLocalizations.of(context)!.common_locked_status 
+              : character.getTitleForContext(context),
           style: TextStyle(
             color: isLocked ? AppColors.greyDark : theme.accentColor,
             fontSize: 12,

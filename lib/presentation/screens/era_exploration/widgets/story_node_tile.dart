@@ -3,6 +3,7 @@ import 'package:time_walker/core/constants/exploration_config.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/entities/location.dart';
+import 'package:time_walker/presentation/screens/era_exploration/widgets/era_exploration_layout_spec.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/enhanced_timeline_gutter.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/exploration_models.dart';
 import 'package:time_walker/presentation/screens/era_exploration/widgets/location_story_card.dart';
@@ -15,6 +16,7 @@ class StoryNodeTile extends StatelessWidget {
   final bool isFirst;
   final bool isLast;
   final bool isSelected;
+  final EraExplorationLayoutSpec layoutSpec;
   final VoidCallback onTap;
 
   const StoryNodeTile({
@@ -24,6 +26,7 @@ class StoryNodeTile extends StatelessWidget {
     required this.isFirst,
     required this.isLast,
     required this.isSelected,
+    required this.layoutSpec,
     required this.onTap,
   });
 
@@ -57,6 +60,7 @@ class StoryNodeTile extends StatelessWidget {
             isSelected: isSelected,
             isLocked: isLocked,
             kingdomLabel: kingdomLabel,
+            layoutSpec: layoutSpec,
             onTap: onTap,
           ),
         ),

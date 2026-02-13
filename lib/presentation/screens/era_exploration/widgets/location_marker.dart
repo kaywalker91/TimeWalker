@@ -136,7 +136,7 @@ class LocationMarker extends StatelessWidget {
                     border: Border.all(color: AppColors.white10),
                   ),
                   child: Text(
-                    location.nameKorean,
+                    location.getNameForContext(context),
                     style: TextStyle(
                       color: isLocked ? AppColors.grey : AppColors.white,
                       fontWeight: FontWeight.bold,
