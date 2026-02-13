@@ -1,7 +1,9 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
+import 'package:time_walker/domain/entities/era.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 
@@ -56,11 +58,13 @@ class DialogueState {
 class DialogueViewModel extends StateNotifier<DialogueState> {
   final Ref ref;
   Timer? _typingTimer;
+  Locale? _locale;
 
   DialogueViewModel(this.ref) : super(const DialogueState());
 
-  Future<void> initialize(String dialogueId) async {
-    _log('initialize dialogueId=$dialogueId');
+  Future<void> initialize(String dialogueId, {Locale? locale}) async {
+    _log('initialize dialogueId=$dialogueId locale=$locale');
+    _locale = locale;
     state = const DialogueState(); // Reset
     final dialogue = await ref.read(dialogueByIdProvider(dialogueId).future);
     if (dialogue == null) {
@@ -79,7 +83,7 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
     );
 
     if (startNode != null) {
-      _startTyping(startNode.text);
+      _startTyping(startNode.getText(_locale ?? const Locale('ko')));
     }
   }
 
@@ -105,7 +109,7 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
     if (state.currentNode != null) {
       state = state.copyWith(
         isTyping: false,
-        displayedText: state.currentNode!.text,
+        displayedText: state.currentNode!.getText(_locale ?? const Locale('ko')),
       );
     }
   }
@@ -246,7 +250,7 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
         currentNode: nextNode,
         lastReward: null, // 새 노드로 이동 시 보상 초기화
       );
-      _startTyping(nextNode.text);
+      _startTyping(nextNode.getText(_locale ?? const Locale('ko')));
     } else {
       _finishDialogue();
     }
@@ -274,15 +278,38 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
 
       // 진행률 계산을 위해 먼저 대화 목록 가져오기
       List<Dialogue> eraDialogues = [];
+      String? countryId;
+      String? regionId;
+      List<Era> countryEras = [];
+      List<Country> regionCountries = [];
+
       if (eraId != null) {
         eraDialogues = await ref.read(dialogueRepositoryProvider).getDialoguesByEra(eraId);
+
+        // Era 조회 → countryId 획득
+        final era = await ref.read(eraRepositoryProvider).getEraById(eraId);
+        countryId = era?.countryId;
+
+        if (countryId != null) {
+          // Country 조회 → regionId 획득
+          final country = await ref.read(countryRepositoryProvider).getCountryById(countryId);
+          regionId = country?.regionId;
+
+          // Country의 모든 Era 목록 조회 (Country 진행률 계산용)
+          countryEras = await ref.read(eraRepositoryProvider).getErasByCountry(countryId);
+
+          // Region의 모든 Country 목록 조회 (Region 진행률 계산용)
+          if (regionId != null) {
+            regionCountries = await ref.read(countryRepositoryProvider).getCountriesByRegion(regionId);
+          }
+        }
       }
-      
+
       final progressionService = ref.read(progressionServiceProvider);
-      
+
       // 추가 해금 이벤트 목록 (인물 해금용)
       final additionalUnlocks = <UnlockEvent>[];
-      
+
       final unlocks = await ref.read(userProgressProvider.notifier).updateProgress((progress) {
         // Check if already completed to avoid double dipping knowledge points
         if (progress.isDialogueCompleted(dialogue.id)) {
@@ -290,14 +317,18 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
         }
 
         final newCompleted = [...progress.completedDialogueIds, dialogue.id];
-        
+
         // 대화 레벨 보상 적용 (이미 선택지/노드에서 받은 보상 제외)
         // 대화 완료 보상은 별도로 처리하지 않고, 선택지/노드 보상만 누적
         final newKnowledge = progress.totalKnowledge;
 
+        // ========== 진행률 연쇄 업데이트: Era → Country → Region ==========
         Map<String, double> newEraProgress = progress.eraProgress;
+        Map<String, double> newCountryProgress = progress.countryProgress;
+        Map<String, double> newRegionProgress = progress.regionProgress;
+
         if (eraId != null && eraDialogues.isNotEmpty) {
-          // 정확한 진행률 계산
+          // 1. Era 진행률 계산
           // 임시로 완료된 대화 목록에 현재 대화 추가하여 계산
           final tempProgress = progress.copyWith(completedDialogueIds: newCompleted);
           final eraProgress = progressionService.calculateEraProgress(
@@ -305,11 +336,51 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
             tempProgress,
             eraDialogues,
           );
-          
+
           newEraProgress = {
             ...progress.eraProgress,
             eraId: eraProgress,
           };
+
+          // 2. Country 진행률 계산
+          if (countryId != null && countryEras.isNotEmpty) {
+            // Era 진행률이 업데이트된 임시 progress 생성
+            final tempProgressWithEra = tempProgress.copyWith(eraProgress: newEraProgress);
+            final countryProgress = progressionService.calculateCountryProgress(
+              countryId,
+              tempProgressWithEra,
+              countryEras,
+            );
+
+            newCountryProgress = {
+              ...progress.countryProgress,
+              countryId: countryProgress,
+            };
+
+            // 3. Region 진행률 계산
+            if (regionId != null && regionCountries.isNotEmpty) {
+              // Country 진행률이 업데이트된 임시 progress 생성
+              final tempProgressWithCountry = tempProgressWithEra.copyWith(
+                countryProgress: newCountryProgress,
+              );
+
+              // Region 진행률은 Country 진행률 기반으로 계산
+              final countryProgresses = regionCountries
+                  .map((c) => tempProgressWithCountry.getCountryProgress(c.id))
+                  .where((p) => p > 0.0)
+                  .toList();
+
+              if (countryProgresses.isNotEmpty) {
+                final regionProgress = countryProgresses.fold(0.0, (sum, p) => sum + p) /
+                    countryProgresses.length;
+
+                newRegionProgress = {
+                  ...progress.regionProgress,
+                  regionId: regionProgress.clamp(0.0, 1.0),
+                };
+              }
+            }
+          }
         }
 
         // 3. 인물 해금 처리 - 대화 완료 시 자동으로 역사 도감에 추가
@@ -347,11 +418,13 @@ class DialogueViewModel extends StateNotifier<DialogueState> {
           ));
         }
 
-        // Update basic progress
+        // Update basic progress (Era → Country → Region)
         return progress.copyWith(
           completedDialogueIds: newCompleted,
           totalKnowledge: newKnowledge,
           eraProgress: newEraProgress,
+          countryProgress: newCountryProgress,
+          regionProgress: newRegionProgress,
           unlockedCharacterIds: newUnlockedCharacterIds,
           encyclopediaDiscoveryDates: newEncyclopediaDiscoveryDates,
         );

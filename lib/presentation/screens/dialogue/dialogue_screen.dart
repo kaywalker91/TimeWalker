@@ -9,6 +9,7 @@ import 'package:time_walker/domain/entities/character.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
 import 'package:time_walker/l10n/generated/app_localizations.dart';
 import 'package:time_walker/presentation/providers/audio_provider.dart';
+import 'package:time_walker/presentation/providers/settings_provider.dart';
 import 'package:time_walker/presentation/screens/dialogue/dialogue_view_model.dart';
 import 'package:time_walker/presentation/providers/repository_providers.dart';
 import 'package:time_walker/presentation/widgets/dialogue/dialogue_widgets.dart';
@@ -38,7 +39,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref
           .read(dialogueViewModelProvider(widget.dialogueId).notifier)
-          .initialize(widget.dialogueId);
+          .initialize(widget.dialogueId, locale: Localizations.localeOf(context));
 
       // 관련 퀴즈 미리 로드
       ref.read(quizListByDialogueProvider(widget.dialogueId));
@@ -158,10 +159,13 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
       );
     }
     
-    // 화자 캐릭터 정보를 ID로 직접 조회
-    final speakerId = state.currentNode?.speakerId;
+    // 화자 캐릭터 정보를 ID로 직접 조회 (Use getSpeakerId() for new schema support)
+    final speakerId = state.currentNode?.getSpeakerId();
     _log('speakerId from currentNode: "$speakerId"');
-    final speakerAsync = (speakerId != null && speakerId.isNotEmpty)
+    
+    // 'player'인 경우 캐릭터 정보를 조회하지 않음 (null 유지 -> PlayerPortrait 표시)
+    final isPlayer = speakerId == 'player';
+    final speakerAsync = (speakerId != null && speakerId.isNotEmpty && !isPlayer)
         ? ref.watch(characterByIdProvider(speakerId))
         : null;
 
@@ -187,7 +191,7 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
 
           // 2. 캐릭터 초상화
           Positioned.fill(
-            bottom: 200,
+            bottom: 280,
             child: _buildCharacterPortrait(
               speakerAsync: speakerAsync,
               speakerName: speakerName,
@@ -206,23 +210,29 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
               onNext: () => ref
                   .read(dialogueViewModelProvider(widget.dialogueId).notifier)
                   .next(),
+              userProgress: ref.watch(userProgressProvider).value,
+              onChoiceSelected: (choice) async {
+                await ref
+                    .read(dialogueViewModelProvider(widget.dialogueId).notifier)
+                    .selectChoice(choice);
+              },
             ),
           ),
 
-          // 4. 선택지 오버레이
-          if (!state.isTyping && (state.currentNode?.hasChoices ?? false))
-            Positioned.fill(
-              bottom: 250,
-              child: DialogueChoicesPanel(
-                choices: state.currentNode!.choices,
-                userProgress: ref.watch(userProgressProvider).value,
-                onChoiceSelected: (choice) async {
-                  await ref
-                      .read(dialogueViewModelProvider(widget.dialogueId).notifier)
-                      .selectChoice(choice);
-                },
-              ),
-            ),
+          // 4. 선택지 오버레이 (DialogueBox 내부로 이동됨)
+          // if (!state.isTyping && (state.currentNode?.hasChoices ?? false))
+          //   Positioned.fill(
+          //     bottom: 250,
+          //     child: DialogueChoicesPanel(
+          //       choices: state.currentNode!.choices,
+          //       userProgress: ref.watch(userProgressProvider).value,
+          //       onChoiceSelected: (choice) async {
+          //         await ref
+          //             .read(dialogueViewModelProvider(widget.dialogueId).notifier)
+          //             .selectChoice(choice);
+          //       },
+          //     ),
+          //   ),
 
           // 5. 닫기 버튼
           Positioned(
@@ -251,8 +261,12 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
     _log('buildPortrait speakerName=$speakerName speakerAsync=$speakerAsync');
 
     if (speakerAsync == null) {
-      _log('buildPortrait -> PlaceholderPortrait (speakerAsync is null)');
-      return PlaceholderPortrait(label: speakerName);
+      _log('buildPortrait -> PlayerPortrait (speakerAsync is null)');
+      final settings = ref.read(settingsProvider);
+      return PlayerPortrait(
+        name: speakerName,
+        avatarIndex: settings.playerAvatarIndex,
+      );
     }
 
     return speakerAsync.when(
@@ -303,10 +317,10 @@ class _DialogueScreenState extends ConsumerState<DialogueScreen> {
     required Character? character,
   }) {
     if (character != null) {
-      return character.nameKorean;
+      return character.getNameForContext(context);
     }
-    if (speakerId == null || speakerId.isEmpty) {
-      return l10n.common_unknown_character;
+    if (speakerId == null || speakerId.isEmpty || speakerId == 'player') {
+      return ref.read(settingsProvider).playerName;
     }
     switch (speakerId) {
       case 'sejong':

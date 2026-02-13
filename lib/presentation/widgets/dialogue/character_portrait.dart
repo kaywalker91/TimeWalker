@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_walker/core/constants/player_avatars.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/core/utils/responsive_utils.dart';
 import 'package:time_walker/domain/entities/character.dart';
@@ -210,6 +211,92 @@ class _LoadingPortraitState extends State<LoadingPortrait>
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// 플레이어 초상화 위젯
+///
+/// 대화 선택지(choice) 노드에서 플레이어 측을 표시합니다.
+/// 프리셋 아바타 이미지를 사용합니다.
+class PlayerPortrait extends StatelessWidget {
+  /// 표시할 이름
+  final String name;
+
+  /// 프리셋 아바타 인덱스
+  final int avatarIndex;
+
+  const PlayerPortrait({
+    super.key,
+    required this.name,
+    required this.avatarIndex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = context.responsive;
+    final avatarPath = PlayerAvatars.getAvatarPath(avatarIndex);
+
+    final portraitHeight = responsive.isSmallPhone
+        ? 400.0
+        : responsive.deviceType == DeviceType.tablet
+            ? 700.0
+            : 600.0;
+
+    return Center(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        height: portraitHeight,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.black.withValues(alpha: 0.4),
+                      blurRadius: 30,
+                      spreadRadius: 10,
+                      offset: const Offset(0, 10),
+                    ),
+                    BoxShadow(
+                      color: AppColors.cyan.withValues(alpha: 0.15),
+                      blurRadius: 50,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  avatarPath,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    debugPrint('[PlayerPortrait] Image load error: $avatarPath - $error');
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person,
+                          size: responsive.iconSize(160),
+                          color: AppColors.cyan.withValues(alpha: 0.5),
+                        ),
+                        SizedBox(height: responsive.spacing(8)),
+                        Text(
+                          name,
+                          style: TextStyle(
+                            color: AppColors.cyan,
+                            fontSize: responsive.fontSize(14),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -76,7 +76,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              character.nameKorean,
+              character.getNameForContext(context),
               style: const TextStyle(
                 color: AppColors.white,
                 fontSize: 18,
@@ -166,7 +166,7 @@ class DialogueSelectionSheet extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      dialogue.titleKorean,
+                      dialogue.getTitleForContext(context),
                       style: const TextStyle(
                         color: AppColors.white,
                         fontSize: 16,
