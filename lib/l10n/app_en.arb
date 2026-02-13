@@ -47,6 +47,7 @@
   "exploration_legend_title": "Kingdom Filters",
   "exploration_status_title": "Status",
   "exploration_help_title": "Exploration Help",
+  "dialogue_choices_scroll_hint_more": "More choices below",
 
   "menu_world_map": "TIME CORRIDOR",
   "menu_encyclopedia": "ENCYCLOPEDIA",
@@ -84,9 +85,19 @@
   "quiz_play_title": "Quiz Challenge",
   "quiz_submit": "Submit Answer",
   "quiz_time_remaining": "Time Remaining: {seconds}s",
+  "@quiz_time_remaining": {
+    "placeholders": {
+      "seconds": {"type": "int"}
+    }
+  },
   "quiz_time_frozen": "Time Frozen!",
   "quiz_correct_review": "Correct! (Review)",
   "quiz_correct_points": "Correct! +{points} pts",
+  "@quiz_correct_points": {
+    "placeholders": {
+      "points": {"type": "int"}
+    }
+  },
   "quiz_incorrect": "Incorrect!",
   "quiz_hint_used": "Hint used! 2 wrong answers removed.",
   "quiz_time_freeze_used": "Chronos Time Stop! Time frozen for 10 seconds.",
@@ -102,9 +113,30 @@
   "quiz_move_to_ancient": "Go to Ancient Korea",
   "quiz_move_to_era": "Go to Era Exploration",
   "quiz_progress": "{completed}/{total}",
+  "@quiz_progress": {
+    "placeholders": {
+      "completed": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "common_completed": "Completed",
   "quiz_progress_title": "Quiz Challenge",
   "quiz_completed": "Completed",
+
+  "shop_title": "Item Shop",
+  "shop_tab_all": "All",
+  "shop_tab_consumable": "Consumables",
+  "shop_tab_cosmetic": "Cosmetics",
+  "shop_tab_upgrade": "Upgrades",
+  "shop_purchase_error_coins": "Not enough coins!",
+  "shop_purchase_error_owned": "You already own this item!",
+  "shop_confirm_title": "Purchase Confirmation",
+  "shop_confirm_message": "Purchase {item} for {price} coins?",
+  "common_buy": "Buy",
+  "shop_purchase_success": "Purchased {item}!",
+  "shop_empty_list": "No items available for purchase.",
+  "shop_item_owned": "Owned",
+  "shop_item_price": "{price} coins",
 
   "profile_title": "My Profile",
   "profile_rank_progress": "Rank Progress",

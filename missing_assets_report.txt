@@ -1,0 +1,16 @@
+Character refugee_merchant missing portrait: assets/images/characters/modern/refugee_merchant.png
+Character refugee_merchant missing emotion asset: assets/images/characters/modern/refugee_merchant.png
+Character sewing_worker missing portrait: assets/images/characters/modern/sewing_worker.png
+Character sewing_worker missing emotion asset: assets/images/characters/modern/sewing_worker.png
+Character imf_survivor missing portrait: assets/images/characters/modern/imf_survivor.png
+Character imf_survivor missing emotion asset: assets/images/characters/modern/imf_survivor.png
+Character kim_gu missing emotion asset: assets/images/characters/modern/kim_gu_smiling.png
+Character yun_bonggil missing portrait: assets/images/characters/modern/yun_bonggil.png
+Character yun_bonggil missing emotion asset: assets/images/characters/modern/yun_bonggil.png
+Character kim_gu missing emotion asset: assets/images/characters/modern/kim_gu_smiling.png
+Location sosuseowon_academy missing thumbnail: assets/images/locations/sosuseowon_academy_bg.png
+Location sosuseowon_academy missing background: assets/images/locations/sosuseowon_academy_bg.png
+Location scholar_study missing thumbnail: assets/images/locations/scholar_study_bg.png
+Location scholar_study missing background: assets/images/locations/scholar_study_bg.png
+Location gaeseong_songdo missing thumbnail: assets/images/locations/gaeseong_songdo_bg.png
+Location gaeseong_songdo missing background: assets/images/locations/gaeseong_songdo_bg.png

@@ -386,6 +386,12 @@ abstract class AppLocalizations {
   /// **'탐험 도움말'**
   String get exploration_help_title;
 
+  /// No description provided for @dialogue_choices_scroll_hint_more.
+  ///
+  /// In ko, this message translates to:
+  /// **'추가 선택지 있음'**
+  String get dialogue_choices_scroll_hint_more;
+
   /// No description provided for @menu_world_map.
   ///
   /// In ko, this message translates to:

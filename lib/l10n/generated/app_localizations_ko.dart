@@ -160,6 +160,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exploration_help_title => '탐험 도움말';
 
   @override
+  String get dialogue_choices_scroll_hint_more => '추가 선택지 있음';
+
+  @override
   String get menu_world_map => '시공의 회랑';
 
   @override

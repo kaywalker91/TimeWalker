@@ -43,6 +43,8 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   simple_animations: ^5.2.0
   supabase_flutter: ^2.6.0
+  flutter_secure_storage: ^9.0.0 # Secure key storage for Hive encryption
+  shared_preferences: ^2.5.4
 
   # Firebase (to be configured later)
   # firebase_core: ^2.27.0
@@ -68,11 +70,11 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/app_icon.jpg"
+  image_path: "assets/images/new_app_icon.png"
   min_sdk_android: 21
   remove_alpha_ios: true
   adaptive_icon_background: "#0D0D1A"
-  adaptive_icon_foreground: "assets/images/app_icon.jpg"
+  adaptive_icon_foreground: "assets/images/new_app_icon.png"
 
 flutter:
   uses-material-design: true
@@ -98,6 +100,7 @@ flutter:
     - assets/images/locations/
     - assets/images/encyclopedia/
     - assets/images/ui/
+    - assets/images/player/
     - assets/icons/kingdoms/
     - assets/audio/
     - assets/audio/bgm/
@@ -107,3 +110,5 @@ flutter:
     - assets/content/characters/
     - assets/content/eras/
     - assets/data/
+    - assets/data/i18n/ko/
+    - assets/data/i18n/en/

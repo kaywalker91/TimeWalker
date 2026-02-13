@@ -2,10 +2,9 @@
     {
         "id": "gyeongbokgung",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "경복궁",
-            "en": "Gyeongbokgung Palace"
-        },
+        "name": "Gyeongbokgung Palace",
+        "nameKorean": "경복궁",
+        "description": "조선의 법궁, 왕과 신하들이 정사를 논하던 곳",
         "thumbnailAsset": "assets/images/locations/gyeongbokgung_bg.png",
         "backgroundAsset": "assets/images/locations/gyeongbokgung_bg.png",
         "latitude": 37.5796,
@@ -17,12 +16,8 @@
             "y": 0.3
         },
         "characterIds": [
-            "empress_myeongseong",
-            "emperor_gojong",
-            "jeongjo",
-            "taejo_yi_seonggye",
             "sejong",
-            "jang_yeongshil"
+            "jeongjo"
         ],
         "eventIds": [
             "sejong_coronation",
@@ -34,10 +29,9 @@
     {
         "id": "hanyang_market",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "한양 저잣거리",
-            "en": "Hanyang Market"
-        },
+        "name": "Hanyang Market",
+        "nameKorean": "한양 저잣거리",
+        "description": "조선 수도 한양의 번화한 시장 거리",
         "thumbnailAsset": "assets/images/locations/hanyang_market_bg.png",
         "backgroundAsset": "assets/images/locations/hanyang_market_bg.png",
         "latitude": 37.57,
@@ -48,11 +42,7 @@
             "x": 0.6,
             "y": 0.5
         },
-        "characterIds": [
-            "yi_seong_gye",
-            "heo_jun",
-            "yeo_unhyeong"
-        ],
+        "characterIds": [],
         "eventIds": [],
         "status": "available",
         "isHistorical": true
@@ -60,10 +50,9 @@
     {
         "id": "suwon_hwaseong",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "수원화성",
-            "en": "Suwon Hwaseong Fortress"
-        },
+        "name": "Suwon Hwaseong Fortress",
+        "nameKorean": "수원화성",
+        "description": "정조가 건설한 신도시의 성곽, 실학의 결정체",
         "thumbnailAsset": "assets/images/locations/suwon_hwaseong_bg.png",
         "backgroundAsset": "assets/images/locations/suwon_hwaseong_bg.png",
         "latitude": 37.2851,
@@ -75,8 +64,8 @@
             "y": 0.65
         },
         "characterIds": [
-            "jeong_yakyong",
-            "jeongjo"
+            "jeongjo",
+            "jeong_yakyong"
         ],
         "eventIds": [
             "hwaseong_construction"
@@ -87,10 +76,9 @@
     {
         "id": "geobukseon",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "거북선",
-            "en": "Geobukseon (Turtle Ship)"
-        },
+        "name": "Geobukseon (Turtle Ship)",
+        "nameKorean": "거북선",
+        "description": "이순신 장군의 전설적인 철갑선",
         "thumbnailAsset": "assets/images/locations/geobukseon_bg.png",
         "backgroundAsset": "assets/images/locations/geobukseon_bg.png",
         "latitude": 34.75,
@@ -113,14 +101,11 @@
     {
         "id": "myeongnyang",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "명량해협",
-            "en": "Myeongnyang Strait"
-        },
+        "name": "Myeongnyang Strait",
+        "nameKorean": "명량해협",
+        "description": "13척의 배로 133척의 적군을 물리친 기적의 승전지 (울돌목)",
         "thumbnailAsset": "assets/images/locations/myeongnyang_bg.png",
         "backgroundAsset": "assets/images/locations/myeongnyang_bg.png",
-        "latitude": 0.0,
-        "longitude": 0.0,
         "displayYear": "1597",
         "timelineOrder": 4,
         "position": {
@@ -139,10 +124,9 @@
     {
         "id": "florence",
         "eraId": "europe_renaissance",
-        "name": {
-            "ko": "피렌체",
-            "en": "Florence"
-        },
+        "name": "Florence",
+        "nameKorean": "피렌체",
+        "description": "르네상스가 탄생한 예술의 도시. 메디치 가문의 후원으로 천재들이 모여들었다.",
         "thumbnailAsset": "assets/images/locations/florence_bg.png",
         "backgroundAsset": "assets/images/locations/florence_bg.png",
         "latitude": 43.7696,
@@ -154,8 +138,8 @@
             "y": 0.4
         },
         "characterIds": [
-            "michelangelo",
-            "davinci"
+            "davinci",
+            "michelangelo"
         ],
         "eventIds": [
             "art_exhibition"
@@ -166,10 +150,9 @@
     {
         "id": "venice",
         "eraId": "europe_renaissance",
-        "name": {
-            "ko": "베네치아",
-            "en": "Venice"
-        },
+        "name": "Venice",
+        "nameKorean": "베네치아",
+        "description": "물 위의 도시이자 무역의 중심지. 동서양의 문물이 교차하는 곳.",
         "thumbnailAsset": "assets/images/locations/venice_bg.png",
         "backgroundAsset": "assets/images/locations/venice_bg.png",
         "latitude": 45.4408,
@@ -192,10 +175,9 @@
     {
         "id": "rome_vatican",
         "eraId": "europe_renaissance",
-        "name": {
-            "ko": "바티칸 시국 (로마)",
-            "en": "Vatican & Rome"
-        },
+        "name": "Vatican & Rome",
+        "nameKorean": "바티칸 시국 (로마)",
+        "description": "교황청과 시스티나 성당. 미켈란젤로의 천지창조와 라파엘로의 걸작이 있는 곳.",
         "thumbnailAsset": "assets/images/locations/rome_vatican_bg.png",
         "backgroundAsset": "assets/images/locations/rome_vatican_bg.png",
         "latitude": 41.9029,
@@ -216,10 +198,9 @@
     {
         "id": "london_globe",
         "eraId": "europe_renaissance",
-        "name": {
-            "ko": "글로브 극장 (런던)",
-            "en": "Globe Theatre"
-        },
+        "name": "Globe Theatre",
+        "nameKorean": "글로브 극장 (런던)",
+        "description": "셰익스피어의 희극이 초연된 엘리자베스 시대의 전설적 극장.",
         "thumbnailAsset": "assets/images/locations/london_globe_bg.png",
         "backgroundAsset": "assets/images/locations/london_globe_bg.png",
         "latitude": 51.5081,
@@ -238,90 +219,11 @@
         "isHistorical": true
     },
     {
-        "id": "hwangnyongsa",
-        "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "황룡사",
-            "en": "Hwangnyongsa Temple"
-        },
-        "thumbnailAsset": "assets/images/locations/hwangnyongsa_bg.png",
-        "backgroundAsset": "assets/images/locations/hwangnyongsa_bg.png",
-        "kingdom": "silla",
-        "latitude": 35.839,
-        "longitude": 129.232,
-        "displayYear": "AD 645",
-        "timelineOrder": 3,
-        "position": {
-            "x": 0.65,
-            "y": 0.65
-        },
-        "characterIds": [
-            "seondeok",
-            "kim_yushin"
-        ],
-        "eventIds": [],
-        "status": "available",
-        "isHistorical": true
-    },
-    {
-        "id": "gongsanseong",
-        "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "공산성(웅진)",
-            "en": "Gongsanseong Fortress"
-        },
-        "thumbnailAsset": "assets/images/locations/gongsanseong_bg.png",
-        "backgroundAsset": "assets/images/locations/gongsanseong_bg.png",
-        "kingdom": "baekje",
-        "latitude": 36.459,
-        "longitude": 127.121,
-        "displayYear": "AD 475",
-        "timelineOrder": 4,
-        "position": {
-            "x": 0.48,
-            "y": 0.60
-        },
-        "characterIds": [
-            "munju",
-            "muryeong"
-        ],
-        "eventIds": [],
-        "status": "available",
-        "isHistorical": true
-    },
-    {
-        "id": "gwanggaeto_stele",
-        "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "광개토대왕릉비",
-            "en": "Gwanggaeto Stele"
-        },
-        "thumbnailAsset": "assets/images/locations/gwanggaeto_stele_bg.png",
-        "backgroundAsset": "assets/images/locations/gwanggaeto_stele_bg.png",
-        "kingdom": "goguryeo",
-        "latitude": 41.144,
-        "longitude": 126.223,
-        "displayYear": "AD 414",
-        "timelineOrder": 5,
-        "position": {
-            "x": 0.55,
-            "y": 0.30
-        },
-        "characterIds": [
-            "gwanggaeto",
-            "jangsu"
-        ],
-        "eventIds": [],
-        "status": "available",
-        "isHistorical": true
-    },
-    {
         "id": "mainz",
         "eraId": "europe_renaissance",
-        "name": {
-            "ko": "마인츠 (독일)",
-            "en": "Mainz"
-        },
+        "name": "Mainz",
+        "nameKorean": "마인츠 (독일)",
+        "description": "구텐베르크가 금속 활자를 발명한 인쇄 혁명의 시작점.",
         "thumbnailAsset": "assets/images/locations/mainz_bg.png",
         "backgroundAsset": "assets/images/locations/mainz_bg.png",
         "latitude": 49.9929,
@@ -342,10 +244,9 @@
     {
         "id": "goguryeo_palace",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "국내성",
-            "en": "Gungnae-seong"
-        },
+        "name": "Gungnae-seong",
+        "nameKorean": "국내성",
+        "description": "광개토대왕 시대 고구려의 도읍지",
         "thumbnailAsset": "assets/images/locations/goguryeo_palace_bg.png",
         "backgroundAsset": "assets/images/locations/goguryeo_palace_bg.png",
         "kingdom": "goguryeo",
@@ -370,10 +271,9 @@
     {
         "id": "salsu",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "살수(청천강)",
-            "en": "Salsu River (Battle Site)"
-        },
+        "name": "Salsu River (Battle Site)",
+        "nameKorean": "살수(청천강)",
+        "description": "30만 수나라 군을 수장시킨 살수대첩의 현장",
         "thumbnailAsset": "assets/images/locations/salsu_bg.png",
         "backgroundAsset": "assets/images/locations/salsu_bg.png",
         "kingdom": "goguryeo",
@@ -395,10 +295,9 @@
     {
         "id": "pyongyang_fortress",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "평양성",
-            "en": "Pyongyang Fortress"
-        },
+        "name": "Pyongyang Fortress",
+        "nameKorean": "평양성",
+        "description": "고구려 후기 도읍, 장수왕이 천도한 곳",
         "thumbnailAsset": "assets/images/locations/pyongyang_fortress_bg.png",
         "backgroundAsset": "assets/images/locations/pyongyang_fortress_bg.png",
         "kingdom": "goguryeo",
@@ -421,10 +320,9 @@
     {
         "id": "ansi_fortress",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "안시성",
-            "en": "Ansi Fortress"
-        },
+        "name": "Ansi Fortress",
+        "nameKorean": "안시성",
+        "description": "당나라 태종의 대군을 물리친 고구려의 철옹성",
         "thumbnailAsset": "assets/images/locations/ansi_fortress_thumb.png",
         "backgroundAsset": "assets/images/locations/ansi_fortress_bg.png",
         "kingdom": "goguryeo",
@@ -449,10 +347,9 @@
     {
         "id": "wiryeseong",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "위례성",
-            "en": "Wiryeseong (Baekje Capital)"
-        },
+        "name": "Wiryeseong (Baekje Capital)",
+        "nameKorean": "위례성",
+        "description": "백제의 초기 수도, 한강 유역의 요충지",
         "thumbnailAsset": "assets/images/locations/wiryeseong_bg.png",
         "backgroundAsset": "assets/images/locations/wiryeseong_bg.png",
         "kingdom": "baekje",
@@ -465,8 +362,7 @@
             "y": 0.6
         },
         "characterIds": [
-            "geunchogo",
-            "onjo"
+            "geunchogo"
         ],
         "eventIds": [],
         "status": "available",
@@ -475,10 +371,9 @@
     {
         "id": "hwangsanbeol",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "황산벌",
-            "en": "Hwangsanbeol Battlefield"
-        },
+        "name": "Hwangsanbeol Battlefield",
+        "nameKorean": "황산벌",
+        "description": "백제 계백 장군과 신라 김유신이 격돌한 삼국시대 최후의 결전지",
         "thumbnailAsset": "assets/images/locations/hwangsanbeol_bg.png",
         "backgroundAsset": "assets/images/locations/hwangsanbeol_bg.png",
         "kingdom": "baekje",
@@ -500,10 +395,9 @@
     {
         "id": "sabi",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "사비성(부여)",
-            "en": "Sabi Capital (Buyeo)"
-        },
+        "name": "Sabi Capital (Buyeo)",
+        "nameKorean": "사비성(부여)",
+        "description": "백제 후기 도읍, 성왕이 천도하고 의자왕이 최후를 맞은 곳",
         "thumbnailAsset": "assets/images/locations/sabi_bg.png",
         "backgroundAsset": "assets/images/locations/sabi_bg.png",
         "kingdom": "baekje",
@@ -525,10 +419,9 @@
     {
         "id": "gyeongju_palace",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "월성(경주궁)",
-            "en": "Wolseong Palace"
-        },
+        "name": "Wolseong Palace",
+        "nameKorean": "월성(경주궁)",
+        "description": "천년 신라의 심장부, 반월성이라고도 불리는 신라 왕궁",
         "thumbnailAsset": "assets/images/locations/gyeongju_palace_bg.png",
         "backgroundAsset": "assets/images/locations/gyeongju_palace_bg.png",
         "kingdom": "silla",
@@ -542,8 +435,7 @@
         },
         "characterIds": [
             "seondeok",
-            "kim_yushin",
-            "hyeokgeose"
+            "kim_yushin"
         ],
         "eventIds": [],
         "status": "available",
@@ -552,10 +444,9 @@
     {
         "id": "cheomseongdae",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "첨성대",
-            "en": "Cheomseongdae Observatory"
-        },
+        "name": "Cheomseongdae Observatory",
+        "nameKorean": "첨성대",
+        "description": "동양에서 가장 오래된 천문대, 선덕여왕이 건립",
         "thumbnailAsset": "assets/images/locations/cheomseongdae_bg.png",
         "backgroundAsset": "assets/images/locations/cheomseongdae_bg.png",
         "kingdom": "silla",
@@ -577,10 +468,9 @@
     {
         "id": "gujibong",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "구지봉",
-            "en": "Guji Peak"
-        },
+        "name": "Guji Peak",
+        "nameKorean": "구지봉",
+        "description": "하늘에서 황금알이 내려와 수로왕이 탄생했다는 전설의 성지",
         "thumbnailAsset": "assets/images/locations/gujibong_thumb.png",
         "backgroundAsset": "assets/images/locations/gujibong_bg.png",
         "kingdom": "gaya",
@@ -604,10 +494,9 @@
     {
         "id": "gimhae_palace",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "금관가야 왕궁(김해)",
-            "en": "Geumgwan Gaya Palace"
-        },
+        "name": "Geumgwan Gaya Palace",
+        "nameKorean": "금관가야 왕궁(김해)",
+        "description": "낙동강 하류의 철기 강국 금관가야의 중심부",
         "thumbnailAsset": "assets/images/locations/gimhae_palace_thumb.png",
         "backgroundAsset": "assets/images/locations/gimhae_palace_bg.png",
         "kingdom": "gaya",
@@ -632,10 +521,9 @@
     {
         "id": "goryeong_palace",
         "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "대가야 왕궁(고령)",
-            "en": "Daegaya Palace"
-        },
+        "name": "Daegaya Palace",
+        "nameKorean": "대가야 왕궁(고령)",
+        "description": "가야 연맹 후기의 맹주 대가야의 수도, 우륵과 가야금의 본거지",
         "thumbnailAsset": "assets/images/locations/goryeong_palace_thumb.png",
         "backgroundAsset": "assets/images/locations/goryeong_palace_bg.png",
         "kingdom": "gaya",
@@ -659,10 +547,9 @@
     {
         "id": "cheonggyecheon_1950",
         "eraId": "korea_contemporary_1",
-        "name": {
-            "ko": "청계천 판자촌",
-            "en": "Cheonggyecheon 1950s"
-        },
+        "name": "Cheonggyecheon 1950s",
+        "nameKorean": "청계천 판자촌",
+        "description": "6.25 전쟁 이후 서울 재건의 상징, 피란민들이 모여 살던 곳",
         "thumbnailAsset": "assets/images/locations/cheonggyecheon_1950_bg.jpg",
         "backgroundAsset": "assets/images/locations/cheonggyecheon_1950_bg.jpg",
         "latitude": 37.5696,
@@ -687,10 +574,9 @@
     {
         "id": "ulsan_shipyard",
         "eraId": "korea_contemporary_2",
-        "name": {
-            "ko": "울산 현대조선소",
-            "en": "Ulsan Hyundai Shipyard"
-        },
+        "name": "Ulsan Hyundai Shipyard",
+        "nameKorean": "울산 현대조선소",
+        "description": "한강의 기적을 상징하는 세계 최대의 조선소",
         "thumbnailAsset": "assets/images/locations/ulsan_shipyard_thumb.png",
         "backgroundAsset": "assets/images/locations/ulsan_shipyard_bg.png",
         "latitude": 35.5384,
@@ -714,10 +600,9 @@
     {
         "id": "gwanghwamun_1987",
         "eraId": "korea_contemporary_2",
-        "name": {
-            "ko": "광화문 광장 1987",
-            "en": "Gwanghwamun Square 1987"
-        },
+        "name": "Gwanghwamun Square 1987",
+        "nameKorean": "광화문 광장 1987",
+        "description": "1987년 6월 항쟁의 현장, 민주주의를 외친 100만 시민의 함성이 울려 퍼진 곳",
         "thumbnailAsset": "assets/images/locations/gwanghwamun_1987_bg.png",
         "backgroundAsset": "assets/images/locations/gwanghwamun_1987_bg.png",
         "latitude": 37.5759,
@@ -740,10 +625,9 @@
     {
         "id": "gangnam_teheran",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "테헤란로 IT밸리",
-            "en": "Teheran-ro IT Valley"
-        },
+        "name": "Teheran-ro IT Valley",
+        "nameKorean": "테헤란로 IT밸리",
+        "description": "대한민국 IT 벤처 창업의 메카, 디지털 혁명이 시작된 곳",
         "thumbnailAsset": "assets/images/locations/gangnam_teheran_bg.png",
         "backgroundAsset": "assets/images/locations/gangnam_teheran_bg.png",
         "latitude": 37.5012,
@@ -766,10 +650,9 @@
     {
         "id": "ddp_dongdaemun",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "DDP 동대문디자인플라자",
-            "en": "Dongdaemun Design Plaza"
-        },
+        "name": "Dongdaemun Design Plaza",
+        "nameKorean": "DDP 동대문디자인플라자",
+        "description": "K-디자인과 문화의 중심지, 전통과 미래가 공존하는 랜드마크",
         "thumbnailAsset": "assets/images/locations/ddp_dongdaemun_bg.png",
         "backgroundAsset": "assets/images/locations/ddp_dongdaemun_bg.png",
         "latitude": 37.5671,
@@ -781,8 +664,8 @@
             "y": 0.34
         },
         "characterIds": [
-            "bong_joonho",
-            "it_pioneer"
+            "it_pioneer",
+            "bong_joonho"
         ],
         "eventIds": [
             "k_culture_wave"
@@ -793,10 +676,9 @@
     {
         "id": "busan_provisional_capital",
         "eraId": "korea_contemporary_1",
-        "name": {
-            "ko": "부산 임시수도",
-            "en": "Busan Provisional Capital"
-        },
+        "name": "Busan Provisional Capital",
+        "nameKorean": "부산 임시수도",
+        "description": "6.25 전쟁 당시 대한민국의 심장부이자 피란민들의 애환이 서린 곳",
         "thumbnailAsset": "assets/images/locations/busan_provisional_capital_bg.jpg",
         "backgroundAsset": "assets/images/locations/busan_provisional_capital_bg.jpg",
         "latitude": 35.1,
@@ -808,8 +690,7 @@
             "y": 0.8
         },
         "characterIds": [
-            "refugee_merchant",
-            "kim_gu"
+            "refugee_merchant"
         ],
         "eventIds": [],
         "status": "available",
@@ -818,10 +699,9 @@
     {
         "id": "gukje_market",
         "eraId": "korea_contemporary_1",
-        "name": {
-            "ko": "부산 국제시장",
-            "en": "Gukje Market"
-        },
+        "name": "Gukje Market",
+        "nameKorean": "부산 국제시장",
+        "description": "피난민들의 삶의 터전이자 희망의 시장. '굳세어라 금순아'의 무대.",
         "thumbnailAsset": "assets/images/locations/gukje_market_detail.jpg",
         "backgroundAsset": "assets/images/locations/gukje_market_bg.jpg",
         "latitude": 35.099,
@@ -842,10 +722,9 @@
     {
         "id": "pyeonghwa_market",
         "eraId": "korea_contemporary_2",
-        "name": {
-            "ko": "평화시장",
-            "en": "Pyeonghwa Market"
-        },
+        "name": "Pyeonghwa Market",
+        "nameKorean": "평화시장",
+        "description": "1970년대 한국 의류 산업의 중심지이자 전태일 열사의 정신이 깃든 곳",
         "thumbnailAsset": "assets/images/locations/pyeonghwa_market_detail.jpg",
         "backgroundAsset": "assets/images/locations/pyeonghwa_market_bg.jpg",
         "latitude": 37.569,
@@ -866,10 +745,9 @@
     {
         "id": "seoul_expressway",
         "eraId": "korea_contemporary_2",
-        "name": {
-            "ko": "경부고속도로",
-            "en": "Gyeongbu Expressway"
-        },
+        "name": "Gyeongbu Expressway",
+        "nameKorean": "경부고속도로",
+        "description": "서울과 부산을 잇는 국토 대동맥. 한강의 기적을 상징하는 토목 공사.",
         "thumbnailAsset": "assets/images/locations/seoul_expressway_bg.png",
         "backgroundAsset": "assets/images/locations/seoul_expressway_bg.png",
         "latitude": 36.5,
@@ -890,10 +768,9 @@
     {
         "id": "seoul_olympic_stadium",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "서울올림픽 주경기장",
-            "en": "Seoul Olympic Stadium"
-        },
+        "name": "Seoul Olympic Stadium",
+        "nameKorean": "서울올림픽 주경기장",
+        "description": "88 서울올림픽의 영광이 서린 곳. 세계로 도약하는 대한민국의 시작점.",
         "thumbnailAsset": "assets/images/locations/seoul_olympic_stadium_bg.png",
         "backgroundAsset": "assets/images/locations/seoul_olympic_stadium_bg.png",
         "latitude": 37.5158,
@@ -905,8 +782,8 @@
             "y": 0.36
         },
         "characterIds": [
-            "imf_survivor",
             "sohn_kee_chung",
+            "imf_survivor",
             "kim_yuna"
         ],
         "eventIds": [],
@@ -916,10 +793,9 @@
     {
         "id": "incheon_airport",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "인천국제공항",
-            "en": "Incheon International Airport"
-        },
+        "name": "Incheon International Airport",
+        "nameKorean": "인천국제공항",
+        "description": "세계 최고의 허브 공항. 글로벌 대한민국을 연결하는 관문.",
         "thumbnailAsset": "assets/images/locations/incheon_airport_bg.png",
         "backgroundAsset": "assets/images/locations/incheon_airport_bg.png",
         "latitude": 37.4602,
@@ -938,10 +814,9 @@
     {
         "id": "sangam_worldcup_stadium",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "상암 월드컵경기장",
-            "en": "Seoul World Cup Stadium"
-        },
+        "name": "Seoul World Cup Stadium",
+        "nameKorean": "상암 월드컵경기장",
+        "description": "2002 한일 월드컵 4강 신화의 현장. 700만 붉은악마의 열정이 담긴 곳.",
         "thumbnailAsset": "assets/images/locations/sangam_worldcup_bg.jpg",
         "backgroundAsset": "assets/images/locations/sangam_worldcup_bg.jpg",
         "latitude": 37.5683,
@@ -953,8 +828,8 @@
             "y": 0.32
         },
         "characterIds": [
-            "son_heungmin",
-            "red_devils_supporter"
+            "red_devils_supporter",
+            "son_heungmin"
         ],
         "eventIds": [],
         "status": "available",
@@ -963,10 +838,9 @@
     {
         "id": "hongdae_street",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "홍대 거리",
-            "en": "Hongdae Street"
-        },
+        "name": "Hongdae Street",
+        "nameKorean": "홍대 거리",
+        "description": "K-인디 문화의 발상지. 젊은 예술가들의 자유로운 열정이 넘치는 거리.",
         "thumbnailAsset": "assets/images/locations/hongdae_street_bg.jpg",
         "backgroundAsset": "assets/images/locations/hongdae_street_bg.jpg",
         "latitude": 37.5563,
@@ -987,10 +861,9 @@
     {
         "id": "hybe_building",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "하이브 사옥",
-            "en": "HYBE Entertainment Building"
-        },
+        "name": "HYBE Entertainment Building",
+        "nameKorean": "하이브 사옥",
+        "description": "BTS의 본거지. K-Pop 세계화를 이끈 글로벌 엔터테인먼트의 상징.",
         "thumbnailAsset": "assets/images/locations/hybe_building_bg.jpg",
         "backgroundAsset": "assets/images/locations/hybe_building_bg.jpg",
         "latitude": 37.5263,
@@ -1011,10 +884,9 @@
     {
         "id": "gwanghwamun_candlelight",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "광화문 촛불광장",
-            "en": "Gwanghwamun Candlelight Square"
-        },
+        "name": "Gwanghwamun Candlelight Square",
+        "nameKorean": "광화문 촛불광장",
+        "description": "2016-2017 촛불혁명의 현장. 평화로운 민주주의의 새로운 역사를 쓴 곳.",
         "thumbnailAsset": "assets/images/locations/gwanghwamun_candlelight_bg.jpg",
         "backgroundAsset": "assets/images/locations/gwanghwamun_candlelight_bg.jpg",
         "latitude": 37.5759,
@@ -1035,10 +907,9 @@
     {
         "id": "coex_convention",
         "eraId": "korea_contemporary_3",
-        "name": {
-            "ko": "코엑스 컨벤션센터",
-            "en": "COEX Convention Center"
-        },
+        "name": "COEX Convention Center",
+        "nameKorean": "코엑스 컨벤션센터",
+        "description": "대한민국 MICE 산업의 중심지. 세계 각국의 기업과 문화가 만나는 곳.",
         "thumbnailAsset": "assets/images/locations/coex_convention_bg.jpg",
         "backgroundAsset": "assets/images/locations/coex_convention_bg.jpg",
         "latitude": 37.5112,
@@ -1050,9 +921,9 @@
             "y": 0.38
         },
         "characterIds": [
+            "it_pioneer",
             "sejong",
-            "davinci",
-            "it_pioneer"
+            "davinci"
         ],
         "eventIds": [],
         "status": "available",
@@ -1061,10 +932,9 @@
     {
         "id": "seoul_metaverse_hub",
         "eraId": "korea_future",
-        "name": {
-            "ko": "서울 메타버스 센터",
-            "en": "Seoul Metaverse Hub"
-        },
+        "name": "Seoul Metaverse Hub",
+        "nameKorean": "서울 메타버스 센터",
+        "description": "2030년대, 가상현실과 현실이 융합된 미래 도시의 중심",
         "thumbnailAsset": "assets/images/locations/seoul_metaverse_hub_bg.png",
         "backgroundAsset": "assets/images/locations/seoul_metaverse_hub_bg.png",
         "latitude": 37.5665,
@@ -1085,10 +955,9 @@
     {
         "id": "jeju_eco_city",
         "eraId": "korea_future",
-        "name": {
-            "ko": "제주 에코시티",
-            "en": "Jeju Eco City"
-        },
+        "name": "Jeju Eco City",
+        "nameKorean": "제주 에코시티",
+        "description": "2040년대 탄소중립을 실현한 지속가능한 미래 도시",
         "thumbnailAsset": "assets/images/locations/jeju_eco_city_bg.png",
         "backgroundAsset": "assets/images/locations/jeju_eco_city_bg.png",
         "latitude": 33.4996,
@@ -1109,10 +978,9 @@
     {
         "id": "pyongyang_seoul_rail",
         "eraId": "korea_future",
-        "name": {
-            "ko": "평양-서울 초고속철도역",
-            "en": "Pyongyang-Seoul Station"
-        },
+        "name": "Pyongyang-Seoul Station",
+        "nameKorean": "평양-서울 초고속철도역",
+        "description": "2060년대 하나된 한반도의 상징, 1시간 만에 평양과 서울을 연결",
         "thumbnailAsset": "assets/images/locations/pyongyang_seoul_rail_bg.png",
         "backgroundAsset": "assets/images/locations/pyongyang_seoul_rail_bg.png",
         "latitude": 39.0392,
@@ -1133,10 +1001,9 @@
     {
         "id": "brain_interface_lab",
         "eraId": "korea_future",
-        "name": {
-            "ko": "뇌공학 연구소",
-            "en": "Brain Interface Lab"
-        },
+        "name": "Brain Interface Lab",
+        "nameKorean": "뇌공학 연구소",
+        "description": "2080년대 뇌-컴퓨터 인터페이스 기술의 최전선",
         "thumbnailAsset": "assets/images/locations/brain_interface_lab_bg.png",
         "backgroundAsset": "assets/images/locations/brain_interface_lab_bg.png",
         "latitude": 37.3591,
@@ -1157,10 +1024,9 @@
     {
         "id": "moon_base_baekdu",
         "eraId": "korea_future",
-        "name": {
-            "ko": "달 기지 백두",
-            "en": "Moon Base Baekdu"
-        },
+        "name": "Moon Base Baekdu",
+        "nameKorean": "달 기지 백두",
+        "description": "2050년대 대한민국 우주 개발의 전초기지",
         "thumbnailAsset": "assets/images/locations/moon_base_baekdu_bg.png",
         "backgroundAsset": "assets/images/locations/moon_base_baekdu_bg.png",
         "latitude": 34.427,
@@ -1181,10 +1047,9 @@
     {
         "id": "cheonghaejin",
         "eraId": "korea_unified_silla",
-        "name": {
-            "ko": "청해진",
-            "en": "Cheonghaejin Garrison"
-        },
+        "name": "Cheonghaejin Garrison",
+        "nameKorean": "청해진",
+        "description": "장보고가 설치한 동아시아 최대의 해상 무역 기지",
         "thumbnailAsset": "assets/images/locations/cheonghaejin_bg.png",
         "backgroundAsset": "assets/images/locations/cheonghaejin_bg.png",
         "latitude": 34.3361,
@@ -1205,10 +1070,9 @@
     {
         "id": "bulguksa",
         "eraId": "korea_unified_silla",
-        "name": {
-            "ko": "불국사",
-            "en": "Bulguksa Temple"
-        },
+        "name": "Bulguksa Temple",
+        "nameKorean": "불국사",
+        "description": "통일신라 불교 미술의 정수, 유네스코 세계문화유산",
         "thumbnailAsset": "assets/images/locations/bulguksa_bg.png",
         "backgroundAsset": "assets/images/locations/bulguksa_bg.png",
         "latitude": 35.7901,
@@ -1229,10 +1093,9 @@
     {
         "id": "seokguram",
         "eraId": "korea_unified_silla",
-        "name": {
-            "ko": "석굴암",
-            "en": "Seokguram Grotto"
-        },
+        "name": "Seokguram Grotto",
+        "nameKorean": "석굴암",
+        "description": "토함산 정상의 석굴 사원, 본존불의 미소가 천년을 빛낸다",
         "thumbnailAsset": "assets/images/locations/seokguram_bg.png",
         "backgroundAsset": "assets/images/locations/seokguram_bg.png",
         "latitude": 35.7952,
@@ -1251,10 +1114,9 @@
     {
         "id": "gyeongju_anapji",
         "eraId": "korea_unified_silla",
-        "name": {
-            "ko": "안압지(동궁과 월지)",
-            "en": "Anapji Pond"
-        },
+        "name": "Anapji Pond",
+        "nameKorean": "안압지(동궁과 월지)",
+        "description": "신라 왕실의 연회장이자 별궁",
         "thumbnailAsset": "assets/images/locations/anapji_bg.png",
         "backgroundAsset": "assets/images/locations/anapji_bg.png",
         "latitude": 35.8326,
@@ -1275,10 +1137,9 @@
     {
         "id": "sanggyeong",
         "eraId": "korea_unified_silla",
-        "name": {
-            "ko": "상경용천부",
-            "en": "Sanggyeong Yongcheonbu"
-        },
+        "name": "Sanggyeong Yongcheonbu",
+        "nameKorean": "상경용천부",
+        "description": "발해의 수도, 해동성국의 심장부",
         "thumbnailAsset": "assets/images/locations/sanggyeong_bg.png",
         "backgroundAsset": "assets/images/locations/sanggyeong_bg.png",
         "latitude": 44.0333,
@@ -1290,8 +1151,31 @@
             "y": 0.15
         },
         "characterIds": [
-            "dae_muye",
-            "dae_joyeong"
+            "dae_joyeong",
+            "dae_muye"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "deoksugung",
+        "eraId": "korea_modern",
+        "name": "Deoksugung Palace",
+        "nameKorean": "덕수궁",
+        "description": "대한제국의 황궁, 고종이 대한제국을 선포한 역사적 장소",
+        "thumbnailAsset": "assets/images/locations/deoksugung_bg.png",
+        "backgroundAsset": "assets/images/locations/deoksugung_bg.png",
+        "latitude": 37.5658,
+        "longitude": 126.975,
+        "displayYear": "1897",
+        "timelineOrder": 1,
+        "position": {
+            "x": 0.5,
+            "y": 0.4
+        },
+        "characterIds": [
+            "gojong"
         ],
         "eventIds": [],
         "status": "available",
@@ -1300,10 +1184,9 @@
     {
         "id": "harbin_station",
         "eraId": "korea_modern",
-        "name": {
-            "ko": "하얼빈역",
-            "en": "Harbin Railway Station"
-        },
+        "name": "Harbin Railway Station",
+        "nameKorean": "하얼빈역",
+        "description": "1909년 안중근 의사가 이토 히로부미를 저격한 역사적 현장",
         "thumbnailAsset": "assets/images/locations/harbin_station_bg.png",
         "backgroundAsset": "assets/images/locations/harbin_station_bg.png",
         "latitude": 45.7689,
@@ -1315,7 +1198,6 @@
             "y": 0.1
         },
         "characterIds": [
-            "an_junggeun",
             "ahn_junggeun"
         ],
         "eventIds": [],
@@ -1325,10 +1207,9 @@
     {
         "id": "seodaemun_prison",
         "eraId": "korea_modern",
-        "name": {
-            "ko": "서대문형무소",
-            "en": "Seodaemun Prison"
-        },
+        "name": "Seodaemun Prison",
+        "nameKorean": "서대문형무소",
+        "description": "일제강점기 독립운동가들이 투옥되고 순국한 민족의 아픔이 서린 곳",
         "thumbnailAsset": "assets/images/locations/seodaemun_prison_bg.png",
         "backgroundAsset": "assets/images/locations/seodaemun_prison_bg.png",
         "latitude": 37.5724,
@@ -1340,9 +1221,31 @@
             "y": 0.38
         },
         "characterIds": [
-            "an_junggeun",
-            "kim_gu",
             "yu_gwansun"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "shanghai_provisional",
+        "eraId": "korea_modern",
+        "name": "Shanghai Provisional Government",
+        "nameKorean": "상해 대한민국 임시정부",
+        "description": "1919년 3.1운동 이후 수립된 대한민국 정부의 뿌리",
+        "thumbnailAsset": "assets/images/locations/shanghai_provisional_bg.png",
+        "backgroundAsset": "assets/images/locations/shanghai_provisional_bg.png",
+        "latitude": 31.2304,
+        "longitude": 121.4737,
+        "displayYear": "1919",
+        "timelineOrder": 3,
+        "position": {
+            "x": 0.35,
+            "y": 0.55
+        },
+        "characterIds": [
+            "kim_gu",
+            "ahn_changho"
         ],
         "eventIds": [],
         "status": "available",
@@ -1351,10 +1254,9 @@
     {
         "id": "tapgol_park",
         "eraId": "korea_modern",
-        "name": {
-            "ko": "탑골공원",
-            "en": "Tapgol Park"
-        },
+        "name": "Tapgol Park",
+        "nameKorean": "탑골공원",
+        "description": "1919년 3월 1일, 독립선언서가 낭독되고 만세운동이 시작된 곳",
         "thumbnailAsset": "assets/images/locations/tapgol_park_bg.png",
         "backgroundAsset": "assets/images/locations/tapgol_park_bg.png",
         "latitude": 37.5706,
@@ -1365,9 +1267,7 @@
             "x": 0.51,
             "y": 0.39
         },
-        "characterIds": [
-            "yu_gwansun"
-        ],
+        "characterIds": [],
         "eventIds": [],
         "status": "available",
         "isHistorical": true
@@ -1375,10 +1275,9 @@
     {
         "id": "line_38",
         "eraId": "korea_modern",
-        "name": {
-            "ko": "38선",
-            "en": "38th Parallel"
-        },
+        "name": "38th Parallel",
+        "nameKorean": "38선",
+        "description": "1945년 광복 후 미소 양국에 의해 한반도가 분단된 비극의 선",
         "thumbnailAsset": "assets/images/locations/line_38_bg.png",
         "backgroundAsset": "assets/images/locations/line_38_bg.png",
         "latitude": 38.0,
@@ -1390,8 +1289,8 @@
             "y": 0.35
         },
         "characterIds": [
-            "syngman_rhee",
-            "yeo_unhyeong"
+            "yeo_unhyeong",
+            "syngman_rhee"
         ],
         "eventIds": [],
         "status": "available",
@@ -1400,10 +1299,9 @@
     {
         "id": "manwoldae",
         "eraId": "korea_goryeo",
-        "name": {
-            "ko": "만월대",
-            "en": "Manwoldae Palace Site"
-        },
+        "name": "Manwoldae Palace Site",
+        "nameKorean": "만월대",
+        "description": "고려 500년 왕조의 법궁(法宮)이 있던 곳, 개경(개성)의 심장부",
         "thumbnailAsset": "assets/images/locations/manwoldae_bg.png",
         "backgroundAsset": "assets/images/locations/manwoldae_bg.png",
         "latitude": 37.9653,
@@ -1415,12 +1313,8 @@
             "y": 0.32
         },
         "characterIds": [
-            "gongmin",
             "wanggeon",
-            "seohee",
-            "gangamchan",
-            "jeong_mongju",
-            "yi_seong_gye"
+            "gongmin"
         ],
         "eventIds": [],
         "status": "available",
@@ -1429,10 +1323,9 @@
     {
         "id": "haeinsa",
         "eraId": "korea_goryeo",
-        "name": {
-            "ko": "해인사",
-            "en": "Haeinsa Temple"
-        },
+        "name": "Haeinsa Temple",
+        "nameKorean": "해인사",
+        "description": "팔만대장경이 보관된 사찰, 유네스코 세계문화유산",
         "thumbnailAsset": "assets/images/locations/haeinsa_bg.png",
         "backgroundAsset": "assets/images/locations/haeinsa_bg.png",
         "latitude": 35.8019,
@@ -1451,10 +1344,9 @@
     {
         "id": "ganghwa_island",
         "eraId": "korea_goryeo",
-        "name": {
-            "ko": "강화도",
-            "en": "Ganghwa Island"
-        },
+        "name": "Ganghwa Island",
+        "nameKorean": "강화도",
+        "description": "몽골 침략에 맞서 39년간 고려 조정이 피난한 섬",
         "thumbnailAsset": "assets/images/locations/ganghwa_island_bg.png",
         "backgroundAsset": "assets/images/locations/ganghwa_island_bg.png",
         "latitude": 37.7467,
@@ -1473,10 +1365,9 @@
     {
         "id": "sambyeolcho_jindo",
         "eraId": "korea_goryeo",
-        "name": {
-            "ko": "삼별초 항전지 (진도)",
-            "en": "Sambyeolcho Resistance Base"
-        },
+        "name": "Sambyeolcho Resistance Base",
+        "nameKorean": "삼별초 항전지 (진도)",
+        "description": "고려 무인들의 마지막 항전지, 몽골에 끝까지 맞선 삼별초의 본거지",
         "thumbnailAsset": "assets/images/locations/sambyeolcho_jindo_bg.png",
         "backgroundAsset": "assets/images/locations/sambyeolcho_jindo_bg.png",
         "latitude": 34.4839,
@@ -1495,10 +1386,9 @@
     {
         "id": "gaegyeong_market",
         "eraId": "korea_goryeo",
-        "name": {
-            "ko": "개경 시전(市廛)",
-            "en": "Gaegyeong Market"
-        },
+        "name": "Gaegyeong Market",
+        "nameKorean": "개경 시전(市廛)",
+        "description": "고려청자와 국제 무역의 중심지, 송·거란·아라비아 상인들이 모여든 번화가",
         "thumbnailAsset": "assets/images/locations/gaegyeong_market_bg.png",
         "backgroundAsset": "assets/images/locations/gaegyeong_market_bg.png",
         "latitude": 37.9706,
@@ -1509,9 +1399,7 @@
             "x": 0.48,
             "y": 0.33
         },
-        "characterIds": [
-            "gangamchan"
-        ],
+        "characterIds": [],
         "eventIds": [],
         "status": "available",
         "isHistorical": true
@@ -1519,10 +1407,9 @@
     {
         "id": "pyramids",
         "eraId": "egypt_ancient",
-        "name": {
-            "ko": "기자 피라미드",
-            "en": "The Great Pyramids"
-        },
+        "name": "The Great Pyramids",
+        "nameKorean": "기자 피라미드",
+        "description": "세계 7대 불가사의 중 하나인 거대한 파라오의 무덤.",
         "thumbnailAsset": "assets/images/locations/pyramids_thumb.png",
         "backgroundAsset": "assets/images/locations/pyramids_bg.png",
         "latitude": 29.9792,
@@ -1534,8 +1421,8 @@
             "y": 0.4
         },
         "characterIds": [
-            "tutankhamun",
-            "imhotep"
+            "imhotep",
+            "tutankhamun"
         ],
         "eventIds": [
             "pyramid_construction"
@@ -1546,10 +1433,9 @@
     {
         "id": "luxor",
         "eraId": "egypt_ancient",
-        "name": {
-            "ko": "룩소르 신전",
-            "en": "Luxor Temple"
-        },
+        "name": "Luxor Temple",
+        "nameKorean": "룩소르 신전",
+        "description": "테베의 영광을 상징하는 웅장한 신전이자 아멘 신앙의 중심지.",
         "thumbnailAsset": "assets/images/locations/luxor_thumb.png",
         "backgroundAsset": "assets/images/locations/luxor_bg.png",
         "latitude": 25.6872,
@@ -1561,8 +1447,8 @@
             "y": 0.5
         },
         "characterIds": [
-            "tutankhamun",
-            "ramesses_ii"
+            "ramesses_ii",
+            "tutankhamun"
         ],
         "eventIds": [
             "opet_festival"
@@ -1573,10 +1459,9 @@
     {
         "id": "abushimbel",
         "eraId": "egypt_ancient",
-        "name": {
-            "ko": "아부심벨 신전",
-            "en": "Abu Simbel"
-        },
+        "name": "Abu Simbel",
+        "nameKorean": "아부심벨 신전",
+        "description": "람세스 2세가 자신과 왕비 네페르타리를 위해 지은 거대 암굴 신전.",
         "thumbnailAsset": "assets/images/locations/abushimbel_thumb.png",
         "backgroundAsset": "assets/images/locations/abushimbel_bg.png",
         "latitude": 22.3372,
@@ -1599,10 +1484,9 @@
     {
         "id": "alexandria",
         "eraId": "egypt_ancient",
-        "name": {
-            "ko": "알렉산드리아",
-            "en": "Alexandria"
-        },
+        "name": "Alexandria",
+        "nameKorean": "알렉산드리아",
+        "description": "지중해의 진주, 세계 최대의 도서관과 파로스 등대가 있던 학문의 도시.",
         "thumbnailAsset": "assets/images/locations/alexandria_thumb.png",
         "backgroundAsset": "assets/images/locations/alexandria_bg.png",
         "latitude": 31.2001,
@@ -1625,10 +1509,9 @@
     {
         "id": "luoyang_wei",
         "eraId": "china_three_kingdoms",
-        "name": {
-            "ko": "낙양 (위나라 수도)",
-            "en": "Luoyang (Wei Capital)"
-        },
+        "name": "Luoyang (Wei Capital)",
+        "nameKorean": "낙양 (위나라 수도)",
+        "description": "후한과 위나라의 수도, 조조가 권력을 행사한 정치적 중심지.",
         "thumbnailAsset": "assets/images/locations/luoyang_wei_bg.png",
         "backgroundAsset": "assets/images/locations/luoyang_wei_bg.png",
         "latitude": 34.66,
@@ -1649,10 +1532,9 @@
     {
         "id": "wuzhang_plains",
         "eraId": "china_three_kingdoms",
-        "name": {
-            "ko": "오장원",
-            "en": "Wuzhang Plains"
-        },
+        "name": "Wuzhang Plains",
+        "nameKorean": "오장원",
+        "description": "제갈량이 숙적 사마의와 대치하다 생을 마감한 비운의 전장.",
         "thumbnailAsset": "assets/images/locations/wuzhang_plains_bg.png",
         "backgroundAsset": "assets/images/locations/wuzhang_plains_bg.png",
         "latitude": 34.12,
@@ -1669,12 +1551,32 @@
         "isHistorical": true
     },
     {
+        "id": "changan",
+        "eraId": "china_three_kingdoms",
+        "name": "Chang'an",
+        "nameKorean": "장안",
+        "description": "고대 중국의 수도이자 실크로드의 기점. 수많은 왕조가 도읍으로 삼았던 역사적 도시.",
+        "thumbnailAsset": "assets/images/locations/changan_bg.png",
+        "backgroundAsset": "assets/images/locations/changan_bg.png",
+        "latitude": 34.26,
+        "longitude": 108.94,
+        "displayYear": "AD 190",
+        "timelineOrder": 2,
+        "position": {
+            "x": 0.4,
+            "y": 0.5
+        },
+        "characterIds": [],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
         "id": "honno_ji",
         "eraId": "japan_sengoku",
-        "name": {
-            "ko": "혼노지",
-            "en": "Honno-ji"
-        },
+        "name": "Honno-ji",
+        "nameKorean": "혼노지",
+        "description": "오다 노부나가가 아케치 미츠히데의 배신으로 최후를 맞이한 사찰.",
         "thumbnailAsset": "assets/images/locations/honnoji_bg.png",
         "backgroundAsset": "assets/images/locations/honnoji_bg.png",
         "latitude": 35.01,
@@ -1693,10 +1595,9 @@
     {
         "id": "edo_castle",
         "eraId": "japan_sengoku",
-        "name": {
-            "ko": "에도 성",
-            "en": "Edo Castle"
-        },
+        "name": "Edo Castle",
+        "nameKorean": "에도 성",
+        "description": "도쿠가와 이에야스가 닦은 에도 막부의 거점이자 현재의 도쿄 황궁.",
         "thumbnailAsset": "assets/images/locations/edo_castle_bg.png",
         "backgroundAsset": "assets/images/locations/edo_castle_bg.png",
         "latitude": 35.68,
@@ -1715,10 +1616,9 @@
     {
         "id": "crystal_palace",
         "eraId": "europe_industrial_revolution",
-        "name": {
-            "ko": "수정궁",
-            "en": "Crystal Palace"
-        },
+        "name": "Crystal Palace",
+        "nameKorean": "수정궁",
+        "description": "1851년 런던 만국박람회가 열린 거대한 유리 건축물. 산업혁명의 상징.",
         "thumbnailAsset": "assets/images/locations/crystal_palace_bg.png",
         "backgroundAsset": "assets/images/locations/crystal_palace_bg.png",
         "latitude": 51.42,
@@ -1737,10 +1637,9 @@
     {
         "id": "steam_factory",
         "eraId": "europe_industrial_revolution",
-        "name": {
-            "ko": "증기기관 공장",
-            "en": "Steam Factory"
-        },
+        "name": "Steam Factory",
+        "nameKorean": "증기기관 공장",
+        "description": "검은 연기와 굉음이 가득한 19세기 산업 현장. 대량 생산의 시작.",
         "thumbnailAsset": "assets/images/locations/steam_factory_bg.png",
         "backgroundAsset": "assets/images/locations/steam_factory_bg.png",
         "latitude": 53.48,
@@ -1759,10 +1658,9 @@
     {
         "id": "seonggyungwan_academy",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "성균관",
-            "en": "Seonggyungwan Academy"
-        },
+        "name": "Seonggyungwan Academy",
+        "nameKorean": "성균관",
+        "description": "조선시대 최고 교육기관. 유생들이 사서삼경을 공부하고 과거시험을 준비하던 곳.",
         "thumbnailAsset": "assets/images/locations/seonggyungwan_academy_bg.png",
         "backgroundAsset": "assets/images/locations/seonggyungwan_academy_bg.png",
         "latitude": 37.5842,
@@ -1784,10 +1682,9 @@
     {
         "id": "sosuseowon_academy",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "소수서원",
-            "en": "Sosuseowon Confucian Academy"
-        },
+        "name": "Sosuseowon Confucian Academy",
+        "nameKorean": "소수서원",
+        "description": "한국 최초의 사액서원. 퇴계 이황이 후학을 양성하던 유학의 성지.",
         "thumbnailAsset": "assets/images/locations/sosuseowon_academy_bg.png",
         "backgroundAsset": "assets/images/locations/sosuseowon_academy_bg.png",
         "latitude": 36.9872,
@@ -1808,10 +1705,9 @@
     {
         "id": "scholar_study",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "선비의 서재",
-            "en": "Scholar's Study"
-        },
+        "name": "Scholar's Study",
+        "nameKorean": "선비의 서재",
+        "description": "조선 선비가 학문에 전념하던 정갈한 공간. 책과 붓, 벼루가 놓인 사랑방.",
         "thumbnailAsset": "assets/images/locations/scholar_study_bg.png",
         "backgroundAsset": "assets/images/locations/scholar_study_bg.png",
         "latitude": 37.5,
@@ -1835,14 +1731,13 @@
     {
         "id": "gaeseong_songdo",
         "eraId": "korea_joseon",
-        "name": {
-            "ko": "개성 (송도)",
-            "en": "Gaeseong (Songdo)"
-        },
+        "name": "Gaeseong (Songdo)",
+        "nameKorean": "개성 (송도)",
+        "description": "옛 고려의 수도이자 조선시대 중요 상업 도시. 황진이가 활동하던 예술의 도시.",
         "thumbnailAsset": "assets/images/locations/gaeseong_songdo_bg.png",
         "backgroundAsset": "assets/images/locations/gaeseong_songdo_bg.png",
         "latitude": 37.9714,
-        "longitude": 126.558,
+        "longitude": 126.5580,
         "displayYear": "918-1910",
         "timelineOrder": 9,
         "position": {
@@ -1850,10 +1745,8 @@
             "y": 0.28
         },
         "characterIds": [
-            "hwang_jini",
-            "jeong_mongju",
             "taejo_yi_seonggye",
-            "yi_seong_gye"
+            "hwang_jini"
         ],
         "eventIds": [],
         "status": "available",
@@ -1862,10 +1755,9 @@
     {
         "id": "deoksugung_palace",
         "eraId": "korea_modern",
-        "name": {
-            "ko": "덕수궁",
-            "en": "Deoksugung Palace"
-        },
+        "name": "Deoksugung Palace",
+        "nameKorean": "덕수궁",
+        "description": "대한제국의 황궁. 고종황제가 광무개혁을 추진하고 근대화의 꿈을 꾸던 곳.",
         "thumbnailAsset": "assets/images/locations/deoksugung_palace_bg.png",
         "backgroundAsset": "assets/images/locations/deoksugung_palace_bg.png",
         "latitude": 37.5658,
@@ -1877,9 +1769,33 @@
             "y": 0.35
         },
         "characterIds": [
-            "empress_myeongseong",
             "emperor_gojong",
-            "gojong"
+            "empress_myeongseong"
+        ],
+        "eventIds": [],
+        "status": "available",
+        "isHistorical": true
+    },
+    {
+        "id": "seodaemun_prison",
+        "eraId": "korea_modern",
+        "name": "Seodaemun Prison",
+        "nameKorean": "서대문형무소",
+        "description": "일제강점기 독립운동가들이 갇혀 고문받던 곳. 유관순, 안중근 등이 수감되었다.",
+        "thumbnailAsset": "assets/images/locations/seodaemun_prison_bg.png",
+        "backgroundAsset": "assets/images/locations/seodaemun_prison_bg.png",
+        "latitude": 37.5741,
+        "longitude": 126.9591,
+        "displayYear": "1908-1945",
+        "timelineOrder": 11,
+        "position": {
+            "x": 0.48,
+            "y": 0.38
+        },
+        "characterIds": [
+            "an_junggeun",
+            "yu_gwansun",
+            "kim_gu"
         ],
         "eventIds": [],
         "status": "available",
@@ -1888,10 +1804,9 @@
     {
         "id": "shanghai_provisional_govt",
         "eraId": "korea_modern",
-        "name": {
-            "ko": "상하이 임시정부",
-            "en": "Shanghai Provisional Government"
-        },
+        "name": "Shanghai Provisional Government",
+        "nameKorean": "상하이 임시정부",
+        "description": "1919년 설립된 대한민국 임시정부 청사. 김구 주석이 독립운동을 이끈 곳.",
         "thumbnailAsset": "assets/images/locations/shanghai_provisional_govt_bg.png",
         "backgroundAsset": "assets/images/locations/shanghai_provisional_govt_bg.png",
         "latitude": 31.2304,
@@ -1903,34 +1818,8 @@
             "y": 0.65
         },
         "characterIds": [
-            "yun_bonggil",
             "kim_gu",
-            "ahn_changho"
-        ],
-        "eventIds": [],
-        "status": "available",
-        "isHistorical": true
-    },
-    {
-        "id": "jolbon",
-        "eraId": "korea_three_kingdoms",
-        "name": {
-            "ko": "졸본성",
-            "en": "Jolbon Fortress (First Goguryeo Capital)"
-        },
-        "thumbnailAsset": "assets/images/locations/jolbon_bg.png",
-        "backgroundAsset": "assets/images/locations/jolbon_bg.png",
-        "kingdom": "goguryeo",
-        "latitude": 41.1333,
-        "longitude": 125.05,
-        "displayYear": "BC 37",
-        "timelineOrder": 0,
-        "position": {
-            "x": 0.50,
-            "y": 0.22
-        },
-        "characterIds": [
-            "jumong"
+            "yun_bonggil"
         ],
         "eventIds": [],
         "status": "available",

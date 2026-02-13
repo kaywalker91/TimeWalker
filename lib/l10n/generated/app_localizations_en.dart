@@ -163,6 +163,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exploration_help_title => 'Exploration Help';
 
   @override
+  String get dialogue_choices_scroll_hint_more => 'More choices below';
+
+  @override
   String get menu_world_map => 'TIME CORRIDOR';
 
   @override
@@ -332,51 +335,51 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get shop_title => '아이템 상점';
+  String get shop_title => 'Item Shop';
 
   @override
-  String get shop_tab_all => '전체';
+  String get shop_tab_all => 'All';
 
   @override
-  String get shop_tab_consumable => '소모품';
+  String get shop_tab_consumable => 'Consumables';
 
   @override
-  String get shop_tab_cosmetic => '치장';
+  String get shop_tab_cosmetic => 'Cosmetics';
 
   @override
-  String get shop_tab_upgrade => '강화';
+  String get shop_tab_upgrade => 'Upgrades';
 
   @override
-  String get shop_purchase_error_coins => '코인이 부족합니다!';
+  String get shop_purchase_error_coins => 'Not enough coins!';
 
   @override
-  String get shop_purchase_error_owned => '이미 보유한 아이템입니다!';
+  String get shop_purchase_error_owned => 'You already own this item!';
 
   @override
-  String get shop_confirm_title => '구매 확인';
+  String get shop_confirm_title => 'Purchase Confirmation';
 
   @override
   String shop_confirm_message(Object item, Object price) {
-    return '$item을(를) $price 코인에 구매하시겠습니까?';
+    return 'Purchase $item for $price coins?';
   }
 
   @override
-  String get common_buy => '구매';
+  String get common_buy => 'Buy';
 
   @override
   String shop_purchase_success(Object item) {
-    return '$item 구매 완료!';
+    return 'Purchased $item!';
   }
 
   @override
-  String get shop_empty_list => '구매 가능한 아이템이 없습니다.';
+  String get shop_empty_list => 'No items available for purchase.';
 
   @override
-  String get shop_item_owned => '보유중';
+  String get shop_item_owned => 'Owned';
 
   @override
   String shop_item_price(Object price) {
-    return '$price 코인';
+    return '$price coins';
   }
 
   @override
