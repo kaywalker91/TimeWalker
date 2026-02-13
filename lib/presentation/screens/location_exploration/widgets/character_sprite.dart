@@ -222,7 +222,7 @@ class _CharacterSpriteState extends State<CharacterSprite>
         ),
       ),
       child: Text(
-        isLocked ? '???' : widget.character.nameKorean,
+        isLocked ? '???' : widget.character.getNameForContext(context),
         style: AppTextStyles.labelMedium.copyWith(
           color: AppColors.white,
           fontWeight: widget.isSelected ? FontWeight.bold : FontWeight.normal,

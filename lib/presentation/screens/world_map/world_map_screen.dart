@@ -128,7 +128,7 @@ class _WorldMapScreenState extends ConsumerState<WorldMapScreen> {
       onRegionPreview: (region) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${region.nameKorean}: ${region.description}'),
+            content: Text('${region.nameKorean}: ${region.description}'), // TODO: Add Region.getNameForContext
             duration: const Duration(seconds: 2),
             backgroundColor: AppColors.surfaceLight,
           ),
@@ -146,7 +146,7 @@ class _WorldMapScreenState extends ConsumerState<WorldMapScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                AppLocalizations.of(context)!.world_map_locked_msg(region.nameKorean),
+                AppLocalizations.of(context)!.world_map_locked_msg(region.nameKorean), // TODO: Use Region.getNameForContext
               ),
               backgroundColor: AppColors.warning.withValues(alpha: 0.9),
             ),

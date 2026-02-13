@@ -223,7 +223,7 @@ class _LocationExplorationScreenState
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      location.nameKorean,
+                      location.getNameForContext(context),
                       style: AppTextStyles.titleSmall.copyWith(
                         color: AppColors.white,
                         fontWeight: FontWeight.bold,
@@ -343,15 +343,7 @@ class _LocationExplorationScreenState
                   ),
                 ),
               ),
-            Text(
-              location.description,
-              style: AppTextStyles.bodyMedium.copyWith(
-                color: AppColors.white.withValues(alpha: 0.9),
-                height: 1.5,
-              ),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            ),
+            _buildDescription(context, location),
             const SizedBox(height: 12),
             Row(
               children: [
@@ -443,7 +435,7 @@ class _LocationExplorationScreenState
         debugPrint('[_startDialogue] NO DIALOGUES FOUND');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${character.nameKorean}와의 대화가 아직 준비 중입니다'),
+            content: Text('${character.getNameForContext(context)}와의 대화가 아직 준비 중입니다'),
             backgroundColor: AppColors.orange,
           ),
         );
@@ -459,5 +451,47 @@ class _LocationExplorationScreenState
         ),
       );
     }
+  }
+
+  /// Description with i18n support
+  Widget _buildDescription(BuildContext context, Location location) {
+    final locale = Localizations.localeOf(context);
+    final i18nContent = ref.watch(locationI18nContentProvider(locale.languageCode));
+    
+    return i18nContent.when(
+      data: (content) {
+        final locationData = content[location.id] as Map<String, dynamic>?;
+        final localizedDescription = locationData?['description'] as String?;
+        final displayDescription = localizedDescription ?? location.description;
+        
+        return Text(
+          displayDescription,
+          style: AppTextStyles.bodyMedium.copyWith(
+            color: AppColors.white.withValues(alpha: 0.9),
+            height: 1.5,
+          ),
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+        );
+      },
+      loading: () => Text(
+        location.description,
+        style: AppTextStyles.bodyMedium.copyWith(
+          color: AppColors.white.withValues(alpha: 0.9),
+          height: 1.5,
+        ),
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+      ),
+      error: (_, stackTrace) => Text(
+        location.description,
+        style: AppTextStyles.bodyMedium.copyWith(
+          color: AppColors.white.withValues(alpha: 0.9),
+          height: 1.5,
+        ),
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
   }
 }

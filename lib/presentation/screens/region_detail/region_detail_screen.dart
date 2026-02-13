@@ -116,7 +116,7 @@ class _RegionDetailScreenState extends ConsumerState<RegionDetailScreen> {
       child: Column(
         children: [
           Text(
-            region.nameKorean,
+            region.nameKorean, // TODO: Add Region.getNameForContext when Region entity is updated
             style: AppTextStyles.displaySmall.copyWith(
               color: AppColors.textPrimary,
               shadows: AppShadows.textMd,

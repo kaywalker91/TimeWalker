@@ -194,7 +194,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
                   ShaderMask(
                     shaderCallback: (bounds) => AppGradients.goldenText.createShader(bounds),
                     child: Text(
-                      country.nameKorean,
+                      country.nameKorean, // TODO: Add Country.getNameForContext when Country entity is updated
                       style: AppTextStyles.displaySmall.copyWith(
                         color: AppColors.white,
                         fontWeight: FontWeight.bold,

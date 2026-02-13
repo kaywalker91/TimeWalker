@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/themes/themes.dart';
 import 'package:time_walker/domain/entities/character.dart';
+import 'package:time_walker/presentation/providers/repository_providers.dart';
 
 /// 캐릭터 인터랙션 팝업
 /// 
 /// 캐릭터를 탭했을 때 표시되는 팝업으로,
 /// 캐릭터 정보와 대화하기 버튼을 제공합니다.
-class CharacterInteractionPopup extends StatefulWidget {
+class CharacterInteractionPopup extends ConsumerStatefulWidget {
   /// 표시할 캐릭터
   final Character character;
   
@@ -29,11 +31,11 @@ class CharacterInteractionPopup extends StatefulWidget {
   });
 
   @override
-  State<CharacterInteractionPopup> createState() =>
+  ConsumerState<CharacterInteractionPopup> createState() =>
       _CharacterInteractionPopupState();
 }
 
-class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
+class _CharacterInteractionPopupState extends ConsumerState<CharacterInteractionPopup>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
@@ -142,7 +144,7 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
             child: Column(
               children: [
                 Text(
-                  widget.character.nameKorean,
+                  widget.character.getNameForContext(context),
                   style: AppTextStyles.headlineSmall.copyWith(
                     color: AppColors.white,
                     fontWeight: FontWeight.bold,
@@ -156,16 +158,10 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
                   ),
                 ),
                 const SizedBox(height: 16),
-                Text(
-                  widget.character.biography,
-                  textAlign: TextAlign.center,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.bodySmall.copyWith(
-                    color: AppColors.white70,
-                    height: 1.5,
-                  ),
-                ),
+                
+                // Biography with i18n support
+                _buildBiography(context),
+                
                 const SizedBox(height: 24),
                 
                 // 대화하기 버튼
@@ -218,6 +214,54 @@ class _CharacterInteractionPopupState extends State<CharacterInteractionPopup>
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  /// Biography with i18n support
+  Widget _buildBiography(BuildContext context) {
+    final locale = Localizations.localeOf(context);
+    final i18nContent = ref.watch(characterI18nContentProvider(locale.languageCode));
+    
+    return i18nContent.when(
+      data: (content) {
+        // Try to get localized biography from i18n content
+        final characterData = content[widget.character.id] as Map<String, dynamic>?;
+        final localizedBiography = characterData?['biography'] as String?;
+        
+        // Use localized biography if available, otherwise fall back to entity field
+        final displayBiography = localizedBiography ?? widget.character.biography;
+        
+        return Text(
+          displayBiography,
+          textAlign: TextAlign.center,
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+          style: AppTextStyles.bodySmall.copyWith(
+            color: AppColors.white70,
+            height: 1.5,
+          ),
+        );
+      },
+      loading: () => Text(
+        widget.character.biography, // Show legacy field while loading
+        textAlign: TextAlign.center,
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+        style: AppTextStyles.bodySmall.copyWith(
+          color: AppColors.white70,
+          height: 1.5,
+        ),
+      ),
+      error: (_, stackTrace) => Text(
+        widget.character.biography, // Fall back to legacy field on error
+        textAlign: TextAlign.center,
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+        style: AppTextStyles.bodySmall.copyWith(
+          color: AppColors.white70,
+          height: 1.5,
+        ),
       ),
     );
   }

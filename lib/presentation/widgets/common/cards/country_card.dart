@@ -108,7 +108,7 @@ class _CountryCardState extends State<CountryCard> with TimeCardMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.country.nameKorean,
+                          widget.country.nameKorean, // TODO: Add Country.getNameForContext when Country entity is updated
                           style: AppTextStyles.titleMedium.copyWith(
                             color: isLocked ? AppColors.textDisabled : AppColors.textPrimary,
                             fontWeight: FontWeight.bold,

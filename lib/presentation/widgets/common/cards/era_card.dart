@@ -74,7 +74,7 @@ class _TimelineEraCardState extends State<TimelineEraCard> with TimeCardMixin, T
                   children: [
                     // Era Title
                     Text(
-                      widget.era.nameKorean,
+                      widget.era.nameKorean, // TODO: Add Era.getNameForContext when Era entity is updated
                       style: AppTextStyles.headlineMedium.copyWith(
                         color: isLocked ? AppColors.textDisabled : AppColors.textPrimary,
                       ),
