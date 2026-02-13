@@ -10,6 +10,10 @@ import 'package:time_walker/core/services/hive_service.dart';
 import 'package:time_walker/core/services/image_cache_service.dart';
 import 'package:time_walker/data/datasources/local/hive_adapters.dart';
 import 'package:time_walker/presentation/providers/theme_provider.dart';
+import 'package:time_walker/presentation/providers/settings_provider.dart';
+import 'package:time_walker/presentation/providers/repository_providers.dart';
+import 'package:time_walker/data/repositories/shared_prefs_settings_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -32,8 +36,15 @@ Future<void> main() async {
     debugPrint('[TimeWalker] ⚠️ Supabase 미설정 - Mock 데이터 사용');
   }
 
+  // SharedPreferences 초기화
+  final prefs = await SharedPreferences.getInstance();
+  final settingsRepository = SharedPrefsSettingsRepository(prefs);
+
   runApp(
-    const ProviderScope(
+    ProviderScope(
+      overrides: [
+        settingsRepositoryProvider.overrideWithValue(settingsRepository),
+      ],
       child: AppLifecycleManager(
         child: TimeRunnerApp(),
       ),
@@ -47,10 +58,11 @@ class TimeRunnerApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeStyle = ref.watch(themeProvider);
+    final settings = ref.watch(settingsProvider);
     
     return MaterialApp.router(
       title: 'TimeWalker',
-      locale: const Locale('ko'), // Force Korean as requested
+      locale: Locale(settings.languageCode),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

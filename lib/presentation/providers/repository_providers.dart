@@ -34,6 +34,7 @@ import 'package:time_walker/domain/repositories/quiz_repository.dart';
 import 'package:time_walker/domain/repositories/shop_repository.dart';
 import 'package:time_walker/domain/services/progression_service.dart';
 import 'package:time_walker/domain/services/user_progress_factory.dart';
+import 'package:time_walker/domain/repositories/settings_repository.dart';
 
 // Re-export all providers for backward compatibility
 // 기존 코드와의 호환성을 위해 다른 provider 파일들을 re-export 합니다.
@@ -41,6 +42,7 @@ export 'user_progress_provider.dart';
 export 'exploration_providers.dart';
 export 'character_providers.dart';
 export 'content_providers.dart';
+export 'i18n_providers.dart';
 
 // ============================================================================
 // Repository Providers
@@ -160,4 +162,12 @@ final shopRepositoryProvider = Provider<ShopRepository>((ref) {
 /// Progression Service Provider
 final progressionServiceProvider = Provider<ProgressionService>((ref) {
   return ProgressionService();
+});
+
+/// Settings Repository Provider
+/// 
+/// SharedPreferences를 사용한 설정 저장소
+/// main.dart에서 override됨
+final settingsRepositoryProvider = Provider<SettingsRepository>((ref) {
+  throw UnimplementedError('settingsRepositoryProvider must be overridden in main.dart');
 });

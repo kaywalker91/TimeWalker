@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:time_walker/core/constants/app_durations.dart';
+import 'package:time_walker/domain/entities/country.dart';
 import 'package:time_walker/domain/entities/user_progress.dart';
 import 'package:time_walker/domain/repositories/country_repository.dart';
 import 'package:time_walker/domain/repositories/era_repository.dart';
@@ -63,32 +64,118 @@ class UserProgressNotifier extends StateNotifier<AsyncValue<UserProgress>> {
   
   @override
   void dispose() {
-    // 보류 중인 저장 작업 즉시 실행
-    _flushPendingSave();
+    // P0 FIX: 데이터 손실 방지 - pending save를 확실히 처리
     _saveTimer?.cancel();
+    
+    // Pending save가 있으면 즉시 저장 (Hive의 put은 동기 작업)
+    final pending = _pendingSave;
+    if (pending != null) {
+      _pendingSave = null;
+      // Fire-and-forget: Hive의 put()은 실제로는 동기 작업이므로
+      // 여기서 호출하면 dispose 전에 완료됨
+      _repository.saveUserProgress(pending).catchError((e) {
+        debugPrint('[UserProgressNotifier] Dispose save error: $e');
+      });
+    }
+    
     super.dispose();
   }
 
   Future<void> _loadProgress() async {
     try {
-      final progress = await _repository.getUserProgress(
+      var progress = await _repository.getUserProgress(
         'user_001',
       ); // Fixed user ID for MVP
-      
+
       if (!mounted) return;
 
       if (progress != null) {
+        // 마이그레이션: countryProgress/regionProgress가 비어있으면 재계산
+        if (progress.countryProgress.isEmpty || progress.regionProgress.isEmpty) {
+          progress = await _recalculateAllProgress(progress);
+          await _repository.saveUserProgress(progress); // 마이그레이션 결과 저장
+        }
+
+        if (!mounted) return;
         state = AsyncData(progress);
       } else {
         // Create new if null
         final newProgress = _factory.initial('user_001');
         await _repository.saveUserProgress(newProgress);
-        
+
         if (!mounted) return;
         state = AsyncData(newProgress);
       }
     } catch (e, stack) {
       if (mounted) state = AsyncError(e, stack);
+    }
+  }
+
+  /// 기존 사용자 데이터 마이그레이션: Era 진행률 기반으로 Country/Region 진행률 재계산
+  Future<UserProgress> _recalculateAllProgress(UserProgress progress) async {
+    try {
+      // Era 진행률이 없으면 재계산 불필요
+      if (progress.eraProgress.isEmpty) {
+        return progress;
+      }
+
+      final allEras = await _eraRepository.getAllEras();
+      final allCountries = await _countryRepository.getAllCountries();
+
+      final newCountryProgress = <String, double>{};
+      final newRegionProgress = <String, double>{};
+
+      // Country별로 진행률 계산
+      for (final country in allCountries) {
+        final countryEras = allEras.where((e) => e.countryId == country.id).toList();
+        if (countryEras.isEmpty) continue;
+
+        final countryProgressValue = _progressionService.calculateCountryProgress(
+          country.id,
+          progress,
+          countryEras,
+        );
+
+        if (countryProgressValue > 0.0) {
+          newCountryProgress[country.id] = countryProgressValue;
+        }
+      }
+
+      // Region별로 진행률 계산 (Country 진행률 기반)
+      final tempProgress = progress.copyWith(countryProgress: newCountryProgress);
+      final regionCountryMap = <String, List<Country>>{};
+
+      // Region별로 Country 그룹화
+      for (final country in allCountries) {
+        regionCountryMap.putIfAbsent(country.regionId, () => []).add(country);
+      }
+
+      // 각 Region의 진행률 계산
+      for (final entry in regionCountryMap.entries) {
+        final regionId = entry.key;
+        final regionCountries = entry.value;
+
+        final countryProgresses = regionCountries
+            .map((c) => tempProgress.getCountryProgress(c.id))
+            .where((p) => p > 0.0)
+            .toList();
+
+        if (countryProgresses.isNotEmpty) {
+          final regionProgressValue =
+              countryProgresses.fold(0.0, (sum, p) => sum + p) / countryProgresses.length;
+          newRegionProgress[regionId] = regionProgressValue.clamp(0.0, 1.0);
+        }
+      }
+
+      debugPrint('[UserProgressNotifier] Migration: recalculated ${newCountryProgress.length} countries, ${newRegionProgress.length} regions');
+
+      return progress.copyWith(
+        countryProgress: newCountryProgress,
+        regionProgress: newRegionProgress,
+      );
+    } catch (e) {
+      debugPrint('[UserProgressNotifier] Migration error: $e');
+      return progress; // 마이그레이션 실패 시 원본 반환
     }
   }
 
