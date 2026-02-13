@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:time_walker/domain/entities/location.dart';
 import 'package:time_walker/domain/repositories/location_repository.dart';
@@ -12,10 +13,17 @@ class MockLocationRepository implements LocationRepository {
     try {
       final jsonString = await rootBundle.loadString('assets/data/locations.json');
       final List<dynamic> jsonList = jsonDecode(jsonString);
-      _locations = jsonList.map((e) => Location.fromJson(e)).toList();
+      _locations = [];
+      for (final e in jsonList) {
+        try {
+          _locations.add(Location.fromJson(e as Map<String, dynamic>));
+        } catch (e) {
+          debugPrint('[MockLocationRepository] Skip invalid location: $e');
+        }
+      }
       _isLoaded = true;
     } catch (e) {
-      // Fallback/Empty or Log error
+      debugPrint('[MockLocationRepository] Failed to load locations: $e');
       _locations = [];
     }
   }

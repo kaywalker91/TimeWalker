@@ -97,7 +97,7 @@ Map<String, dynamic> _mapRow(Map<String, dynamic> row) {
     'eraId': row['era_id'],
     'name': row['name'],
     'nameKorean': row['name_korean'],
-    'description': row['description'],
+    'description': stringOrNull(row['description']) ?? '',
     'thumbnailAsset': row['thumbnail_asset'],
     'backgroundAsset': row['background_asset'],
     'kingdom': row['kingdom'],

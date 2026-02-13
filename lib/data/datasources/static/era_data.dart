@@ -24,8 +24,21 @@ class EraData {
     bgmAsset: 'assets/audio/bgm/three_kingdoms.mp3',
     themeId: EraThemeIds.threeKingdoms,
     chapterIds: ['tk_ch1_rise', 'tk_ch2_gwanggaeto', 'tk_ch3_unification'],
-    characterIds: ['gwanggaeto', 'geunchogo', 'kim_yushin', 'eulji_mundeok', 'seondeok'],
-    locationIds: ['goguryeo_palace', 'wiryeseong', 'silla_capital', 'baekje_sabi'],
+    characterIds: ['gwanggaeto', 'geunchogo', 'kim_yushin', 'eulji_mundeok', 'seondeok', 'munju', 'muryeong'],
+    locationIds: [
+      'jolbon',
+      'goguryeo_palace',
+      'pyongyang_fortress',
+      'gwanggaeto_stele',
+      'wiryeseong',
+      'gongsanseong',
+      'sabi',
+      'gyeongju_palace',
+      'hwangnyongsa',
+      'cheomseongdae',
+      'gujibong',
+      'gimhae_palace'
+    ],
     status: ContentStatus.locked,
     estimatedMinutes: 45,
     unlockCondition: UnlockCondition(), // 기본 해금

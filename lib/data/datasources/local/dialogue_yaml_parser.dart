@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'package:time_walker/domain/entities/dialogue.dart';
+import 'package:time_walker/domain/entities/localized_string.dart';
 
 /// YAML 형식의 대화 스크립트를 파싱하는 클래스
 /// PRD 부록 B의 YAML 형식을 지원합니다.
@@ -37,15 +38,30 @@ class DialogueYamlParser {
     }
   }
   
+
   /// 노드 리스트 파싱
   List<DialogueNode> _parseNodes(List nodes) {
     return nodes.map((node) {
       final nodeMap = node as Map;
+      
+      // Parse text
+      final textNode = nodeMap['text'];
+      String text = '';
+      LocalizedString? localizedText;
+      if (textNode is Map) {
+         localizedText = LocalizedString.fromJson(Map<String, dynamic>.from(textNode));
+         text = localizedText.ko;
+      } else {
+         text = textNode as String;
+         localizedText = LocalizedString.same(text);
+      }
+      
       return DialogueNode(
         id: nodeMap['id'] as String,
         speakerId: nodeMap['speaker'] as String,
         emotion: nodeMap['emotion'] as String? ?? 'neutral',
-        text: nodeMap['text'] as String,
+        text: text,
+        localizedText: localizedText,
         choices: _parseChoices(nodeMap['choices'] as List?),
         nextNodeId: nodeMap['next'] as String? ?? nodeMap['nextNodeId'] as String?,
         reward: nodeMap['reward'] != null 
@@ -62,10 +78,37 @@ class DialogueYamlParser {
     
     return choices.asMap().entries.map((entry) {
       final choice = entry.value as Map;
+      
+      // Parse text
+      final textNode = choice['text'];
+      String text = '';
+      LocalizedString? localizedText;
+      if (textNode is Map) {
+         localizedText = LocalizedString.fromJson(Map<String, dynamic>.from(textNode));
+         text = localizedText.ko;
+      } else {
+         text = textNode as String;
+         localizedText = LocalizedString.same(text);
+      }
+      
+      // Parse preview
+      final previewNode = choice['preview'];
+      String? preview;
+      LocalizedString? localizedPreview;
+      if (previewNode is Map) {
+         localizedPreview = LocalizedString.fromJson(Map<String, dynamic>.from(previewNode));
+         preview = localizedPreview.ko;
+      } else if (previewNode is String) {
+         preview = previewNode;
+         localizedPreview = LocalizedString.same(preview);
+      }
+      
       return DialogueChoice(
         id: choice['id'] as String? ?? 'c${entry.key}',
-        text: choice['text'] as String,
-        preview: choice['preview'] as String?,
+        text: text,
+        localizedText: localizedText,
+        preview: preview,
+        localizedPreview: localizedPreview,
         nextNodeId: choice['next'] as String? ?? choice['nextNodeId'] as String,
         reward: choice['reward'] != null
             ? _parseReward(choice['reward'] as Map)

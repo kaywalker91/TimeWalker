@@ -10,6 +10,7 @@ class MockDialogueRepository implements DialogueRepository {
   List<Dialogue> _dialogues = [];
   // Simple in-memory storage for progress (reset on restart)
   final Map<String, DialogueProgress> _progressMap = {};
+  final Map<String, String> _characterEraMap = {};
   bool _isLoaded = false;
   final AssetBundle? _assetBundle;
   
@@ -30,6 +31,9 @@ class MockDialogueRepository implements DialogueRepository {
       if (_dialogues.isEmpty) {
         await _loadJsonDialogues();
       }
+
+      // Load characters to map characterId -> eraId
+      await _loadCharacterMappings();
       
       _isLoaded = true;
       debugPrint('[MockDialogueRepository] loaded count=${_dialogues.length}');
@@ -78,6 +82,24 @@ class MockDialogueRepository implements DialogueRepository {
       _dialogues = [];
     }
   }
+
+  /// Character mapping 로드
+  Future<void> _loadCharacterMappings() async {
+    try {
+      final jsonString = await _bundle.loadString('assets/data/characters.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      for (final item in jsonList) {
+        final id = item['id'] as String?;
+        final eraId = item['eraId'] as String?;
+        if (id != null && eraId != null) {
+          _characterEraMap[id] = eraId;
+        }
+      }
+      debugPrint('[MockDialogueRepository] loaded character mappings count=${_characterEraMap.length}');
+    } catch (e) {
+      debugPrint('[MockDialogueRepository] character mapping load failed error=$e');
+    }
+  }
   
   /// YAML 문자열에서 Dialogue 로드 (테스트/개발용)
   Dialogue? parseYamlString(String yamlContent) {
@@ -97,11 +119,8 @@ class MockDialogueRepository implements DialogueRepository {
   @override
   Future<List<Dialogue>> getDialoguesByEra(String eraId) async {
     await _ensureLoaded();
-    // In a real DB, we'd join Character tables. Here we return all for now or filter if we had eraId on dialogue.
-    // Ideally, we should fetch characters of the era, then fetch dialogues for those characters.
-    // But for MVP simplicity and given the interface, returning all or filtering by logic elsewhere.
-    // Let's rely on getDialoguesByCharacter usually.
-    return _dialogues;
+    // Filter dialogues by the eraId of their character
+    return _dialogues.where((d) => _characterEraMap[d.characterId] == eraId).toList();
   }
 
   @override
