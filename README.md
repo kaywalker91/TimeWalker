@@ -57,9 +57,9 @@ flutter run --dart-define=SUPABASE_URL=<url> --dart-define=SUPABASE_ANON_KEY=<ke
     <td align="center"><b>Character Card</b></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/main_menu.jpg" width="200"/></td>
-    <td><img src="docs/screenshots/location_exploration.jpg" width="200"/></td>
-    <td><img src="docs/screenshots/character_card.jpg" width="200"/></td>
+    <td><img src="docs/assets/screenshots/main_menu.jpg" width="200"/></td>
+    <td><img src="docs/assets/screenshots/location_exploration.jpg" width="200"/></td>
+    <td><img src="docs/assets/screenshots/character_card.jpg" width="200"/></td>
   </tr>
   <tr>
     <td align="center"><b>Dialogue Scene</b></td>
@@ -67,8 +67,8 @@ flutter run --dart-define=SUPABASE_URL=<url> --dart-define=SUPABASE_ANON_KEY=<ke
     <td></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/dialogue_scene.jpg" width="200"/></td>
-    <td><img src="docs/screenshots/dialogue_choices.jpg" width="200"/></td>
+    <td><img src="docs/assets/screenshots/dialogue_scene.jpg" width="200"/></td>
+    <td><img src="docs/assets/screenshots/dialogue_choices.jpg" width="200"/></td>
     <td></td>
   </tr>
 </table>
@@ -95,6 +95,9 @@ See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 | Document | Description |
 |----------|-------------|
+| [📁 Portfolio](docs/PORTFOLIO.md) | **Complete project portfolio (Korean)** |
+| [📁 Portfolio (EN)](docs/PORTFOLIO_EN.md) | **Complete project portfolio (English)** |
+| [📄 Portfolio Summary](docs/PORTFOLIO_SUMMARY.md) | **1-page resume/portfolio summary** |
 | [Architecture](docs/ARCHITECTURE.md) | Clean Architecture, layers, data flow |
 | [Contributing](CONTRIBUTING.md) | Development setup, coding standards, PR process |
 | [Changelog](CHANGELOG.md) | Version history |
@@ -106,10 +109,10 @@ See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 ## Roadmap
 
-### Current (v0.9)
-- Crossover dialogue system
-- Developer mode
-- Supabase integration
+### Current (v0.11)
+- I18n content system
+- Player avatar customization
+- Profile and dialogue UI redesign
 
 ### Next (v1.0)
 - Firebase Crashlytics integration

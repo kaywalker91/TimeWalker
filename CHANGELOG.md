@@ -7,6 +7,107 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-02-13
+
+### Added
+- **New Character Images** (15 historical figures)
+  - Joseon era: Hwang Jini, Kim Siseup, Shin Saimdang, Taejo Yi Seong-gye, Toegye Yi Hwang, Yeongjo, Yulgok Yi I
+  - Modern era: Empress Myeongseong, Heungseon Daewongun, Yun Bong-gil
+  - Three Kingdoms: Hyeokgeose, Jumong, Munju, Muryeong, Onjo
+- **New Location Images** (9 locations with backgrounds/thumbnails)
+  - Deoksugung Palace, Gongsanseong Fortress, Gwanggaeto Stele, Hwangnyongsa Temple
+  - Jolbon Castle, Seonggyungwan Academy, Shanghai Provisional Government
+- **I18n Content System**
+  - `LocalizedString` entity for multilingual content
+  - `I18nContentLoader` data source for structured i18n loading
+  - `i18nProvider`, `characterI18nProvider`, `locationI18nProvider` for runtime localization
+  - Structured `assets/data/i18n/` directory with JSON content
+- **Settings System Enhancement**
+  - `SettingsRepository` interface in domain layer
+  - `SharedPrefsSettingsRepository` implementation with locale management
+  - Enhanced `Settings` entity with locale support
+- **Player Avatar System**
+  - `PlayerAvatars` constants with avatar presets
+  - Profile customization support
+- **Layout Specifications**
+  - `EraExplorationLayoutSpec` for responsive era exploration UI
+  - `ProfileLayoutSpec` for profile screen layout guidelines
+- **Documentation**
+  - Portfolio (Korean): `docs/PORTFOLIO.md` - comprehensive project showcase
+  - Portfolio (English): `docs/PORTFOLIO_EN.md` - English version
+  - Portfolio Summary: `docs/PORTFOLIO_SUMMARY.md` - 1-page resume format
+  - README_PORTFOLIO.md - portfolio documentation guide
+  - Quiz i18n README in domain layer
+- **Data Transformation Scripts**
+  - `scripts/transform_characters.py`, `transform_dialogues.py`, `transform_locations.py`, `transform_quizzes.py`
+  - Migration utilities for content data format updates
+- **Utility Scripts**
+  - `check_metadata_gaps.py` - content validation
+  - `find_empty_assets.py` - asset integrity check
+  - `fix_character_connections.py`, `fix_metadata.py` - data correction tools
+  - `list_locations_by_era.py` - content organization
+- **Agent Skills**
+  - `flutter-text-overlap-guard` skill for UI text overflow prevention
+- **Test Coverage**
+  - I18n content loader tests (`test/unit/data/datasources/`)
+  - LocalizedString entity tests
+  - Era exploration widget tests (`test/presentation/screens/era_exploration/`)
+  - Profile screen widget tests (`test/presentation/screens/profile/`)
+  - Common widget tests (`test/presentation/widgets/`)
+
+### Changed
+- **App Icons**: Updated launcher icons for iOS and Android (all densities, 30-50% file size reduction)
+- **Content Data**: Major updates with localization support
+  - `characters.json` (2,343 lines changed)
+  - `dialogues.json` (20,428 lines added - expanded dialogue content)
+  - `locations.json` (873 lines changed)
+  - `quizzes.json` (828 lines changed)
+- **Entities**: Enhanced with localization
+  - `Character` (97 lines changed) - i18n name/bio/specialty
+  - `Location` (63 lines changed) - i18n name/description
+  - `DialogueEntity` (49 lines changed), `DialogueNode` (50 lines changed), `DialogueChoice` (64 lines changed)
+  - `Settings` (+12 lines) - locale field
+  - `UserProgress` (19 lines changed)
+- **Data Layer**
+  - `DialogueYamlParser` (49 lines changed) - improved parsing logic
+  - `StaticEraData` (17 lines changed) - era metadata updates
+  - `HiveUserProgressRepository` (102 lines changed) - enhanced caching
+  - `MockDialogueRepository` (29 lines changed), `MockLocationRepository` (12 lines changed)
+- **Providers**
+  - `SettingsProvider` (39 lines changed) - locale management integration
+  - `UserProgressProvider` (97 lines changed) - improved state management
+  - `RepositoryProviders` (+10 lines) - settings repository provider
+- **UI/UX Overhaul**
+  - **Profile Screen** (372 lines changed) - complete redesign with avatar selection, stats display
+  - **Profile Header Widgets** (398 lines changed) - modular header components
+  - **Dialogue Screen** (62 lines changed) - enhanced visual presentation
+  - **Dialogue View Model** (99 lines changed) - improved dialogue flow logic
+  - **Dialogue Widgets**
+    - Character Portrait (87 lines added) - emotion-based portraits
+    - Dialogue Box (226 lines changed) - speech bubble redesign
+    - Dialogue Choices Panel (66 lines changed) - choice UI improvements
+  - **Era Exploration Screen** (189 lines changed) - navigation and UX improvements
+  - **Era Exploration Widgets**
+    - Enhanced Kingdom Tabs (127 lines changed)
+    - Era HUD Panel (204 lines changed) - status display redesign
+    - Era Status Bar (93 lines changed)
+    - Kingdom Location Sheet (53 lines changed)
+    - Location Detail Sheet (46 lines changed)
+    - Location Story Card (650 lines changed) - major refactor
+  - **Location Exploration Screen** (56 lines changed)
+  - **Character Interaction Popup** (72 lines changed)
+- **Localization**: +32 English strings, +1 Korean string in ARB files
+- **Dependencies**: Updated packages in `pubspec.yaml` and `pubspec.lock`
+- **Progression Service** (30 lines changed) - unlock logic improvements
+- **README**: Updated screenshot paths (`docs/screenshots` → `docs/assets/screenshots`), added portfolio documentation links
+
+### Fixed
+- Test mock implementations (`test/mocks/`)
+- Repository unit tests with updated data structures
+
+### Removed
+- Deleted placeholder: `assets/images/characters/contemporary/kim_gu.png`
+
 ## [0.10.0] - 2026-02-05
 
 ### Added
@@ -176,6 +277,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| 0.11.0 | 2026-02-13 | I18n system, 24 new images, profile/dialogue redesign |
 | 0.10.0 | 2026-02-05 | Quiz refactor, color system, 40+ new images |
 | 0.9.0 | 2026-01-28 | Crossover dialogue system, developer mode |
 | 0.8.0 | 2026-01-26 | Achievement system expansion, Renaissance content |
@@ -185,7 +287,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 | 0.4.0 | 2025-12-31 | Achievement system, UI overhaul |
 | 0.3.0 | 2025-12-23 | Audio system, Gaya content |
 
-[Unreleased]: https://github.com/kaywalker91/TimeWalker/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/kaywalker91/TimeWalker/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/kaywalker91/TimeWalker/compare/v0.7.0...v0.8.0
